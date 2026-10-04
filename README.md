@@ -45,7 +45,12 @@ deployment.
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
-`0.1.0`. No datasets, trained models, or benchmark results are included yet.
+`0.1.0`. Task 0002 defines the data foundation using the corrected LHC Olympics
+2020 R&D particle dataset (Zenodo v5). The [data design](docs/data-design.md)
+documents the dataset comparison, background-only protocol, representations, and
+provenance plan. No dataset has been downloaded and preprocessing is not yet
+implemented. Development records follow the [task protocol](docs/development.md)
+and [handoff index](docs/handoffs/README.md).
 
 ## Repository structure
 
@@ -54,7 +59,7 @@ latent-trigger/
 ├── .github/workflows/ci.yml     # CPU-only lint and test jobs
 ├── configs/                    # Future experiment configuration
 ├── data/README.md              # Local dataset policy
-├── docs/                       # Future methodology documentation
+├── docs/                       # Data design, development protocol, task records
 ├── notebooks/exploration/      # Future exploratory notebooks
 ├── results/
 │   ├── figures/
@@ -153,7 +158,9 @@ To format code during development, run `python -m ruff format .`.
 ## Roadmap
 
 - [x] Phase 0.1: package foundation, tooling, tests, CI, and CPU/MPS diagnostic.
-- [ ] Select the dataset and design reproducible scientific preprocessing.
+- [x] Task 0002: select the dataset and define the data/history protocols.
+- [ ] Acquire the pinned R&D source and perform a bounded schema/EDA audit.
+- [ ] Implement reproducible scientific preprocessing after the audit.
 - [ ] Establish anomaly-detection baselines and scientific evaluation.
 - [ ] Investigate autoencoders and particle/set-based Transformer models.
 - [ ] Study scientific biases and compare performance with computational cost.
