@@ -1,0 +1,87 @@
+# Python bytecode, packaging, and build outputs
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+
+# Virtual environments and local configuration
+.venv/
+.venv-*/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+.python-version
+
+# Test, lint, coverage, and notebook caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.tox/
+.nox/
+.cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.ipynb_checkpoints/
+
+# macOS and editor metadata
+.DS_Store
+._*
+.AppleDouble/
+.LSOverride
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.Rhistory
+
+# All local datasets; retain only the data policy
+/data/*
+!/data/README.md
+*.root
+*.h5
+*.hdf5
+*.parquet
+*.npz
+
+# Generated results are local. Curated final figures and small tables may be
+# committed deliberately under results/figures/final/ and results/tables/final/.
+/results/*
+!/results/figures/
+!/results/tables/
+!/results/benchmarks/
+/results/figures/*
+!/results/figures/.gitkeep
+!/results/figures/final/
+/results/tables/*
+!/results/tables/.gitkeep
+!/results/tables/final/
+/results/benchmarks/*
+!/results/benchmarks/.gitkeep
+
+# Checkpoints, model exports, and experiment artifacts
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.mlmodel
+*.mlpackage/
+/artifacts/
+/checkpoints/
+/models/
+/outputs/
+/runs/
+/wandb/
+/mlruns/
+/lightning_logs/
+*.log
