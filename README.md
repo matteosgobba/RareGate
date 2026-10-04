@@ -48,8 +48,11 @@ results policies, and a CPU/MPS environment diagnostic. The package version is
 `0.1.0`. Task 0002 defines the data foundation using the corrected LHC Olympics
 2020 R&D particle dataset (Zenodo v5). The [data design](docs/data-design.md)
 documents the dataset comparison, background-only protocol, representations, and
-provenance plan. No dataset has been downloaded and preprocessing is not yet
-implemented. Development records follow the [task protocol](docs/development.md)
+provenance plan. Verified acquisition is implemented, and the pinned R&D source
+was locally downloaded and checksum-verified in Task 0003. The
+[bounded raw audit](docs/raw-data-audit.md) records its schema and integrity checks;
+preprocessing and splits are not implemented yet. Development records follow the
+[task protocol](docs/development.md)
 and [handoff index](docs/handoffs/README.md).
 
 ## Repository structure
@@ -68,6 +71,7 @@ latent-trigger/
 ├── scripts/smoke_test.py        # Lightweight PyTorch diagnostic
 ├── src/latenttrigger/
 │   ├── __init__.py
+│   ├── data/acquisition.py      # Pinned, verified LHCO download CLI
 │   └── utils/device.py          # MPS-first, CPU fallback selection
 ├── tests/
 ├── .gitignore
@@ -104,6 +108,8 @@ Project metadata and dependencies live in `pyproject.toml`. Runtime dependencies
 are PyTorch and NumPy; NumPy prevents a missing-NumPy warning during PyTorch
 initialization. The `dev` extra adds pytest and Ruff. Hatchling builds the `src/`
 package and reads the version from `src/latenttrigger/__init__.py`.
+The optional `data` extra adds h5py and the source's required Blosc decoder,
+hdf5plugin, for raw auditing. Acquisition itself uses the Python standard library.
 Dependency ranges allow compatible updates; exact experiment environments will
 be recorded when experiments are introduced.
 
@@ -140,6 +146,16 @@ from latenttrigger.utils.device import get_device
 device = get_device()
 ```
 
+## Dataset acquisition
+
+```bash
+python -m latenttrigger.data.acquisition
+```
+
+The command verifies the pinned source before accepting or reusing it. Data and
+local manifests remain ignored. See [the acquisition workflow](data/README.md)
+for installation, verification, safe replacement, and bounded-audit commands.
+
 ## Testing
 
 ```bash
@@ -159,7 +175,8 @@ To format code during development, run `python -m ruff format .`.
 
 - [x] Phase 0.1: package foundation, tooling, tests, CI, and CPU/MPS diagnostic.
 - [x] Task 0002: select the dataset and define the data/history protocols.
-- [ ] Acquire the pinned R&D source and perform a bounded schema/EDA audit.
+- [x] Task 0003: verified R&D acquisition and bounded raw-schema audit.
+- [ ] Task 0004: training-background EDA and schema validation.
 - [ ] Implement reproducible scientific preprocessing after the audit.
 - [ ] Establish anomaly-detection baselines and scientific evaluation.
 - [ ] Investigate autoencoders and particle/set-based Transformer models.

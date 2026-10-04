@@ -24,6 +24,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+data = [
+    "h5py>=3.12,<4",
+    "hdf5plugin>=7.1,<8",
+]
 dev = [
     "pytest>=8,<10",
     "ruff>=0.11,<1",
