@@ -55,8 +55,11 @@ Task 0004 completes the full integrity/duplicate scan, deterministic splits and
 [training-background EDA](docs/training-data-eda.md). The
 [preprocessing contract](docs/preprocessing-contract.md) is frozen. Task 0005
 implements the [deterministic pipeline](docs/preprocessing-pipeline.md), and both
-dev and full canonical stores have been locally generated and verified. The next
-stage is statistical baselines and evaluation. Development records follow the
+dev and full canonical stores have been locally generated and verified. Task 0006
+implements the [PCA baseline](docs/pca-baseline.md), background-only diagnostics
+and calibrated thresholds under the [evaluation protocol](docs/evaluation-protocol.md).
+Real test performance remains intentionally embargoed. A compact autoencoder is
+the next planned model. Development records follow the
 [task protocol](docs/development.md)
 and [handoff index](docs/handoffs/README.md).
 
@@ -113,8 +116,9 @@ python -c "import latenttrigger; print(latenttrigger.__version__)"
 ```
 
 Project metadata and dependencies live in `pyproject.toml`. Runtime dependencies
-are PyTorch and NumPy; NumPy prevents a missing-NumPy warning during PyTorch
-initialization. The `dev` extra adds pytest and Ruff. Hatchling builds the `src/`
+are PyTorch, NumPy and scikit-learn (PCA and mature evaluation metrics). NumPy also
+prevents a missing-NumPy warning during PyTorch initialization. The `dev` extra
+adds pytest and Ruff. Hatchling builds the `src/`
 package and reads the version from `src/latenttrigger/__init__.py`.
 The optional `data` extra adds h5py and the source's required Blosc decoder,
 hdf5plugin, for raw auditing/preprocessing and synthetic HDF integration tests.
@@ -175,7 +179,21 @@ python -m latenttrigger.data.preprocessing --scope dev
 
 The [preprocessing workflow](docs/preprocessing-pipeline.md) documents full builds,
 independent verification, bounded reading and the test embargo. Generated arrays
-and manifests remain local; no baseline or model training exists yet.
+and manifests remain local.
+
+## PCA baseline
+
+With the verified full processed store present:
+
+```bash
+python -m pip install -e ".[dev,data,analysis]"
+python -m latenttrigger.models.pca --config configs/models/pca_baseline.json
+```
+
+This fits training background, selects six PCA components by the 95% training
+variance rule, and calibrates/checks background thresholds. It never scores real
+test populations. See [the measured report](docs/pca-baseline.md) for results,
+reproduction and [the evaluation contract](docs/evaluation-protocol.md).
 
 ## Testing
 
@@ -199,8 +217,9 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0003: verified R&D acquisition and bounded raw-schema audit.
 - [x] Task 0004: training-background EDA, duplicate-safe splits and schema validation.
 - [x] Task 0005: deterministic preprocessing; dev/full stores locally verified.
-- [ ] Task 0006: statistical anomaly-detection baselines and evaluation framework.
-- [ ] Investigate autoencoders and particle/set-based Transformer models.
+- [x] Task 0006: PCA baseline and background evaluation; real test populations embargoed.
+- [ ] Task 0007: compact autoencoder baseline with the same evaluation protocol.
+- [ ] Investigate particle/set-based Transformer models.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

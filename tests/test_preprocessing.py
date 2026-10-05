@@ -323,3 +323,30 @@ def test_disk_budget_checked_before_staging(inputs, tmp_path, monkeypatch):
     assert not (tmp_path / "store").exists()
     assert not (tmp_path / ".store.partial").exists()
     assert not (tmp_path / ".store.lock").exists()
+
+
+def test_feature_only_reader_avoids_particles_and_preserves_guards(
+    inputs, tmp_path, monkeypatch
+):
+    destination = tmp_path / "store"
+    build_store(inputs, destination)
+    with ProcessedStore(destination) as store:
+
+        def forbidden(*args, **kwargs):
+            raise AssertionError("Particle batch should not be read")
+
+        monkeypatch.setattr(store, "_batch", forbidden)
+        batches = list(store.iter_features("train_background", batch_size=2))
+        assert [len(batch.event_features) for batch in batches] == [2, 1]
+        assert all(batch.labels is None for batch in batches)
+        np.testing.assert_array_equal(
+            np.concatenate([b.event_ids for b in batches]), [0, 1, 2]
+        )
+        with pytest.raises(ValueError, match="embargo"):
+            list(store.iter_features("test_background"))
+        with pytest.raises(ValueError, match="evaluation-only"):
+            list(store.iter_features("train_background", include_labels=True))
+        evaluation = list(
+            store.iter_features("test_signal", allow_test=True, include_labels=True)
+        )
+        np.testing.assert_array_equal(evaluation[0].labels, [1, 1])

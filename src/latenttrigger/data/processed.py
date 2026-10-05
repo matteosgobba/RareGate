@@ -254,6 +254,15 @@ class EventBatch:
         return model_view(self.particles, self.offsets, self.parameters, nmax=nmax)
 
 
+@dataclass
+class FeatureBatch:
+    """Owned baseline vectors; provenance/truth remain separate from inputs."""
+
+    event_features: np.ndarray
+    event_ids: np.ndarray
+    labels: np.ndarray | None
+
+
 class ProcessedStore:
     """Verified mmap reader. Split names and test opt-in are mandatory."""
 
@@ -395,4 +404,33 @@ class ProcessedStore:
         for start in range(0, len(positions), batch_size):
             yield self._batch(
                 positions[start : start + batch_size], include_labels=include_labels
+            )
+
+    def iter_features(
+        self,
+        split: str,
+        *,
+        batch_size: int = MAX_BATCH_EVENTS,
+        allow_test: bool = False,
+        include_labels: bool = False,
+        dev_only: bool = False,
+    ) -> Iterator[FeatureBatch]:
+        """Read baseline vectors only, retaining the existing split/truth guards."""
+        if not 1 <= batch_size <= MAX_BATCH_EVENTS:
+            raise ValueError("Invalid batch size.")
+        self._label_permission(split, allow_test, include_labels)
+        positions = self._positions(split, allow_test=allow_test, dev_only=dev_only)
+        for start in range(0, len(positions), batch_size):
+            selected = positions[start : start + batch_size]
+            labels = None
+            if include_labels:
+                labels = np.array(
+                    np.load(
+                        self.path / "labels.npy", mmap_mode="r", allow_pickle=False
+                    )[selected]
+                )
+            yield FeatureBatch(
+                np.array(self._arrays["event_features"][selected]),
+                np.array(self._arrays["event_ids"][selected]),
+                labels,
             )
