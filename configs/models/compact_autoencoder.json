@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "model_type": "compact_autoencoder",
+  "evaluation_protocol": "latenttrigger-evaluation-v1",
+  "input": {
+    "processed_schema_version": 1,
+    "features": [
+      "multiplicity",
+      "scalar_pt",
+      "max_pt",
+      "pt_balance",
+      "weighted_eta_mean",
+      "weighted_eta_std",
+      "pt_concentration",
+      "massless_event_mass"
+    ],
+    "representation": "event_features",
+    "dtype": "float32",
+    "preprocessing_config_sha256": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68"
+  },
+  "score": {
+    "definition": "sum_squared_reconstruction_residual",
+    "orientation": "higher_is_more_anomalous",
+    "dtype": "float64"
+  },
+  "roles": {
+    "fit": "train_background",
+    "selection": "validation_selection_background",
+    "calibration": "validation_calibration_background"
+  },
+  "thresholds": {
+    "target_fprs": [
+      0.1,
+      0.05,
+      0.01,
+      0.001
+    ],
+    "quantile_method": "higher",
+    "decision": "score > threshold"
+  },
+  "future_metrics": {
+    "fixed_fprs": [
+      0.1,
+      0.05,
+      0.01,
+      0.001
+    ],
+    "fixed_tprs": [
+      0.5,
+      0.8,
+      0.9
+    ],
+    "roc_policy": "attainable_empirical_points_no_interpolation"
+  },
+  "diagnostics": {
+    "summary_quantile_method": "linear",
+    "stability": "two_sample_ks_distance_without_p_values"
+  },
+  "batch_events": 4096,
+  "model": {
+    "input_dim": 8,
+    "encoder_hidden": 6,
+    "latent_dim": 3,
+    "decoder_hidden": 6,
+    "activation": "relu"
+  },
+  "training": {
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "batch_size": 4096,
+    "max_epochs": 200,
+    "early_stopping_patience": 15,
+    "min_delta": 0.0,
+    "seed": 1729,
+    "device": "cpu",
+    "num_workers": 0,
+    "num_threads": 1,
+    "deterministic_algorithms": true,
+    "loss": "mean_squared_reconstruction_error",
+    "initialization": "pytorch_linear_default"
+  }
+}

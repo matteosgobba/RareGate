@@ -55,19 +55,28 @@ def build_metadata() -> dict:
         },
         "code_sha256": {
             str(path.relative_to(root)): file_sha256(path)
-            for directory in ("models", "evaluation", "data")
+            for directory in ("models", "evaluation", "data", "training")
             for path in sorted((root / "src/latenttrigger" / directory).glob("*.py"))
         },
     }
 
 
 def load_background_features(
-    store: ProcessedStore, split: str, audit: list, *, batch_events: int
+    store: ProcessedStore,
+    split: str,
+    audit: list,
+    *,
+    batch_events: int,
+    dev_only: bool = False,
 ) -> np.ndarray:
     """Only predefined background roles, rejecting forbidden names before reading."""
     if split not in BACKGROUND_ROLES:
         raise ValueError("Background workflow refuses test/unknown split access.")
-    expected = store.manifest["scientific"]["counts"][split]
+    expected = (
+        len(store.event_ids(split, dev_only=True))
+        if dev_only
+        else store.manifest["scientific"]["counts"][split]
+    )
     values = np.empty((expected, 8), dtype=np.float32)
     record = {
         "split": split,
@@ -78,7 +87,10 @@ def load_background_features(
     }
     audit.append(record)
     cursor = 0
-    for batch in store.iter_features(split, batch_size=batch_events):
+    options = {"dev_only": True} if dev_only else {}
+    if dev_only:
+        record["dev_only"] = True
+    for batch in store.iter_features(split, batch_size=batch_events, **options):
         if batch.labels is not None or cursor + len(batch.event_features) > expected:
             raise ValueError("Unexpected truth/count in background feature reader.")
         stop = cursor + len(batch.event_features)
@@ -90,9 +102,7 @@ def load_background_features(
     return values
 
 
-def score_batches(
-    model: PCAReconstruction, values: np.ndarray, batch_events: int
-) -> np.ndarray:
+def score_batches(model, values: np.ndarray, batch_events: int) -> np.ndarray:
     scores = np.empty(len(values), dtype=np.float64)
     for start in range(0, len(values), batch_events):
         stop = min(start + batch_events, len(values))

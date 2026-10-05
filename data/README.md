@@ -201,3 +201,24 @@ output fails; explicitly add `--rebuild` to rebuild, retaining prior bytes in a
 `.previous-<unique-id>` sibling after successful replacement. An interrupted
 build cannot be treated as complete. Confirm no builder runs before deliberately
 removing any stale lock/partial directory. Never force-add local generated files.
+
+## Compact-model development
+
+Task 0007 consumes only existing eight-channel FP32 `event_features` through
+feature-only guarded batches. No scalers, membership or particle stores change.
+Canonical training uses full train background; selection background chooses the
+epoch; calibration background is loaded only after freezing. No test model reads.
+
+```bash
+python -m latenttrigger.models.autoencoder --config configs/models/compact_autoencoder.json
+# Convenience subset diagnostic, never the canonical model:
+python -m latenttrigger.models.autoencoder --dev \
+  --output data/baselines/compact-autoencoder-v1-dev --no-plots
+```
+
+Generated model JSONs, per-event score arrays and run manifests stay ignored under
+`data/baselines/compact-autoencoder-v1*`. One tiny frozen canonical model is
+intentionally curated outside data under `artifacts/models/compact-autoencoder-v1/model.json`;
+small summaries/history/figures are curated under results/final directories.
+The [autoencoder report](../docs/compact-autoencoder.md) documents these artifacts,
+exclusive-output reruns, MPS compatibility and the unchanged evaluation embargo.

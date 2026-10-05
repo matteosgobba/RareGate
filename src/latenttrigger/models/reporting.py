@@ -73,6 +73,19 @@ def plot_background(path: Path, model, scores: dict, thresholds: list[dict]) -> 
     fig.savefig(path / "pca-spectrum.png", dpi=170)
     plt.close(fig)
 
+    plot_score_distributions(path, scores, thresholds, model_name="PCA")
+
+
+def plot_score_distributions(
+    path: Path, scores: dict, thresholds: list[dict], *, model_name: str
+) -> None:
+    """The same descriptive score figure for every frozen background model."""
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    plt.rcParams.update({"font.size": 10})
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.2), constrained_layout=True)
     maximum = max(float(np.log1p(s).max()) for s in scores.values())
     bins = np.linspace(0, maximum, 100)
@@ -106,6 +119,8 @@ def plot_background(path: Path, model, scores: dict, thresholds: list[dict]) -> 
         )
     axes[0].legend(fontsize=8)
     axes[1].legend(fontsize=8)
-    fig.suptitle("LHCO R&D v5 — PCA background-only diagnostics; no test populations")
+    fig.suptitle(
+        f"LHCO R&D v5 — {model_name} background-only diagnostics; no test populations"
+    )
     fig.savefig(path / "background-scores.png", dpi=170)
     plt.close(fig)

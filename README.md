@@ -58,8 +58,10 @@ implements the [deterministic pipeline](docs/preprocessing-pipeline.md), and bot
 dev and full canonical stores have been locally generated and verified. Task 0006
 implements the [PCA baseline](docs/pca-baseline.md), background-only diagnostics
 and calibrated thresholds under the [evaluation protocol](docs/evaluation-protocol.md).
-Real test performance remains intentionally embargoed. A compact autoencoder is
-the next planned model. Development records follow the
+Task 0007 adds a frozen [compact autoencoder](docs/compact-autoencoder.md),
+reproducible CPU training and separate MPS compatibility checks. Real test
+performance remains intentionally embargoed. Particle/set-aware model design
+is the next planned stage. Development records follow the
 [task protocol](docs/development.md)
 and [handoff index](docs/handoffs/README.md).
 
@@ -195,6 +197,19 @@ variance rule, and calibrates/checks background thresholds. It never scores real
 test populations. See [the measured report](docs/pca-baseline.md) for results,
 reproduction and [the evaluation contract](docs/evaluation-protocol.md).
 
+## Compact autoencoder
+
+With the verified full store and existing analysis extra installed:
+
+```bash
+python -m latenttrigger.models.autoencoder --config configs/models/compact_autoencoder.json
+```
+
+The canonical 155-parameter model trains on CPU, selects its epoch using
+selection background, then calibrates thresholds on separate calibration
+background. See [the report](docs/compact-autoencoder.md) for reproduction,
+the tiny frozen JSON artifact and separate MPS smoke mode. Real tests remain held out.
+
 ## Testing
 
 ```bash
@@ -218,8 +233,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0004: training-background EDA, duplicate-safe splits and schema validation.
 - [x] Task 0005: deterministic preprocessing; dev/full stores locally verified.
 - [x] Task 0006: PCA baseline and background evaluation; real test populations embargoed.
-- [ ] Task 0007: compact autoencoder baseline with the same evaluation protocol.
-- [ ] Investigate particle/set-based Transformer models.
+- [x] Task 0007: compact autoencoder, reproducible CPU model and background calibration.
+- [ ] Design a compact particle/set-aware baseline; assess attention models later.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

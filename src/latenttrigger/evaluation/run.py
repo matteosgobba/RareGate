@@ -1,4 +1,4 @@
-"""Future frozen PCA test evaluation; explicit opt-in and pre-read audit required.
+"""Future frozen model test evaluation; explicit opt-in and pre-read audit required.
 
 Task 0006 exercises this gate only with synthetic fixtures. Never invoke this
 on the real store during background-only model development.
@@ -33,7 +33,20 @@ def run_final(
             "Final test embargo: explicit --allow-test required; no store opened."
         )
     artifact = json.loads(model_path.read_text())
-    model = PCAReconstruction.from_artifact(artifact)
+    model_type = artifact["scientific"]["model_type"]
+    if model_type == "pca_reconstruction":
+        model = PCAReconstruction.from_artifact(artifact)
+        validate_store = validate_input_store
+    elif model_type == "compact_autoencoder":
+        from latenttrigger.models.autoencoder import CompactAutoencoder
+        from latenttrigger.models.autoencoder import (
+            validate_input_store as validate_ae_store,
+        )
+
+        model = CompactAutoencoder.from_artifact(artifact)
+        validate_store = validate_ae_store
+    else:
+        raise ValueError("Unknown frozen model type.")
     result = json.loads(background_results.read_text())
     science = result["scientific"]
     if (
@@ -48,7 +61,15 @@ def run_final(
     if content_hash(config) != provenance["model_config_sha256"]:
         raise ValueError("Model config identity mismatch.")
     with ProcessedStore(store_path) as store:
-        validate_input_store(store.manifest, config)
+        validate_store(store.manifest, config)
+        if model_type == "compact_autoencoder" and (
+            provenance.get("scope") != "canonical_full"
+            or artifact["scientific"]["training"]["training_count"]
+            != store.manifest["scientific"]["counts"]["train_background"]
+        ):
+            raise ValueError(
+                "Only a full canonical background-trained AE may be unblinded."
+            )
         if (
             store.manifest["scientific_sha256"]
             != provenance["processed_scientific_sha256"]
