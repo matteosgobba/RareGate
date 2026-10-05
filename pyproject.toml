@@ -24,6 +24,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+analysis = [
+    "matplotlib>=3.9,<4",
+]
 data = [
     "h5py>=3.12,<4",
     "hdf5plugin>=7.1,<8",

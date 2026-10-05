@@ -114,7 +114,60 @@ reserved anomalies outside development exploration. Proposed processed storage
 is primitive NumPy NPY arrays with ragged offsets and a JSON manifest. Padding,
 masks, scalers, and model-specific views will be derived later.
 
-Task 0002's expected split ratios are intended policy, not materialized splits.
-Task 0004 must establish duplicate groups and membership before statistical EDA
-on training background. Avoid older raw R&D files and do not mix them with
-corrected v2 feature rows.
+## Implemented analysis and membership
+
+Task 0004 scans the complete verified file in 992-row chunks, hashes exact
+canonical content, assigns duplicate groups atomically with seed 1729, and then
+computes statistics exclusively on unique training background. No production
+preprocessing is implemented. Avoid older R&D files or mixing them with v2 rows.
+
+```bash
+python -m pip install -e ".[dev,data,analysis]"
+python scripts/analyze_training_data.py
+# Reverify raw integrity and saved indices, then regenerate training EDA:
+python scripts/analyze_training_data.py --reuse-scan
+# Only integrity/hash scan and membership, without feature EDA or plots:
+python scripts/analyze_training_data.py --scan-only
+```
+
+The script resolves the checkout from its own location, so it can be invoked by
+path from another working directory. Matplotlib is an optional analysis dependency;
+the downloader and synthetic CI tests do not require it. All scans are bounded.
+Allow about 3.2 GB additional free scratch storage plus 111 MB for membership;
+temporary feature streams are removed after successful statistics. Failed runs
+may leave ignored scratch files that a rerun rewrites. Run one analysis at a time.
+
+```text
+data/analysis/lhco-rd-v1/                 # Entirely ignored local artifacts
+├── split-manifest.json                  # Source, seed, versions, counts, hashes
+├── train_background.npy                 # Raw row ordinals, not copied events
+├── validation_background.npy            # Union of two disjoint roles
+├── validation_selection_background.npy
+├── validation_calibration_background.npy
+├── test_background.npy
+├── test_signal.npy
+├── dev_train_background.npy             # 6,999 indices
+├── dev_validation_selection_background.npy # 747 indices
+├── dev_validation_calibration_background.npy # 748 indices
+├── group_*.npy, row_group.npy            # Atomic groups, representatives, aliases
+├── event_fingerprints.npy, labels.npy, eligible.npy, multiplicities.npy
+└── eda-performance.json                 # Engineering timings/RSS, not benchmarks
+```
+
+Exact representative counts: train 699,957; validation 149,572 (74,749 selection,
+74,823 calibration); test background 150,471; test signal 100,000. No duplicates
+or integrity violations were found. The development subset is floor(1%) of
+groups independently within the three allowed background roles, 8,494 total;
+it has no test membership and is never the final benchmark. Group/split arrays
+are checksum-checked before reuse, with reconstructed membership and embargo
+validation. No 2.9 GB raw-file copies are created.
+
+Only the small [JSON statistics/configuration](../configs/data/lhco_rnd_v5.json)
+and three deliberately curated PNGs under `results/figures/final/` are intended
+for Git. Numeric source metadata and split policies are pinned; local UTC
+timestamps/manifests/logs/caches remain ignored. See
+[the measured EDA](../docs/training-data-eda.md) and
+[the frozen preprocessing contract](../docs/preprocessing-contract.md).
+All scaler fitting and preprocessing decisions use training background only.
+Final test populations remain held out; do not browse their physics distributions
+while implementing Task 0005. Its preprocessing command does not exist yet.

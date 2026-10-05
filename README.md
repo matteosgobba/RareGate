@@ -50,8 +50,11 @@ results policies, and a CPU/MPS environment diagnostic. The package version is
 documents the dataset comparison, background-only protocol, representations, and
 provenance plan. Verified acquisition is implemented, and the pinned R&D source
 was locally downloaded and checksum-verified in Task 0003. The
-[bounded raw audit](docs/raw-data-audit.md) records its schema and integrity checks;
-preprocessing and splits are not implemented yet. Development records follow the
+[bounded raw audit](docs/raw-data-audit.md) records its schema and integrity checks.
+Task 0004 completes the full integrity/duplicate scan, deterministic splits and
+[training-background EDA](docs/training-data-eda.md). The
+[preprocessing contract](docs/preprocessing-contract.md) is frozen;
+implementing that pipeline is the next phase. Development records follow the
 [task protocol](docs/development.md)
 and [handoff index](docs/handoffs/README.md).
 
@@ -60,7 +63,7 @@ and [handoff index](docs/handoffs/README.md).
 ```text
 latent-trigger/
 ├── .github/workflows/ci.yml     # CPU-only lint and test jobs
-├── configs/                    # Future experiment configuration
+├── configs/data/               # Frozen data decisions and fitted statistics
 ├── data/README.md              # Local dataset policy
 ├── docs/                       # Data design, development protocol, task records
 ├── notebooks/exploration/      # Future exploratory notebooks
@@ -69,6 +72,7 @@ latent-trigger/
 │   ├── tables/
 │   └── benchmarks/
 ├── scripts/smoke_test.py        # Lightweight PyTorch diagnostic
+├── scripts/analyze_training_data.py # Chunked scan, splits and training-only EDA
 ├── src/latenttrigger/
 │   ├── __init__.py
 │   ├── data/acquisition.py      # Pinned, verified LHCO download CLI
@@ -110,6 +114,8 @@ initialization. The `dev` extra adds pytest and Ruff. Hatchling builds the `src/
 package and reads the version from `src/latenttrigger/__init__.py`.
 The optional `data` extra adds h5py and the source's required Blosc decoder,
 hdf5plugin, for raw auditing. Acquisition itself uses the Python standard library.
+The optional `analysis` extra adds Matplotlib for EDA figures; see
+[the data workflow](data/README.md) for analysis installation and reproduction.
 Dependency ranges allow compatible updates; exact experiment environments will
 be recorded when experiments are introduced.
 
@@ -176,8 +182,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Phase 0.1: package foundation, tooling, tests, CI, and CPU/MPS diagnostic.
 - [x] Task 0002: select the dataset and define the data/history protocols.
 - [x] Task 0003: verified R&D acquisition and bounded raw-schema audit.
-- [ ] Task 0004: training-background EDA and schema validation.
-- [ ] Implement reproducible scientific preprocessing after the audit.
+- [x] Task 0004: training-background EDA, duplicate-safe splits and schema validation.
+- [ ] Task 0005: implement the frozen deterministic preprocessing pipeline.
 - [ ] Establish anomaly-detection baselines and scientific evaluation.
 - [ ] Investigate autoencoders and particle/set-based Transformer models.
 - [ ] Study scientific biases and compare performance with computational cost.
