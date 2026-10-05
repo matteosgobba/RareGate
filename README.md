@@ -53,8 +53,10 @@ was locally downloaded and checksum-verified in Task 0003. The
 [bounded raw audit](docs/raw-data-audit.md) records its schema and integrity checks.
 Task 0004 completes the full integrity/duplicate scan, deterministic splits and
 [training-background EDA](docs/training-data-eda.md). The
-[preprocessing contract](docs/preprocessing-contract.md) is frozen;
-implementing that pipeline is the next phase. Development records follow the
+[preprocessing contract](docs/preprocessing-contract.md) is frozen. Task 0005
+implements the [deterministic pipeline](docs/preprocessing-pipeline.md), and both
+dev and full canonical stores have been locally generated and verified. The next
+stage is statistical baselines and evaluation. Development records follow the
 [task protocol](docs/development.md)
 and [handoff index](docs/handoffs/README.md).
 
@@ -73,9 +75,11 @@ latent-trigger/
 │   └── benchmarks/
 ├── scripts/smoke_test.py        # Lightweight PyTorch diagnostic
 ├── scripts/analyze_training_data.py # Chunked scan, splits and training-only EDA
+├── scripts/validate_preprocessing.py # Dev reconstruction and reproducibility checks
 ├── src/latenttrigger/
 │   ├── __init__.py
 │   ├── data/acquisition.py      # Pinned, verified LHCO download CLI
+│   ├── data/preprocessing.py    # Frozen transforms and verified ragged stores
 │   └── utils/device.py          # MPS-first, CPU fallback selection
 ├── tests/
 ├── .gitignore
@@ -104,7 +108,7 @@ From the repository root:
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
+python -m pip install -e ".[dev,data]"
 python -c "import latenttrigger; print(latenttrigger.__version__)"
 ```
 
@@ -113,7 +117,8 @@ are PyTorch and NumPy; NumPy prevents a missing-NumPy warning during PyTorch
 initialization. The `dev` extra adds pytest and Ruff. Hatchling builds the `src/`
 package and reads the version from `src/latenttrigger/__init__.py`.
 The optional `data` extra adds h5py and the source's required Blosc decoder,
-hdf5plugin, for raw auditing. Acquisition itself uses the Python standard library.
+hdf5plugin, for raw auditing/preprocessing and synthetic HDF integration tests.
+Acquisition itself uses the Python standard library.
 The optional `analysis` extra adds Matplotlib for EDA figures; see
 [the data workflow](data/README.md) for analysis installation and reproduction.
 Dependency ranges allow compatible updates; exact experiment environments will
@@ -128,7 +133,7 @@ avoid downloading GPU runtime dependencies:
 
 ```bash
 python -m pip install "torch>=2.6,<3" --index-url https://download.pytorch.org/whl/cpu
-python -m pip install -e ".[dev]"
+python -m pip install -e ".[dev,data]"
 ```
 
 ## Apple Silicon / MPS diagnostic
@@ -162,6 +167,16 @@ The command verifies the pinned source before accepting or reusing it. Data and
 local manifests remain ignored. See [the acquisition workflow](data/README.md)
 for installation, verification, safe replacement, and bounded-audit commands.
 
+With the Task 0004 split artifacts present, build the convenience subset first:
+
+```bash
+python -m latenttrigger.data.preprocessing --scope dev
+```
+
+The [preprocessing workflow](docs/preprocessing-pipeline.md) documents full builds,
+independent verification, bounded reading and the test embargo. Generated arrays
+and manifests remain local; no baseline or model training exists yet.
+
 ## Testing
 
 ```bash
@@ -183,8 +198,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0002: select the dataset and define the data/history protocols.
 - [x] Task 0003: verified R&D acquisition and bounded raw-schema audit.
 - [x] Task 0004: training-background EDA, duplicate-safe splits and schema validation.
-- [ ] Task 0005: implement the frozen deterministic preprocessing pipeline.
-- [ ] Establish anomaly-detection baselines and scientific evaluation.
+- [x] Task 0005: deterministic preprocessing; dev/full stores locally verified.
+- [ ] Task 0006: statistical anomaly-detection baselines and evaluation framework.
 - [ ] Investigate autoencoders and particle/set-based Transformer models.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
