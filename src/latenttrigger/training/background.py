@@ -2,10 +2,12 @@
 
 import argparse
 import csv
+import hashlib
 import json
 import shutil
 import time
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import numpy as np
 import torch
@@ -29,7 +31,15 @@ from latenttrigger.models.background import (
 )
 from latenttrigger.models.pca import BACKGROUND_ROLES
 from latenttrigger.models.reporting import write_tables
-from latenttrigger.training.autoencoder import deterministic_cpu, train_autoencoder
+from latenttrigger.training.autoencoder import (
+    deterministic_cpu,
+    epoch_loss,
+    feature_loader,
+    train_autoencoder,
+)
+
+if TYPE_CHECKING:
+    from latenttrigger.training.convergence import HistoricalPrefix
 
 
 def plot_training(path: Path, history: list[dict], training: dict) -> None:
@@ -73,6 +83,8 @@ def run_background(
     *,
     dev: bool = False,
     plots: bool = True,
+    save_scores: bool = True,
+    convergence_reference: "HistoricalPrefix | None" = None,
 ) -> dict:
     """Exclusive output, frozen CPU model, feature-only audited background reads."""
     config = json.loads(config_path.read_text())
@@ -104,6 +116,8 @@ def run_background(
                 "model_config_sha256": content_hash(config),
                 "scope": "dev_diagnostic" if dev else "canonical_full",
             }
+            if convergence_reference is not None:
+                convergence_reference.validate_provenance(context)
             values = {}
             for role in BACKGROUND_ROLES[:2]:
                 tick = time.perf_counter()
@@ -126,6 +140,7 @@ def run_background(
                 values[BACKGROUND_ROLES[1]],
                 config,
                 progress=True,
+                on_epoch=convergence_reference,
             )
             timings["training_seconds"] = time.perf_counter() - tick
             artifact = model.artifact(provenance=context, training=training)
@@ -134,6 +149,37 @@ def run_background(
             for name, parameter in model.state_dict().items():
                 if not torch.equal(parameter, restored.state_dict()[name]):
                     raise ValueError("Serialized model parameter mismatch.")
+            convergence_checks = None
+            if convergence_reference is not None:
+                from latenttrigger.training.convergence import canonical_decision
+
+                convergence_checks = convergence_reference.report()
+                # A second evaluation using the JSON-reloaded frozen network.
+                with deterministic_cpu(
+                    config["training"]["seed"], config["training"]["num_threads"]
+                ):
+                    independently_restored_mse = epoch_loss(
+                        restored,
+                        feature_loader(
+                            values[BACKGROUND_ROLES[1]],
+                            config["training"]["batch_size"],
+                            shuffle=False,
+                            seed=config["training"]["seed"],
+                        ),
+                    )
+                if independently_restored_mse != training["best_selection_mse"]:
+                    raise ValueError(
+                        "JSON-restored best validation loss differs from selected epoch."
+                    )
+                convergence_checks["independently_restored_selection_mse"] = (
+                    independently_restored_mse
+                )
+                convergence_checks["canonical_decision"] = canonical_decision(
+                    training,
+                    convergence_reference.artifact["scientific"]["training"],
+                    prefix_verified=convergence_checks["verified"],
+                    protocol_intact=True,
+                )
             # Calibration is first requested AFTER best-state restoration and export.
             role = BACKGROUND_ROLES[2]
             tick = time.perf_counter()
@@ -151,9 +197,12 @@ def run_background(
                         restored, values[role], config["batch_events"]
                     )
                     timings[f"{role}_score_seconds"] = time.perf_counter() - tick
-                    np.save(
-                        stage / f"{role}-scores.npy", scores[role], allow_pickle=False
-                    )
+                    if save_scores:
+                        np.save(
+                            stage / f"{role}-scores.npy",
+                            scores[role],
+                            allow_pickle=False,
+                        )
                 sample = values[BACKGROUND_ROLES[0]][:4096]
                 with torch.inference_mode():
                     latent = (
@@ -206,6 +255,15 @@ def run_background(
                 "population_access": audit,
                 "test_model_access": False,
             }
+            if convergence_checks is not None:
+                scientific["convergence_checks"] = convergence_checks
+            if not save_scores:
+                scientific["score_array_sha256"] = {
+                    role: hashlib.sha256(
+                        np.asarray(scores[role], dtype="<f8").tobytes()
+                    ).hexdigest()
+                    for role in BACKGROUND_ROLES
+                }
         write_tables(stage, scientific)
         with (stage / "training-history.csv").open("w", newline="") as stream:
             writer = csv.DictWriter(

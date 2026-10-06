@@ -76,13 +76,16 @@ htmlcov/
 *.onnx
 *.mlmodel
 *.mlpackage/
-# Only this deliberately curated tiny JSON model is tracked.
+# Only deliberately curated tiny v1/v2 JSON models are tracked.
 /artifacts/*
 !/artifacts/models/
 /artifacts/models/*
 !/artifacts/models/compact-autoencoder-v1/
 /artifacts/models/compact-autoencoder-v1/*
 !/artifacts/models/compact-autoencoder-v1/model.json
+!/artifacts/models/compact-autoencoder-v2/
+/artifacts/models/compact-autoencoder-v2/*
+!/artifacts/models/compact-autoencoder-v2/model.json
 /checkpoints/
 /models/
 /outputs/

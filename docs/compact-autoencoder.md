@@ -1,5 +1,11 @@
 # Compact autoencoder baseline — Task 0007
 
+> **Task 0008 update — 2026-10-06:** v2 supersedes v1 as the canonical compact AE
+> after exact epoch-200 reproduction and selection-background early stopping
+> (best 381, stopped 396). V1 and the following Task 0007 results remain historical
+> evidence. See [the convergence report](autoencoder-convergence.md) and
+> [frozen v2 artifact](../artifacts/models/compact-autoencoder-v2/model.json).
+
 **Frozen CPU model; background-only development. No real test-signal performance
 was inspected during Task 0007. No real test-background model scores were read.**
 

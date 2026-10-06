@@ -60,8 +60,10 @@ implements the [PCA baseline](docs/pca-baseline.md), background-only diagnostics
 and calibrated thresholds under the [evaluation protocol](docs/evaluation-protocol.md).
 Task 0007 adds a frozen [compact autoencoder](docs/compact-autoencoder.md),
 reproducible CPU training and separate MPS compatibility checks. Real test
-performance remains intentionally embargoed. Particle/set-aware model design
-is the next planned stage. Development records follow the
+performance remains intentionally embargoed. Task 0008 closes
+[convergence under the frozen patience rule](docs/autoencoder-convergence.md);
+v2 is now the canonical compact AE. Particle/set-aware model design is next.
+Development records follow the
 [task protocol](docs/development.md)
 and [handoff index](docs/handoffs/README.md).
 
@@ -202,13 +204,15 @@ reproduction and [the evaluation contract](docs/evaluation-protocol.md).
 With the verified full store and existing analysis extra installed:
 
 ```bash
-python -m latenttrigger.models.autoencoder --config configs/models/compact_autoencoder.json
+python -m latenttrigger.training.convergence
 ```
 
 The canonical 155-parameter model trains on CPU, selects its epoch using
 selection background, then calibrates thresholds on separate calibration
 background. See [the report](docs/compact-autoencoder.md) for reproduction,
-the tiny frozen JSON artifact and separate MPS smoke mode. Real tests remain held out.
+the historical v1 artifact and MPS smoke mode. The
+[convergence report](docs/autoencoder-convergence.md) records finalized canonical v2;
+real tests remain held out.
 
 ## Testing
 
@@ -234,7 +238,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0005: deterministic preprocessing; dev/full stores locally verified.
 - [x] Task 0006: PCA baseline and background evaluation; real test populations embargoed.
 - [x] Task 0007: compact autoencoder, reproducible CPU model and background calibration.
-- [ ] Design a compact particle/set-aware baseline; assess attention models later.
+- [x] Task 0008: convergence closure; canonical v2 selected with unchanged patience rule.
+- [ ] Task 0009: design a compact particle/set-aware baseline; assess attention later.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

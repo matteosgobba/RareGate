@@ -1,0 +1,433 @@
+{
+  "artifact_version": 1,
+  "scientific": {
+    "model_type": "compact_autoencoder",
+    "architecture": {
+      "input_dim": 8,
+      "encoder_hidden": 6,
+      "latent_dim": 3,
+      "decoder_hidden": 6,
+      "activation": "relu"
+    },
+    "features": [
+      "multiplicity",
+      "scalar_pt",
+      "max_pt",
+      "pt_balance",
+      "weighted_eta_mean",
+      "weighted_eta_std",
+      "pt_concentration",
+      "massless_event_mass"
+    ],
+    "parameter_count": 155,
+    "score_definition": "sum_squared_reconstruction_residual",
+    "orientation": "higher_is_more_anomalous",
+    "forward_dtype": "float32",
+    "score_dtype": "float64",
+    "parameters": [
+      {
+        "name": "encoder.0.weight",
+        "shape": [
+          6,
+          8
+        ],
+        "dtype": "float32",
+        "values": [
+          [
+            -0.1050320640206337,
+            -2.0235939025878906,
+            -0.4876554012298584,
+            -0.4038112163543701,
+            -3.1506004333496094,
+            -0.4542039930820465,
+            -0.15192270278930664,
+            -1.0423297882080078
+          ],
+          [
+            0.11371296644210815,
+            0.018777064979076385,
+            -0.12175171077251434,
+            -0.011794643476605415,
+            -0.00729758245870471,
+            0.028178416192531586,
+            -0.13607856631278992,
+            0.03776349127292633
+          ],
+          [
+            0.13694672286510468,
+            0.5146540999412537,
+            -0.23494331538677216,
+            2.008960485458374,
+            -0.18082158267498016,
+            -0.5706266164779663,
+            -0.28996747732162476,
+            -1.3100095987319946
+          ],
+          [
+            -0.06550458073616028,
+            -1.345597505569458,
+            -0.32637161016464233,
+            -0.2718319594860077,
+            -2.146238327026367,
+            -0.32621410489082336,
+            -0.10513566434383392,
+            -0.7080892324447632
+          ],
+          [
+            -0.011908357962965965,
+            -0.05458153784275055,
+            0.045617155730724335,
+            0.004883705638349056,
+            -0.0717921257019043,
+            0.24401795864105225,
+            0.0569426603615284,
+            0.1755271703004837
+          ],
+          [
+            0.046178244054317474,
+            0.2099376618862152,
+            0.07415657490491867,
+            -0.015035911463201046,
+            -0.061369068920612335,
+            -0.06574147939682007,
+            0.007667079567909241,
+            0.06547141075134277
+          ]
+        ]
+      },
+      {
+        "name": "encoder.0.bias",
+        "shape": [
+          6
+        ],
+        "dtype": "float32",
+        "values": [
+          -1.1014381647109985,
+          2.0406126976013184,
+          -2.3428781032562256,
+          -0.7702673077583313,
+          0.5185496211051941,
+          0.2918785810470581
+        ]
+      },
+      {
+        "name": "encoder.2.weight",
+        "shape": [
+          3,
+          6
+        ],
+        "dtype": "float32",
+        "values": [
+          [
+            0.7336143255233765,
+            -1.1443285942077637,
+            -1.4146562814712524,
+            1.7407761812210083,
+            0.11530667543411255,
+            -0.11619458347558975
+          ],
+          [
+            -0.07557716220617294,
+            0.8356720209121704,
+            -2.8584628105163574,
+            0.9402182102203369,
+            0.22914426028728485,
+            -0.05020875111222267
+          ],
+          [
+            -2.6946957111358643,
+            -0.8439606428146362,
+            -1.9716484546661377,
+            -1.560715675354004,
+            0.15757833421230316,
+            0.19401690363883972
+          ]
+        ]
+      },
+      {
+        "name": "encoder.2.bias",
+        "shape": [
+          3
+        ],
+        "dtype": "float32",
+        "values": [
+          0.17436207830905914,
+          -0.01084718108177185,
+          -0.2207958698272705
+        ]
+      },
+      {
+        "name": "decoder.0.weight",
+        "shape": [
+          6,
+          3
+        ],
+        "dtype": "float32",
+        "values": [
+          [
+            -0.6931755542755127,
+            -0.3915603458881378,
+            -1.6677416563034058
+          ],
+          [
+            -0.014432473108172417,
+            -1.0511444807052612,
+            -1.0952657461166382
+          ],
+          [
+            0.4903008043766022,
+            -0.767252504825592,
+            -0.7938904762268066
+          ],
+          [
+            -0.8385263085365295,
+            1.0166442394256592,
+            -0.7985678911209106
+          ],
+          [
+            0.8656988739967346,
+            1.9227828979492188,
+            0.7313162684440613
+          ],
+          [
+            -1.2192976474761963,
+            -0.3181159496307373,
+            1.337730050086975
+          ]
+        ]
+      },
+      {
+        "name": "decoder.0.bias",
+        "shape": [
+          6
+        ],
+        "dtype": "float32",
+        "values": [
+          -1.1705471277236938,
+          -0.8470615744590759,
+          3.1048457622528076,
+          0.8257665634155273,
+          0.03091398999094963,
+          0.503919243812561
+        ]
+      },
+      {
+        "name": "decoder.2.weight",
+        "shape": [
+          8,
+          6
+        ],
+        "dtype": "float32",
+        "values": [
+          [
+            0.6706945896148682,
+            -0.1728472262620926,
+            -0.874968945980072,
+            0.23910340666770935,
+            0.11125071346759796,
+            1.6841661930084229
+          ],
+          [
+            0.6789839863777161,
+            -0.7374796867370605,
+            0.014679432846605778,
+            -0.3656977117061615,
+            0.28636303544044495,
+            8.076520919799805
+          ],
+          [
+            -0.22337223589420319,
+            -0.4061041474342346,
+            1.0408356189727783,
+            -0.6014175415039062,
+            1.0595827102661133,
+            3.2275443077087402
+          ],
+          [
+            0.3977917432785034,
+            -0.273160845041275,
+            -0.05155673250555992,
+            -0.40555205941200256,
+            0.3032070994377136,
+            -0.07668399810791016
+          ],
+          [
+            -1.2951384782791138,
+            1.6045811176300049,
+            -0.39933499693870544,
+            0.8166118264198303,
+            -2.240220785140991,
+            -3.5458569526672363
+          ],
+          [
+            0.2916472852230072,
+            -0.13603030145168304,
+            -0.26153722405433655,
+            -0.015376074239611626,
+            3.5626580715179443,
+            -1.2332863807678223
+          ],
+          [
+            -0.4895952045917511,
+            -0.1617048978805542,
+            1.1069250106811523,
+            -0.5059501528739929,
+            0.925778329372406,
+            0.6307487487792969
+          ],
+          [
+            0.6509075164794922,
+            -0.5411300659179688,
+            -0.2331802099943161,
+            -0.21296750009059906,
+            3.131373643875122,
+            3.722820281982422
+          ]
+        ]
+      },
+      {
+        "name": "decoder.2.bias",
+        "shape": [
+          8
+        ],
+        "dtype": "float32",
+        "values": [
+          -1.5238022804260254,
+          -0.6167912483215332,
+          1.2554662227630615,
+          1.1713474988937378,
+          1.2149701118469238,
+          -1.0239064693450928,
+          1.571515440940857,
+          -1.2938969135284424
+        ]
+      }
+    ],
+    "provenance": {
+      "processed_scientific_sha256": "d12574e90e9ba9dff71e4e796f5004e704bce5d824db98c545a96d2df08e12d2",
+      "processed_schema_version": 1,
+      "source": {
+        "dataset": "LHC Olympics 2020 R&D",
+        "version": "v5",
+        "record_id": 6466204,
+        "doi": "10.5281/zenodo.6466204",
+        "filename": "events_anomalydetection_v2.h5",
+        "url": "https://zenodo.org/api/records/6466204/files/events_anomalydetection_v2.h5/content",
+        "expected_size": 2908260409,
+        "expected_checksum": "629789d55813be3860781b084ae7f1de",
+        "checksum_algorithm": "md5",
+        "license": "CC-BY-4.0"
+      },
+      "source_integrity": {
+        "file_size": 2908260409,
+        "verified_checksum": "629789d55813be3860781b084ae7f1de",
+        "sha256": "5da8fda2ca78edf8fa5acc0af92fcb6a2d464ba7bf0fd75e3944a169b88cecc6"
+      },
+      "preprocessing_config_sha256": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+      "split_identity_sha256": "74a97d8956a4b75d5710d456bc207fdfa9d27569256bafe7b8e72a7891468fea",
+      "model_config": {
+        "schema_version": 1,
+        "model_type": "compact_autoencoder",
+        "evaluation_protocol": "latenttrigger-evaluation-v1",
+        "input": {
+          "processed_schema_version": 1,
+          "features": [
+            "multiplicity",
+            "scalar_pt",
+            "max_pt",
+            "pt_balance",
+            "weighted_eta_mean",
+            "weighted_eta_std",
+            "pt_concentration",
+            "massless_event_mass"
+          ],
+          "representation": "event_features",
+          "dtype": "float32",
+          "preprocessing_config_sha256": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68"
+        },
+        "score": {
+          "definition": "sum_squared_reconstruction_residual",
+          "orientation": "higher_is_more_anomalous",
+          "dtype": "float64"
+        },
+        "roles": {
+          "fit": "train_background",
+          "selection": "validation_selection_background",
+          "calibration": "validation_calibration_background"
+        },
+        "thresholds": {
+          "target_fprs": [
+            0.1,
+            0.05,
+            0.01,
+            0.001
+          ],
+          "quantile_method": "higher",
+          "decision": "score > threshold"
+        },
+        "future_metrics": {
+          "fixed_fprs": [
+            0.1,
+            0.05,
+            0.01,
+            0.001
+          ],
+          "fixed_tprs": [
+            0.5,
+            0.8,
+            0.9
+          ],
+          "roc_policy": "attainable_empirical_points_no_interpolation"
+        },
+        "diagnostics": {
+          "summary_quantile_method": "linear",
+          "stability": "two_sample_ks_distance_without_p_values"
+        },
+        "batch_events": 4096,
+        "model": {
+          "input_dim": 8,
+          "encoder_hidden": 6,
+          "latent_dim": 3,
+          "decoder_hidden": 6,
+          "activation": "relu"
+        },
+        "training": {
+          "optimizer": "adam",
+          "learning_rate": 0.001,
+          "batch_size": 4096,
+          "max_epochs": 1000,
+          "early_stopping_patience": 15,
+          "min_delta": 0.0,
+          "seed": 1729,
+          "device": "cpu",
+          "num_workers": 0,
+          "num_threads": 1,
+          "deterministic_algorithms": true,
+          "loss": "mean_squared_reconstruction_error",
+          "initialization": "pytorch_linear_default"
+        }
+      },
+      "model_config_sha256": "0af02cba0dcab4cd750b19f6357fe5030aadb56c7c0422c4f35ea4adc1521800",
+      "scope": "canonical_full"
+    },
+    "training": {
+      "training_count": 699957,
+      "selection_count": 74749,
+      "epochs_executed": 396,
+      "best_epoch": 381,
+      "best_epoch_online_training_mse": 0.21318465057790426,
+      "best_selection_mse": 0.21447598731176187,
+      "restored_training_mse": 0.21305374425537163,
+      "restored_selection_mse": 0.21447598731176187,
+      "stopping_reason": "patience",
+      "bad_epochs_at_stop": 15,
+      "last_epoch": {
+        "epoch": 396,
+        "training_mse": 0.21303870896544005,
+        "selection_mse": 0.2146456583262472
+      },
+      "history_sha256": "13ba893be48515533b7d5c5ad65d057bef02f8ccad9f5fc1162350acf83b3451"
+    }
+  },
+  "scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b"
+}

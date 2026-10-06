@@ -1,7 +1,7 @@
 """Deterministic CPU training and best-selection-state restoration."""
 
 import random
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass
 
@@ -131,7 +131,13 @@ def epoch_loss(model: CompactAutoencoder, loader: DataLoader, optimizer=None) ->
 
 
 def train_autoencoder(
-    train: np.ndarray, selection: np.ndarray, config: dict, *, progress: bool = False
+    train: np.ndarray,
+    selection: np.ndarray,
+    config: dict,
+    *,
+    progress: bool = False,
+    on_epoch: Callable[[CompactAutoencoder, list[dict], EarlyStopping], None]
+    | None = None,
 ) -> tuple[CompactAutoencoder, list[dict], dict]:
     """Only train and selection inputs; calibration/test are absent from this API."""
     validate_config(config)
@@ -157,6 +163,8 @@ def train_autoencoder(
             }
             history.append(row)
             stop = stopping.update(epoch, row["selection_mse"], model)
+            if on_epoch is not None:
+                on_epoch(model, history, stopping)
             if progress and (epoch == 1 or epoch % 10 == 0 or stop):
                 print(
                     f"Epoch {epoch}: train MSE={row['training_mse']:.8f}; selection MSE={row['selection_mse']:.8f}",
