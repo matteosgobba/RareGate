@@ -68,8 +68,11 @@ with local bottlenecks, pooled context and a linear-cost reconstruction score.
 Task 0010 [implements the unchanged design](docs/particle-set-baseline.md), with
 247 passing synthetic tests. Its launch gate failed at 3.69 GiB available memory
 versus the frozen 8 GiB minimum, before real reader construction or dev updates.
-Canonical training, reproduction, freeze and calibration remain pending. The
-next bounded decision addresses the host-resource gate; limits remain unchanged.
+Canonical training, reproduction, freeze and calibration remain pending.
+[Task 0011](docs/particle-set-resource-recovery.md) adds a bounded preflight and
+one fixed recovery route. Its three readings still fail the unchanged memory
+requirement; no recovery attempt was reserved. All real particle stages remain
+pending. Task 0010 and Task 0011 await separate user commits.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
 Development records follow the
@@ -250,7 +253,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0008: convergence closure; canonical v2 selected with unchanged patience rule.
 - [x] Task 0009: compact particle/set design, exact loss/score and future resource gates.
 - [x] Task 0010: particle/set implementation and synthetic validation; launch gate failed, canonical baseline pending.
-- [ ] Task 0011 (proposed): bounded particle/set resource-gate recovery and background validation.
+- [x] Task 0011: bounded recovery routing/readiness; host still blocks launch, no recovery data attempt.
+- [ ] Manual host preparation and passing preflight before the single authorized particle recovery.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

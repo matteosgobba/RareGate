@@ -567,7 +567,7 @@ def worker(args, config):
     return 0 if result["status"] == "passed" else 1
 
 
-def run_task(args, config, *, attempt_budget=None):
+def run_task(args, config, *, attempt_budget=None, engineering_lineage=None):
     verify_acceptance(args.acceptance, config)
     if attempt_budget is None:
         attempt_budget = ROOT / "data/baselines/task0010-particle-attempt-budget.json"
@@ -578,6 +578,11 @@ def run_task(args, config, *, attempt_budget=None):
                 "config_sha256": content_hash(config),
                 "output": str(args.output),
                 "status": "attempt_reserved_no_automatic_retry",
+                **(
+                    {"engineering_lineage": engineering_lineage}
+                    if engineering_lineage
+                    else {}
+                ),
             },
             file,
         )
@@ -587,6 +592,7 @@ def run_task(args, config, *, attempt_budget=None):
         "config_sha256": content_hash(config),
         "stages": [],
         "status": "started",
+        **({"engineering_lineage": engineering_lineage} if engineering_lineage else {}),
         "gate_order": [
             "dev",
             "first_fit",
@@ -731,6 +737,10 @@ def main():
     if args.worker:
         # Worker invocation needs the parent ledger confirming the preceding gate.
         parent = json.loads((args.output.parent / "workflow.json").read_text())
+        if parent.get("engineering_lineage"):
+            from latenttrigger.models.particle_recovery import verify_worker_lineage
+
+            verify_worker_lineage(args, parent, config)
         prior = parent["stages"]
         if args.worker == "fit" and not any(
             x["stage"] == "dev" and x["status"] == "passed" for x in prior

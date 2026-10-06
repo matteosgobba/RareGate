@@ -31,6 +31,30 @@ class ResourceLimitError(RuntimeError):
     """An explicit preregistered gate failed; downstream stages are forbidden."""
 
 
+def parse_vm_stat(output: str) -> dict:
+    """Strict page accounting; contextual counters never increase availability."""
+    headers = re.findall(r"page size of (\d+) bytes", output)
+    counts = {}
+    for name in ("free", "inactive"):
+        values = re.findall(rf"^Pages {name}:\s+(\d+)\.\s*$", output, re.M)
+        if len(values) != 1:
+            raise ResourceLimitError("Missing/malformed/duplicate vm_stat page count.")
+        counts[name] = int(values[0])
+    if len(headers) != 1 or int(headers[0]) <= 0:
+        raise ResourceLimitError("Missing/malformed vm_stat page size.")
+    page_size = int(headers[0])
+    available = (counts["free"] + counts["inactive"]) * page_size
+    return {
+        "page_size_bytes": page_size,
+        "free_pages": counts["free"],
+        "inactive_pages": counts["inactive"],
+        "available_bytes": available,
+        "available_gib": available / 2**30,
+        "vm_stat_raw": output,
+        "context_counters_are_not_available_bytes": True,
+    }
+
+
 def memory_snapshot() -> dict:
     """Darwin free+inactive pages and whole native malloc arena reservation.
 
@@ -42,14 +66,8 @@ def memory_snapshot() -> dict:
     rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     if system != "Darwin":
         raise ResourceLimitError("Real resource gate needs verified Darwin accounting.")
-    output = subprocess.check_output(["vm_stat"], text=True)
-    page = int(re.search(r"page size of (\d+) bytes", output)[1])
-    pages = {
-        name: int(value)
-        for name, value in re.findall(
-            r"^Pages (free|inactive):\s+(\d+)\.", output, re.M
-        )
-    }
+    output = subprocess.check_output(["vm_stat"], text=True, timeout=2)
+    pages = parse_vm_stat(output)
 
     class Stats(ctypes.Structure):
         _fields_ = [
@@ -63,12 +81,12 @@ def memory_snapshot() -> dict:
     library.malloc_zone_statistics.argtypes = [ctypes.c_void_p, ctypes.POINTER(Stats)]
     stats = Stats()
     library.malloc_zone_statistics(None, ctypes.byref(stats))
-    if not stats.allocated or set(pages) != {"free", "inactive"}:
+    if not stats.allocated:
         raise ResourceLimitError(
             "Native workspace/system memory accounting unavailable."
         )
     return {
-        "available_bytes": page * sum(pages.values()),
+        **pages,
         "peak_rss_bytes": rss,
         "native_heap_reserved_bytes": stats.allocated,
         "native_heap_in_use_bytes": stats.in_use,

@@ -1,0 +1,244 @@
+{
+  "task": "0011",
+  "status": "readiness_still_blocked",
+  "base_commit": "96ef5aa86dea798966fa8d0e5cb38582ea84d70c",
+  "preexisting_task0010_commit_state": "13 uncommitted prerequisite files; index initially empty; snapshots retained for separate manual commits",
+  "design_scientific_sha256": "3aaccbccb2610f60647d4eca9fab5a368ce10cf812cc189c3e3394b4a4db6f67",
+  "executable_config_scientific_sha256": "48b1c647cd8979860a9231e2aea59295054dedf6b4339b3100b5b5679649416b",
+  "predecessor_file_sha256": {
+    "data/baselines/task0010-particle-attempt-budget.json": "2a98539f5dc9e9f3653e57681613e19a920954c8fd250f954a5aec9cd974da70",
+    "data/baselines/compact-particle-set-autoencoder-v1/workflow.json": "7897e03da20a853f842e201a492e95e08f6d5ac49c7025b3d0ae40cd49900d90",
+    "data/baselines/compact-particle-set-autoencoder-v1/dev/access-audit.json": "a9400a16081e6a6c759a93bba45541b0c00c48ea9754333beb849a8da3d58c48",
+    "data/baselines/compact-particle-set-autoencoder-v1/dev/stage-result.json": "1e36d40fe8df79c83ee6c821a9c59039f1621b01d485384a43a0a45deb7d69a8",
+    "data/task0010-synthetic-acceptance.json": "535554d2673622bba6e9992de792a50bed7fb009dc5b4df5257d544bae3e6575",
+    "data/task0010-final-synthetic-acceptance.json": "3037988a7975e6af040d3648b943930bf048b4b9648c193ab754b7f2f2b10020",
+    "results/tables/final/task0010-particle-set-gate-summary.json": "f4d73f4a1018b711cea0f2fd187ffd591db32a76cd498a7e53d6007d65feaa22"
+  },
+  "protected_file_sha256": {
+    "src/latenttrigger/models/particle_set.py": "503384dcb006140689a927064f6c6245a199e66dd6e9a3c7763f80a246eb6308",
+    "src/latenttrigger/data/processed.py": "911c1bdb85831396b5e35dd6c3b5206a1ef22b5c62b55efb40108a4cd8cea5ea",
+    "configs/models/particle_set_baseline_design_v1.json": "e358fb51c72e3d68228de2cf05d9dbd0233e4a3d7bca3edc9d7c27ed174af964",
+    "configs/models/compact_particle_set_autoencoder_v1.json": "0af735aa07f0966f1c97c8c3bea5ce6f9b1e93e80ec282ccbf0fe3f444183302",
+    "configs/data/lhco_rnd_v5.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68"
+  },
+  "synthetic_validation": {
+    "pytest_passed": 296,
+    "pytest_cases": 296,
+    "pytest_exit_code": 0,
+    "ruff": "passed",
+    "format": "passed",
+    "dependency_consistency": "passed",
+    "cpu_smoke": "passed",
+    "installation": "existing editable import verified; no dependency changes or reinstall",
+    "workspace_measurement": {
+      "scope": "synthetic_full_cardinality_batch32",
+      "method": "PyTorch_CPU_allocation_timeline_including_autograd_temporaries",
+      "synthetic_optimizer_steps": 2,
+      "peak_tensor_bytes": 5228448,
+      "parameter_count": 478,
+      "torch_version": "2.14.1",
+      "external_workspace_accounting": "whole_native_malloc_arena_reservation_during_real_stages"
+    },
+    "acceptance_file": "data/task0011-reviewed-synthetic-acceptance.json",
+    "acceptance_file_sha256": "1cef87bb612eb7066e1f3e91cb01ba16ff84d3152c2198945098a012c8d79159",
+    "source_map_sha256": "82d663c5aadae4f80b8b1f731f9e055ba3b7aa6c6c153edfba02533a87bb1083",
+    "acceptance_history": [
+      {
+        "file": "data/task0011-synthetic-acceptance.json",
+        "file_sha256": "b0cc64841f5363e0f9b9f048577c5597a5e8e15eb61782c328a08b2457048361",
+        "pytest_exit_code": 0,
+        "pytest_passed": 296,
+        "workspace_measured": true,
+        "status": "historical_preflight_source"
+      },
+      {
+        "file": "data/task0011-final-synthetic-acceptance.json",
+        "file_sha256": "43b65e4af329b4bcc6df9a5aaaa45063c685ebf0af34d4bab4e43a8439efd898",
+        "pytest_exit_code": 1,
+        "pytest_passed": 295,
+        "workspace_measured": false,
+        "status": "failed_fixture_after_fixed_root_review"
+      },
+      {
+        "file": "data/task0011-reviewed-synthetic-acceptance.json",
+        "file_sha256": "1cef87bb612eb7066e1f3e91cb01ba16ff84d3152c2198945098a012c8d79159",
+        "pytest_exit_code": 0,
+        "pytest_passed": 296,
+        "workspace_measured": true,
+        "status": "current_source_bound"
+      }
+    ]
+  },
+  "preflight": {
+    "ready": false,
+    "fresh_cpu_worker": true,
+    "num_threads": 1,
+    "num_interop_threads": 1,
+    "deterministic_algorithms": true,
+    "available_definition": "(Darwin free_pages + inactive_pages) * actual_page_size",
+    "started_utc": "2026-10-06T18:02:44.587990+00:00",
+    "elapsed_seconds": 5.058918917027768,
+    "sample_span_seconds": 5.010276458982844,
+    "readings": [
+      {
+        "timestamp_utc": "2026-10-06T18:02:44.616937+00:00",
+        "elapsed_seconds": 0.028950833017006516,
+        "passed": false,
+        "error": "Launch available memory below 8 GiB.",
+        "sample": {
+          "page_size_bytes": 16384,
+          "free_pages": 4097,
+          "inactive_pages": 189204,
+          "available_bytes": 3167043584,
+          "available_gib": 2.9495391845703125,
+          "context_counters_are_not_available_bytes": true,
+          "peak_rss_bytes": 357384192,
+          "native_heap_reserved_bytes": 180011008,
+          "native_heap_in_use_bytes": 138924304,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "available_method": "Darwin_free_plus_inactive_pages"
+        },
+        "checks": {
+          "launch_available_ge_8gib": false,
+          "continuing_available_ge_4gib": false,
+          "rss_le_6gib": true,
+          "native_heap_le_512mib": true
+        }
+      },
+      {
+        "timestamp_utc": "2026-10-06T18:02:47.122025+00:00",
+        "elapsed_seconds": 2.5341194579959847,
+        "passed": false,
+        "error": "Launch available memory below 8 GiB.",
+        "sample": {
+          "page_size_bytes": 16384,
+          "free_pages": 4397,
+          "inactive_pages": 190056,
+          "available_bytes": 3185917952,
+          "available_gib": 2.9671173095703125,
+          "context_counters_are_not_available_bytes": true,
+          "peak_rss_bytes": 357433344,
+          "native_heap_reserved_bytes": 184205312,
+          "native_heap_in_use_bytes": 138932368,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "available_method": "Darwin_free_plus_inactive_pages"
+        },
+        "checks": {
+          "launch_available_ge_8gib": false,
+          "continuing_available_ge_4gib": false,
+          "rss_le_6gib": true,
+          "native_heap_le_512mib": true
+        }
+      },
+      {
+        "timestamp_utc": "2026-10-06T18:02:49.627160+00:00",
+        "elapsed_seconds": 5.03922729199985,
+        "passed": false,
+        "error": "Launch available memory below 8 GiB.",
+        "sample": {
+          "page_size_bytes": 16384,
+          "free_pages": 4293,
+          "inactive_pages": 193470,
+          "available_bytes": 3240148992,
+          "available_gib": 3.0176239013671875,
+          "context_counters_are_not_available_bytes": true,
+          "peak_rss_bytes": 357498880,
+          "native_heap_reserved_bytes": 184205312,
+          "native_heap_in_use_bytes": 138940432,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "available_method": "Darwin_free_plus_inactive_pages"
+        },
+        "checks": {
+          "launch_available_ge_8gib": false,
+          "continuing_available_ge_4gib": false,
+          "rss_le_6gib": true,
+          "native_heap_le_512mib": true
+        }
+      }
+    ],
+    "file": "data/baselines/task0011-particle-preflight.json",
+    "file_sha256": "5d31e61967d6027f576143b807c5c689d56d2932c2957545127328794dfa17ae",
+    "record_sha256": "b7aaa918653ba2fada87891a57dd63ce9b581ad0a35beff42a54ca8e6a4f2d66",
+    "acceptance_file_at_sampling": "data/task0011-synthetic-acceptance.json",
+    "current_source_authorization": "Historical failed readiness record, preserved after removal of internal output-root override; never reused to authorize a real attempt. Manual procedure needs a new preflight against current reviewed acceptance."
+  },
+  "host_context": {
+    "installed_ram_bytes_from_memory_pressure_Q": 17179869184,
+    "page_size_bytes": 16384,
+    "memory_pressure_free_percentage": 39,
+    "memory_pressure_free_percentage_replaces_launch_metric": false,
+    "current_swap_use": "unavailable: sysctl permission restricted",
+    "current_worker_rss": "unavailable: ps permission restricted; getrusage peak RSS reported instead",
+    "first_sample_compressor_stored_logical_pages": 1828663,
+    "first_sample_compressor_occupied_physical_pages": 418982,
+    "compression_interpretation": "Logical stored pages and physical compressor pages overlap; neither added to availability. Raw cumulative compression/swap counters retained only in ignored preflight."
+  },
+  "accounting": {
+    "original_task0010_real_attempts": 1,
+    "original_population_requests": 0,
+    "original_real_events": 0,
+    "original_real_optimizer_steps": 0,
+    "new_recovery_attempts": 0,
+    "new_attempt_reserved": false,
+    "new_population_requests": 0,
+    "new_real_events": 0,
+    "new_real_optimizer_steps": 0,
+    "remaining_unique_dev_events": 1024,
+    "remaining_dev_train_passes": 3,
+    "remaining_dev_optimizer_steps": 96,
+    "remaining_same_sample_score_passes": 1,
+    "new_ledger_exists": false,
+    "new_plan_exists": false,
+    "new_output_exists": false
+  },
+  "unchanged_resource_contract": {
+    "version": 1,
+    "training_batch_size": 32,
+    "score_batch_size": 32,
+    "full_population_padding_cache": false,
+    "working_tensor_and_workspace_ceiling_bytes": 536870912,
+    "process_peak_rss_ceiling_bytes": 6442450944,
+    "minimum_system_available_bytes_at_launch": 8589934592,
+    "stop_if_system_available_below_bytes": 4294967296,
+    "dev": {
+      "population": "train_background",
+      "dev_only": true,
+      "sample_policy": "first_1024_source_ordered_ids_in_frozen_dev_train",
+      "events": 1024,
+      "max_passes": 3,
+      "max_optimizer_steps": 96,
+      "scoring_passes": 1,
+      "max_wall_seconds": 300,
+      "other_population_accesses": 0,
+      "artifact_scope": "disposable_dev_diagnostic",
+      "loss_improvement_selection": false
+    },
+    "extrapolation": "2*(699957*max_train_pass_seconds/1024 + 74749*score_pass_seconds/1024) <= 180; view_preparation_included",
+    "max_full_epoch_cycle_seconds": 180,
+    "max_fitting_selection_wall_seconds_per_run": 36000,
+    "max_restore_reproduce_freeze_background_stage_seconds_per_run": 3600,
+    "max_two_run_total_wall_seconds": 79200,
+    "failure": "block_dependent_stages; no_automatic_device_batch_model_or_horizon_changes"
+  },
+  "stages_not_reached": [
+    "recovery_worker_launch",
+    "real_dev_model_views",
+    "dev_training_passes",
+    "dev_scoring_pass",
+    "dev_extrapolation",
+    "canonical_training",
+    "restoration",
+    "independent_reproduction",
+    "freeze",
+    "calibration",
+    "real_background_diagnostics"
+  ],
+  "dev_train_pass_seconds": null,
+  "dev_score_pass_seconds": null,
+  "dev_extrapolated_full_cycle_seconds": null,
+  "model_scientific_sha256": null,
+  "test_background_model_evaluation_accessed": false,
+  "test_signal_model_evaluation_accessed": false,
+  "hosted_ci": "unverified",
+  "next_dependency": "User-controlled host preparation, then one bounded three-sample preflight and conditional fixed Task0011 recovery. Separate versioned engineering-policy review if original readiness cannot be met; no policy change here."
+}
