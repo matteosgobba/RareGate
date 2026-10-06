@@ -10,7 +10,9 @@ Use `docs/prompts/NNNN-short-name.md` for its user specification and
 Inspect → plan → implement/research → test/validate → document handoff → review
 Git diff → user commits → user pushes.
 
-1. Inspect instructions, repository state, branch, HEAD, and relevant files.
+1. Read [living project memory](project-memory.md) alongside instructions,
+   repository state, branch, HEAD, and relevant files; verify its claims against
+   current evidence before planning.
    Identify unrelated changes; preserve them and exclude them from staging.
 2. Save the prompt before substantive work. Preserve an available original user
    message; if unavailable, label the record as reconstructed and cite its basis.
@@ -21,8 +23,11 @@ Git diff → user commits → user pushes.
    later phases. Respect the task boundary.
 5. Run relevant checks and report commands, outcomes, environment, and limitations.
    Never equate a configured CI job with a successful hosted CI run.
-6. Finish the handoff and index; inspect tracked and untracked changes, relative
-   links, and artifact exclusions. Prompt and handoff files belong in the same
+6. Update affected living-memory sections in place with durable outcomes,
+   decisions/rationale, roadmap, limitations and next steps; preserve user content
+   and distinguish designed, implemented and measured work. Keep execution detail
+   in the handoff. Finish the handoff and index; inspect tracked and untracked
+   changes, relative links, and artifact exclusions. Prompt and handoff files belong in the same
    commit as the work they document.
 7. End every task with exact status/diff, selective staging, staged review,
    Conventional Commit, and push commands for the actual branch/upstream.

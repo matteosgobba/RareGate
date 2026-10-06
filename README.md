@@ -32,8 +32,8 @@ deployment.
 
 1. Select and document a suitable dataset, event representation, and reproducible
    preparation procedure.
-2. Establish anomaly-detection baselines, then investigate autoencoders and
-   particle/set-based Transformer models.
+2. Establish anomaly-detection baselines, then investigate compact autoencoders
+   and particle/set models, adding attention only when justified.
 3. Evaluate detection performance and potential scientific biases with explicit
    data splits and evaluation assumptions.
 4. Measure latency, throughput, and memory under documented hardware and runtime
@@ -62,7 +62,13 @@ Task 0007 adds a frozen [compact autoencoder](docs/compact-autoencoder.md),
 reproducible CPU training and separate MPS compatibility checks. Real test
 performance remains intentionally embargoed. Task 0008 closes
 [convergence under the frozen patience rule](docs/autoencoder-convergence.md);
-v2 is now the canonical compact AE. Particle/set-aware model design is next.
+v2 is now the canonical compact AE. Task 0009 defines a
+[478-parameter particle/set autoencoder design](docs/particle-set-baseline-design.md)
+with local bottlenecks, pooled context and a linear-cost reconstruction score.
+It is designed; implementation, training and calibration are pending. Proposed
+Task 0010 begins with synthetic correctness and a bounded CPU resource gate.
+The [living project memory](docs/project-memory.md) maintains current decisions,
+evidence, limitations and direction.
 Development records follow the
 [task protocol](docs/development.md)
 and [handoff index](docs/handoffs/README.md).
@@ -239,7 +245,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0006: PCA baseline and background evaluation; real test populations embargoed.
 - [x] Task 0007: compact autoencoder, reproducible CPU model and background calibration.
 - [x] Task 0008: convergence closure; canonical v2 selected with unchanged patience rule.
-- [ ] Task 0009: design a compact particle/set-aware baseline; assess attention later.
+- [x] Task 0009: compact particle/set design, exact loss/score and future resource gates.
+- [ ] Task 0010 (proposed): particle/set implementation and background validation, subject to gates.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.
