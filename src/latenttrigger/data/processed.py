@@ -395,12 +395,25 @@ class ProcessedStore:
         allow_test: bool = False,
         include_labels: bool = False,
         dev_only: bool = False,
+        order: np.ndarray | None = None,
     ) -> Iterator[EventBatch]:
         """Filter membership once, then yield bounded owned batches."""
         if not 1 <= batch_size <= MAX_BATCH_EVENTS:
             raise ValueError("Invalid batch size.")
         self._label_permission(split, allow_test, include_labels)
         positions = self._positions(split, allow_test=allow_test, dev_only=dev_only)
+        if order is not None:
+            order = np.asarray(order)
+            if (
+                order.ndim != 1
+                or order.dtype.kind not in "iu"
+                or len(order) != len(positions)
+                or not np.array_equal(np.sort(order), np.arange(len(positions)))
+            ):
+                raise ValueError(
+                    "Order must permute every split-relative position once."
+                )
+            positions = positions[order]
         for start in range(0, len(positions), batch_size):
             yield self._batch(
                 positions[start : start + batch_size], include_labels=include_labels

@@ -9,16 +9,16 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.1 |
+| Memory revision | 1.2 |
 | Last factual verification | 2026-10-06, Europe/Rome |
-| Last completed implementation task | 0008 - Compact Autoencoder Convergence Closure |
-| Latest completed task | 0009 - Particle-Level / Set-Aware Neural Baseline Design (design only; awaiting user commit/push) |
+| Last completed implementation task | 0010 - Particle/Set implementation and synthetic validation; canonical baseline pending |
+| Latest completed task | 0010 - Implementation completed; launch resource gate failed; awaiting user commit/push |
 | Verified repository branch | `main` |
-| Verified implementation HEAD | `06450773e75a4d670c771d154714e0cb4d4d9557` |
+| Verified implementation HEAD / Task 0010 base | `96ef5aa86dea798966fa8d0e5cb38582ea84d70c` |
 | Current compact neural baseline | `compact-autoencoder-v2` |
-| Particle model state | Designed; implementation/training/calibration pending |
-| Next recommended task | 0010 - Compact Particle/Set Baseline Implementation and Background Validation, subject to resource gate and live index |
-| Real test evaluation exposure | None recorded through Task 0009; both test populations remain embargoed |
+| Particle model state | Implemented and synthetically tested; real dev/training/restoration/reproduction/freeze/calibration pending |
+| Next recommended task | 0011 - Bounded Particle/Set Resource-Gate Recovery and Background Validation, subject to live index and an explicit decision |
+| Real test evaluation exposure | None recorded through Task 0010; both test populations remain embargoed |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
 
@@ -58,13 +58,13 @@ The earlier planning conversation stopped at Task 0007 and described Task 0008 a
 
 **Canonical models:** PCA with six retained components; compact AE v2 with architecture `8 -> 6 -> 3 -> 6 -> 8`, 155 parameters, best epoch 381, stopped at epoch 396 under the unchanged patience rule. AE v1 is retained as historical evidence, not the current compact AE.
 
-**Particle/set design:** Task 0009 selects a 478-parameter equivariant particle autoencoder with local dimension 2 per retained particle and eight masked-mean context values. Corresponding-particle reconstruction avoids set matching; its total code is 2n+8, not an event-only eight-value compression. It is designed; implementation/training/calibration pending. See [the design](particle-set-baseline-design.md) and [design-only JSON](../configs/models/particle_set_baseline_design_v1.json).
+**Particle/set design:** Task 0009 selects a 478-parameter equivariant particle autoencoder with local dimension 2 per retained particle and eight masked-mean context values. Corresponding-particle reconstruction avoids set matching; its total code is 2n+8, not an event-only eight-value compression. Task 0010 implements and synthetically validates this unchanged design. The fresh launch gate measured only 3.694794 GiB available versus the frozen 8 GiB minimum and stopped before real reader construction. No dev optimization or canonical stage ran. See [the design](particle-set-baseline-design.md), [design-only JSON](../configs/models/particle_set_baseline_design_v1.json) and [implementation/gated outcome](particle-set-baseline.md).
 
-**What does not yet exist:** Real signal-discrimination results; an implemented/trained particle/set-aware model; controlled inference benchmarks; ONNX/CoreML exports; a quantization study; a trigger simulator; NVIDIA/TensorRT or FPGA measurements.
+**What does not yet exist:** Real signal-discrimination results; a trained/frozen particle/set-aware baseline; controlled inference benchmarks; ONNX/CoreML exports; a quantization study; a trigger simulator; NVIDIA/TensorRT or FPGA measurements.
 
-**Scientific boundary:** All real model development has used background only. No real `test_background` or `test_signal` model/evaluation population request is recorded through Task 0009. Whole-file integrity checks and frozen preprocessing are separate permitted custody operations.
+**Scientific boundary:** All real model development has used background only. No real `test_background` or `test_signal` model/evaluation population request is recorded through Task 0010. Whole-file integrity checks and frozen preprocessing are separate permitted custody operations.
 
-**Next:** Implement the selected compact particle/set design in proposed Task 0010, beginning with synthetic correctness and the bounded CPU resource gate. Full training depends on those gates and future task authorization. Do not repeat AE convergence unless new evidence invalidates its documented result.
+**Next:** Resolve the demonstrated launch-memory blocker through a bounded Task 0011 decision. Require available memory ≥8 GiB before another fresh dev attempt, retain the failed ledger/audit and original scientific settings. The 96-step dev allowance is unused. CPU throughput/convergence remain unmeasured; benchmark work waits for the baseline gates. Do not repeat AE convergence unless new evidence invalidates its documented result.
 
 ### How to interpret the statements in this file
 
@@ -122,7 +122,7 @@ These questions are not all currently answered. In particular, lower background 
 | --- | --- | --- |
 | Reliable data foundation | Pinned source, verified integrity, reproducible population membership, frozen transformations | Achieved for the primary LHCO dataset |
 | Transparent baselines | Linear and compact nonlinear models using a shared input/evaluation contract | PCA and compact AE implemented; AE convergence closure completed |
-| Richer event representation | A justified, compact, mask-aware particle/set baseline | Task 0009 design complete; implementation/training/calibration pending |
+| Richer event representation | A justified, compact, mask-aware particle/set baseline | Task 0009 design and Task 0010 implementation/synthetic validation complete; canonical baseline blocked at launch gate |
 | Scientific evaluation | Frozen-candidate discrimination metrics, calibrated operating points, uncertainties, and bias analysis | Framework exists; real final test evaluation is pending |
 | Hardware study | Repeatable latency, throughput, and memory measurements with clear timing boundaries | Pending |
 | Deployment study | Verified exports and reduced-precision variants where useful | Pending |
@@ -177,7 +177,7 @@ Pinned and verified raw HDF5
         -> standardized eight-aggregate view
             -> PCA / compact AE
         -> particle/set view [384, 4] + mask
-            -> designed compact particle/set AE (implementation pending)
+            -> implemented compact particle/set AE (canonical baseline pending)
     -> finite anomaly score, larger = more anomalous
     -> frozen background-calibrated thresholds
     -> inference runtime / precision variant
@@ -206,7 +206,8 @@ latent-trigger/
     models/pca_baseline.json
     models/compact_autoencoder.json
     models/compact_autoencoder_v2.json
-    models/particle_set_baseline_design_v1.json  # specification, not executable config
+    models/particle_set_baseline_design_v1.json  # historical design-only specification
+    models/compact_particle_set_autoencoder_v1.json  # exact executable mapping
   src/latenttrigger/
     data/          acquisition, inspection, splitting, features,
                    preprocessing, processed-store reading, analysis
@@ -261,7 +262,7 @@ CPU/GPU core counts, power mode, thermal behavior, and detailed hardware configu
 | Environment/build | `venv`, `pip`, editable installation, Hatchling, `src` package layout |
 | Package | `latenttrigger`, version 0.1.0 at this snapshot |
 | Numeric/data | NumPy; h5py and hdf5plugin in the optional data extra |
-| Modeling | scikit-learn PCA and metrics; PyTorch compact AE |
+| Modeling | scikit-learn PCA/metrics; PyTorch aggregate AE and implemented particle/set AE |
 | Analysis | Matplotlib in the optional analysis extra |
 | Quality | pytest, Ruff lint/format |
 | CI | CPU checks configured for Python 3.11 and 3.12 |
@@ -277,7 +278,7 @@ The raw numeric payload is 18,488,800,000 uncompressed bytes, exceeding installe
 
 Do not persist a full `[1,100,000,384,4]` tensor by default: the FP32 features alone would require 6,758,400,000 bytes. A single event's four-channel particle input uses 6,144 bytes, excluding mask, activations, and runtime overhead. Unified memory does not remove copies, synchronization costs, or capacity limits.
 
-Task 0009 selected design has 1,912 FP32 parameter bytes, 165,888 dense forward MAC/event at 384 particles and no quadratic score. Batch32 has a 0.75 MiB largest network tensor; an allocation inventory is about 3.68 MiB and a 4× working-tensor planning envelope about 14.71 MiB, excluding runtime/store overhead. These are analytic estimates, not measured RSS or latency. Future ceilings are 512 MiB working tensors/workspace, 6 GiB process RSS (including verification/mmap), at least 8 GiB available at launch and stop below 4 GiB available. Stream at most 32 padded events; never cache the padded population. CPU feasibility must pass the dev gate before full training.
+Task 0009 selected design has 1,912 FP32 parameter bytes, 165,888 dense forward MAC/event at 384 particles and no quadratic score. Batch32 has a 0.75 MiB largest network tensor; an allocation inventory is about 3.68 MiB and a 4× working-tensor planning envelope about 14.71 MiB, excluding runtime/store overhead. These are analytic estimates, not measured RSS or latency. Preregistered ceilings, enforced by Task 0010, are 512 MiB working tensors/workspace, 6 GiB process RSS (including verification/mmap), at least 8 GiB available at launch and stop below 4 GiB available. Stream at most 32 padded events; never cache the padded population. CPU feasibility must pass the dev gate before full training. Task 0010 measured synthetic batch32/full384 temporary tensor allocation at 5,228,448 bytes (4.986 MiB) with two Adam steps; this is not real-run peak memory or latency. The real launch attempt stopped at 3,967,254,528 available bytes (3.694794 GiB), before any store/view read. Launch RSS 356,663,296 bytes and native heap reservation 184,205,312 bytes are startup observations only. Available memory uses Darwin free+inactive pages; real stages also monitor native malloc arena reservation, RSS, memory floor and deadlines. No resource limit was relaxed.
 
 Check actual disk availability before expensive work; account for raw data, processed stores, temporary streams, repeated runs, caches, and a safety margin. Never delete verified raw data automatically to free space.
 
@@ -518,7 +519,8 @@ This table preserves the project-level outcome of each task. Detailed chronology
 | 0006 PCA Baseline and Evaluation Framework | `56a7409` | Frozen PCA, background diagnostics/calibration, common metrics, future audited final gate | 120 |
 | 0007 Compact Autoencoder Baseline | `64bb817` | Frozen AE v1, deterministic full CPU repeat, background calibration, MPS compatibility | 148 |
 | 0008 Compact Autoencoder Convergence Closure | `0645077` | Exact v1 prefix; unchanged-rule early stopping; canonical AE v2, exact independent repeat | 167 |
-| 0009 Particle-Level / Set-Aware Neural Baseline Design | Not committed by Codex; base `0645077` | One complete design, loss/score/budgets and future gates; zero real population requests | No suite rerun; synthetic formula/document checks |
+| 0009 Particle-Level / Set-Aware Neural Baseline Design | `96ef5aa`, verified in Task 0010 | One complete design, loss/score/budgets and future gates; zero real population requests | No suite rerun; synthetic formula/document checks |
+| 0010 Compact Particle/Set Baseline Implementation and Background Validation | Not committed by Codex; base `96ef5aa` | Exact implementation and synthetic validation; launch-memory gate failure before real reads; canonical stages pending | 247 |
 
 These counts and experiment outcomes are recorded historical evidence. Creating this memory did not rerun the full training or test suite. A configured CI job is not a verified hosted CI success.
 
@@ -564,9 +566,9 @@ These exclude raw/input verification; mmap pages contribute to RSS. EDA temporar
 | PCA reconstruction v1 | Frozen linear baseline | Eight aggregates; six retained axes | Local ignored `data/baselines/pca-v1/model.json`; curated results tracked |
 | Compact AE v1 | Historical Task 0007 baseline, preserved | Eight aggregates; latent dimension three | [v1 model](../artifacts/models/compact-autoencoder-v1/model.json) |
 | Compact AE v2 | Current canonical compact AE | Same architecture/input; later background-selected epoch | [v2 model](../artifacts/models/compact-autoencoder-v2/model.json) |
-| Particle/set model | Designed; implementation/training/calibration pending | Existing particle view plus mask; distributed local2 + mean8 code | [Design-only specification](../configs/models/particle_set_baseline_design_v1.json); no trained artifact/hash |
+| Particle/set model | Implemented/tested; canonical baseline pending launch-resource recovery | Existing particle view plus mask; distributed local2 + mean8 code | [Executable configuration](../configs/models/compact_particle_set_autoencoder_v1.json), [report](particle-set-baseline.md); no frozen trained artifact/hash |
 
-Implemented PCA/AE reconstruction scores remain SSE, larger means more anomalous. The designed particle score instead uses a masked mean of weighted corresponding-particle residuals (defined below); raw scales are not directly comparable. Raw scores are not normalized for plotting; `ln(1+s)` is only a display transform where used in reports.
+Implemented PCA/AE reconstruction scores remain SSE, larger means more anomalous. The implemented particle score instead uses a masked mean of weighted corresponding-particle residuals (defined below); raw scales are not directly comparable. Raw scores are not normalized for plotting; `ln(1+s)` is only a display transform where used in reports.
 
 ### 11.2 PCA baseline
 
@@ -749,7 +751,7 @@ PCA retains six dimensions while the AE retains three. Training mean SSE is appr
 
 Both model families show stable background transfer within finite-sample uncertainty. That establishes functioning score/calibration pipelines. It does not establish sensitivity to signal. No real AUC, AP, signal efficiency, or final test-background operating rate exists yet.
 
-### 11.7 Selected particle/set design (Task 0009; not trained)
+### 11.7 Particle/set design and implementation (Tasks 0009–0010; not trained on real data)
 
 Five biased shared Linear layers: encoder 4→16 ReLU→8 ReLU; local 8→2 linear; global g is the masked mean of the eight encoder values; decoder concatenates [local2,g8] and applies 10→16 ReLU→4 linear. Total 80+136+18+176+68=478 parameters. No raw-feature or hidden skips, input positions, output queries, auxiliary heads or normalization layers. Pooling is FP64 then cast to FP32; dense forward is FP32. Local/output arrays permute with particles; g and score are invariant mathematically, with declared numerical tolerances.
 
@@ -759,7 +761,7 @@ Capacity is 2n+8 real values plus validity metadata (776 floats at n384). Target
 
 Preregistered CPU training: seed1729, default Linear initialization in fixed layer order, explicit ordinary Adam options/lr0.001, batch32, workers0, shuffled complete train population/no dropped tail, one intra-op/inter-op thread, deterministic algorithms, no AMP/schedule/fallback. Full selection mean canonical score chooses strict improvements (ties retain earliest); min_delta0, patience20, max200 epochs, best-state restoration and exact independent reload/CPU reproduction before freeze/calibration. Resource or epoch cap without patience means convergence unresolved, requiring a new versioned decision.
 
-The future dev gate uses only first1,024 frozen dev-training IDs, at most three passes/96 steps plus one same-sample score pass, ≤300s; conservative full-cycle extrapolation must be ≤180s. Canonical cycles have a 180s ceiling, each fit+selection run ≤10h and postfit stages ≤1h; two complete repetitions ≤22h. No execution is authorized by the design. See [full contracts and acceptance gates](particle-set-baseline-design.md), [budget](../results/tables/final/task0009-particle-set-design-budget.csv) and [Task 0009 handoff](handoffs/0009-particle-set-baseline-design.md).
+The future dev gate uses only first1,024 frozen dev-training IDs, at most three passes/96 steps plus one same-sample score pass, ≤300s; conservative full-cycle extrapolation must be ≤180s. Canonical cycles have a 180s ceiling, each fit+selection run ≤10h and postfit stages ≤1h; two complete repetitions ≤22h. The design alone authorizes no execution; Task 0010 explicitly authorized conditional stages. Its launch gate failed before any real read/update, and no later stage was reached. See [full contracts and acceptance gates](particle-set-baseline-design.md), [budget](../results/tables/final/task0009-particle-set-design-budget.csv), [implementation outcome](particle-set-baseline.md) and [Task 0010 handoff](handoffs/0010-particle-set-baseline.md).
 
 ## 12. Evaluation, calibration, and uncertainty
 
@@ -913,7 +915,7 @@ This register captures enduring project reasoning. Add or supersede decisions he
 | Compact 155-parameter AE | Keep a transparent, practical first neural model without aggressive search | Implemented; no automatic architecture expansion |
 | Canonical CPU training, separate MPS smoke | Strengthen local determinism and separate model evidence from device compatibility | Implemented; future inference is measured independently |
 | Close convergence before richer models | V1's endpoint was an arbitrary epoch cap | Resolved by unchanged-rule Task 0008; v2 canonical |
-| Add particle/set information with local bottleneck and pooled context | Complete equivariant correspondence avoids matching while limiting each local path; 478 parameters and linear forward/score | Task 0009 design v1 selected; implementation/training/calibration pending |
+| Add particle/set information with local bottleneck and pooled context | Complete equivariant correspondence avoids matching while limiting each local path; 478 parameters and linear forward/score | Task 0009 design v1 selected; Task 0010 code tested, canonical stages pending at launch gate |
 | Reject pooled event-only Chamfer AE initially | Strict event compression needs output generation and costly matching; Chamfer can miss duplicate frequencies | Reconsider if fixed event-only compression becomes a concrete requirement under a new correspondence/resource contract |
 | Reject compact attention initially | One-head candidate costs about 15.8× selected MAC and quadratic activations without demonstrated interaction need | Reconsider only through a new design decision justified by a specific interaction limitation |
 | Calibrate on BG and hold out test until candidate freeze | Protect an interpretable final scientific comparison | Frozen |
@@ -930,7 +932,7 @@ The roadmap is dependency-driven. Dates, speedups, and physical trigger budgets 
 | --- | --- | --- |
 | Data foundation and aggregate baselines | Verified source/store/config, disjoint populations, reproducible PCA/AE | Completed, Tasks 0001-0007 |
 | AE convergence closure | Exact v1 prefix; fixed-rule endpoint; documented canonical supersession | Completed, Task 0008 |
-| Particle/set-aware baseline | Justified compact design, correct mask/permutation/loss/score semantics, background-only training/calibration | Task 0009 design complete; implementation/resource/training/calibration gates pending |
+| Particle/set-aware baseline | Justified compact design, correct mask/permutation/loss/score semantics, background-only training/calibration | Task 0009 design and Task 0010 code/synthetic checks complete; launch-resource gate failed, canonical stages pending |
 | Apple Silicon inference | Repeatable CPU/MPS batch-1 and throughput study, timing/memory scopes and hardware manifest | Planned |
 | ONNX / CoreML | Export/operator/provider audit and numerical/decision parity | Planned |
 | Precision reduction / quantization | Training-only calibration; measured cost benefit and background stability within declared policy | Planned |
@@ -942,19 +944,19 @@ The roadmap is dependency-driven. Dates, speedups, and physical trigger budgets 
 
 NVIDIA and FPGA branches need not block the main report if resources are unavailable. Report unexecuted branches honestly. Final unblinding must not occur merely because another milestone completes.
 
-### 16.2 Next recommended Task 0010
+### 16.2 Next recommended Task 0011
 
-**Compact Particle/Set Baseline Implementation and Background Validation**, subject to the live task index and Task 0009's resource gate.
+**Bounded Particle/Set Resource-Gate Recovery and Background Validation**, subject to the live index and an explicit bounded decision.
 
-The design question is resolved for the initial baseline: implement the local2/mean8 equivariant AE and its single corresponding-particle mean residual score. The [design report](particle-set-baseline-design.md) specifies every layer, information path, objective, score, edge case, resource ceiling, future training rule and minimal modules. Design-only JSON is not an executable training config or trained artifact.
+Task 0010's implementation and 247 synthetic tests pass; launch availability was 3.694794 GiB, below the frozen 8 GiB minimum. No real reader, dev update or canonical stage ran. This does not establish that the model is slow, too large or nonconvergent. Resolve the actual host-memory condition first; do not redesign the architecture, switch device, change batch/threads/horizon or infer feasibility from synthetic tensor size.
 
-Gate sequence: synthetic correctness → bounded dev CPU/resource feasibility → future-authorized full train/selection → best restoration and exact independent reproduction → freeze → calibration. Any failed gate blocks later stages. Do not automatically start this task, enlarge the model, change batch/device/horizon, access calibration early or unblind tests. If resource/epoch ceilings prevent the fixed patience endpoint, retain evidence and report convergence unresolved; a new versioned decision precedes changes.
+The smallest decision is one recorded fresh dev attempt after ≥8 GiB available memory, preserving failed evidence and the original unused 1,024-event/96-step allowance, factor2 extrapolation and all limits. Any new attempt must be explicitly authorized; the existing exclusive attempt ledger cannot silently reset. Stage sequence remains synthetic acceptance → real dev/resource → conditional canonical fit/selection → restoration/exact reproduction → freeze → calibration. A failed gate blocks later work. No task or test unblinding is automatically executed.
 
-Exit: a correctly implemented and reproducible background baseline only if all gates pass, with frozen scientific artifact and current calibration/diagnostics; otherwise an explicit bounded failure and next decision. Controlled inference measurements remain a later task.
+**Apple Silicon Inference Benchmark Protocol and Foundation** becomes the next recommendation only after the particle baseline's prerequisite gates complete. No latency/export/precision work should hide the unresolved resource/convergence status.
 
 ### 16.3 Proposed tasks after design
 
-- **Particle/set implementation and baseline (proposed Task 0010):** Follow the selected design and staged gates above; implement a bounded particle loader from ragged records, preserving guards/audits and existing evaluation functions. Record reproducibility and resource limits.
+- **Particle/set gate recovery (proposed Task 0011):** Resolve measured launch-memory shortage, then execute the existing bounded dev/canonical sequence only under a new explicit decision. Preserve exact design, audited particle streaming and prior failure evidence.
 - **Apple Silicon inference foundation:** Benchmark PCA, canonical compact AE v2, and the set model when available, with declared synchronized timing and memory scopes.
 - **ONNX/CoreML export and equivalence:** Export frozen candidates, audit operator/shape/provider behavior, and validate reconstruction/score/decision parity before speed claims.
 - **Reduced-precision study:** Compare supported precision variants using training-only calibration and preregistered tolerances; freeze variant thresholds before final test.
@@ -974,7 +976,7 @@ Do not treat these bullets as already executed tasks or fixed task numbers. Choo
 - V2's maximum training SSE increased while mean/most quantiles decreased. Per-event error need not improve monotonically; do not clip inconvenient tails.
 - PCA's lower residual and AE's smaller latent dimension reflect different retained capacity. Avoid a premature narrative of neural superiority or failure.
 - A tiny AE can be dominated by runtime overhead. Accelerator speedup is a question to test, not a starting assumption.
-- Particle structure is the next information difference to study; model complexity should follow a reasoned need.
+- Particle structure is implemented synthetically; real resource feasibility and background convergence remain prerequisites to scientific comparisons. The launch failure concerns current available host memory, not evidence for a richer model or device change.
 - An externally readable memory must preserve both general intent and current specifics. Handoffs alone are insufficient for strategic continuity, while this memory alone is insufficient for exact implementation auditing.
 
 ### 17.2 Main risks and controls
@@ -1000,7 +1002,8 @@ Do not treat these bullets as already executed tasks or fixed task numbers. Choo
 - Do current reconstruction scores discriminate the held-out signal usefully at calibrated low FPR? Unknown until final evaluation.
 - How much particle-level information is necessary for a meaningful quality/cost improvement?
 - The initial set objective is now fixed: corresponding-particle weighted mean, avoiding matching costs. Will its local capacity, rare-particle dilution, count blindness or limited mean context undermine discrimination? Unknown until the appropriate frozen evaluation.
-- Can the specified CPU implementation meet the 180s epoch/6 GiB RSS gates and converge under patience20 within200 epochs? Analytic tensor budgets are plausible; wall time and convergence are unmeasured.
+- Can host availability reach the frozen 8 GiB launch requirement for a bounded follow-up attempt? Task 0010 measured only 3.694794 GiB and consumed no real dev optimization budget.
+- Can the CPU implementation meet the factor2/180s epoch and 6 GiB RSS gates, then converge under patience20 within200 epochs? Synthetic allocations/correctness pass; real throughput and convergence are unmeasured.
 - What is the actual latency/throughput/memory frontier on the specific Mac configuration?
 - Do ONNX/CoreML provide a useful benefit for these model sizes and shapes?
 - What precision changes preserve decisions and improve measured cost?
@@ -1008,7 +1011,7 @@ Do not treat these bullets as already executed tasks or fixed task numbers. Choo
 - Will NVIDIA/FPGA access be available, and which deployment branch is worth its engineering cost?
 - How robust are conclusions to different signals, simulation shifts, pileup, or real-data selections? These require later protocols, not extrapolation from the current benchmark.
 
-No unresolved design blocker is documented after Task 0009. Implementation/resource/training gates remain pending; their success and signal usefulness are not established by a complete specification.
+No design/correctness blocker remains after Task 0010. A measured launch-memory blocker prevents real dev/resource/training stages. Canonical convergence, exact reproduction, freeze/calibration and signal usefulness remain pending; no trained-model hash or performance result exists.
 
 ## 18. Development workflow and mandatory Git delivery
 
@@ -1175,6 +1178,7 @@ commands. Do not automatically stage, commit, push, or unblind real test data.
 - [Task 0008 scientific results](../results/tables/final/task0008-autoencoder-convergence-summary.json).
 - [Task 0008 handoff](handoffs/0008-autoencoder-convergence.md) for detailed closure evidence.
 - [Particle/set design](particle-set-baseline-design.md), [design-only JSON](../configs/models/particle_set_baseline_design_v1.json), [analytic budget](../results/tables/final/task0009-particle-set-design-budget.csv) and [Task 0009 handoff](handoffs/0009-particle-set-baseline-design.md).
+- [Particle/set implementation](particle-set-baseline.md), [executable JSON](../configs/models/compact_particle_set_autoencoder_v1.json), [gate/resource evidence](../results/tables/final/task0010-particle-set-gate-summary.json) and [Task 0010 handoff](handoffs/0010-particle-set-baseline.md).
 
 ### 21.2 External references
 
@@ -1195,5 +1199,6 @@ Runtime documentation and compatibility must be rechecked when the corresponding
 | --- | --- | --- |
 | 1.0 / 2026-10-06 | Established an English, maintained project-wide memory distinct from task handoffs; incorporated Tasks 0001-0008, canonical v2, frozen scientific contracts, rationale, roadmap, update rules, and session bootstrap instructions | Repository snapshot `0645077`, exact configurations/artifacts/curated results, scientific reports and historical handoffs |
 | 1.1 / 2026-10-06 | Selected local2/mean8 particle reconstruction design over event-only Chamfer and attention; froze score, capacity limits, CPU resource/convergence gates and proposed Task 0010; no implementation/training/calibration or new population access | Task 0009 design-only specification, analytic budgets/synthetic formulas and rechecked Task 0008 small-file evidence |
+| 1.2 / 2026-10-06 | Exact particle design implemented with 247 synthetic tests and measured temporary allocations; 8 GiB launch gate failed at 3.694794 GiB before real reads, leaving canonical stages pending; next bounded decision addresses host resources without scientific drift | Task 0010 implementation/report/curated gate summary; base `96ef5aa`; zero real population requests |
 
 Keep future entries short and focused on project-level changes. Update current-state sections in place; the revision table is not a second task log.

@@ -65,8 +65,11 @@ performance remains intentionally embargoed. Task 0008 closes
 v2 is now the canonical compact AE. Task 0009 defines a
 [478-parameter particle/set autoencoder design](docs/particle-set-baseline-design.md)
 with local bottlenecks, pooled context and a linear-cost reconstruction score.
-It is designed; implementation, training and calibration are pending. Proposed
-Task 0010 begins with synthetic correctness and a bounded CPU resource gate.
+Task 0010 [implements the unchanged design](docs/particle-set-baseline.md), with
+247 passing synthetic tests. Its launch gate failed at 3.69 GiB available memory
+versus the frozen 8 GiB minimum, before real reader construction or dev updates.
+Canonical training, reproduction, freeze and calibration remain pending. The
+next bounded decision addresses the host-resource gate; limits remain unchanged.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
 Development records follow the
@@ -246,7 +249,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0007: compact autoencoder, reproducible CPU model and background calibration.
 - [x] Task 0008: convergence closure; canonical v2 selected with unchanged patience rule.
 - [x] Task 0009: compact particle/set design, exact loss/score and future resource gates.
-- [ ] Task 0010 (proposed): particle/set implementation and background validation, subject to gates.
+- [x] Task 0010: particle/set implementation and synthetic validation; launch gate failed, canonical baseline pending.
+- [ ] Task 0011 (proposed): bounded particle/set resource-gate recovery and background validation.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

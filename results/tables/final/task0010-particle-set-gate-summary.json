@@ -1,0 +1,74 @@
+{
+  "task": "0010",
+  "status": "implementation_completed_canonical_baseline_pending",
+  "base_commit": "96ef5aa86dea798966fa8d0e5cb38582ea84d70c",
+  "design_scientific_sha256": "3aaccbccb2610f60647d4eca9fab5a368ce10cf812cc189c3e3394b4a4db6f67",
+  "executable_config_scientific_sha256": "48b1c647cd8979860a9231e2aea59295054dedf6b4339b3100b5b5679649416b",
+  "synthetic_validation": {
+    "pytest_passed": 247,
+    "lint": "passed",
+    "format": "passed",
+    "editable_installation": "passed",
+    "dependency_consistency": "passed",
+    "cpu_model_smoke": "passed",
+    "parameter_count": 478,
+    "fp32_parameter_bytes": 1912,
+    "workspace_measurement": {
+      "scope": "synthetic_full_cardinality_batch32",
+      "method": "PyTorch_CPU_allocation_timeline_including_autograd_temporaries",
+      "synthetic_optimizer_steps": 2,
+      "peak_tensor_bytes": 5228448,
+      "parameter_count": 478,
+      "torch_version": "2.14.1",
+      "external_workspace_accounting": "whole_native_malloc_arena_reservation_during_real_stages"
+    }
+  },
+  "dev_gate": {
+    "status": "failed_before_store_construction",
+    "reason": "Launch available memory below 8 GiB.",
+    "unique_real_events": 0,
+    "population_requests": 0,
+    "optimizer_steps": 0,
+    "passes_completed": 0,
+    "train_pass_seconds": null,
+    "score_pass_seconds": null,
+    "extrapolated_full_cycle_seconds": null,
+    "resources": {
+      "elapsed_seconds": 1.3417417500168085,
+      "samples": 1,
+      "peak_rss_bytes": 356663296,
+      "native_heap_reserved_bytes": 184205312,
+      "minimum_available_bytes": 3967254528,
+      "last_sample": {
+        "available_bytes": 3967254528,
+        "peak_rss_bytes": 356663296,
+        "native_heap_reserved_bytes": 184205312,
+        "native_heap_in_use_bytes": 138792912,
+        "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+        "available_method": "Darwin_free_plus_inactive_pages"
+      }
+    },
+    "required_launch_available_bytes": 8589934592,
+    "available_memory_definition": "Darwin_free_plus_inactive_pages"
+  },
+  "stages_not_reached": [
+    "real_dev_model_views",
+    "canonical_training",
+    "restoration",
+    "independent_reproduction",
+    "freeze",
+    "calibration",
+    "real_background_diagnostics"
+  ],
+  "test_background_model_evaluation_accessed": false,
+  "test_signal_model_evaluation_accessed": false,
+  "new_model_scientific_sha256": null,
+  "curated_trained_artifact": null,
+  "next_decision": "Bounded resource-gate recovery after available memory >=8 GiB; preserve failed attempt; original dev optimization allowance entirely unused; no model/batch/device/horizon changes authorized.",
+  "acceptance_evidence": {
+    "gate_attempt_file_sha256": "535554d2673622bba6e9992de792a50bed7fb009dc5b4df5257d544bae3e6575",
+    "final_source_bound_file_sha256": "3037988a7975e6af040d3648b943930bf048b4b9648c193ab754b7f2f2b10020",
+    "timing_boundary_correction_after_gate": "canonical_total_timer_starts_after_separate_dev_stage",
+    "real_attempt_repeated": false
+  }
+}

@@ -1,0 +1,433 @@
+{
+  "schema_version": 1,
+  "runtime_config_version": 1,
+  "status": "executable",
+  "model_type": "compact_particle_set_autoencoder",
+  "design_id": "particle-set-design-v1",
+  "design_version": 1,
+  "design_scientific_sha256": "3aaccbccb2610f60647d4eca9fab5a368ce10cf812cc189c3e3394b4a4db6f67",
+  "evaluation_protocol": "latenttrigger-evaluation-v1",
+  "input": {
+    "model_input_contract_version": 1,
+    "processed_schema_version": 1,
+    "representation": "particle_model_view",
+    "features_shape": [
+      "B",
+      384,
+      4
+    ],
+    "features_dtype": "float32",
+    "mask_shape": [
+      "B",
+      384
+    ],
+    "mask_dtype": "bool",
+    "mask_true": "real_retained_particle",
+    "public_mask": "nonempty_prefix",
+    "internal_set_kernel_mask": "nonempty_arbitrary_positions",
+    "channels": [
+      "standardized_log1p_pt",
+      "standardized_eta",
+      "sin_phi",
+      "cos_phi"
+    ],
+    "nmax": 384,
+    "frozen_object_view": {
+      "channels": [
+        "standardized_log1p_pt",
+        "standardized_eta",
+        "sin_phi",
+        "cos_phi"
+      ],
+      "pt_reference_GeV": 1.0,
+      "pt_mean": 1.7563971656024226,
+      "pt_std": 1.1860427476562252,
+      "eta_mean": -2.3446856614008353e-05,
+      "eta_std": 1.4824139450954399,
+      "nmax": 384,
+      "selection_rule": "Smallest candidate with truncation <= 1% and event-mean lost scalar pT <= 0.1%",
+      "ordering": "Descending float64 source pT; ascending eta, wrapped phi, original slot for ties",
+      "padding": 0.0,
+      "mask_true": "real retained particle",
+      "dtype": "float32"
+    },
+    "source_sha256": "5da8fda2ca78edf8fa5acc0af92fcb6a2d464ba7bf0fd75e3944a169b88cecc6",
+    "preprocessing_config_sha256": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "split_identity_sha256": "74a97d8956a4b75d5710d456bc207fdfa9d27569256bafe7b8e72a7891468fea",
+    "processed_full_scientific_sha256": "d12574e90e9ba9dff71e4e796f5004e704bce5d824db98c545a96d2df08e12d2",
+    "processed_dev_scientific_sha256": "2eb34e5b811c12ae5c47afba1ecdb6322feb7c7774b6c9ec5331abe78b3c9a2a",
+    "diagnostic_only": [
+      "n_original",
+      "retained_pt_fraction",
+      "physical_event_aggregates"
+    ],
+    "forbidden_model_inputs": [
+      "labels",
+      "event_ids",
+      "original_slots",
+      "fingerprints",
+      "split_names"
+    ],
+    "positions_or_input_embeddings": false,
+    "angular_input_norm_squared_atol": 2e-06,
+    "nonfinite_policy": "reject_everywhere_including_padding",
+    "empty_policy": "reject",
+    "implicit_dtype_casts": false
+  },
+  "architecture": {
+    "layers": [
+      {
+        "name": "e1",
+        "in_features": 4,
+        "out_features": 16,
+        "bias": true,
+        "activation": "relu",
+        "shared_over_particles": true,
+        "parameter_count": 80
+      },
+      {
+        "name": "e2",
+        "in_features": 16,
+        "out_features": 8,
+        "bias": true,
+        "activation": "relu",
+        "shared_over_particles": true,
+        "parameter_count": 136
+      },
+      {
+        "name": "local",
+        "in_features": 8,
+        "out_features": 2,
+        "bias": true,
+        "activation": "linear",
+        "shared_over_particles": true,
+        "parameter_count": 18
+      },
+      {
+        "name": "d1",
+        "in_features": 10,
+        "out_features": 16,
+        "bias": true,
+        "activation": "relu",
+        "shared_over_particles": true,
+        "parameter_count": 176
+      },
+      {
+        "name": "d2",
+        "in_features": 16,
+        "out_features": 4,
+        "bias": true,
+        "activation": "linear",
+        "shared_over_particles": true,
+        "parameter_count": 68
+      }
+    ],
+    "execution_order": [
+      "sanitize_input",
+      "e1",
+      "e2",
+      "zero_padded_h",
+      "local",
+      "zero_padded_local",
+      "masked_mean_h",
+      "broadcast_concat_local_then_global",
+      "d1",
+      "d2",
+      "zero_padded_output"
+    ],
+    "pooling": {
+      "definition": "sum_valid_h_divided_by_n_retained",
+      "width": 8,
+      "accumulation_dtype": "float64",
+      "division_dtype": "float64",
+      "decoder_context_dtype": "float32"
+    },
+    "local_latent_dim": 2,
+    "global_latent_dim": 8,
+    "valid_latent_capacity": "2*n_retained+8",
+    "parameter_count": 478,
+    "fp32_parameter_bytes": 1912,
+    "parameter_order": [
+      "e1.weight",
+      "e1.bias",
+      "e2.weight",
+      "e2.bias",
+      "local.weight",
+      "local.bias",
+      "d1.weight",
+      "d1.bias",
+      "d2.weight",
+      "d2.bias"
+    ],
+    "parameter_shapes": [
+      [
+        16,
+        4
+      ],
+      [
+        16
+      ],
+      [
+        8,
+        16
+      ],
+      [
+        8
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2
+      ],
+      [
+        16,
+        10
+      ],
+      [
+        16
+      ],
+      [
+        4,
+        16
+      ],
+      [
+        4
+      ]
+    ],
+    "forward_dtype": "float32",
+    "relu_inplace": false,
+    "decoder_input_order": [
+      "local",
+      "global"
+    ],
+    "output_shape": [
+      "B",
+      384,
+      4
+    ],
+    "output_dtype": "float32",
+    "output_validity": "same_mask_as_input; excluded_outputs_exact_zero",
+    "raw_feature_or_hidden_skips_to_decoder": false,
+    "queries": null,
+    "normalization": null,
+    "dropout": 0.0,
+    "auxiliary_heads": []
+  },
+  "objective": {
+    "version": 1,
+    "definition": "masked_mean_weighted_corresponding_particle_squared_residual",
+    "channel_weights": [
+      1.0,
+      1.0,
+      0.5,
+      0.5
+    ],
+    "channel_denominator": 3.0,
+    "event_formula": "sum_valid_i(sum_c(w_c*(X_ic-Y_ic)^2)/3)/n_retained",
+    "batch_formula": "sum_event_loss/actual_batch_events",
+    "epoch_formula": "sum_individual_event_losses/actual_population_events",
+    "correspondence": "equivariant_input_particle_to_its_own_local_code_output",
+    "input_output_cardinality": "both_n_retained_with_identical_mask",
+    "count_reconstruction": false,
+    "angular_output": "unconstrained_sin_cos; no_projection_no_atan2_no_auxiliary_penalty",
+    "angular_zero_norm_contribution_before_channel_denominator": 0.5,
+    "residual_dtype": "float64",
+    "reduction_dtype": "float64",
+    "parameter_gradient_dtype": "float32",
+    "additional_loss_terms": []
+  },
+  "score": {
+    "version": 1,
+    "canonical_components": 1,
+    "definition": "same_event_objective",
+    "orientation": "higher_is_more_anomalous",
+    "shape": [
+      "B"
+    ],
+    "dtype": "float64",
+    "device": "cpu",
+    "needs_reconstruction": true,
+    "needs_pairwise_distances": false,
+    "needs_assignment_solver": false,
+    "count_term_weight": 0.0,
+    "posthoc_correction": false,
+    "tail_clipping": false,
+    "nonfinite_policy": "reject"
+  },
+  "roles": {
+    "fit": "train_background",
+    "selection": "validation_selection_background",
+    "calibration": "validation_calibration_background",
+    "forbidden": [
+      "test_background",
+      "test_signal"
+    ],
+    "allow_test": false,
+    "include_labels": false
+  },
+  "resource_gate": {
+    "version": 1,
+    "training_batch_size": 32,
+    "score_batch_size": 32,
+    "full_population_padding_cache": false,
+    "working_tensor_and_workspace_ceiling_bytes": 536870912,
+    "process_peak_rss_ceiling_bytes": 6442450944,
+    "minimum_system_available_bytes_at_launch": 8589934592,
+    "stop_if_system_available_below_bytes": 4294967296,
+    "dev": {
+      "population": "train_background",
+      "dev_only": true,
+      "sample_policy": "first_1024_source_ordered_ids_in_frozen_dev_train",
+      "events": 1024,
+      "max_passes": 3,
+      "max_optimizer_steps": 96,
+      "scoring_passes": 1,
+      "max_wall_seconds": 300,
+      "other_population_accesses": 0,
+      "artifact_scope": "disposable_dev_diagnostic",
+      "loss_improvement_selection": false
+    },
+    "extrapolation": "2*(699957*max_train_pass_seconds/1024 + 74749*score_pass_seconds/1024) <= 180; view_preparation_included",
+    "max_full_epoch_cycle_seconds": 180,
+    "max_fitting_selection_wall_seconds_per_run": 36000,
+    "max_restore_reproduce_freeze_background_stage_seconds_per_run": 3600,
+    "max_two_run_total_wall_seconds": 79200,
+    "failure": "block_dependent_stages; no_automatic_device_batch_model_or_horizon_changes"
+  },
+  "calibration_preregistration": {
+    "population": "validation_calibration_background",
+    "count": 74823,
+    "after": [
+      "best_restoration",
+      "independent_reload_verification",
+      "independent_cpu_reproduction",
+      "model_freeze"
+    ],
+    "target_fprs": [
+      0.1,
+      0.05,
+      0.01,
+      0.001
+    ],
+    "quantile_method": "higher",
+    "decision": "score > threshold",
+    "transfer_population": "validation_selection_background",
+    "threshold_retuning": false,
+    "summary_quantile_method": "linear",
+    "stability": "two_sample_ks_distance_without_p_values",
+    "rate_interval": "Wilson_95",
+    "zero_acceptance": "null_rejection_and_one_sided_exact_95_upper_bound",
+    "preserve_tails": true,
+    "diagnostics": [
+      "n_retained",
+      "n_original",
+      "truncation_flag",
+      "retained_pt_fraction",
+      "scalar_pt",
+      "max_pt",
+      "massless_event_mass"
+    ],
+    "diagnostic_bins": "10_equal_count_postfreeze_train_quantile_bins; merge_tied_edges_keep_overflow_tails; frozen_transfer; truncation_two_groups",
+    "diagnostic_statistics": [
+      "count",
+      "mean_score",
+      "median_score",
+      "p99_score",
+      "max_score",
+      "frozen_threshold_acceptance_and_intervals"
+    ],
+    "selection_is_untouched": false,
+    "calibration_is_independent_threshold_validation": false,
+    "diagnostic_feedback_into_model": false
+  },
+  "numerical_acceptance": {
+    "well_scaled_synthetic_domain": "abs(valid_features)<=10 and abs(weights)<=1",
+    "fp32_latent_output_symmetry": {
+      "atol": 1e-06,
+      "rtol": 1e-05
+    },
+    "fp64_score_symmetry": {
+      "atol": 1e-08,
+      "rtol": 1e-06
+    },
+    "fp64_formula": {
+      "atol": 1e-12,
+      "rtol": 1e-12
+    },
+    "padding_output_and_gradient": "exact_zero",
+    "same_environment_rerun": "exact"
+  },
+  "training": {
+    "version": 1,
+    "seed": 1729,
+    "shuffle_seed": 1729,
+    "device": "cpu",
+    "automatic_fallback": null,
+    "initialization": {
+      "type": "pytorch_linear_default",
+      "weight_and_bias": "uniform(-1/sqrt(fan_in),1/sqrt(fan_in))",
+      "dtype": "float32",
+      "layer_order": [
+        "e1",
+        "e2",
+        "local",
+        "d1",
+        "d2"
+      ]
+    },
+    "optimizer": {
+      "name": "adam",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0,
+      "amsgrad": false,
+      "maximize": false,
+      "foreach": false,
+      "fused": false,
+      "capturable": false,
+      "differentiable": false,
+      "decoupled_weight_decay": false
+    },
+    "optimizer_version_note": "If decoupled_weight_decay keyword unavailable, ordinary Adam weight_decay=0 is semantically identical; record exact options/version.",
+    "zero_grad_set_to_none": true,
+    "scheduler": null,
+    "gradient_clipping": null,
+    "gradient_accumulation_steps": 1,
+    "batch_size": 32,
+    "scoring_batch_size": 32,
+    "num_workers": 0,
+    "pin_memory": false,
+    "prefetch_pool": false,
+    "drop_last": false,
+    "shuffle": "uniform_permutation_without_replacement_each_epoch; dedicated_generator_seeded_once_and_advanced",
+    "population_base_order": "source_ordinal",
+    "selection_order": "source_ordinal",
+    "tail": "actual_batch_size_mean",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "num_threads": 1,
+    "num_interop_threads": 1,
+    "execution": "fresh_cpu_subprocess; record_BLAS_environment",
+    "amp": false,
+    "forward_dtype": "float32",
+    "pool_dtype": "float64_then_float32",
+    "loss_dtype": "float64",
+    "selection_metric": "full_selection_equal_event_mean_canonical_score_float64",
+    "checkpoint_rule": "metric < best - min_delta; exact_ties_keep_earliest_best_and_increment_bad_epochs",
+    "min_delta": 0.0,
+    "patience": 20,
+    "max_epochs": 200,
+    "patience_at_max_epoch_has_priority": true,
+    "best_state": "clone_all_ordered_FP32_parameters_on_improvement_and_restore_before_export",
+    "independent_restore_verification": "exact_parameter_bytes_and_selection_score_bytes_mean_against_best_record_same_environment",
+    "independent_rerun": "fresh_initialization_same_seed; exact_history_stop_selected_epoch_weights_scientific_hash_and_score_bytes",
+    "ceiling_without_patience": "convergence_unresolved; no_freeze_or_calibration; new_versioned_decision_required",
+    "calibration_before_reproduction_and_freeze": false
+  }
+}
