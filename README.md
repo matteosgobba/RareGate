@@ -92,6 +92,13 @@ versioned50ms host sampling/≤100ms query-start age with fresh process checks.
 Final532synthetic tests pass; paired complete-workload gain2.14× misses the3×
 real-budget prerequisite. No readiness/real slot/new data/update; original96steps
 remain consumed and canonical particle training/calibration remain pending.
+[Task0016](docs/particle-runtime-characterization.md) prospectively replaces that
+synthetic admission prerequisite for one diagnostic characterization, preserving
+its failed result and the real180s target. Separate authorization adopts unchanged
+v4;576synthetic tests pass. One automatic readiness guard observes3.558060GiB and
+fails the4GiB floor before data/updates. The shared single replacement additional
+slot remains unreserved; a reviewed optional Terminal route is available in the
+report, without app closure or dedicated use. Canonical stages remain pending.
 Engineering supports normal Mac use with apps open, without a dedicated window.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -278,7 +285,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0013: lightweight supervision delivered; later external study consumed96steps, passed memory and failed throughput.
 - [x] Task0014: external receipts reconciled; v3 resource instrumentation tested on synthetic inputs, no new real access.
 - [x] Task0015: bounded-age v4 tested; synthetic2.14×gain below3×, no real revalidation unlocked.
-- [ ] Resolve the measured runtime/material gate through an explicit bounded engineering or budget decision; canonical full-run scope remains separate.
+- [x] Task0016: prospective diagnostic admission reviewed; automatic readiness blocked, zero new real data/steps.
+- [ ] Reconcile the optional single Task0016 manual characterization when user-executed; actual-policy artifacts/canonical authorization remain separate.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.
