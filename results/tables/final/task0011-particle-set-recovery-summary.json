@@ -240,5 +240,144 @@
   "test_background_model_evaluation_accessed": false,
   "test_signal_model_evaluation_accessed": false,
   "hosted_ci": "unverified",
-  "next_dependency": "User-controlled host preparation, then one bounded three-sample preflight and conditional fixed Task0011 recovery. Separate versioned engineering-policy review if original readiness cannot be met; no policy change here."
+  "next_dependency": "User-controlled host preparation, then one bounded three-sample preflight and conditional fixed Task0011 recovery. Separate versioned engineering-policy review if original readiness cannot be met; no policy change here.",
+  "resumptions": [
+    {
+      "date": "2026-10-07",
+      "reason": "Explicit user resumption after user-reported reboot and manual closure of unnecessary workloads",
+      "prompt": "docs/prompts/0011-particle-set-resource-recovery-resume.md",
+      "base_commit": "50e42b3a568ef51d73959cddcee8a0bc22f87bff",
+      "verified_task0010_commit": "694bffd",
+      "verified_initial_task0011_commit": "50e42b3",
+      "initial_worktree_and_index": "clean",
+      "outcome": "readiness_still_blocked",
+      "acceptance_file": "data/task0011-reviewed-synthetic-acceptance.json",
+      "acceptance_file_sha256": "1cef87bb612eb7066e1f3e91cb01ba16ff84d3152c2198945098a012c8d79159",
+      "acceptance_verification": "all current source hashes, frozen config and pinned predecessor identities match; recorded 296 passing tests and synthetic workspace5228448bytes. No unnecessary synthetic rerun/source modification.",
+      "preflight": {
+        "file": "data/baselines/task0011-preflight-after-reboot-2026-10-07.json",
+        "file_sha256": "e99c614468d6d1c5e737991a34820a02bd9e40ec26e59dc2894889b01d1176eb",
+        "record_sha256": "4ffb0250df5d4d23a394b2628cfea219d4ab3e7a40bae6513fb592b4cac60861",
+        "started_utc": "2026-10-07T06:25:57.521354+00:00",
+        "elapsed_seconds": 5.033480707999956,
+        "sample_span_seconds": 5.004717207999988,
+        "ready": false,
+        "readings": [
+          {
+            "timestamp_utc": "2026-10-07T06:25:57.543176+00:00",
+            "elapsed_seconds": 0.021829541999977664,
+            "passed": false,
+            "error": "Launch available memory below 8 GiB.",
+            "sample": {
+              "page_size_bytes": 16384,
+              "free_pages": 4667,
+              "inactive_pages": 299977,
+              "available_bytes": 4991287296,
+              "available_gib": 4.64849853515625,
+              "context_counters_are_not_available_bytes": true,
+              "peak_rss_bytes": 357875712,
+              "native_heap_reserved_bytes": 184205312,
+              "native_heap_in_use_bytes": 139041456,
+              "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+              "available_method": "Darwin_free_plus_inactive_pages"
+            },
+            "checks": {
+              "launch_available_ge_8gib": false,
+              "continuing_available_ge_4gib": true,
+              "rss_le_6gib": true,
+              "native_heap_le_512mib": true
+            }
+          },
+          {
+            "timestamp_utc": "2026-10-07T06:26:00.045133+00:00",
+            "elapsed_seconds": 2.523828583000011,
+            "passed": false,
+            "error": "Launch available memory below 8 GiB.",
+            "sample": {
+              "page_size_bytes": 16384,
+              "free_pages": 4025,
+              "inactive_pages": 299067,
+              "available_bytes": 4965859328,
+              "available_gib": 4.62481689453125,
+              "context_counters_are_not_available_bytes": true,
+              "peak_rss_bytes": 357924864,
+              "native_heap_reserved_bytes": 184205312,
+              "native_heap_in_use_bytes": 139049520,
+              "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+              "available_method": "Darwin_free_plus_inactive_pages"
+            },
+            "checks": {
+              "launch_available_ge_8gib": false,
+              "continuing_available_ge_4gib": true,
+              "rss_le_6gib": true,
+              "native_heap_le_512mib": true
+            }
+          },
+          {
+            "timestamp_utc": "2026-10-07T06:26:02.547828+00:00",
+            "elapsed_seconds": 5.026546749999966,
+            "passed": false,
+            "error": "Launch available memory below 8 GiB.",
+            "sample": {
+              "page_size_bytes": 16384,
+              "free_pages": 3763,
+              "inactive_pages": 303067,
+              "available_bytes": 5027102720,
+              "available_gib": 4.681854248046875,
+              "context_counters_are_not_available_bytes": true,
+              "peak_rss_bytes": 357924864,
+              "native_heap_reserved_bytes": 184205312,
+              "native_heap_in_use_bytes": 139057584,
+              "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+              "available_method": "Darwin_free_plus_inactive_pages"
+            },
+            "checks": {
+              "launch_available_ge_8gib": false,
+              "continuing_available_ge_4gib": true,
+              "rss_le_6gib": true,
+              "native_heap_le_512mib": true
+            }
+          }
+        ]
+      },
+      "host_context": {
+        "installed_ram_bytes_from_memory_pressure_Q": 17179869184,
+        "actual_page_size_bytes": 16384,
+        "memory_pressure_free_percentage": 61,
+        "pressure_percentage_replaces_frozen_metric": false,
+        "current_swap_use": "permission restricted",
+        "current_worker_rss": "permission restricted; peak RSS from getrusage available"
+      },
+      "attempt_accounting": {
+        "new_attempts_reserved": 0,
+        "new_attempts_dispatched": 0,
+        "total_task0011_attempts_reserved": 0,
+        "new_population_requests": 0,
+        "new_real_events": 0,
+        "new_real_optimizer_steps": 0,
+        "new_ledger_exists": false,
+        "new_plan_exists": false,
+        "new_output_exists": false,
+        "remaining_dev_unique_events": 1024,
+        "remaining_dev_train_passes": 3,
+        "remaining_dev_optimizer_steps": 96,
+        "remaining_same_sample_score_passes": 1
+      },
+      "scientific_resource_policy": "unchanged",
+      "test_background_model_evaluation_accessed": false,
+      "test_signal_model_evaluation_accessed": false,
+      "stages_not_reached": [
+        "recovery_worker_launch",
+        "real_dev",
+        "canonical_fit",
+        "restoration",
+        "independent_reproduction",
+        "freeze",
+        "calibration",
+        "real_background_diagnostics"
+      ],
+      "next_dependency": "Separate bounded versioned engineering-policy review of the launch accounting/host readiness after manual preparation still fails. No relaxation or new task execution here."
+    }
+  ],
+  "current_evidence": "resumptions[-1]; initial evidence above preserved"
 }

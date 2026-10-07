@@ -1,7 +1,13 @@
 # Particle/set resource recovery — Task 0011
 
-**Readiness still blocked; canonical particle baseline pending.** Three fresh-CPU
-preflight readings all failed the unchanged launch requirement. No recovery
+**Readiness still blocked; canonical particle baseline pending (rechecked 2026-10-07).**
+The explicitly resumed check after user-reported reboot/manual preparation again
+failed all three ≥8GiB launch readings:4.6485/4.6248/4.6819GiB. These now pass the
+4GiB continuing floor. No recovery attempt was reserved. See the dated resumption
+below; original 2026-10-06 measurements remain preserved.
+
+Initial outcome: three fresh-CPU preflight readings failed the unchanged launch
+requirement. No recovery
 attempt was reserved, no processed reader opened, and no real optimizer step was
 consumed. This establishes an environment blocker, not model infeasibility or
 convergence failure. Task 0011 completes its bounded readiness/routing work.
@@ -11,8 +17,10 @@ See the [curated evidence](../results/tables/final/task0011-particle-set-recover
 [actual authorization](prompts/0011-particle-set-resource-recovery.md).
 The historical [Task 0010 report](particle-set-baseline.md), handoff, gate summary,
 original failed ledger/audit and both acceptance files remain byte-identical.
-Task 0010 is still uncommitted at Task 0011's base `96ef5aa`; separate prerequisite
-snapshots preserve its original content for manual Git delivery.
+At the initial Task0011 base `96ef5aa`, Task0010 was uncommitted; separate
+prerequisite snapshots preserved its original content. The resumption verified
+Task0010 commit `694bffd` and initial Task0011 commit `50e42b3`; tree/index were
+clean. Earlier delivery instructions describe the historical initial state.
 
 ## Diagnosis and stable preflight
 
@@ -210,3 +218,41 @@ or automatically numbering/executing a new task. Inference work waits for the
 canonical baseline gates. This task updated living memory in place to distinguish
 preflight, recovery launch, dev feasibility, convergence, reproduction, freeze
 and calibration, retaining unresolved model questions and original failure evidence.
+
+## Explicit resumption after reboot — 2026-10-07
+
+The [actual user follow-up](prompts/0011-particle-set-resource-recovery-resume.md)
+requested one new bounded preflight after manual preparation and conditional
+execution of the unused recovery. Current acceptance verified against every
+source hash, exact configuration and pinned predecessor. No code or policy
+changed; existing296-test/5228448-byte synthetic evidence remains current.
+
+Exactly one fresh CPU preflight was saved to new ignored file
+`data/baselines/task0011-preflight-after-reboot-2026-10-07.json`; previous files
+were preserved. Samples, Europe/Rome UTC+02:00:
+
+| Time | Free / inactive pages | Available bytes | Available GiB | Peak RSS bytes | Native reserved bytes |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 08:25:57.543176 | 4667 /299977 | 4991287296 | 4.64849853515625 | 357875712 | 184205312 |
+| 08:26:00.045133 | 4025 /299067 | 4965859328 | 4.62481689453125 | 357924864 | 184205312 |
+| 08:26:02.547828 | 3763 /303067 | 5027102720 | 4.681854248046875 | 357924864 | 184205312 |
+
+Same actual16384-byte page size and free+inactive definition. Span5.004717208s,
+total5.033480708s within30s. All launch readings fail8GiB; continuing4GiB,
+RSS6GiB and native512MiB checks pass. `memory_pressure -Q` reports16GiB installed
+and contextual free61%; that percentage does not replace the gate. Current
+swap/current RSS queries remain restricted; no compressed/active pages added,
+no application inspection/cleanup performed by the agent.
+
+**Readiness still blocked.** Total Task0011 real attempts reserved/dispatched
+remain0, new requests/events/optimizer steps0/0/0; no plan/ledger/output exists.
+All real dev/canonical/restoration/reproduction/freeze/calibration stages remain
+pending. Both test-access statements remain NO. The curated summary appends this
+resumption without replacing any initial evidence; memory revision1.4 distinguishes
+the new readiness result from unexecuted recovery and later stages.
+
+After reboot/manual preparation still fails, the next dependency is a **separate
+bounded versioned engineering-policy review** of launch accounting/host readiness.
+No threshold relaxation, scientific change, automatic repeated sampling, retry or
+new task execution is authorized by this result. The earlier commands remain
+historical/manual procedures; they were not repeatedly executed to seek a pass.

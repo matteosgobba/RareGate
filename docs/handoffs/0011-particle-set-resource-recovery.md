@@ -279,3 +279,111 @@ still independently fail launch. If readiness cannot meet the original8GiB
 requirement, propose a separate versioned engineering-policy review; no policy
 relaxation/new task number/next execution here. Inference-foundation work waits
 for the canonical baseline. Environment failure is not convergence failure.
+
+## Explicit resumption — 2026-10-07 (initial record)
+
+User reports reboot/manual closure of unnecessary workloads and authorizes one
+new bounded readiness check, then the still-unused original recovery only if
+all unchanged gates pass. Actual follow-up saved in
+`docs/prompts/0011-particle-set-resource-recovery-resume.md`; original pinned
+prompt remains unchanged. This resumes Task0011 without a new task number.
+
+Verified base/HEAD `50e42b3a568ef51d73959cddcee8a0bc22f87bff`, branch `main`,
+upstream `origin/main`; initial tree/index clean. Task0010 is now committed at
+`694bffd`, Task0011 initial work at `50e42b3`. Local upstream equality does not
+prove remote push or hosted CI. Original dated records above describe their
+earlier uncommitted state and are preserved.
+
+Current reviewed acceptance reverified against every current source hash and
+unchanged executable/design identities; 296 passed tests and synthetic peak
+5228448bytes remain its recorded evidence. All pinned predecessor files verify.
+No Task0011 recovery plan/ledger/output exists. Previous preflight/acceptance
+hashes and overlapping current documentation hashes saved exclusively in ignored
+`data/task0011-resume-2026-10-07-initial-state.json` before updates.
+
+### Resumption outcome and measurements
+
+**Readiness still blocked**, after exactly one explicitly requested new preflight.
+No recovery launch was dispatched; no plan/ledger/output was created. The user
+reported manual reboot/cleanup; no application closure or host alteration was
+performed or independently inferred here.
+
+Actual fresh CPU invocation, same source-accepted runner and unchanged CPU1/1
+thread/deterministic policy:
+
+```bash
+.venv/bin/python -m latenttrigger.models.particle_recovery --preflight-only \
+  --acceptance data/task0011-reviewed-synthetic-acceptance.json \
+  --preflight data/baselines/task0011-preflight-after-reboot-2026-10-07.json
+```
+
+Exit1/readyfalse. Started UTC2026-10-07T06:25:57.521354+00:00; samples below in
+Europe/Rome (UTC+02:00). Actual page size16384bytes; original `(free+inactive)*page`
+definition, no extra page category:
+
+| Time, Europe/Rome | Free / inactive pages | Available bytes /GiB | Peak RSS bytes | Native reserved /in-use bytes |
+| --- | --- | --- | ---: | --- |
+| 08:25:57.543176 | 4667 /299977 | 4991287296 /4.64849853515625 | 357875712 | 184205312 /139041456 |
+| 08:26:00.045133 | 4025 /299067 | 4965859328 /4.62481689453125 | 357924864 | 184205312 /139049520 |
+| 08:26:02.547828 | 3763 /303067 | 5027102720 /4.681854248046875 | 357924864 | 184205312 /139057584 |
+
+Span5.004717207999988s, total context/sampling5.033480707999956s within30s.
+All three fail ≥8GiB launch; all pass ≥4GiB continuing floor, RSS≤6GiB and native
+reservation≤512MiB. No sample was omitted or chosen for its favorable value.
+Contextual `memory_pressure -Q`: installed17179869184bytes/16GiB, free61%; this
+does not replace the frozen launch metric. Current swap/direct installed-RAM
+sysctl and current RSS ps remain permission-restricted. Raw compressor/cumulative
+swap counters are retained in the new ignored preflight, never added to available
+memory or interpreted as current swap/rates.
+
+Previous failed preflight and every acceptance file remain unchanged. The new
+preflight has its own exclusive dated path and console file under ignored data.
+Its record SHA256 is `4ffb0250df5d4d23a394b2628cfea219d4ab3e7a40bae6513fb592b4cac60861`;
+file-byte SHA256 is recorded in the curated summary and validation snapshot.
+Current acceptance remains SHA256
+`1cef87bb612eb7066e1f3e91cb01ba16ff84d3152c2198945098a012c8d79159`, source map
+`82d663c5aadae4f80b8b1f731f9e055ba3b7aa6c6c153edfba02533a87bb1083`.
+No code/configuration changes or unnecessary suite/resource measurement rerun.
+The recorded296tests and5228448-byte synthetic peak were verified as current
+acceptance evidence, not claimed as new execution in this resumption.
+
+```text
+Task0011 total recovery attempts reserved/dispatched: 0 / 0
+new real population requests/events/optimizer steps: 0 / 0 / 0
+remaining dev unique events/passes/steps/score passes: 1024 / 3 / 96 / 1
+test_background model/evaluation accessed: NO
+test_signal model/evaluation accessed: NO
+```
+
+No real dev timings/extrapolation, full fit, restoration, reproduction, freeze,
+calibration or particle distributions. Science/threshold/resource ceilings and
+PCA/AE artifacts unchanged. This is a launch-readiness environment outcome, not
+a convergence or model-feasibility outcome. Stop dependent stages; no automatic
+resampling or retry. The unused authorized real attempt remains available only
+after passing future readiness under unchanged policy or a separate versioned
+decision. The next dependency is a bounded engineering-policy review of the
+conservative launch accounting/host condition after manual preparation still
+fails; no policy relaxation, new task number or follow-up execution here.
+
+### Resumption documentation / validation / manual Git
+
+Updated current report/README/index, appended factual resumption to the curated
+summary (all original fields preserved), and revised living memory in place to
+revision1.4. Detailed older chronology above remains intact; initial Task0010/
+Task0011 uncommitted wording is now explicitly historical. Added actual follow-up
+prompt. Source-bound acceptance and frozen/predecessor/previous-output hashes,
+local links, JSON arithmetic/scope, final diff and whitespace checks verified.
+No source/dependency/CI changes; synthetic tests need not be repeated for these
+documentation-only changes. Hosted CI and remote push remain unverified.
+
+Intended resumption files (7): `README.md`, `docs/handoffs/README.md`,
+`docs/project-memory.md`, `docs/handoffs/0011-particle-set-resource-recovery.md`,
+`docs/particle-set-resource-recovery.md`,
+`docs/prompts/0011-particle-set-resource-recovery-resume.md`,
+`results/tables/final/task0011-particle-set-recovery-summary.json`.
+Ignored: resume initial-state snapshot, new dated preflight/console and local
+validation notes. No pre-existing/unrelated changes at this resumption base;
+earlier Task0010/Task0011 commits are verified, so prerequisite staging helper
+must not be run again. No stage/commit/push performed. Selectively review/commit
+these7paths with `docs: record particle recovery preflight after reboot`, then
+`git push origin main`.
