@@ -77,15 +77,18 @@ particle stages remain pending; these records are committed.
 [Task 0012](docs/particle-memory-policy-review.md) adds a separate provisional
 launch profile of 4.5 GiB while retaining the 4 GiB floor and all other limits.
 Its single check fails both at 2.5443–2.6967 GiB; no reader/dev phase ran.
-Policy v2 is not activated; the next dependency concerns host readiness and
-explicit bounded measurements. Scientific configuration and the old 8 GiB policy
-remain preserved; canonical training/calibration remain pending.
-[Task0013](docs/particle-host-readiness.md) delivers stdlib-only supervision and
-one measured, data-free accounting experiment: parent peakRSS is319.391MiB lower
-than the legacy shape, but the prepared worker still has only3.1778–3.2442GiB.
-No official reader/dev study was invoked; its one shared external Terminal slot
-is prepared/unreserved. The report gives the guarded run command and receipt
-reconciliation procedure; science,4.5GiB admission and4GiB floor remain unchanged.
+That pilot did not activate v2; the original scientific config and8GiB policy
+remain preserved. [Task0013](docs/particle-host-readiness.md) delivered stdlib
+supervision and initial accounting. Its later external study is now reconciled:
+reader/full custody and bounded-dev activation passed;1024unique events/96steps
+completed, then conservative throughput749.343s failed180s. The slot is consumed;
+canonical training/calibration remain pending.
+[Task0014](docs/particle-monitor-performance.md) adds a separate cached-binding
+monitor preserving all observation/limit/scientific contracts, with471synthetic
+tests and exact numerical parity. Fixed shared-host timings improve isolated
+collection/checks but show no complete-workload gain(0.382→0.388s). No new real
+execution; proposed Task0015 needs separate authorization/additional budget.
+Engineering supports normal Mac use with apps open, without a dedicated window.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
 Development records follow the
@@ -268,8 +271,9 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0010: particle/set implementation and synthetic validation; launch gate failed, canonical baseline pending.
 - [x] Task 0011: bounded recovery routing/readiness; host still blocks launch, no recovery data attempt.
 - [x] Task 0012: launch admission reviewed; provisional 4.5 GiB requirement still blocked, zero readers/dev updates.
-- [x] Task0013: lightweight supervision/accounting delivered; host below admission/floor, single external reader/dev study pending and unreserved.
-- [ ] Execute/reconcile the prepared single external study after user-controlled host preparation; canonical full-run authorization remains separate.
+- [x] Task0013: lightweight supervision delivered; later external study consumed96steps, passed memory and failed throughput.
+- [x] Task0014: external receipts reconciled; v3 resource instrumentation tested on synthetic inputs, no new real access.
+- [ ] Separately authorize bounded runtime revalidation/additional budget under the reviewed monitor; canonical full-run scope remains separate.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

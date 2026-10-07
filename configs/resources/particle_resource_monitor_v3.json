@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "implementation_version": 3,
+  "monitor_type": "particle_resource_monitor",
+  "status": "synthetically_validated_pending_real_revalidation",
+  "backend": "system_vm_stat_oneshot_cached_bindings_v3",
+  "implementation": "cached-bindings-flushed-journal-v3",
+  "profile_sha256": "a3e237d8a191d9b906744a497ef7e687c739bc8418dd2e53e78db3e54b24d287",
+  "design_sha256": "3aaccbccb2610f60647d4eca9fab5a368ce10cf812cc189c3e3394b4a4db6f67",
+  "model_config_sha256": "48b1c647cd8979860a9231e2aea59295054dedf6b4339b3100b5b5679649416b",
+  "limits": {
+    "minimum_system_available_bytes_at_launch": 4831838208,
+    "stop_if_system_available_below_bytes": 4294967296,
+    "working_tensor_and_workspace_ceiling_bytes": 536870912,
+    "process_peak_rss_ceiling_bytes": 6442450944
+  },
+  "watch_interval_seconds": 0.05,
+  "external_probe_timeout_seconds": 2,
+  "observation": {
+    "primary": "new_system_vm_stat_snapshot_each_check",
+    "free": "displayed_native_free_minus_speculative",
+    "page_size": "actual_vm_stat_header",
+    "sample_age": "check_completion_minus_query_start_upper_bound_le2s",
+    "direct_mach_vm_backend": "diagnostic_only_not_eligible_kernel_cache",
+    "stream_backend": "not_selected_no_cached_primary_values",
+    "detection": "50ms_wait_plus_probe_lock_GIL_delivery; no hard50ms guarantee"
+  },
+  "journal": "open_owned_handle_flush_every_sample; no_fsync_claim",
+  "audit": "unchanged_synchronous_pre_step_reservation_post_step_completion",
+  "synthetic_acceptance_record": "data/task0014-synthetic-acceptance.json",
+  "source_binding": "all_src_latenttrigger_py_and_top_level_tests_current_exact_map",
+  "real_execution_authorized": false,
+  "canonical_training_authorized": false,
+  "policy_v1_compliance": false
+}

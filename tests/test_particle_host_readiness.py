@@ -180,11 +180,30 @@ def test_phase_order_activation_and_failed_block():
 
 @pytest.fixture
 def lineage_root(tmp_path, monkeypatch):
+    # Self-contained CI fixture; never requires ignored operational receipts.
     monkeypatch.setattr(ctl, "ROOT", tmp_path)
+    values = {
+        "data/baselines/task0012-particle-memory-study/workflow.json": {
+            "status": "provisional_launch_still_blocked",
+            "stages": [{"phase": "pilot_preflight", "status": "failed"}],
+        },
+        "data/baselines/task0012-particle-memory-study/pilot_preflight/access-audit.json": {
+            "population_access": [],
+            "custody_access": [],
+            "optimizer_steps_started": 0,
+            "optimizer_steps_completed": 0,
+            "unique_dev_sample_events": 0,
+            "test_background_model_access": False,
+            "test_signal_model_access": False,
+        },
+    }
+    pins = {}
     for rel in ctl.PREDECESSOR:
         dst = tmp_path / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
-        dst.write_bytes((bg.ROOT / rel).read_bytes())
+        dst.write_text(json.dumps(values.get(rel, {"synthetic_fixture": True})))
+        pins[rel] = ctl.file_hash(dst)
+    monkeypatch.setattr(ctl, "PREDECESSOR", pins)
     return tmp_path
 
 
