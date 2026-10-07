@@ -300,6 +300,10 @@ def verify_worker_lineage(args, parent, config):
 def recover(acceptance, preflight, config):
     """One fixed Task 0011 plan/output/ledger; original supervisor owns dispatch."""
     root = ROOT
+    if (root / "data/baselines/task0012-particle-memory-plan.json").exists():
+        raise FileExistsError(
+            "Task0011 unused recovery superseded by the Task0012 engineering study."
+        )
     if (root / LEDGER).exists() or (root / PLAN).exists() or (root / OUTPUT).exists():
         raise FileExistsError("Task 0011 recovery already prepared/reserved; no retry.")
     predecessor = verify_predecessor(config, root=root)

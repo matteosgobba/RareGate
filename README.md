@@ -73,9 +73,13 @@ Canonical training, reproduction, freeze and calibration remain pending.
 one fixed recovery route. The explicit2026-10-07 resumption after reboot/manual
 preparation still failed the8GiB launch test at4.6248–4.6819GiB; continuing4GiB,
 RSS and native ceilings passed. No recovery attempt was reserved. All real
-particle stages remain pending. Initial tasks are committed; resumed records
-await user commit. The next dependency is a separate bounded engineering-policy
-review; no threshold or scientific policy changed.
+particle stages remain pending; these records are committed.
+[Task 0012](docs/particle-memory-policy-review.md) adds a separate provisional
+launch profile of 4.5 GiB while retaining the 4 GiB floor and all other limits.
+Its single check fails both at 2.5443–2.6967 GiB; no reader/dev phase ran.
+Policy v2 is not activated; the next dependency concerns host readiness and
+explicit bounded measurements. Scientific configuration and the old 8 GiB policy
+remain preserved; canonical training/calibration remain pending.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
 Development records follow the
@@ -257,7 +261,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0009: compact particle/set design, exact loss/score and future resource gates.
 - [x] Task 0010: particle/set implementation and synthetic validation; launch gate failed, canonical baseline pending.
 - [x] Task 0011: bounded recovery routing/readiness; host still blocks launch, no recovery data attempt.
-- [ ] Separate bounded engineering-policy review after manual preparation still fails launch; single real recovery unused.
+- [x] Task 0012: launch admission reviewed; provisional 4.5 GiB requirement still blocked, zero readers/dev updates.
+- [ ] Resolve stable host readiness, then explicitly authorize bounded reader/dev policy validation.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

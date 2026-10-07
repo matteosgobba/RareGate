@@ -1,0 +1,284 @@
+{
+  "task": "0012",
+  "date": "2026-10-07",
+  "outcome": "provisional_launch_still_blocked",
+  "policy_status": "reviewed_provisional_not_activated",
+  "canonical_particle_baseline": "pending",
+  "base_commit": "502c472686bd08c24ec16873a3d027b8094acccc",
+  "initial_tree_and_index": "clean; Task0011 resumption committed",
+  "model_design_sha256": "3aaccbccb2610f60647d4eca9fab5a368ce10cf812cc189c3e3394b4a4db6f67",
+  "model_config_sha256": "48b1c647cd8979860a9231e2aea59295054dedf6b4339b3100b5b5679649416b",
+  "engineering_profile": {
+    "file": "configs/resources/particle_memory_policy_v2.json",
+    "version": 2,
+    "canonical_sha256": "a3e237d8a191d9b906744a497ef7e687c739bc8418dd2e53e78db3e54b24d287",
+    "file_sha256": "3d495f62256bc3e92b988178fcf9a63185ae655382cead477ccf39a3e524c370",
+    "scope": "Task0012_provisional_readers_then_conditionally_bounded_dev_only",
+    "status": "provisional; bounded_dev_requires_completed_reader_activation",
+    "metric": "Darwin_free_plus_inactive_pages",
+    "v1_launch_bytes": 8589934592,
+    "v2_launch_bytes": 4831838208,
+    "continuing_floor_bytes": 4294967296,
+    "native_ceiling_bytes": 536870912,
+    "rss_ceiling_bytes": 6442450944,
+    "only_threshold_change": "launch8GiB_to4.5GiB",
+    "activation_evidence_available": false,
+    "policy_v1_compliance": false
+  },
+  "source_acceptance": {
+    "file": "data/task0012-synthetic-acceptance.json",
+    "file_sha256": "ce7f3d7944a1e512a0f548a7965cd4afc79a2af401cba029096a6138238cea1a",
+    "source_map_sha256": "fb6cea30c52a20e951a86cbbf06f3a6903fd69966b2977e040b70e6bb2cbfe33",
+    "pytest_passed": 362,
+    "pytest_exit_code": 0,
+    "workspace_measurement": {
+      "scope": "synthetic_full_cardinality_batch32",
+      "method": "PyTorch_CPU_allocation_timeline_including_autograd_temporaries",
+      "synthetic_optimizer_steps": 2,
+      "peak_tensor_bytes": 5228448,
+      "parameter_count": 478,
+      "torch_version": "2.14.1",
+      "external_workspace_accounting": "whole_native_malloc_arena_reservation_during_real_stages"
+    },
+    "targeted_particle_suite_passed": 195,
+    "earlier_targeted_fixture_failure": "1failed/190passed: test expectation exceeded headroom incorrectly; corrected synthetic startup fixture, then195passed. No real stage used failed tests.",
+    "scope": "execution acceptance before final reservation-type guard review"
+  },
+  "validation": {
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "dependency_consistency": "passed",
+    "cpu_smoke": "passed",
+    "installation": "existing editable import; no dependencies changed",
+    "hosted_ci": "unverified"
+  },
+  "preflight": {
+    "status": "failed",
+    "phase": "pilot_preflight",
+    "readings": [
+      {
+        "timestamp_utc": "2026-10-07T07:04:30.926013+00:00",
+        "elapsed_seconds": 0.021475458000168146,
+        "passed": false,
+        "error": "Policy v2 launch available memory below4.5GiB.",
+        "probe_seconds": 0.007115708999663184,
+        "sample": {
+          "page_size_bytes": 16384,
+          "free_pages": 3850,
+          "inactive_pages": 165471,
+          "available_bytes": 2774155264,
+          "available_gib": 2.5836334228515625,
+          "context_counters_are_not_available_bytes": true,
+          "peak_rss_bytes": 344866816,
+          "native_heap_reserved_bytes": 175816704,
+          "native_heap_in_use_bytes": 139065840,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "available_method": "Darwin_free_plus_inactive_pages",
+          "dirty_private_bytes": null,
+          "dirty_private_status": "not_measured_no_supported_binding",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "current_rss_bytes": 344899584,
+          "virtual_address_bytes": 446326652928,
+          "current_rss_method": "own_MACH_TASK_BASIC_INFO_64"
+        },
+        "checks": {
+          "launch_available_ge_4_5gib": false,
+          "continuing_available_ge_4gib": false,
+          "peak_rss_le_6gib": true,
+          "native_reserved_le_512mib": true,
+          "os_pressure_verified_warning_or_critical": false,
+          "os_pressure_status": "unavailable_errno1"
+        }
+      },
+      {
+        "timestamp_utc": "2026-10-07T07:04:33.431085+00:00",
+        "elapsed_seconds": 2.526599042000271,
+        "passed": false,
+        "error": "Policy v2 launch available memory below4.5GiB.",
+        "probe_seconds": 0.01489783399983935,
+        "sample": {
+          "page_size_bytes": 16384,
+          "free_pages": 4089,
+          "inactive_pages": 162656,
+          "available_bytes": 2731950080,
+          "available_gib": 2.5443267822265625,
+          "context_counters_are_not_available_bytes": true,
+          "peak_rss_bytes": 344899584,
+          "native_heap_reserved_bytes": 180011008,
+          "native_heap_in_use_bytes": 139078256,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "available_method": "Darwin_free_plus_inactive_pages",
+          "dirty_private_bytes": null,
+          "dirty_private_status": "not_measured_no_supported_binding",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "current_rss_bytes": 334348288,
+          "virtual_address_bytes": 446326652928,
+          "current_rss_method": "own_MACH_TASK_BASIC_INFO_64"
+        },
+        "checks": {
+          "launch_available_ge_4_5gib": false,
+          "continuing_available_ge_4gib": false,
+          "peak_rss_le_6gib": true,
+          "native_reserved_le_512mib": true,
+          "os_pressure_verified_warning_or_critical": false,
+          "os_pressure_status": "unavailable_errno1"
+        }
+      },
+      {
+        "timestamp_utc": "2026-10-07T07:04:35.934302+00:00",
+        "elapsed_seconds": 5.029806708000251,
+        "passed": false,
+        "error": "Policy v2 launch available memory below4.5GiB.",
+        "probe_seconds": 0.01766895900027521,
+        "sample": {
+          "page_size_bytes": 16384,
+          "free_pages": 4027,
+          "inactive_pages": 172706,
+          "available_bytes": 2895593472,
+          "available_gib": 2.6967315673828125,
+          "context_counters_are_not_available_bytes": true,
+          "peak_rss_bytes": 344899584,
+          "native_heap_reserved_bytes": 180011008,
+          "native_heap_in_use_bytes": 139089904,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "available_method": "Darwin_free_plus_inactive_pages",
+          "dirty_private_bytes": null,
+          "dirty_private_status": "not_measured_no_supported_binding",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "current_rss_bytes": 332103680,
+          "virtual_address_bytes": 446326652928,
+          "current_rss_method": "own_MACH_TASK_BASIC_INFO_64"
+        },
+        "checks": {
+          "launch_available_ge_4_5gib": false,
+          "continuing_available_ge_4gib": false,
+          "peak_rss_le_6gib": true,
+          "native_reserved_le_512mib": true,
+          "os_pressure_verified_warning_or_critical": false,
+          "os_pressure_status": "unavailable_errno1"
+        }
+      }
+    ],
+    "sample_span_seconds": 5.008331250000083,
+    "elapsed_seconds": 5.047508625000319,
+    "worker_whole_stage_elapsed_seconds": 6.4967512079997505,
+    "readiness_probe_total_seconds": 0.03968250199977774,
+    "readiness_probe_max_seconds": 0.01766895900027521,
+    "live_monitor_started": false,
+    "live_journal_bytes": 0,
+    "context": {
+      "pressure_context": {
+        "command": [
+          "/usr/bin/memory_pressure",
+          "-Q"
+        ],
+        "status": "available",
+        "exit_code": 0,
+        "output": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 36%",
+        "error": ""
+      },
+      "installed_ram": {
+        "command": [
+          "/usr/sbin/sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "status": "unavailable",
+        "exit_code": 1,
+        "output": "",
+        "error": "sysctl: sysctl fmt -1 1024 1: Operation not permitted"
+      },
+      "current_swap_use": {
+        "command": [
+          "/usr/sbin/sysctl",
+          "vm.swapusage"
+        ],
+        "status": "unavailable",
+        "exit_code": 1,
+        "output": "",
+        "error": "sysctl: sysctl fmt -1 1024 1: Operation not permitted"
+      },
+      "current_worker_rss_kib": {
+        "command": [
+          "/bin/ps",
+          "-o",
+          "rss=",
+          "-p",
+          "15484"
+        ],
+        "status": "unavailable",
+        "error": "[Errno 1] Operation not permitted: '/bin/ps'"
+      },
+      "interpretation": "Context only. vm_stat compression/page/swap counters are preserved raw; swapins/swapouts are cumulative, not current swap use. No categories are added."
+    }
+  },
+  "measurement_phases": {
+    "dev_reader": "not_reserved_not_executed",
+    "full_custody": "not_reserved_not_executed",
+    "policy_activation": "not_reached",
+    "dev_preflight": "not_reserved_not_executed",
+    "dev_gate": "not_reserved_not_executed"
+  },
+  "accounting": {
+    "task0012_readiness_checks_dispatched": 1,
+    "task0012_reader_or_dev_attempts_reserved": 0,
+    "real_custody_operations": 0,
+    "real_population_requests": 0,
+    "real_view_presentations": 0,
+    "unique_real_dev_events": 0,
+    "real_optimizer_steps_started": 0,
+    "real_optimizer_steps_completed": 0,
+    "remaining_original_unique_dev_events": 1024,
+    "remaining_original_optimizer_steps": 96,
+    "remaining_train_passes": 3,
+    "remaining_score_passes": 1,
+    "task0010_consumed_ledger": "preserved_zero_prior_real_steps",
+    "task0011_route": "unreserved_evidence_preserved; superseded_and_now_refused_by_task0012_plan"
+  },
+  "lineage": {
+    "plan_file": "data/baselines/task0012-particle-memory-plan.json",
+    "plan_file_sha256": "8d9dc461db3e86259b161f69b7309c32573049f904b21a83edac51962715058c",
+    "preflight_reservation_sha256": "6fc2b7d43387c6b5465ff466a3517647536802aca5c57b468be546c5292cc2f5",
+    "preflight_stage_file_sha256": "58d5e64120c50c5527f1674786a7a7400e0b7679c36eb6e64453a1f4dde68c86",
+    "preflight_audit_file_sha256": "0a0806a332dca43eedf9ed9561eaba68ed8087c5dd95bc048eb9bd11dcfe617a",
+    "fixed_gate_order": "pilot_preflight -> dev_reader -> full_custody -> dev_preflight -> dev"
+  },
+  "dev_train_pass_seconds": null,
+  "dev_score_pass_seconds": null,
+  "dev_extrapolated_full_cycle_seconds": null,
+  "trained_model_sha256": null,
+  "canonical_or_calibration_authorized": false,
+  "test_background_model_evaluation_accessed": false,
+  "test_signal_model_evaluation_accessed": false,
+  "limitations": [
+    "Host free+inactive remains below original4GiB floor, so even provisional readers cannot proceed",
+    "Real reader/mapped-page/native footprint and background dev throughput not measured",
+    "Pressure/current swap and dirty/private unavailable or not measured; current RSS/virtual size are own-task Mach observations",
+    "Readiness probe timing is not live-monitor duty or detector latency",
+    "v2 remains provisional and not activated; no canonical training authorization"
+  ],
+  "next_dependency": "Bounded host-readiness/accounting decision preserving4GiB continuing floor, then explicitly authorized one new readiness/reader lineage only when4.5GiB launch is stable; no automatic retry/reset/new task execution. Canonical Task0013 is not yet justified.",
+  "final_validation_acceptance": {
+    "file": "data/task0012-final-synthetic-acceptance.json",
+    "file_sha256": "fe33d6822071b3eab8280fa73e107d05365ef4577349f9b6420f585598430844",
+    "source_map_sha256": "89152fa7b119fbbee99c3cf831605d214c8ede81b425ffbd7dc4d58d20ec6453",
+    "pytest_passed": 365,
+    "pytest_exit_code": 0,
+    "workspace_measurement": {
+      "scope": "synthetic_full_cardinality_batch32",
+      "method": "PyTorch_CPU_allocation_timeline_including_autograd_temporaries",
+      "synthetic_optimizer_steps": 2,
+      "peak_tensor_bytes": 5228448,
+      "parameter_count": 478,
+      "torch_version": "2.14.1",
+      "external_workspace_accounting": "whole_native_malloc_arena_reservation_during_real_stages"
+    },
+    "reviewed_change": "Strict matching of reservation phase/status/max-step allowance; three additional synthetic rejection cases. Actual failed readiness record kept with its original execution acceptance; no resampling or real phase dispatch."
+  }
+}

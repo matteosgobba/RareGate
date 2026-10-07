@@ -196,6 +196,9 @@ class ParticleBatches:
                     raise ValueError("Unexpected truth/unbounded particle batch.")
                 view = batch.model_view(nmax=384)
                 self.audit.advance(record, len(view.features))
+                observer = getattr(self.audit, "observe_ids", None)
+                if observer is not None:
+                    observer(batch.event_ids)
                 metadata = {
                     "event_ids": batch.event_ids,
                     "n_original": view.n_original,
@@ -266,7 +269,7 @@ def source_hashes():
     return {str(path.relative_to(ROOT)): file_sha256(path) for path in paths}
 
 
-def run_dev(store_path, config, output, monitor, audit):
+def run_dev(store_path, config, output, monitor, audit, *, optimizer_observer=None):
     timings, steps = [], 0
     # Launch/resource checks happen before constructing a reader.
     with monitor.deadline("whole_dev_gate", 300):
@@ -275,6 +278,9 @@ def run_dev(store_path, config, output, monitor, audit):
         with open_store(store_path, config, ROLES[:1], stage="dev") as store:
             verification = time.monotonic() - started
             ids = store.event_ids(ROLES[0], dev_only=True)[:1024]
+            sample_observer = getattr(audit, "bind_sample", None)
+            if sample_observer is not None:
+                sample_observer(ids)
             batches = ParticleBatches(
                 store,
                 ROLES[0],
@@ -287,6 +293,8 @@ def run_dev(store_path, config, output, monitor, audit):
             with deterministic_cpu(1729, 1):
                 model = ParticleSetAutoencoder()
                 optimizer = adam(model, config)
+                if optimizer_observer is not None:
+                    optimizer_observer(optimizer)
                 shuffle = torch.Generator(device="cpu").manual_seed(1729)
                 for _ in range(3):
                     tick = time.monotonic()
