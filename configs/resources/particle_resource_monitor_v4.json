@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "implementation_version": 4,
+  "monitor_type": "particle_bounded_age_observation_contract",
+  "status": "reviewed_contract_synthetic_material_gate_before_bounded_execution",
+  "host_backend": "system_vm_stat_oneshot_host_v4",
+  "process_backend": "cached_DarwinBindings_v3_fresh_each_guard",
+  "profile_sha256": "a3e237d8a191d9b906744a497ef7e687c739bc8418dd2e53e78db3e54b24d287",
+  "design_sha256": "3aaccbccb2610f60647d4eca9fab5a368ce10cf812cc189c3e3394b4a4db6f67",
+  "model_config_sha256": "48b1c647cd8979860a9231e2aea59295054dedf6b4339b3100b5b5679649416b",
+  "authorization_prompt_sha256": "5788c605815db5944dcf1d54f376141d92c28b3520ab410d0a2fcbaf7caaf045",
+  "host_cadence_seconds": 0.05,
+  "host_age_upper_ceiling_seconds": 0.1,
+  "host_age_formula": "guard_now_minus_query_start; publication_and_read_do_not_renew_age",
+  "freshness_change": "explicitly_not_equivalent_to_v2_v3_fresh_host_query_each_guard",
+  "phase_entry": "fresh_synchronous_thread_owned_query_before_work;100ms_limit",
+  "batch_entry_exit": "latest_valid_host_age_le100ms_and_fresh_process_pressure_deadlines",
+  "pre_optimizer_step": "fresh_process_guard_and_flushed_reservation_before_mutation",
+  "periodic_process_checks": "same_owned_sampling_thread_every50ms_even_query_pending",
+  "collector_failure": "latched_no_restart_or_safe_substitution",
+  "external_probe_timeout_seconds": 2,
+  "journal_limit_bytes_each": 33554432,
+  "observation_limits_are_not_termination_latency_guarantees": true,
+  "limits": {
+    "minimum_system_available_bytes_at_launch": 4831838208,
+    "stop_if_system_available_below_bytes": 4294967296,
+    "working_tensor_and_workspace_ceiling_bytes": 536870912,
+    "process_peak_rss_ceiling_bytes": 6442450944
+  },
+  "phase_limits_seconds": {
+    "readiness": 30,
+    "dev_reader": 60,
+    "dev_readiness": 30,
+    "dev": 300
+  },
+  "remaining_full_run_limits": {
+    "cycle_seconds": 180,
+    "fit_per_run_seconds": 36000,
+    "postfit_per_run_seconds": 3600,
+    "two_run_total_seconds": 79200
+  },
+  "material_gate": "three_repetitions_median_complete_v4_le_median_v3_div3_exact_parity",
+  "scope": "Task0015_single_conditional_engineering_study_same_original1024_dev_ids",
+  "historical_steps_started": 96,
+  "maximum_additional_real_steps_started": 96,
+  "maximum_cumulative_real_steps_started": 192,
+  "canonical_selection_calibration_freeze_authorized": false,
+  "source_binding": "current_full_src_and_top_level_tests_actual_acceptance",
+  "policy_v1_compliance": false
+}

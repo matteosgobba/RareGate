@@ -87,7 +87,11 @@ canonical training/calibration remain pending.
 monitor preserving all observation/limit/scientific contracts, with471synthetic
 tests and exact numerical parity. Fixed shared-host timings improve isolated
 collection/checks but show no complete-workload gain(0.382→0.388s). No new real
-execution; proposed Task0015 needs separate authorization/additional budget.
+execution. [Task0015](docs/particle-bounded-sampling.md) implements explicitly
+versioned50ms host sampling/≤100ms query-start age with fresh process checks.
+Final532synthetic tests pass; paired complete-workload gain2.14× misses the3×
+real-budget prerequisite. No readiness/real slot/new data/update; original96steps
+remain consumed and canonical particle training/calibration remain pending.
 Engineering supports normal Mac use with apps open, without a dedicated window.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -273,7 +277,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0012: launch admission reviewed; provisional 4.5 GiB requirement still blocked, zero readers/dev updates.
 - [x] Task0013: lightweight supervision delivered; later external study consumed96steps, passed memory and failed throughput.
 - [x] Task0014: external receipts reconciled; v3 resource instrumentation tested on synthetic inputs, no new real access.
-- [ ] Separately authorize bounded runtime revalidation/additional budget under the reviewed monitor; canonical full-run scope remains separate.
+- [x] Task0015: bounded-age v4 tested; synthetic2.14×gain below3×, no real revalidation unlocked.
+- [ ] Resolve the measured runtime/material gate through an explicit bounded engineering or budget decision; canonical full-run scope remains separate.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

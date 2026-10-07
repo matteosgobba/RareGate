@@ -1,0 +1,1044 @@
+{
+  "schema_version": 1,
+  "task": "0015",
+  "status": "engineering_completed_material_gate_failed_no_real_study",
+  "date": "2026-10-07",
+  "base_commit": "8d0e3f95d9a65a072ae9fcbae2ea72e2c28c462e",
+  "branch": "main",
+  "upstream": "origin/main",
+  "shared_Mac_apps_open_required": true,
+  "observation_contract": {
+    "schema_version": 1,
+    "implementation_version": 4,
+    "monitor_type": "particle_bounded_age_observation_contract",
+    "status": "reviewed_contract_synthetic_material_gate_before_bounded_execution",
+    "host_backend": "system_vm_stat_oneshot_host_v4",
+    "process_backend": "cached_DarwinBindings_v3_fresh_each_guard",
+    "profile_sha256": "a3e237d8a191d9b906744a497ef7e687c739bc8418dd2e53e78db3e54b24d287",
+    "design_sha256": "3aaccbccb2610f60647d4eca9fab5a368ce10cf812cc189c3e3394b4a4db6f67",
+    "model_config_sha256": "48b1c647cd8979860a9231e2aea59295054dedf6b4339b3100b5b5679649416b",
+    "authorization_prompt_sha256": "5788c605815db5944dcf1d54f376141d92c28b3520ab410d0a2fcbaf7caaf045",
+    "host_cadence_seconds": 0.05,
+    "host_age_upper_ceiling_seconds": 0.1,
+    "host_age_formula": "guard_now_minus_query_start; publication_and_read_do_not_renew_age",
+    "freshness_change": "explicitly_not_equivalent_to_v2_v3_fresh_host_query_each_guard",
+    "phase_entry": "fresh_synchronous_thread_owned_query_before_work;100ms_limit",
+    "batch_entry_exit": "latest_valid_host_age_le100ms_and_fresh_process_pressure_deadlines",
+    "pre_optimizer_step": "fresh_process_guard_and_flushed_reservation_before_mutation",
+    "periodic_process_checks": "same_owned_sampling_thread_every50ms_even_query_pending",
+    "collector_failure": "latched_no_restart_or_safe_substitution",
+    "external_probe_timeout_seconds": 2,
+    "journal_limit_bytes_each": 33554432,
+    "observation_limits_are_not_termination_latency_guarantees": true,
+    "limits": {
+      "minimum_system_available_bytes_at_launch": 4831838208,
+      "stop_if_system_available_below_bytes": 4294967296,
+      "working_tensor_and_workspace_ceiling_bytes": 536870912,
+      "process_peak_rss_ceiling_bytes": 6442450944
+    },
+    "phase_limits_seconds": {
+      "readiness": 30,
+      "dev_reader": 60,
+      "dev_readiness": 30,
+      "dev": 300
+    },
+    "remaining_full_run_limits": {
+      "cycle_seconds": 180,
+      "fit_per_run_seconds": 36000,
+      "postfit_per_run_seconds": 3600,
+      "two_run_total_seconds": 79200
+    },
+    "material_gate": "three_repetitions_median_complete_v4_le_median_v3_div3_exact_parity",
+    "scope": "Task0015_single_conditional_engineering_study_same_original1024_dev_ids",
+    "historical_steps_started": 96,
+    "maximum_additional_real_steps_started": 96,
+    "maximum_cumulative_real_steps_started": 192,
+    "canonical_selection_calibration_freeze_authorized": false,
+    "source_binding": "current_full_src_and_top_level_tests_actual_acceptance",
+    "policy_v1_compliance": false
+  },
+  "observation_manifest_canonical_sha256": "d11640071b854b08dfc9cd59724dd2732abe8ebff1195000e8321e66a1229c63",
+  "historical_task0013": {
+    "real_steps_started": 96,
+    "real_steps_completed": 96,
+    "real_inflight_steps": 0,
+    "unique_dev_events": 1024,
+    "population_requests": 5,
+    "view_presentations": 4160,
+    "reader_subset": 64,
+    "training_presentations": 3072,
+    "score_presentations": 1024,
+    "recorded_custody_operations": 2,
+    "additional_dev_constructor_source_verified": true,
+    "train_pass_seconds": [
+      0.5065042919995904,
+      0.4505980419999105,
+      0.45002770899918687
+    ],
+    "score_pass_seconds": 0.3897375420001481,
+    "training_projection_term_seconds": 346.22189913589574,
+    "scoring_projection_term_seconds": 28.44969875680573,
+    "factor": 2,
+    "conservative_projection_seconds": 749.3431957854029,
+    "throughput_pass": false,
+    "bounded_dev_activation_only": true,
+    "receipt_identity_map_canonical_sha256": "ac17a92b86a7e34cc036f1661bf38604f51bc1525ee5ff5bc29f3b95d58fbb5e",
+    "preserved_Task0014_summary_sha256": "97a0cbd3163b5953205638f1beceb5859de9ea2b91db67941d9527bb8ceeab5a"
+  },
+  "paired_matrix": {
+    "preregistration": {
+      "schema_version": 1,
+      "scope": "synthetic_paired_three_repetitions_no_real_acceptance",
+      "order": [
+        [
+          1,
+          "v3"
+        ],
+        [
+          1,
+          "v4"
+        ],
+        [
+          1,
+          "compute"
+        ],
+        [
+          2,
+          "v3"
+        ],
+        [
+          2,
+          "v4"
+        ],
+        [
+          2,
+          "compute"
+        ],
+        [
+          3,
+          "v3"
+        ],
+        [
+          3,
+          "v4"
+        ],
+        [
+          3,
+          "compute"
+        ]
+      ],
+      "total_seconds": 120,
+      "arm_seconds_including_imports": 30,
+      "seed": 1729,
+      "cpu_threads": [
+        1,
+        1
+      ],
+      "batch_size": 32,
+      "nmax": 384,
+      "physical_batches": 2,
+      "synthetic_steps": 16,
+      "scoring_batches": 8,
+      "host_cadence_seconds": 0.05,
+      "age_upper_seconds": 0.1,
+      "guard_fixture": "explicit_9GiB_host_400MiB_RSS_200MiB_native_not_readiness",
+      "material_gate": "all_repetitions_pass_exact_parity_and_median_v4_le_median_v3_div3"
+    },
+    "receipt_sha256": "4d981be4cfc2cb260b1eb2f4815a474aa1cff2a85f28961c1bf67186339406ac",
+    "source_map_canonical_sha256": "76cc3085ee978cf1b6aa8b461b8c0fa901f274ae450b02c0b3c29f7459262bec",
+    "acceptance_sha256": "4cd8dea4890895a8cf6d54dc9929a61bc5ab597a733322951baec134dde55f53",
+    "acceptance_test_count": 530,
+    "elapsed_seconds": 14.910045999997237,
+    "rows": [
+      {
+        "rep": 1,
+        "arm": "v3",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.2088498750017607,
+        "runtime_import_setup_process_cpu_seconds": 1.192455,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0022637080001004506,
+        "initialization_enter_monitor_seconds": 0.011060791999625508,
+        "initialization_enter_monitor_process_cpu_seconds": 0.007881000000000027,
+        "elapsed_seconds_including_imports": 1.6344727920004516,
+        "workload_wall_seconds": 0.3871046669992211,
+        "workload_process_cpu_seconds": 0.259649,
+        "audit_save_seconds": 0.028921082986926194,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.012403669006744167,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.36146533200735576,
+          "mean": 0.01506105550030649,
+          "min": 0.011389000002964167,
+          "max": 0.024953666998044355
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.018389584009128157,
+          "mean": 0.0007662326670470065,
+          "min": 0.00036041699786437675,
+          "max": 0.0038322500004142057
+        },
+        "probe_wall_seconds": {
+          "count": 55,
+          "total": 0.26725654100300744,
+          "mean": 0.004859209836418317,
+          "min": 0.003983999999036314,
+          "max": 0.009179791999486042
+        },
+        "host_queries": 55,
+        "fresh_process_checks": 55,
+        "guard_records": 55,
+        "reused_host_guards": 0,
+        "host_age_statistics": null,
+        "sampler": null,
+        "overlapping_timing_diagnostics": {
+          "check_wall_seconds": 0.2945579959960014,
+          "check_process_cpu_seconds": 0.15053200000000055,
+          "lock_wait_seconds": 0.022508170004584827,
+          "probe_wall_seconds": 0.2680819979941589,
+          "serialization_seconds": 0.0013829570016241632,
+          "journal_write_flush_seconds": 0.000714957008312922,
+          "watcher_check_wall_seconds": 0.04141329200137989
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 55,
+          "minimum_available_bytes": 4655972352,
+          "maximum_available_bytes": 4687282176,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 1,
+        "arm": "v4",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.153182875001221,
+        "runtime_import_setup_process_cpu_seconds": 1.15246,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0020512919982138555,
+        "initialization_enter_monitor_seconds": 0.05928770800164784,
+        "initialization_enter_monitor_process_cpu_seconds": 0.011821000000000081,
+        "elapsed_seconds_including_imports": 1.366780166998069,
+        "workload_wall_seconds": 0.177554792000592,
+        "workload_process_cpu_seconds": 0.12786600000000004,
+        "audit_save_seconds": 0.03460686699327198,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.003454287008935353,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.11306737499398878,
+          "mean": 0.0047111406247495324,
+          "min": 0.00261845799832372,
+          "max": 0.014866958001221064
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.009398959984537214,
+          "mean": 0.0003916233326890506,
+          "min": 0.00018491700029699132,
+          "max": 0.0007482090004486963
+        },
+        "probe_wall_seconds": {
+          "count": 73,
+          "total": 0.00765462599156308,
+          "mean": 0.00010485789029538466,
+          "min": 8.695799988345243e-05,
+          "max": 0.00017033400217769668
+        },
+        "host_queries": 4,
+        "fresh_process_checks": 73,
+        "guard_records": 72,
+        "reused_host_guards": 64,
+        "host_age_statistics": {
+          "count": 72,
+          "max_seconds": 0.05624633299885318,
+          "mean_seconds": 0.028453544222682266
+        },
+        "sampler": {
+          "host_queries_started": 4,
+          "host_generations_published": 4,
+          "skipped_host_schedule_intervals": 0,
+          "host_queries_completed": 4,
+          "overlapping_host_query_wall_seconds": 0.026520915002038237,
+          "maximum_host_query_wall_seconds": 0.007903207999333972,
+          "sampling_thread_process_cpu_seconds": 0.017144958000000002,
+          "latched_failure": null,
+          "owned_thread_alive": false
+        },
+        "overlapping_timing_diagnostics": {
+          "guard_wall_seconds": 0.010352499983127927,
+          "guard_process_cpu_seconds": 0.010570000000000856,
+          "native_process_seconds": 0.00838479199228459,
+          "guard_lock_wait_seconds": 3.366699456819333e-05,
+          "journal_io_seconds": 0.0012596259730344173
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 4,
+          "minimum_available_bytes": 4627300352,
+          "maximum_available_bytes": 4642095104,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 1,
+        "arm": "compute",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1789727920004225,
+        "runtime_import_setup_process_cpu_seconds": 1.17736,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0011200419976375997,
+        "initialization_enter_monitor_seconds": 0.0010860420006792992,
+        "initialization_enter_monitor_process_cpu_seconds": 0.0010859999999999204,
+        "elapsed_seconds_including_imports": 1.284771417002048,
+        "workload_wall_seconds": 0.06858166700112633,
+        "workload_process_cpu_seconds": 0.067558,
+        "audit_save_seconds": 0,
+        "audit_save_calls": 0,
+        "progress_file_io_seconds": 0.0035242899975855835,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.06266687500465196,
+          "mean": 0.002611119791860498,
+          "min": 0.001441000000340864,
+          "max": 0.010668457998690428
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.008370043000468286,
+          "mean": 0.0003487517916861786,
+          "min": 0.00018825000006472692,
+          "max": 0.0005916249974688981
+        },
+        "probe_wall_seconds": {
+          "count": 0,
+          "total": 0,
+          "mean": null,
+          "min": null,
+          "max": null
+        },
+        "host_queries": 0,
+        "fresh_process_checks": 0,
+        "guard_records": 0,
+        "reused_host_guards": 0,
+        "host_age_statistics": null,
+        "sampler": null,
+        "overlapping_timing_diagnostics": null,
+        "actual_OS_host_context_not_readiness": {
+          "count": 0,
+          "minimum_available_bytes": null,
+          "maximum_available_bytes": null,
+          "page_sizes_bytes": []
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 2,
+        "arm": "v3",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.165584915997897,
+        "runtime_import_setup_process_cpu_seconds": 1.164831,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0023294589991564862,
+        "initialization_enter_monitor_seconds": 0.011517625000124099,
+        "initialization_enter_monitor_process_cpu_seconds": 0.008536000000000099,
+        "elapsed_seconds_including_imports": 1.583038166998449,
+        "workload_wall_seconds": 0.381356958001561,
+        "workload_process_cpu_seconds": 0.25294799999999995,
+        "audit_save_seconds": 0.028766124974936247,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.012518877003458329,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.351947460010706,
+          "mean": 0.014664477500446083,
+          "min": 0.011255249999521766,
+          "max": 0.02569312500054366
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.014906207001331495,
+          "mean": 0.0006210919583888123,
+          "min": 0.00037774999873363413,
+          "max": 0.002525957999750972
+        },
+        "probe_wall_seconds": {
+          "count": 55,
+          "total": 0.2620472499947937,
+          "mean": 0.004764495454450794,
+          "min": 0.004005667000456015,
+          "max": 0.00969516699842643
+        },
+        "host_queries": 55,
+        "fresh_process_checks": 55,
+        "guard_records": 55,
+        "reused_host_guards": 0,
+        "host_age_statistics": null,
+        "sampler": null,
+        "overlapping_timing_diagnostics": {
+          "check_wall_seconds": 0.2881166610022774,
+          "check_process_cpu_seconds": 0.14400099999999938,
+          "lock_wait_seconds": 0.021691834001103416,
+          "probe_wall_seconds": 0.262812743007089,
+          "serialization_seconds": 0.00129033600751427,
+          "journal_write_flush_seconds": 0.0006350410003506113,
+          "watcher_check_wall_seconds": 0.0394161659933161
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 55,
+          "minimum_available_bytes": 4546691072,
+          "maximum_available_bytes": 4564320256,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 2,
+        "arm": "v4",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1608326669993403,
+        "runtime_import_setup_process_cpu_seconds": 1.160238,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.00213008300124784,
+        "initialization_enter_monitor_seconds": 0.05919266699856962,
+        "initialization_enter_monitor_process_cpu_seconds": 0.010992000000000113,
+        "elapsed_seconds_including_imports": 1.3796601249996456,
+        "workload_wall_seconds": 0.17905774999962887,
+        "workload_process_cpu_seconds": 0.12972300000000003,
+        "audit_save_seconds": 0.02843833098449977,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.0035039560025325045,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.11464958600845421,
+          "mean": 0.004777066083685592,
+          "min": 0.002532667000195943,
+          "max": 0.014955417002056492
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.00982408300114912,
+          "mean": 0.0004093367917145467,
+          "min": 0.00022250000256462954,
+          "max": 0.0008282090020657051
+        },
+        "probe_wall_seconds": {
+          "count": 73,
+          "total": 0.008341622007719707,
+          "mean": 0.00011426879462629735,
+          "min": 9.041700104717165e-05,
+          "max": 0.00033808299849624746
+        },
+        "host_queries": 4,
+        "fresh_process_checks": 73,
+        "guard_records": 72,
+        "reused_host_guards": 64,
+        "host_age_statistics": {
+          "count": 72,
+          "max_seconds": 0.05622479200246744,
+          "mean_seconds": 0.029438210903360112
+        },
+        "sampler": {
+          "host_queries_started": 4,
+          "host_generations_published": 4,
+          "skipped_host_schedule_intervals": 0,
+          "host_queries_completed": 4,
+          "overlapping_host_query_wall_seconds": 0.02516875100627658,
+          "maximum_host_query_wall_seconds": 0.006863125003292225,
+          "sampling_thread_process_cpu_seconds": 0.016274291,
+          "latched_failure": null,
+          "owned_thread_alive": false
+        },
+        "overlapping_timing_diagnostics": {
+          "guard_wall_seconds": 0.014796541021496523,
+          "guard_process_cpu_seconds": 0.014859999999999651,
+          "native_process_seconds": 0.009127244982664706,
+          "guard_lock_wait_seconds": 0.0003240819933125749,
+          "journal_io_seconds": 0.00462928901106352
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 4,
+          "minimum_available_bytes": 4564828160,
+          "maximum_available_bytes": 4571299840,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 2,
+        "arm": "compute",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1724512500004494,
+        "runtime_import_setup_process_cpu_seconds": 1.1714609999999999,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0010954579993267544,
+        "initialization_enter_monitor_seconds": 0.0010388750015408732,
+        "initialization_enter_monitor_process_cpu_seconds": 0.0010380000000000944,
+        "elapsed_seconds_including_imports": 1.2774414170016826,
+        "workload_wall_seconds": 0.06968912500087754,
+        "workload_process_cpu_seconds": 0.06847000000000003,
+        "audit_save_seconds": 0,
+        "audit_save_calls": 0,
+        "progress_file_io_seconds": 0.003593792989704525,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.0637447089975467,
+          "mean": 0.0026560295415644455,
+          "min": 0.0014566669997293502,
+          "max": 0.011033124999812571
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.008631125998363132,
+          "mean": 0.00035963024993179715,
+          "min": 0.0001756250021571759,
+          "max": 0.0005796660007035825
+        },
+        "probe_wall_seconds": {
+          "count": 0,
+          "total": 0,
+          "mean": null,
+          "min": null,
+          "max": null
+        },
+        "host_queries": 0,
+        "fresh_process_checks": 0,
+        "guard_records": 0,
+        "reused_host_guards": 0,
+        "host_age_statistics": null,
+        "sampler": null,
+        "overlapping_timing_diagnostics": null,
+        "actual_OS_host_context_not_readiness": {
+          "count": 0,
+          "minimum_available_bytes": null,
+          "maximum_available_bytes": null,
+          "page_sizes_bytes": []
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 3,
+        "arm": "v3",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1744277920006425,
+        "runtime_import_setup_process_cpu_seconds": 1.173655,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0023058750011841767,
+        "initialization_enter_monitor_seconds": 0.009075792000658112,
+        "initialization_enter_monitor_process_cpu_seconds": 0.006553000000000031,
+        "elapsed_seconds_including_imports": 1.580566667002131,
+        "workload_wall_seconds": 0.36848475000078906,
+        "workload_process_cpu_seconds": 0.2500770000000001,
+        "audit_save_seconds": 0.031088080027984688,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.008446500989521155,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.3490711210142763,
+          "mean": 0.014544630042261511,
+          "min": 0.011307208002108382,
+          "max": 0.024677832996530924
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.014825085996562848,
+          "mean": 0.000617711916523452,
+          "min": 0.00034666700230445713,
+          "max": 0.0028651659995375667
+        },
+        "probe_wall_seconds": {
+          "count": 55,
+          "total": 0.25206512899603695,
+          "mean": 0.00458300234538249,
+          "min": 0.004047582999191945,
+          "max": 0.007418207998853177
+        },
+        "host_queries": 55,
+        "fresh_process_checks": 55,
+        "guard_records": 55,
+        "reused_host_guards": 0,
+        "host_age_statistics": null,
+        "sampler": null,
+        "overlapping_timing_diagnostics": {
+          "check_wall_seconds": 0.27074537599401083,
+          "check_process_cpu_seconds": 0.14218799999999954,
+          "lock_wait_seconds": 0.014344457013066858,
+          "probe_wall_seconds": 0.25282867101122974,
+          "serialization_seconds": 0.0012192069880256895,
+          "journal_write_flush_seconds": 0.0007395789980364498,
+          "watcher_check_wall_seconds": 0.03550449799513444
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 55,
+          "minimum_available_bytes": 4639457280,
+          "maximum_available_bytes": 4655759360,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 3,
+        "arm": "v4",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1903553340016515,
+        "runtime_import_setup_process_cpu_seconds": 1.182578,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0020513340023171622,
+        "initialization_enter_monitor_seconds": 0.05934370799877797,
+        "initialization_enter_monitor_process_cpu_seconds": 0.011011000000000104,
+        "elapsed_seconds_including_imports": 1.410865334000846,
+        "workload_wall_seconds": 0.17817966599977808,
+        "workload_process_cpu_seconds": 0.128946,
+        "audit_save_seconds": 0.027889580029295757,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.006597626997972839,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.11056008200102951,
+          "mean": 0.00460667008337623,
+          "min": 0.002551042001869064,
+          "max": 0.014792583999224007
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.009311083005741239,
+          "mean": 0.0003879617919058849,
+          "min": 0.00019270800112280995,
+          "max": 0.0008403749998251442
+        },
+        "probe_wall_seconds": {
+          "count": 73,
+          "total": 0.00780953599314671,
+          "mean": 0.00010697994511159877,
+          "min": 9.191600111080334e-05,
+          "max": 0.00019591599993873388
+        },
+        "host_queries": 4,
+        "fresh_process_checks": 73,
+        "guard_records": 72,
+        "reused_host_guards": 64,
+        "host_age_statistics": {
+          "count": 72,
+          "max_seconds": 0.056414167000184534,
+          "mean_seconds": 0.02854248584703277
+        },
+        "sampler": {
+          "host_queries_started": 4,
+          "host_generations_published": 4,
+          "skipped_host_schedule_intervals": 0,
+          "host_queries_completed": 4,
+          "overlapping_host_query_wall_seconds": 0.027148082001076546,
+          "maximum_host_query_wall_seconds": 0.007307957999728387,
+          "sampling_thread_process_cpu_seconds": 0.016771125,
+          "latched_failure": null,
+          "owned_thread_alive": false
+        },
+        "overlapping_timing_diagnostics": {
+          "guard_wall_seconds": 0.014107496022916166,
+          "guard_process_cpu_seconds": 0.014292999999998557,
+          "native_process_seconds": 0.008533797004929511,
+          "guard_lock_wait_seconds": 3.416899926378392e-05,
+          "journal_io_seconds": 0.004792374005774036
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 4,
+          "minimum_available_bytes": 4558077952,
+          "maximum_available_bytes": 4564926464,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 3,
+        "arm": "compute",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1804813749986351,
+        "runtime_import_setup_process_cpu_seconds": 1.179619,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.001095958003134001,
+        "initialization_enter_monitor_seconds": 0.0010307079974154476,
+        "initialization_enter_monitor_process_cpu_seconds": 0.0010299999999998644,
+        "elapsed_seconds_including_imports": 1.2895489590009674,
+        "workload_wall_seconds": 0.07038462499986053,
+        "workload_process_cpu_seconds": 0.0688629999999999,
+        "audit_save_seconds": 0,
+        "audit_save_calls": 0,
+        "progress_file_io_seconds": 0.003791457991610514,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.06422400099472725,
+          "mean": 0.0026760000414469687,
+          "min": 0.0015202079994196538,
+          "max": 0.01139675000013085
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.008380247993045487,
+          "mean": 0.0003491769997102286,
+          "min": 0.0001780419988790527,
+          "max": 0.0005834999974467792
+        },
+        "probe_wall_seconds": {
+          "count": 0,
+          "total": 0,
+          "mean": null,
+          "min": null,
+          "max": null
+        },
+        "host_queries": 0,
+        "fresh_process_checks": 0,
+        "guard_records": 0,
+        "reused_host_guards": 0,
+        "host_age_statistics": null,
+        "sampler": null,
+        "overlapping_timing_diagnostics": null,
+        "actual_OS_host_context_not_readiness": {
+          "count": 0,
+          "minimum_available_bytes": null,
+          "maximum_available_bytes": null,
+          "page_sizes_bytes": []
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      }
+    ],
+    "decision": {
+      "material_improvement_pass": false,
+      "exact_numerical_parity": true,
+      "all_v4_age_and_failure_checks_pass": true,
+      "median_workload_seconds": {
+        "v3": 0.381356958001561,
+        "v4": 0.17817966599977808,
+        "compute": 0.06968912500087754
+      },
+      "v3_over_v4_median_ratio": 2.1402944935480797,
+      "real180s_gate_established": false
+    },
+    "numeric_identity_synthetic_only": {
+      "parameters": "7d0a64e0ab1819876fb79dfaf846b7254cb3de9c90d2bf9b0e50b5b8568f32e7",
+      "adam": "bd374bff08c815c061cb95a172d3e066fd27eb3f0f99c08fa1756bb3a3043c1c",
+      "reconstruction": "b52c446f11bd0a66d2a1da85f5c22a42f373ea6bae29c7bbd3e2bfec61342ef7",
+      "scores": "b4b094ed6f81dfeb2615c7c34818861971594ff5c4f585fdf9674af81f84837e",
+      "final_objective": 0.6362434050239961
+    },
+    "real180s_established": false
+  },
+  "accounting_repair": {
+    "reason": "Preserve actual process observation/global and phase peaks even when RSS/native veto stops before complete host guard; no numerical/guard threshold change.",
+    "original_matrix_preserved": true,
+    "initial_acceptance_preserved": true,
+    "final_acceptance_sha256": "861c98c01d7c5a6cc81fdbf0f9a9f9d6589424b34f5164845d27205bbdf9c155",
+    "affected_v4_only_validation_sha256": "010819c1850ae5ed85793d1ab9ce4489c27bb04cf78d45fece9a315dec0f8a05",
+    "elapsed_seconds": 4.794864375002362,
+    "rows": [
+      {
+        "rep": 1,
+        "arm": "v4",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1744733750019805,
+        "runtime_import_setup_process_cpu_seconds": 1.1725510000000001,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.002394584000285249,
+        "initialization_enter_monitor_seconds": 0.0596402909977769,
+        "initialization_enter_monitor_process_cpu_seconds": 0.013098000000000054,
+        "elapsed_seconds_including_imports": 1.3548620419969666,
+        "workload_wall_seconds": 0.17790720799894189,
+        "workload_process_cpu_seconds": 0.13034999999999997,
+        "audit_save_seconds": 0.031189916000585072,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.0035612100073194597,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.11305150199405034,
+          "mean": 0.0047104792497520975,
+          "min": 0.002514667001378257,
+          "max": 0.013957582999864826
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.012814209010684863,
+          "mean": 0.0005339253754452026,
+          "min": 0.00020266600040486082,
+          "max": 0.0036921669998264406
+        },
+        "probe_wall_seconds": {
+          "count": 73,
+          "total": 0.007908501982456073,
+          "mean": 0.00010833564359528867,
+          "min": 8.974999946076423e-05,
+          "max": 0.00020779100304935127
+        },
+        "host_queries": 4,
+        "fresh_process_checks": 73,
+        "guard_records": 72,
+        "reused_host_guards": 64,
+        "host_age_statistics": {
+          "count": 72,
+          "max_seconds": 0.056652874998690095,
+          "mean_seconds": 0.02790565179141898
+        },
+        "sampler": {
+          "host_queries_started": 4,
+          "host_generations_published": 4,
+          "skipped_host_schedule_intervals": 0,
+          "host_queries_completed": 4,
+          "overlapping_host_query_wall_seconds": 0.028894416998809902,
+          "maximum_host_query_wall_seconds": 0.009999249999964377,
+          "sampling_thread_process_cpu_seconds": 0.018544249999999998,
+          "latched_failure": null,
+          "owned_thread_alive": false
+        },
+        "overlapping_timing_diagnostics": {
+          "guard_wall_seconds": 0.010682288982934551,
+          "guard_process_cpu_seconds": 0.01123299999999916,
+          "native_process_seconds": 0.008627625997178257,
+          "guard_lock_wait_seconds": 2.6454017643118277e-05,
+          "journal_io_seconds": 0.0012805049955204595
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 4,
+          "minimum_available_bytes": 4859281408,
+          "maximum_available_bytes": 4876156928,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 2,
+        "arm": "v4",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1565727090019209,
+        "runtime_import_setup_process_cpu_seconds": 1.155684,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0020282920013414696,
+        "initialization_enter_monitor_seconds": 0.058986749998439336,
+        "initialization_enter_monitor_process_cpu_seconds": 0.011819000000000024,
+        "elapsed_seconds_including_imports": 1.3341082090009877,
+        "workload_wall_seconds": 0.17539149999720394,
+        "workload_process_cpu_seconds": 0.12746400000000002,
+        "audit_save_seconds": 0.03040787798818201,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.00333899999895948,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.1114386219996959,
+          "mean": 0.004643275916653995,
+          "min": 0.002426082999591017,
+          "max": 0.014619708999816794
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.009531501000310527,
+          "mean": 0.00039714587501293863,
+          "min": 0.00017574999947100878,
+          "max": 0.0010005000003729947
+        },
+        "probe_wall_seconds": {
+          "count": 73,
+          "total": 0.007927135007776087,
+          "mean": 0.00010859089051748064,
+          "min": 8.750000051804818e-05,
+          "max": 0.00018945800184155814
+        },
+        "host_queries": 4,
+        "fresh_process_checks": 73,
+        "guard_records": 72,
+        "reused_host_guards": 64,
+        "host_age_statistics": {
+          "count": 72,
+          "max_seconds": 0.05633887500152923,
+          "mean_seconds": 0.028928040125164343
+        },
+        "sampler": {
+          "host_queries_started": 4,
+          "host_generations_published": 4,
+          "skipped_host_schedule_intervals": 0,
+          "host_queries_completed": 4,
+          "overlapping_host_query_wall_seconds": 0.026014792998466874,
+          "maximum_host_query_wall_seconds": 0.007956334000482457,
+          "sampling_thread_process_cpu_seconds": 0.017112791999999998,
+          "latched_failure": null,
+          "owned_thread_alive": false
+        },
+        "overlapping_timing_diagnostics": {
+          "guard_wall_seconds": 0.010763501006294973,
+          "guard_process_cpu_seconds": 0.011248000000000813,
+          "native_process_seconds": 0.008598370986874215,
+          "guard_lock_wait_seconds": 0.00023354397490038536,
+          "journal_io_seconds": 0.0012131259827583563
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 4,
+          "minimum_available_bytes": 4832788480,
+          "maximum_available_bytes": 4857413632,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      },
+      {
+        "rep": 3,
+        "arm": "v4",
+        "status": "completed",
+        "runtime_import_setup_seconds": 1.1508094999990135,
+        "runtime_import_setup_process_cpu_seconds": 1.149993,
+        "monitor_bindings_audit_fixture_setup_seconds": 0.0020702080000774004,
+        "initialization_enter_monitor_seconds": 0.059244957999908365,
+        "initialization_enter_monitor_process_cpu_seconds": 0.011838999999999933,
+        "elapsed_seconds_including_imports": 1.3292852089980443,
+        "workload_wall_seconds": 0.176332041999558,
+        "workload_process_cpu_seconds": 0.12813300000000005,
+        "audit_save_seconds": 0.028201829994941363,
+        "audit_save_calls": 81,
+        "progress_file_io_seconds": 0.0031158740057435352,
+        "batch_wall_seconds": {
+          "count": 24,
+          "total": 0.11229945798550034,
+          "mean": 0.004679144082729181,
+          "min": 0.0024749169970164075,
+          "max": 0.014581292001821566
+        },
+        "view_wall_seconds": {
+          "count": 24,
+          "total": 0.009192790002998663,
+          "mean": 0.00038303291679161094,
+          "min": 0.00017787500109989196,
+          "max": 0.0008253750020230655
+        },
+        "probe_wall_seconds": {
+          "count": 73,
+          "total": 0.0077204930094012525,
+          "mean": 0.00010576017821097606,
+          "min": 8.87079986569006e-05,
+          "max": 0.00019012499978998676
+        },
+        "host_queries": 4,
+        "fresh_process_checks": 73,
+        "guard_records": 72,
+        "reused_host_guards": 64,
+        "host_age_statistics": {
+          "count": 72,
+          "max_seconds": 0.05626395799845341,
+          "mean_seconds": 0.02835819691573407
+        },
+        "sampler": {
+          "host_queries_started": 4,
+          "host_generations_published": 4,
+          "skipped_host_schedule_intervals": 0,
+          "host_queries_completed": 4,
+          "overlapping_host_query_wall_seconds": 0.026281958998879418,
+          "maximum_host_query_wall_seconds": 0.0080870829988271,
+          "sampling_thread_process_cpu_seconds": 0.017092749999999997,
+          "latched_failure": null,
+          "owned_thread_alive": false
+        },
+        "overlapping_timing_diagnostics": {
+          "guard_wall_seconds": 0.010311625999747775,
+          "guard_process_cpu_seconds": 0.010639999999998873,
+          "native_process_seconds": 0.008365957997739315,
+          "guard_lock_wait_seconds": 4.291599179850891e-05,
+          "journal_io_seconds": 0.0011852129646285903
+        },
+        "actual_OS_host_context_not_readiness": {
+          "count": 4,
+          "minimum_available_bytes": 4826349568,
+          "maximum_available_bytes": 4832739328,
+          "page_sizes_bytes": [
+            16384
+          ]
+        },
+        "synthetic_guard_fixture_not_real_acceptance": true
+      }
+    ],
+    "median_v4_seconds": 0.176332041999558,
+    "exact_parity_to_original": true,
+    "nonpaired_repair_validation_not_material_unlock": true
+  },
+  "validation": {
+    "pytest_passed": 532,
+    "pytest_cases": 532,
+    "pytest_exit_code": 0,
+    "new_cases_over_Task0014": 61,
+    "current_source_map_canonical_sha256": "1091885c3667ac7a29e4d73177b4956517172384733d434cac5bb2929aca8e38",
+    "workspace_measurement": {
+      "scope": "synthetic_full_cardinality_batch32",
+      "method": "PyTorch_CPU_allocation_timeline_including_autograd_temporaries",
+      "synthetic_optimizer_steps": 2,
+      "peak_tensor_bytes": 5228448,
+      "parameter_count": 478,
+      "torch_version": "2.14.1",
+      "external_workspace_accounting": "whole_native_malloc_arena_reservation_during_real_stages"
+    },
+    "Ruff_lint_format_pass": true,
+    "dependency_check_pass": true,
+    "explicit_CPU_smoke_result": 16,
+    "hosted_CI_verified": false,
+    "portability_before_final_repair": {
+      "scope": "temporary_synthetic_checkout_no_data_no_git",
+      "returncode": 0,
+      "elapsed_seconds": 6.347576542000752,
+      "output_tail": [
+        "........................................................................ [ 27%]",
+        "........................................................................ [ 40%]",
+        "........................................................................ [ 54%]",
+        "........................................................................ [ 67%]",
+        "........................................................................ [ 81%]",
+        "........................................................................ [ 95%]",
+        "..........................                                               [100%]",
+        "530 passed in 5.92s"
+      ]
+    },
+    "final_affected_portability": {
+      "scope": "final_affected_tests_temporary_synthetic_checkout_no_data_no_git",
+      "returncode": 0,
+      "elapsed_seconds": 2.746012542000244,
+      "output_tail": [
+        ".............................................................            [100%]",
+        "61 passed in 2.34s"
+      ]
+    },
+    "final_review": {
+      "unchanged_old_tracked_files": 153,
+      "unchanged_historical_engineering_records": 61,
+      "local_links_checked": 131,
+      "index_empty": true,
+      "git_diff_check_pass": true,
+      "real_readiness_plan_slot_absent": true
+    }
+  },
+  "Task0015_real_access": {
+    "custody_operations": 0,
+    "population_requests": 0,
+    "events": 0,
+    "optimizer_steps_started": 0,
+    "optimizer_steps_completed": 0,
+    "optimizer_steps_inflight": 0,
+    "readiness_dispatched": false,
+    "real_plan_created": false,
+    "real_slot_reserved": false,
+    "reason": "Fixed paired median gain2.1402944935480797 below3; no material qualification. Later affected-only validation cannot replace the paired gate.",
+    "manual_real_route_available": false,
+    "source_bound_route_refuses_material_unlock": true
+  },
+  "cumulative_lineage_steps": {
+    "historical_started_completed": 96,
+    "new_started_completed": 0,
+    "cumulative_started_completed": 96,
+    "ceiling_if_conditionally_unlocked": 192,
+    "original_allowance_remaining": 0,
+    "conditional_additional_allowance_unspent_but_not_unlocked": 96
+  },
+  "canonical_state": {
+    "particle_trained_frozen_artifact": false,
+    "fit_selection_restoration_reproduction_freeze_calibration": "not_reached",
+    "PCA_AE_generations_unchanged": true
+  },
+  "test_background model/evaluation accessed": "NO",
+  "test_signal model/evaluation accessed": "NO",
+  "next_dependency": "Explicit bounded engineering/runtime-budget decision; no further real or optimization allowance, no Task0016 execution, no automatic target/model change."
+}
