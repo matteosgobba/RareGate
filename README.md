@@ -80,6 +80,12 @@ Its single check fails both at 2.5443–2.6967 GiB; no reader/dev phase ran.
 Policy v2 is not activated; the next dependency concerns host readiness and
 explicit bounded measurements. Scientific configuration and the old 8 GiB policy
 remain preserved; canonical training/calibration remain pending.
+[Task0013](docs/particle-host-readiness.md) delivers stdlib-only supervision and
+one measured, data-free accounting experiment: parent peakRSS is319.391MiB lower
+than the legacy shape, but the prepared worker still has only3.1778–3.2442GiB.
+No official reader/dev study was invoked; its one shared external Terminal slot
+is prepared/unreserved. The report gives the guarded run command and receipt
+reconciliation procedure; science,4.5GiB admission and4GiB floor remain unchanged.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
 Development records follow the
@@ -262,7 +268,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task 0010: particle/set implementation and synthetic validation; launch gate failed, canonical baseline pending.
 - [x] Task 0011: bounded recovery routing/readiness; host still blocks launch, no recovery data attempt.
 - [x] Task 0012: launch admission reviewed; provisional 4.5 GiB requirement still blocked, zero readers/dev updates.
-- [ ] Resolve stable host readiness, then explicitly authorize bounded reader/dev policy validation.
+- [x] Task0013: lightweight supervision/accounting delivered; host below admission/floor, single external reader/dev study pending and unreserved.
+- [ ] Execute/reconcile the prepared single external study after user-controlled host preparation; canonical full-run authorization remains separate.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

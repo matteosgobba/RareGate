@@ -1,0 +1,664 @@
+{
+  "schema_version": 1,
+  "task": "0013",
+  "status": "host_below_admission_bounded_study_pending",
+  "base_commit": "53b238a83a4cc8f29b09b6e40d69d777588fc1c5",
+  "branch": "main",
+  "upstream": "origin/main",
+  "date": "2026-10-07",
+  "engineering_policy_sha256": "a3e237d8a191d9b906744a497ef7e687c739bc8418dd2e53e78db3e54b24d287",
+  "design_sha256": "3aaccbccb2610f60647d4eca9fab5a368ce10cf812cc189c3e3394b4a4db6f67",
+  "config_sha256": "48b1c647cd8979860a9231e2aea59295054dedf6b4339b3100b5b5679649416b",
+  "prompt_sha256": "652ce7907f6aa1833ed543a8d89c7f4e31fb1d009c80e1c29997ee1cfb571750",
+  "acceptance_sha256": "339c6ed984823e205564c753e7409e54482e36dc8cfa78f537b0508cd731c755",
+  "source_map_sha256": "2c34f8878eed9d1fb784b651bdb20065396e324679dadd8866f3a6984fded09d",
+  "plan_sha256": "4f23221843818b198557d928fb2783a63d472c502eda0daa1b704bc32c3e29bd",
+  "experiment_file_sha256": "c8cabd0054ba48f99f94c1d6999f79b5f9286cc0c1a465b6eb911777f8d3dee7",
+  "experiment_preregistration_sha256": "2d4fe17ba6b35f4fa40d053cf529d5a2354358fab51c65909239602aa67a486f",
+  "limits": {
+    "stop_if_system_available_below_bytes": 4294967296,
+    "process_peak_rss_ceiling_bytes": 6442450944,
+    "working_tensor_and_workspace_ceiling_bytes": 536870912,
+    "minimum_system_available_bytes_at_launch": 4831838208
+  },
+  "accounting": {
+    "status": "completed",
+    "overall_seconds": 20.817059334000078,
+    "context": {
+      "pressure": {
+        "dirty_private_bytes": null,
+        "dirty_private_status": "not_measured_no_supported_binding",
+        "pressure_dispatch_flags": null,
+        "pressure_errno": 1,
+        "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+        "current_rss_bytes": 22036480,
+        "virtual_address_bytes": 445721722880,
+        "current_rss_method": "own_MACH_TASK_BASIC_INFO_64"
+      },
+      "installed_ram": {
+        "status": "unavailable",
+        "command": [
+          "/usr/sbin/sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "exit_code": 1,
+        "output": "",
+        "error": "sysctl: sysctl fmt -1 1024 1: Operation not permitted"
+      },
+      "current_swap_use": {
+        "status": "unavailable",
+        "command": [
+          "/usr/sbin/sysctl",
+          "vm.swapusage"
+        ],
+        "exit_code": 1,
+        "output": "",
+        "error": "sysctl: sysctl fmt -1 1024 1: Operation not permitted"
+      },
+      "pressure_context": {
+        "status": "available",
+        "command": [
+          "/usr/bin/memory_pressure",
+          "-Q"
+        ],
+        "exit_code": 0,
+        "output": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+        "error": ""
+      },
+      "interpretation": "Context only; categories overlap; cumulative swap counters are not current swap use."
+    },
+    "process_inventory": "not_requested",
+    "configurations": [
+      {
+        "configuration": "stdlib_baseline",
+        "status": "completed",
+        "parent_pid": 41397,
+        "parent_parent_pid": 41393,
+        "parent_heavy_modules": [],
+        "parent_import_and_cpu_setup_seconds": 0,
+        "parent_python_entry_to_prepared_seconds": 0.00576737500159652,
+        "parent_external_dispatch_to_prepared_seconds": 0.03828520800016122,
+        "child_sample_span_seconds": 5.010154084000533,
+        "elapsed_seconds_including_imports": 5.125171207999301,
+        "parent_dispatch": {
+          "returncode": 0,
+          "elapsed_seconds_including_imports": 5.1752100409994455
+        },
+        "worker_observations_all_pass": false,
+        "child": {
+          "pid": 41398,
+          "parent_pid": 41397,
+          "heavy_modules": [],
+          "cpu_setup": "stdlib_only",
+          "runtime_import_and_cpu_setup_seconds": 0,
+          "python_entry_to_prepared_seconds": 0.005933417000051122,
+          "external_dispatch_to_prepared_seconds": 0.07619587499902991
+        },
+        "paired_readings": [
+          {
+            "parent": {
+              "sample_monotonic": 8367.41149475,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:44:51.426667+00:00",
+                "pid": 41397,
+                "parent_pid": 41393,
+                "current_rss_bytes": 22233088,
+                "peak_rss_bytes": 22183936,
+                "native_heap_reserved_bytes": 25165824,
+                "native_heap_in_use_bytes": 2870544,
+                "virtual_address_bytes": 445721722880
+              }
+            },
+            "child": {
+              "sample_monotonic": 8367.397739416,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 3873,
+                "inactive_pages": 228555,
+                "available_bytes": 3808100352,
+                "available_gib": 3.54656982421875,
+                "peak_rss_bytes": 22118400,
+                "native_heap_reserved_bytes": 33554432,
+                "native_heap_in_use_bytes": 2866176,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 22151168,
+                "virtual_address_bytes": 445721821184,
+                "pid": 41398,
+                "parent_pid": 41397,
+                "timestamp_utc": "2026-10-07T08:44:51.413749+00:00",
+                "context_counters": {
+                  "Pages active": 230668,
+                  "Pages wired down": 153725,
+                  "Pages occupied by compressor": 374024,
+                  "Pages stored in compressor": 895595,
+                  "File-backed pages": 116721,
+                  "Anonymous pages": 343515,
+                  "Swapins": 71014,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": null,
+            "error": null
+          },
+          {
+            "parent": {
+              "sample_monotonic": 8369.918727708,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:44:53.937128+00:00",
+                "pid": 41397,
+                "parent_pid": 41393,
+                "current_rss_bytes": 22364160,
+                "peak_rss_bytes": 22265856,
+                "native_heap_reserved_bytes": 33554432,
+                "native_heap_in_use_bytes": 2906400,
+                "virtual_address_bytes": 445721722880
+              }
+            },
+            "child": {
+              "sample_monotonic": 8369.902839708,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 3795,
+                "inactive_pages": 221362,
+                "available_bytes": 3688972288,
+                "available_gib": 3.4356231689453125,
+                "peak_rss_bytes": 22183936,
+                "native_heap_reserved_bytes": 37748736,
+                "native_heap_in_use_bytes": 2902032,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 22265856,
+                "virtual_address_bytes": 445721821184,
+                "pid": 41398,
+                "parent_pid": 41397,
+                "timestamp_utc": "2026-10-07T08:44:53.920878+00:00",
+                "context_counters": {
+                  "Pages active": 223642,
+                  "Pages wired down": 162946,
+                  "Pages occupied by compressor": 378762,
+                  "Pages stored in compressor": 907686,
+                  "File-backed pages": 117066,
+                  "Anonymous pages": 329258,
+                  "Swapins": 71014,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": null,
+            "error": null
+          },
+          {
+            "parent": {
+              "sample_monotonic": 8372.422306041,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:44:56.440045+00:00",
+                "pid": 41397,
+                "parent_pid": 41393,
+                "current_rss_bytes": 19185664,
+                "peak_rss_bytes": 22380544,
+                "native_heap_reserved_bytes": 33554432,
+                "native_heap_in_use_bytes": 2918832,
+                "virtual_address_bytes": 445721722880
+              }
+            },
+            "child": {
+              "sample_monotonic": 8372.4078935,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 3888,
+                "inactive_pages": 238333,
+                "available_bytes": 3968548864,
+                "available_gib": 3.6959991455078125,
+                "peak_rss_bytes": 22282240,
+                "native_heap_reserved_bytes": 37748736,
+                "native_heap_in_use_bytes": 2914464,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 19234816,
+                "virtual_address_bytes": 445721821184,
+                "pid": 41398,
+                "parent_pid": 41397,
+                "timestamp_utc": "2026-10-07T08:44:56.427683+00:00",
+                "context_counters": {
+                  "Pages active": 202022,
+                  "Pages wired down": 157060,
+                  "Pages occupied by compressor": 388637,
+                  "Pages stored in compressor": 917839,
+                  "File-backed pages": 118189,
+                  "Anonymous pages": 324638,
+                  "Swapins": 71018,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": null,
+            "error": null
+          }
+        ]
+      },
+      {
+        "configuration": "legacy_double_stack",
+        "status": "completed",
+        "parent_pid": 41433,
+        "parent_parent_pid": 41393,
+        "parent_heavy_modules": [
+          "latenttrigger.data.processed",
+          "latenttrigger.models.particle_memory_study",
+          "latenttrigger.training.particle_set",
+          "numpy",
+          "torch"
+        ],
+        "parent_import_and_cpu_setup_seconds": 1.937808832999508,
+        "parent_python_entry_to_prepared_seconds": 1.9449636659992393,
+        "parent_external_dispatch_to_prepared_seconds": 1.9923165410000365,
+        "child_sample_span_seconds": 5.007370999999694,
+        "elapsed_seconds_including_imports": 8.646589165999103,
+        "parent_dispatch": {
+          "returncode": 0,
+          "elapsed_seconds_including_imports": 8.92326416600008
+        },
+        "worker_observations_all_pass": false,
+        "child": {
+          "pid": 41446,
+          "parent_pid": 41433,
+          "heavy_modules": [
+            "latenttrigger.data.processed",
+            "latenttrigger.models.particle_memory_study",
+            "latenttrigger.training.particle_set",
+            "numpy",
+            "torch"
+          ],
+          "cpu_setup": "1intra/1inter/deterministic",
+          "runtime_import_and_cpu_setup_seconds": 1.282323625000572,
+          "python_entry_to_prepared_seconds": 1.2900125830001343,
+          "external_dispatch_to_prepared_seconds": 3.325486791000003
+        },
+        "paired_readings": [
+          {
+            "parent": {
+              "sample_monotonic": 8375.83752425,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:44:59.856831+00:00",
+                "pid": 41433,
+                "parent_pid": 41393,
+                "current_rss_bytes": 312721408,
+                "peak_rss_bytes": 357105664,
+                "native_heap_reserved_bytes": 175816704,
+                "native_heap_in_use_bytes": 138941664,
+                "virtual_address_bytes": 446324998144
+              }
+            },
+            "child": {
+              "sample_monotonic": 8375.823883458,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 3963,
+                "inactive_pages": 203548,
+                "available_bytes": 3399860224,
+                "available_gib": 3.1663665771484375,
+                "peak_rss_bytes": 357040128,
+                "native_heap_reserved_bytes": 180011008,
+                "native_heap_in_use_bytes": 138939680,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 357072896,
+                "virtual_address_bytes": 446325047296,
+                "pid": 41446,
+                "parent_pid": 41433,
+                "timestamp_utc": "2026-10-07T08:44:59.844646+00:00",
+                "context_counters": {
+                  "Pages active": 205776,
+                  "Pages wired down": 157481,
+                  "Pages occupied by compressor": 420289,
+                  "Pages stored in compressor": 981494,
+                  "File-backed pages": 125630,
+                  "Anonymous pages": 284856,
+                  "Swapins": 71022,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": false,
+            "error": "Policy v2 launch available memory below4.5GiB."
+          },
+          {
+            "parent": {
+              "sample_monotonic": 8378.33764925,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:45:02.356230+00:00",
+                "pid": 41433,
+                "parent_pid": 41393,
+                "current_rss_bytes": 305463296,
+                "peak_rss_bytes": 357105664,
+                "native_heap_reserved_bytes": 175816704,
+                "native_heap_in_use_bytes": 138956640,
+                "virtual_address_bytes": 446324998144
+              }
+            },
+            "child": {
+              "sample_monotonic": 8378.326237,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 4850,
+                "inactive_pages": 201865,
+                "available_bytes": 3386818560,
+                "available_gib": 3.1542205810546875,
+                "peak_rss_bytes": 357072896,
+                "native_heap_reserved_bytes": 180011008,
+                "native_heap_in_use_bytes": 138954656,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 341524480,
+                "virtual_address_bytes": 446325047296,
+                "pid": 41446,
+                "parent_pid": 41433,
+                "timestamp_utc": "2026-10-07T08:45:02.344096+00:00",
+                "context_counters": {
+                  "Pages active": 203434,
+                  "Pages wired down": 154649,
+                  "Pages occupied by compressor": 426148,
+                  "Pages stored in compressor": 989163,
+                  "File-backed pages": 126197,
+                  "Anonymous pages": 280214,
+                  "Swapins": 71070,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": false,
+            "error": "Policy v2 launch available memory below4.5GiB."
+          },
+          {
+            "parent": {
+              "sample_monotonic": 8380.844446375,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:45:04.863229+00:00",
+                "pid": 41433,
+                "parent_pid": 41393,
+                "current_rss_bytes": 305659904,
+                "peak_rss_bytes": 357105664,
+                "native_heap_reserved_bytes": 175816704,
+                "native_heap_in_use_bytes": 138969056,
+                "virtual_address_bytes": 446324998144
+              }
+            },
+            "child": {
+              "sample_monotonic": 8380.831254458,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 3821,
+                "inactive_pages": 203121,
+                "available_bytes": 3390537728,
+                "available_gib": 3.157684326171875,
+                "peak_rss_bytes": 357072896,
+                "native_heap_reserved_bytes": 180011008,
+                "native_heap_in_use_bytes": 138967072,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 335986688,
+                "virtual_address_bytes": 446325047296,
+                "pid": 41446,
+                "parent_pid": 41433,
+                "timestamp_utc": "2026-10-07T08:45:04.852663+00:00",
+                "context_counters": {
+                  "Pages active": 204603,
+                  "Pages wired down": 154592,
+                  "Pages occupied by compressor": 425622,
+                  "Pages stored in compressor": 986870,
+                  "File-backed pages": 125859,
+                  "Anonymous pages": 282621,
+                  "Swapins": 71070,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": false,
+            "error": "Policy v2 launch available memory below4.5GiB."
+          }
+        ]
+      },
+      {
+        "configuration": "lightweight_prepared",
+        "status": "completed",
+        "parent_pid": 41499,
+        "parent_parent_pid": 41393,
+        "parent_heavy_modules": [],
+        "parent_import_and_cpu_setup_seconds": 0,
+        "parent_python_entry_to_prepared_seconds": 0.0056698339994909475,
+        "parent_external_dispatch_to_prepared_seconds": 0.038565499999094754,
+        "child_sample_span_seconds": 5.010064916999909,
+        "elapsed_seconds_including_imports": 6.6396365000000515,
+        "parent_dispatch": {
+          "returncode": 0,
+          "elapsed_seconds_including_imports": 6.691520999998829
+        },
+        "worker_observations_all_pass": false,
+        "child": {
+          "pid": 41500,
+          "parent_pid": 41499,
+          "heavy_modules": [
+            "latenttrigger.data.processed",
+            "latenttrigger.models.particle_memory_study",
+            "latenttrigger.training.particle_set",
+            "numpy",
+            "torch"
+          ],
+          "cpu_setup": "1intra/1inter/deterministic",
+          "runtime_import_and_cpu_setup_seconds": 1.2475516659997083,
+          "python_entry_to_prepared_seconds": 1.2531217910000123,
+          "external_dispatch_to_prepared_seconds": 1.3175824159989133
+        },
+        "paired_readings": [
+          {
+            "parent": {
+              "sample_monotonic": 8382.750082583,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:45:06.764939+00:00",
+                "pid": 41499,
+                "parent_pid": 41393,
+                "current_rss_bytes": 22069248,
+                "peak_rss_bytes": 22036480,
+                "native_heap_reserved_bytes": 25165824,
+                "native_heap_in_use_bytes": 2870704,
+                "virtual_address_bytes": 445721788416
+              }
+            },
+            "child": {
+              "sample_monotonic": 8382.740273416,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 12851,
+                "inactive_pages": 198203,
+                "available_bytes": 3457908736,
+                "available_gib": 3.220428466796875,
+                "peak_rss_bytes": 357040128,
+                "native_heap_reserved_bytes": 171622400,
+                "native_heap_in_use_bytes": 139103760,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 357089280,
+                "virtual_address_bytes": 446324768768,
+                "pid": 41500,
+                "parent_pid": 41499,
+                "timestamp_utc": "2026-10-07T08:45:06.761900+00:00",
+                "context_counters": {
+                  "Pages active": 200508,
+                  "Pages wired down": 156511,
+                  "Pages occupied by compressor": 423130,
+                  "Pages stored in compressor": 980811,
+                  "File-backed pages": 126867,
+                  "Anonymous pages": 272834,
+                  "Swapins": 71098,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": false,
+            "error": "Policy v2 launch available memory below4.5GiB."
+          },
+          {
+            "parent": {
+              "sample_monotonic": 8385.273911625,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:45:09.291947+00:00",
+                "pid": 41499,
+                "parent_pid": 41393,
+                "current_rss_bytes": 22183936,
+                "peak_rss_bytes": 22118400,
+                "native_heap_reserved_bytes": 29360128,
+                "native_heap_in_use_bytes": 2906560,
+                "virtual_address_bytes": 445721788416
+              }
+            },
+            "child": {
+              "sample_monotonic": 8385.245312625,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 6570,
+                "inactive_pages": 201690,
+                "available_bytes": 3412131840,
+                "available_gib": 3.17779541015625,
+                "peak_rss_bytes": 357089280,
+                "native_heap_reserved_bytes": 175816704,
+                "native_heap_in_use_bytes": 139118736,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 357154816,
+                "virtual_address_bytes": 446324768768,
+                "pid": 41500,
+                "parent_pid": 41499,
+                "timestamp_utc": "2026-10-07T08:45:09.277683+00:00",
+                "context_counters": {
+                  "Pages active": 208660,
+                  "Pages wired down": 155843,
+                  "Pages occupied by compressor": 418970,
+                  "Pages stored in compressor": 970631,
+                  "File-backed pages": 126918,
+                  "Anonymous pages": 284438,
+                  "Swapins": 71102,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": false,
+            "error": "Policy v2 launch available memory below4.5GiB."
+          },
+          {
+            "parent": {
+              "sample_monotonic": 8387.773409125,
+              "sample": {
+                "timestamp_utc": "2026-10-07T08:45:11.790722+00:00",
+                "pid": 41499,
+                "parent_pid": 41393,
+                "current_rss_bytes": 22200320,
+                "peak_rss_bytes": 22200320,
+                "native_heap_reserved_bytes": 29360128,
+                "native_heap_in_use_bytes": 2918992,
+                "virtual_address_bytes": 445721788416
+              }
+            },
+            "child": {
+              "sample_monotonic": 8387.750338333,
+              "sample": {
+                "page_size_bytes": 16384,
+                "free_pages": 5697,
+                "inactive_pages": 206917,
+                "available_bytes": 3483467776,
+                "available_gib": 3.244232177734375,
+                "peak_rss_bytes": 357154816,
+                "native_heap_reserved_bytes": 175816704,
+                "native_heap_in_use_bytes": 139131152,
+                "dirty_private_bytes": null,
+                "pressure_dispatch_flags": null,
+                "current_rss_bytes": 357171200,
+                "virtual_address_bytes": 446324768768,
+                "pid": 41500,
+                "parent_pid": 41499,
+                "timestamp_utc": "2026-10-07T08:45:11.784938+00:00",
+                "context_counters": {
+                  "Pages active": 208765,
+                  "Pages wired down": 157578,
+                  "Pages occupied by compressor": 412397,
+                  "Pages stored in compressor": 963291,
+                  "File-backed pages": 126852,
+                  "Anonymous pages": 289730,
+                  "Swapins": 71106,
+                  "Swapouts": 215156
+                }
+              }
+            },
+            "admission_pass": false,
+            "error": "Policy v2 launch available memory below4.5GiB."
+          }
+        ]
+      }
+    ],
+    "supervisor_difference": {
+      "legacy_minus_light_parent_lifetime_peak_rss_bytes": 334905344,
+      "legacy_minus_light_parent_native_peak_reserved_bytes": 146456576,
+      "interpretation": "sequential own-process footprint difference, not unique reclaimed host memory or cause of historical availability change"
+    },
+    "methods": {
+      "available": "Darwin_free_plus_inactive_pages",
+      "native": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+      "current_rss": "own_MACH_TASK_BASIC_INFO_64",
+      "peak_rss": "own_getrusage_ru_maxrss_Darwin_bytes",
+      "primary_page_size": "actual_vm_stat_header",
+      "dirty_private": "not_measured",
+      "raw_paired_vm_stat_retained": "ignored experiment configuration receipts",
+      "contexts_overlap": "never add active/wired/compressed/file-backed categories or RSS/native/virtual/tensor measurements"
+    }
+  },
+  "study": {
+    "slot": "pending_unreserved_shared_automatic_external",
+    "invocation_reserved": false,
+    "phases_dispatched": [],
+    "custody_operations": 0,
+    "population_requests": 0,
+    "model_view_events": 0,
+    "unique_dev_events": 0,
+    "optimizer_steps_started": 0,
+    "optimizer_steps_completed": 0,
+    "inflight_steps": 0,
+    "activation_evaluated": false,
+    "policy_status": "reviewed_provisional_not_activated",
+    "policy_v1_compliance": false,
+    "canonical_authorized": false,
+    "remaining": {
+      "unique_events": 1024,
+      "training_passes": 3,
+      "started_optimizer_steps": 96,
+      "same_sample_score_passes": 1
+    },
+    "manual_command": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python -m latenttrigger.supervision.particle_launcher --run-once",
+    "manual_receipt_must_be_reconciled_without_replay": true
+  },
+  "validation": {
+    "pytest_passed": 422,
+    "pytest_cases": 422,
+    "workspace_peak_tensor_bytes": 5228448,
+    "synthetic_optimizer_steps": 2,
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "pip_check": "passed",
+    "cpu_smoke": "passed",
+    "hosted_ci": "unverified",
+    "remote_push": "unverified",
+    "historical_tracked_preserved": 134,
+    "predecessor_pins_preserved": 24,
+    "old_acceptance_xml_log_hashes_preserved": 4,
+    "local_links_checked": 123,
+    "intended_files": 12,
+    "index": "empty",
+    "git_diff_check": "passed",
+    "documentation_json_arithmetic": "passed",
+    "no_executable_edit_after_acceptance_or_measurement": true
+  },
+  "embargo": {
+    "test_background model/evaluation accessed": "NO",
+    "test_signal model/evaluation accessed": "NO"
+  }
+}
