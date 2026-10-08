@@ -121,10 +121,15 @@ Historical full custody3.120880127GiB RSS/197.25MiB native is below6GiB/512MiB,
 but does not validate multi-hour training or machine-wide headroom. Convergence
 and particle usefulness remain unresolved; design/implementation/history remain
 available for a separately authorized resource/time/environment decision.
-Next is **Task0020 — Frozen PCA/AE CPU Inference Benchmark Foundation**, with an
-[implementation-ready bounded brief](docs/particle-canonical-feasibility.md#task0020-implementation-brief).
-No new execution/policy/allowance is granted here, and progress needs no idle Mac
-or further readiness task.
+[Task0020](docs/frozen-cpu-benchmark.md) implements the frozen PCA/AE v2 CPU
+benchmark with763 passing synthetic/portable tests and one conditional campaign.
+Preparation and PCA1 complete; AE1 fails batch-shape reconstruction parity before
+timing (1.989305e-6 error versus approximately1.930235e-6 allowed at that value).
+The7.989795s campaign is **partial/consumed**:15of90 cells,3000timings, no retry or
+tolerance change. No complete two-model/three-repeat comparison is claimed.
+Next is **Task0021 — Frozen AE Batch-Shape Numerical Parity Review**; resolve the
+CPU numerical contract before CPU/MPS comparison, with any real replay separately
+authorized. Particle192/192 and local canonical deferral remain unchanged.
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -151,6 +156,7 @@ latent-trigger/
 ├── src/latenttrigger/
 │   ├── __init__.py
 │   ├── data/acquisition.py      # Pinned, verified LHCO download CLI
+│   ├── benchmarks/             # Guarded frozen CPU inference benchmark
 │   ├── data/preprocessing.py    # Frozen transforms and verified ragged stores
 │   └── utils/device.py          # MPS-first, CPU fallback selection
 ├── tests/
@@ -281,6 +287,13 @@ real tests remain held out.
 
 ## Testing
 
+The [frozen CPU benchmark](docs/frozen-cpu-benchmark.md) documents timing scopes,
+thread enforcement, numerical checks, caps and the consumed Task0020 campaign.
+Its explicit `--run-campaign` action has already been used; do not rerun/reset
+the fixed output. Small metadata-only verification is available through
+`python -m latenttrigger.benchmarks.frozen_cpu --validate-prerequisites`; a pass
+does not grant another campaign. Raw inputs/timings/audits remain ignored.
+
 ```bash
 python -m ruff check .
 python -m ruff format --check .
@@ -315,7 +328,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0017: independent user-triggered check history/shared-slot run action; manualWARN reconciled, one check-only integration, no real work.
 - [x] Task0018: shared-host dev process policy; one complete96step characterization/exact parity,240.728s target failure; cumulative192consumed.
 - [x] Task0019: consolidated canonical feasibility/resource/time decision; local particle execution deferred, contracts/history unchanged, zero new execution.
-- [ ] Task0020: implement the bounded CPU inference benchmark for frozen PCA and compact AE v2; no refit/recalibration/test access.
+- [x] Task0020: guarded frozen CPU foundation/763synthetic+portable tests; one partial campaign, PCA1measured/AE parity veto, no retry/refit/recalibration/test access.
+- [ ] Task0021: review frozen AE batch-shape numerical parity; no new real replay without separate finite authorization.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

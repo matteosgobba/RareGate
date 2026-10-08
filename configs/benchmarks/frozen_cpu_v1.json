@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "protocol_id": "frozen-cpu-v1",
+  "task": "0020",
+  "authorization": "one_conditional_campaign_after_current_synthetic_acceptance",
+  "prompt": {
+    "path": "docs/prompts/0020-frozen-cpu-benchmark.md",
+    "file_sha256": "ab954bb493305ddce794d96a7cc20f5afeca931ebe4e9bc916e6ce3d50680b8f"
+  },
+  "brief": {
+    "path": "docs/particle-canonical-feasibility.md",
+    "file_sha256": "77f885ed2000f73e4af8b4dcfb2650e0e5491804159e42dbd4a261f607c2ebd8",
+    "summary_path": "results/tables/final/task0019-particle-canonical-feasibility-summary.json",
+    "summary_file_sha256": "78a3e0a9dbf6da9bc93fc5ffd78a9715d14397f19fffbf6f5c0a0c19603c8e97"
+  },
+  "models": [
+    {
+      "name": "pca-v1",
+      "config_path": "configs/models/pca_baseline.json",
+      "config_canonical_sha256": "e61e43bc57afc010286bf2b1deff91167b4951644d52d882ecbd1cf10f938f95",
+      "config_file_sha256": "5a346df7e9fe3def3c40b1a35d75d5512e4761ae8e5d9e4975f7264e269615a1",
+      "model_path": "data/baselines/pca-v1/model.json",
+      "model_scientific_sha256": "d09f96bb7b1536e8da147458f3b0bf50a120bdf6cfc4c247b37970f4f51bf42f",
+      "model_file_sha256": "6dd54d8aa788ab27f3cbd674d82c549ce31787b9865a911635d9ebd8faee3190",
+      "results_path": "results/tables/final/task0006-pca-background-results.json",
+      "results_scientific_sha256": "285a254847424870b5bee08e5a218733dcbe553ff7a4d00ec5c9493288600ccb",
+      "results_file_sha256": "d063102533d222f1c7c83590247dcabfd00d136fcd8d818e805d30c1be98c212",
+      "score_definition": "sum_squared_reconstruction_residual",
+      "orientation": "higher_is_more_anomalous",
+      "forward_dtype": "float64",
+      "score_dtype": "float64",
+      "threshold_decision": "score > threshold",
+      "calibration_count": 74823,
+      "thresholds": [
+        {
+          "target_fpr": 0.1,
+          "threshold": 0.3496768162794852
+        },
+        {
+          "target_fpr": 0.05,
+          "threshold": 0.5642097175249418
+        },
+        {
+          "target_fpr": 0.01,
+          "threshold": 1.4232146905138892
+        },
+        {
+          "target_fpr": 0.001,
+          "threshold": 4.1356483360291865
+        }
+      ]
+    },
+    {
+      "name": "compact-autoencoder-v2",
+      "config_path": "configs/models/compact_autoencoder_v2.json",
+      "config_canonical_sha256": "0af02cba0dcab4cd750b19f6357fe5030aadb56c7c0422c4f35ea4adc1521800",
+      "config_file_sha256": "dd6a808ee2e7a48767593dddf45fcbbb059afd63380a8791209521f0e59e8303",
+      "model_path": "artifacts/models/compact-autoencoder-v2/model.json",
+      "model_scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b",
+      "model_file_sha256": "a0b1563c34526bbfd965de6b63d041da2dfa713e9fe4bbc514852595ea813bf5",
+      "results_path": "results/tables/final/task0008-autoencoder-convergence-summary.json",
+      "results_scientific_sha256": "324d7363b3e2d2ec96f57cc88790af99895097a35c91efe4839c3cead25c7d33",
+      "results_file_sha256": "5991605a445b83627ad2e47a7805d6c42d335d50198b8dfea525dd3d69776352",
+      "score_definition": "sum_squared_reconstruction_residual",
+      "orientation": "higher_is_more_anomalous",
+      "forward_dtype": "float32",
+      "score_dtype": "float64",
+      "threshold_decision": "score > threshold",
+      "calibration_count": 74823,
+      "thresholds": [
+        {
+          "target_fpr": 0.1,
+          "threshold": 3.478338537407165
+        },
+        {
+          "target_fpr": 0.05,
+          "threshold": 4.681070974717348
+        },
+        {
+          "target_fpr": 0.01,
+          "threshold": 8.324174660133213
+        },
+        {
+          "target_fpr": 0.001,
+          "threshold": 16.642218868621573
+        }
+      ]
+    }
+  ],
+  "input": {
+    "store": "data/processed/lhco-rd-v1/schema-v1/dev",
+    "scientific_sha256": "2eb34e5b811c12ae5c47afba1ecdb6322feb7c7774b6c9ec5331abe78b3c9a2a",
+    "full_training_provenance_sha256": "d12574e90e9ba9dff71e4e796f5004e704bce5d824db98c545a96d2df08e12d2",
+    "preprocessing_file_sha256": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "split_scientific_sha256": "74a97d8956a4b75d5710d456bc207fdfa9d27569256bafe7b8e72a7891468fea",
+    "population": "train_background",
+    "dev_only": true,
+    "sample": "first_1024_source_ordered_ids",
+    "events": 1024,
+    "representation": "event_features",
+    "dtype": "float32",
+    "channels": [
+      "multiplicity",
+      "scalar_pt",
+      "max_pt",
+      "pt_balance",
+      "weighted_eta_mean",
+      "weighted_eta_std",
+      "pt_concentration",
+      "massless_event_mass"
+    ],
+    "scaler_source": "configs/data/lhco_rnd_v5.json",
+    "already_standardized_do_not_scale_twice": true,
+    "public_reader": "ProcessedStore.iter_features_one_1024_batch_then_stop",
+    "allow_test": false,
+    "include_labels": false,
+    "score_based_population_selection": false,
+    "full_store_constructor_or_payload_hash": false
+  },
+  "runtime": {
+    "device": "cpu",
+    "pytorch_intra_threads": 1,
+    "pytorch_inter_threads": 1,
+    "effective_blas_openmp_threads": 1,
+    "deterministic_algorithms": true,
+    "thread_environment_before_imports": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "pca_compute_dtype": "float64",
+    "ae_forward_dtype": "float32",
+    "score_dtype": "float64",
+    "amp": false
+  },
+  "output": "results/benchmarks/task0020-frozen-cpu",
+  "acceptance": {
+    "precondition_path": "data/task0020-synthetic-acceptance.json",
+    "campaign_copy": "acceptance.json",
+    "source_scope": [
+      "src/latenttrigger/**/*.py",
+      "tests/*.py",
+      "scripts/*.py"
+    ],
+    "actual_source_map_bound_by_acceptance_and_reservation": true
+  },
+  "worker_order": [
+    "PCA1",
+    "AE1",
+    "PCA2",
+    "AE2",
+    "PCA3",
+    "AE3"
+  ],
+  "batch_grid": [
+    1,
+    8,
+    32,
+    128,
+    1024
+  ],
+  "scope_order": [
+    "reconstruction",
+    "score_decision",
+    "adapter_decision"
+  ],
+  "timing_semantics": {
+    "reconstruction": "prepared_FP64_PCA_existing_expression_order_or_frozen_FP32_AE_forward;kernel_allocations_included;AE_encode_shape_dtype_validation_retained",
+    "score_decision": "actual_grid_shape_precomputed_reconstruction;FP64_cast_before_subtraction_SSE_finite_validation_and_four_strict_decisions;no_forward",
+    "adapter_decision": "existing_public_score_on_preloaded_FP32_numpy_then_four_strict_decisions;validation_wrapping_cast_forward_SSE_included",
+    "excluded": "loading_window_preparation_logging_guard_queries;periodic_watchdog_can_overlap_no_subtraction"
+  },
+  "warmups": 20,
+  "measurements": 200,
+  "empty_timer_pairs": 200,
+  "timer": "perf_counter_ns",
+  "window_schedule": "start=(i mod (1024/B))*B; reset_independently_for_warmup_and_measurement_each_cell",
+  "statistics": [
+    "count",
+    "min",
+    "max",
+    "mean",
+    "population_std",
+    "p50",
+    "p95",
+    "p99"
+  ],
+  "quantiles": "linear",
+  "throughput": "B/(mean_invocation_nanoseconds/1e9)",
+  "worker_aggregation": "all_three_distributions_and_median_of_worker_medians;no_best_selection",
+  "numerical": {
+    "reference": "existing_canonical_implementations_one_1024_batch_before_timing",
+    "same_batch_separated_score_atol": 1e-12,
+    "same_batch_separated_score_rtol": 1e-12,
+    "pca_across_batch_reconstruction_score_atol": 1e-12,
+    "pca_across_batch_reconstruction_score_rtol": 1e-12,
+    "ae_across_batch_reconstruction_score_atol": 1e-06,
+    "ae_across_batch_reconstruction_score_rtol": 1e-05,
+    "allowed_frozen_threshold_decision_mismatches": 0,
+    "pre_and_post_timing_hash_output_checks": true,
+    "mismatch_blocks_success_no_threshold_or_sample_or_tolerance_change": true,
+    "relative_error_denominator": "max(abs(reference),comparison_atol);acceptance_abs_error<=atol+rtol*abs(reference)"
+  },
+  "limits": {
+    "worker_rss_bytes": 1073741824,
+    "worker_native_bytes": 536870912,
+    "parent_rss_bytes": 134217728,
+    "concurrent_numeric_workers": 1,
+    "preparation_seconds": 60,
+    "worker_seconds": 60,
+    "aggregation_seconds": 30,
+    "allocated_stage_seconds": 450,
+    "campaign_seconds": 600,
+    "watcher_intent_seconds": 0.05,
+    "context_query_seconds": 2,
+    "cleanup_grace_seconds": 2,
+    "guard_journal_bytes_per_worker": 8388608,
+    "worker_log_bytes": 1048576
+  },
+  "pressure": {
+    "NORMAL": "permit",
+    "WARN": "advisory_disclose",
+    "CRITICAL": "veto_latch",
+    "unknown": "disclose_permit_with_finite_caps",
+    "malformed_or_bad_provenance": "fail_closed"
+  },
+  "global_available": "optional_context_start_end_only_no_floor_age_veto_or_stability_wait",
+  "optimizer_updates": 0,
+  "fit_select_calibrate_particle_mps_export_quantize_test_authorized": false,
+  "single_slot": "exclusive_directory_creation_before_real_store_or_input;existing_any_state_blocks_no_alternate_output_reset_retry",
+  "expected_counts": {
+    "workers": 6,
+    "measured_cells": 90,
+    "timed_invocations": 18000,
+    "warmups": 1800,
+    "empty_timer_pairs": 1200
+  }
+}
