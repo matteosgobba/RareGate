@@ -99,6 +99,12 @@ v4;576synthetic tests pass. One automatic readiness guard observes3.558060GiB an
 fails the4GiB floor before data/updates. The shared single replacement additional
 slot remains unreserved; a reviewed optional Terminal route is available in the
 report, without app closure or dedicated use. Canonical stages remain pending.
+The later Task0016 manual check separately failed pressureWARN2 with no admitted
+available-memory sample. [Task0017](docs/particle-readiness-workflow.md) reconciles
+that result and delivers repeatable explicit readiness checks plus a separate
+fresh-check run action sharing the same canonical Task0016 slot.612synthetic
+tests pass; one check-only integration3.705841GiB fails the floor,0new real work.
+A failed safe check no longer needs another task/commit; no automatic polling.
 Engineering supports normal Mac use with apps open, without a dedicated window.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -286,7 +292,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0014: external receipts reconciled; v3 resource instrumentation tested on synthetic inputs, no new real access.
 - [x] Task0015: bounded-age v4 tested; synthetic2.14×gain below3×, no real revalidation unlocked.
 - [x] Task0016: prospective diagnostic admission reviewed; automatic readiness blocked, zero new real data/steps.
-- [ ] Reconcile the optional single Task0016 manual characterization when user-executed; actual-policy artifacts/canonical authorization remain separate.
+- [x] Task0017: independent user-triggered check history/shared-slot run action; manualWARN reconciled, one check-only integration, no real work.
+- [ ] Reconcile future user-triggered characterization receipts; actual-policy artifacts/canonical authorization remain separate.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.
