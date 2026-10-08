@@ -1,7 +1,5 @@
 """User-triggered read-only history and deliberate run sharing the Task0016 slot."""
 
-import argparse
-import json
 import math
 import os
 import re
@@ -592,28 +590,11 @@ def brief(result):
 
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    group = p.add_mutually_exclusive_group(required=True)
-    group.add_argument("--check-readiness", action="store_true")
-    group.add_argument("--run-characterization", action="store_true")
-    p.add_argument("--json", action="store_true")
-    args = p.parse_args()
-    result = invoke(
-        "check_readiness" if args.check_readiness else "run_characterization"
-    )
-    print(json.dumps(result, indent=2) if args.json else brief(result))
-    status = result["status"]
-    raise SystemExit(
-        0
-        if status in ("ready", "bounded_characterization_passed_canonical_pending")
-        else 2
-        if status
-        in (
-            "not_ready",
-            "characterization_completed_original_throughput_failed_canonical_blocked",
-        )
-        else 1
-    )
+    # Task0018 explicitly replaces the default short-dev admission policy.
+    # Old functions/manifests remain historical; no accidental global-RAM default.
+    from latenttrigger.supervision.particle_shared_host import main as shared_main
+
+    shared_main()
 
 
 if __name__ == "__main__":
