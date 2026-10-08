@@ -127,9 +127,15 @@ Preparation and PCA1 complete; AE1 fails batch-shape reconstruction parity befor
 timing (1.989305e-6 error versus approximately1.930235e-6 allowed at that value).
 The7.989795s campaign is **partial/consumed**:15of90 cells,3000timings, no retry or
 tolerance change. No complete two-model/three-repeat comparison is claimed.
-Next is **Task0021 — Frozen AE Batch-Shape Numerical Parity Review**; resolve the
-CPU numerical contract before CPU/MPS comparison, with any real replay separately
-authorized. Particle192/192 and local canonical deferral remain unchanged.
+[Task0021](docs/ae-batch-parity-review.md) completes a separate AE-only numerical
+review:827full/portable synthetic tests, one read of the existing1024prepared rows,
+all1193grid windows. Same-shape repeats are byte exact; across-shape reconstruction
+and scores violate v1, but all four strict frozen decisions agree on this sample.
+The original row7/channel5 failure is confirmed; no performance timing or replay.
+Next is **Task0022 — Arithmetic-Aware Frozen CPU Benchmark v2**: implement and
+validate the inactive arithmetic-scaled contract, then a separately authorized
+complete CPU campaign with its own three repetitions. MPS follows a complete
+accepted CPU reference. Particle192/192 and canonical deferral remain unchanged.
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -289,10 +295,13 @@ real tests remain held out.
 
 The [frozen CPU benchmark](docs/frozen-cpu-benchmark.md) documents timing scopes,
 thread enforcement, numerical checks, caps and the consumed Task0020 campaign.
-Its explicit `--run-campaign` action has already been used; do not rerun/reset
-the fixed output. Small metadata-only verification is available through
-`python -m latenttrigger.benchmarks.frozen_cpu --validate-prerequisites`; a pass
-does not grant another campaign. Raw inputs/timings/audits remain ignored.
+Its explicit `--run-campaign` action is consumed. The isolated
+[AE numerical review](docs/ae-batch-parity-review.md) adds
+`python -m latenttrigger.benchmarks.ae_parity_review --run-review` and
+`--synthetic-study`; both fixed Task0021 actions have now completed and cannot be
+replayed. These actions provide no new performance campaign allowance. New review
+source/tests are covered by827full/portable checks; raw inputs/receipts/audits and
+acceptance stay ignored. Numerical-policy proposals remain inactive.
 
 ```bash
 python -m ruff check .
@@ -329,7 +338,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0018: shared-host dev process policy; one complete96step characterization/exact parity,240.728s target failure; cumulative192consumed.
 - [x] Task0019: consolidated canonical feasibility/resource/time decision; local particle execution deferred, contracts/history unchanged, zero new execution.
 - [x] Task0020: guarded frozen CPU foundation/763synthetic+portable tests; one partial campaign, PCA1measured/AE parity veto, no retry/refit/recalibration/test access.
-- [ ] Task0021: review frozen AE batch-shape numerical parity; no new real replay without separate finite authorization.
+- [x] Task0021: complete guarded AE numerical parity review/827full+portable tests; v1 failures preserved, sampled frozen decisions agree, no timing.
+- [ ] Task0022: arithmetic-aware CPU numerical contract and separately authorized complete benchmark v2; no implementation/execution yet.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.

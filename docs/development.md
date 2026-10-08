@@ -51,3 +51,12 @@ Keep downloaded data, environments, caches, generated results, and checkpoints
 out of Git. Only intentionally curated small artifacts may be committed through
 the documented results policy. A design document or command example does not
 mean a downloader, preprocessing step, model, or benchmark has been implemented.
+
+## Standing delivery preference
+
+Final task responses must explain the completed work, key data, validation,
+limitations, decisions and concrete next step in enough detail to serve as a
+useful handoff to the planning chat. Make the response self-contained, distinguish
+historical/measured/inferred/proposed/unverified statements, honor the requested
+language and include the actual manual Git section last. A bare status/test count
+or a link to logs is insufficient when substantive findings need interpretation.
