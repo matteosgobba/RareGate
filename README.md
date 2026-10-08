@@ -112,9 +112,19 @@ WARN advisory/CRITICAL veto, unknown pressure disclosed.670synthetic tests pass.
 One real shared-host characterization completes reader64/three1024passes/96new
 updates with exact Task0013 numerical parity; dev370.016MiB RSS/179.672MiB native
 passes. Projection240.728s still fails180s. Shared slot is **consumed192/192**, no
-manual rerun/additional allowance; canonical full-store/time policy and training
-remain pending. Next: one consolidated execution-feasibility/budget decision;
-frozen PCA/AE hardware work can progress independently, no more readiness windows.
+manual rerun/additional allowance. [Task0019](docs/particle-canonical-feasibility.md)
+consolidates feasibility: **local canonical particle execution is deferred under
+unchanged contracts**. The current projection exceeds180s by33.737977%;200cycles
+project13.373797748h/run, and two runs plus the full1hpostfit allowance each
+project28.747595497h before other overhead, versus10hfit/run and22htotal.
+Historical full custody3.120880127GiB RSS/197.25MiB native is below6GiB/512MiB,
+but does not validate multi-hour training or machine-wide headroom. Convergence
+and particle usefulness remain unresolved; design/implementation/history remain
+available for a separately authorized resource/time/environment decision.
+Next is **Task0020 — Frozen PCA/AE CPU Inference Benchmark Foundation**, with an
+[implementation-ready bounded brief](docs/particle-canonical-feasibility.md#task0020-implementation-brief).
+No new execution/policy/allowance is granted here, and progress needs no idle Mac
+or further readiness task.
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -304,7 +314,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0016: prospective diagnostic admission reviewed; automatic readiness blocked, zero new real data/steps.
 - [x] Task0017: independent user-triggered check history/shared-slot run action; manualWARN reconciled, one check-only integration, no real work.
 - [x] Task0018: shared-host dev process policy; one complete96step characterization/exact parity,240.728s target failure; cumulative192consumed.
-- [ ] Consolidate canonical execution feasibility/full-store process/time budgets; actual-policy artifacts and full-run authorization remain separate.
+- [x] Task0019: consolidated canonical feasibility/resource/time decision; local particle execution deferred, contracts/history unchanged, zero new execution.
+- [ ] Task0020: implement the bounded CPU inference benchmark for frozen PCA and compact AE v2; no refit/recalibration/test access.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.
