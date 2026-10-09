@@ -1,23 +1,223 @@
-# Task0026 — Guarded frozen PCA/AE evaluation and unblinding readiness
+# Task0026 — Accepted guarded frozen PCA/AE scientific evaluation
 
-**Phase A complete and accepted; Phase B awaits explicit human authorization.**
-The isolated native scientific orchestration and reporting pipeline are implemented
-and synthetically validated. One fresh full-store custody-only check exits 0,
-parent-confirmed/reaped, in 10.173717584 s ≤ 60 s. No model population request,
-real scoring, test metrics or unblinding occurred. The final namespace is unreserved.
+**Phases A and authorized B complete and accepted. Both held-out populations are
+now exposed.** One approved frozen-plan campaign completes PCA, AE and reporting
+with normal exits/reaping in31.094950s;4requests/124batches/500942scored presentations,
+250471unique test events. No fitting/optimizer/recalibration/candidate selection.
 
-[Actual prompt](prompts/0026-guarded-pca-ae-evaluation.md),
+[Original prompt](prompts/0026-guarded-pca-ae-evaluation.md),
+[actual Phase B approval](prompts/0026-phase-b-authorization.md),
 [handoff](handoffs/0026-guarded-pca-ae-evaluation.md),
-[strict protocol](../configs/evaluation/frozen_pca_ae_final_v1.json),
-[curated readiness/plan summary](../results/tables/final/task0026-guarded-pca-ae-evaluation-summary.json).
-The [scientific evaluation-v1 contract](evaluation-protocol.md) is unchanged.
-All readiness/exposure/source acceptance/score/curve/log files stay ignored under
-the fixed local namespace or preregistration data directory. No test-result CSV or
-scientific figure is curated during Phase A; static reporting was tested on toys.
+[unchanged protocol](../configs/evaluation/frozen_pca_ae_final_v1.json) and
+[curated summary](../results/tables/final/task0026-guarded-pca-ae-evaluation-summary.json).
+Original Phase A handoff/report are retained in commit e69d80ed and ignored snapshots;
+its readiness/implementation record follows the accepted scientific results below.
+
+## Accepted Phase B scientific findings — 2026-10-09
+
+The human explicitly authorized the unchanged plan in
+[the actual Phase B message](prompts/0026-phase-b-authorization.md).
+All130source/dependency and scientific/config/calibration/store/plan identities
+matched; Phase A acceptance/readiness reused without another readiness action.
+At continuation, clean main/origin/main HEAD
+`e69d80ed802492be3db965d0ab69ce3e1a50395d` is the verified Phase A commit;
+this is the Phase B execution base, not an invented result commit.
+Human message is stored in the fixed ignored authorization audit and copied into
+the campaign; its file-byte hash is in the curated summary/receipt lineage.
+
+Exactly one final reservation/campaign, fixed PCA→AE→consolidation order, all
+processes exit0/reaped/parent_accepted. Whole31.094950s≤600s; no failures, replay,
+resume, policy/source changes or test-guided model/threshold selection. Two
+candidate constructors still freshly verify full custody as required by the
+approved plan; they are not a repeat of the consumed Phase A readiness action.
+
+Both test populations are **now exposed**. Four model/population requests,
+124complete score batches,500942confirmed read/scored presentations and250471unique
+held-out events. Per candidate:37background batches (36×4096+3015) and25signal
+batches (24×4096+1696), source order/complete tails, no uncertain in-flight access.
+No train/selection/calibration model population or optimizer update. Never call
+these tests untouched or tune candidates against their newly observed behavior.
+
+| Candidate | ROC-AUC | AP | Test background | Test signal | Signal prevalence |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| PCA-v1 | 0.468488657947 | 0.364379154950 | 150471 | 100000 | 39.924781711% |
+| Compact AE v2 | 0.660063802527 | 0.547427268325 | 150471 | 100000 | 39.924781711% |
+
+Prevalence100000/250471=39.924781711256% belongs to the **evaluated held-out
+mixture**, not the entire source or physical LHC rates. The figure's "released
+sample" label refers to this evaluated mixture. AP depends on prevalence; constant
+score AP equals that mixture fraction. AE AP0.547427 is above it; PCA AP0.364379
+is below. ROC-AUC uses the supplied higher-SSE orientation; PCA0.468489 is below
+0.5 on this sample. No post-test inversion is introduced to improve that result.
+No preregistered AUC/AP uncertainty/significance test or extra metric search.
+
+### Calibration-frozen operating points
+
+| Candidate | Calibration target FPR | Frozen threshold | Background accepted /150471 | Realized FPR % [Wilson95%] | Signal accepted /100000 | Signal efficiency % [Wilson95%] | Rejection |
+| --- | ---: | ---: | ---: | --- | ---: | --- | ---: |
+| PCA-v1 | 0.1 | 0.3496768162794852 | 14922 | 9.916861 [9.766864,10.068905] | 4620 | 4.620000 [4.491628,4.751858] | 10.083836 |
+| PCA-v1 | 0.05 | 0.5642097175249418 | 7362 | 4.892637 [4.784791,5.002787] | 852 | 0.852000 [0.796893,0.910883] | 20.438875 |
+| PCA-v1 | 0.01 | 1.423214690513889 | 1416 | 0.941045 [0.893498,0.991097] | 90 | 0.090000 [0.073233,0.110601] | 106.264831 |
+| PCA-v1 | 0.001 | 4.135648336029186 | 124 | 0.082408 [0.069128,0.098237] | 2 | 0.002000 [0.000548,0.007293] | 1213.475806 |
+| Compact AE v2 | 0.1 | 3.478338537407165 | 14793 | 9.831130 [9.681718,9.982593] | 23217 | 23.217000 [22.956344,23.479714] | 10.171770 |
+| Compact AE v2 | 0.05 | 4.681070974717348 | 7357 | 4.889314 [4.781503,4.999429] | 13608 | 13.608000 [13.396886,13.821910] | 20.452766 |
+| Compact AE v2 | 0.01 | 8.324174660133213 | 1424 | 0.946362 [0.898679,0.996549] | 3298 | 3.298000 [3.189096,3.410492] | 105.667837 |
+| Compact AE v2 | 0.001 | 16.64221886862157 | 116 | 0.077091 [0.064285,0.092447] | 56 | 0.056000 [0.043131,0.072706] | 1297.163793 |
+
+Every threshold remains the original background-calibrated value, strict score>τ.
+Wilson95% intervals are binomial rate summaries conditional on frozen thresholds
+and sampling assumptions, not joint calibration/model/simulation uncertainty.
+Achieved background rates are below the nominal targets; some conditional intervals
+do not contain the target. This is not permission to recalibrate or a guarantee
+of unseen/physical population FPR. Empirical resolutions are1/150471background
+and1/100000signal. No operating point here has zero background accepted, so
+rejection is finite; the unchanged protocol would report null rejection plus the
+one-sided exact upper95% bound if zero occurred, never infinity.
+
+At target1e-3, PCA keeps2signals (0.002%, Wilson0.000548–0.007293%) and124background
+(0.082408%); AE keeps56signals (0.056%, Wilson0.043131–0.072706%) and116background
+(0.077091%). The AE's higher observed count is real, but absolute sensitivity is
+very low at this tight operating point. The PCA tail's2events give limited evidence;
+do not extrapolate deeper rejection, advertise universal28×gain or trigger readiness.
+
+### Descriptive empirical ROC points, not deployment thresholds
+
+| Candidate | Descriptive target | Achieved FPR % | Achieved signal efficiency % | Background accepted | Signal accepted |
+| --- | --- | ---: | ---: | ---: | ---: |
+| PCA-v1 | FPR 0.1 | 9.998604 | 4.711000 | 15045 | 4711 |
+| PCA-v1 | FPR 0.05 | 4.995647 | 0.899000 | 7517 | 899 |
+| PCA-v1 | FPR 0.01 | 0.998199 | 0.097000 | 1502 | 97 |
+| PCA-v1 | FPR 0.001 | 0.071775 | 0.002000 | 108 | 2 |
+| PCA-v1 | TPR 0.5 | 53.417602 | 50.000000 | 80378 | 50000 |
+| PCA-v1 | TPR 0.8 | 82.391291 | 80.000000 | 123975 | 80000 |
+| PCA-v1 | TPR 0.9 | 91.307960 | 90.000000 | 137392 | 90000 |
+| Compact AE v2 | FPR 0.1 | 9.999934 | 23.599000 | 15047 | 23599 |
+| Compact AE v2 | FPR 0.05 | 4.998305 | 13.820000 | 7521 | 13820 |
+| Compact AE v2 | FPR 0.01 | 0.999528 | 3.508000 | 1504 | 3508 |
+| Compact AE v2 | FPR 0.001 | 0.098358 | 0.074000 | 148 | 74 |
+| Compact AE v2 | TPR 0.5 | 26.916815 | 50.000000 | 40502 | 50000 |
+| Compact AE v2 | TPR 0.8 | 60.426926 | 80.000000 | 90925 | 80000 |
+| Compact AE v2 | TPR 0.9 | 77.503971 | 90.000000 | 116621 | 90000 |
+
+These thresholds/points are derived descriptively from the complete final ROC,
+with attainable rates, no interpolation and strict-gt encoding/explicit accept-none /
+accept-all semantics. They are separate from the frozen calibration thresholds.
+PCA's1e-3target reaches2signals at FPR0.071775%, rather than manufacturing an
+interpolated exact0.1% point; the tie/plateau rule retains the highest cutoff
+(lowest FPR) achieving the same maximum signal count. AE's corresponding74signals
+at FPR0.098358% do not replace its frozen calibrated result of56signals. Full descriptive
+thresholds/counts/intervals are in the empirical CSV/JSON; no test-based threshold
+choice is adopted.
+
+### Background residuals, capacity and accepted native CPU context
+
+| Test background summary | PCA-v1 | AE v2 |
+| --- | ---: | ---: |
+| mean | 0.170172541029 | 1.70321526569 |
+| std | 0.328760784165 | 1.68053707506 |
+| min | 3.28890754053e-07 | 0.00885568855866 |
+| median | 0.0927169482613 | 1.23708738032 |
+| p90 | 0.347651718992 | 3.44586566837 |
+| p95 | 0.556097950201 | 4.63925665669 |
+| p99 | 1.38155798994 | 8.18916716322 |
+| p99_9 | 3.88556480897 | 15.7209112841 |
+| max | 28.4027825972 | 71.3873686527 |
+
+These are test-background score summaries, linear quantiles/population std from
+existing scientific helpers. PCA lower mean residual0.170173 versus AE1.703215
+is not a quality ranking. Retained dimensions6versus3 differ; observed differences
+do not isolate the causal effect of nonlinearity, bottleneck size or particular
+features. No new feature-level bias diagnostic or signal-process generalization
+has been measured here.
+
+Accepted Task0022preloaded-dev CPU adapter context: median of three worker p50s
+B1PCA8.125µs /AE24.708µs; B1024PCA44.4585µs /AE85.5µs. Pooled B1024throughput
+22.324739M /11.871389M events/s comes from600invocations per model. These are
+historical scoped native inference costs, not new contemporaneous repeats,
+Task0026end-to-end latency or physical trigger capacity. B4096evaluation wall
+contains custody, metrics, audit, serialization and resource checks; do not divide
+it into a new inference benchmark. Task0025provisional speed ratios are not used.
+
+### Actual resource/lifecycle acceptance and remaining limits
+
+| Stage | Worker body s | Parent-observed lifecycle s | Exit / reap | Observed RSS GiB | Whole native MiB | Unaccounted terminal s |
+| --- | ---: | ---: | --- | ---: | ---: | ---: |
+| PCA | 10.126706 | 10.464501 | 0 / yes | 2.228317261 | 209.250000 | 0.338449541 |
+| AE | 8.446787 | 8.714494 | 0 / yes | 2.717468262 | 199.671875 | 0.268158750 |
+| consolidate | 11.155332 | 11.446585 | 0 / yes | 0.405334473 | 252.093750 | 0.292504583 |
+
+Parent peak30343168B=28.9375MiB≤128MiB. Largest observed worker RSS2917859328B
+and whole-native264339456B remain below6GiB/512MiB; RSS/native overlap, peaks
+include constructor/setup/diagnostics, not isolated model allocations. Both
+candidate lifecycle intervals are≤120s, consolidation11.446585s≤30s, whole
+31.094950s≤600s. Model-population scoring+metrics+serialization spans0.509961s
+PCA /0.519485sAE; those combined intervals are not pure forward timing. Constructor
+custody spans6.407523s /5.847427s and consolidation reporting9.152711s are separately
+recorded. Imports/thread setup/cleanup stay inside deadlines.
+
+Every body guard closes without latch; every child exits normally and is reaped
+before parent acceptance. Terminal memory gaps0.338450/0.268159/0.292505s are
+explicit; no continuous/full-lifetime resource certificate or hard-real-time promise.
+Pressure queries are unknown/errno1 and disclosed; global availability contextual,
+no floor/readiness loop/app/cache/privilege changes. Shared-host variability remains;
+no inference of dedicated thermal/power state or causal optimization.
+
+### Curated outputs and validation
+
+[Scientific comparison CSV](../results/tables/final/task0026-pca-ae-scientific-comparison.csv),
+[frozen calibrated operating points](../results/tables/final/task0026-pca-ae-calibrated-operating-points.csv),
+[descriptive empirical operating points](../results/tables/final/task0026-pca-ae-empirical-operating-points.csv),
+[curated ROC/PR figure](../results/figures/final/task0026-pca-ae-roc-pr.png)
+and the existing [summary](../results/tables/final/task0026-guarded-pca-ae-evaluation-summary.json)
+retain exact values/counts/intervals/provenance. Figure is a byte-identical copy of
+the accepted campaign output and visually inspected; curve/score arrays remain
+ignored, along with authorization/unblinding/raw execution evidence. No numerical
+population replay or new model artifact during curation/metadata validation.
+
+The1259full/portable/80newcase software acceptance from Phase A is reused exactly;
+no executable/protocol/dependency change means no redundant synthetic-suite claim.
+Phase B final checks independently validate source/authorization/plan/model /
+calibration/store/output/receipt/grant identities, durable request/batch/exposure
+arithmetic, rate/interval/CSV/JSON/report agreement, figure hash/visual quality,
+links/whitespace/Git exclusions. Fresh read-only Ruff lint and format checks
+pass (217 formatted files), and pip reports no broken requirements. Pip disables
+its inaccessible user cache without any dependency or permission change.
+Hosted CI remains unverified.
+
+### Supported conclusion and one next task
+
+For these two frozen native aggregate baselines on this held-out signal mixture,
+AE has a better observed ranking and more accepted signal at all four original
+calibrated thresholds, with higher accepted CPU cost. Discrimination is modest,
+and sensitivity at tight background rejection remains poor. PCA's frozen higher
+residual is not a useful high-tail selector for this signal in these measurements.
+This is evidence about the declared candidates/sample, not universal neural
+superiority or proof that nonlinearity caused the difference. No candidate is
+retrained/recalibrated/selected in response; both frozen comparison identities persist.
+
+Recommend **Task0027 — Frozen scientific synthesis and quality/cost frontier**,
+using only accepted Task0026tables/figure and Task0022native CPU cost summaries to
+produce the integrated scientific report/frontier, finite-sample/capacity/input /
+preprocessing/host limits and reproducibility package. No new population/scoring,
+model/threshold selection, export or hardware branch is required. New model
+development cannot reuse these tests as untouched: it needs a separately explicit
+methodological decision and new evaluation protocol/population. No Task0027work
+implemented here. Particle192/192and local canonical deferral unchanged;
+Task0025failed/consumed/unknown shutdown remains preserved.
+
+```yaml
+test_background model/evaluation accessed: YES
+test_signal model/evaluation accessed: YES
+```
+
+Optimizer updates0. This first scientific evaluation is accepted and consumed;
+no replay/resume allowance remains.
+
+## Preserved Phase A implementation/readiness record
 
 ## Actual state and preserved scientific history
 
-Initial main tracks origin/main, clean index and working tree, full HEAD
+Phase A initial main tracked origin/main, clean index and working tree, full HEAD
 `2f3cde01c9a2c91780d22df791c897891338fdc5` is the verified Task0025 commit.
 Task0024 is `cacaefd3ac00a6c657b14109eb19e0119e25ada4`.
 Living memory/index reconcile the actual commit; old handoffs retain task-time meaning.
@@ -163,7 +363,7 @@ not a continuous full-lifetime memory certificate. Parent supervision remains ac
 Optional availability3.17847→2.56895GiB is context, never an admission floor.
 No readiness retry, new particle slot or guaranteed future scoring budget.
 
-## Concrete Phase B plan — authorization still missing
+## Phase A preregistration record — authorization was then pending
 
 Plan canonical JSON SHA256:
 `2c97dc2ac903de4a911968bc2f97725cd3d80e18498b1003604c9e4562e3d86f`.
@@ -210,7 +410,7 @@ remain ignored; only deliberately curated small tables/figures may enter Git.
 Expected scientific outputs: `final/PCA/evaluation.json`, `final/AE/evaluation.json`,
 `final/comparison.json`, `final/calibrated-operating-points.csv`, `final/roc-pr.png`;
 local per-candidate/root exposure, receipt and parent-acceptance records accompany them.
-No real test metrics or figures currently exist.
+At the end of Phase A no real test metrics or figures existed; the accepted Phase B outputs are above.
 
 Implemented actions:
 
@@ -223,13 +423,12 @@ Implemented actions:
 .venv/bin/python -m latenttrigger.evaluation.guarded --run-final --allow-test --plan-sha256 2c97dc2ac903de4a911968bc2f97725cd3d80e18498b1003604c9e4562e3d86f
 ```
 
-Do not execute the last command during Phase A. It refuses before final reservation
+The last command was not executed during Phase A; it was executed once after the actual human approval recorded above. It refuses before final reservation
 without explicit opt-in, the unchanged plan, current acceptance/readiness and the
 bound `data/task0026-human-authorization.json` record. **That file is an audit
 binding, not evidence from which the agent may infer human consent.** It must only
-be written after the actual human approves the presented plan; no such record is
-created here. CLI flags, elapsed time, implementation approval and readiness are
-not consent. The final slot and both tests remain unexposed/unreserved.
+be written after the actual human approves the presented plan; no such record was created in Phase A. The actual human message now binds the Phase B authorization record. CLI flags, elapsed time, implementation approval and readiness are
+not consent. At Phase A completion the final slot and tests were unreserved/unexposed; Phase B exposure above supersedes that historical state.
 
 ## Software and final verification
 
@@ -251,22 +450,3 @@ prior bytes retained. Final validation checks small metadata, plan/receipt/grant
 acceptance/source/scientific relationships, exact access arithmetic, JSON/local
 links/whitespace and Git exclusions. It does not repeat payload custody or open
 scientific population arrays. Hosted CI remains **unverified**.
-
-## Remaining prerequisite
-
-The implementation/readiness package is complete. As required by this task's
-Phase A/B boundary and evaluation-v1, the next action is **explicit human consent**
-to both named frozen native candidates,150471test-background and100000test-signal
-rows once per candidate, with no subsequent refit/recalibration/candidate selection.
-First test access, including an interrupted attempt, exposes the held-out test.
-A modest/negative discrimination result is valid; no tuning follows unblinding.
-This report is readiness documentation, not permission or a scientific result.
-
-```yaml
-test_background model/evaluation accessed: NO
-test_signal model/evaluation accessed: NO
-```
-
-Optimizer updates0; particle192/192unchanged. Real test AUC/AP/FPR/efficiency remain
-unknown. Full-store scoring/metrics resource and lifecycle success are unmeasured;
-readiness custody does not guarantee them or physical trigger readiness.

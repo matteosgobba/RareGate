@@ -1,5 +1,15 @@
 # Task0026 — Guarded frozen PCA/AE evaluation and unblinding readiness
 
+## Current outcome — authorized Phase B complete
+
+The original Phase A record below is historical; its pending authorization and
+zero model-access statements describe the state before the subsequent actual
+human approval. Phase A was committed as e69d80ed802492be3db965d0ab69ce3e1a50395d.
+The continuation's approved campaign is now parent-accepted and consumed, both
+tests exposed. Current exposure declarations are YES/YES. The original Phase A
+NO/NO declarations below record only its then-current state and remain unchanged;
+the current declarations appear in the Phase B continuation.
+
 ## Initial metadata — 2026-10-09
 
 - main / origin/main, HEAD 2f3cde01c9a2c91780d22df791c897891338fdc5, Task0025 committed.
@@ -148,3 +158,133 @@ README/memory/index. Exclude inputs/arrays/scores/curve arrays/raw manifests /
 readiness receipts/logs/source acceptance/plan/consent/snapshots/caches.
 Suggested Conventional Commit:
 `feat: add guarded PCA AE evaluation with custody readiness`.
+
+## Authorized Phase B continuation — 2026-10-09
+
+Actual human approval saved at
+[0026-phase-b-authorization.md](../prompts/0026-phase-b-authorization.md), not
+inferred from a flag/file/readiness. It explicitly covers the current approved
+plan SHA2c97dc2ac903de4a911968bc2f97725cd3d80e18498b1003604c9e4562e3d86f,
+both frozen native candidates,150471test_background+100000test_signal once each,
+exposure including interruption, no subsequent refit/recalibration/selection.
+
+At resumption: clean main/origin/main, empty index, verified HEAD/PhaseAcommit
+`e69d80ed802492be3db965d0ab69ce3e1a50395d`. This is the Phase B base, no result
+commit/push claimed. All130source/dependency/prompt/protocol/candidate/calibration /
+store metadata and plan identities match;1259source acceptance and original
+readiness reused, no repeated consumed readiness action or redundant test suite.
+Human message recorded in fixed authorization JSON, bound to unchanged plan /
+source130/software acceptance1d0e4ddc…1662cd, and copied into final reservation.
+One exact --run-final --allow-test --plan-sha256 action, no retries/resume/repairs.
+
+### Accepted execution and actual exposure
+
+PCA→AE→consolidate, each worker body_complete_awaiting_exit followed by independent
+parent_accepted/exit0/reaped/deadline. Whole31.09494999999879s≤600s.
+Candidate parent lifecycles10.464501042s /8.714493584s≤120s;
+consolidation11.446585458s≤30s. Worker body10.126706208/8.446786791/11.155332s.
+Scoring+metrics+serialization0.509960916/0.519484667s are combined stage costs,
+not inference benchmark latency; candidate custody6.407523167/5.847426875s is
+fresh constructor integrity required by the approved plan, distinct from the
+original Phase A readiness operation. All original scientific helpers unchanged.
+
+Both tests exposed:4model/population requests,37background+25signal score batches
+per candidate,124batches total;36×4096+3015 and24×4096+1696 preserved source order /
+complete tails.500942confirmed read/scored presentations,250471unique held-out
+events reused across candidates. No unknown inflight, no train/selection/calibration
+population requests, optimizer0. Total custody3 (PhaseA1+approved candidate2).
+Durable original pre-request/per-read/per-score journals and progress preserved.
+No test can be described as untouched or reblinded after this execution.
+
+Max observed RSS2917859328B /native264339456B /parent30343168B are below
+6GiB/512MiB/128MiB, with overlap/constructor/setup context. All guards no latch,
+watchers closed, primary pressure unknown/errno1 disclosed, global context nofloor.
+Terminal memory gaps0.338449541/0.268158750/0.292504583s remain unaccounted;
+parent deadlines cover actual exit, no continuous/hard-real-time memory certificate.
+No source/policy changes, cache/app/privilege management, MPS/export/particle work.
+
+### Scientific findings and limits
+
+Evaluated held-out mixture150471background/100000signal, prevalence0.3992478171125599
+(39.924781711256%). It is not entire-source or physical LHC prevalence; AP depends
+on this mixture. PCA ROC-AUC0.4684886579473786/AP0.36437915494963025, below0.5/
+prevalence under original higher-SSE orientation. No post-test score inversion.
+AE ROC-AUC0.6600638025267328/AP0.5474272683246686, modest observed discrimination.
+
+Frozen operating points, per target FPR0.1/0.05/0.01/0.001:
+PCA background counts14922/7362/1416/124 and signal4620/852/90/2;
+AE background14793/7357/1424/116 and signal23217/13608/3298/56.
+All denominators150471background/100000signal and original strict thresholds;
+realized rates/counts/Wilson95intervals/null-zero conventions retained in CSV/JSON.
+At tight1e-3: PCA FPR0.082408%/TPR0.002%, AE0.077091%/0.056%; higher AE accepted
+signal count does not resolve poor absolute sensitivity. PCA2tail signal events
+have broad relative uncertainty; no deeper tail extrapolation/universal28×claim.
+
+Descriptive empirical fixed-FPR signal percentages:
+PCA4.711/0.899/0.097/0.002%; AE23.599/13.82/3.508/0.074%.
+At TPR50/80/90%, achieved PCA FPR53.4176/82.3913/91.3080%;
+AE26.9168/60.4269/77.5040%. These observed ROC cutoffs are not adopted calibration
+thresholds; attainable points/tie rules/strict-gt mapping unchanged, no interpolation.
+Actual FPRs/thresholds/counts/intervals, background summaries and prevalence are
+curated exactly. No additional unregistered significance/uncertainty/metric search.
+
+AE has higher sampled signal acceptance at all four original thresholds and better
+ranking for this declared signal/test mixture, with higher accepted native CPU cost.
+PCA meanbackgroundSSE0.170172541 vsAE1.703215266 is not a quality ranking;6vs3
+latent dimensions do not isolate causal nonlinearity. Task0022 accepted CPU adapter
+median of worker p50s B1PCA8.125µs/AE24.708µs; B1024PCA44.4585µs/AE85.5µs /
+pooled22.324739M/11.871389M events/s are historical scoped context, not new repeat /
+physical trigger capacity. Task0025provisional speed ratios are not accepted costs.
+All frozen models/thresholds/candidates retained; no test-guided selection or tuning.
+
+### Curated deliverables and final validation
+
+Updated current [report](../guarded-pca-ae-evaluation.md)/summary/README/memory1.20 /
+index; original Phase A scientific plan/code/protocol/source acceptance/readiness
+receipts preserved. New small
+[comparison CSV](../../results/tables/final/task0026-pca-ae-scientific-comparison.csv),
+[frozen calibrated CSV](../../results/tables/final/task0026-pca-ae-calibrated-operating-points.csv),
+[empirical CSV](../../results/tables/final/task0026-pca-ae-empirical-operating-points.csv),
+[ROC/PR PNG](../../results/figures/final/task0026-pca-ae-roc-pr.png).
+PNG/calibrated CSV byte-identical copies of accepted campaign outputs; figure
+visually inspected. Raw scores/curves/authorization/unblinding/logs/acceptance /
+reservations/receipts/snapshots remain ignored. No executable/model/protocol changes.
+
+Phase A1259full/1259portable/80newtests/native smoke acceptance reused unchanged,
+not claimed as a new rerun. Final Phase B checks reverify source/science/dependency /
+plan/auth/receipt/output/figure identity, exact durable access/batch/tail arithmetic,
+independent rate/Wilson/rejection/table/JSON agreement, links/whitespace/exclusions /
+actual Git state. No numerical population replay, repeated readiness or test-model
+scoring during curation. Fresh read-only Ruff lint/format checks pass (217 files);
+pip check reports no broken requirements, disabling its inaccessible user cache
+without dependency/permission changes. Hosted CI remains unverified. AUC/AP descriptive; rate
+intervals do not include calibration/model/simulation uncertainty. Signal-process /
+physics bias/generalization unresolved; no physical trigger readiness claim.
+
+### Recommended next step and current exposure
+
+Task0027 — Frozen scientific synthesis and quality/cost frontier: use existing
+accepted Task0026tables/figure and Task0022native CPU summaries only, integrate
+central conclusions/capacity/input/prevalence/finite-tail/host limitations and
+reproducibility. No new population/scoring/model/threshold/candidate selection /
+export/device work; not implemented here. Future new model design requires separate
+methodology and a new evaluation population/protocol, not reusing these tests as
+untouched. Task0025failed consumed/ORT3unknown cause and particle192/192/canonical
+local deferral unchanged.
+
+```yaml
+test_background model/evaluation accessed: YES
+test_signal model/evaluation accessed: YES
+```
+
+Scientific optimizer updates0. Final campaign accepted/consumed; no replay/resume.
+
+### Phase B Git delivery
+
+main/origin/main, HEAD e69d80ed unchanged, index empty; no automatic staging /
+commit/push. Phase A source/protocol/test/prompt files are already committed and
+unchanged; selective result commit covers live README/memory/index/report/summary /
+handoff, actual new authorization prompt,3curated CSVs and1PNG only. Exclude all
+raw unblinding/authorization/score/curve/receipt/acceptance/log/snapshot files.
+Suggested Conventional Commit:
+`feat: report authorized frozen PCA AE scientific evaluation`.

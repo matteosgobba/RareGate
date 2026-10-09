@@ -158,15 +158,23 @@ consumed: [raw descriptive distributions](results/tables/final/task0025-pytorch-
 are preserved, with **no accepted paired performance comparison**. One original
 and six local prepared reads reuse 1024 rows, zero population/custody/optimizer
 requests. Task0022 CPU v2 and Task0024 ONNX equivalence remain accepted; MPS stays
-blocked, CoreML planned, particle 192/192 consumed/canonical deferred. [Task0026](docs/guarded-pca-ae-evaluation.md) now completes Phase A: guarded native
-evaluation/reporting,1259 full/portable tests and130-source acceptance. One fresh
-full-store custody-only check passes in10.174 s, observed2.109 GiB RSS/209.25 MiB
-native, exit0/reaped;0model population/scoring requests. The exact frozen PCA/AE
-plan is ready; **explicit human test authorization remains pending**, final slot
-unreserved. Four planned population requests/124score batches/500942presentations
-reuse250471unique held-out events. No real test metrics, refit/recalibration or
-particle allowance. See [readiness/plan summary](results/tables/final/task0026-guarded-pca-ae-evaluation-summary.json)
-and [handoff](docs/handoffs/0026-guarded-pca-ae-evaluation.md).
+blocked, CoreML planned, particle 192/192 consumed/canonical deferred. [Task0026](docs/guarded-pca-ae-evaluation.md) completes the explicitly authorized
+frozen native scientific evaluation after Phase A validation/readiness. One
+31.095 s campaign accepts PCA, AE and reporting with normal exits/reaping:
+4test requests/124complete4096-tail batches/500942presentations/250471unique events.
+**Both held-out tests are now exposed**, with no retraining/recalibration/candidate
+selection. Test-mixture prevalence39.9248%; PCA ROC-AUC0.468489/AP0.364379,
+AE0.660064/0.547427. AE accepts more sampled signal at all frozen operating points,
+but target1e-3keeps only56/100000signal events (PCA2); different6vs3capacity and
+accepted native CPU costs limit interpretation. No physical trigger or universal
+neural superiority claim. [Comparison](results/tables/final/task0026-pca-ae-scientific-comparison.csv),
+[calibrated rates/intervals](results/tables/final/task0026-pca-ae-calibrated-operating-points.csv),
+[ROC/PR figure](results/figures/final/task0026-pca-ae-roc-pr.png),
+[summary](results/tables/final/task0026-guarded-pca-ae-evaluation-summary.json) and
+[handoff](docs/handoffs/0026-guarded-pca-ae-evaluation.md) preserve evidence.
+Next: Task0027frozen scientific synthesis/quality-cost frontier from accepted
+Task0026/0022summaries only, no new test/scoring/model selection. Particle192and
+canonical deferral/Task0025failed consumed history remain unchanged.
 
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
@@ -395,7 +403,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0024: additive optional ONNX CPU foundation/1111full+portable tests; one accepted frozen155parameter export and full synthetic/1024row equivalence,0performance timings.
 - [x] Task0025: isolated paired CPU foundation / 1179 full + portable tests; 90 measured cells and passing numerical gates, but ORT3 exit deadline fails; consumed, no accepted paired speedup.
 - [x] Task0026 Phase A: guarded native scientific evaluation/reporting,1259 tests/source freeze and one accepted full-store custody-only check, no test populations/scores.
-- [ ] Task0026 Phase B: explicit human consent to the reviewed frozen PCA/AE plan, then one audited final comparison; final slot unreserved.
+- [x] Task0026 Phase B: explicit human approval, one accepted frozen PCA/AE final evaluation, all scientific tables/figure/counts/lifecycle curated; both tests exposed, no post-test tuning/replay.
+- [ ] Task0027: frozen scientific synthesis and quality/cost frontier from existing accepted summaries, no new population/scoring/model selection.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
 - [ ] Physical CPU/MPS comparison: Task0023 blocked, no current device proof.
