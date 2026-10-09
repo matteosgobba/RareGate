@@ -1,0 +1,4373 @@
+{
+  "schema_version": 1,
+  "task": "0025",
+  "outcome": {
+    "implementation": "validated",
+    "campaign_status": "failed_consumed_no_retry",
+    "real_campaign_attempts": 1,
+    "reserved_consumed": true,
+    "retry_allowed": false,
+    "timing_coverage_complete": true,
+    "numerical_worker_gates_passed": true,
+    "parent_accepted_timing_workers": 5,
+    "parent_rejected_timing_workers": [
+      "ORT3"
+    ],
+    "campaign_numerical_and_performance_acceptance": false,
+    "performance_comparison_accepted": false,
+    "aggregate_status": "descriptive_provisional_only",
+    "error": "RuntimeError: Failed/incomplete phase: ORT3",
+    "precise_blocker": "ORT3 wrote completed numerical/timing/cleanup receipt after10.072625083994353s, but its child process did not exit; parent58s operation deadline sent SIGTERM/returncode-15 and reaped at58.03058020900062s. Shutdown cause unverified; no repairs/replay.",
+    "real_execution_coverage": "Six local numerical/timing bodies complete; five timing-process lifecycles accepted; ORT3 terminated/reaped at parent deadline."
+  },
+  "identities": {
+    "base_commit": "cacaefd3ac00a6c657b14109eb19e0119e25ada4",
+    "branch": "main",
+    "upstream": "origin/main",
+    "code_dirty_at_reservation": true,
+    "protocol_canonical_JSON_sha256": "77f23d702a8248518effcd722e14c5779accc0f4eea3627f7ef5799d4c351b30",
+    "protocol_file_byte_sha256": "6bf8febbc30789e3731dd16b87468d2582855d1698580d2aa76ed805e7569c85",
+    "source_file_sha256": {
+      "scripts/analyze_training_data.py": "6a78e21398b86bb664301e812fccd56b5dc306cffcf88650fd82a67b1fb5e841",
+      "scripts/audit_raw_data.py": "733f8a694d6ab3b6174f141dd34b6fd83be0e8642f8e7374edc66d217e90af26",
+      "scripts/smoke_test.py": "48c390cd1292323a9dc8d36f812af5e381495932043ca62866a813bc8494c8dd",
+      "scripts/validate_preprocessing.py": "be317ec506c76c2bf38672713d5c5f6f42b713ef74e461acb1d3f795535c850d",
+      "src/latenttrigger/__init__.py": "1874d028be1a1999572871386c09deb55fa9ff9ee1d29248f6f41213b8f1973c",
+      "src/latenttrigger/benchmarks/__init__.py": "395aeb36864bab9f214b181452b77859d85483755a9a87902afaaf08eb5c6ba3",
+      "src/latenttrigger/benchmarks/accelerate_threads.py": "dd11e84796a9bb6611f444b6dce08a03ab9b0e6bc910e8af73ae346bcd96f80f",
+      "src/latenttrigger/benchmarks/ae_parity_numerics.py": "b474492cfcd8b7fad6fe868adca6393fd7a62814863977e961be55556ebef84f",
+      "src/latenttrigger/benchmarks/ae_parity_protocol.py": "17ad9329b72409e272691630688123a3434f9c09b2f0868eb681a48e7031f062",
+      "src/latenttrigger/benchmarks/ae_parity_review.py": "c6d4809fde1ddd2b36cc290555b5889e962aca41c8b2e19c5a030c31925047da",
+      "src/latenttrigger/benchmarks/arithmetic_cpu_v2.py": "dac69bddfd76bc914f8fc9a22240cc4a666518e6963a47182dc208ff4eebb631",
+      "src/latenttrigger/benchmarks/core.py": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987",
+      "src/latenttrigger/benchmarks/cpu_mps.py": "64f0da7a8446f97df368f5f3349658fa2375085cb8fe65ae720f493dc10c64b1",
+      "src/latenttrigger/benchmarks/cpu_mps_device.py": "aeabd601997ca27817866da39ca6c6d84ec8198994ab22a479385d7e7b5fe6bb",
+      "src/latenttrigger/benchmarks/cpu_mps_numerics.py": "802234a8e613186f912b9df694a6894c68229c8f546f2896ea3ba129ea571a02",
+      "src/latenttrigger/benchmarks/cpu_mps_protocol.py": "d9f149eea0c2e47b42f33eb81905c5521af40a2d58812a91de11b7893b64559c",
+      "src/latenttrigger/benchmarks/cpu_mps_smoke.py": "b3b6ab1285d01e7e339c0de91720ca2f84eade60fc7848c9717dafb35624fe70",
+      "src/latenttrigger/benchmarks/cpu_mps_worker.py": "dc700b767bf085519f3dea882da89a72af334a8fda3483286decbdda252f73c3",
+      "src/latenttrigger/benchmarks/frozen_cpu.py": "eff5159cd21b2b869d5559ff85a5dc0626b84e271e6490269965313288042998",
+      "src/latenttrigger/benchmarks/frozen_cpu_v2.py": "c263bbe39fad71a8404522b63f7de96eb7667b8d2110517cc4d8b16f88d69482",
+      "src/latenttrigger/benchmarks/frozen_cpu_v2_numerics.py": "d7fa2250aabb2dbb89dcd67b333a9ca98d080274f92e160fd557ec9517e26fd8",
+      "src/latenttrigger/benchmarks/frozen_cpu_v2_protocol.py": "0179393d25c66d2cab8ac74a3f7802957efbd75e385af5673fc9b171d53b224e",
+      "src/latenttrigger/benchmarks/frozen_cpu_v2_worker.py": "62793f11a93dcd104f5bb3fac34c0e8a69e0e3fdaa27b5541ad29072b9444df4",
+      "src/latenttrigger/benchmarks/guard.py": "61b7543310ef83281b7da272bbefb94d5c7cc75574e19e0dfc9a7a70ab12e408",
+      "src/latenttrigger/benchmarks/protocol.py": "562fde67928ee16cd08975240b21cfccbfc3e4c9ac5fa90992e72e135ba47bbc",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu.py": "611089469b961d31c6593f9568c6c72986d17e53920f9835e2ee29fbcaf609ae",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_numerics.py": "a5f3a4c86d00e91ab01f8f42bd81c12c450bc9fecc7e399d038ddd2f0d8e3ea4",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_protocol.py": "e2f329cf05ccfc75be5bf439f01713ada2aee92007303c818a9dfe9037a7b711",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_smoke.py": "a0b395d26fbf709cecd983527ea9334c8c8e132983e2020a965d2ddfccdbf9f4",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_statistics.py": "2ac318fe62ea5b2c12b90a057a9ee5d406b93f81d023f3254a21f2acb0e8ec10",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_worker.py": "52cb6f30610706e26a42e19fb91dc86a9507841c6da5ab33c725f0578b6e6b5d",
+      "src/latenttrigger/benchmarks/worker.py": "eceef3341b2dd1ff83f01ac9ef6ecbfbc956cd19488af20b217f8276991d091c",
+      "src/latenttrigger/data/__init__.py": "ab12fdf1084922db398bf597fcbb9734e005fdf005ccef10705aa1407d997017",
+      "src/latenttrigger/data/acquisition.py": "3a16f4b8efd0d794076ebae6f942a28f2be0fd9c51a51e46af4aa5485f2e931b",
+      "src/latenttrigger/data/analysis.py": "71ab4b72d06d4dd68f0c19461669a36a3078e29220a3fdd02a39cdb48e9cbf79",
+      "src/latenttrigger/data/eda.py": "8c9d60cbcd04a9e301b0282880d7b6358221c46075be73716130c7528749b798",
+      "src/latenttrigger/data/features.py": "fac40f3fb9e16f8d9048094cd9b031871eb399e11d37e04963e301b2f9a2ce42",
+      "src/latenttrigger/data/inspection.py": "9c78ed557ae2d3f7e2f70e184483efe3fb01838aaf03f38e4513ca096e6f9a61",
+      "src/latenttrigger/data/metadata.py": "3361939ce5029b98418d3551c4ebe48790c1571d03a09d8205997572f9ecf40d",
+      "src/latenttrigger/data/preprocessing.py": "6aa6f8bae59667ee28dfec5798960aba2c28993719a3d88679659f53d5dab6e0",
+      "src/latenttrigger/data/processed.py": "911c1bdb85831396b5e35dd6c3b5206a1ef22b5c62b55efb40108a4cd8cea5ea",
+      "src/latenttrigger/data/splitting.py": "997bc80cf0fcf00ce3e28a0e1e2ac322831223601e3b78ad7513e2956adb8206",
+      "src/latenttrigger/evaluation/__init__.py": "4c868d5297ce8710cf3a0adb0185ba2ec970b736c936d3f604a21251123ad579",
+      "src/latenttrigger/evaluation/metrics.py": "6b882e7acd7c61443f64086b16da45e880f364185bf4c35853d2c363fe7c8450",
+      "src/latenttrigger/evaluation/run.py": "68b8c95b3f5ce99f789b37cdc32885ee47c3712b43126403fa2bf081a2dcd625",
+      "src/latenttrigger/evaluation/thresholds.py": "0e9b8e74eb260e66eb0efd5c289ff54f791b9501ce5bf85e43b57dfb06e2d054",
+      "src/latenttrigger/exports/__init__.py": "bd7fd0800784e384ed614a64c01cb884b65b686ddd7a54d8540cbea24f0db6c7",
+      "src/latenttrigger/exports/onnx_controller.py": "7729db8d557abf3cd13e5ba00d94d8554ca92aeef3c471b5182e3361d0f87422",
+      "src/latenttrigger/exports/onnx_graph.py": "f9b8eb5c54f712a50f80b1635e18233c6cbec30ca503dfd59a46087fd9e9625f",
+      "src/latenttrigger/exports/onnx_numerics.py": "ab547749aa3f291efb6a641ff0b789ab4ef00646ccd00a6e7c6c722c8b45276e",
+      "src/latenttrigger/exports/onnx_protocol.py": "90964339032bb51e67042d2d64e0a84146930513c150c2fee365568bd638cfb4",
+      "src/latenttrigger/exports/onnx_smoke.py": "1cb26a170b0ab4ee029d9a04265bc14c535f3172080a2dc34b1b9a0b762627a2",
+      "src/latenttrigger/exports/onnx_worker.py": "afc808b243129425138fccc80ab0b05f8ca1766f072d5e7cd4c0cfb5c56baaa2",
+      "src/latenttrigger/models/__init__.py": "acbad93cca155b2c69bd9b2f6d1990acc6cf54c6e21614c20c5d8b174e9d56cc",
+      "src/latenttrigger/models/autoencoder.py": "cf5c9507fa08404c8a287627a30201608736634e8246e298fad081201bff4738",
+      "src/latenttrigger/models/background.py": "97c2491100747aa495d4b30865fecf356d7d7c2f4ec40c7ff224499e9c3a66e8",
+      "src/latenttrigger/models/particle_background.py": "d33fd7c29242fa6039e8a167f0e5b1ad4427ae1bf544649446a04eef5be2b57d",
+      "src/latenttrigger/models/particle_memory_study.py": "a507cda92f7543f5e49d68b15fddbac6fd87ba9dcc8e3c731958e5938e1df00b",
+      "src/latenttrigger/models/particle_recovery.py": "290e386c0e70f42a7977d52b01342ab10affe552e95789c60637e75ce820ad54",
+      "src/latenttrigger/models/particle_set.py": "503384dcb006140689a927064f6c6245a199e66dd6e9a3c7763f80a246eb6308",
+      "src/latenttrigger/models/pca.py": "6c14d9a5abb5515bd137b3303ff1da693e8d1c143119496162ce705715328b4a",
+      "src/latenttrigger/models/reporting.py": "bce28fb295e9115e572ba8d0dd9b76e778fbdc015a1b69a94ca7199cd1763ad4",
+      "src/latenttrigger/supervision/__init__.py": "f890548a3d6d6ce1651b10a02942ce23d9d6c5383a3567baaa23d90acd8c2c52",
+      "src/latenttrigger/supervision/particle_bounded_study.py": "f4bea82bebee943ca899dfdc072e0540ffc08a1d0d810276cb1dec8d4c72f942",
+      "src/latenttrigger/supervision/particle_bounded_worker.py": "6ea75d4071a2c58ab0187603a37dda968a0486d178c5dfe0f7658e6f2e151b9e",
+      "src/latenttrigger/supervision/particle_characterization.py": "6229325d970873e55784c11c77d85db8d75285651caab579bfaaaaa39c0ac95a",
+      "src/latenttrigger/supervision/particle_characterization_worker.py": "75068a1ea5de4b067cc80003062697a9242d2eb27480b04a13734f982bd75b75",
+      "src/latenttrigger/supervision/particle_collector.py": "39d66cce6fc6e9e8a98cfec7018c0aacc148be98b5fb7fcacd04c1f10b251fd5",
+      "src/latenttrigger/supervision/particle_dev_policy.py": "6565b603628af4535286d4b57d5bb6d6451171b47448e74a230e399317fdc437",
+      "src/latenttrigger/supervision/particle_host.py": "5e1912dd23affe008fe2fe8cc416a60a5c0627c4f654d72af5cbddd460c91a80",
+      "src/latenttrigger/supervision/particle_launcher.py": "d0864aaa75ef37a5e7bb94b4baad6bad1ac05e5463a433b2a5e98d7601cbf621",
+      "src/latenttrigger/supervision/particle_monitor_benchmark.py": "692876faf61b2fe1db86861116e4d701299f4b4d08aafd084045f8335ee206cc",
+      "src/latenttrigger/supervision/particle_readiness.py": "f97d68746bcb89954e50ac229d4885217101f045fe927f537df9daafa22b1439",
+      "src/latenttrigger/supervision/particle_readiness_worker.py": "a8feda0177adf5e05c329a15cfda97efd1063aa6e3fc9557cac48d4618da9a6d",
+      "src/latenttrigger/supervision/particle_reconciliation.py": "817035b04855a29af45b8eff82fde932d266391e5df9b317eb61217d1287b146",
+      "src/latenttrigger/supervision/particle_sampling.py": "a40d551236bcd5da564cd8aff5b3d7bf046e0bb34de1a1f582592491f51a78f6",
+      "src/latenttrigger/supervision/particle_sampling_benchmark.py": "1a761e96f4dbb3ee29c97a99e0fdb6e7601725191dd6ee6185cd8f104b0c3cae",
+      "src/latenttrigger/supervision/particle_shared_host.py": "26bd950a005ff334bb3550434a7327492dc5bba7c108c6480729d6e3dfbc9c95",
+      "src/latenttrigger/supervision/particle_shared_host_worker.py": "1afe12fa40d93d73e8791fc471a7f43e7553d4c21f8e20c813ed57f5c29a5f9d",
+      "src/latenttrigger/supervision/particle_worker.py": "fdc93df1635fe416d2cbc8952de3613302ac2b4670d1544cc49278be28dce558",
+      "src/latenttrigger/training/__init__.py": "beeeeaa6dee107b1d94814e198c82ce0cf612b0bb8727a66a54c3245b8423a70",
+      "src/latenttrigger/training/autoencoder.py": "f89b30384ecd326fae9c090d1ec286e9cd65837b9121c4af28672f19e64b5092",
+      "src/latenttrigger/training/background.py": "4d5322385329f7d6300599ffb3d046a0ab1138f455916565fea47aee5d143d75",
+      "src/latenttrigger/training/convergence.py": "c05e478db3a762e641438886500ee4e88db3029601cef0fa4abe6a1bdb5d0a4b",
+      "src/latenttrigger/training/particle_monitor_v3.py": "d6e2af6914c66a983a7c63fe66174608e34830cb948cb89bbf3a3cd42702b612",
+      "src/latenttrigger/training/particle_monitor_v4.py": "9874d08638e21329bbf4392fc3dc097228ce21742060e8f5a8065c5c1652552f",
+      "src/latenttrigger/training/particle_process_budget.py": "a2c31b2565721999d3dde6759621a2bcdef93b925d5bdd0deb17b48316beb269",
+      "src/latenttrigger/training/particle_resources.py": "a078118c49aaa17220ba99d2ed60115756299dae2aae3be3d947ead3094644f8",
+      "src/latenttrigger/training/particle_set.py": "11089fbd13f361c0b269b66f5e91d5697c18c5084fbdc92f4a3e300aed19b349",
+      "src/latenttrigger/utils/__init__.py": "d029f6e6516513d82e13f4be051d180d44d865517ccc36544d624de0bbd83beb",
+      "src/latenttrigger/utils/device.py": "9fe8582198a9292a27b3888b0b33d5dd6ea600dfa6016ce82ce3ebb0d5f1b689",
+      "tests/cpu_mps_portable_plugin.py": "c78bd80e733c622fd5f78e9eea202f3f9aa3606e50ad4679736a02c6de765b9f",
+      "tests/test_acquisition.py": "2f82f97e757bbd3e616961e3a26a76ae4fc36e9883c20bfb3d0157c91ea16b72",
+      "tests/test_ae_batch_parity_review.py": "d0aa4b18a113e9410b77b63257eb3cf6d12afc97e1590f1e7af17fe14384427f",
+      "tests/test_autoencoder.py": "4e200149e1673ab3ca77b8034fc19666a8cbb321083a7da94776c75f336afa0f",
+      "tests/test_autoencoder_convergence.py": "4ee4111e2eca6c9bd16646e24f11b9172bcb00e5294f5ab521ae057ea188d2ac",
+      "tests/test_cpu_mps_benchmark.py": "27702e0ce275615c736369827c84c2beb430ad9db8556119f7db7e2c27320ead",
+      "tests/test_device.py": "3139a1b571eacb78ea40678962344c1a8d3d07cee33434c8df094c8c6a2ed55c",
+      "tests/test_eda.py": "2baee88100beda3caa9ec089cf3046df80776e88794ae9ddb1dc7865085df24d",
+      "tests/test_evaluation.py": "1fba0620dc3dc0eb52ba8b4680c7bc30b5baac39741681d98fba1e328bf17956",
+      "tests/test_features.py": "1f9dce01ba70e3dbabff31f5edf5ab81b8941c791bf16fe0988b6d3775e60437",
+      "tests/test_frozen_cpu_benchmark.py": "a35b5c82085c580986de228b26ceea0e9cf57a76f77410402e459f7d6805d006",
+      "tests/test_frozen_cpu_v2.py": "1f0f782407b0b74af7d092aeec0712654d43d8a8ddfaa3c04c265d44313f928e",
+      "tests/test_inspection.py": "bc78ab446bf3fa46b8f8614c93f69b844e9a8e37f26c0919a1d0b9cb69968735",
+      "tests/test_onnx_cpu_export.py": "891a7035667069de6f2d13234f082a0d09a77a6083a11219756742236f1566ee",
+      "tests/test_particle_bounded_sampling.py": "ae8268d762ca8b73ff3f3e0a33d52d154be8516308f94b1163685e7168fc3b12",
+      "tests/test_particle_characterization.py": "ecda43643ddd76e7762ec98903fa161e31de066df587b3c04757750f4b846d6c",
+      "tests/test_particle_host_readiness.py": "789835d8d40936ff5aec36ace00272be30296df69c2991aeb006c73f265151b2",
+      "tests/test_particle_memory_policy.py": "ee2829e688a6dee92bf80f811b3e0c9355ef78e214a734e234a1580329c8df3c",
+      "tests/test_particle_monitor_performance.py": "a5946f88a53d13dd4a6f775da2b43e92af8542519e3a49ec08f737dc11190cbf",
+      "tests/test_particle_readiness_workflow.py": "c5eec3bfe9caac7aff31152fd338bcf42c3e07c718747a7cc6c02152b24ffdb9",
+      "tests/test_particle_recovery.py": "cf6c0d130d721b4cb8d0a6afc7aab7ddf7c4c0acb30a13f951c67fab87ee0e90",
+      "tests/test_particle_set.py": "102a4af46f1fafb1d0ceca4d783239771aaeb4c154fd14dd54c1ac3885fcf110",
+      "tests/test_particle_shared_host.py": "6f88920add2810bb8a9e59fbc975ffb004e03c7857f2d9a804ab0639feeaf6dd",
+      "tests/test_pca.py": "88bf911b63a28033c4b3a3124e246e5133629dfa87f8ee9efc174c5abfe6c277",
+      "tests/test_preprocessing.py": "26bf51ddc16f87119795b8274bb6f6ad151ef5f2379d6d29ea611441e516d2bd",
+      "tests/test_pytorch_onnx_cpu_benchmark.py": "6a1aef681f9cbac8957b25f2f63d1ea8c1f8470dca79b17d2a28bfd0942e3126",
+      "tests/test_smoke_test.py": "205826f9f9690f2157ce4a8e59b848ef74ddd342d899c5f61acf7a21851ba823",
+      "tests/test_splitting.py": "a32d4b4902a6bac60053f40ecb4a59ea12bde2a9fb6f6630da8067bf2b63dd53",
+      "pyproject.toml": "1c304182e8445c02346509e46005e6bb6be5201aa0d32bfff9866a96d514ec21",
+      "configs/dependencies/onnx_cpu_v1.json": "53e787ce1bb2d767ddfb38575a5d53db6cb53defafc7faa897665670803b2c28"
+    },
+    "source_files": 121,
+    "software_acceptance_file_byte_sha256": "0e00addf4d2668733043a7ca466f337de5ba0afa9546d1786f5d655b5a4a290a",
+    "scientific_model": {
+      "name": "compact-autoencoder-v2",
+      "config_path": "configs/models/compact_autoencoder_v2.json",
+      "config_canonical_sha256": "0af02cba0dcab4cd750b19f6357fe5030aadb56c7c0422c4f35ea4adc1521800",
+      "config_file_sha256": "dd6a808ee2e7a48767593dddf45fcbbb059afd63380a8791209521f0e59e8303",
+      "model_path": "artifacts/models/compact-autoencoder-v2/model.json",
+      "model_scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b",
+      "model_file_sha256": "a0b1563c34526bbfd965de6b63d041da2dfa713e9fe4bbc514852595ea813bf5",
+      "results_path": "results/tables/final/task0008-autoencoder-convergence-summary.json",
+      "results_scientific_sha256": "324d7363b3e2d2ec96f57cc88790af99895097a35c91efe4839c3cead25c7d33",
+      "results_file_sha256": "5991605a445b83627ad2e47a7805d6c42d335d50198b8dfea525dd3d69776352",
+      "score_definition": "sum_squared_reconstruction_residual",
+      "orientation": "higher_is_more_anomalous",
+      "forward_dtype": "float32",
+      "score_dtype": "float64",
+      "threshold_decision": "score > threshold",
+      "calibration_count": 74823,
+      "thresholds": [
+        {
+          "target_fpr": 0.1,
+          "threshold": 3.478338537407165
+        },
+        {
+          "target_fpr": 0.05,
+          "threshold": 4.681070974717348
+        },
+        {
+          "target_fpr": 0.01,
+          "threshold": 8.324174660133213
+        },
+        {
+          "target_fpr": 0.001,
+          "threshold": 16.642218868621573
+        }
+      ]
+    },
+    "graphs": {
+      "reconstruction": {
+        "path": "results/benchmarks/task0024-ae-onnx-cpu/reconstruction.onnx",
+        "file_size_bytes": 11464,
+        "file_byte_sha256": "4250b008fb5dfa6f5951e8448a696a1b3a17a9072a8d945ec1fd683204d04793"
+      },
+      "diagnostic": {
+        "path": "results/benchmarks/task0024-ae-onnx-cpu/diagnostic.onnx",
+        "file_size_bytes": 11820,
+        "file_byte_sha256": "ac50d52acf35c92c8ad28e9be54d881fd423e6845272efc4fe5bb9284dda019a"
+      }
+    },
+    "input": {
+      "path": "results/benchmarks/task0020-frozen-cpu/prepare/input.npy",
+      "file_size_bytes": 32896,
+      "file_sha256": "7164bfd7a86a9561ae3abc7b44b396c1a60db0114fc8542443ad3f71d2990a5e",
+      "array_bytes_sha256": "2ba0776aa1b5dfb7eb91dc0df4993d0a2ec52c83a79cc5424acc9b98a59b3d05",
+      "shape": [
+        1024,
+        8
+      ],
+      "dtype": "float32",
+      "source": "existing_Task0020_prepared_first1024_dev_training_no_store_access",
+      "channels": [
+        "multiplicity",
+        "scalar_pt",
+        "max_pt",
+        "pt_balance",
+        "weighted_eta_mean",
+        "weighted_eta_std",
+        "pt_concentration",
+        "massless_event_mass"
+      ],
+      "full_training_provenance_sha256": "d12574e90e9ba9dff71e4e796f5004e704bce5d824db98c545a96d2df08e12d2",
+      "already_standardized_do_not_scale_twice": true,
+      "allow_test": false,
+      "include_labels": false,
+      "population_requests": 0,
+      "custody_operations": 0
+    },
+    "builds": {
+      "torch": {
+        "raw_UTF8_byte_sha256": "7dc7bbe085616975d2b87b5c43ed0bd5e4a3a26e8e1013db641518c8d46daa1c",
+        "canonical_JSON_string_sha256": "6d6fa299a6d76bc6add8bfff4916da33cbc1636da24e90df594e6434f918b26c"
+      },
+      "ORT": {
+        "raw_UTF8_byte_sha256": "cf7e62faf78cdd4e228d3e659771a6ec3f3704d58608ad588013551ac9b3cb27",
+        "canonical_JSON_string_sha256": "170381eacebaabcafc5974c416a88f49a61f40318186edabfa182f9d6ed92099"
+      }
+    },
+    "parameter_and_threshold_payload_hashes": {
+      "parameters": "92e5c96f9b1bc72e4182f58d44b51bc66e9d32c68c0cde92c3064e3703aa26e4",
+      "thresholds": "408dc57ea54cc933d4dc4fa62f9940cbd8f3ace0476accb423b328ea39fc21a1",
+      "input": "2ba0776aa1b5dfb7eb91dc0df4993d0a2ec52c83a79cc5424acc9b98a59b3d05"
+    },
+    "prior_Task0024_acceptance_file_byte_sha256": "06481f34a3d3691dd4e7a0dc18267ca6f213eef66d99165415fab0b671a16137",
+    "diagnostic_identity_lineage": "Task0024 accepted diagnostic graph; immutable initial snapshot/new byte binding ac50d52...; prior Task0024 receipt binds creation and every primary-final comparison, but did not serialize a diagnostic SHA field. Task0025 newly records existing diagnostic file-byte hash; no regeneration."
+  },
+  "protocol": {
+    "worker_order": [
+      "PyTorch1",
+      "ORT1",
+      "PyTorch2",
+      "ORT2",
+      "PyTorch3",
+      "ORT3"
+    ],
+    "batch_grid": [
+      1,
+      8,
+      32,
+      128,
+      1024
+    ],
+    "scope_order": [
+      "reconstruction",
+      "score_decision",
+      "adapter_decision"
+    ],
+    "warmups": 20,
+    "measurements": 200,
+    "window_schedule": "start=(i%(1024/B))*B; independent reset per warmup/measurement/cell",
+    "timer": {
+      "name": "perf_counter_ns",
+      "completion": "synchronous CPU",
+      "resolution": "record get_clock_info; positive finite monotonic nonadjustable required",
+      "nonpositive_measured": "preserve completed invocation; invalidate and stop without retry",
+      "empty_zero": "retain as context; never subtract"
+    },
+    "timing_boundaries": {
+      "reconstruction": "preloaded tensor/model(x) or prepared feed/session.run(None,feed)[0]; allocation/API included; no loading/scoring/guard",
+      "score_decision": "unchanged core.separated same-shape cached reconstruction; CPU FP64 casts before subtraction/SSE/finite/four strict decisions; no forward",
+      "adapter_decision": "unchanged public model.score or RuntimeAdapter.score(prepared numpy) plus core.decisions; no IO/session construction"
+    },
+    "statistics": {
+      "standard_deviation": "population",
+      "quantiles": "linear",
+      "throughput": "B/(pooled all600 mean_ns/1e9)",
+      "paired_ratio": "PyTorch_i mean/ORT_i mean; all3 and geometric mean",
+      "pooled_ratio": "ratio of pooled invocation means",
+      "worker_median": "median of three worker p50; distinct from pooled p50"
+    },
+    "runtime": {
+      "thread_environment_before_imports": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "PyTorch_intra_op": 1,
+      "PyTorch_inter_op": 1,
+      "effective_BLAS_OpenMP": 1,
+      "deterministic_algorithms": true,
+      "device": "cpu",
+      "AE_forward": "FP32",
+      "score": "CPU_FP64_cast_before_subtraction_SSE",
+      "torch_build_canonical_JSON_string_sha256": "6d6fa299a6d76bc6add8bfff4916da33cbc1636da24e90df594e6434f918b26c",
+      "torch_build_raw_UTF8_byte_sha256": "7dc7bbe085616975d2b87b5c43ed0bd5e4a3a26e8e1013db641518c8d46daa1c"
+    },
+    "ORT": {
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "execution_mode": "ORT_SEQUENTIAL",
+      "intra_op": 1,
+      "inter_op": 1,
+      "optimization": "ORT_DISABLE_ALL",
+      "fallback": false
+    },
+    "limits": {
+      "worker_RSS": 1073741824,
+      "whole_native": 536870912,
+      "controller_RSS": 134217728,
+      "prepare_seconds": 60,
+      "timing_worker_seconds": 60,
+      "aggregation_seconds": 30,
+      "allocated_stages_seconds": 450,
+      "campaign_seconds": 600,
+      "cleanup_seconds": 2,
+      "watcher_intent_ms": 50,
+      "guard_journal_bytes": 16777216,
+      "optional_context_seconds": 2,
+      "pressure": "WARN advisory; unknown disclosed; CRITICAL/malformed primary latch; no global floor"
+    },
+    "numerical_derivation": {
+      "policy": "arithmetic-onnx-cpu-v1",
+      "path": "docs/arithmetic-onnx-cpu-v1-policy.md",
+      "file_byte_sha256": "fac0beb6535dcb46d754976cd8bdf51658b85c0d55253788a539c0d35755dc5c",
+      "u32": "2^-24",
+      "u64": "2^-53",
+      "gamma_m": "2*n+2",
+      "nonzero_support": [
+        "2^-40",
+        "2^40"
+      ],
+      "same_runtime_score_atol": 1e-12,
+      "same_runtime_score_rtol": 1e-12,
+      "cross_runtime": "outward_each_path_E_and_pair2E;propagated_SSE_plus_FP64_evaluation",
+      "local_affine_required": true,
+      "diagnostic_primary_final_byte_exact_required": true,
+      "same_runtime_repeat_byte_exact": true,
+      "strict_decision_mismatches_allowed": 0,
+      "relative_error_denominator": "max(1,abs(reference))",
+      "no_observed_tolerance_fitting": true,
+      "universal_native_kernel_certificate": false
+    }
+  },
+  "measured_observations": {
+    "cells": [
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 11542,
+          "max": 29791,
+          "mean": 12806.905,
+          "population_std": 2525.373231024476,
+          "p50": 12125.0,
+          "p95": 15979.449999999979,
+          "p99": 24793.74999999996,
+          "throughput_events_per_second": 78082.87794748224,
+          "mean_amortized_nanoseconds_per_event": 12806.905
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4958,
+          "max": 22125,
+          "mean": 5357.535,
+          "population_std": 1241.5258792208078,
+          "p50": 5209.0,
+          "p95": 5500.0,
+          "p99": 7311.579999999982,
+          "throughput_events_per_second": 186653.00366679826,
+          "mean_amortized_nanoseconds_per_event": 5357.535
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 24834,
+          "max": 1594166,
+          "mean": 169291.625,
+          "population_std": 228315.05003414553,
+          "p50": 87916.5,
+          "p95": 559162.1999999987,
+          "p99": 1171790.4999999984,
+          "throughput_events_per_second": 5906.966750422533,
+          "mean_amortized_nanoseconds_per_event": 169291.625
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 12125,
+          "max": 44708,
+          "mean": 13557.935,
+          "population_std": 2935.4037321593432,
+          "p50": 12729.5,
+          "p95": 16731.89999999999,
+          "p99": 20604.999999999905,
+          "throughput_events_per_second": 590060.3594868983,
+          "mean_amortized_nanoseconds_per_event": 1694.741875
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5042,
+          "max": 54000,
+          "mean": 6231.93,
+          "population_std": 3710.456405228338,
+          "p50": 5459.0,
+          "p95": 8677.399999999996,
+          "p99": 15379.579999999996,
+          "throughput_events_per_second": 1283711.4665922113,
+          "mean_amortized_nanoseconds_per_event": 778.99125
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 23375,
+          "max": 218792,
+          "mean": 34836.08,
+          "population_std": 26902.40468961093,
+          "p50": 26020.5,
+          "p95": 85777.09999999999,
+          "p99": 162213.32999999958,
+          "throughput_events_per_second": 229646.96372266914,
+          "mean_amortized_nanoseconds_per_event": 4354.51
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 13208,
+          "max": 95583,
+          "mean": 14594.8,
+          "population_std": 5880.0303749215445,
+          "p50": 13958.0,
+          "p95": 15629.199999999999,
+          "p99": 21262.58999999995,
+          "throughput_events_per_second": 2192561.734316332,
+          "mean_amortized_nanoseconds_per_event": 456.0875
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5333,
+          "max": 18958,
+          "mean": 5761.905,
+          "population_std": 1039.4876555183328,
+          "p50": 5625.0,
+          "p95": 6250.0,
+          "p99": 7574.079999999971,
+          "throughput_events_per_second": 5553718.778771952,
+          "mean_amortized_nanoseconds_per_event": 180.05953125
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 24833,
+          "max": 198084,
+          "mean": 28120.0,
+          "population_std": 14344.375978061924,
+          "p50": 26083.0,
+          "p95": 31430.599999999995,
+          "p99": 66221.24999999946,
+          "throughput_events_per_second": 1137980.0853485065,
+          "mean_amortized_nanoseconds_per_event": 878.75
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 16625,
+          "max": 26250,
+          "mean": 17831.52,
+          "population_std": 1122.7772395270576,
+          "p50": 17583.0,
+          "p95": 19094.399999999998,
+          "p99": 22875.829999999998,
+          "throughput_events_per_second": 7178299.999102713,
+          "mean_amortized_nanoseconds_per_event": 139.30875
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 6792,
+          "max": 23250,
+          "mean": 7586.515,
+          "population_std": 1667.4375999643885,
+          "p50": 7250.0,
+          "p95": 9052.399999999996,
+          "p99": 14865.089999999971,
+          "throughput_events_per_second": 16872042.037747238,
+          "mean_amortized_nanoseconds_per_event": 59.2696484375
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 30333,
+          "max": 813625,
+          "mean": 74955.84,
+          "population_std": 89457.10239049999,
+          "p50": 39020.5,
+          "p95": 226824.69999999975,
+          "p99": 419846.6599999998,
+          "throughput_events_per_second": 1707672.1440250687,
+          "mean_amortized_nanoseconds_per_event": 585.5925
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 47250,
+          "max": 220500,
+          "mean": 55465.015,
+          "population_std": 14352.187592655519,
+          "p50": 51792.0,
+          "p95": 66085.39999999997,
+          "p99": 94821.99999999974,
+          "throughput_events_per_second": 18462088.219033204,
+          "mean_amortized_nanoseconds_per_event": 54.1650537109375
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 19708,
+          "max": 158708,
+          "mean": 23809.58,
+          "population_std": 10317.447013365274,
+          "p50": 21750.0,
+          "p95": 30341.99999999998,
+          "p99": 41555.65999999991,
+          "throughput_events_per_second": 43007898.50135954,
+          "mean_amortized_nanoseconds_per_event": 23.25154296875
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch1",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 79250,
+          "max": 250625,
+          "mean": 93156.69,
+          "population_std": 20171.65024294988,
+          "p50": 86750.0,
+          "p95": 118962.84999999999,
+          "p99": 167857.07999999935,
+          "throughput_events_per_second": 10992232.54926726,
+          "mean_amortized_nanoseconds_per_event": 90.973330078125
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5458,
+          "max": 44708,
+          "mean": 7215.005,
+          "population_std": 3470.8737826338484,
+          "p50": 6375.0,
+          "p95": 10175.349999999997,
+          "p99": 19615.91999999997,
+          "throughput_events_per_second": 138600.04255021305,
+          "mean_amortized_nanoseconds_per_event": 7215.005
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5042,
+          "max": 64334,
+          "mean": 7493.97,
+          "population_std": 6122.461136593682,
+          "p50": 5854.5,
+          "p95": 11433.34999999998,
+          "p99": 40529.829999999936,
+          "throughput_events_per_second": 133440.6195914849,
+          "mean_amortized_nanoseconds_per_event": 7493.97
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 12958,
+          "max": 43125,
+          "mean": 17014.11,
+          "population_std": 4721.027084004073,
+          "p50": 15124.5,
+          "p95": 25379.149999999998,
+          "p99": 39607.99999999998,
+          "throughput_events_per_second": 58774.74637227572,
+          "mean_amortized_nanoseconds_per_event": 17014.11
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 6750,
+          "max": 31541,
+          "mean": 8016.465,
+          "population_std": 2113.6897593485664,
+          "p50": 7395.5,
+          "p95": 10133.299999999997,
+          "p99": 14390.829999999985,
+          "throughput_events_per_second": 997946.1021784539,
+          "mean_amortized_nanoseconds_per_event": 1002.058125
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5167,
+          "max": 33583,
+          "mean": 6673.54,
+          "population_std": 3467.5313709323527,
+          "p50": 5792.0,
+          "p95": 9098.549999999996,
+          "p99": 22692.999999999898,
+          "throughput_events_per_second": 1198764.0742394591,
+          "mean_amortized_nanoseconds_per_event": 834.1925
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 14959,
+          "max": 219541,
+          "mean": 25743.755,
+          "population_std": 24650.467942312476,
+          "p50": 17709.0,
+          "p95": 78113.94999999994,
+          "p99": 132896.24999999997,
+          "throughput_events_per_second": 310754.97727507114,
+          "mean_amortized_nanoseconds_per_event": 3217.969375
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 7542,
+          "max": 34417,
+          "mean": 9308.385,
+          "population_std": 2681.7663315014975,
+          "p50": 8834.0,
+          "p95": 13585.099999999999,
+          "p99": 17118.74999999989,
+          "throughput_events_per_second": 3437760.6856613685,
+          "mean_amortized_nanoseconds_per_event": 290.88703125
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5416,
+          "max": 88833,
+          "mean": 8204.98,
+          "population_std": 7654.8908123891615,
+          "p50": 6271.0,
+          "p95": 14391.649999999994,
+          "p99": 41868.829999999965,
+          "throughput_events_per_second": 3900070.4450224135,
+          "mean_amortized_nanoseconds_per_event": 256.405625
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 16458,
+          "max": 241833,
+          "mean": 20699.63,
+          "population_std": 15970.338698133486,
+          "p50": 18687.5,
+          "p95": 24735.749999999978,
+          "p99": 36353.999999999985,
+          "throughput_events_per_second": 1545921.3522174067,
+          "mean_amortized_nanoseconds_per_event": 646.8634375
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 10333,
+          "max": 21667,
+          "mean": 11579.615,
+          "population_std": 1081.928799309363,
+          "p50": 11416.0,
+          "p95": 12587.199999999999,
+          "p99": 18042.41,
+          "throughput_events_per_second": 11053908.096253632,
+          "mean_amortized_nanoseconds_per_event": 90.4657421875
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 7041,
+          "max": 134584,
+          "mean": 8487.695,
+          "population_std": 9015.26301845792,
+          "p50": 7459.0,
+          "p95": 9716.349999999997,
+          "p99": 13891.249999999985,
+          "throughput_events_per_second": 15080654.995260786,
+          "mean_amortized_nanoseconds_per_event": 66.3101171875
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 21917,
+          "max": 154125,
+          "mean": 24706.025,
+          "population_std": 9364.545499615824,
+          "p50": 23708.0,
+          "p95": 26135.399999999998,
+          "p99": 37816.41999999998,
+          "throughput_events_per_second": 5180922.4672928965,
+          "mean_amortized_nanoseconds_per_event": 193.0158203125
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 35125,
+          "max": 41875,
+          "mean": 38164.405,
+          "population_std": 991.1745713924465,
+          "p50": 38145.5,
+          "p95": 39408.29999999999,
+          "p99": 41543.25,
+          "throughput_events_per_second": 26831284.281780366,
+          "mean_amortized_nanoseconds_per_event": 37.2699267578125
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 20500,
+          "max": 189500,
+          "mean": 22405.94,
+          "population_std": 11872.770665535489,
+          "p50": 21458.0,
+          "p95": 22333.0,
+          "p99": 26141.669999999984,
+          "throughput_events_per_second": 45702166.47906761,
+          "mean_amortized_nanoseconds_per_event": 21.88080078125
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT1",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 63709,
+          "max": 226042,
+          "mean": 68243.355,
+          "population_std": 11357.930997720272,
+          "p50": 67250.0,
+          "p95": 69696.15,
+          "p99": 76506.99999999991,
+          "throughput_events_per_second": 15005123.942103961,
+          "mean_amortized_nanoseconds_per_event": 66.6439013671875
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 11458,
+          "max": 103834,
+          "mean": 12947.73,
+          "population_std": 6627.695123276266,
+          "p50": 12125.0,
+          "p95": 14293.15,
+          "p99": 22818.669999999976,
+          "throughput_events_per_second": 77233.61546773063,
+          "mean_amortized_nanoseconds_per_event": 12947.73
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4750,
+          "max": 29666,
+          "mean": 5323.1,
+          "population_std": 2048.998557832582,
+          "p50": 4958.0,
+          "p95": 6463.0999999999985,
+          "p99": 13060.329999999984,
+          "throughput_events_per_second": 187860.45725235294,
+          "mean_amortized_nanoseconds_per_event": 5323.1
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 22500,
+          "max": 44459,
+          "mean": 23662.14,
+          "population_std": 2013.4090891818284,
+          "p50": 23250.0,
+          "p95": 25764.599999999995,
+          "p99": 32325.32999999997,
+          "throughput_events_per_second": 42261.6044026449,
+          "mean_amortized_nanoseconds_per_event": 23662.14
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 11917,
+          "max": 20625,
+          "mean": 12586.91,
+          "population_std": 758.682813763433,
+          "p50": 12458.5,
+          "p95": 13087.149999999998,
+          "p99": 15221.749999999987,
+          "throughput_events_per_second": 635580.9328898038,
+          "mean_amortized_nanoseconds_per_event": 1573.36375
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4834,
+          "max": 10084,
+          "mean": 5195.475,
+          "population_std": 512.1969927430266,
+          "p50": 5084.0,
+          "p95": 5796.149999999999,
+          "p99": 6690.329999999979,
+          "throughput_events_per_second": 1539801.4618490126,
+          "mean_amortized_nanoseconds_per_event": 649.434375
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 23042,
+          "max": 182125,
+          "mean": 24837.025,
+          "population_std": 11241.259499023008,
+          "p50": 23875.0,
+          "p95": 24756.249999999996,
+          "p99": 30646.839999999902,
+          "throughput_events_per_second": 322099.76839013526,
+          "mean_amortized_nanoseconds_per_event": 3104.628125
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 12917,
+          "max": 16416,
+          "mean": 13347.58,
+          "population_std": 451.61863734792877,
+          "p50": 13291.0,
+          "p95": 13669.05,
+          "p99": 15834.249999999998,
+          "throughput_events_per_second": 2397438.337136769,
+          "mean_amortized_nanoseconds_per_event": 417.111875
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5375,
+          "max": 13583,
+          "mean": 5827.09,
+          "population_std": 791.3569813301706,
+          "p50": 5708.0,
+          "p95": 6333.05,
+          "p99": 7757.329999999956,
+          "throughput_events_per_second": 5491591.858028621,
+          "mean_amortized_nanoseconds_per_event": 182.0965625
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 24833,
+          "max": 193208,
+          "mean": 26719.57,
+          "population_std": 11856.703776138627,
+          "p50": 25584.0,
+          "p95": 27336.05,
+          "p99": 30080.839999999927,
+          "throughput_events_per_second": 1197624.063560903,
+          "mean_amortized_nanoseconds_per_event": 834.9865625
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 17208,
+          "max": 39584,
+          "mean": 17786.3,
+          "population_std": 1606.8296798354206,
+          "p50": 17625.0,
+          "p95": 18044.1,
+          "p99": 19160.41999999997,
+          "throughput_events_per_second": 7196550.153770037,
+          "mean_amortized_nanoseconds_per_event": 138.95546875
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 6875,
+          "max": 15959,
+          "mean": 7358.815,
+          "population_std": 748.1855055900241,
+          "p50": 7250.0,
+          "p95": 7708.05,
+          "p99": 9355.23999999998,
+          "throughput_events_per_second": 17394104.89324708,
+          "mean_amortized_nanoseconds_per_event": 57.4907421875
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 30791,
+          "max": 189875,
+          "mean": 33080.875,
+          "population_std": 11859.166230362698,
+          "p50": 31458.0,
+          "p95": 36108.04999999999,
+          "p99": 45374.99999999966,
+          "throughput_events_per_second": 3869305.1498788954,
+          "mean_amortized_nanoseconds_per_event": 258.4443359375
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 47583,
+          "max": 201000,
+          "mean": 52570.905,
+          "population_std": 10554.224661052796,
+          "p50": 51709.0,
+          "p95": 53006.25,
+          "p99": 56376.67,
+          "throughput_events_per_second": 19478454.86015506,
+          "mean_amortized_nanoseconds_per_event": 51.3387744140625
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 20833,
+          "max": 200959,
+          "mean": 22500.7,
+          "population_std": 12729.86720433485,
+          "p50": 21459.0,
+          "p95": 22083.05,
+          "p99": 24169.579999999845,
+          "throughput_events_per_second": 45509695.253925435,
+          "mean_amortized_nanoseconds_per_event": 21.97333984375
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch2",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 76916,
+          "max": 239250,
+          "mean": 87391.3,
+          "population_std": 15169.464480989433,
+          "p50": 85750.0,
+          "p95": 88558.65,
+          "p99": 100399.07999999876,
+          "throughput_events_per_second": 11717413.518279279,
+          "mean_amortized_nanoseconds_per_event": 85.34306640625
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5417,
+          "max": 15041,
+          "mean": 7015.895,
+          "population_std": 776.5492733722697,
+          "p50": 7000.0,
+          "p95": 7601.749999999994,
+          "p99": 9131.249999999995,
+          "throughput_events_per_second": 142533.49002515004,
+          "mean_amortized_nanoseconds_per_event": 7015.895
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4500,
+          "max": 16292,
+          "mean": 4990.675,
+          "population_std": 923.4049704084335,
+          "p50": 4833.0,
+          "p95": 5336.049999999999,
+          "p99": 8504.999999999996,
+          "throughput_events_per_second": 200373.69694480204,
+          "mean_amortized_nanoseconds_per_event": 4990.675
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 12667,
+          "max": 36834,
+          "mean": 14146.095,
+          "population_std": 2266.064033952924,
+          "p50": 13750.0,
+          "p95": 15299.999999999984,
+          "p99": 20447.169999999896,
+          "throughput_events_per_second": 70690.88677829465,
+          "mean_amortized_nanoseconds_per_event": 14146.095
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 6750,
+          "max": 10333,
+          "mean": 7097.32,
+          "population_std": 303.7806241352466,
+          "p50": 7083.0,
+          "p95": 7334.0,
+          "p99": 7639.169999999987,
+          "throughput_events_per_second": 1127186.036419381,
+          "mean_amortized_nanoseconds_per_event": 887.165
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4958,
+          "max": 20541,
+          "mean": 5690.88,
+          "population_std": 1582.4120941145513,
+          "p50": 5292.0,
+          "p95": 7337.199999999999,
+          "p99": 12314.90999999998,
+          "throughput_events_per_second": 1405757.9847053532,
+          "mean_amortized_nanoseconds_per_event": 711.36
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 14542,
+          "max": 33875,
+          "mean": 16058.6,
+          "population_std": 1930.3975212375299,
+          "p50": 15709.0,
+          "p95": 17174.399999999998,
+          "p99": 24162.999999999927,
+          "throughput_events_per_second": 498175.4324785473,
+          "mean_amortized_nanoseconds_per_event": 2007.325
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 7375,
+          "max": 10000,
+          "mean": 7794.4,
+          "population_std": 240.12784095143985,
+          "p50": 7791.0,
+          "p95": 8127.099999999999,
+          "p99": 8336.339999999997,
+          "throughput_events_per_second": 4105511.649389305,
+          "mean_amortized_nanoseconds_per_event": 243.575
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5250,
+          "max": 9083,
+          "mean": 5676.09,
+          "population_std": 451.6617782146282,
+          "p50": 5584.0,
+          "p95": 6250.0,
+          "p99": 8215.089999999993,
+          "throughput_events_per_second": 5637683.6871860735,
+          "mean_amortized_nanoseconds_per_event": 177.3778125
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 15917,
+          "max": 27958,
+          "mean": 17138.57,
+          "population_std": 1207.3690177820533,
+          "p50": 16875.0,
+          "p95": 18002.1,
+          "p99": 23273.749999999978,
+          "throughput_events_per_second": 1867133.6056625494,
+          "mean_amortized_nanoseconds_per_event": 535.5803125
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 10333,
+          "max": 31000,
+          "mean": 11106.705,
+          "population_std": 1754.9932444243198,
+          "p50": 10667.0,
+          "p95": 13181.549999999996,
+          "p99": 16599.409999999985,
+          "throughput_events_per_second": 11524570.06826057,
+          "mean_amortized_nanoseconds_per_event": 86.7711328125
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 6958,
+          "max": 17916,
+          "mean": 7630.045,
+          "population_std": 1330.6641398095164,
+          "p50": 7354.5,
+          "p95": 8573.249999999989,
+          "p99": 13419.57999999996,
+          "throughput_events_per_second": 16775785.72603438,
+          "mean_amortized_nanoseconds_per_event": 59.6097265625
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 20583,
+          "max": 151792,
+          "mean": 23134.375,
+          "population_std": 9273.981156136506,
+          "p50": 22167.0,
+          "p95": 24447.24999999999,
+          "p99": 32513.41999999995,
+          "throughput_events_per_second": 5532892.070782116,
+          "mean_amortized_nanoseconds_per_event": 180.7373046875
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 34125,
+          "max": 166125,
+          "mean": 37720.07,
+          "population_std": 9499.134332406296,
+          "p50": 36500.0,
+          "p95": 41693.74999999998,
+          "p99": 52190.82999999994,
+          "throughput_events_per_second": 27147351.529305223,
+          "mean_amortized_nanoseconds_per_event": 36.836005859375
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 20625,
+          "max": 194000,
+          "mean": 24877.71,
+          "population_std": 14043.030589438307,
+          "p50": 21979.5,
+          "p95": 31331.599999999988,
+          "p99": 58285.08999999959,
+          "throughput_events_per_second": 41161344.834391914,
+          "mean_amortized_nanoseconds_per_event": 24.294638671875
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT2",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 59417,
+          "max": 231292,
+          "mean": 69172.91,
+          "population_std": 15635.369046232967,
+          "p50": 67000.0,
+          "p95": 83910.4,
+          "p99": 103727.82999999926,
+          "throughput_events_per_second": 14803483.039820068,
+          "mean_amortized_nanoseconds_per_event": 67.551669921875
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 11250,
+          "max": 16958,
+          "mean": 12066.125,
+          "population_std": 766.3857640738116,
+          "p50": 11958.0,
+          "p95": 12764.599999999995,
+          "p99": 16045.999999999996,
+          "throughput_events_per_second": 82876.64846833594,
+          "mean_amortized_nanoseconds_per_event": 12066.125
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4584,
+          "max": 10458,
+          "mean": 5084.85,
+          "population_std": 779.9478235753979,
+          "p50": 4875.0,
+          "p95": 6091.349999999997,
+          "p99": 9045.589999999997,
+          "throughput_events_per_second": 196662.63508264747,
+          "mean_amortized_nanoseconds_per_event": 5084.85
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 22167,
+          "max": 46458,
+          "mean": 23599.22,
+          "population_std": 2711.985249148675,
+          "p50": 22937.5,
+          "p95": 26550.299999999996,
+          "p99": 33083.009999999886,
+          "throughput_events_per_second": 42374.281861858144,
+          "mean_amortized_nanoseconds_per_event": 23599.22
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 11834,
+          "max": 22125,
+          "mean": 12412.16,
+          "population_std": 1000.9116566410844,
+          "p50": 12250.0,
+          "p95": 13168.099999999999,
+          "p99": 16928.65999999999,
+          "throughput_events_per_second": 644529.235846138,
+          "mean_amortized_nanoseconds_per_event": 1551.52
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4875,
+          "max": 10333,
+          "mean": 5340.055,
+          "population_std": 724.5356526596879,
+          "p50": 5166.0,
+          "p95": 6381.249999999998,
+          "p99": 9507.909999999993,
+          "throughput_events_per_second": 1498111.910832379,
+          "mean_amortized_nanoseconds_per_event": 667.506875
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 22958,
+          "max": 187834,
+          "mean": 25089.205,
+          "population_std": 11775.670096982803,
+          "p50": 23708.0,
+          "p95": 26823.19999999999,
+          "p99": 41170.99999999999,
+          "throughput_events_per_second": 318862.2357703243,
+          "mean_amortized_nanoseconds_per_event": 3136.150625
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 13041,
+          "max": 173791,
+          "mean": 14327.14,
+          "population_std": 11323.320563792231,
+          "p50": 13417.0,
+          "p95": 14089.249999999998,
+          "p99": 17755.829999999994,
+          "throughput_events_per_second": 2233523.2293395614,
+          "mean_amortized_nanoseconds_per_event": 447.723125
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5250,
+          "max": 11667,
+          "mean": 5676.94,
+          "population_std": 818.4611880840777,
+          "p50": 5459.0,
+          "p95": 6545.199999999999,
+          "p99": 9517.079999999984,
+          "throughput_events_per_second": 5636839.564976907,
+          "mean_amortized_nanoseconds_per_event": 177.404375
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 24417,
+          "max": 173708,
+          "mean": 26667.54,
+          "population_std": 10930.038906993881,
+          "p50": 25166.5,
+          "p95": 28996.449999999986,
+          "p99": 53926.99999999999,
+          "throughput_events_per_second": 1199960.7012870328,
+          "mean_amortized_nanoseconds_per_event": 833.360625
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 17042,
+          "max": 171458,
+          "mean": 18516.14,
+          "population_std": 10871.976973411965,
+          "p50": 17584.0,
+          "p95": 18339.249999999996,
+          "p99": 22407.079999999973,
+          "throughput_events_per_second": 6912887.891320761,
+          "mean_amortized_nanoseconds_per_event": 144.65734375
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 6750,
+          "max": 19000,
+          "mean": 7166.54,
+          "population_std": 965.9660700045317,
+          "p50": 7000.0,
+          "p95": 7798.249999999998,
+          "p99": 10378.339999999997,
+          "throughput_events_per_second": 17860780.79519545,
+          "mean_amortized_nanoseconds_per_event": 55.98859375
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 30417,
+          "max": 173583,
+          "mean": 32232.19,
+          "population_std": 10162.693084704468,
+          "p50": 31104.5,
+          "p95": 34227.7,
+          "p99": 39942.91999999994,
+          "throughput_events_per_second": 3971185.3274630117,
+          "mean_amortized_nanoseconds_per_event": 251.813984375
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 49084,
+          "max": 188959,
+          "mean": 52223.83,
+          "population_std": 9860.15700996186,
+          "p50": 51146.0,
+          "p95": 54049.35,
+          "p99": 59823.839999999895,
+          "throughput_events_per_second": 19607906.965077054,
+          "mean_amortized_nanoseconds_per_event": 50.999833984375
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 20708,
+          "max": 184041,
+          "mean": 24889.785,
+          "population_std": 11788.482171118341,
+          "p50": 22938.0,
+          "p95": 30590.199999999997,
+          "p99": 40360.089999999975,
+          "throughput_events_per_second": 41141375.86965898,
+          "mean_amortized_nanoseconds_per_event": 24.3064306640625
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "PyTorch3",
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 76208,
+          "max": 315542,
+          "mean": 95550.38,
+          "population_std": 26140.71462882375,
+          "p50": 89166.5,
+          "p95": 122176.45,
+          "p99": 253876.74999999997,
+          "throughput_events_per_second": 10716859.524786819,
+          "mean_amortized_nanoseconds_per_event": 93.31091796875
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": true
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5166,
+          "max": 13625,
+          "mean": 5581.085,
+          "population_std": 920.262885144783,
+          "p50": 5334.0,
+          "p95": 6504.149999999999,
+          "p99": 9696.999999999973,
+          "throughput_events_per_second": 179176.6296338436,
+          "mean_amortized_nanoseconds_per_event": 5581.085
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4583,
+          "max": 13583,
+          "mean": 4974.83,
+          "population_std": 920.5326072986226,
+          "p50": 4833.0,
+          "p95": 5381.249999999998,
+          "p99": 7518.159999999946,
+          "throughput_events_per_second": 201011.8938737605,
+          "mean_amortized_nanoseconds_per_event": 4974.83
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 13500,
+          "max": 27084,
+          "mean": 15621.915,
+          "population_std": 1317.107568794212,
+          "p50": 15375.0,
+          "p95": 16554.499999999996,
+          "p99": 21853.15999999998,
+          "throughput_events_per_second": 64012.63865537611,
+          "mean_amortized_nanoseconds_per_event": 15621.915
+        },
+        "timed_input_presentations": 200,
+        "warmup_input_presentations": 20,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 6833,
+          "max": 9792,
+          "mean": 8115.11,
+          "population_std": 314.9545806937883,
+          "p50": 8125.0,
+          "p95": 8416.05,
+          "p99": 8841.749999999993,
+          "throughput_events_per_second": 985815.3493914439,
+          "mean_amortized_nanoseconds_per_event": 1014.38875
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 4791,
+          "max": 8875,
+          "mean": 5149.835,
+          "population_std": 494.98705818940357,
+          "p50": 5042.0,
+          "p95": 5629.149999999999,
+          "p99": 7884.999999999991,
+          "throughput_events_per_second": 1553447.8289110234,
+          "mean_amortized_nanoseconds_per_event": 643.729375
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 14541,
+          "max": 168959,
+          "mean": 16536.51,
+          "population_std": 10889.458830901562,
+          "p50": 15750.0,
+          "p95": 17169.1,
+          "p99": 26296.839999999997,
+          "throughput_events_per_second": 483778.0160384507,
+          "mean_amortized_nanoseconds_per_event": 2067.06375
+        },
+        "timed_input_presentations": 1600,
+        "warmup_input_presentations": 160,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 7458,
+          "max": 18334,
+          "mean": 7940.925,
+          "population_std": 826.767639288694,
+          "p50": 7750.0,
+          "p95": 8502.099999999999,
+          "p99": 9714.829999999994,
+          "throughput_events_per_second": 4029757.238608852,
+          "mean_amortized_nanoseconds_per_event": 248.15390625
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 5292,
+          "max": 18583,
+          "mean": 6057.935,
+          "population_std": 1523.1956213090293,
+          "p50": 5625.0,
+          "p95": 8014.599999999995,
+          "p99": 14347.999999999985,
+          "throughput_events_per_second": 5282328.054031612,
+          "mean_amortized_nanoseconds_per_event": 189.31046875
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 16416,
+          "max": 140125,
+          "mean": 18754.195,
+          "population_std": 8837.555243220548,
+          "p50": 17791.0,
+          "p95": 19850.649999999994,
+          "p99": 32009.669999999955,
+          "throughput_events_per_second": 1706284.9138552735,
+          "mean_amortized_nanoseconds_per_event": 586.06859375
+        },
+        "timed_input_presentations": 6400,
+        "warmup_input_presentations": 640,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 10500,
+          "max": 27750,
+          "mean": 11542.39,
+          "population_std": 1232.5708165862113,
+          "p50": 11375.0,
+          "p95": 12044.05,
+          "p99": 14179.919999999987,
+          "throughput_events_per_second": 11089557.708585484,
+          "mean_amortized_nanoseconds_per_event": 90.174921875
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 6750,
+          "max": 15500,
+          "mean": 7350.07,
+          "population_std": 1056.2333005070423,
+          "p50": 7125.0,
+          "p95": 8088.0999999999985,
+          "p99": 13219.82999999999,
+          "throughput_events_per_second": 17414800.131155215,
+          "mean_amortized_nanoseconds_per_event": 57.422421875
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 20917,
+          "max": 46708,
+          "mean": 23232.965,
+          "population_std": 2047.1545871709347,
+          "p50": 22833.0,
+          "p95": 24756.249999999996,
+          "p99": 32215.089999999993,
+          "throughput_events_per_second": 5509413.025844958,
+          "mean_amortized_nanoseconds_per_event": 181.5075390625
+        },
+        "timed_input_presentations": 25600,
+        "warmup_input_presentations": 2560,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "reconstruction",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 35875,
+          "max": 165375,
+          "mean": 39346.905,
+          "population_std": 9076.18356612376,
+          "p50": 38584.0,
+          "p95": 40408.34999999999,
+          "p99": 46213.74999999992,
+          "throughput_events_per_second": 26024918.60541509,
+          "mean_amortized_nanoseconds_per_event": 38.4247119140625
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "score_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 20541,
+          "max": 153208,
+          "mean": 21971.945,
+          "population_std": 9346.356713820363,
+          "p50": 21125.0,
+          "p95": 22218.449999999997,
+          "p99": 27007.089999999993,
+          "throughput_events_per_second": 46604886.36759286,
+          "mean_amortized_nanoseconds_per_event": 21.4569775390625
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": false
+      },
+      {
+        "worker": "ORT3",
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "status": "completed",
+        "warmups_completed": 20,
+        "timed_completed": 200,
+        "latency_nanoseconds": {
+          "count": 200,
+          "min": 60000,
+          "max": 212750,
+          "mean": 67683.005,
+          "population_std": 10389.859920373085,
+          "p50": 66667.0,
+          "p95": 69649.99999999999,
+          "p99": 72624.66999999997,
+          "throughput_events_per_second": 15129351.895649431,
+          "mean_amortized_nanoseconds_per_event": 66.0966845703125
+        },
+        "timed_input_presentations": 204800,
+        "warmup_input_presentations": 20480,
+        "performance_accepted": false
+      }
+    ],
+    "pooled": [
+      {
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 11250,
+          "max": 103834,
+          "mean": 12606.92,
+          "population_std": 4136.818601727661,
+          "p50": 12042.0,
+          "p95": 14350.649999999985,
+          "p99": 23583.42,
+          "throughput_events_per_second": 79321.51548514626,
+          "mean_amortized_nanoseconds_per_event": 12606.92
+        },
+        "median_worker_medians_ns": 12125.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 5166,
+          "max": 44708,
+          "mean": 6603.995,
+          "population_std": 2242.485010349382,
+          "p50": 6292.0,
+          "p95": 8708.0,
+          "p99": 15056.839999999986,
+          "throughput_events_per_second": 151423.49441512296,
+          "mean_amortized_nanoseconds_per_event": 6603.995
+        },
+        "median_worker_medians_ns": 6375.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 4584,
+          "max": 29666,
+          "mean": 5255.161666666667,
+          "population_std": 1459.703415833923,
+          "p50": 5041.0,
+          "p95": 6004.149999999996,
+          "p99": 9509.57999999999,
+          "throughput_events_per_second": 190289.10306279824,
+          "mean_amortized_nanoseconds_per_event": 5255.161666666667
+        },
+        "median_worker_medians_ns": 4958.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 4500,
+          "max": 64334,
+          "mean": 5819.825,
+          "population_std": 3803.0187633477435,
+          "p50": 5000.0,
+          "p95": 8919.049999999997,
+          "p99": 18168.25,
+          "throughput_events_per_second": 171826.47244547732,
+          "mean_amortized_nanoseconds_per_event": 5819.825
+        },
+        "median_worker_medians_ns": 4833.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 1,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 22167,
+          "max": 1594166,
+          "mean": 72184.32833333334,
+          "population_std": 148642.6512709498,
+          "p50": 23500.0,
+          "p95": 288733.64999999997,
+          "p99": 864156.3299999995,
+          "throughput_events_per_second": 13853.422523822517,
+          "mean_amortized_nanoseconds_per_event": 72184.32833333334
+        },
+        "median_worker_medians_ns": 23250.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 1,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 12667,
+          "max": 43125,
+          "mean": 15594.04,
+          "population_std": 3330.257038388078,
+          "p50": 15000.0,
+          "p95": 21293.1,
+          "p99": 30553.08999999999,
+          "throughput_events_per_second": 64127.06392955257,
+          "mean_amortized_nanoseconds_per_event": 15594.04
+        },
+        "median_worker_medians_ns": 15124.5,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 11834,
+          "max": 44708,
+          "mean": 12852.335,
+          "population_std": 1911.0289242818035,
+          "p50": 12458.0,
+          "p95": 15129.149999999996,
+          "p99": 19211.749999999996,
+          "throughput_events_per_second": 622454.9858060812,
+          "mean_amortized_nanoseconds_per_event": 1606.541875
+        },
+        "median_worker_medians_ns": 12458.5,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 6750,
+          "max": 31541,
+          "mean": 7742.965,
+          "population_std": 1327.819650319651,
+          "p50": 7375.0,
+          "p95": 8919.099999999999,
+          "p99": 11468.419999999991,
+          "throughput_events_per_second": 1033195.9397982556,
+          "mean_amortized_nanoseconds_per_event": 967.870625
+        },
+        "median_worker_medians_ns": 7395.5,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 4834,
+          "max": 54000,
+          "mean": 5589.153333333334,
+          "population_std": 2249.813241098519,
+          "p50": 5208.0,
+          "p95": 7127.0999999999985,
+          "p99": 10086.069999999998,
+          "throughput_events_per_second": 1431343.8052036504,
+          "mean_amortized_nanoseconds_per_event": 698.6441666666667
+        },
+        "median_worker_medians_ns": 5166.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 4791,
+          "max": 33583,
+          "mean": 5838.085,
+          "population_std": 2306.9573369357454,
+          "p50": 5333.0,
+          "p95": 8208.05,
+          "p99": 14623.839999999964,
+          "throughput_events_per_second": 1370312.3541366733,
+          "mean_amortized_nanoseconds_per_event": 729.760625
+        },
+        "median_worker_medians_ns": 5292.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 8,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 22958,
+          "max": 218792,
+          "mean": 28254.103333333333,
+          "population_std": 18741.99493186328,
+          "p50": 24083.0,
+          "p95": 41127.049999999996,
+          "p99": 130355.8299999999,
+          "throughput_events_per_second": 283144.7137294866,
+          "mean_amortized_nanoseconds_per_event": 3531.7629166666666
+        },
+        "median_worker_medians_ns": 23875.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 8,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 14541,
+          "max": 219541,
+          "mean": 19446.288333333334,
+          "population_std": 16222.963627787944,
+          "p50": 15959.0,
+          "p95": 31251.74999999996,
+          "p99": 103178.99999999991,
+          "throughput_events_per_second": 411389.55994430126,
+          "mean_amortized_nanoseconds_per_event": 2430.7860416666667
+        },
+        "median_worker_medians_ns": 15750.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 12917,
+          "max": 173791,
+          "mean": 14089.84,
+          "population_std": 7390.501809602196,
+          "p50": 13500.0,
+          "p95": 14835.099999999999,
+          "p99": 17755.829999999994,
+          "throughput_events_per_second": 2271140.055529374,
+          "mean_amortized_nanoseconds_per_event": 440.3075
+        },
+        "median_worker_medians_ns": 13417.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 7375,
+          "max": 34417,
+          "mean": 8347.903333333334,
+          "population_std": 1763.2922901934198,
+          "p50": 7875.0,
+          "p95": 9796.149999999996,
+          "p99": 14254.999999999996,
+          "throughput_events_per_second": 3833297.8620180474,
+          "mean_amortized_nanoseconds_per_event": 260.8719791666667
+        },
+        "median_worker_medians_ns": 7791.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 5250,
+          "max": 18958,
+          "mean": 5755.3116666666665,
+          "population_std": 892.1877406300513,
+          "p50": 5584.0,
+          "p95": 6294.049999999998,
+          "p99": 9512.499999999989,
+          "throughput_events_per_second": 5560081.165601515,
+          "mean_amortized_nanoseconds_per_event": 179.85348958333333
+        },
+        "median_worker_medians_ns": 5625.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 5250,
+          "max": 88833,
+          "mean": 6646.335,
+          "population_std": 4648.95833380357,
+          "p50": 5709.0,
+          "p95": 9674.349999999993,
+          "p99": 18586.339999999997,
+          "throughput_events_per_second": 4814683.581251923,
+          "mean_amortized_nanoseconds_per_event": 207.69796875
+        },
+        "median_worker_medians_ns": 5625.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 32,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 24417,
+          "max": 198084,
+          "mean": 27169.036666666667,
+          "population_std": 12478.864098893599,
+          "p50": 25583.0,
+          "p95": 29718.44999999999,
+          "p99": 53926.99999999999,
+          "throughput_events_per_second": 1177811.3590335862,
+          "mean_amortized_nanoseconds_per_event": 849.0323958333333
+        },
+        "median_worker_medians_ns": 25584.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 32,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 15917,
+          "max": 241833,
+          "mean": 18864.131666666668,
+          "population_std": 10660.99657666505,
+          "p50": 17791.5,
+          "p95": 21673.249999999993,
+          "p99": 33173.24999999999,
+          "throughput_events_per_second": 1696341.0012953153,
+          "mean_amortized_nanoseconds_per_event": 589.5041145833334
+        },
+        "median_worker_medians_ns": 17791.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 16625,
+          "max": 171458,
+          "mean": 18044.653333333332,
+          "population_std": 6386.884623963566,
+          "p50": 17604.5,
+          "p95": 18337.199999999997,
+          "p99": 22710.66,
+          "throughput_events_per_second": 7093513.942079982,
+          "mean_amortized_nanoseconds_per_event": 140.97385416666665
+        },
+        "median_worker_medians_ns": 17584.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 10333,
+          "max": 31000,
+          "mean": 11409.57,
+          "population_std": 1403.3395520804413,
+          "p50": 11333.0,
+          "p95": 12666.0,
+          "p99": 16598.579999999987,
+          "throughput_events_per_second": 11218652.411966447,
+          "mean_amortized_nanoseconds_per_event": 89.137265625
+        },
+        "median_worker_medians_ns": 11375.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 6750,
+          "max": 23250,
+          "mean": 7370.623333333333,
+          "population_std": 1205.7665341138345,
+          "p50": 7125.0,
+          "p95": 8129.149999999996,
+          "p99": 12835.089999999998,
+          "throughput_events_per_second": 17366238.133635916,
+          "mean_amortized_nanoseconds_per_event": 57.582994791666664
+        },
+        "median_worker_medians_ns": 7250.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 6750,
+          "max": 134584,
+          "mean": 7822.6033333333335,
+          "population_std": 5318.645708510349,
+          "p50": 7292.0,
+          "p95": 9419.049999999997,
+          "p99": 13879.169999999996,
+          "throughput_events_per_second": 16362839.140081668,
+          "mean_amortized_nanoseconds_per_event": 61.11408854166667
+        },
+        "median_worker_medians_ns": 7354.5,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 128,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 30333,
+          "max": 813625,
+          "mean": 46756.301666666666,
+          "population_std": 56094.18983267338,
+          "p50": 31542.0,
+          "p95": 121686.04999999968,
+          "p99": 309907.07999999984,
+          "throughput_events_per_second": 2737598.899770409,
+          "mean_amortized_nanoseconds_per_event": 365.28360677083333
+        },
+        "median_worker_medians_ns": 31458.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 128,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 20583,
+          "max": 154125,
+          "mean": 23691.121666666666,
+          "population_std": 7733.955089098799,
+          "p50": 22916.5,
+          "p95": 25166.0,
+          "p99": 34615.07999999997,
+          "throughput_events_per_second": 5402867.86759006,
+          "mean_amortized_nanoseconds_per_event": 185.08688802083333
+        },
+        "median_worker_medians_ns": 22833.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 47250,
+          "max": 220500,
+          "mean": 53419.916666666664,
+          "population_std": 11845.301663095044,
+          "p50": 51584.0,
+          "p95": 58335.1,
+          "p99": 90607.57999999997,
+          "throughput_events_per_second": 19168880.520529952,
+          "mean_amortized_nanoseconds_per_event": 52.167887369791664
+        },
+        "median_worker_medians_ns": 51709.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "reconstruction",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 34125,
+          "max": 166125,
+          "mean": 38410.46,
+          "population_std": 7637.783248980034,
+          "p50": 37958.0,
+          "p95": 40558.64999999999,
+          "p99": 46127.08,
+          "throughput_events_per_second": 26659404.755892016,
+          "mean_amortized_nanoseconds_per_event": 37.51021484375
+        },
+        "median_worker_medians_ns": 38145.5,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 19708,
+          "max": 200959,
+          "mean": 23733.355,
+          "population_std": 11695.15744167823,
+          "p50": 21729.5,
+          "p95": 29387.49999999999,
+          "p99": 40963.009999999995,
+          "throughput_events_per_second": 43146028.02680026,
+          "mean_amortized_nanoseconds_per_event": 23.1771044921875
+        },
+        "median_worker_medians_ns": 21750.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "score_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 20500,
+          "max": 194000,
+          "mean": 23085.198333333334,
+          "population_std": 11978.280318657205,
+          "p50": 21417.0,
+          "p95": 26666.05,
+          "p99": 45447.9999999999,
+          "throughput_events_per_second": 44357427.00643897,
+          "mean_amortized_nanoseconds_per_event": 22.544138997395834
+        },
+        "median_worker_medians_ns": 21458.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "PyTorch",
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 76208,
+          "max": 315542,
+          "mean": 92032.79,
+          "population_std": 21256.568455481392,
+          "p50": 86291.5,
+          "p95": 112197.29999999997,
+          "p99": 234794.99999999997,
+          "throughput_events_per_second": 11126469.163870834,
+          "mean_amortized_nanoseconds_per_event": 89.875771484375
+        },
+        "median_worker_medians_ns": 86750.0,
+        "performance_accepted": false
+      },
+      {
+        "runtime": "ORT",
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "latency_nanoseconds": {
+          "count": 600,
+          "min": 59417,
+          "max": 231292,
+          "mean": 68366.42333333334,
+          "population_std": 12682.654534210187,
+          "p50": 66917.0,
+          "p95": 73839.25,
+          "p99": 93016.74999999994,
+          "throughput_events_per_second": 14978112.793868061,
+          "mean_amortized_nanoseconds_per_event": 66.76408528645834
+        },
+        "median_worker_medians_ns": 67000.0,
+        "performance_accepted": false
+      }
+    ],
+    "paired_ratios": [
+      {
+        "batch": 1,
+        "scope": "reconstruction",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.7750375779365364,
+          1.8454851448033356,
+          2.161967610240661
+        ],
+        "geometric_mean": 1.9203884981860087,
+        "pooled_mean_ratio": 1.9089838802119021,
+        "performance_accepted": false
+      },
+      {
+        "batch": 1,
+        "scope": "score_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          0.714912789883066,
+          1.0666092262068758,
+          1.0221153285639912
+        ],
+        "geometric_mean": 0.9202788364470769,
+        "pooled_mean_ratio": 0.9029758913140287,
+        "performance_accepted": false
+      },
+      {
+        "batch": 1,
+        "scope": "adapter_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          9.950072322325411,
+          1.672697659672157,
+          1.5106483424087251
+        ],
+        "geometric_mean": 2.9295597159503473,
+        "pooled_mean_ratio": 4.62896903774348,
+        "performance_accepted": false
+      },
+      {
+        "batch": 8,
+        "scope": "reconstruction",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.6912610483548545,
+          1.7734736492084338,
+          1.529512230887813
+        ],
+        "geometric_mean": 1.6616113380668547,
+        "pooled_mean_ratio": 1.6598725423658764,
+        "performance_accepted": false
+      },
+      {
+        "batch": 8,
+        "scope": "score_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          0.9338267246468891,
+          0.9129475581983806,
+          1.0369371057519319
+        ],
+        "geometric_mean": 0.9597427685911185,
+        "pooled_mean_ratio": 0.9573607327288544,
+        "performance_accepted": false
+      },
+      {
+        "batch": 8,
+        "scope": "adapter_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.3531856560940703,
+          1.5466494588569366,
+          1.5172007273602475
+        ],
+        "geometric_mean": 1.4698198466238726,
+        "pooled_mean_ratio": 1.452930392115102,
+        "performance_accepted": false
+      },
+      {
+        "batch": 32,
+        "scope": "reconstruction",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.5679196767215795,
+          1.7124576619111158,
+          1.804215503861326
+        ],
+        "geometric_mean": 1.6920402428764747,
+        "pooled_mean_ratio": 1.6878297983805115,
+        "performance_accepted": false
+      },
+      {
+        "batch": 32,
+        "scope": "score_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          0.7022448561727146,
+          1.0266028198989092,
+          0.9371081069704444
+        ],
+        "geometric_mean": 0.8774591455253744,
+        "pooled_mean_ratio": 0.8659376433277387,
+        "performance_accepted": false
+      },
+      {
+        "batch": 32,
+        "scope": "adapter_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.358478388261046,
+          1.5590314711204027,
+          1.4219506622385019
+        ],
+        "geometric_mean": 1.4441003764901237,
+        "pooled_mean_ratio": 1.440248464480077,
+        "performance_accepted": false
+      },
+      {
+        "batch": 128,
+        "scope": "reconstruction",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.5399061195039732,
+          1.6014020359773669,
+          1.6041859614863128
+        ],
+        "geometric_mean": 1.5815506714167529,
+        "pooled_mean_ratio": 1.5815366690710808,
+        "performance_accepted": false
+      },
+      {
+        "batch": 128,
+        "scope": "score_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          0.893825119776335,
+          0.964452372168185,
+          0.975030169780696
+        ],
+        "geometric_mean": 0.9437358762716962,
+        "pooled_mean_ratio": 0.9422212809802022,
+        "performance_accepted": false
+      },
+      {
+        "batch": 128,
+        "scope": "adapter_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          3.0339093399282158,
+          1.429944617047143,
+          1.3873472456055436
+        ],
+        "geometric_mean": 1.8190124189666639,
+        "pooled_mean_ratio": 1.9735790615795383,
+        "performance_accepted": false
+      },
+      {
+        "batch": 1024,
+        "scope": "reconstruction",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.4533179542560666,
+          1.3937117561022554,
+          1.3272665283330418
+        ],
+        "geometric_mean": 1.390477337064925,
+        "pooled_mean_ratio": 1.3907648246510629,
+        "performance_accepted": false
+      },
+      {
+        "batch": 1024,
+        "scope": "score_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.0626458876530065,
+          0.9044522184718771,
+          1.1327984391004073
+        ],
+        "geometric_mean": 1.0287478613807128,
+        "pooled_mean_ratio": 1.0280767207328159,
+        "performance_accepted": false
+      },
+      {
+        "batch": 1024,
+        "scope": "adapter_decision",
+        "PyTorch_over_ORT_mean_ratios": [
+          1.3650660932482,
+          1.2633746361111597,
+          1.4117337136552965
+        ],
+        "geometric_mean": 1.3452805805128838,
+        "pooled_mean_ratio": 1.3461694427288793,
+        "performance_accepted": false
+      }
+    ],
+    "count_definitions": "All scheduled raw invocations retained; worker-local receipt completion differs from independently enforced parent acceptance; ORT3 parent rejected, all paired/pooled comparisons provisional."
+  },
+  "numerical": {
+    "reconstruction_max_abs_error": 3.910064697265625e-05,
+    "reconstruction_max_relative_error": 3.4216265995582764e-05,
+    "reconstruction_max_error_over_bound": 0.00787368586649532,
+    "SSE_max_abs_error": 4.850380439513913e-05,
+    "SSE_max_relative_error": 1.0642160566519955e-05,
+    "SSE_max_error_over_bound": 0.0016074927437233696,
+    "local_max_error_over_bound": 0.27309913548849507,
+    "status": "all_6_worker_local_pre_post_passed",
+    "timing_workers": 6,
+    "verifications": 12,
+    "windows_verified": 14316,
+    "local_affine_scalar_checks": 3108864,
+    "local_affine_violations": 0,
+    "decision_mismatches_per_threshold": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "threshold_decision_comparisons_per_threshold": 61440,
+    "prepared_decision_comparisons_per_threshold": 61440,
+    "prepared_mismatches": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "relative_error_denominator": "max(1,abs(reference))",
+    "bound_utilization": "maximum pointwise abs(error)/its own outward bound; not ratio of separate maxima",
+    "same_runtime_repeat_byte_exact": true,
+    "same_shape_SSE_byte_exact": true,
+    "primary_diagnostic_byte_exact": true,
+    "cross_runtime_byte_equality_required": false,
+    "reference_hashes": {
+      "reference_reconstruction_payload_byte_sha256": "d1bd84731af75424d42bb02c5def3823521d22b0ba50823bf5c290744d5f7467",
+      "reference_scores_payload_byte_sha256": "d2a3ab08ed8344c1198618850397aded6d1ad14796cc7d25e078a2a78b398117",
+      "diagnostic_FP64_payload_byte_sha256": "979ed84bf5e59f0ef31c0c329dd63cfc7ca49b502a01001ffa25e29b9a6ef517",
+      "envelope_payload_byte_sha256": "b011515578eeb149a75c44ef23838d46842b3fdbcbfa10451a077cbaaf827b89"
+    },
+    "ORT_reference_hashes": {
+      "reconstruction": "3de8f0a31786d3460814c1578d2fe6d3451dba123d633d65aae42b5023556f0e",
+      "scores": "b1dcda8afe6e281d587e6459cf45a6efdd5cce7a0b6e5ffd305b4d1a253d09a8"
+    },
+    "minimum_reference_threshold_margins": [
+      0.009336234173192182,
+      0.004083978687090983,
+      0.16012668428443355,
+      3.752131356020776
+    ],
+    "hashes": {
+      "parameters": "92e5c96f9b1bc72e4182f58d44b51bc66e9d32c68c0cde92c3064e3703aa26e4",
+      "thresholds": "408dc57ea54cc933d4dc4fa62f9940cbd8f3ace0476accb423b328ea39fc21a1",
+      "input": "2ba0776aa1b5dfb7eb91dc0df4993d0a2ec52c83a79cc5424acc9b98a59b3d05"
+    },
+    "restored_hashes_all_workers": true,
+    "synthetic_families": [
+      {
+        "name": "constants",
+        "status": "passed",
+        "windows": 1193,
+        "decision_mismatches": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "local_affine_scalar_checks": 259072,
+        "counts": {
+          "numerical_forward_input_presentations": 14336,
+          "diagnostic_fp64_full_forward_presentations": 1024,
+          "diagnostic_fp64_local_affine_row_presentations": 45056,
+          "ORT_forward_input_presentations": 15360,
+          "ORT_diagnostic_input_presentations": 5120
+        }
+      },
+      {
+        "name": "powers",
+        "status": "passed",
+        "windows": 1193,
+        "decision_mismatches": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "local_affine_scalar_checks": 259072,
+        "counts": {
+          "numerical_forward_input_presentations": 14336,
+          "diagnostic_fp64_full_forward_presentations": 1024,
+          "diagnostic_fp64_local_affine_row_presentations": 45056,
+          "ORT_forward_input_presentations": 15360,
+          "ORT_diagnostic_input_presentations": 5120
+        }
+      },
+      {
+        "name": "uniform",
+        "status": "passed",
+        "windows": 1193,
+        "decision_mismatches": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "local_affine_scalar_checks": 259072,
+        "counts": {
+          "numerical_forward_input_presentations": 14336,
+          "diagnostic_fp64_full_forward_presentations": 1024,
+          "diagnostic_fp64_local_affine_row_presentations": 45056,
+          "ORT_forward_input_presentations": 15360,
+          "ORT_diagnostic_input_presentations": 5120
+        }
+      },
+      {
+        "name": "normal",
+        "status": "passed",
+        "windows": 1193,
+        "decision_mismatches": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "local_affine_scalar_checks": 259072,
+        "counts": {
+          "numerical_forward_input_presentations": 14336,
+          "diagnostic_fp64_full_forward_presentations": 1024,
+          "diagnostic_fp64_local_affine_row_presentations": 45056,
+          "ORT_forward_input_presentations": 15360,
+          "ORT_diagnostic_input_presentations": 5120
+        }
+      }
+    ]
+  },
+  "access": {
+    "original_array_read_attempts": 1,
+    "original_array_reads_completed": 1,
+    "local_array_read_attempts": 6,
+    "local_array_reads_completed": 6,
+    "population_requests": 0,
+    "store_custody_requests": 0,
+    "unique_reused_real_rows": 1024,
+    "metadata_header_and_byte_verification_not_numerical_opening": true,
+    "numerical_verification_presentations": {
+      "numerical_forward_input_presentations": 172032,
+      "diagnostic_fp64_full_forward_presentations": 12288,
+      "diagnostic_fp64_local_affine_row_presentations": 540672,
+      "ORT_forward_input_presentations": 208896,
+      "ORT_diagnostic_input_presentations": 61440
+    },
+    "prepared_verification_presentations": {
+      "prepared_forward_row_presentations": 30720,
+      "prepared_reference_row_presentations": 12288,
+      "prepared_verification_forward_row_presentations": 184320
+    },
+    "timing_presentations": {
+      "completed_cells": 90,
+      "timed_invocations": 18000,
+      "warmup_invocations": 1800,
+      "empty_timer_pairs": 1200,
+      "timed_input_row_presentations": 4294800,
+      "timed_forward_row_presentations": 2863200,
+      "warmup_input_row_presentations": 429480,
+      "warmup_forward_row_presentations": 286320
+    },
+    "byte_identical_original_copy": true,
+    "source_order_from_original_Task0020_lineage": true,
+    "raw_processed_population_arrays_reopened": false,
+    "calibration_population_opened": false,
+    "optimizer_updates": 0,
+    "test_background_model_access": false,
+    "test_signal_model_access": false
+  },
+  "resources": {
+    "worker_peak_rss_bytes": 417841152,
+    "worker_whole_native_peak_bytes": 213565440,
+    "controller_peak_rss_bytes": 38748160,
+    "RSS_and_native_overlap_do_not_sum": true,
+    "worker_peaks_include_imports_models_sessions_diagnostics": true,
+    "observed_scope": "Lifetime peaks sampled through worker-reported cleanup/guard closure; not certified through ORT3 delayed process exit.",
+    "ORT3_memory_after_guard_closure": "unknown",
+    "ORT3_full_process_lifetime_memory_cap_established": false
+  },
+  "wall": {
+    "campaign_seconds": 128.7809915830003,
+    "whole_limit_seconds": 600,
+    "aggregation_seconds": null,
+    "aggregation_status": "failure-path aggregation performed; exclusive normal aggregation stage not reached/not separately timed",
+    "cleanup_grace_seconds": 2
+  },
+  "stages": [
+    {
+      "phase": "prepare",
+      "worker_receipt_status": "completed",
+      "parent_status": "completed",
+      "worker_reported_wall_seconds": 14.967328416008968,
+      "parent_dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "elapsed_seconds_including_imports_cleanup": 15.254553040998871,
+        "child_reaped": true,
+        "deadline_passed": true
+      },
+      "timings": {
+        "numerical_imports_seconds": 1.8088734580087475,
+        "thread_enforcement_seconds": 0.3409612079994986,
+        "model_loading_seconds": 0.006382207997376099,
+        "graph_audit_session_loading_seconds": 0.029160249992855825,
+        "frozen_four_family_validation_seconds": 12.492466166004306,
+        "input_loading_seconds": 0.0007481670036213472,
+        "input_byte_copy_seconds": 0.00038941699312999845,
+        "cleanup_seconds": 0.000494834006531164
+      },
+      "resources": {
+        "peak_rss_bytes": 405471232,
+        "native_heap_reserved_bytes": 209371136,
+        "checks": 9849,
+        "periodic_checks": 265,
+        "guard_seconds_overlapping_not_subtractable": 1.3768873465887737,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 0,
+          "CRITICAL": 0,
+          "unknown": 9849
+        },
+        "last_sample": {
+          "peak_rss_bytes": 405471232,
+          "native_heap_reserved_bytes": 209371136,
+          "native_heap_in_use_bytes": 165929104,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 105176.440410541,
+          "query_end": 105176.440574,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "owned_thread_alive": false
+      },
+      "context": [
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105163.773513375,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4109,
+          "inactive_pages": 187939,
+          "available_bytes": 3146514432,
+          "available_gib": 2.930419921875,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105163.784513666
+        },
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105176.432560875,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4093,
+          "inactive_pages": 191872,
+          "available_bytes": 3210690560,
+          "available_gib": 2.9901885986328125,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105176.440403583
+        }
+      ],
+      "receipt_file_byte_sha256": "cb2afc950d6f5d1360de8091aabad6fadd7b06ee5cfda0afb1298a71310c3f44"
+    },
+    {
+      "phase": "PyTorch1",
+      "worker_receipt_status": "completed",
+      "parent_status": "completed",
+      "worker_reported_wall_seconds": 10.709044791990891,
+      "parent_dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "elapsed_seconds_including_imports_cleanup": 11.096466374990996,
+        "child_reaped": true,
+        "deadline_passed": true
+      },
+      "timings": {
+        "numerical_imports_seconds": 1.3177241669909563,
+        "thread_enforcement_seconds": 0.3605618329893332,
+        "model_loading_seconds": 0.0014098329993430525,
+        "graph_audit_session_loading_seconds": 0.0021954160038148984,
+        "input_loading_seconds": 0.0005493750068126246,
+        "window_preparation_seconds": 0.31375779199879616,
+        "numerical_before_seconds": 3.587916917007533,
+        "scheduled_timing_with_guards_seconds": 1.1446279999945546,
+        "numerical_after_seconds": 3.624316165994969,
+        "cleanup_seconds": 0.0010229589970549569
+      },
+      "resources": {
+        "peak_rss_bytes": 417480704,
+        "native_heap_reserved_bytes": 209371136,
+        "checks": 19170,
+        "periodic_checks": 192,
+        "guard_seconds_overlapping_not_subtractable": 2.577732037010719,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 0,
+          "CRITICAL": 0,
+          "unknown": 19170
+        },
+        "last_sample": {
+          "peak_rss_bytes": 417480704,
+          "native_heap_reserved_bytes": 209371136,
+          "native_heap_in_use_bytes": 166944032,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 105187.444177,
+          "query_end": 105187.444367791,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "owned_thread_alive": false
+      },
+      "context": [
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105178.580201083,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4132,
+          "inactive_pages": 182649,
+          "available_bytes": 3060219904,
+          "available_gib": 2.8500518798828125,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105178.589391833
+        },
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105187.438555416,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 3682,
+          "inactive_pages": 165749,
+          "available_bytes": 2775957504,
+          "available_gib": 2.5853118896484375,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105187.444172291
+        }
+      ],
+      "receipt_file_byte_sha256": "fbec79cb0b6a9e49a23b68d7b88edefacad56210a0efbbce71ccb7f900b9e50e"
+    },
+    {
+      "phase": "ORT1",
+      "worker_receipt_status": "completed",
+      "parent_status": "completed",
+      "worker_reported_wall_seconds": 10.620929415992578,
+      "parent_dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "elapsed_seconds_including_imports_cleanup": 10.874652625003364,
+        "child_reaped": true,
+        "deadline_passed": true
+      },
+      "timings": {
+        "numerical_imports_seconds": 1.584673124991241,
+        "thread_enforcement_seconds": 0.41411766699457075,
+        "model_loading_seconds": 0.0014508340100292116,
+        "graph_audit_session_loading_seconds": 0.0022303750010905787,
+        "input_loading_seconds": 0.0008355829922948033,
+        "window_preparation_seconds": 0.35475545799999963,
+        "numerical_before_seconds": 3.572517834007158,
+        "scheduled_timing_with_guards_seconds": 0.9160704999958398,
+        "numerical_after_seconds": 3.4206144999916432,
+        "cleanup_seconds": 0.0010104170069098473
+      },
+      "resources": {
+        "peak_rss_bytes": 365101056,
+        "native_heap_reserved_bytes": 209371136,
+        "checks": 19167,
+        "periodic_checks": 189,
+        "guard_seconds_overlapping_not_subtractable": 2.5029926798742963,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 0,
+          "CRITICAL": 0,
+          "unknown": 19167
+        },
+        "last_sample": {
+          "peak_rss_bytes": 365101056,
+          "native_heap_reserved_bytes": 209371136,
+          "native_heap_in_use_bytes": 166433392,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 105198.462268916,
+          "query_end": 105198.462437375,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "owned_thread_alive": false
+      },
+      "context": [
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105190.037265125,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4124,
+          "inactive_pages": 158668,
+          "available_bytes": 2667184128,
+          "available_gib": 2.4840087890625,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105190.048731041
+        },
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105198.455187333,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 5362,
+          "inactive_pages": 181758,
+          "available_bytes": 3065774080,
+          "available_gib": 2.855224609375,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105198.462263958
+        }
+      ],
+      "receipt_file_byte_sha256": "45b5c367fa3e8c8dd5885edc02763394573b50af95a1fbe4c995a8a19f4c6a9c"
+    },
+    {
+      "phase": "PyTorch2",
+      "worker_receipt_status": "completed",
+      "parent_status": "completed",
+      "worker_reported_wall_seconds": 10.485247124990565,
+      "parent_dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "elapsed_seconds_including_imports_cleanup": 10.772335292000207,
+        "child_reaped": true,
+        "deadline_passed": true
+      },
+      "timings": {
+        "numerical_imports_seconds": 1.3183389580080984,
+        "thread_enforcement_seconds": 0.36463045798882376,
+        "model_loading_seconds": 0.0014631669910158962,
+        "graph_audit_session_loading_seconds": 0.0022919160110177472,
+        "input_loading_seconds": 0.0009219159983331338,
+        "window_preparation_seconds": 0.3346469590032939,
+        "numerical_before_seconds": 3.764306958008092,
+        "scheduled_timing_with_guards_seconds": 0.8854541659966344,
+        "numerical_after_seconds": 3.4866937919869088,
+        "cleanup_seconds": 0.0009393750078743324
+      },
+      "resources": {
+        "peak_rss_bytes": 417841152,
+        "native_heap_reserved_bytes": 205176832,
+        "checks": 19166,
+        "periodic_checks": 188,
+        "guard_seconds_overlapping_not_subtractable": 2.4185187162220245,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 0,
+          "CRITICAL": 0,
+          "unknown": 19166
+        },
+        "last_sample": {
+          "peak_rss_bytes": 417841152,
+          "native_heap_reserved_bytes": 205176832,
+          "native_heap_in_use_bytes": 166941472,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 105209.210951708,
+          "query_end": 105209.211087708,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "owned_thread_alive": false
+      },
+      "context": [
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105200.574051875,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 3994,
+          "inactive_pages": 171410,
+          "available_bytes": 2873819136,
+          "available_gib": 2.67645263671875,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105200.58342825
+        },
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105209.200747583,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4141,
+          "inactive_pages": 184018,
+          "available_bytes": 3082797056,
+          "available_gib": 2.8710784912109375,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105209.2109505
+        }
+      ],
+      "receipt_file_byte_sha256": "72822a980c14e5d4b37e4ad4a02978069476bc8cd5d726b1ecf557163accdf25"
+    },
+    {
+      "phase": "ORT2",
+      "worker_receipt_status": "completed",
+      "parent_status": "completed",
+      "worker_reported_wall_seconds": 10.957767291998607,
+      "parent_dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "elapsed_seconds_including_imports_cleanup": 11.291536124990671,
+        "child_reaped": true,
+        "deadline_passed": true
+      },
+      "timings": {
+        "numerical_imports_seconds": 1.4725882920029107,
+        "thread_enforcement_seconds": 0.35372391699638683,
+        "model_loading_seconds": 0.00146116700489074,
+        "graph_audit_session_loading_seconds": 0.002302958004293032,
+        "input_loading_seconds": 0.0008450000023003668,
+        "window_preparation_seconds": 0.3381123329891125,
+        "numerical_before_seconds": 3.939447041004314,
+        "scheduled_timing_with_guards_seconds": 0.8505546249944018,
+        "numerical_after_seconds": 3.6243754160095705,
+        "cleanup_seconds": 0.0009220420033670962
+      },
+      "resources": {
+        "peak_rss_bytes": 416759808,
+        "native_heap_reserved_bytes": 209371136,
+        "checks": 19175,
+        "periodic_checks": 197,
+        "guard_seconds_overlapping_not_subtractable": 2.5320444507087814,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 0,
+          "CRITICAL": 0,
+          "unknown": 19175
+        },
+        "last_sample": {
+          "peak_rss_bytes": 416759808,
+          "native_heap_reserved_bytes": 209371136,
+          "native_heap_in_use_bytes": 166433408,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 105220.466275833,
+          "query_end": 105220.466464583,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "owned_thread_alive": false
+      },
+      "context": [
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105211.502608666,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 3983,
+          "inactive_pages": 171872,
+          "available_bytes": 2881208320,
+          "available_gib": 2.6833343505859375,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105211.5167055
+        },
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105220.454357416,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4742,
+          "inactive_pages": 173541,
+          "available_bytes": 2920988672,
+          "available_gib": 2.7203826904296875,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105220.466266833
+        }
+      ],
+      "receipt_file_byte_sha256": "38bb6d1b50bf306590962be330918e8ae0679a6e373dacdd5bad2937d3a80266"
+    },
+    {
+      "phase": "PyTorch3",
+      "worker_receipt_status": "completed",
+      "parent_status": "completed",
+      "worker_reported_wall_seconds": 10.799835582991363,
+      "parent_dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "elapsed_seconds_including_imports_cleanup": 11.067497750002076,
+        "child_reaped": true,
+        "deadline_passed": true
+      },
+      "timings": {
+        "numerical_imports_seconds": 1.4799965000129305,
+        "thread_enforcement_seconds": 0.40642637500423007,
+        "model_loading_seconds": 0.0015795000072102994,
+        "graph_audit_session_loading_seconds": 0.0023739579919492826,
+        "input_loading_seconds": 0.0008181250013876706,
+        "window_preparation_seconds": 0.3844385829870589,
+        "numerical_before_seconds": 3.6180418330040993,
+        "scheduled_timing_with_guards_seconds": 0.8728880830021808,
+        "numerical_after_seconds": 3.671720458994969,
+        "cleanup_seconds": 0.0011015000054612756
+      },
+      "resources": {
+        "peak_rss_bytes": 398262272,
+        "native_heap_reserved_bytes": 213565440,
+        "checks": 19171,
+        "periodic_checks": 193,
+        "guard_seconds_overlapping_not_subtractable": 2.4247875473520253,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 0,
+          "CRITICAL": 0,
+          "unknown": 19171
+        },
+        "last_sample": {
+          "peak_rss_bytes": 398262272,
+          "native_heap_reserved_bytes": 213565440,
+          "native_heap_in_use_bytes": 166948128,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 105231.6126415,
+          "query_end": 105231.612848458,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "owned_thread_alive": false
+      },
+      "context": [
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105222.876287666,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4155,
+          "inactive_pages": 171511,
+          "available_bytes": 2878111744,
+          "available_gib": 2.680450439453125,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105222.88611175
+        },
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105231.60236975,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4538,
+          "inactive_pages": 183257,
+          "available_bytes": 3076833280,
+          "available_gib": 2.8655242919921875,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105231.612635708
+        }
+      ],
+      "receipt_file_byte_sha256": "0308fd8fbc568620c9b8cd0bc0844a9dce002282700afc0e7c329167b2d7ccbb"
+    },
+    {
+      "phase": "ORT3",
+      "worker_receipt_status": "completed",
+      "parent_status": "failed",
+      "worker_reported_wall_seconds": 10.072625083994353,
+      "parent_dispatch": {
+        "returncode": -15,
+        "parent_error": "TimeoutError: Import/native/operation parent deadline.",
+        "elapsed_seconds_including_imports_cleanup": 58.03058020900062,
+        "child_reaped": true,
+        "deadline_passed": true
+      },
+      "timings": {
+        "numerical_imports_seconds": 1.367184749993612,
+        "thread_enforcement_seconds": 0.3483776249922812,
+        "model_loading_seconds": 0.0013942080113338307,
+        "graph_audit_session_loading_seconds": 0.002251333004096523,
+        "input_loading_seconds": 0.0007324579928535968,
+        "window_preparation_seconds": 0.3348145409981953,
+        "numerical_before_seconds": 3.4219004999904428,
+        "scheduled_timing_with_guards_seconds": 0.857543459002045,
+        "numerical_after_seconds": 3.416128959011985,
+        "cleanup_seconds": 0.0010000420006690547
+      },
+      "resources": {
+        "peak_rss_bytes": 376274944,
+        "native_heap_reserved_bytes": 209371136,
+        "checks": 19157,
+        "periodic_checks": 179,
+        "guard_seconds_overlapping_not_subtractable": 2.397657672248897,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 0,
+          "CRITICAL": 0,
+          "unknown": 19157
+        },
+        "last_sample": {
+          "peak_rss_bytes": 376274944,
+          "native_heap_reserved_bytes": 209371136,
+          "native_heap_in_use_bytes": 165950112,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 105241.965726333,
+          "query_end": 105241.965862583,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "owned_thread_alive": false
+      },
+      "context": [
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105233.777981166,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 4164,
+          "inactive_pages": 170596,
+          "available_bytes": 2863267840,
+          "available_gib": 2.6666259765625,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105233.78662425
+        },
+        {
+          "role": "optional_context_never_admission",
+          "query_start": 105241.958367625,
+          "status": "available",
+          "page_size_bytes": 16384,
+          "free_pages": 3906,
+          "inactive_pages": 188328,
+          "available_bytes": 3149561856,
+          "available_gib": 2.933258056640625,
+          "context_counters_are_not_available_bytes": true,
+          "query_end": 105241.96572525
+        }
+      ],
+      "receipt_file_byte_sha256": "af7445c8d36ca8ab0419f62338f8d666b1260782efbd2c1c28d1473251e6f3f0"
+    }
+  ],
+  "provenance": {
+    "hardware": {
+      "platform": "darwin",
+      "shared_host": "normal_shared_Mac_use_apps_open;no_app_content_inspected",
+      "load_average": [
+        3.7705078125,
+        3.59765625,
+        3.66357421875
+      ],
+      "power_thermal_status": "unknown_until_query",
+      "hw.model": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.model']' returned non-zero exit status 1."
+      },
+      "machdep.cpu.brand_string": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'machdep.cpu.brand_string']' returned non-zero exit status 1."
+      },
+      "hw.memsize": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.memsize']' returned non-zero exit status 1."
+      },
+      "hw.physicalcpu": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.physicalcpu']' returned non-zero exit status 1."
+      },
+      "hw.logicalcpu": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.logicalcpu']' returned non-zero exit status 1."
+      },
+      "hw.perflevel0.physicalcpu": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.perflevel0.physicalcpu']' returned non-zero exit status 1."
+      },
+      "hw.perflevel1.physicalcpu": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.perflevel1.physicalcpu']' returned non-zero exit status 1."
+      },
+      "kern.osproductversion": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'kern.osproductversion']' returned non-zero exit status 1."
+      },
+      "kern.osversion": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'kern.osversion']' returned non-zero exit status 1."
+      },
+      "architecture": "arm64",
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "power": {
+        "status": "available",
+        "raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22675555)\t100%; charged; 0:00 remaining present: true\n"
+      },
+      "thermal": {
+        "status": "unknown",
+        "raw": "Error:Failed to get thermal warning level with error code 0xe00002bc\nError: Failed to get performance warning level with error code 0xe00002bc\nError: No CPU power status with error code 0xe00002bc\n"
+      },
+      "fresh_hardware_profile": {
+        "machine_name": "MacBook Pro",
+        "machine_model": "Mac17,2",
+        "chip_type": "Apple M5",
+        "physical_memory": "16 GB",
+        "number_processors": "proc 10:4:6:0",
+        "status": "available"
+      }
+    },
+    "runtime_versions": {
+      "python": "3.12.12",
+      "numpy": "2.5.3",
+      "torch": "2.14.1",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0",
+      "h5py": "3.16.0",
+      "hdf5plugin": "7.1.0"
+    },
+    "optional_versions": {
+      "primary": {
+        "onnx": "1.23.2",
+        "onnxruntime": "1.31.0",
+        "onnxscript": "0.7.2"
+      },
+      "baseline_versions_preserved": true,
+      "core_files_preserved": true
+    },
+    "threads": {
+      "pytorch_intra": 1,
+      "pytorch_inter": 1,
+      "deterministic_algorithms": true,
+      "threadpools": [
+        {
+          "user_api": "openmp",
+          "internal_api": "openmp",
+          "num_threads": 1,
+          "prefix": "libomp",
+          "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+          "version": null
+        },
+        {
+          "user_api": "openmp",
+          "internal_api": "openmp",
+          "num_threads": 1,
+          "prefix": "libomp",
+          "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+          "version": null
+        }
+      ],
+      "numpy_blas_build": {
+        "name": "accelerate",
+        "found": true,
+        "version": "unknown",
+        "detection method": "system",
+        "include directory": "unknown",
+        "lib directory": "unknown",
+        "openblas configuration": "unknown",
+        "pc file directory": "unknown"
+      },
+      "accelerate_thread_control": {
+        "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+        "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+        "framework_bundle_version": "Accelerate 1.11",
+        "previous_mode": 0,
+        "queried_mode": 1,
+        "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+        "setter_returncode": 0,
+        "thread_local": true,
+        "owner_python_thread_id": 8521589120,
+        "all_benchmark_BLAS_calls_on_owner_thread": true
+      }
+    },
+    "providers": [
+      {
+        "available_providers": [
+          "CoreMLExecutionProvider",
+          "AzureExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "selected_providers": [
+          "CPUExecutionProvider"
+        ],
+        "execution_mode": "ORT_SEQUENTIAL",
+        "intra_op_threads": 1,
+        "inter_op_threads": 1,
+        "graph_optimization": "ORT_DISABLE_ALL",
+        "provider_fallback_disabled": true,
+        "ort_version": "1.31.0",
+        "fallback_effective": false
+      },
+      {
+        "available_providers": [
+          "CoreMLExecutionProvider",
+          "AzureExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "selected_providers": [
+          "CPUExecutionProvider"
+        ],
+        "execution_mode": "ORT_SEQUENTIAL",
+        "intra_op_threads": 1,
+        "inter_op_threads": 1,
+        "graph_optimization": "ORT_DISABLE_ALL",
+        "provider_fallback_disabled": true,
+        "ort_version": "1.31.0",
+        "fallback_effective": false
+      }
+    ],
+    "timer": {
+      "implementation": "mach_absolute_time()",
+      "monotonic": true,
+      "adjustable": false,
+      "resolution_seconds": 4.166666666666667e-08
+    }
+  },
+  "validation": {
+    "full_passed": 1179,
+    "portable_passed": 1179,
+    "new_task_tests": 68,
+    "optional_integration": "actual temporary toy ONNX sessions and all three scopes; no operational data",
+    "quality": {
+      "lint": "passed",
+      "format": "passed",
+      "dependencies": "passed",
+      "CPU_smoke": "passed",
+      "optional_integration": "passed_actual_toy_runtime"
+    },
+    "guarded_synthetic_smoke": {
+      "status": "passed",
+      "wall_seconds": 8.44946862499637,
+      "resources": {
+        "peak_rss_bytes": 462520320,
+        "native_heap_reserved_bytes": 226148352,
+        "checks": 25326,
+        "periodic_checks": 148,
+        "guard_seconds_overlapping_not_subtractable": 3.070404183177743,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 0,
+          "CRITICAL": 0,
+          "unknown": 25326
+        },
+        "last_sample": {
+          "peak_rss_bytes": 462520320,
+          "native_heap_reserved_bytes": 226148352,
+          "native_heap_in_use_bytes": 181536768,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": null,
+          "pressure_errno": 1,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 104966.884441125,
+          "query_end": 104966.884551083,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "optional_context": [],
+        "owned_thread_alive": false
+      },
+      "effective_threads": {
+        "pytorch_intra": 1,
+        "pytorch_inter": 1,
+        "deterministic_algorithms": true,
+        "threadpools": [
+          {
+            "user_api": "openmp",
+            "internal_api": "openmp",
+            "num_threads": 1,
+            "prefix": "libomp",
+            "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+            "version": null
+          },
+          {
+            "user_api": "openmp",
+            "internal_api": "openmp",
+            "num_threads": 1,
+            "prefix": "libomp",
+            "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+            "version": null
+          }
+        ],
+        "numpy_blas_build": {
+          "name": "accelerate",
+          "found": true,
+          "version": "unknown",
+          "detection method": "system",
+          "include directory": "unknown",
+          "lib directory": "unknown",
+          "openblas configuration": "unknown",
+          "pc file directory": "unknown"
+        },
+        "accelerate_thread_control": {
+          "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+          "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+          "framework_bundle_version": "Accelerate 1.11",
+          "previous_mode": 0,
+          "queried_mode": 1,
+          "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+          "setter_returncode": 0,
+          "thread_local": true,
+          "owner_python_thread_id": 8521589120,
+          "all_benchmark_BLAS_calls_on_owner_thread": true
+        }
+      },
+      "synthetic_windows": 1193,
+      "paired_scope_cells": 30,
+      "paired_scope_timings": 6000,
+      "MPS_check_performed": false,
+      "real_input_read": false
+    },
+    "historical_bytes_preserved_initial_snapshot_files": 1147,
+    "hosted_CI": "unverified",
+    "frozen_source_preserved_after_reservation": true,
+    "final_checks": {
+      "status": "passed",
+      "source_files_verified": 121,
+      "initial_files_verified": 1147,
+      "allowed_living_overlaps": [
+        "README.md",
+        "docs/handoffs/README.md",
+        "docs/project-memory.md"
+      ],
+      "cells_independently_recomputed": 90,
+      "timings_recounted": 18000,
+      "warmups_recounted": 1800,
+      "pooled_distributions_recomputed": 30,
+      "paired_ratios_recomputed": 15,
+      "receipt_grant_lineage": true,
+      "JSON_CSV_report_agreement": true,
+      "local_links": true,
+      "whitespace": true,
+      "source_and_prior_identity_preserved": true,
+      "numerical_arrays_reopened": false,
+      "hosted_CI": "unverified",
+      "index_empty": true
+    }
+  },
+  "history": {
+    "Task0020": "failed_partial_consumed",
+    "Task0022": "accepted_complete_CPU_reference_only_not_denominator",
+    "Task0023": "blocked_no_new_device_check",
+    "Task0024": "accepted_export_equivalence_no_performance_history",
+    "particle_updates_consumed": 192,
+    "particle_updates_granted": 192,
+    "remaining_granted_particle_updates": 0,
+    "canonical_particle_deferred": true
+  },
+  "interpretation": {
+    "performance_claim": "No accepted paired speedup; raw descriptive ratios retained with parent deadline failure.",
+    "quality_or_discrimination_claim": false,
+    "physical_trigger_claim": false,
+    "limitations": [
+      "Fixed PyTorch-first ordering, three process pairs, 200 invocations/cell, limited linear p99 resolution",
+      "Watchdog interference may overlap; no subtraction of timer/guard cost",
+      "Shared host variability and outliers; causal thermal/power/native-kernel details unknown",
+      "CPU score-only scope is common postprocessing, not ONNX execution",
+      "1024background-training rows do not establish calibrated FPR or signal discrimination",
+      "ORT3 interpreter/runtime exit blocker unresolved; numerical receipt is not completed process acceptance"
+    ],
+    "raw_ORT_forward_ratio_above_one_all_pairs_all_batches": true
+  },
+  "next_task": {
+    "number": "0026",
+    "title": "Guarded Frozen PCA/AE Final Scientific Comparison",
+    "recommendation": "Use existing latenttrigger-evaluation-v1 metrics/frozen candidate contract; implement finite full-store evaluation orchestration and synthetic acceptance, then only under new explicit held-out authorization evaluate canonical native PCA-v1 and compact-autoencoder-v2 once, with preserved strict thresholds, source/identity and pre-read exposure audit.",
+    "existing_contract_sufficient_scientifically": true,
+    "remaining_narrow_prerequisite": "evaluation.run.run_final supports both frozen candidates and established metrics, but lacks independent parent deadlines/process caps/exclusive paired campaign orchestration; benchmark dev caps do not validate full-store custody/evaluation. Separate task must preregister full-store limits and failure accounting before unblinding.",
+    "additional_hardware_branches_required": false,
+    "implemented_here": false,
+    "candidate_paths": [
+      {
+        "name": "pca-v1",
+        "model": "data/baselines/pca-v1/model.json",
+        "calibration": "results/tables/final/task0006-pca-background-results.json",
+        "config": "configs/models/pca_baseline.json"
+      },
+      {
+        "name": "compact-autoencoder-v2",
+        "model": "artifacts/models/compact-autoencoder-v2/model.json",
+        "calibration": "results/tables/final/task0008-autoencoder-convergence-summary.json",
+        "config": "configs/models/compact_autoencoder_v2.json"
+      }
+    ],
+    "fixed_future_scope": {
+      "native_CPU_only": true,
+      "evaluation_protocol": "latenttrigger-evaluation-v1",
+      "frozen_config_batch_rows": 4096,
+      "test_population_counts": {
+        "test_background": 150471,
+        "test_signal": 100000
+      },
+      "no_refit_or_recalibration": true,
+      "held_out_authorization_in_Task0025": false
+    }
+  }
+}
