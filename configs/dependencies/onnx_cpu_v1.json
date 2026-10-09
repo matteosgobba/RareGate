@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "profile": "onnx-cpu-v1",
+  "platform": "macOS-arm64-Python3.12",
+  "primary": {
+    "onnx": "1.23.2",
+    "onnxruntime": "1.31.0",
+    "onnxscript": "0.7.2"
+  },
+  "added_wheels": [
+    {
+      "name": "onnx",
+      "version": "1.23.2",
+      "wheel_filename": "onnx-1.23.2-cp312-abi3-macosx_13_0_universal2.whl",
+      "wheel_sha256": "1b8680ce1e6a9a4736374a9dce4de14ea8ee05e0dccf0784a78a6e5646bdc1f6",
+      "url": "https://files.pythonhosted.org/packages/d7/d9/967d6f6838ad60964de912a5e7d01915282899b254460705d952f5d14c1a/onnx-1.23.2-cp312-abi3-macosx_13_0_universal2.whl"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.31.0",
+      "wheel_filename": "onnxruntime-1.31.0-cp312-cp312-macosx_14_0_arm64.whl",
+      "wheel_sha256": "aaab9b3af536b06ca27ab5e35e3d429c97457ce76cf298af103f687e8b9975c0",
+      "url": "https://files.pythonhosted.org/packages/b3/bd/2ac094311163b803e3626c3937461d6900934bd56cca7601f6150ff860c3/onnxruntime-1.31.0-cp312-cp312-macosx_14_0_arm64.whl"
+    },
+    {
+      "name": "onnxscript",
+      "version": "0.7.2",
+      "wheel_filename": "onnxscript-0.7.2-py3-none-any.whl",
+      "wheel_sha256": "d0e7121c6a1eefd608058928e111cbdb76709f70d269ff0d07aee493bd1d13c9",
+      "url": "https://files.pythonhosted.org/packages/b9/3b/06260997cdc41138e58718588a6c87d0eb342bbe0dda8a6aae91d163c384/onnxscript-0.7.2-py3-none-any.whl"
+    },
+    {
+      "name": "onnx-ir",
+      "version": "1.0.0",
+      "wheel_filename": "onnx_ir-1.0.0-py3-none-any.whl",
+      "wheel_sha256": "e578f0d608d3062866b48223616eb2d10a6d6d01f8b8faac596129034f483cc7",
+      "url": "https://files.pythonhosted.org/packages/91/cd/6d1637172eb59c7b18ac90ed089d1f599a11fe0e63b4db2d017f3bb38a32/onnx_ir-1.0.0-py3-none-any.whl"
+    },
+    {
+      "name": "ml-dtypes",
+      "version": "0.6.0",
+      "wheel_filename": "ml_dtypes-0.6.0-cp312-cp312-macosx_10_13_universal2.whl",
+      "wheel_sha256": "5359c588cc62de6f78d7430f06b65853d884955494d86d6ad90b6dd64a3f3a08",
+      "url": "https://files.pythonhosted.org/packages/84/6a/441eb053b078954f7fea284dfb288701884d0a1404d39babb858e1649023/ml_dtypes-0.6.0-cp312-cp312-macosx_10_13_universal2.whl"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "wheel_filename": "protobuf-7.36.2-cp310-abi3-macosx_10_9_universal2.whl",
+      "wheel_sha256": "cbc70b17ee27e28894c7fee8bb04be1abead49e936bc70eb60052531eee2079e",
+      "url": "https://files.pythonhosted.org/packages/32/72/98342feb672507c8f3a69e34b4fa8961f608edba5c1a48a6f47156d92cb5/protobuf-7.36.2-cp310-abi3-macosx_10_9_universal2.whl"
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "wheel_filename": "flatbuffers-25.12.19-py2.py3-none-any.whl",
+      "wheel_sha256": "7634f50c427838bb021c2d66a3d1168e9d199b0607e6329399f04846d42e20b4",
+      "url": "https://files.pythonhosted.org/packages/e8/2d/d2a548598be01649e2d46231d151a6c56d10b964d94043a335ae56ea2d92/flatbuffers-25.12.19-py2.py3-none-any.whl"
+    }
+  ],
+  "preserved_distributions": {
+    "numpy": "2.5.3",
+    "ruff": "0.16.10",
+    "scikit-learn": "1.9.1",
+    "cloudpickle": "3.1.2",
+    "kiwisolver": "1.5.1",
+    "torch": "2.14.1",
+    "fonttools": "4.66.1",
+    "packaging": "26.3",
+    "networkx": "3.7",
+    "joblib": "1.6.0",
+    "iniconfig": "2.3.0",
+    "pygments": "2.21.0",
+    "filelock": "4.0.10",
+    "narwhals": "2.27.0",
+    "pip": "25.3",
+    "contourpy": "1.4.0",
+    "sympy": "1.14.0",
+    "latent-trigger": "0.1.0",
+    "pytest": "9.1.1",
+    "setuptools": "84.0.0",
+    "python-dateutil": "2.9.0.post0",
+    "mpmath": "1.3.0",
+    "fsspec": "2026.9.0",
+    "matplotlib": "3.11.2",
+    "cycler": "0.12.1",
+    "jinja2": "3.1.6",
+    "threadpoolctl": "3.7.0",
+    "pluggy": "1.6.0",
+    "typing-extensions": "4.16.0",
+    "markupsafe": "3.0.4",
+    "hdf5plugin": "7.1.0",
+    "pillow": "12.3.0",
+    "pyparsing": "3.3.3",
+    "six": "1.17.0",
+    "h5py": "3.16.0",
+    "scipy": "1.18.1"
+  },
+  "preserved_core_package_file_sha256": {
+    ".venv/lib/python3.12/site-packages/torch/version.py": "a3fcf46a2c44d102a5565f1f4735ccbb10055a423ff083610ceb81bb9e3abfa8",
+    ".venv/lib/python3.12/site-packages/torch/__config__.py": "542b81c1e3a31fcd3b3b5d17aee9a56ff06bb5635340c6081a36f76b0e93da9a",
+    ".venv/lib/python3.12/site-packages/torch/backends/mps/__init__.py": "41ad419584060de3dec625e64b51a247024e87a463d490c6c0e5e7a59f24c6d2",
+    ".venv/lib/python3.12/site-packages/torch/mps/__init__.py": "642d893d4e235fac8a75d47cb795f0aeb9e9ee85998b9b54beb49bc01f289d7a",
+    ".venv/lib/python3.12/site-packages/numpy/version.py": "c1357b603c81e0fcbf935e7ccfc9202cafba0b30e38c625b568004002e372205",
+    ".venv/lib/python3.12/site-packages/scipy/version.py": "76c439fe556df030423da9c852b801dc7a59f7d1e9d285f995486674374c6c0b",
+    ".venv/lib/python3.12/site-packages/sklearn/__init__.py": "66a78bb27706626c4cc8ef424a5479f6301204baacd85986e8002c16b751fef1",
+    ".venv/lib/python3.12/site-packages/threadpoolctl.py": "e5f119e394193e206655bec4b993ef0bb40b0fbb2f22c92bd5b2d70a622bb518"
+  },
+  "install_scope": "optional_export_extra;additive_venv_only;official_PyPI_binary_wheels",
+  "baseline_not_replaced": true
+}

@@ -143,8 +143,15 @@ guards, synchronization/scopes and tests. One bounded check records MPS build=Tr
 available=False; an initial build-hash serialization defect is preserved and
 software-only repaired without a device replay.1033full/portable tests now pass.
 No physical device proof, real array read, paired timing or real reservation.
-Next is **Task0024 — Frozen AE ONNX CPU Export/Equivalence Foundation**, separately
-authorized and independent of MPS readiness. Particle192/192/deferral are unchanged.
+[Task0024](docs/frozen-ae-onnx-cpu-export.md) adds an optional additive ONNX stack
+without changing the original36distributions.1111full/portable tests and actual
+synthetic integration pass before114-source freeze. One accepted19.4077sattempt
+exports the frozen155FP32AE to11464B/opset18/IR10/fourGemm+twoRelu; all four
+synthetic families and1193windows of the reused1024rows pass local/outward/repeat /
+strict decision gates.1array read,0population/custody/optimizer/performance timings.
+Next is **Task0025 — Frozen PyTorch/ONNX Runtime Paired CPU Inference Benchmark**,
+separately authorized; equivalence does not establish acceleration. Particle192 /
+canonical deferral and unavailable MPS proof remain unchanged.
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -324,6 +331,13 @@ no old proof or final software-only repair acceptance grants device execution.
 [Device derivation](docs/arithmetic-mps-v1-policy.md) requires physical numerical /
 accounting proof. New91cases/1033full+portable checks pass; no timing CSV is created.
 
+The isolated [ONNX CPU foundation](docs/frozen-ae-onnx-cpu-export.md) provides
+`python -m latenttrigger.exports.onnx_controller --run-export`; its single frozen
+attempt is complete/consumed, not replayable. The optional `export` extra and
+[pinned wheel/baseline record](configs/dependencies/onnx_cpu_v1.json) document the
+additive dependencies; binary exports/diagnostics/acceptances/receipts stay ignored.
+No performance campaign or test exposure occurred.
+
 ```bash
 python -m ruff check .
 python -m ruff format --check .
@@ -362,7 +376,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0021: complete guarded AE numerical parity review/827full+portable tests; v1 failures preserved, sampled frozen decisions agree, no timing.
 - [x] Task0022: arithmetic-aware CPU v2/942full+portable tests; complete90cell/18000timing campaign and frozen numerical/decision acceptance; historical failures unchanged.
 - [x] Task0023: isolated CPU/MPS foundation/1033full+portable tests; one check build=True/available=False, software hash fix without replay;0real input/slot/timings, no physical MPS acceptance.
-- [ ] Task0024: bounded frozen AE ONNX CPU export/equivalence foundation; separately authorized, not implemented.
+- [x] Task0024: additive optional ONNX CPU foundation/1111full+portable tests; one accepted frozen155parameter export and full synthetic/1024row equivalence,0performance timings.
+- [ ] Task0025: independent paired PyTorch/ONNX Runtime CPU benchmark using the accepted artifact/policy; separately authorized, not implemented.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.
