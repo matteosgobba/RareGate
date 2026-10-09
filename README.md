@@ -132,10 +132,16 @@ review:827full/portable synthetic tests, one read of the existing1024prepared ro
 all1193grid windows. Same-shape repeats are byte exact; across-shape reconstruction
 and scores violate v1, but all four strict frozen decisions agree on this sample.
 The original row7/channel5 failure is confirmed; no performance timing or replay.
-Next is **Task0022 — Arithmetic-Aware Frozen CPU Benchmark v2**: implement and
-validate the inactive arithmetic-scaled contract, then a separately authorized
-complete CPU campaign with its own three repetitions. MPS follows a complete
-accepted CPU reference. Particle192/192 and canonical deferral remain unchanged.
+[Task0022](docs/frozen-cpu-benchmark-v2.md) implements an explicitly authorized
+arithmetic-aware CPU v2 gate, preserving canonical models/FP64 scores/frozen
+thresholds and old failures.942full/portable tests and the fixed synthetic study
+pass. One new independent campaign completes90cells/18000timings/1800warm-ups,
+with pre/post numerical acceptance and zero sampled decision mismatches,25.6615s
+whole wall. All three distributions are retained, including slow outliers.
+Next is **Task0023 — Frozen CPU/MPS Parity and Inference Comparison Foundation**:
+separate device-specific policy/availability/finite authorization required. Current
+CPU smoke reports MPS unavailable; a physical M5 is not sufficient proof of a
+usable device runtime. Particle192/192 and canonical deferral remain unchanged.
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -299,9 +305,14 @@ Its explicit `--run-campaign` action is consumed. The isolated
 [AE numerical review](docs/ae-batch-parity-review.md) adds
 `python -m latenttrigger.benchmarks.ae_parity_review --run-review` and
 `--synthetic-study`; both fixed Task0021 actions have now completed and cannot be
-replayed. These actions provide no new performance campaign allowance. New review
-source/tests are covered by827full/portable checks; raw inputs/receipts/audits and
-acceptance stay ignored. Numerical-policy proposals remain inactive.
+replayed. These historical actions provide no new performance allowance.
+The isolated [v2 benchmark](docs/frozen-cpu-benchmark-v2.md) uses
+`python -m latenttrigger.benchmarks.frozen_cpu_v2 --run-campaign`; its fixed
+Task0022slot is also now complete/consumed. `--validate-prerequisites` remains
+metadata-only, never an execution grant.942full/portable checks cover the frozen
+new source/policy; raw arrays/timings/receipts/acceptance remain ignored. The
+[arithmetic derivation](docs/arithmetic-cpu-v2-policy.md) is frozen separately from
+the result report. No replay/reset/alternate output is authorized.
 
 ```bash
 python -m ruff check .
@@ -339,7 +350,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0019: consolidated canonical feasibility/resource/time decision; local particle execution deferred, contracts/history unchanged, zero new execution.
 - [x] Task0020: guarded frozen CPU foundation/763synthetic+portable tests; one partial campaign, PCA1measured/AE parity veto, no retry/refit/recalibration/test access.
 - [x] Task0021: complete guarded AE numerical parity review/827full+portable tests; v1 failures preserved, sampled frozen decisions agree, no timing.
-- [ ] Task0022: arithmetic-aware CPU numerical contract and separately authorized complete benchmark v2; no implementation/execution yet.
+- [x] Task0022: arithmetic-aware CPU v2/942full+portable tests; complete90cell/18000timing campaign and frozen numerical/decision acceptance; historical failures unchanged.
+- [ ] Task0023: bounded CPU/MPS foundation/comparison, conditional on actual device availability and an independent numerical policy; no implementation/execution yet.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.
