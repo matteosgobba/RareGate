@@ -138,10 +138,13 @@ thresholds and old failures.942full/portable tests and the fixed synthetic study
 pass. One new independent campaign completes90cells/18000timings/1800warm-ups,
 with pre/post numerical acceptance and zero sampled decision mismatches,25.6615s
 whole wall. All three distributions are retained, including slow outliers.
-Next is **Task0023 — Frozen CPU/MPS Parity and Inference Comparison Foundation**:
-separate device-specific policy/availability/finite authorization required. Current
-CPU smoke reports MPS unavailable; a physical M5 is not sufficient proof of a
-usable device runtime. Particle192/192 and canonical deferral remain unchanged.
+[Task0023](docs/frozen-cpu-mps-benchmark.md) implements isolated CPU/MPS policy,
+guards, synchronization/scopes and tests. One bounded check records MPS build=True /
+available=False; an initial build-hash serialization defect is preserved and
+software-only repaired without a device replay.1033full/portable tests now pass.
+No physical device proof, real array read, paired timing or real reservation.
+Next is **Task0024 — Frozen AE ONNX CPU Export/Equivalence Foundation**, separately
+authorized and independent of MPS readiness. Particle192/192/deferral are unchanged.
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
 evidence, limitations and direction.
@@ -314,6 +317,13 @@ new source/policy; raw arrays/timings/receipts/acceptance remain ignored. The
 [arithmetic derivation](docs/arithmetic-cpu-v2-policy.md) is frozen separately from
 the result report. No replay/reset/alternate output is authorized.
 
+The isolated [CPU/MPS foundation](docs/frozen-cpu-mps-benchmark.md) exposes
+`python -m latenttrigger.benchmarks.cpu_mps --run-campaign`. Its one device-proof
+attempt is consumed/blocked; the real campaign remains unreserved. Do not rerun:
+no old proof or final software-only repair acceptance grants device execution.
+[Device derivation](docs/arithmetic-mps-v1-policy.md) requires physical numerical /
+accounting proof. New91cases/1033full+portable checks pass; no timing CSV is created.
+
 ```bash
 python -m ruff check .
 python -m ruff format --check .
@@ -351,7 +361,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0020: guarded frozen CPU foundation/763synthetic+portable tests; one partial campaign, PCA1measured/AE parity veto, no retry/refit/recalibration/test access.
 - [x] Task0021: complete guarded AE numerical parity review/827full+portable tests; v1 failures preserved, sampled frozen decisions agree, no timing.
 - [x] Task0022: arithmetic-aware CPU v2/942full+portable tests; complete90cell/18000timing campaign and frozen numerical/decision acceptance; historical failures unchanged.
-- [ ] Task0023: bounded CPU/MPS foundation/comparison, conditional on actual device availability and an independent numerical policy; no implementation/execution yet.
+- [x] Task0023: isolated CPU/MPS foundation/1033full+portable tests; one check build=True/available=False, software hash fix without replay;0real input/slot/timings, no physical MPS acceptance.
+- [ ] Task0024: bounded frozen AE ONNX CPU export/equivalence foundation; separately authorized, not implemented.
 - [ ] Study scientific biases and compare performance with computational cost.
 - [ ] Benchmark Apple Silicon CPU/GPU latency, throughput, and memory.
 - [ ] Explore heterogeneous inference, ONNX Runtime, CoreML, and quantization.
