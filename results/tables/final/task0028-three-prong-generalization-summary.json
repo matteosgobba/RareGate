@@ -3,15 +3,19 @@
   "task": "0028",
   "date": "2026-10-11",
   "timezone": "Europe/Rome",
-  "phase": "A_complete_software_and_metadata_ready;Phase_B_explicit_human_authorization_pending",
+  "phase": "A_software_accepted;B_failed_consumed_no_retry_at_acquire",
   "repository": {
     "branch": "main",
     "upstream": "origin/main",
-    "base_commit": "c6f07da41c0053844d0ee5670651619f4e83660a",
+    "base_commit": "e381f549225fa9e0960633a9a2093fa295bf39fe",
     "Task0027_commit_verified": true,
     "Task0026_Phase_B_commit": "839f8cd68a87c776d84afa2e189e157536258b2d",
     "initial_worktree_index": "clean",
-    "commit_push_hosted_CI": "not_performed_or_verified"
+    "commit_push_hosted_CI": "Phase_A_local_commit_verified;no_Phase_B_staging_commit_push;hosted_CI_and_push_unverified",
+    "Phase_A_base_commit": "c6f07da41c0053844d0ee5670651619f4e83660a",
+    "Task0028_Phase_A_commit_verified": true,
+    "phase_B_initial_worktree_index": "clean",
+    "uncommitted_prior_continuation": false
   },
   "scientific_scope": "new_three_prong_topology_with_reused_exposed_background;not_fully_independent_signal_background;not_background_domain_shift",
   "source": {
@@ -87,7 +91,17 @@
     "actual_labels": null,
     "actual_padding_units": null,
     "duplicates_overlap": null,
-    "raw_downloaded": false
+    "raw_downloaded": false,
+    "raw_download_attempted": true,
+    "raw_verified_download_completed": false,
+    "integrity_size_MD5_SHA256_verified": false,
+    "logged_transferred_byte_lower_bound": 47185920,
+    "logged_transferred_byte_lower_bound_is_final_byte_count": false,
+    "partial_payload_remaining": false,
+    "partial_cleanup": "frozen data.acquisition._download finally block removed its own unsuccessful .part on GuardError;no agent deletion;logs/audits/receipts preserved",
+    "confirmed_raw_custody_events": 0,
+    "confirmed_original_fingerprint_integrity_reads": 0,
+    "confirmed_prepared_events": 0
   },
   "candidates": [
     {
@@ -333,7 +347,27 @@
       "calibrated-operating-points.csv",
       "PCA/evaluation.json",
       "AE/evaluation.json"
-    ]
+    ],
+    "actual_metadata_files": {
+      "results/evaluation/task0028-three-prong/parent-acceptance.json": "d111fec9456e48fe547029eeedbb5b934cd92da3735766d1a9678a8d827b5de9",
+      "results/evaluation/task0028-three-prong/workflow.json": "ac7e6bfcebfc399b60f834a40e022b6e2513ec3cb708d06e258d6918b708ee6f",
+      "results/evaluation/task0028-three-prong/acceptance.json": "818078181ee9538ee04849884b603f3465ed6de165253284c3af2a548a401837",
+      "results/evaluation/task0028-three-prong/authorization.json": "8056f5e3d2dd82483a158c5bab8a005771d5c45f7a8118168349fd54eb0f6b60",
+      "results/evaluation/task0028-three-prong/exposure.json": "437f4e3eb4b14979bb05b5e4cac2e4efba0b0b778e739667d1333c857ee219c7",
+      "results/evaluation/task0028-three-prong/protocol.json": "dcc273ca61bbd00d3af036ad395be81676148c7af80308a30c763c295f4855e3",
+      "results/evaluation/task0028-three-prong/acquire-grant.json": "4563a6b18432e1aeff569e9d3e098599e861d32b20b12ad97ab966f5177dec73",
+      "results/evaluation/task0028-three-prong/reservation.json": "38d87499545efdfc5db9127e81d6c0eec4b6e7dd9a8b6283c3d6cc5aecc9acb5",
+      "results/evaluation/task0028-three-prong/acquire/parent-acceptance.json": "485c58546b607f706a51261146b56da9da4e9ab897afa7fe1fb9acd103c189a0",
+      "results/evaluation/task0028-three-prong/acquire/worker.log": "ef6bb0b71b0e68c9bd6482861cb7d718758352fac218cd193a1f207f8e7f6f70",
+      "results/evaluation/task0028-three-prong/acquire/dispatch.json": "f0949ca7a6ef8bc552907ae4ae786afa4f2338deab2e4ec58b828b3f6fcc64d9",
+      "results/evaluation/task0028-three-prong/acquire/access.json": "4dedbda5a317caa4dd7633e5d87ddd4bf7f357ed704aefabcc023adfc8b5f4aa",
+      "results/evaluation/task0028-three-prong/acquire/guards.jsonl": "c1fb8a4fbab3e74fa7d97ebd4a51b59485eea3e86622b874f6d1ffb4eca4e30b",
+      "results/evaluation/task0028-three-prong/acquire/receipt.json": "73a1c1fa91afbe6ce6272a071aaede02c08d2bbf3f19a96c12639c841f2b17cd"
+    },
+    "expected_scientific_outputs_produced": false,
+    "curated_phase_outcomes": "results/tables/final/task0028-phase-outcomes.csv",
+    "curated_phase_outcomes_kind": "execution metadata;not scientific result",
+    "curated_phase_outcomes_file_byte_sha256": "2c7f281cd5d3378cb7ab23a03b00e7f3afdee9db368966d0b788a4286b37d0a9"
   },
   "protocol": {
     "path": "configs/evaluation/frozen_three_prong_v1.json",
@@ -491,7 +525,7 @@
     "path": "data/task0028-execution-plan.json",
     "canonical_JSON_sha256": "77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9",
     "file_byte_sha256": "fa8343172f0a843d478f6a14dc7f84f149e4dadd664e778bd45ba7dca15bc9d6",
-    "human_consent_record_created": false,
+    "human_consent_record_created": true,
     "reviewable": true,
     "readiness": {
       "status": "metadata_ready_payload_custody_pending",
@@ -531,7 +565,11 @@
       "two_numeric_accepted_background_score_reuses",
       "no_post_test_fit_recalibration_candidate_or_threshold_selection"
     ],
-    "exact_guarded_command_after_actual_approval": ".venv/bin/python -m latenttrigger.evaluation.three_prong --run-final --allow-test --plan-sha256 77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9"
+    "exact_guarded_command_after_actual_approval": ".venv/bin/python -m latenttrigger.evaluation.three_prong --run-final --allow-test --plan-sha256 77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9",
+    "execution_invocations": 1,
+    "reserved_consumed": true,
+    "retry_allowed": false,
+    "execution_state": "historical_approved_and_consumed;command_must_not_be_rerun"
   },
   "validation": {
     "full_passed": 1333,
@@ -617,7 +655,10 @@
     "original_test_background_model_evaluation_accessed": "YES",
     "original_test_signal_model_evaluation_accessed": "YES",
     "new_three_prong_signal_model_evaluation_accessed": "NO",
-    "origin": "original YES/YES from Task0026 permanent exposure;no new signal model access in Phase A"
+    "origin": "Original YES/YES from accepted Task0026 remains permanent. Task0028 raw acquisition interrupted;no new-signal model request or cached numeric reuse.",
+    "raw_acquisition_access_interrupted": true,
+    "potential_inflight": true,
+    "potential_inflight_kind": "unfinished raw_acquisition request;no live process and no model scoring inflight"
   },
   "history": {
     "Task0026": "accepted_consumed_no_replay",
@@ -634,8 +675,252 @@
     "Original background exposed and reused;FPR not fresh independent evidence;topology comparisons share reference",
     "AP/selected fractions depend on mixture,not physical LHC rates or purity",
     "Conditional Wilson rate intervals exclude calibration/model/simulation uncertainty;AUC/AP descriptive;no ratio/difference significance",
-    "Prospective time/memory caps not actual payload feasibility;sampled guards/terminal gaps not hard real-time/continuous memory certificate",
-    "No training/recalibration/model/threshold selection/deployment-performance claim"
+    "No training/recalibration/model/threshold selection/deployment-performance claim",
+    "Acquisition interrupted at298s operation deadline,without accepted raw size/checksum/SHA256;all payload science unavailable.",
+    "Observed resource peaks below fixed envelopes do not erase deadline failure;terminal closure-to-exit gap0.020402125s;WARN advisory5494samples;no hard-real-time/continuous memory certificate.",
+    "Downloader frozen cleanup removed incomplete .part;only logged lower-bound bytes and interrupted-request metadata survive,not final byte total or verified payload."
   ],
-  "next_action": "explicit_source_bound_conditional_human_Phase_B_authorization;no_execution_before_approval"
+  "next_action": "Review preserved acquisition failure and prospective transfer/custody policy offline;any replacement campaign requires explicit versioned protocol/source acceptance,distinct namespace/new human authorization;no retry/resume/cap change in consumed Task0028.",
+  "status": "failed_consumed_no_retry",
+  "authorization": {
+    "prompt": "docs/prompts/0028-phase-b-authorization.md",
+    "prompt_file_byte_sha256": "2ed6d78b4636fc7df0bb197a74b09f5633bd797f539b9f7060d464cf251b4802",
+    "audit": "data/task0028-human-authorization.json",
+    "audit_file_byte_sha256": "8056f5e3d2dd82483a158c5bab8a005771d5c45f7a8118168349fd54eb0f6b60",
+    "utc": "2026-10-11T09:04:14.800166+00:00",
+    "authority": "explicit_human_user_message",
+    "approved_plan_sha256": "77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9",
+    "scope": [
+      "one_pinned_payload_acquisition",
+      "integrity_only_raw_and_original_fingerprint_overlap_audit",
+      "frozen_feature_preparation",
+      "one_new_signal_evaluation_per_frozen_candidate",
+      "two_numeric_accepted_background_score_reuses",
+      "no_post_test_fit_recalibration_candidate_or_threshold_selection"
+    ]
+  },
+  "phase_A_summary_preservation": {
+    "path": "data/task0028-validation/phase-a-summary-preserved.json",
+    "file_byte_sha256": "ea005425ca5317d184ce8174ef5cc20d7722bed654ac2a0fd3b9ef52d028ade4",
+    "at_commit": "e381f549225fa9e0960633a9a2093fa295bf39fe"
+  },
+  "phase_B": {
+    "status": "failed_consumed_no_retry",
+    "parent_status": "failed_consumed_no_retry",
+    "error": "ValueError: Failed/incomplete stage; stop: acquire",
+    "worker_error": "GuardError: Worker signal/deadline interruption.",
+    "scientific_acceptance": false,
+    "software_acceptance_preserved": true,
+    "whole_wall_seconds": 298.11675158300204,
+    "controller_peak_RSS_bytes": 29868032,
+    "controller_peak_RSS_MiB": 28.484375,
+    "stages": [
+      {
+        "phase": "acquire",
+        "status": "failed_parent_rejected",
+        "parent_lifecycle_seconds": 298.0338865420199,
+        "worker_reported_wall_seconds": 297.97253350002575,
+        "body_seconds": null,
+        "body_seconds_status": "not_recorded_on_interrupted_body",
+        "cleanup_seconds": 0.0012982079933863133,
+        "dispatch": {
+          "returncode": 1,
+          "parent_error": null,
+          "child_reaped": true,
+          "started_monotonic": 142318.654035166,
+          "exit_observed_monotonic": 142616.687753291,
+          "stage_seconds": 300,
+          "elapsed_seconds": 298.0338865420199,
+          "within_deadline": true,
+          "parent_confirms_normal_exit": false
+        },
+        "resources": {
+          "peak_rss_bytes": 41353216,
+          "native_heap_reserved_bytes": 46137344,
+          "checks": 5494,
+          "periodic_checks": 5492,
+          "guard_seconds_overlapping_not_subtractable": 1.8301761963812169,
+          "pressure_counts": {
+            "NORMAL": 0,
+            "WARN": 5494,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "last_sample": {
+            "peak_rss_bytes": 41353216,
+            "native_heap_reserved_bytes": 46137344,
+            "native_heap_in_use_bytes": 8755728,
+            "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+            "pressure_dispatch_flags": 2,
+            "pressure_errno": null,
+            "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+            "query_start": 142616.631377833,
+            "query_end": 142616.631471958,
+            "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+          },
+          "latched_error": "Worker signal/deadline interruption.",
+          "optional_context": [],
+          "owned_thread_alive": false
+        },
+        "terminal_unaccounted_seconds": 0.02040212499559857
+      },
+      {
+        "phase": "prepare",
+        "status": "not_started_after_failed_acquire",
+        "parent_lifecycle_seconds": null,
+        "body_seconds": null
+      },
+      {
+        "phase": "PCA",
+        "status": "not_started_after_failed_acquire",
+        "parent_lifecycle_seconds": null,
+        "body_seconds": null
+      },
+      {
+        "phase": "AE",
+        "status": "not_started_after_failed_acquire",
+        "parent_lifecycle_seconds": null,
+        "body_seconds": null
+      },
+      {
+        "phase": "consolidate",
+        "status": "not_started_after_failed_acquire",
+        "parent_lifecycle_seconds": null,
+        "body_seconds": null
+      }
+    ],
+    "worker_peak_RSS_MiB": 39.4375,
+    "native_reservation_MiB": 44.0,
+    "acquisition_scope": "lifecycle includes startup, guards, network transfer and cleanup;isolated network/integrity time unavailable;not inference benchmark",
+    "operation_deadline_seconds": 298,
+    "stage_ceiling_seconds": 300,
+    "whole_ceiling_seconds": 900,
+    "forced_parent_termination": false,
+    "inflight_scope": "durable raw_acquisition record remains before_open/no completion;process exited1 and reaped,not a live process or model-scoring inflight",
+    "access_records": [
+      {
+        "phase": "acquire",
+        "new_signal_model_accessed": false,
+        "cached_numeric_loads": 0,
+        "signal_scored_presentations": 0,
+        "signal_batches": 0,
+        "potential_inflight": true,
+        "records": [
+          {
+            "kind": "raw_acquisition",
+            "requested_utc": "2026-10-11T09:04:26.503191+00:00",
+            "expected": 235488994,
+            "confirmed_read": 0,
+            "confirmed_scored": 0,
+            "batches": [],
+            "inflight": "before_open"
+          }
+        ]
+      },
+      {
+        "phase": "prepare",
+        "new_signal_model_accessed": false,
+        "cached_numeric_loads": 0,
+        "signal_scored_presentations": 0,
+        "signal_batches": 0,
+        "potential_inflight": false,
+        "records": []
+      },
+      {
+        "phase": "PCA",
+        "new_signal_model_accessed": false,
+        "cached_numeric_loads": 0,
+        "signal_scored_presentations": 0,
+        "signal_batches": 0,
+        "potential_inflight": false,
+        "records": []
+      },
+      {
+        "phase": "AE",
+        "new_signal_model_accessed": false,
+        "cached_numeric_loads": 0,
+        "signal_scored_presentations": 0,
+        "signal_batches": 0,
+        "potential_inflight": false,
+        "records": []
+      },
+      {
+        "phase": "consolidate",
+        "new_signal_model_accessed": false,
+        "cached_numeric_loads": 0,
+        "signal_scored_presentations": 0,
+        "signal_batches": 0,
+        "potential_inflight": false,
+        "records": []
+      }
+    ],
+    "numerical_inputs_opened_outside_frozen_campaign": false,
+    "post_execution_reporting": "campaign consolidation not started;offline metadata documentation is separate and untimed"
+  },
+  "Phase_B_actual_operational_counts": {
+    "execution_invocations": 1,
+    "raw_acquisition_requests": 1,
+    "verified_payload_downloads": 0,
+    "raw_numeric_custody_opens": 0,
+    "raw_custody_events": 0,
+    "original_fingerprint_numeric_loads": 0,
+    "signal_preparation_events": 0,
+    "new_signal_model_evaluation_requests": 0,
+    "new_signal_scored_presentations": 0,
+    "new_signal_score_batches": 0,
+    "new_original_background_model_requests": 0,
+    "new_original_background_forward_calls": 0,
+    "cached_background_numeric_loads": 0,
+    "optimizer_updates": 0,
+    "recalibrations": 0,
+    "candidate_or_threshold_selections": 0,
+    "exports": 0,
+    "runtime_benchmarks": 0,
+    "MPS_checks": 0,
+    "particle_updates": 0,
+    "retry_or_resume_invocations": 0
+  },
+  "scientific_results_status": "unavailable:acquisition_integrity_gate_not_passed;no_preparation_or_scoring",
+  "metrics_availability": {
+    "three_prong_ROC_AUC": null,
+    "three_prong_AP": null,
+    "evaluated_three_prong_prevalence": null,
+    "four_frozen_threshold_signal_counts_efficiencies_intervals": null,
+    "relative_acceptance": null,
+    "selected_signal_fraction": null,
+    "two_prong_vs_three_prong_comparison": null,
+    "reason": "No accepted new payload/population/features/scores;unavailable values are not zero-performance observations."
+  },
+  "post_B_validation": {
+    "scope": "post-run metadata/doc arithmetic/identity/exclusion checks;no scientific execution or numerical readers",
+    "status": "passed",
+    "139_sources_protocol_acceptance_plan_unchanged": true,
+    "initial_tracked_files": 316,
+    "unchanged_tracked_files": 310,
+    "intentional_modified_tracked": [
+      "README.md",
+      "docs/handoffs/0028-three-prong-generalization.md",
+      "docs/handoffs/README.md",
+      "docs/project-memory.md",
+      "docs/three-prong-generalization.md",
+      "results/tables/final/task0028-three-prong-generalization-summary.json"
+    ],
+    "index_empty": true,
+    "HEAD_unchanged": "e381f549225fa9e0960633a9a2093fa295bf39fe",
+    "relative_links": "passed",
+    "whitespace": "passed",
+    "git_exclusions": "passed",
+    "scientific_tables": false,
+    "failure_metadata_rows": 5,
+    "historical_full_portable_acceptance": "1333/1333 preserved;not rerun",
+    "historical_new_synthetic_cases": 62,
+    "post_run_read_only_quality": {
+      "ruff_check": "passed",
+      "ruff_format_check": "233 files already formatted",
+      "pip_check": "No broken requirements found"
+    },
+    "hosted_CI": "unverified",
+    "record_path": "data/task0028-validation/phase-b-final-validation.json",
+    "record_file_byte_sha256": "b738ace7d54968314045f78d673c450107b0e8111e1425467680527437457386"
+  }
 }

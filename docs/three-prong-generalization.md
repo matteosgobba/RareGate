@@ -1,15 +1,135 @@
 # Frozen three-prong signal generalization — Task0028
 
-**Phase A: guarded foundation and source-bound plan; explicit Phase B authorization
-pending. No real three-prong payload has been downloaded, opened, prepared or
-scored.** Original Task0026/0027 native study remains completed, accepted and
-consumed; its background/two-prong tests remain permanently exposed.
+**Phase A software accepted; explicitly authorized Phase B failed and consumed at
+acquisition, with no retry/resume.** The sole campaign stopped at the frozen298s
+operation deadline inside its300s stage cap, before raw integrity acceptance,
+preparation or model evaluation. There are **no three-prong scientific results**.
+Original Task0026/0027 native study remains completed, accepted and consumed;
+its background/two-prong tests remain permanently exposed.
 
 [Original specification](prompts/0028-three-prong-generalization.md),
 [handoff](handoffs/0028-three-prong-generalization.md),
 [strict protocol](../configs/evaluation/frozen_three_prong_v1.json),
-[curated summary](../results/tables/final/task0028-three-prong-generalization-summary.json)
+[curated summary](../results/tables/final/task0028-three-prong-generalization-summary.json),
+[phase outcomes](../results/tables/final/task0028-phase-outcomes.csv),
+[actual Phase B authorization](prompts/0028-phase-b-authorization.md)
 and [completed initial synthesis](scientific-synthesis.md).
+
+## Actual Phase B outcome — 2026-10-11
+
+The user approved exactly planSHA256
+`77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9`.
+Before the sole invocation, current protocol,139source/dependency files, acceptance,
+candidates, transformations, calibrations, official source metadata and both
+accepted background reference lineages agreed. The actual human message was
+recorded in the prescribed audit and copied into the exclusive reservation. Live
+main/origin/main HEAD was the actual Phase A commit
+`e381f549225fa9e0960633a9a2093fa295bf39fe`, with initially clean index/worktree.
+No Phase A continuation remained uncommitted; no push/hosted CI is inferred.
+
+Acquisition began for the pinned235488994-byte v5 payload. The downloader logged
+24117248 and47185920bytes transferred. The latter is a **lower bound**, not the
+final transfer total or an accepted byte count. At the operation deadline it
+raised `GuardError: Worker signal/deadline interruption.` and exited1; the parent
+reaped it and rejected the stage. The workflow and root parent status are
+`failed_consumed_no_retry`. No forced parent termination occurred; exit1 is a
+failed worker exit, not normal successful termination. The300s stage includes a
+2s cleanup allowance, leaving298s for the worker operation. Full campaign wall
+was298.116751583s, within900s; this does not override the acquisition failure.
+
+| Phase | Actual lifecycle / seconds | Outcome |
+| --- | ---: | --- |
+| Acquisition, startup/guards/network/cleanup included | 298.033886542 parent;297.972533500 worker | Failed, exit1/reaped/parent rejected |
+| Integrity/overlap/feature preparation | Not started | Blocked by acquisition failure |
+| PCA new-signal evaluation + cached background | Not started | No model request or cached numeric load |
+| AE new-signal evaluation + cached background | Not started | No model request or cached numeric load |
+| Campaign consolidation/reporting | Not started | No scientific outputs |
+
+Interrupted acquisition body/network/integrity durations were not separately
+recorded; do not substitute a fabricated body time. Worker cleanup was0.001298208s.
+Offline metadata curation and this documentation are separate, untimed work; they
+are not campaign consolidation or an inference benchmark.
+
+Observed worker lifetime peakRSS41353216B=39.4375MiB, native reservation46137344B=
+44MiB, controller peakRSS29868032B=28.484375MiB stayed below the frozen6GiB /
+512MiB/128MiB envelopes.5494primary samples (5492periodic) all observed WARN,
+which is advisory; CRITICAL/unknown0. No memory veto is recorded. Guard error is
+the deadline interruption. Guard closure-to-parent-observed-exit gap0.020402125s
+is unaccounted; sampled/lifetime accounting and overlapping RSS/native scopes do
+not certify continuous memory or hard real time. The guard thread is closed.
+
+The frozen acquisition routine automatically removed its own unsuccessful `.part`
+in its existing `finally` block. No payload, partial file or acquisition manifest
+remains, and the agent performed no deletion. The reservation, copied consent /
+acceptance/protocol, grant, log, all guard samples, interrupted access record,
+receipt, dispatch, parent rejection, exposure and workflow are preserved locally.
+This documents a partial **access**, not a preserved complete/verified payload.
+
+The durable raw-acquisition request still has `inflight=before_open`, expected
+235488994bytes and confirmed-complete bytes0. That conservative state does not
+mean no network transfer: logs prove partial transfer. It is retained as
+`potential_inflight=true`, rather than cleared after failure. The worker has
+exited and been reaped; there is no live child or model-scoring in-flight work.
+All later phase records are empty. Raw numerical custody, original fingerprint
+numerical access, feature preparation, model requests/scoring/batches and cached
+background numerical reuse are all0. Optimizer/fitting/recalibration/selection /
+export/benchmark/MPS/particle work and retry/resume are0.
+
+## Scientific availability and retained reference
+
+Payload integrity, local SHA256, actual HDF layout/count/labels/padding, within-source
+uniqueness and all-role overlap are **unverified**. The published100000events remain
+a source declaration, not a confirmed new population. No three-prong ROC-AUC/AP,
+evaluated prevalence, frozen-threshold signal counts/efficiencies/Wilson intervals,
+relative acceptance, selected fraction or tight-tail behavior can be reported.
+Unavailable results are not zero rates. Expected39.9247817%prevalence remains
+conditional count arithmetic; it was not evaluated on the new signal.
+
+All four thresholds below remain frozen. The following historical references
+are copied from accepted Task0026/0027 aggregates, **not Task0028 measurements**:
+
+| Candidate | Two-prong ROC-AUC / AP | Three-prong ROC-AUC / AP |
+| --- | --- | --- |
+| PCA-v1 | 0.4684886579473786 / 0.36437915494963025 | Unavailable |
+| Compact AE v2 | 0.6600638025267328 / 0.5474272683246686 | Unavailable |
+
+The earlier evaluated mixture was150471background/100000two-prong signal,
+prevalence0.3992478171125599. At the original target0.001, PCA accepted124background /
+2signal; AE116background/56signal. AE's historical TPR0.00056 was below inherited
+FPR116/150471=0.0007709126675572038: descriptive relative acceptance0.7264117241,
+selected56/172=32.55813953% below initial39.92478171%. This establishes no observed
+enrichment in that earlier selected slice. It says nothing measured about the
+new signal. No three-prong-versus-two-prong comparison or new significance analysis
+exists. Had the extension completed, the shared exposed background would still
+make the comparisons dependent, without fresh background-generalization evidence.
+AP/selected fractions depend on the evaluated mixture, not physical LHC rates /
+purity. Conditional Wilson rate intervals exclude calibration/model/simulation
+uncertainty; no unsupported ratio, AUC/AP or model-difference interval is added.
+
+The initial observed AE advantage remains limited to the accepted two-prong
+sample and frozen aggregate models, with higher accepted Task0022 CPU cost and
+weak strict-tail utility. Different6vs3retained dimensions and reconstruction
+residual magnitudes do not isolate nonlinearity. This acquisition failure supports
+no new scientific claim and no mechanism for either model's signal behavior.
+
+## Post-execution validation and next decision
+
+Post-run source/acceptance/plan/reference checks agree; all139 frozen source /
+dependency bytes and protocol are unchanged. Historical1333full/1333portable /
+62new synthetic tests and toy integration remain the Phase A software acceptance,
+not a passed real scientific campaign. No suite or native smoke was replayed;
+read-only lint/format/dependency checks and metadata/documentation consistency /
+relative-link/whitespace/Git exclusion checks are recorded in the handoff.
+
+The complete initial scientific study remains accepted. Task0028 Phase B is
+**failed/consumed**, not pending approval or resumable; Task0025 remains failed /
+consumed with provisional ratios, particle192/192consumed and locally deferred.
+One justified follow-up is an offline review of the transfer deadline and incomplete
+payload evidence-retention policy, to design a prospective acquisition/custody
+attempt. Any replacement would require a separate versioned protocol, source-bound
+software acceptance, distinct namespace and explicit new human authorization. It
+must preserve this failure and the original scientific contracts. No new campaign,
+schema expansion, limit change, download, retry or next task is launched here.
 
 ## Question and scientific scope
 
@@ -25,7 +145,7 @@ A separate file or generator description does not establish event independence.
 No model/feature/threshold choice, fitting, optimizer update, recalibration,
 export, runtime benchmark, MPS check or particle execution is part of this task.
 
-## Primary-source facts and what remains unverified
+## Primary-source facts and Phase A metadata provenance
 
 The [version-specific Zenodo record](https://zenodo.org/records/6466204) describes
 an additional 100000-event W′→XY signal with X,Y→qqq three-prong substructure,
@@ -46,13 +166,14 @@ on2026-10-11 confirm the following, agreeing with historical Task0002 metadata:
 | Publisher MD5 | `54e123a86143b668f9cb76905152a124`, fresh API metadata/record |
 | Download URL | `https://zenodo.org/api/records/6466204/files/events_anomalydetection_Z_XY_qqq.h5/content` |
 | Attribution/license | Gregor Kasieczka, Ben Nachman, David Shih; CC BY4.0, fresh API |
-| Locally computed signal-payload SHA256 | **Absent**, to be established by authorized acquisition/custody |
-| Confirmed payload count/layout/labels/units/padding/duplicates/overlap | **Unverified**; future bounded custody gates |
+| Locally computed signal-payload SHA256 | **Absent**: acquisition interrupted before integrity acceptance |
+| Confirmed payload count/layout/labels/units/padding/duplicates/overlap | **Unverified**: no custody/preparation phase started |
 
-The web tool's API/card requests failed; a separately scoped metadata-only HTTPS
+During Phase A, the web tool's API/card requests failed; a separately scoped metadata-only HTTPS
 request succeeded after sandbox DNS restriction, fetching only9124-byte JSON,
-2029-byte generator card and22436-byte detector card. No HDF payload, remote HDF
-preview, feature file, black box or answer key was requested. Metadata/card hashes
+2029-byte generator card and22436-byte detector card. That Phase A research requested no HDF payload, remote HDF
+preview, feature file, black box or answer key; the later interrupted Phase B
+payload request is recorded above. Metadata/card hashes
 are pinned separately in the protocol/summary and retained locally ignored.
 
 The official [three-prong Pythia card](https://zenodo.org/records/6466204/files/pythia_RnD_Z_XY_qqq.cmnd?download=1)
@@ -131,8 +252,9 @@ exit/reaping are bound to each reference. Original raw/processed populations are
 not reopened or rescored; missing/inconsistent references block execution, with
 no reconstruction from quantiles or synthetic/forward fallback.
 
-Phase B must explicitly authorize numerical reuse, one accepted array per
-candidate. Its background FPR/conditional interval is inherited from the same
+The explicit Phase B approval included conditional numerical reuse, one accepted
+array per candidate; neither was reached. Its background FPR/conditional interval
+would be inherited from the same
 exposed finite sample, not fresh independent background evidence. Shared references
 limit topology comparisons; this is no background domain-shift measurement.
 
@@ -168,8 +290,9 @@ and zero overlap with **all** original R&D roles. Original registry reference:
 35200128bytes, previously accepted byte SHA256
 `6de687560f3e2ab6a5704226eef18a35d87106c4a56799fba62e449316191067`.
 Phase A checks its manifest reference/presence/size only; no fingerprint payload
-opening or hashing. Phase B must authorize integrity-only byte/numerical inspection
-of this registry. Exact checking does not prove absence of approximate duplicates.
+opening or hashing. The actual Phase B approval included integrity-only byte/numerical inspection
+of this registry, contingent on prior acquisition acceptance; that phase never
+started. Exact checking would not prove absence of approximate duplicates.
 Failed overlap/custody evidence is retained and prevents any candidate scoring.
 
 ## Minimal guarded execution and prospective budgets
@@ -243,7 +366,7 @@ confirmed counts**, not a new measured AP/result or physical LHC signal rate.
 There is no signal development/tuning subset. Never select a model/threshold
 from this extension or use original exposed tests as fresh evaluation.
 
-## Phase A validation and readiness
+## Historical Phase A validation and readiness
 
 New code has its own full/portable/synthetic/source acceptance. Historical
 Task0026's1259 and Task0027's12 tests are preserved, not treated as coverage of
@@ -267,18 +390,20 @@ three-schema synthetic plugin remains unchanged. No hosted CI/push is implied.
 
 The readiness package verifies metadata/current source acceptance and cached
 reference lineage; **real payload custody/compatibility remains conditional**.
-No consent audit exists and no real namespace is reserved. An authorization file,
+At Phase A completion no consent audit existed and no real namespace was reserved.
+The later human-approved Phase B above is now consumed. An authorization file,
 CLI flag or synthetic readiness alone is not human consent.
 
-After actual explicit approval of the exact frozen plan, record the human message
-and its source/acceptance/plan binding before invoking the command printed by:
+The historical Phase A procedure required actual approval, recording the human
+message and its source/acceptance/plan binding before invocation. Its plan command
+is shown for provenance only; **do not execute it or rerun the consumed campaign**:
 
 ```bash
 .venv/bin/python -m latenttrigger.evaluation.three_prong --prepare-plan
 ```
 
 The exact approved-plan digest and subsequent guarded command are in the summary /
-handoff. Phase B authorization must cover one pinned acquisition, integrity-only
+handoff. The Phase B authorization covered one pinned acquisition, integrity-only
 raw/all-role original-fingerprint overlap audit, frozen preparation, one signal
 evaluation per candidate and numerical reuse of both accepted background arrays,
 with no subsequent test-guided fitting/recalibration/candidate/threshold selection.
@@ -290,11 +415,16 @@ original_test_signal model/evaluation accessed: YES
 new_three_prong_signal model/evaluation accessed: NO
 new_original_background_forward_calls_in_Task0028: 0
 new_numeric_cached_background_score_loads_in_Phase_A: 0
+new_numeric_cached_background_score_loads_in_Phase_B: 0
+raw_acquisition_interrupted_in_Phase_B: YES
+potential_inflight_raw_acquisition_record: YES
+live_worker_or_model_scoring_inflight: NO
 ```
 
-YES preserves existing Task0026 exposure. New signal custody/preparation/scoring /
-original-fingerprint numeric access and cached-score numeric reuse are all0 in
-Phase A. No new scientific metrics/scores/figures exist. Particle192/192consumed /
-locally deferred and Task0025failed/consumed/provisional ratios remain unchanged.
-The concrete next action is explicit conditional human authorization for Phase B;
-no study, alternative dataset or additional task launches automatically.
+Original YES/YES preserves Task0026 exposure; new signal model NO reflects no
+model request, despite the interrupted raw network access in Phase B. New signal
+numerical custody/preparation/scoring, original-fingerprint numeric access and
+cached-score numeric reuse remain0 in both phases. No new scientific metrics /
+scores/figures exist. Particle192/192consumed/deferred and Task0025failed/consumed /
+provisional ratios remain. The sole approved campaign is consumed; an offline
+prospective policy review is the next decision, without automatic execution.

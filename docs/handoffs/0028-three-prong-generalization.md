@@ -1,5 +1,9 @@
 # Task0028 — Frozen three-prong generalization protocol and guarded foundation
 
+> This handoff retains the original Phase A record below. The later, explicitly
+> authorized Phase B continuation is recorded at the end; the initial historical
+> consent-pending statements describe Phase A, not the current authorization.
+
 ## Initial metadata
 
 - 2026-10-11 Europe/Rome; Phase A only, scientific Phase B pending explicit consent.
@@ -266,3 +270,164 @@ git push origin main
 
 No resulting Task0028commit, push or real campaign invented. Concrete next action:
 actual human conditional Phase B authorization of this unchanged reviewed plan.
+
+## Authorized Phase B continuation — 2026-10-11
+
+Verified live main/origin/main HEAD `e381f549225fa9e0960633a9a2093fa295bf39fe`,
+the actual local Phase A commit; initially clean index/worktree. No Phase A
+continuation remained uncommitted. Push and hosted CI remain unverified. A new
+ignored phase-b-initial tracked-byte snapshot and preserved Phase A summary record
+the exact pre-existing state. Historical reports, source/dependencies/protocol and
+acceptances remain frozen.
+
+The actual [human authorization](../prompts/0028-phase-b-authorization.md) was
+recorded before invocation in the prescribed ignored human audit, binding UTC,
+exact message, approved plan, acceptance bytes, all139 source/dependency hashes
+and the five authorized operations. `q.plan` and `q.authorization` verified exact
+plan `77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9`,
+protocol canonical SHA256 `97c3bf171fb7527c9d9f6aeac4e513143d8cea3cb2c1d9b8b33fa732251d3a5a`,
+acceptance bytes `818078181ee9538ee04849884b603f3465ed6de165253284c3af2a548a401837`,
+candidate/transform/calibration/source metadata and accepted background lineage.
+Raw and output namespaces were unreserved. No plan preparation, readiness replay,
+scientific test replay or code modification occurred.
+
+The following real command was invoked **once**, with the network permission
+needed for the explicitly authorized pinned payload acquisition:
+
+```bash
+.venv/bin/python -m latenttrigger.evaluation.three_prong --run-final --allow-test --plan-sha256 77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9
+```
+
+### Actual execution outcome
+
+The controller returned1, reporting `failed_consumed_no_retry` / failed acquire.
+Exactly one stage ran: acquire. The worker receipt reports
+`GuardError: Worker signal/deadline interruption.`, failed status and exit1.
+Parent dispatch: elapsed298.0338865420199s, child_reaped=true,
+parent_confirms_normal_exit=false, parent_error=null, within_deadline=true;
+independent parent rejects it. No forced parent termination. Operation deadline
+was grant start+298s, leaving2s inside300s for cleanup/reaping. Worker reported
+297.97253350002575s; cleanup0.0012982079933863133s. Acquisition body/network time
+was not recorded on interrupted body; no synthetic time is substituted. Whole
+controller298.11675158300204s≤900s. Prepare/PCA/AE/consolidate never started;
+all their wall/body measurements unavailable. Offline documentation is separate /
+untimed, not scientific consolidation or inference benchmarking.
+
+The stdout log records24117248 and47185920bytes transferred of235488994expected;
+47185920 is a lower bound, not final bytes, accepted integrity or a verified100000
+population. Frozen `data.acquisition._download` cleaned its own unsuccessful.part
+in `finally` when the guard interrupted it. There is no payload/part/manifest now;
+no agent deletion or recovery occurred. Surviving reservation/copied protocol /
+acceptance/consent/grant/worker.log/guards.jsonl/access/receipt/dispatch/parent /
+workflow/exposure records remain byte preserved. Curated summary records their
+separate file-byte hashes; small phase-outcome CSV contains failure metadata only.
+No score/curve/feature/fingerprint array, scientific metric/table/figure was made.
+
+Observed workerRSS41353216B (39.4375MiB), native46137344B (44MiB), parent29868032B
+(28.484375MiB) below fixed6GiB/512MiB/128MiB.5494checks/5492periodic, allWARN
+advisory, CRITICAL/unknown0. Deadline latch, owned thread closed, optional global
+memory context[]; do not invent availableRAM/device information or attribute
+transfer slowness causally to WARN. Guard closure-to-exit gap0.02040212499559857s
+unaccounted; RSS/native overlap and practical sampling constraints remain.
+
+The durable raw_acquisition request began2026-10-11T09:04:26.503191+00:00,
+expected235488994, confirmed_read0, inflight=before_open. This conservative record
+still declares `potential_inflight=true`; it does not deny the logged real partial
+transfer. It means interrupted request/no confirmed completion, **not a running
+worker or model-scoring in-flight work**: process exited1/reaped. All other access
+records empty. Actual raw numerical custody/originalFP numeric read/preparation /
+model requests/scored presentations/batches/cached numeric loads/originalBGforward /
+optimizer/fitting/recalibration/threshold/candidate selection/export/benchmark /
+MPS/particle work/retry/resume0. Original model exposureYES/YES remains permanent;
+new signal modelNO. Layout/count/labels/padding/units/uniqueness/overlap/localSHA /
+AUC/AP/prevalence/efficiencies/Wilson/ratios/tail comparisons unavailable. Do not
+replace unavailable measurements with zeros or publisher declarations.
+
+### Documentation, preservation and proportionate checks
+
+Report and curated summary distinguish software acceptance from failed real
+campaign. Summary preserves Phase A historical validation/counts/metadata and
+separate failed Phase B access/times/resources/status/evidence hashes. Original
+summary at actual Phase A commit and ignored byte copy retain previous state.
+Historical Phase A handoff/its manual Git section remain intact; this continuation
+supersedes its current-state consent-pending statements explicitly. Living README /
+index/memory reconcile actual outcome, revision1.22→1.23. No Task0029 launched.
+
+Post-execution metadata validation passed:139current sources/dependencies/protocol /
+acceptance/plan/candidate/transform/calibration/reference identities agree;
+316initial tracked files,310unchanged and exactly6intentional current-document /
+summary edits, including all prior scientific artifacts and historical handoffs.
+Two intended new files are human authorization prompt and five-row phase CSV.
+Index empty, HEAD unchanged/main/origin/main verified. All surviving campaign
+metadata byte hashes and copied consent agree; actual phase0counts/status/timing /
+CSV/summary agreement, relative links/whitespace/exclusions pass. No raw/processed /
+prepared/fingerprint/score numerical reader, model instantiation or scoring during
+curation. Metadata/byte checks on existing reference scores do not numerically
+reuse them. Synced sources read-only; no dependency/code/protocol change.
+
+Actual read-only quality checks after documentation edits:
+
+```bash
+.venv/bin/python -m ruff check .
+.venv/bin/python -m ruff format --check .
+PIP_NO_CACHE_DIR=1 .venv/bin/python -m pip check
+```
+
+All passed;233files already formatted, no broken requirements. Full1333/portable1333 /
+62new synthetic tests and protected toy integration are the preserved Phase A
+acceptance, **not rerun** or treated as real scientific acceptance. New one-off
+ignored offline curation/validation scripts handle metadata only, add no scientific
+execution/controller and are not covered by old source acceptance. Their meaningful
+consistency checks are recorded separately in ignored phase-b-final-validation.json
+and curated summary. Hosted CI/push unverified.
+
+### Scientific boundary and follow-up
+
+No new model-quality claim is possible from acquisition failure. Original
+Task0026/0027 accepted two-prong findings and Task0022 CPU costs remain intact;
+Task0025failed/consumed/provisional, particle192/192consumed/deferred. The report
+retains original four thresholds and historical tight-tail context as previous
+results, not three-prong measurements. Reused BG would still imply dependent
+topology comparisons, no fresh background-domain generalization or unsupported
+significance/ratio uncertainty; AUC/AP/mixture/conditional-Wilson/capacity limits
+remain. No fresh population/reblinding or test-guided tuning is implied.
+
+One justified next decision is an **offline prospective transfer-deadline and
+incomplete-payload evidence-retention policy review**. It should use this preserved
+failure to define a separate bounded acquisition/custody proposal without claiming
+that a different cap/schema is already permitted or that a retry will succeed.
+Any replacement needs a separate versioned protocol, source-bound software
+acceptance, distinct namespace and new explicit human authorization. This consumed
+Task0028 cannot retry/resume/reset/expand schema/limits or recover via another
+execution route. No acquisition/test/model work is launched by that proposal.
+
+### Intentional Phase B delivery files and manual Git
+
+Six modified tracked files: README, living memory, chronological index, this
+current-task handoff, current report and curated summary. Two new files: actual
+human approval prompt and phase-outcome CSV. Phase A code/config/tests/prompt are
+already committed in e381f54 and remain unchanged; no earlier continuation is
+staged/folded. Only current Task0028 records and the three living documentation
+surfaces overlap. Existing/ignored data/logs/manifests/acceptances/operational
+receipts/arrays and synced sources are excluded. No automatic staging/commit/push.
+Suggested outcome-appropriate commit: `docs(evaluation): record consumed three-prong acquisition failure`.
+
+```bash
+git status --short
+git diff -- README.md docs/project-memory.md docs/handoffs/README.md docs/handoffs/0028-three-prong-generalization.md docs/three-prong-generalization.md results/tables/final/task0028-three-prong-generalization-summary.json
+git diff --no-index -- /dev/null docs/prompts/0028-phase-b-authorization.md
+git diff --no-index -- /dev/null results/tables/final/task0028-phase-outcomes.csv
+git diff --check
+git add -- README.md docs/project-memory.md docs/handoffs/README.md docs/handoffs/0028-three-prong-generalization.md docs/three-prong-generalization.md docs/prompts/0028-phase-b-authorization.md results/tables/final/task0028-three-prong-generalization-summary.json results/tables/final/task0028-phase-outcomes.csv
+git diff --cached --stat
+git diff --cached --check
+git diff --cached
+git commit -m "docs(evaluation): record consumed three-prong acquisition failure"
+git branch --show-current
+git rev-parse --abbrev-ref '@{upstream}'
+git push origin main
+```
+
+The two no-index reviews return1 normally when new-file differences exist.
+Before the final push, verify displayed branch main/upstream origin/main; these are
+manual commands only, not evidence of a completed commit/push or hosted CI.
