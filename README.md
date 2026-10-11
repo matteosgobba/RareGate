@@ -64,6 +64,21 @@ model work. Monotonic whole445.572426s versus2305.963121s recorded UTC endpoint
 span are distinguished; generic200/206Retry-After handling remains a frozen-code
 limitation. No further session or reuse of the failed partial is automatic.
 
+
+Task0030 completes the separately authorized [sleep-aware acquisition v3](docs/three-prong-acquisition-v3.md).
+Own153-source/1503 full+portable tests precede the sole session: a verified independent
+copy of Task0029's prefix plus205498246 new bytes through one206 yields the complete
+235488994-byte file, matching publisher MD5/local SHA. Three workers exit0/reaped /
+parent-accepted; idle-system assertion active/release confirmed, continuous reserved
+870.632494s, zero overshoot. Structure only: pandas-fixed float64[100000,2101],
+Blosc, no dataset values/numerical custody/fingerprints/cache/models/science.
+Fresh power logs broadly explain Task0029's clock divergence, without proving
+exclusive network-error causation or changing that historical failed result.
+The initial native scientific study remains complete; later three-prong numerical
+custody/uniqueness/overlap/evaluation needs a new explicit local-file protocol /
+authorization. Original testsYES/YES, new signal modelNO; particle192/deferred and
+Task0025/0028/0029failed consumed outcomes preserved. No new acquisition is automatic.
+
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
 `0.1.0`. Task 0002 defines the data foundation using the corrected LHC Olympics

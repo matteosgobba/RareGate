@@ -1,0 +1,3188 @@
+{
+  "task": "0030",
+  "status": "parent_accepted_verified_artifact",
+  "scope": "single authorized sleep-aware byte acquisition and bounded structural metadata only;no scientific execution",
+  "branch": "main",
+  "upstream": "origin/main",
+  "base_HEAD": "01617d5e3312785800058ad3ce0a8ca52741dd0b",
+  "index_empty": true,
+  "Task0029_uncommitted_continuation_preserved": true,
+  "source": {
+    "dataset": "LHC Olympics 2020 R&D three-prong",
+    "version": "v5",
+    "record_id": 6466204,
+    "doi": "10.5281/zenodo.6466204",
+    "filename": "events_anomalydetection_Z_XY_qqq.h5",
+    "url": "https://zenodo.org/api/records/6466204/files/events_anomalydetection_Z_XY_qqq.h5/content",
+    "expected_size": 235488994,
+    "expected_checksum": "54e123a86143b668f9cb76905152a124",
+    "checksum_algorithm": "md5",
+    "license": "CC-BY-4.0"
+  },
+  "protocol_canonical_JSON_sha256": "268b946af53f3d907ca6153363874b2fae2b3221b2165d83e55184b612862043",
+  "protocol_file_byte_sha256": "a454453a115386ec35ccc6487fbf86486c1016d1c089c1fb166b15efc868068c",
+  "plan_canonical_JSON_sha256": "34d98ab76b2bb80dc0503899933b8abd9132c9c7ede0e2af0d1831d41bfe5c12",
+  "plan_file_byte_sha256": "76471018126125fd8ca02a46cc62ba74681d5f78a4bd3dcc32610b1b1993c803",
+  "software_acceptance_file_byte_sha256": "1c8363b629f8a68a57238c4580732479a9431a85aea483e75d28d1da8baeefc9",
+  "authorization_file_byte_sha256": "b65d237da317e3c45bdc2a36cbc59fe907bd7784188fec8f00ea55805556441f",
+  "authorization": {
+    "authority": "actual_Task0030_prompt_conditional_implementation_then_one_session",
+    "human_approved_exact_postimplementation_hash": false,
+    "prompt": {
+      "path": "docs/prompts/0030-three-prong-acquisition-v3.md",
+      "file_byte_sha256": "4d517f5adbf1673e49d0216d94149ab87ec3e738291f4ad38c90a0e309eead69"
+    }
+  },
+  "software_validation": {
+    "full_passed": 1503,
+    "portable_passed": 1503,
+    "new_synthetic_cases": 89,
+    "quality": {
+      "lint": "passed",
+      "format": "passed",
+      "dependencies": "passed",
+      "synthetic_integration": "passed_continuous_supervised_native_metadata_only",
+      "native_bindings": "passed_continuous_assertion_creation_and_release"
+    },
+    "source_file_sha256": {
+      "scripts/analyze_training_data.py": "6a78e21398b86bb664301e812fccd56b5dc306cffcf88650fd82a67b1fb5e841",
+      "scripts/audit_raw_data.py": "733f8a694d6ab3b6174f141dd34b6fd83be0e8642f8e7374edc66d217e90af26",
+      "scripts/smoke_test.py": "48c390cd1292323a9dc8d36f812af5e381495932043ca62866a813bc8494c8dd",
+      "scripts/synthesize_frozen_results.py": "563db15bd1021d5bdc8b3405046fdc82a031416e668743df065e2e24dee531b9",
+      "scripts/validate_preprocessing.py": "be317ec506c76c2bf38672713d5c5f6f42b713ef74e461acb1d3f795535c850d",
+      "src/latenttrigger/__init__.py": "1874d028be1a1999572871386c09deb55fa9ff9ee1d29248f6f41213b8f1973c",
+      "src/latenttrigger/benchmarks/__init__.py": "395aeb36864bab9f214b181452b77859d85483755a9a87902afaaf08eb5c6ba3",
+      "src/latenttrigger/benchmarks/accelerate_threads.py": "dd11e84796a9bb6611f444b6dce08a03ab9b0e6bc910e8af73ae346bcd96f80f",
+      "src/latenttrigger/benchmarks/ae_parity_numerics.py": "b474492cfcd8b7fad6fe868adca6393fd7a62814863977e961be55556ebef84f",
+      "src/latenttrigger/benchmarks/ae_parity_protocol.py": "17ad9329b72409e272691630688123a3434f9c09b2f0868eb681a48e7031f062",
+      "src/latenttrigger/benchmarks/ae_parity_review.py": "c6d4809fde1ddd2b36cc290555b5889e962aca41c8b2e19c5a030c31925047da",
+      "src/latenttrigger/benchmarks/arithmetic_cpu_v2.py": "dac69bddfd76bc914f8fc9a22240cc4a666518e6963a47182dc208ff4eebb631",
+      "src/latenttrigger/benchmarks/core.py": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987",
+      "src/latenttrigger/benchmarks/cpu_mps.py": "64f0da7a8446f97df368f5f3349658fa2375085cb8fe65ae720f493dc10c64b1",
+      "src/latenttrigger/benchmarks/cpu_mps_device.py": "aeabd601997ca27817866da39ca6c6d84ec8198994ab22a479385d7e7b5fe6bb",
+      "src/latenttrigger/benchmarks/cpu_mps_numerics.py": "802234a8e613186f912b9df694a6894c68229c8f546f2896ea3ba129ea571a02",
+      "src/latenttrigger/benchmarks/cpu_mps_protocol.py": "d9f149eea0c2e47b42f33eb81905c5521af40a2d58812a91de11b7893b64559c",
+      "src/latenttrigger/benchmarks/cpu_mps_smoke.py": "b3b6ab1285d01e7e339c0de91720ca2f84eade60fc7848c9717dafb35624fe70",
+      "src/latenttrigger/benchmarks/cpu_mps_worker.py": "dc700b767bf085519f3dea882da89a72af334a8fda3483286decbdda252f73c3",
+      "src/latenttrigger/benchmarks/frozen_cpu.py": "eff5159cd21b2b869d5559ff85a5dc0626b84e271e6490269965313288042998",
+      "src/latenttrigger/benchmarks/frozen_cpu_v2.py": "c263bbe39fad71a8404522b63f7de96eb7667b8d2110517cc4d8b16f88d69482",
+      "src/latenttrigger/benchmarks/frozen_cpu_v2_numerics.py": "d7fa2250aabb2dbb89dcd67b333a9ca98d080274f92e160fd557ec9517e26fd8",
+      "src/latenttrigger/benchmarks/frozen_cpu_v2_protocol.py": "0179393d25c66d2cab8ac74a3f7802957efbd75e385af5673fc9b171d53b224e",
+      "src/latenttrigger/benchmarks/frozen_cpu_v2_worker.py": "62793f11a93dcd104f5bb3fac34c0e8a69e0e3fdaa27b5541ad29072b9444df4",
+      "src/latenttrigger/benchmarks/guard.py": "61b7543310ef83281b7da272bbefb94d5c7cc75574e19e0dfc9a7a70ab12e408",
+      "src/latenttrigger/benchmarks/protocol.py": "562fde67928ee16cd08975240b21cfccbfc3e4c9ac5fa90992e72e135ba47bbc",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu.py": "611089469b961d31c6593f9568c6c72986d17e53920f9835e2ee29fbcaf609ae",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_numerics.py": "a5f3a4c86d00e91ab01f8f42bd81c12c450bc9fecc7e399d038ddd2f0d8e3ea4",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_protocol.py": "e2f329cf05ccfc75be5bf439f01713ada2aee92007303c818a9dfe9037a7b711",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_smoke.py": "a0b395d26fbf709cecd983527ea9334c8c8e132983e2020a965d2ddfccdbf9f4",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_statistics.py": "2ac318fe62ea5b2c12b90a057a9ee5d406b93f81d023f3254a21f2acb0e8ec10",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_worker.py": "52cb6f30610706e26a42e19fb91dc86a9507841c6da5ab33c725f0578b6e6b5d",
+      "src/latenttrigger/benchmarks/worker.py": "eceef3341b2dd1ff83f01ac9ef6ecbfbc956cd19488af20b217f8276991d091c",
+      "src/latenttrigger/data/__init__.py": "ab12fdf1084922db398bf597fcbb9734e005fdf005ccef10705aa1407d997017",
+      "src/latenttrigger/data/acquisition.py": "3a16f4b8efd0d794076ebae6f942a28f2be0fd9c51a51e46af4aa5485f2e931b",
+      "src/latenttrigger/data/analysis.py": "71ab4b72d06d4dd68f0c19461669a36a3078e29220a3fdd02a39cdb48e9cbf79",
+      "src/latenttrigger/data/eda.py": "8c9d60cbcd04a9e301b0282880d7b6358221c46075be73716130c7528749b798",
+      "src/latenttrigger/data/features.py": "fac40f3fb9e16f8d9048094cd9b031871eb399e11d37e04963e301b2f9a2ce42",
+      "src/latenttrigger/data/inspection.py": "9c78ed557ae2d3f7e2f70e184483efe3fb01838aaf03f38e4513ca096e6f9a61",
+      "src/latenttrigger/data/metadata.py": "3361939ce5029b98418d3551c4ebe48790c1571d03a09d8205997572f9ecf40d",
+      "src/latenttrigger/data/preprocessing.py": "6aa6f8bae59667ee28dfec5798960aba2c28993719a3d88679659f53d5dab6e0",
+      "src/latenttrigger/data/processed.py": "911c1bdb85831396b5e35dd6c3b5206a1ef22b5c62b55efb40108a4cd8cea5ea",
+      "src/latenttrigger/data/splitting.py": "997bc80cf0fcf00ce3e28a0e1e2ac322831223601e3b78ad7513e2956adb8206",
+      "src/latenttrigger/data/three_prong_acquisition.py": "fcd0eeffa9436d46f0fd08d9fee5829436e4204fb8f8429e1605947a4f52e80a",
+      "src/latenttrigger/data/three_prong_acquisition_protocol.py": "8b1df70a22f88c014ccfe729b34ea6451c74b91a93f5e7f55d3beee5472ff935",
+      "src/latenttrigger/data/three_prong_acquisition_smoke.py": "295f50ca1c0b8a1fef09a98e900737028d5941b04bb1bf5384e24c9b52f024ca",
+      "src/latenttrigger/data/three_prong_acquisition_worker.py": "5ec10379e9ae42d875e5814d63400402771f351e28545fa030e509f39c112288",
+      "src/latenttrigger/data/three_prong_structure.py": "2712c57e3a31b8d8d07f1cae29ea2dca17ab1822b7096e58504db438b93d86d2",
+      "src/latenttrigger/data/three_prong_transport.py": "3b24bdd4328d72a030eb476781e99cfeb1e9403c681130780825db5137fdcdc1",
+      "src/latenttrigger/data/three_prong_v3.py": "752743de1ce19590f34b3e9214a7b4264fce1786c2c66cfd541edb56ac4b432a",
+      "src/latenttrigger/data/three_prong_v3_protocol.py": "14ecc5684aaaba8e19892b5807d14b2a13bb4d77fe6f1f4239a37760004a7478",
+      "src/latenttrigger/data/three_prong_v3_runtime.py": "d4fdd0bd463a65652b82b93e7083f039f67572c0d568497ef519cd4705deb878",
+      "src/latenttrigger/data/three_prong_v3_smoke.py": "0e3d267d3c3adc8f84797cce7d88578cc8fb54f3907bf68715bc8168edb45bce",
+      "src/latenttrigger/data/three_prong_v3_transport.py": "001fecffb82dc9dd23cc579e18cdaf231f8238d8064a89c9fe52bace88668a7e",
+      "src/latenttrigger/data/three_prong_v3_worker.py": "54290fcf075b8321cdc6c6b5b9a077dc4c757bfdee44124125a61fc5299fed62",
+      "src/latenttrigger/evaluation/__init__.py": "4c868d5297ce8710cf3a0adb0185ba2ec970b736c936d3f604a21251123ad579",
+      "src/latenttrigger/evaluation/guard.py": "dc3873fa6c10fd36bc925c70fb668634dac73e39923b1273821b4f6b4a23e4ce",
+      "src/latenttrigger/evaluation/guarded.py": "3796e8959e714edbee5bbf0b4a939939e9083347fed2b1bdf26db7bb13d9cc5f",
+      "src/latenttrigger/evaluation/guarded_audit.py": "bd70a6367e32ceaacf28f8f389c23c1210668e3118b1119e1c70f53d25fbd7eb",
+      "src/latenttrigger/evaluation/guarded_core.py": "382265f1f9d89db8c513dfdba3908b7fd7ed4424a3197e68736a14026bd1a6a5",
+      "src/latenttrigger/evaluation/guarded_protocol.py": "bbe667f3105bed2402ba32e114a84b8a41e223679d3f733fe6fa7e32a6f20217",
+      "src/latenttrigger/evaluation/guarded_reporting.py": "51b1b62e382e3a9ee295654a7755b922ebf264a91763cc5f0f2d797ccdd39aa5",
+      "src/latenttrigger/evaluation/guarded_smoke.py": "c9f1fad322bbb118294212a2d9e2de7e796ea903d92a59c9f12887654af16407",
+      "src/latenttrigger/evaluation/guarded_worker.py": "caa6211f305ba2c95f0259b2bd40747cd14372b11e80da903a2e4e6ccd728d36",
+      "src/latenttrigger/evaluation/metrics.py": "6b882e7acd7c61443f64086b16da45e880f364185bf4c35853d2c363fe7c8450",
+      "src/latenttrigger/evaluation/run.py": "68b8c95b3f5ce99f789b37cdc32885ee47c3712b43126403fa2bf081a2dcd625",
+      "src/latenttrigger/evaluation/three_prong.py": "5b722159e4cec3ecd2124da7c252a3cf5503fa54098f86a4aac84d93a7f042d6",
+      "src/latenttrigger/evaluation/three_prong_audit.py": "6ed3a40e8b73ad19268db613af4f9761d39145594168e528f75221a34401f9b6",
+      "src/latenttrigger/evaluation/three_prong_core.py": "5b0af37ba036888ee61122603850aad5fa3e5a18822af74e61e08ad31205e8c1",
+      "src/latenttrigger/evaluation/three_prong_protocol.py": "34802f6a2f08fb26bf11a4d7ffab7bb71aa6a0c38cfa95f3bcd2d38791aa7c0b",
+      "src/latenttrigger/evaluation/three_prong_smoke.py": "51b3565bb1ca15464e2e4738384525dfcc6b2aadeaab748419b84b4f08b90a3b",
+      "src/latenttrigger/evaluation/three_prong_worker.py": "e334b0fee7dcd848d369b0e160f4bc9f4c2a79cc786e55a87df705369c458d12",
+      "src/latenttrigger/evaluation/thresholds.py": "0e9b8e74eb260e66eb0efd5c289ff54f791b9501ce5bf85e43b57dfb06e2d054",
+      "src/latenttrigger/exports/__init__.py": "bd7fd0800784e384ed614a64c01cb884b65b686ddd7a54d8540cbea24f0db6c7",
+      "src/latenttrigger/exports/onnx_controller.py": "7729db8d557abf3cd13e5ba00d94d8554ca92aeef3c471b5182e3361d0f87422",
+      "src/latenttrigger/exports/onnx_graph.py": "f9b8eb5c54f712a50f80b1635e18233c6cbec30ca503dfd59a46087fd9e9625f",
+      "src/latenttrigger/exports/onnx_numerics.py": "ab547749aa3f291efb6a641ff0b789ab4ef00646ccd00a6e7c6c722c8b45276e",
+      "src/latenttrigger/exports/onnx_protocol.py": "90964339032bb51e67042d2d64e0a84146930513c150c2fee365568bd638cfb4",
+      "src/latenttrigger/exports/onnx_smoke.py": "1cb26a170b0ab4ee029d9a04265bc14c535f3172080a2dc34b1b9a0b762627a2",
+      "src/latenttrigger/exports/onnx_worker.py": "afc808b243129425138fccc80ab0b05f8ca1766f072d5e7cd4c0cfb5c56baaa2",
+      "src/latenttrigger/models/__init__.py": "acbad93cca155b2c69bd9b2f6d1990acc6cf54c6e21614c20c5d8b174e9d56cc",
+      "src/latenttrigger/models/autoencoder.py": "cf5c9507fa08404c8a287627a30201608736634e8246e298fad081201bff4738",
+      "src/latenttrigger/models/background.py": "97c2491100747aa495d4b30865fecf356d7d7c2f4ec40c7ff224499e9c3a66e8",
+      "src/latenttrigger/models/particle_background.py": "d33fd7c29242fa6039e8a167f0e5b1ad4427ae1bf544649446a04eef5be2b57d",
+      "src/latenttrigger/models/particle_memory_study.py": "a507cda92f7543f5e49d68b15fddbac6fd87ba9dcc8e3c731958e5938e1df00b",
+      "src/latenttrigger/models/particle_recovery.py": "290e386c0e70f42a7977d52b01342ab10affe552e95789c60637e75ce820ad54",
+      "src/latenttrigger/models/particle_set.py": "503384dcb006140689a927064f6c6245a199e66dd6e9a3c7763f80a246eb6308",
+      "src/latenttrigger/models/pca.py": "6c14d9a5abb5515bd137b3303ff1da693e8d1c143119496162ce705715328b4a",
+      "src/latenttrigger/models/reporting.py": "bce28fb295e9115e572ba8d0dd9b76e778fbdc015a1b69a94ca7199cd1763ad4",
+      "src/latenttrigger/supervision/__init__.py": "f890548a3d6d6ce1651b10a02942ce23d9d6c5383a3567baaa23d90acd8c2c52",
+      "src/latenttrigger/supervision/particle_bounded_study.py": "f4bea82bebee943ca899dfdc072e0540ffc08a1d0d810276cb1dec8d4c72f942",
+      "src/latenttrigger/supervision/particle_bounded_worker.py": "6ea75d4071a2c58ab0187603a37dda968a0486d178c5dfe0f7658e6f2e151b9e",
+      "src/latenttrigger/supervision/particle_characterization.py": "6229325d970873e55784c11c77d85db8d75285651caab579bfaaaaa39c0ac95a",
+      "src/latenttrigger/supervision/particle_characterization_worker.py": "75068a1ea5de4b067cc80003062697a9242d2eb27480b04a13734f982bd75b75",
+      "src/latenttrigger/supervision/particle_collector.py": "39d66cce6fc6e9e8a98cfec7018c0aacc148be98b5fb7fcacd04c1f10b251fd5",
+      "src/latenttrigger/supervision/particle_dev_policy.py": "6565b603628af4535286d4b57d5bb6d6451171b47448e74a230e399317fdc437",
+      "src/latenttrigger/supervision/particle_host.py": "5e1912dd23affe008fe2fe8cc416a60a5c0627c4f654d72af5cbddd460c91a80",
+      "src/latenttrigger/supervision/particle_launcher.py": "d0864aaa75ef37a5e7bb94b4baad6bad1ac05e5463a433b2a5e98d7601cbf621",
+      "src/latenttrigger/supervision/particle_monitor_benchmark.py": "692876faf61b2fe1db86861116e4d701299f4b4d08aafd084045f8335ee206cc",
+      "src/latenttrigger/supervision/particle_readiness.py": "f97d68746bcb89954e50ac229d4885217101f045fe927f537df9daafa22b1439",
+      "src/latenttrigger/supervision/particle_readiness_worker.py": "a8feda0177adf5e05c329a15cfda97efd1063aa6e3fc9557cac48d4618da9a6d",
+      "src/latenttrigger/supervision/particle_reconciliation.py": "817035b04855a29af45b8eff82fde932d266391e5df9b317eb61217d1287b146",
+      "src/latenttrigger/supervision/particle_sampling.py": "a40d551236bcd5da564cd8aff5b3d7bf046e0bb34de1a1f582592491f51a78f6",
+      "src/latenttrigger/supervision/particle_sampling_benchmark.py": "1a761e96f4dbb3ee29c97a99e0fdb6e7601725191dd6ee6185cd8f104b0c3cae",
+      "src/latenttrigger/supervision/particle_shared_host.py": "26bd950a005ff334bb3550434a7327492dc5bba7c108c6480729d6e3dfbc9c95",
+      "src/latenttrigger/supervision/particle_shared_host_worker.py": "1afe12fa40d93d73e8791fc471a7f43e7553d4c21f8e20c813ed57f5c29a5f9d",
+      "src/latenttrigger/supervision/particle_worker.py": "fdc93df1635fe416d2cbc8952de3613302ac2b4670d1544cc49278be28dce558",
+      "src/latenttrigger/training/__init__.py": "beeeeaa6dee107b1d94814e198c82ce0cf612b0bb8727a66a54c3245b8423a70",
+      "src/latenttrigger/training/autoencoder.py": "f89b30384ecd326fae9c090d1ec286e9cd65837b9121c4af28672f19e64b5092",
+      "src/latenttrigger/training/background.py": "4d5322385329f7d6300599ffb3d046a0ab1138f455916565fea47aee5d143d75",
+      "src/latenttrigger/training/convergence.py": "c05e478db3a762e641438886500ee4e88db3029601cef0fa4abe6a1bdb5d0a4b",
+      "src/latenttrigger/training/particle_monitor_v3.py": "d6e2af6914c66a983a7c63fe66174608e34830cb948cb89bbf3a3cd42702b612",
+      "src/latenttrigger/training/particle_monitor_v4.py": "9874d08638e21329bbf4392fc3dc097228ce21742060e8f5a8065c5c1652552f",
+      "src/latenttrigger/training/particle_process_budget.py": "a2c31b2565721999d3dde6759621a2bcdef93b925d5bdd0deb17b48316beb269",
+      "src/latenttrigger/training/particle_resources.py": "a078118c49aaa17220ba99d2ed60115756299dae2aae3be3d947ead3094644f8",
+      "src/latenttrigger/training/particle_set.py": "11089fbd13f361c0b269b66f5e91d5697c18c5084fbdc92f4a3e300aed19b349",
+      "src/latenttrigger/utils/__init__.py": "d029f6e6516513d82e13f4be051d180d44d865517ccc36544d624de0bbd83beb",
+      "src/latenttrigger/utils/device.py": "9fe8582198a9292a27b3888b0b33d5dd6ea600dfa6016ce82ce3ebb0d5f1b689",
+      "tests/cpu_mps_portable_plugin.py": "c78bd80e733c622fd5f78e9eea202f3f9aa3606e50ad4679736a02c6de765b9f",
+      "tests/test_acquisition.py": "2f82f97e757bbd3e616961e3a26a76ae4fc36e9883c20bfb3d0157c91ea16b72",
+      "tests/test_ae_batch_parity_review.py": "d0aa4b18a113e9410b77b63257eb3cf6d12afc97e1590f1e7af17fe14384427f",
+      "tests/test_autoencoder.py": "4e200149e1673ab3ca77b8034fc19666a8cbb321083a7da94776c75f336afa0f",
+      "tests/test_autoencoder_convergence.py": "4ee4111e2eca6c9bd16646e24f11b9172bcb00e5294f5ab521ae057ea188d2ac",
+      "tests/test_cpu_mps_benchmark.py": "27702e0ce275615c736369827c84c2beb430ad9db8556119f7db7e2c27320ead",
+      "tests/test_device.py": "3139a1b571eacb78ea40678962344c1a8d3d07cee33434c8df094c8c6a2ed55c",
+      "tests/test_eda.py": "2baee88100beda3caa9ec089cf3046df80776e88794ae9ddb1dc7865085df24d",
+      "tests/test_evaluation.py": "1fba0620dc3dc0eb52ba8b4680c7bc30b5baac39741681d98fba1e328bf17956",
+      "tests/test_features.py": "1f9dce01ba70e3dbabff31f5edf5ab81b8941c791bf16fe0988b6d3775e60437",
+      "tests/test_frozen_cpu_benchmark.py": "a35b5c82085c580986de228b26ceea0e9cf57a76f77410402e459f7d6805d006",
+      "tests/test_frozen_cpu_v2.py": "1f0f782407b0b74af7d092aeec0712654d43d8a8ddfaa3c04c265d44313f928e",
+      "tests/test_frozen_synthesis.py": "7f1c97930b494e5c0febd7fbf50f53c8d680833b938da6027b1657abc2feade6",
+      "tests/test_guarded_evaluation.py": "23353e7ffd8ffcd9c2458488f6181f13705b0bdf04a19cdad69e2c12cbcae40a",
+      "tests/test_inspection.py": "bc78ab446bf3fa46b8f8614c93f69b844e9a8e37f26c0919a1d0b9cb69968735",
+      "tests/test_onnx_cpu_export.py": "891a7035667069de6f2d13234f082a0d09a77a6083a11219756742236f1566ee",
+      "tests/test_particle_bounded_sampling.py": "ae8268d762ca8b73ff3f3e0a33d52d154be8516308f94b1163685e7168fc3b12",
+      "tests/test_particle_characterization.py": "ecda43643ddd76e7762ec98903fa161e31de066df587b3c04757750f4b846d6c",
+      "tests/test_particle_host_readiness.py": "789835d8d40936ff5aec36ace00272be30296df69c2991aeb006c73f265151b2",
+      "tests/test_particle_memory_policy.py": "ee2829e688a6dee92bf80f811b3e0c9355ef78e214a734e234a1580329c8df3c",
+      "tests/test_particle_monitor_performance.py": "a5946f88a53d13dd4a6f775da2b43e92af8542519e3a49ec08f737dc11190cbf",
+      "tests/test_particle_readiness_workflow.py": "c5eec3bfe9caac7aff31152fd338bcf42c3e07c718747a7cc6c02152b24ffdb9",
+      "tests/test_particle_recovery.py": "cf6c0d130d721b4cb8d0a6afc7aab7ddf7c4c0acb30a13f951c67fab87ee0e90",
+      "tests/test_particle_set.py": "102a4af46f1fafb1d0ceca4d783239771aaeb4c154fd14dd54c1ac3885fcf110",
+      "tests/test_particle_shared_host.py": "6f88920add2810bb8a9e59fbc975ffb004e03c7857f2d9a804ab0639feeaf6dd",
+      "tests/test_pca.py": "88bf911b63a28033c4b3a3124e246e5133629dfa87f8ee9efc174c5abfe6c277",
+      "tests/test_preprocessing.py": "26bf51ddc16f87119795b8274bb6f6ad151ef5f2379d6d29ea611441e516d2bd",
+      "tests/test_pytorch_onnx_cpu_benchmark.py": "6a1aef681f9cbac8957b25f2f63d1ea8c1f8470dca79b17d2a28bfd0942e3126",
+      "tests/test_smoke_test.py": "205826f9f9690f2157ce4a8e59b848ef74ddd342d899c5f61acf7a21851ba823",
+      "tests/test_splitting.py": "a32d4b4902a6bac60053f40ecb4a59ea12bde2a9fb6f6630da8067bf2b63dd53",
+      "tests/test_three_prong.py": "702a0d4e0e2f5f2a04c92ea08cc1c38cc4d5852d2a7891a98ec630cc4db66c38",
+      "tests/test_three_prong_acquisition.py": "4f025a9ceee5fd253112bbc539bc607f1b57046471faba06264b33ba967cca64",
+      "tests/test_three_prong_acquisition_v3.py": "74889a497f01a427998f9c3b34a6ced50743a2a076a6c4d30863aa85735e6564",
+      "pyproject.toml": "1c304182e8445c02346509e46005e6bb6be5201aa0d32bfff9866a96d514ec21",
+      "configs/dependencies/onnx_cpu_v1.json": "53e787ce1bb2d767ddfb38575a5d53db6cb53defafc7faa897665670803b2c28"
+    },
+    "validation_evidence_file_byte_sha256": {
+      "data/task0030-validation/full-accepted.xml": "c75f43f49beff37316bfd464197d64d31329208f6a295ecb49071c78d088a091",
+      "data/task0030-validation/full-accepted.txt": "45416e43db8d76996efac749b973d64dcab601aa552454270d22e02df7f49b09",
+      "data/task0030-validation/portable-accepted.xml": "5094df81e353947e0cf03cea6c1056ee386268610e5e6f7370c03083f19a363a",
+      "data/task0030-validation/portable-accepted.txt": "342467a9b95b954d578416228fd1be0f5506658ddb3599f8db79d9e4513a0092",
+      "data/task0030-validation/portable-accepted.json": "83a2e9aaf0cf81adc5e4778d1b3335192667e7e635caf9b51eaa0de375798eb8",
+      "data/task0030-validation/targeted-ready.txt": "dd4eeb0d778586361ce471adb0c20933a45cdb09dbcacfc1837b1ca22c6e6000",
+      "data/task0030-validation/lint-accepted.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "data/task0030-validation/format-accepted.txt": "c2c1b47fe3e4c9a2692a6ccd3f12d3744d4697e852a8f9a0d05053eb78174cc3",
+      "data/task0030-validation/dependencies-final.txt": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "data/task0030-validation/native-bindings.json": "d407de251305f427ff23394138f38ce25845f71fe3c08b288850b2f0bdc83329",
+      "data/task0030-validation/synthetic-final.json": "c0efb41e55f69b512602c32c2200def7c4a475f0c08025b02411471a73000588",
+      "data/task0030-validation/synthetic-final-dispatch.json": "0f14c5f05bd0e0f6ff3a22492759d445c0396b95f89e8fece256dc18a2bd32fb",
+      "data/task0030-validation/synthetic-final.log": "86a947e9634ba574ecccf2f78ae1ff7dfaeeb0b23c153c712955d7c313ff41ce",
+      "data/task0030-validation/pre-freeze-identities.json": "fe3c6af71dffb484f2f9ca6e152d326dce5d1deff92bf22b8b4026f295033a70",
+      "data/task0030-validation/ready-source-map.json": "3ac63d251931be97b036463ced1af9af429a2bb46188148c6d3c35e3b9907cd6"
+    },
+    "hosted_CI_success_claimed": false
+  },
+  "preserved_historical_file_byte_sha256": {
+    "scripts/analyze_training_data.py": "6a78e21398b86bb664301e812fccd56b5dc306cffcf88650fd82a67b1fb5e841",
+    "scripts/audit_raw_data.py": "733f8a694d6ab3b6174f141dd34b6fd83be0e8642f8e7374edc66d217e90af26",
+    "scripts/smoke_test.py": "48c390cd1292323a9dc8d36f812af5e381495932043ca62866a813bc8494c8dd",
+    "scripts/synthesize_frozen_results.py": "563db15bd1021d5bdc8b3405046fdc82a031416e668743df065e2e24dee531b9",
+    "scripts/validate_preprocessing.py": "be317ec506c76c2bf38672713d5c5f6f42b713ef74e461acb1d3f795535c850d",
+    "src/latenttrigger/__init__.py": "1874d028be1a1999572871386c09deb55fa9ff9ee1d29248f6f41213b8f1973c",
+    "src/latenttrigger/benchmarks/__init__.py": "395aeb36864bab9f214b181452b77859d85483755a9a87902afaaf08eb5c6ba3",
+    "src/latenttrigger/benchmarks/accelerate_threads.py": "dd11e84796a9bb6611f444b6dce08a03ab9b0e6bc910e8af73ae346bcd96f80f",
+    "src/latenttrigger/benchmarks/ae_parity_numerics.py": "b474492cfcd8b7fad6fe868adca6393fd7a62814863977e961be55556ebef84f",
+    "src/latenttrigger/benchmarks/ae_parity_protocol.py": "17ad9329b72409e272691630688123a3434f9c09b2f0868eb681a48e7031f062",
+    "src/latenttrigger/benchmarks/ae_parity_review.py": "c6d4809fde1ddd2b36cc290555b5889e962aca41c8b2e19c5a030c31925047da",
+    "src/latenttrigger/benchmarks/arithmetic_cpu_v2.py": "dac69bddfd76bc914f8fc9a22240cc4a666518e6963a47182dc208ff4eebb631",
+    "src/latenttrigger/benchmarks/core.py": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987",
+    "src/latenttrigger/benchmarks/cpu_mps.py": "64f0da7a8446f97df368f5f3349658fa2375085cb8fe65ae720f493dc10c64b1",
+    "src/latenttrigger/benchmarks/cpu_mps_device.py": "aeabd601997ca27817866da39ca6c6d84ec8198994ab22a479385d7e7b5fe6bb",
+    "src/latenttrigger/benchmarks/cpu_mps_numerics.py": "802234a8e613186f912b9df694a6894c68229c8f546f2896ea3ba129ea571a02",
+    "src/latenttrigger/benchmarks/cpu_mps_protocol.py": "d9f149eea0c2e47b42f33eb81905c5521af40a2d58812a91de11b7893b64559c",
+    "src/latenttrigger/benchmarks/cpu_mps_smoke.py": "b3b6ab1285d01e7e339c0de91720ca2f84eade60fc7848c9717dafb35624fe70",
+    "src/latenttrigger/benchmarks/cpu_mps_worker.py": "dc700b767bf085519f3dea882da89a72af334a8fda3483286decbdda252f73c3",
+    "src/latenttrigger/benchmarks/frozen_cpu.py": "eff5159cd21b2b869d5559ff85a5dc0626b84e271e6490269965313288042998",
+    "src/latenttrigger/benchmarks/frozen_cpu_v2.py": "c263bbe39fad71a8404522b63f7de96eb7667b8d2110517cc4d8b16f88d69482",
+    "src/latenttrigger/benchmarks/frozen_cpu_v2_numerics.py": "d7fa2250aabb2dbb89dcd67b333a9ca98d080274f92e160fd557ec9517e26fd8",
+    "src/latenttrigger/benchmarks/frozen_cpu_v2_protocol.py": "0179393d25c66d2cab8ac74a3f7802957efbd75e385af5673fc9b171d53b224e",
+    "src/latenttrigger/benchmarks/frozen_cpu_v2_worker.py": "62793f11a93dcd104f5bb3fac34c0e8a69e0e3fdaa27b5541ad29072b9444df4",
+    "src/latenttrigger/benchmarks/guard.py": "61b7543310ef83281b7da272bbefb94d5c7cc75574e19e0dfc9a7a70ab12e408",
+    "src/latenttrigger/benchmarks/protocol.py": "562fde67928ee16cd08975240b21cfccbfc3e4c9ac5fa90992e72e135ba47bbc",
+    "src/latenttrigger/benchmarks/pytorch_onnx_cpu.py": "611089469b961d31c6593f9568c6c72986d17e53920f9835e2ee29fbcaf609ae",
+    "src/latenttrigger/benchmarks/pytorch_onnx_cpu_numerics.py": "a5f3a4c86d00e91ab01f8f42bd81c12c450bc9fecc7e399d038ddd2f0d8e3ea4",
+    "src/latenttrigger/benchmarks/pytorch_onnx_cpu_protocol.py": "e2f329cf05ccfc75be5bf439f01713ada2aee92007303c818a9dfe9037a7b711",
+    "src/latenttrigger/benchmarks/pytorch_onnx_cpu_smoke.py": "a0b395d26fbf709cecd983527ea9334c8c8e132983e2020a965d2ddfccdbf9f4",
+    "src/latenttrigger/benchmarks/pytorch_onnx_cpu_statistics.py": "2ac318fe62ea5b2c12b90a057a9ee5d406b93f81d023f3254a21f2acb0e8ec10",
+    "src/latenttrigger/benchmarks/pytorch_onnx_cpu_worker.py": "52cb6f30610706e26a42e19fb91dc86a9507841c6da5ab33c725f0578b6e6b5d",
+    "src/latenttrigger/benchmarks/worker.py": "eceef3341b2dd1ff83f01ac9ef6ecbfbc956cd19488af20b217f8276991d091c",
+    "src/latenttrigger/data/__init__.py": "ab12fdf1084922db398bf597fcbb9734e005fdf005ccef10705aa1407d997017",
+    "src/latenttrigger/data/acquisition.py": "3a16f4b8efd0d794076ebae6f942a28f2be0fd9c51a51e46af4aa5485f2e931b",
+    "src/latenttrigger/data/analysis.py": "71ab4b72d06d4dd68f0c19461669a36a3078e29220a3fdd02a39cdb48e9cbf79",
+    "src/latenttrigger/data/eda.py": "8c9d60cbcd04a9e301b0282880d7b6358221c46075be73716130c7528749b798",
+    "src/latenttrigger/data/features.py": "fac40f3fb9e16f8d9048094cd9b031871eb399e11d37e04963e301b2f9a2ce42",
+    "src/latenttrigger/data/inspection.py": "9c78ed557ae2d3f7e2f70e184483efe3fb01838aaf03f38e4513ca096e6f9a61",
+    "src/latenttrigger/data/metadata.py": "3361939ce5029b98418d3551c4ebe48790c1571d03a09d8205997572f9ecf40d",
+    "src/latenttrigger/data/preprocessing.py": "6aa6f8bae59667ee28dfec5798960aba2c28993719a3d88679659f53d5dab6e0",
+    "src/latenttrigger/data/processed.py": "911c1bdb85831396b5e35dd6c3b5206a1ef22b5c62b55efb40108a4cd8cea5ea",
+    "src/latenttrigger/data/splitting.py": "997bc80cf0fcf00ce3e28a0e1e2ac322831223601e3b78ad7513e2956adb8206",
+    "src/latenttrigger/evaluation/__init__.py": "4c868d5297ce8710cf3a0adb0185ba2ec970b736c936d3f604a21251123ad579",
+    "src/latenttrigger/evaluation/guard.py": "dc3873fa6c10fd36bc925c70fb668634dac73e39923b1273821b4f6b4a23e4ce",
+    "src/latenttrigger/evaluation/guarded.py": "3796e8959e714edbee5bbf0b4a939939e9083347fed2b1bdf26db7bb13d9cc5f",
+    "src/latenttrigger/evaluation/guarded_audit.py": "bd70a6367e32ceaacf28f8f389c23c1210668e3118b1119e1c70f53d25fbd7eb",
+    "src/latenttrigger/evaluation/guarded_core.py": "382265f1f9d89db8c513dfdba3908b7fd7ed4424a3197e68736a14026bd1a6a5",
+    "src/latenttrigger/evaluation/guarded_protocol.py": "bbe667f3105bed2402ba32e114a84b8a41e223679d3f733fe6fa7e32a6f20217",
+    "src/latenttrigger/evaluation/guarded_reporting.py": "51b1b62e382e3a9ee295654a7755b922ebf264a91763cc5f0f2d797ccdd39aa5",
+    "src/latenttrigger/evaluation/guarded_smoke.py": "c9f1fad322bbb118294212a2d9e2de7e796ea903d92a59c9f12887654af16407",
+    "src/latenttrigger/evaluation/guarded_worker.py": "caa6211f305ba2c95f0259b2bd40747cd14372b11e80da903a2e4e6ccd728d36",
+    "src/latenttrigger/evaluation/metrics.py": "6b882e7acd7c61443f64086b16da45e880f364185bf4c35853d2c363fe7c8450",
+    "src/latenttrigger/evaluation/run.py": "68b8c95b3f5ce99f789b37cdc32885ee47c3712b43126403fa2bf081a2dcd625",
+    "src/latenttrigger/evaluation/three_prong.py": "5b722159e4cec3ecd2124da7c252a3cf5503fa54098f86a4aac84d93a7f042d6",
+    "src/latenttrigger/evaluation/three_prong_audit.py": "6ed3a40e8b73ad19268db613af4f9761d39145594168e528f75221a34401f9b6",
+    "src/latenttrigger/evaluation/three_prong_core.py": "5b0af37ba036888ee61122603850aad5fa3e5a18822af74e61e08ad31205e8c1",
+    "src/latenttrigger/evaluation/three_prong_protocol.py": "34802f6a2f08fb26bf11a4d7ffab7bb71aa6a0c38cfa95f3bcd2d38791aa7c0b",
+    "src/latenttrigger/evaluation/three_prong_smoke.py": "51b3565bb1ca15464e2e4738384525dfcc6b2aadeaab748419b84b4f08b90a3b",
+    "src/latenttrigger/evaluation/three_prong_worker.py": "e334b0fee7dcd848d369b0e160f4bc9f4c2a79cc786e55a87df705369c458d12",
+    "src/latenttrigger/evaluation/thresholds.py": "0e9b8e74eb260e66eb0efd5c289ff54f791b9501ce5bf85e43b57dfb06e2d054",
+    "src/latenttrigger/exports/__init__.py": "bd7fd0800784e384ed614a64c01cb884b65b686ddd7a54d8540cbea24f0db6c7",
+    "src/latenttrigger/exports/onnx_controller.py": "7729db8d557abf3cd13e5ba00d94d8554ca92aeef3c471b5182e3361d0f87422",
+    "src/latenttrigger/exports/onnx_graph.py": "f9b8eb5c54f712a50f80b1635e18233c6cbec30ca503dfd59a46087fd9e9625f",
+    "src/latenttrigger/exports/onnx_numerics.py": "ab547749aa3f291efb6a641ff0b789ab4ef00646ccd00a6e7c6c722c8b45276e",
+    "src/latenttrigger/exports/onnx_protocol.py": "90964339032bb51e67042d2d64e0a84146930513c150c2fee365568bd638cfb4",
+    "src/latenttrigger/exports/onnx_smoke.py": "1cb26a170b0ab4ee029d9a04265bc14c535f3172080a2dc34b1b9a0b762627a2",
+    "src/latenttrigger/exports/onnx_worker.py": "afc808b243129425138fccc80ab0b05f8ca1766f072d5e7cd4c0cfb5c56baaa2",
+    "src/latenttrigger/models/__init__.py": "acbad93cca155b2c69bd9b2f6d1990acc6cf54c6e21614c20c5d8b174e9d56cc",
+    "src/latenttrigger/models/autoencoder.py": "cf5c9507fa08404c8a287627a30201608736634e8246e298fad081201bff4738",
+    "src/latenttrigger/models/background.py": "97c2491100747aa495d4b30865fecf356d7d7c2f4ec40c7ff224499e9c3a66e8",
+    "src/latenttrigger/models/particle_background.py": "d33fd7c29242fa6039e8a167f0e5b1ad4427ae1bf544649446a04eef5be2b57d",
+    "src/latenttrigger/models/particle_memory_study.py": "a507cda92f7543f5e49d68b15fddbac6fd87ba9dcc8e3c731958e5938e1df00b",
+    "src/latenttrigger/models/particle_recovery.py": "290e386c0e70f42a7977d52b01342ab10affe552e95789c60637e75ce820ad54",
+    "src/latenttrigger/models/particle_set.py": "503384dcb006140689a927064f6c6245a199e66dd6e9a3c7763f80a246eb6308",
+    "src/latenttrigger/models/pca.py": "6c14d9a5abb5515bd137b3303ff1da693e8d1c143119496162ce705715328b4a",
+    "src/latenttrigger/models/reporting.py": "bce28fb295e9115e572ba8d0dd9b76e778fbdc015a1b69a94ca7199cd1763ad4",
+    "src/latenttrigger/supervision/__init__.py": "f890548a3d6d6ce1651b10a02942ce23d9d6c5383a3567baaa23d90acd8c2c52",
+    "src/latenttrigger/supervision/particle_bounded_study.py": "f4bea82bebee943ca899dfdc072e0540ffc08a1d0d810276cb1dec8d4c72f942",
+    "src/latenttrigger/supervision/particle_bounded_worker.py": "6ea75d4071a2c58ab0187603a37dda968a0486d178c5dfe0f7658e6f2e151b9e",
+    "src/latenttrigger/supervision/particle_characterization.py": "6229325d970873e55784c11c77d85db8d75285651caab579bfaaaaa39c0ac95a",
+    "src/latenttrigger/supervision/particle_characterization_worker.py": "75068a1ea5de4b067cc80003062697a9242d2eb27480b04a13734f982bd75b75",
+    "src/latenttrigger/supervision/particle_collector.py": "39d66cce6fc6e9e8a98cfec7018c0aacc148be98b5fb7fcacd04c1f10b251fd5",
+    "src/latenttrigger/supervision/particle_dev_policy.py": "6565b603628af4535286d4b57d5bb6d6451171b47448e74a230e399317fdc437",
+    "src/latenttrigger/supervision/particle_host.py": "5e1912dd23affe008fe2fe8cc416a60a5c0627c4f654d72af5cbddd460c91a80",
+    "src/latenttrigger/supervision/particle_launcher.py": "d0864aaa75ef37a5e7bb94b4baad6bad1ac05e5463a433b2a5e98d7601cbf621",
+    "src/latenttrigger/supervision/particle_monitor_benchmark.py": "692876faf61b2fe1db86861116e4d701299f4b4d08aafd084045f8335ee206cc",
+    "src/latenttrigger/supervision/particle_readiness.py": "f97d68746bcb89954e50ac229d4885217101f045fe927f537df9daafa22b1439",
+    "src/latenttrigger/supervision/particle_readiness_worker.py": "a8feda0177adf5e05c329a15cfda97efd1063aa6e3fc9557cac48d4618da9a6d",
+    "src/latenttrigger/supervision/particle_reconciliation.py": "817035b04855a29af45b8eff82fde932d266391e5df9b317eb61217d1287b146",
+    "src/latenttrigger/supervision/particle_sampling.py": "a40d551236bcd5da564cd8aff5b3d7bf046e0bb34de1a1f582592491f51a78f6",
+    "src/latenttrigger/supervision/particle_sampling_benchmark.py": "1a761e96f4dbb3ee29c97a99e0fdb6e7601725191dd6ee6185cd8f104b0c3cae",
+    "src/latenttrigger/supervision/particle_shared_host.py": "26bd950a005ff334bb3550434a7327492dc5bba7c108c6480729d6e3dfbc9c95",
+    "src/latenttrigger/supervision/particle_shared_host_worker.py": "1afe12fa40d93d73e8791fc471a7f43e7553d4c21f8e20c813ed57f5c29a5f9d",
+    "src/latenttrigger/supervision/particle_worker.py": "fdc93df1635fe416d2cbc8952de3613302ac2b4670d1544cc49278be28dce558",
+    "src/latenttrigger/training/__init__.py": "beeeeaa6dee107b1d94814e198c82ce0cf612b0bb8727a66a54c3245b8423a70",
+    "src/latenttrigger/training/autoencoder.py": "f89b30384ecd326fae9c090d1ec286e9cd65837b9121c4af28672f19e64b5092",
+    "src/latenttrigger/training/background.py": "4d5322385329f7d6300599ffb3d046a0ab1138f455916565fea47aee5d143d75",
+    "src/latenttrigger/training/convergence.py": "c05e478db3a762e641438886500ee4e88db3029601cef0fa4abe6a1bdb5d0a4b",
+    "src/latenttrigger/training/particle_monitor_v3.py": "d6e2af6914c66a983a7c63fe66174608e34830cb948cb89bbf3a3cd42702b612",
+    "src/latenttrigger/training/particle_monitor_v4.py": "9874d08638e21329bbf4392fc3dc097228ce21742060e8f5a8065c5c1652552f",
+    "src/latenttrigger/training/particle_process_budget.py": "a2c31b2565721999d3dde6759621a2bcdef93b925d5bdd0deb17b48316beb269",
+    "src/latenttrigger/training/particle_resources.py": "a078118c49aaa17220ba99d2ed60115756299dae2aae3be3d947ead3094644f8",
+    "src/latenttrigger/training/particle_set.py": "11089fbd13f361c0b269b66f5e91d5697c18c5084fbdc92f4a3e300aed19b349",
+    "src/latenttrigger/utils/__init__.py": "d029f6e6516513d82e13f4be051d180d44d865517ccc36544d624de0bbd83beb",
+    "src/latenttrigger/utils/device.py": "9fe8582198a9292a27b3888b0b33d5dd6ea600dfa6016ce82ce3ebb0d5f1b689",
+    "tests/cpu_mps_portable_plugin.py": "c78bd80e733c622fd5f78e9eea202f3f9aa3606e50ad4679736a02c6de765b9f",
+    "tests/test_acquisition.py": "2f82f97e757bbd3e616961e3a26a76ae4fc36e9883c20bfb3d0157c91ea16b72",
+    "tests/test_ae_batch_parity_review.py": "d0aa4b18a113e9410b77b63257eb3cf6d12afc97e1590f1e7af17fe14384427f",
+    "tests/test_autoencoder.py": "4e200149e1673ab3ca77b8034fc19666a8cbb321083a7da94776c75f336afa0f",
+    "tests/test_autoencoder_convergence.py": "4ee4111e2eca6c9bd16646e24f11b9172bcb00e5294f5ab521ae057ea188d2ac",
+    "tests/test_cpu_mps_benchmark.py": "27702e0ce275615c736369827c84c2beb430ad9db8556119f7db7e2c27320ead",
+    "tests/test_device.py": "3139a1b571eacb78ea40678962344c1a8d3d07cee33434c8df094c8c6a2ed55c",
+    "tests/test_eda.py": "2baee88100beda3caa9ec089cf3046df80776e88794ae9ddb1dc7865085df24d",
+    "tests/test_evaluation.py": "1fba0620dc3dc0eb52ba8b4680c7bc30b5baac39741681d98fba1e328bf17956",
+    "tests/test_features.py": "1f9dce01ba70e3dbabff31f5edf5ab81b8941c791bf16fe0988b6d3775e60437",
+    "tests/test_frozen_cpu_benchmark.py": "a35b5c82085c580986de228b26ceea0e9cf57a76f77410402e459f7d6805d006",
+    "tests/test_frozen_cpu_v2.py": "1f0f782407b0b74af7d092aeec0712654d43d8a8ddfaa3c04c265d44313f928e",
+    "tests/test_frozen_synthesis.py": "7f1c97930b494e5c0febd7fbf50f53c8d680833b938da6027b1657abc2feade6",
+    "tests/test_guarded_evaluation.py": "23353e7ffd8ffcd9c2458488f6181f13705b0bdf04a19cdad69e2c12cbcae40a",
+    "tests/test_inspection.py": "bc78ab446bf3fa46b8f8614c93f69b844e9a8e37f26c0919a1d0b9cb69968735",
+    "tests/test_onnx_cpu_export.py": "891a7035667069de6f2d13234f082a0d09a77a6083a11219756742236f1566ee",
+    "tests/test_particle_bounded_sampling.py": "ae8268d762ca8b73ff3f3e0a33d52d154be8516308f94b1163685e7168fc3b12",
+    "tests/test_particle_characterization.py": "ecda43643ddd76e7762ec98903fa161e31de066df587b3c04757750f4b846d6c",
+    "tests/test_particle_host_readiness.py": "789835d8d40936ff5aec36ace00272be30296df69c2991aeb006c73f265151b2",
+    "tests/test_particle_memory_policy.py": "ee2829e688a6dee92bf80f811b3e0c9355ef78e214a734e234a1580329c8df3c",
+    "tests/test_particle_monitor_performance.py": "a5946f88a53d13dd4a6f775da2b43e92af8542519e3a49ec08f737dc11190cbf",
+    "tests/test_particle_readiness_workflow.py": "c5eec3bfe9caac7aff31152fd338bcf42c3e07c718747a7cc6c02152b24ffdb9",
+    "tests/test_particle_recovery.py": "cf6c0d130d721b4cb8d0a6afc7aab7ddf7c4c0acb30a13f951c67fab87ee0e90",
+    "tests/test_particle_set.py": "102a4af46f1fafb1d0ceca4d783239771aaeb4c154fd14dd54c1ac3885fcf110",
+    "tests/test_particle_shared_host.py": "6f88920add2810bb8a9e59fbc975ffb004e03c7857f2d9a804ab0639feeaf6dd",
+    "tests/test_pca.py": "88bf911b63a28033c4b3a3124e246e5133629dfa87f8ee9efc174c5abfe6c277",
+    "tests/test_preprocessing.py": "26bf51ddc16f87119795b8274bb6f6ad151ef5f2379d6d29ea611441e516d2bd",
+    "tests/test_pytorch_onnx_cpu_benchmark.py": "6a1aef681f9cbac8957b25f2f63d1ea8c1f8470dca79b17d2a28bfd0942e3126",
+    "tests/test_smoke_test.py": "205826f9f9690f2157ce4a8e59b848ef74ddd342d899c5f61acf7a21851ba823",
+    "tests/test_splitting.py": "a32d4b4902a6bac60053f40ecb4a59ea12bde2a9fb6f6630da8067bf2b63dd53",
+    "tests/test_three_prong.py": "702a0d4e0e2f5f2a04c92ea08cc1c38cc4d5852d2a7891a98ec630cc4db66c38",
+    "pyproject.toml": "1c304182e8445c02346509e46005e6bb6be5201aa0d32bfff9866a96d514ec21",
+    "configs/dependencies/onnx_cpu_v1.json": "53e787ce1bb2d767ddfb38575a5d53db6cb53defafc7faa897665670803b2c28",
+    "results/evaluation/task0028-three-prong/parent-acceptance.json": "d111fec9456e48fe547029eeedbb5b934cd92da3735766d1a9678a8d827b5de9",
+    "results/evaluation/task0028-three-prong/workflow.json": "ac7e6bfcebfc399b60f834a40e022b6e2513ec3cb708d06e258d6918b708ee6f",
+    "results/evaluation/task0028-three-prong/acceptance.json": "818078181ee9538ee04849884b603f3465ed6de165253284c3af2a548a401837",
+    "results/evaluation/task0028-three-prong/authorization.json": "8056f5e3d2dd82483a158c5bab8a005771d5c45f7a8118168349fd54eb0f6b60",
+    "results/evaluation/task0028-three-prong/exposure.json": "437f4e3eb4b14979bb05b5e4cac2e4efba0b0b778e739667d1333c857ee219c7",
+    "results/evaluation/task0028-three-prong/protocol.json": "dcc273ca61bbd00d3af036ad395be81676148c7af80308a30c763c295f4855e3",
+    "results/evaluation/task0028-three-prong/acquire-grant.json": "4563a6b18432e1aeff569e9d3e098599e861d32b20b12ad97ab966f5177dec73",
+    "results/evaluation/task0028-three-prong/reservation.json": "38d87499545efdfc5db9127e81d6c0eec4b6e7dd9a8b6283c3d6cc5aecc9acb5",
+    "results/evaluation/task0028-three-prong/acquire/parent-acceptance.json": "485c58546b607f706a51261146b56da9da4e9ab897afa7fe1fb9acd103c189a0",
+    "results/evaluation/task0028-three-prong/acquire/worker.log": "ef6bb0b71b0e68c9bd6482861cb7d718758352fac218cd193a1f207f8e7f6f70",
+    "results/evaluation/task0028-three-prong/acquire/dispatch.json": "f0949ca7a6ef8bc552907ae4ae786afa4f2338deab2e4ec58b828b3f6fcc64d9",
+    "results/evaluation/task0028-three-prong/acquire/access.json": "4dedbda5a317caa4dd7633e5d87ddd4bf7f357ed704aefabcc023adfc8b5f4aa",
+    "results/evaluation/task0028-three-prong/acquire/guards.jsonl": "c1fb8a4fbab3e74fa7d97ebd4a51b59485eea3e86622b874f6d1ffb4eca4e30b",
+    "results/evaluation/task0028-three-prong/acquire/receipt.json": "73a1c1fa91afbe6ce6272a071aaede02c08d2bbf3f19a96c12639c841f2b17cd",
+    "configs/evaluation/frozen_three_prong_v1.json": "dcc273ca61bbd00d3af036ad395be81676148c7af80308a30c763c295f4855e3",
+    "docs/prompts/0028-three-prong-generalization.md": "a312d3808b6014d276f02fb940096cf9ce497c1de81347c3e6a2b4a9a6ddebd2",
+    "docs/prompts/0028-phase-b-authorization.md": "2ed6d78b4636fc7df0bb197a74b09f5633bd797f539b9f7060d464cf251b4802",
+    "docs/three-prong-generalization.md": "d10d6f3cb329389b7939a7be509d03826b885cfa2d7c1f64a5f7860339bd178b",
+    "docs/handoffs/0028-three-prong-generalization.md": "0c773b5f819622a94f10b803938b2237f954625775a1fb4bfea86c7e104a9072",
+    "results/tables/final/task0028-three-prong-generalization-summary.json": "6d47f1a2a635669fe41d5143ba2b361b514581b98a614b0009ff64dc6f1f8e06",
+    "results/tables/final/task0028-phase-outcomes.csv": "2c7f281cd5d3378cb7ab23a03b00e7f3afdee9db368966d0b788a4286b37d0a9",
+    "data/task0028-software-acceptance.json": "818078181ee9538ee04849884b603f3465ed6de165253284c3af2a548a401837",
+    "data/task0028-human-authorization.json": "8056f5e3d2dd82483a158c5bab8a005771d5c45f7a8118168349fd54eb0f6b60",
+    "data/task0028-execution-plan.json": "fa8343172f0a843d478f6a14dc7f84f149e4dadd664e778bd45ba7dca15bc9d6",
+    "data/task0028-validation/zenodo-metadata.json": "6e876c3255b0728fd9bdef9293b2767d4df834aeae2bee213651c000e0b56a00",
+    "data/task0028-validation/pythia-three-prong.cmnd": "7dd11e5837cb7652ae50c0ceb5c7661f9267e503f6a94dea277cdf0851f51b3b",
+    "data/task0028-validation/delphes-card.dat": "edc1823a679b048e527556cd00c0a12abfb21330ce6e795f106e9f1ac03a7297",
+    "docs/prompts/0029-three-prong-acquisition-v2.md": "0b0b714db77fd7200b9f874c4186504b7ee61b47529a7a067f6e35e08ef70be8",
+    "src/latenttrigger/data/three_prong_acquisition.py": "fcd0eeffa9436d46f0fd08d9fee5829436e4204fb8f8429e1605947a4f52e80a",
+    "src/latenttrigger/data/three_prong_acquisition_protocol.py": "8b1df70a22f88c014ccfe729b34ea6451c74b91a93f5e7f55d3beee5472ff935",
+    "src/latenttrigger/data/three_prong_acquisition_smoke.py": "295f50ca1c0b8a1fef09a98e900737028d5941b04bb1bf5384e24c9b52f024ca",
+    "src/latenttrigger/data/three_prong_acquisition_worker.py": "5ec10379e9ae42d875e5814d63400402771f351e28545fa030e509f39c112288",
+    "src/latenttrigger/data/three_prong_structure.py": "2712c57e3a31b8d8d07f1cae29ea2dca17ab1822b7096e58504db438b93d86d2",
+    "src/latenttrigger/data/three_prong_transport.py": "3b24bdd4328d72a030eb476781e99cfeb1e9403c681130780825db5137fdcdc1",
+    "tests/test_three_prong_acquisition.py": "4f025a9ceee5fd253112bbc539bc607f1b57046471faba06264b33ba967cca64",
+    "results/acquisition/task0029-three-prong/parent-acceptance.json": "0b462dd4bf7e21baca8a04d5e3775e4d02c5553cb3d4c6523724c7c68e4f63d3",
+    "results/acquisition/task0029-three-prong/workflow.json": "1e4ed02b1b1d0f6ab846f4fefd7b49869e376cfe340c96dbc02d84f33086915a",
+    "results/acquisition/task0029-three-prong/transfer-grant.json": "727090f4a380211cd01d5e67ee54ab61a99669e605c92438c5565f02796c0721",
+    "results/acquisition/task0029-three-prong/acceptance.json": "f1d0573ea87d403a11235e5645f0326cb32ace1cae025655c6b0b1381bc233ec",
+    "results/acquisition/task0029-three-prong/authorization.json": "93752c218e621cd994293224c9d6a72879d03284b0fce95d5e48e87591ea0d1c",
+    "results/acquisition/task0029-three-prong/protocol.json": "6a44d366202b5203cf74ad2f4472dfc785d85b13918ae5b78f77b2a83238614b",
+    "results/acquisition/task0029-three-prong/reservation.json": "e5e332713f89b4f9f4018094171d3571319df0773ff9b4efad52034a72337a3a",
+    "results/acquisition/task0029-three-prong/transfer/parent-acceptance.json": "2879c160bcd58c78f1bcee7743dbba3d0606dfd94785c90beaef03300dff5dee",
+    "results/acquisition/task0029-three-prong/transfer/worker.log": "4868a1899b875638e3dddbfa8ed680013fc9a3a0a7d4c3f480bf92c2f5caa2bd",
+    "results/acquisition/task0029-three-prong/transfer/dispatch.json": "fe26bb33cf05d2b15d91c44faf8a4d6052f02a6464ac690fab7da548d7c89c78",
+    "results/acquisition/task0029-three-prong/transfer/checkpoints.jsonl": "fb80601ac8aacb61c53412ac46cad42d2819265c76154e019416c7bc3be731df",
+    "results/acquisition/task0029-three-prong/transfer/progress.json": "e607b828189c0699df3e8c51d78b1c09bd2b6016b4f96ce6a6236839513be5da",
+    "results/acquisition/task0029-three-prong/transfer/guards.jsonl": "4c10bf693b2ceacd3ac1ba15fa54ae9374d38700089c06dfa96bdc79e106f9a7",
+    "results/acquisition/task0029-three-prong/transfer/receipt.json": "030a24e9d54da353047dd278ec7251a2cc077c68d05d72f71d4a82cfe04884a6",
+    "configs/acquisition/three_prong_v2.json": "6a44d366202b5203cf74ad2f4472dfc785d85b13918ae5b78f77b2a83238614b",
+    "data/task0029-software-acceptance.json": "f1d0573ea87d403a11235e5645f0326cb32ace1cae025655c6b0b1381bc233ec",
+    "data/task0029-acquisition-plan.json": "82e26cc8e8afb59302a43b6e50cc2908394df37d37b98f32c58c0620ca34c4b9",
+    "data/task0029-human-authorization.json": "93752c218e621cd994293224c9d6a72879d03284b0fce95d5e48e87591ea0d1c",
+    "docs/three-prong-acquisition-v2.md": "b7b0f84731be48a01b49ad76672a184f7e1986597c0713201524257f82b27ca8",
+    "docs/handoffs/0029-three-prong-acquisition-v2.md": "08a23c5a3ca66072f50eb737d6cc62d1fa50162d0e9b0a8947352009449cdf66",
+    "results/tables/final/task0029-three-prong-acquisition-summary.json": "02d33bdb3ab842bec4682ecfb40f3e6d764fe0a0e22d6185a23674f6aae6f807",
+    "results/tables/final/task0029-transport-attempts.csv": "30c7047b1e65931280623d9518d1e0e797f6d5ea9219cb60b9f53e36e68a4392"
+  },
+  "historical_source_bindings_preserved": 146,
+  "historical_sleep_evidence": {
+    "status": "fresh_read_only_pmset_verification",
+    "timezone": "Europe/Rome",
+    "date": "2026-10-11",
+    "intervals": [
+      {
+        "start": "14:51:32",
+        "end": "14:52:02",
+        "seconds": 30
+      },
+      {
+        "start": "14:52:47",
+        "end": "15:08:25",
+        "seconds": 938
+      },
+      {
+        "start": "15:09:25",
+        "end": "15:24:28",
+        "seconds": 903
+      }
+    ],
+    "coarse_sum_seconds": 1871,
+    "Task0029_UTC_endpoint_span_seconds": 2305.963121,
+    "Task0029_ordinary_monotonic_same_endpoint_span_seconds": 442.5587260829925,
+    "span_difference_seconds": 1863.4043949170073,
+    "interpretation": "observed system sleep broadly accounts for divergence;network contribution plausible,exclusive causation unproved;historical Task0029 cause-unmeasured statement preserved",
+    "log_file_byte_sha256": "68428960a4f80d8c94f69695b99f8684f71edeb9ec9b180e47f520c421bafdba"
+  },
+  "clocks": {
+    "authoritative": "mach_continuous_time",
+    "conversion": "integer ticks*numer//denom nanoseconds;float seconds only after integer conversion",
+    "ordinary_monotonic": "diagnostic mach_absolute_time excludes system sleep",
+    "UTC": "diagnostic/header HTTP-date anchor,not sole deadline",
+    "after_suspension": "check continuous before request/read/write/acceptance;late exit0 rejected;cannot terminate asleep,overshoot disclosed"
+  },
+  "limits": {
+    "transfer_seconds": 1800,
+    "verify_seconds": 60,
+    "parent_finalization_seconds": 15,
+    "whole_seconds": 2000,
+    "cleanup_seconds": 2,
+    "worker_RSS_bytes": 6442450944,
+    "whole_native_bytes": 536870912,
+    "controller_RSS_bytes": 134217728,
+    "guard_journal_bytes": 67108864,
+    "watcher_intent_ms": 50,
+    "pressure": "WARN_advisory_CRITICAL_veto_unknown_disclosed_invalid_primary_veto",
+    "global_available_RAM": "context_only_no_floor_or_idle_wait",
+    "import_seconds": 60
+  },
+  "transport_policy": {
+    "max_payload_requests": 6,
+    "retry_backoff_seconds": [
+      5,
+      15,
+      30,
+      60,
+      60
+    ],
+    "socket_timeout_seconds": 30,
+    "buffer_bytes": 65536,
+    "checkpoint_bytes": 1048576,
+    "checkpoint_seconds": 5,
+    "checkpoint_journal_bytes": 8388608,
+    "progress_seconds": 15,
+    "minimum_request_slack_seconds": 2
+  },
+  "storage": {
+    "required_bytes": 2147483648,
+    "worst_case_retained_and_journal_bytes": 1865478190,
+    "available_bytes": 277003395072
+  },
+  "historical_prefix_before": {
+    "bytes": 29990748,
+    "MD5": "d938d2b24fafd1f9c584b120ad532a13",
+    "SHA256": "2be92f0d6125305922494156d3a3e5ac03b146193d11d0101357144f4866d549",
+    "device": 16777229,
+    "inode": 59193387,
+    "path": "data/task0029-three-prong-acquisition/payload-1.part",
+    "response_headers": {
+      "Content-Length": "206718690",
+      "Content-Range": "bytes 28770304-235488993/235488994",
+      "Content-Encoding": null,
+      "ETag": null,
+      "Last-Modified": null,
+      "Retry-After": "59",
+      "Location": null
+    },
+    "checkpoint_file_byte_sha256": "fb80601ac8aacb61c53412ac46cad42d2819265c76154e019416c7bc3be731df",
+    "parent_inventory_file_byte_sha256": "1e4ed02b1b1d0f6ab846f4fefd7b49869e376cfe340c96dbc02d84f33086915a",
+    "status": "verified_historical_partial_only_not_complete_integrity"
+  },
+  "historical_prefix_after": {
+    "bytes": 29990748,
+    "MD5": "d938d2b24fafd1f9c584b120ad532a13",
+    "SHA256": "2be92f0d6125305922494156d3a3e5ac03b146193d11d0101357144f4866d549",
+    "device": 16777229,
+    "inode": 59193387,
+    "path": "data/task0029-three-prong-acquisition/payload-1.part",
+    "response_headers": {
+      "Content-Length": "206718690",
+      "Content-Range": "bytes 28770304-235488993/235488994",
+      "Content-Encoding": null,
+      "ETag": null,
+      "Last-Modified": null,
+      "Retry-After": "59",
+      "Location": null
+    },
+    "checkpoint_file_byte_sha256": "fb80601ac8aacb61c53412ac46cad42d2819265c76154e019416c7bc3be731df",
+    "parent_inventory_file_byte_sha256": "1e4ed02b1b1d0f6ab846f4fefd7b49869e376cfe340c96dbc02d84f33086915a",
+    "status": "verified_historical_partial_only_not_complete_integrity"
+  },
+  "byte_counters": {
+    "historical_seed_imported_bytes": 29990748,
+    "new_received_bytes": 205498246,
+    "written_bytes_cumulative_representations": 235488994,
+    "durably_checkpointed_bytes_cumulative_representations": 235488994,
+    "retained_bytes_after_reaping_unique_owned_representations": 235488994,
+    "accepted_complete_bytes": 235488994,
+    "representation_count": 1,
+    "note": "imported seed is not new download;promoted hard link shares completed owned inode;unobserved wire/internal buffers unknown"
+  },
+  "requests": 1,
+  "transport_attempts": [
+    {
+      "request": 1,
+      "requested_offset_bytes": 29990748,
+      "started_UTC": "2026-10-11T16:08:16.948266+00:00",
+      "started_continuous_seconds": 380823.145177958,
+      "response_status": 206,
+      "mode": "continue",
+      "terminal_status": "complete_expected_bytes_unverified",
+      "response_content_range": "bytes 29990748-235488993/235488994",
+      "response_content_length_bytes": "205498246",
+      "response_retry_after": "59",
+      "header_receipt_continuous_seconds": 380825.699194916,
+      "header_receipt_UTC": "2026-10-11T16:08:19.502330+00:00",
+      "retry_after_kind": "delta_seconds_from_header_receipt",
+      "minimum_backoff_seconds": null,
+      "remaining_retry_after_seconds": null,
+      "planned_wait_seconds": null,
+      "actual_wait_continuous_seconds": null,
+      "wait_completed": null,
+      "request_new_received_confirmed_checkpoint_bytes": 205498246,
+      "cumulative_new_received_confirmed_checkpoint_bytes": 205498246,
+      "validator_assurance": "weak_or_missing;full_publisher_MD5_required",
+      "error": null,
+      "retryable": null
+    }
+  ],
+  "continuations": 1,
+  "restarts": 0,
+  "redirects_followed": 0,
+  "redirects_observed": 0,
+  "final_transport_inflight": null,
+  "inflight_uncertainty": "network buffers not observed are unknown",
+  "retained_files": [
+    {
+      "name": "seed.part",
+      "retained_bytes_after_reaping": 235488994,
+      "accepted_complete_bytes": 235488994,
+      "device": 16777229,
+      "inode": 59291460,
+      "status": "accepted_verified_bytes",
+      "byte_integrity": {
+        "bytes": 235488994,
+        "MD5": "54e123a86143b668f9cb76905152a124",
+        "SHA256": "063fff3547d17bf4f36a40109e940ac6990105a0fe33a79f4f7c630905dd0742"
+      },
+      "promoted_name": "events_anomalydetection_Z_XY_qqq.h5"
+    }
+  ],
+  "manifest": {
+    "status": "verified_bytes_acceptance_requires_session_parent",
+    "required_session_parent_acceptance": "results/acquisition/task0030-three-prong/parent-acceptance.json",
+    "source": {
+      "dataset": "LHC Olympics 2020 R&D three-prong",
+      "version": "v5",
+      "record_id": 6466204,
+      "doi": "10.5281/zenodo.6466204",
+      "filename": "events_anomalydetection_Z_XY_qqq.h5",
+      "url": "https://zenodo.org/api/records/6466204/files/events_anomalydetection_Z_XY_qqq.h5/content",
+      "expected_size": 235488994,
+      "expected_checksum": "54e123a86143b668f9cb76905152a124",
+      "checksum_algorithm": "md5",
+      "license": "CC-BY-4.0"
+    },
+    "publisher_MD5": "54e123a86143b668f9cb76905152a124",
+    "local_SHA256": "063fff3547d17bf4f36a40109e940ac6990105a0fe33a79f4f7c630905dd0742",
+    "verified_bytes": 235488994,
+    "file": "events_anomalydetection_Z_XY_qqq.h5",
+    "retained_complete_representation": "seed.part",
+    "promotion": "exclusive_hard_link_owned_full_only",
+    "protocol_canonical_JSON_sha256": "268b946af53f3d907ca6153363874b2fae2b3221b2165d83e55184b612862043",
+    "protocol_file_byte_sha256": "a454453a115386ec35ccc6487fbf86486c1016d1c089c1fb166b15efc868068c",
+    "acceptance_file_byte_sha256": "1c8363b629f8a68a57238c4580732479a9431a85aea483e75d28d1da8baeefc9",
+    "sleep_assertion_released": true,
+    "structural_metadata": {
+      "status": "compatible_looking_structural_metadata_only",
+      "root_attributes": {
+        "CLASS": {
+          "status": "bounded_structural_attribute",
+          "value": "GROUP"
+        },
+        "VERSION": {
+          "status": "bounded_structural_attribute",
+          "value": "1.0"
+        }
+      },
+      "nodes": [
+        {
+          "path": "/df",
+          "link_type": "HardLink",
+          "attributes": {
+            "CLASS": {
+              "status": "bounded_structural_attribute",
+              "value": "GROUP"
+            },
+            "VERSION": {
+              "status": "bounded_structural_attribute",
+              "value": "1.0"
+            },
+            "axis0_variety": {
+              "status": "bounded_structural_attribute",
+              "value": "regular"
+            },
+            "axis1_variety": {
+              "status": "bounded_structural_attribute",
+              "value": "regular"
+            },
+            "block0_items_variety": {
+              "status": "bounded_structural_attribute",
+              "value": "regular"
+            },
+            "encoding": {
+              "status": "bounded_structural_attribute",
+              "value": "UTF-8"
+            },
+            "errors": {
+              "status": "bounded_structural_attribute",
+              "value": "strict"
+            },
+            "nblocks": {
+              "status": "bounded_structural_attribute",
+              "value": 1
+            },
+            "ndim": {
+              "status": "bounded_structural_attribute",
+              "value": 2
+            },
+            "pandas_type": {
+              "status": "bounded_structural_attribute",
+              "value": "frame"
+            },
+            "pandas_version": {
+              "status": "bounded_structural_attribute",
+              "value": "0.15.2"
+            }
+          },
+          "kind": "group"
+        },
+        {
+          "path": "/df/axis0",
+          "link_type": "HardLink",
+          "attributes": {
+            "CLASS": {
+              "status": "bounded_structural_attribute",
+              "value": "CARRAY"
+            },
+            "VERSION": {
+              "status": "bounded_structural_attribute",
+              "value": "1.1"
+            },
+            "kind": {
+              "status": "bounded_structural_attribute",
+              "value": "integer"
+            },
+            "name": {
+              "status": "bounded_structural_attribute",
+              "value": "N."
+            },
+            "transposed": {
+              "status": "bounded_structural_attribute",
+              "value": 1
+            }
+          },
+          "kind": "dataset",
+          "shape": [
+            2101
+          ],
+          "dtype": "int64",
+          "chunks": [
+            8192
+          ],
+          "filters": [
+            {
+              "id": 32001,
+              "flags": 1,
+              "parameters": [
+                2,
+                2,
+                8,
+                65536,
+                5,
+                1
+              ],
+              "name": "blosc"
+            }
+          ],
+          "virtual": false,
+          "external": false
+        },
+        {
+          "path": "/df/axis1",
+          "link_type": "HardLink",
+          "attributes": {
+            "CLASS": {
+              "status": "bounded_structural_attribute",
+              "value": "CARRAY"
+            },
+            "VERSION": {
+              "status": "bounded_structural_attribute",
+              "value": "1.1"
+            },
+            "kind": {
+              "status": "bounded_structural_attribute",
+              "value": "integer"
+            },
+            "name": {
+              "status": "bounded_structural_attribute",
+              "value": "N."
+            },
+            "transposed": {
+              "status": "bounded_structural_attribute",
+              "value": 1
+            }
+          },
+          "kind": "dataset",
+          "shape": [
+            100000
+          ],
+          "dtype": "int64",
+          "chunks": [
+            8192
+          ],
+          "filters": [
+            {
+              "id": 32001,
+              "flags": 1,
+              "parameters": [
+                2,
+                2,
+                8,
+                65536,
+                5,
+                1
+              ],
+              "name": "blosc"
+            }
+          ],
+          "virtual": false,
+          "external": false
+        },
+        {
+          "path": "/df/block0_items",
+          "link_type": "HardLink",
+          "attributes": {
+            "CLASS": {
+              "status": "bounded_structural_attribute",
+              "value": "CARRAY"
+            },
+            "VERSION": {
+              "status": "bounded_structural_attribute",
+              "value": "1.1"
+            },
+            "kind": {
+              "status": "bounded_structural_attribute",
+              "value": "integer"
+            },
+            "name": {
+              "status": "bounded_structural_attribute",
+              "value": "N."
+            },
+            "transposed": {
+              "status": "bounded_structural_attribute",
+              "value": 1
+            }
+          },
+          "kind": "dataset",
+          "shape": [
+            2101
+          ],
+          "dtype": "int64",
+          "chunks": [
+            8192
+          ],
+          "filters": [
+            {
+              "id": 32001,
+              "flags": 1,
+              "parameters": [
+                2,
+                2,
+                8,
+                65536,
+                5,
+                1
+              ],
+              "name": "blosc"
+            }
+          ],
+          "virtual": false,
+          "external": false
+        },
+        {
+          "path": "/df/block0_values",
+          "link_type": "HardLink",
+          "attributes": {
+            "CLASS": {
+              "status": "bounded_structural_attribute",
+              "value": "CARRAY"
+            },
+            "VERSION": {
+              "status": "bounded_structural_attribute",
+              "value": "1.1"
+            },
+            "transposed": {
+              "status": "bounded_structural_attribute",
+              "value": 1
+            }
+          },
+          "kind": "dataset",
+          "shape": [
+            100000,
+            2101
+          ],
+          "dtype": "float64",
+          "chunks": [
+            31,
+            2101
+          ],
+          "filters": [
+            {
+              "id": 32001,
+              "flags": 1,
+              "parameters": [
+                2,
+                2,
+                8,
+                521048,
+                5,
+                1
+              ],
+              "name": "blosc"
+            }
+          ],
+          "virtual": false,
+          "external": false
+        }
+      ],
+      "dataset_value_reads": 0,
+      "numerical_custody_passed": false,
+      "caveat": "Shapes/dtypes do not verify axis order, labels, padding, valid events, uniqueness, overlap or scientific compatibility"
+    },
+    "numerical_custody_passed": false,
+    "model_evaluation_accessed": false
+  },
+  "structural_metadata": {
+    "status": "compatible_looking_structural_metadata_only",
+    "root_attributes": {
+      "CLASS": {
+        "status": "bounded_structural_attribute",
+        "value": "GROUP"
+      },
+      "VERSION": {
+        "status": "bounded_structural_attribute",
+        "value": "1.0"
+      }
+    },
+    "nodes": [
+      {
+        "path": "/df",
+        "link_type": "HardLink",
+        "attributes": {
+          "CLASS": {
+            "status": "bounded_structural_attribute",
+            "value": "GROUP"
+          },
+          "VERSION": {
+            "status": "bounded_structural_attribute",
+            "value": "1.0"
+          },
+          "axis0_variety": {
+            "status": "bounded_structural_attribute",
+            "value": "regular"
+          },
+          "axis1_variety": {
+            "status": "bounded_structural_attribute",
+            "value": "regular"
+          },
+          "block0_items_variety": {
+            "status": "bounded_structural_attribute",
+            "value": "regular"
+          },
+          "encoding": {
+            "status": "bounded_structural_attribute",
+            "value": "UTF-8"
+          },
+          "errors": {
+            "status": "bounded_structural_attribute",
+            "value": "strict"
+          },
+          "nblocks": {
+            "status": "bounded_structural_attribute",
+            "value": 1
+          },
+          "ndim": {
+            "status": "bounded_structural_attribute",
+            "value": 2
+          },
+          "pandas_type": {
+            "status": "bounded_structural_attribute",
+            "value": "frame"
+          },
+          "pandas_version": {
+            "status": "bounded_structural_attribute",
+            "value": "0.15.2"
+          }
+        },
+        "kind": "group"
+      },
+      {
+        "path": "/df/axis0",
+        "link_type": "HardLink",
+        "attributes": {
+          "CLASS": {
+            "status": "bounded_structural_attribute",
+            "value": "CARRAY"
+          },
+          "VERSION": {
+            "status": "bounded_structural_attribute",
+            "value": "1.1"
+          },
+          "kind": {
+            "status": "bounded_structural_attribute",
+            "value": "integer"
+          },
+          "name": {
+            "status": "bounded_structural_attribute",
+            "value": "N."
+          },
+          "transposed": {
+            "status": "bounded_structural_attribute",
+            "value": 1
+          }
+        },
+        "kind": "dataset",
+        "shape": [
+          2101
+        ],
+        "dtype": "int64",
+        "chunks": [
+          8192
+        ],
+        "filters": [
+          {
+            "id": 32001,
+            "flags": 1,
+            "parameters": [
+              2,
+              2,
+              8,
+              65536,
+              5,
+              1
+            ],
+            "name": "blosc"
+          }
+        ],
+        "virtual": false,
+        "external": false
+      },
+      {
+        "path": "/df/axis1",
+        "link_type": "HardLink",
+        "attributes": {
+          "CLASS": {
+            "status": "bounded_structural_attribute",
+            "value": "CARRAY"
+          },
+          "VERSION": {
+            "status": "bounded_structural_attribute",
+            "value": "1.1"
+          },
+          "kind": {
+            "status": "bounded_structural_attribute",
+            "value": "integer"
+          },
+          "name": {
+            "status": "bounded_structural_attribute",
+            "value": "N."
+          },
+          "transposed": {
+            "status": "bounded_structural_attribute",
+            "value": 1
+          }
+        },
+        "kind": "dataset",
+        "shape": [
+          100000
+        ],
+        "dtype": "int64",
+        "chunks": [
+          8192
+        ],
+        "filters": [
+          {
+            "id": 32001,
+            "flags": 1,
+            "parameters": [
+              2,
+              2,
+              8,
+              65536,
+              5,
+              1
+            ],
+            "name": "blosc"
+          }
+        ],
+        "virtual": false,
+        "external": false
+      },
+      {
+        "path": "/df/block0_items",
+        "link_type": "HardLink",
+        "attributes": {
+          "CLASS": {
+            "status": "bounded_structural_attribute",
+            "value": "CARRAY"
+          },
+          "VERSION": {
+            "status": "bounded_structural_attribute",
+            "value": "1.1"
+          },
+          "kind": {
+            "status": "bounded_structural_attribute",
+            "value": "integer"
+          },
+          "name": {
+            "status": "bounded_structural_attribute",
+            "value": "N."
+          },
+          "transposed": {
+            "status": "bounded_structural_attribute",
+            "value": 1
+          }
+        },
+        "kind": "dataset",
+        "shape": [
+          2101
+        ],
+        "dtype": "int64",
+        "chunks": [
+          8192
+        ],
+        "filters": [
+          {
+            "id": 32001,
+            "flags": 1,
+            "parameters": [
+              2,
+              2,
+              8,
+              65536,
+              5,
+              1
+            ],
+            "name": "blosc"
+          }
+        ],
+        "virtual": false,
+        "external": false
+      },
+      {
+        "path": "/df/block0_values",
+        "link_type": "HardLink",
+        "attributes": {
+          "CLASS": {
+            "status": "bounded_structural_attribute",
+            "value": "CARRAY"
+          },
+          "VERSION": {
+            "status": "bounded_structural_attribute",
+            "value": "1.1"
+          },
+          "transposed": {
+            "status": "bounded_structural_attribute",
+            "value": 1
+          }
+        },
+        "kind": "dataset",
+        "shape": [
+          100000,
+          2101
+        ],
+        "dtype": "float64",
+        "chunks": [
+          31,
+          2101
+        ],
+        "filters": [
+          {
+            "id": 32001,
+            "flags": 1,
+            "parameters": [
+              2,
+              2,
+              8,
+              521048,
+              5,
+              1
+            ],
+            "name": "blosc"
+          }
+        ],
+        "virtual": false,
+        "external": false
+      }
+    ],
+    "dataset_value_reads": 0,
+    "numerical_custody_passed": false,
+    "caveat": "Shapes/dtypes do not verify axis order, labels, padding, valid events, uniqueness, overlap or scientific compatibility"
+  },
+  "numerical_custody_passed": false,
+  "byte_and_structure_access": {
+    "historical_prefix_byte_reads": true,
+    "new_payload_requests": 1,
+    "owned_representation_byte_hashing": true,
+    "complete_integrity_verification_requested": true,
+    "structural_metadata_requested": true,
+    "dataset_particle_axis_label_value_reads": 0,
+    "caveat": "byte streams/hashes and bounded metadata are separate from numerical population/model access;total hashing IO traffic not instrumented"
+  },
+  "timings": {
+    "preflight_continuous_seconds": 2.1930200000060722,
+    "reserved_session_continuous_seconds": 870.632494208985,
+    "whole_controller_including_prerequisites_continuous_seconds": 872.8255141249974,
+    "whole_controller_ordinary_monotonic_seconds": 872.8255139160028,
+    "continuous_minus_ordinary_seconds": 2.0899460650980473e-07,
+    "parent_finalization_continuous_seconds": 0.4560396670131013,
+    "whole_overshoot_seconds": 0,
+    "started": {
+      "UTC": "2026-10-11T16:08:14.146681+00:00",
+      "ordinary_monotonic_seconds": 159751.349537958,
+      "continuous_nanoseconds": 380820343710166,
+      "continuous_seconds": 380820.343711833,
+      "deadline_clock": "mach_continuous_time;integer ticks*numer//denom to ns",
+      "ordinary_clock": "mach_absolute_time()",
+      "timebase": {
+        "numer": 125,
+        "denom": 3
+      }
+    },
+    "finished": {
+      "UTC": "2026-10-11T16:22:46.958669+00:00",
+      "ordinary_monotonic_seconds": 160624.174945666,
+      "continuous_nanoseconds": 381693169117125,
+      "continuous_seconds": 381693.169117416,
+      "deadline_clock": "mach_continuous_time;integer ticks*numer//denom to ns",
+      "ordinary_clock": "mach_absolute_time()",
+      "timebase": {
+        "numer": 125,
+        "denom": 3
+      }
+    },
+    "publication": 381693.177153,
+    "scope": "acquisition including guard/checkpoint/audit overhead;no inference/runtime benchmark"
+  },
+  "stages": [
+    {
+      "phase": "import",
+      "dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "child_pid": 2200,
+        "child_reaped": true,
+        "started_continuous": 380822.586823375,
+        "exit_observed_continuous": 380822.961575,
+        "end_continuous": 380822.961600208,
+        "elapsed_continuous_seconds": 0.374776832992211,
+        "operation_deadline_continuous": 380880.586626666,
+        "stage_deadline_continuous": 380882.586626666,
+        "overshoot_seconds": 0,
+        "within_deadline": true,
+        "parent_confirms_normal_exit": true
+      },
+      "parent_status": "parent_accepted",
+      "worker_status": "body_complete_awaiting_exit",
+      "worker_timings": {
+        "body_continuous_seconds": 0.19266537501243874,
+        "cleanup_continuous_seconds": 0.00012425001477822661
+      },
+      "resources": {
+        "peak_rss_bytes": 31408128,
+        "native_heap_reserved_bytes": 33554432,
+        "checks": 125,
+        "periodic_checks": 5,
+        "guard_seconds_overlapping_not_subtractable": 0.007490920834243298,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 125,
+          "CRITICAL": 0,
+          "unknown": 0
+        },
+        "last_sample": {
+          "peak_rss_bytes": 31408128,
+          "native_heap_reserved_bytes": 33554432,
+          "native_heap_in_use_bytes": 4827888,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": 2,
+          "pressure_errno": null,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 380822.924499375,
+          "query_end": 380822.924551583,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "optional_context": [],
+        "owned_thread_alive": false
+      },
+      "terminal_unaccounted_continuous_seconds": 0.0368646249989979
+    },
+    {
+      "phase": "transfer",
+      "dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "child_pid": 2205,
+        "child_reaped": true,
+        "started_continuous": 380822.970162666,
+        "exit_observed_continuous": 381691.993209875,
+        "end_continuous": 381691.993272875,
+        "elapsed_continuous_seconds": 869.0231102090329,
+        "operation_deadline_continuous": 382620.969971041,
+        "stage_deadline_continuous": 382622.969971041,
+        "overshoot_seconds": 0,
+        "within_deadline": true,
+        "parent_confirms_normal_exit": true
+      },
+      "parent_status": "parent_accepted",
+      "worker_status": "body_complete_awaiting_exit",
+      "worker_timings": {
+        "body_continuous_seconds": 868.7966728329775,
+        "cleanup_continuous_seconds": 9.683403186500072e-05
+      },
+      "resources": {
+        "peak_rss_bytes": 36765696,
+        "native_heap_reserved_bytes": 46137344,
+        "checks": 19162,
+        "periodic_checks": 15991,
+        "guard_seconds_overlapping_not_subtractable": 5.504445465863682,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 19162,
+          "CRITICAL": 0,
+          "unknown": 0
+        },
+        "last_sample": {
+          "peak_rss_bytes": 36765696,
+          "native_heap_reserved_bytes": 46137344,
+          "native_heap_in_use_bytes": 6459984,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": 2,
+          "pressure_errno": null,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 381691.972257458,
+          "query_end": 381691.972321208,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "optional_context": [],
+        "owned_thread_alive": false
+      },
+      "terminal_unaccounted_continuous_seconds": 0.020749874995090067
+    },
+    {
+      "phase": "verify",
+      "dispatch": {
+        "returncode": 0,
+        "parent_error": null,
+        "child_pid": 6430,
+        "child_reaped": true,
+        "started_continuous": 381692.002522916,
+        "exit_observed_continuous": 381692.705035875,
+        "end_continuous": 381692.705059041,
+        "elapsed_continuous_seconds": 0.7025361249689013,
+        "operation_deadline_continuous": 381750.002214666,
+        "stage_deadline_continuous": 381752.002214666,
+        "overshoot_seconds": 0,
+        "within_deadline": true,
+        "parent_confirms_normal_exit": true
+      },
+      "parent_status": "parent_accepted",
+      "worker_status": "body_complete_awaiting_exit",
+      "worker_timings": {
+        "body_continuous_seconds": 0.497603458003141,
+        "cleanup_continuous_seconds": 0.00013104197569191456
+      },
+      "resources": {
+        "peak_rss_bytes": 52232192,
+        "native_heap_reserved_bytes": 41943040,
+        "checks": 243,
+        "periodic_checks": 10,
+        "guard_seconds_overlapping_not_subtractable": 0.010763796686660498,
+        "pressure_counts": {
+          "NORMAL": 0,
+          "WARN": 243,
+          "CRITICAL": 0,
+          "unknown": 0
+        },
+        "last_sample": {
+          "peak_rss_bytes": 52232192,
+          "native_heap_reserved_bytes": 41943040,
+          "native_heap_in_use_bytes": 8395568,
+          "workspace_method": "all_malloc_zone_reserved_bytes_conservative_upper_bound",
+          "pressure_dispatch_flags": 2,
+          "pressure_errno": null,
+          "pressure_method": "XNU_read_only_sysctl_dispatch_flags_1normal_2warning_4critical",
+          "query_start": 381692.674389666,
+          "query_end": 381692.674455875,
+          "rss_method": "Darwin_getrusage_SELF_lifetime_bytes"
+        },
+        "latched_error": null,
+        "optional_context": [],
+        "owned_thread_alive": false
+      },
+      "terminal_unaccounted_continuous_seconds": 0.030408750055357814
+    }
+  ],
+  "sleep_assertion": {
+    "mechanism": "/usr/bin/caffeinate -i -w controller_PID",
+    "controller_pid": 2179,
+    "display_sleep_permitted": true,
+    "persistent_settings_changed": false,
+    "observations": [
+      {
+        "continuous_seconds": 380820.463622958,
+        "UTC": "2026-10-11T16:08:14.266693+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 3227648,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:00 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380822.536568125,
+        "UTC": "2026-10-11T16:08:16.339660+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 3227648,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:02 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380827.583902541,
+        "UTC": "2026-10-11T16:08:21.387045+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 2310144,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:07 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380832.604029708,
+        "UTC": "2026-10-11T16:08:26.407224+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 2310144,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:12 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380837.671945125,
+        "UTC": "2026-10-11T16:08:31.475194+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 2310144,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:17 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380842.718535208,
+        "UTC": "2026-10-11T16:08:36.521836+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 2310144,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:22 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380847.7960555,
+        "UTC": "2026-10-11T16:08:41.599410+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 2310144,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:27 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380852.837066125,
+        "UTC": "2026-10-11T16:08:46.640477+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 2310144,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:32 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380857.919557083,
+        "UTC": "2026-10-11T16:08:51.723016+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:37 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380862.983895333,
+        "UTC": "2026-10-11T16:08:56.787405+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:42 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380868.037957083,
+        "UTC": "2026-10-11T16:09:01.841521+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:47 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380873.084784833,
+        "UTC": "2026-10-11T16:09:06.888401+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:52 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380878.124286416,
+        "UTC": "2026-10-11T16:09:11.927954+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:00:57 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380883.20046375,
+        "UTC": "2026-10-11T16:09:17.004201+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:02 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380888.242495375,
+        "UTC": "2026-10-11T16:09:22.046268+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:07 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380893.30154,
+        "UTC": "2026-10-11T16:09:27.105367+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:12 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380898.370310041,
+        "UTC": "2026-10-11T16:09:32.174188+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:17 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380903.447874125,
+        "UTC": "2026-10-11T16:09:37.251806+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:22 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380908.488854333,
+        "UTC": "2026-10-11T16:09:42.292839+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:28 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380913.570606666,
+        "UTC": "2026-10-11T16:09:47.374644+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:33 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380918.641669625,
+        "UTC": "2026-10-11T16:09:52.445760+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:38 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380923.676077208,
+        "UTC": "2026-10-11T16:09:57.480221+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:43 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380928.743469041,
+        "UTC": "2026-10-11T16:10:02.547663+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:48 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380933.810500375,
+        "UTC": "2026-10-11T16:10:07.614747+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:53 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380938.881720958,
+        "UTC": "2026-10-11T16:10:12.686020+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:01:58 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380943.912769666,
+        "UTC": "2026-10-11T16:10:17.717122+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:03 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380948.96504775,
+        "UTC": "2026-10-11T16:10:22.769451+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:08 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380954.005584833,
+        "UTC": "2026-10-11T16:10:27.810042+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:13 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380959.072262166,
+        "UTC": "2026-10-11T16:10:32.876771+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:18 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380964.125868208,
+        "UTC": "2026-10-11T16:10:37.930430+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:23 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380969.1584935,
+        "UTC": "2026-10-11T16:10:42.963108+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:28 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380974.19580725,
+        "UTC": "2026-10-11T16:10:48.000475+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:33 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380979.263888291,
+        "UTC": "2026-10-11T16:10:53.068605+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:38 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380984.309567416,
+        "UTC": "2026-10-11T16:10:58.114338+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:43 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380989.366802791,
+        "UTC": "2026-10-11T16:11:03.171627+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:48 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380994.432722,
+        "UTC": "2026-10-11T16:11:08.237598+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:53 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 380999.506028125,
+        "UTC": "2026-10-11T16:11:13.310956+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:02:59 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381004.564220541,
+        "UTC": "2026-10-11T16:11:18.369202+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:04 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381009.61151075,
+        "UTC": "2026-10-11T16:11:23.416544+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:09 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381014.656641208,
+        "UTC": "2026-10-11T16:11:28.461727+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:14 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381019.697488958,
+        "UTC": "2026-10-11T16:11:33.502627+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:19 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381024.746626625,
+        "UTC": "2026-10-11T16:11:38.551818+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:24 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381029.780402083,
+        "UTC": "2026-10-11T16:11:43.585645+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:29 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381034.8159565,
+        "UTC": "2026-10-11T16:11:48.621252+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:34 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381039.84892175,
+        "UTC": "2026-10-11T16:11:53.654268+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:39 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381044.905373166,
+        "UTC": "2026-10-11T16:11:58.710772+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:44 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381049.954741041,
+        "UTC": "2026-10-11T16:12:03.760192+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1802240,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:49 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381054.988412958,
+        "UTC": "2026-10-11T16:12:08.793916+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:54 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381060.063043041,
+        "UTC": "2026-10-11T16:12:13.868600+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1785856,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:03:59 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381065.128439833,
+        "UTC": "2026-10-11T16:12:18.934052+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1703936,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:04 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381070.162823708,
+        "UTC": "2026-10-11T16:12:23.968487+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1703936,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:09 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381075.19700675,
+        "UTC": "2026-10-11T16:12:29.002720+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1703936,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:14 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381080.219597333,
+        "UTC": "2026-10-11T16:12:34.025363+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1703936,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:19 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381085.283478125,
+        "UTC": "2026-10-11T16:12:39.089297+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1703936,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:24 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381090.335618458,
+        "UTC": "2026-10-11T16:12:44.141617+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:29 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381095.390214166,
+        "UTC": "2026-10-11T16:12:49.196137+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:34 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381100.445183708,
+        "UTC": "2026-10-11T16:12:54.251161+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:39 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381105.489755833,
+        "UTC": "2026-10-11T16:12:59.295783+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:45 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381110.537455708,
+        "UTC": "2026-10-11T16:13:04.343537+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:50 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381115.575766541,
+        "UTC": "2026-10-11T16:13:09.381900+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:04:55 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381120.613313791,
+        "UTC": "2026-10-11T16:13:14.419498+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:00 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381125.685754333,
+        "UTC": "2026-10-11T16:13:19.491993+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:05 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381130.736112083,
+        "UTC": "2026-10-11T16:13:24.542404+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:10 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381135.7862015,
+        "UTC": "2026-10-11T16:13:29.592545+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:15 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381140.844446625,
+        "UTC": "2026-10-11T16:13:34.650842+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:20 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381145.890176875,
+        "UTC": "2026-10-11T16:13:39.696623+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:25 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381150.958363625,
+        "UTC": "2026-10-11T16:13:44.764864+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:30 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381156.012023375,
+        "UTC": "2026-10-11T16:13:49.818577+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:35 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381161.073719166,
+        "UTC": "2026-10-11T16:13:54.880325+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:40 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381166.1136545,
+        "UTC": "2026-10-11T16:13:59.920311+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:45 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381171.161598875,
+        "UTC": "2026-10-11T16:14:04.968308+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:50 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381176.218796708,
+        "UTC": "2026-10-11T16:14:10.025559+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:05:55 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381181.26869325,
+        "UTC": "2026-10-11T16:14:15.075507+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:00 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381186.314094208,
+        "UTC": "2026-10-11T16:14:20.120962+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:05 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381191.363550583,
+        "UTC": "2026-10-11T16:14:25.170471+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:10 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381196.418179916,
+        "UTC": "2026-10-11T16:14:30.225151+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:15 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381201.4966595,
+        "UTC": "2026-10-11T16:14:35.303687+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:21 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381206.524941083,
+        "UTC": "2026-10-11T16:14:40.332017+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:26 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381211.571555125,
+        "UTC": "2026-10-11T16:14:45.378685+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:31 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381216.657420916,
+        "UTC": "2026-10-11T16:14:50.464604+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:36 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381221.70916175,
+        "UTC": "2026-10-11T16:14:55.516397+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:41 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381226.790849291,
+        "UTC": "2026-10-11T16:15:00.598137+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:46 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381231.834634875,
+        "UTC": "2026-10-11T16:15:05.641976+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:51 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381236.9062665,
+        "UTC": "2026-10-11T16:15:10.713660+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:06:56 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381241.965114958,
+        "UTC": "2026-10-11T16:15:15.772561+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:01 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381247.003371125,
+        "UTC": "2026-10-11T16:15:20.810867+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:06 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381252.064563125,
+        "UTC": "2026-10-11T16:15:25.872115+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:11 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381257.136015375,
+        "UTC": "2026-10-11T16:15:30.943619+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:16 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381262.164779458,
+        "UTC": "2026-10-11T16:15:35.972433+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:21 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381267.209550166,
+        "UTC": "2026-10-11T16:15:41.017258+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:26 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381272.22536775,
+        "UTC": "2026-10-11T16:15:46.033126+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:31 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381277.285865708,
+        "UTC": "2026-10-11T16:15:51.093678+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:36 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381282.345256291,
+        "UTC": "2026-10-11T16:15:56.153119+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:41 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381287.387645041,
+        "UTC": "2026-10-11T16:16:01.195563+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:46 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381292.417486875,
+        "UTC": "2026-10-11T16:16:06.225455+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:51 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381297.465354666,
+        "UTC": "2026-10-11T16:16:11.273376+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:07:57 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381302.535069666,
+        "UTC": "2026-10-11T16:16:16.343144+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:02 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381307.59099225,
+        "UTC": "2026-10-11T16:16:21.398354+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:07 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381312.639586458,
+        "UTC": "2026-10-11T16:16:26.441411+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:12 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381317.685515166,
+        "UTC": "2026-10-11T16:16:31.483355+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:17 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381322.763806208,
+        "UTC": "2026-10-11T16:16:36.558760+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:22 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381327.790997541,
+        "UTC": "2026-10-11T16:16:41.583898+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:27 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381332.812194833,
+        "UTC": "2026-10-11T16:16:46.603619+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:32 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381337.880557708,
+        "UTC": "2026-10-11T16:16:51.670918+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:37 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381342.953209083,
+        "UTC": "2026-10-11T16:16:56.742806+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:42 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381347.986859958,
+        "UTC": "2026-10-11T16:17:01.775918+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:47 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381353.020890583,
+        "UTC": "2026-10-11T16:17:06.809573+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:52 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381358.080464291,
+        "UTC": "2026-10-11T16:17:11.868876+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:08:57 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381363.158779458,
+        "UTC": "2026-10-11T16:17:16.947006+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:02 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381368.22438975,
+        "UTC": "2026-10-11T16:17:22.012490+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:07 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381373.279219083,
+        "UTC": "2026-10-11T16:17:27.067238+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:12 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381378.317298375,
+        "UTC": "2026-10-11T16:17:32.105265+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:17 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381383.377387041,
+        "UTC": "2026-10-11T16:17:37.165324+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:22 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381388.460393583,
+        "UTC": "2026-10-11T16:17:42.248320+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:27 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381393.513020208,
+        "UTC": "2026-10-11T16:17:47.300942+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:33 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381398.593150375,
+        "UTC": "2026-10-11T16:17:52.381081+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:38 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381403.6293435,
+        "UTC": "2026-10-11T16:17:57.417287+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:43 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381408.664608291,
+        "UTC": "2026-10-11T16:18:02.452569+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:48 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381413.720485166,
+        "UTC": "2026-10-11T16:18:07.508467+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:53 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381418.770319916,
+        "UTC": "2026-10-11T16:18:12.558327+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:09:58 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381423.827108166,
+        "UTC": "2026-10-11T16:18:17.615137+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:03 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381428.867767833,
+        "UTC": "2026-10-11T16:18:22.655823+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:08 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381433.913345083,
+        "UTC": "2026-10-11T16:18:27.701428+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:13 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381438.9792425,
+        "UTC": "2026-10-11T16:18:32.767353+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:18 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381444.007460083,
+        "UTC": "2026-10-11T16:18:37.795598+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:23 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381449.062817958,
+        "UTC": "2026-10-11T16:18:42.850983+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:28 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381454.140006458,
+        "UTC": "2026-10-11T16:18:47.928201+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:33 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381459.225705541,
+        "UTC": "2026-10-11T16:18:53.013929+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:38 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381464.263223916,
+        "UTC": "2026-10-11T16:18:58.051476+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:43 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381469.330569125,
+        "UTC": "2026-10-11T16:19:03.118850+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:48 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381474.400259875,
+        "UTC": "2026-10-11T16:19:08.188570+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:53 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381479.4682115,
+        "UTC": "2026-10-11T16:19:13.256550+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:10:58 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381484.54737875,
+        "UTC": "2026-10-11T16:19:18.335746+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:04 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381489.621477791,
+        "UTC": "2026-10-11T16:19:23.409877+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:09 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381494.659736708,
+        "UTC": "2026-10-11T16:19:28.448162+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:14 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381499.737301166,
+        "UTC": "2026-10-11T16:19:33.525756+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:19 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381504.820139416,
+        "UTC": "2026-10-11T16:19:38.608622+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:24 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381509.863127416,
+        "UTC": "2026-10-11T16:19:43.651638+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:29 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381514.891409208,
+        "UTC": "2026-10-11T16:19:48.679950+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:34 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381519.943729666,
+        "UTC": "2026-10-11T16:19:53.732305+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:39 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381525.013378708,
+        "UTC": "2026-10-11T16:19:58.801978+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:44 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381530.063918041,
+        "UTC": "2026-10-11T16:20:03.852546+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:49 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381535.112641,
+        "UTC": "2026-10-11T16:20:08.901298+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:54 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381540.14967925,
+        "UTC": "2026-10-11T16:20:13.938364+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:11:59 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381545.17820025,
+        "UTC": "2026-10-11T16:20:18.966915+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:04 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381550.228399458,
+        "UTC": "2026-10-11T16:20:24.017143+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:09 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381555.293870416,
+        "UTC": "2026-10-11T16:20:29.082643+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:14 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381560.344841041,
+        "UTC": "2026-10-11T16:20:34.133642+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:19 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381565.405845791,
+        "UTC": "2026-10-11T16:20:39.194675+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:24 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381570.456933916,
+        "UTC": "2026-10-11T16:20:44.245797+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:29 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381575.519996708,
+        "UTC": "2026-10-11T16:20:49.308885+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:35 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381580.579015875,
+        "UTC": "2026-10-11T16:20:54.367936+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:40 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381585.613416916,
+        "UTC": "2026-10-11T16:20:59.402364+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:45 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381590.667703291,
+        "UTC": "2026-10-11T16:21:04.456678+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:50 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381595.7362335,
+        "UTC": "2026-10-11T16:21:09.525238+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:12:55 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381600.784034583,
+        "UTC": "2026-10-11T16:21:14.573069+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:00 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381605.81893375,
+        "UTC": "2026-10-11T16:21:19.607996+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:05 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381610.854740416,
+        "UTC": "2026-10-11T16:21:24.643832+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:10 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381615.922622,
+        "UTC": "2026-10-11T16:21:29.711742+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:15 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381620.980614583,
+        "UTC": "2026-10-11T16:21:34.769764+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:20 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381626.042909208,
+        "UTC": "2026-10-11T16:21:39.832087+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:25 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381631.090762958,
+        "UTC": "2026-10-11T16:21:44.879969+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1687552,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:30 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381636.156052208,
+        "UTC": "2026-10-11T16:21:49.945291+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:35 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381641.205829833,
+        "UTC": "2026-10-11T16:21:54.995096+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:40 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381646.283403708,
+        "UTC": "2026-10-11T16:22:00.072698+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:45 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381651.319970333,
+        "UTC": "2026-10-11T16:22:05.109292+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:50 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381656.379401333,
+        "UTC": "2026-10-11T16:22:10.168752+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:13:55 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381661.448035375,
+        "UTC": "2026-10-11T16:22:15.237418+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:14:00 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381666.493129875,
+        "UTC": "2026-10-11T16:22:20.282540+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:14:06 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381671.559281375,
+        "UTC": "2026-10-11T16:22:25.348719+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:14:11 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381676.624259083,
+        "UTC": "2026-10-11T16:22:30.413730+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:14:16 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381681.652449333,
+        "UTC": "2026-10-11T16:22:35.441949+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:14:21 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381686.719669541,
+        "UTC": "2026-10-11T16:22:40.509196+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:14:26 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      },
+      {
+        "continuous_seconds": 381691.776276541,
+        "UTC": "2026-10-11T16:22:45.565837+00:00",
+        "assertion_id": "0x0002700700019e1d",
+        "active": true,
+        "helper_rss_bytes": 1671168,
+        "helper_ppid": 2179,
+        "helper_state": "Ss",
+        "assertion_line": "   pid 2180(caffeinate): [0x0002700700019e1d] 00:14:31 PreventUserIdleSystemSleep named: \"caffeinate command-line tool\"  "
+      }
+    ],
+    "released": true,
+    "helper_pid": 2180,
+    "created": 380820.463655291,
+    "helper_returncode": -15,
+    "lifecycle": {
+      "reaped": true,
+      "cleanup_deadline_met": true
+    },
+    "released_continuous": 381692.7485185,
+    "release_UTC": "2026-10-11T16:22:46.538078+00:00",
+    "owned_assertion_absent": true
+  },
+  "controller_peak_RSS_bytes": 36782080,
+  "scientific_access": {
+    "original_test_background_model_evaluation_accessed": "YES",
+    "original_test_signal_model_evaluation_accessed": "YES",
+    "new_three_prong_signal_model_evaluation_accessed": "NO",
+    "new_three_prong_numerical_preparation_in_Task0030": 0,
+    "new_model_scoring_in_Task0030": 0,
+    "cached_background_numeric_loads_in_Task0030": 0,
+    "original_fingerprint_numeric_loads_in_Task0030": 0,
+    "optimizer_updates_in_Task0030": 0
+  },
+  "historical_outcomes": {
+    "Task0025": "failed_consumed_provisional_ratios",
+    "Task0028": "failed_consumed_no_retry",
+    "Task0029": "failed_consumed_preserved",
+    "particle": "192/192_consumed_canonical_deferred"
+  },
+  "reserved_consumed": true,
+  "new_session_retry_allowed": false,
+  "error": null,
+  "finalization_error": null,
+  "limitations": [
+    "no hard-real-time/process termination while machine asleep;manual sleep/lid still possible",
+    "helper RSS is sampled,not certified lifetime/native heap",
+    "pressure/global RAM observations are scoped,not host-wide headroom guarantee",
+    "weak/missing HTTP validators need full publisher MD5",
+    "structural shapes do not prove axis order/labels/padding/valid-event count/uniqueness/overlap/scientific compatibility",
+    "no new numerical preparation/fingerprint/cache/model/custody/metrics/optimizer/inference benchmark",
+    "original background remains exposed;future reuse cannot give independent background generalization",
+    "software acceptance covers v3 only;historical scientific results unchanged",
+    "no hosted CI/commit/push claimed"
+  ],
+  "followup": "separately authorized local-file custody/uniqueness/all-role-overlap and frozen PCA/AE signal-generalization evaluation protocol;reuse exposed Task0026 background reference",
+  "curated_attempt_csv_file_byte_sha256": "d0d7efe4b68db3cf40c34c27c009b27a080ce3c7054ddbb72b83a3a1a12432f2",
+  "operational_evidence_file_byte_sha256": {
+    "results/acquisition/task0030-three-prong/parent-acceptance.json": "a32897703da560a473703399ce60f9672c0d9728f9d86269c8b3809519f10ac4",
+    "results/acquisition/task0030-three-prong/workflow.json": "2415a6ad7e2a467629ce22c61f49b3941867a13127a8c5f20423e04eee9a3352",
+    "results/acquisition/task0030-three-prong/transfer-grant.json": "8210e71dd3a30eab2597a25c28082b8a339858da56476b50243b306ada873406",
+    "results/acquisition/task0030-three-prong/acceptance.json": "1c8363b629f8a68a57238c4580732479a9431a85aea483e75d28d1da8baeefc9",
+    "results/acquisition/task0030-three-prong/verify-grant.json": "5808a9a577baff6069cea8836065a4067825c41c763395ed07cd73cbf6d8af79",
+    "results/acquisition/task0030-three-prong/authorization.json": "b65d237da317e3c45bdc2a36cbc59fe907bd7784188fec8f00ea55805556441f",
+    "results/acquisition/task0030-three-prong/import-grant.json": "02656534f7bece2183a9882e3410bf542ef7b33bc803025b494aa62e895703c1",
+    "results/acquisition/task0030-three-prong/protocol.json": "a454453a115386ec35ccc6487fbf86486c1016d1c089c1fb166b15efc868068c",
+    "results/acquisition/task0030-three-prong/reservation.json": "d0af2a70f28eea836443c49a4f9941bbb663dc96ece40ed0de4df70e8fc66ae0",
+    "results/acquisition/task0030-three-prong/verify/parent-acceptance.json": "569da1b66dc3b54b00f8b0a88b23e8718597614a6606a534bf8d7fbfccc2b7d1",
+    "results/acquisition/task0030-three-prong/verify/worker.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/acquisition/task0030-three-prong/verify/dispatch.json": "f2b9a0601f335457b68412b47f074b0772c2cbb3a4dd50ef78d010386107e6cc",
+    "results/acquisition/task0030-three-prong/verify/structure.json": "e391d4a86f5dbd3502d31e25cd99e5f0dc9dec6767e6246060ab3ac88ad4c857",
+    "results/acquisition/task0030-three-prong/verify/access.json": "830d9c1b5c314e7059893df44adf77cd3b86050f447c86ec890b73f9d79fe3b7",
+    "results/acquisition/task0030-three-prong/verify/guards.jsonl": "f641eb8731306eaab38c0e10903bb5d4c5240a368e96425dc4d2357832c110f6",
+    "results/acquisition/task0030-three-prong/verify/receipt.json": "28c75a45003332b0e40c5e87cfa9b29fa1ed355dfc0a7997dc0cd1190b2ce9a5",
+    "results/acquisition/task0030-three-prong/verify/integrity.json": "8a0dde8cc0be60774088524ec1437d0b8777d8311d5badd3b70ed8f95a3511d3",
+    "results/acquisition/task0030-three-prong/transfer/parent-acceptance.json": "2b2041929e2900afbaed0d3efc1608f73a9548cf0ea421fc84cd885e42eed073",
+    "results/acquisition/task0030-three-prong/transfer/transfer.json": "404c8f2493942da08a476fda02f634128ccd383fe56b4db4d513f506e2720129",
+    "results/acquisition/task0030-three-prong/transfer/worker.log": "526b64d1bfb2624ceabe101909f7dd089e2e422b0c30723f92a892785bc7bd30",
+    "results/acquisition/task0030-three-prong/transfer/dispatch.json": "e177790de11b5a9874fa752a0807f2403c1fcbc314018ddf7154d4db2dfcdbcf",
+    "results/acquisition/task0030-three-prong/transfer/checkpoints.jsonl": "a922132c6618b8b4bb718ce8d645ba579c41eaabdc2c2e0d3932bfd4a133049d",
+    "results/acquisition/task0030-three-prong/transfer/progress.json": "49863cb30efc651f2f4e6b356f6853014214bb6cad863e2f0ddbd6d9a747c419",
+    "results/acquisition/task0030-three-prong/transfer/guards.jsonl": "97ae1edf0d9fd4706c0b9fe7c2ac25c7313717cb4827b1a6b08b9bdf4386fe2a",
+    "results/acquisition/task0030-three-prong/transfer/receipt.json": "ce74722789dbf3e37fad3d49195e3ef566135bbee4ee8ee2047dbb1fba67de5c",
+    "results/acquisition/task0030-three-prong/import/parent-acceptance.json": "7f74dcaa0fa2b9bd703ca597e86c31d912c944cf613293d1b7c9f72e50315777",
+    "results/acquisition/task0030-three-prong/import/worker.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/acquisition/task0030-three-prong/import/import.json": "3f3b40d608079f76dcba412236bb6e3ee97a30f5c2ea976fd7fe7e1be8e7102c",
+    "results/acquisition/task0030-three-prong/import/dispatch.json": "b1797761876d48cada675932484986ccd22de76884868c41cc54d1e3edfa7b4f",
+    "results/acquisition/task0030-three-prong/import/access.json": "44853e391a95974b2a9eef0a7a4056b3781730a8c5534afbc65f9aa1a9eea77d",
+    "results/acquisition/task0030-three-prong/import/guards.jsonl": "65731411a2e97f6ad2f8b66028689f159e8beccf26358633dcb0fac51850ad8e",
+    "results/acquisition/task0030-three-prong/import/receipt.json": "749fc12fc231107b813070c957a78dfd41916a34c75d5432db908f93b97bf415"
+  },
+  "operational_receipts_and_acceptance_excluded_from_Git": true
+}
