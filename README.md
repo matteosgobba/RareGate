@@ -47,6 +47,11 @@ The [initial native scientific study and integrated synthesis](docs/scientific-s
 are complete. Frozen AE v2 has a moderate observed ranking advantage over PCA
 for this signal, with higher accepted CPU cost and weak strict-tail utility.
 Both test populations remain exposed; Task0027 used only accepted aggregates.
+Task0028 Phase A adds the [guarded three-prong extension](docs/three-prong-generalization.md):
+1333 full/portable tests, frozen source-bound plan and metadata readiness; explicit
+Phase B consent pending. No real three-prong payload or cached-score numerical
+reuse occurred. The proposed study reuses exposed Task0026 background, so it is
+signal-topology generalization, without fresh background domain-shift evidence.
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
@@ -189,9 +194,12 @@ At the strict AE point, TPR0.00056 < achieved FPR0.0007709127; descriptive relat
 acceptance0.7264 and selected signal32.5581% < initial39.9248% show no observed
 enrichment in this evaluated slice. No new population/scoring/custody/optimizer
 work occurred. Particle192/192 remains consumed/deferred; Task0025 remains failed
-and consumed with provisional ratios. One proposed follow-up is an explicitly
-authorized independent-population protocol for frozen-model generalization and
-strict-tail utility; no Task0028 is launched and no exposed test becomes fresh.
+and consumed with provisional ratios. The user subsequently authorized Task0028 Phase A for a frozen three-prong
+extension with the reused accepted exposed background. [Protocol/report](docs/three-prong-generalization.md)
+and [summary](results/tables/final/task0028-three-prong-generalization-summary.json)
+record fresh publisher metadata, conditional custody/overlap gates and the fixed
+reviewable plan. Real acquisition/preparation/scoring/cache reuse still require
+explicit Phase B approval; no existing test becomes fresh.
 
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
@@ -422,6 +430,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0026 Phase A: guarded native scientific evaluation/reporting,1259 tests/source freeze and one accepted full-store custody-only check, no test populations/scores.
 - [x] Task0026 Phase B: explicit human approval, one accepted frozen PCA/AE final evaluation, all scientific tables/figure/counts/lifecycle curated; both tests exposed, no post-test tuning/replay.
 - [x] Task0027: integrated frozen scientific synthesis; ten adapter cost groups/all eight calibrated points/static figures, zero new scientific execution.
+- [x] Task0028 Phase A: isolated three-prong protocol/guarded foundation, 62 new cases / 1333 full+portable tests / protected toy integration; source-bound plan and metadata ready.
+- [ ] Task0028 Phase B: explicit conditional authorization, pinned payload custody/overlap/preparation, frozen signal scoring and accepted-background numerical reuse; unreserved.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
