@@ -9,15 +9,15 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.25 |
+| Memory revision | 1.24 |
 | Last factual verification | 2026-10-11, Europe/Rome |
-| Last completed phase | 0030 — sleep-aware acquisition v3: own153-source/1503 full+portable/89 new-case software acceptance; sole copied-prefix session accepted complete235488994B, structure-only inspection, zero new scientific work |
-| Latest task outcome | Task0030: one coherent206 from29990748B imports the historical seed into a distinct inode and receives205498246 new bytes; full MD5/SHA063fff35…0742 match, three exit0/reaped/parent-accepted workers, sleep assertion174 active observations/released. Transfer869.023110s, reserved870.632494s, controller872.825514s continuous, zero overshoot; original testsYES/YES,new modelNO. Historical0025/0028/0029failed outcomes retained |
+| Last completed phase | 0029 — own146-source/1414full+portable/81new-case acquisition-v2 software acceptance; sole authorized real session failed/consumed after3requests,29990748Bpartial preserved, no verified artifact or scientific work |
+| Latest task outcome | Task0029:200/206/206,2timeouts/truncatedEOF,2valid continuations,0restart/redirect.29990748Breceived/written/durable/retained;accepted0,partialSHA2be92f0d…6d549,exit1/reaped/parent rejected.445.572426s monotonic whole versus2305.963121s UTC same-endpoint span,clock and200/206Retry-After limitations disclosed;verify/HDF/numerical phases unstarted,old139/Task0028evidence intact |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0030 base | `01617d5e3312785800058ad3ce0a8ca52741dd0b`, actual local Task0028 continuation commit and Task0030 base; main/origin/main/index empty. Task0029 three living modifications +13 intentional untracked files pre-existing and preserved; Task0030 overlaps the three living documents; no new commit/push/hosted CI claimed |
+| Verified HEAD / Task0029 base | `01617d5e3312785800058ad3ce0a8ca52741dd0b`, actual local Task0028 Phase B continuation commit, clean initial index/worktree; no prior uncommitted continuation, push/hosted CI unverified |
 | Current compact neural baseline | `compact-autoencoder-v2` |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Separately authorize a new local-file custody/uniqueness/all-role-overlap/frozen native PCA→AE signal-generalization protocol using Task0030 accepted bytes; no reacquisition or resume of consumed0028/0029/0030. Reused Task0026 background remains exposed and does not provide independent background generalization |
+| Next action | Offline versioned review/testing of200/206Retry-After after read failure and explicit elapsed-clock enforcement, preserving Task0029 failed session/partial lineage. Any new request or failed-partial reuse requires separate explicit authorization/current source acceptance/distinct namespace; no automatic resume/session/science |
 | Real test evaluation exposure | YES/YES in explicitly authorized Task0026 Phase B: both candidates read/scored150471test_background +100000test_signal each,4requests/500942presentations,250471unique events. No uncertain inflight; never describe tests as untouched again |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
@@ -64,7 +64,7 @@ The earlier planning conversation stopped at Task 0007 and described Task 0008 a
 
 **Completed integrated study:** [Task0027 synthesis](scientific-synthesis.md) joins accepted Task0026 canonical B4096 quality to accepted Task0022 prepared-dev adapter costs B1/8/32/128/1024. Nine source-byte hashes and separate scientific/config/calibration identities, ten cost rows/all three worker distributions, all eight original thresholds/counts/conditional Wilson intervals and two inspected figures are curated. Post-evaluation descriptive arithmetic at strict AE threshold:56/100000signal versus116/150471background, TPR0.00056 < FPR0.0007709126675572038, relative acceptance0.726411724137931, selected56/172=32.558139534884% below39.924781711256% initial mixture. No observed enrichment in this slice; no ratio/significance/physical-purity claim. Other three AE points have observed descriptive enrichment; none is selected. New population/scoring/custody/optimizer0; 12 new synthetic aggregate-helper tests are separate from historical1259acceptance, which is preserved/not rerun.
 
-**Three-prong extension software and consumed attempt:** [Task0028](three-prong-generalization.md) implements the separately authorized prospective frozen-signal extension, preserving the completed initial study. Fresh official API confirms v5/6466204/235488994bytes/publishedMD5`54e123a86143b668f9cb76905152a124`/CCBY4.0; publisher declares100000W′→XY,X/Y→qqq events. Task0028 established no local payloadSHA/count/layout/class/overlap result; Task0030 later establishes complete byte integrity and structure-only metadata below, while numerical/class/uniqueness/overlap remain unmeasured. Candidate/transform/calibration identities unchanged, strict FP64 SSE/native CPU. New signal has separate source/scientific identity; original validators retain original training provenance. Supported pandas-fixed singleFP64block widths2100/2101/700slots, labels absent→publisher class provenance or present→all1. Table/mixed/external/wrong-layout/source/count/structure gates refuse; exact new-source uniqueness and all-role original-fingerprint overlap gate before scoring, no subset/retry. Accepted original background score files are pinned by bytes/header/count150471 and scientific/audit/parent lineage; Phase A numeric reuse0, original fingerprint payload access0. New stdlib parent/acquire→prepare→PCA→AE→consolidate, one native worker, durable separated exposure/inflight, normal exit/reaping acceptance. 300/180/120/120/30s stages/900s whole,6GiB RSS/512MiB native/128MiB parent/2s grace inside caps; no global RAM floor/idle wait. 62new synthetic cases and1333full/portable tests, lint/format/dependencies/protected toy pass; own139-source acceptance. Human approval of plan77f92d95…179fa9 was recorded, source/acceptance/plan identities verified at actual Phase A commit e381f54, then one Phase B reserved. Acquisition interrupted at298s operation deadline inside300s cap, exit1/reaped/parent rejected; whole298.116751583s, failed_consumed_no_retry. Log≥47185920B transferred; frozen cleanup removed its own .part. All surviving logs/guards/audits/receipts preserved. No verified payload/localSHA/HDF/count/uniqueness/overlap, no preparation/originalFP numeric load/model scoring/cache numeric reuse. Raw potential_inflight retained; no live worker/model inflight. Observed39.4375MiB RSS/44MiB native/28.484375MiB parent,5494WARN advisory,0CRITICAL,terminal gap0.020402125s; memory observations do not erase deadline failure. New-signal science remains unmeasured. Planned scope is signal topology generalization with reused exposed background, not fresh background generalization or independent comparison.
+**Three-prong extension software and consumed attempt:** [Task0028](three-prong-generalization.md) implements the separately authorized prospective frozen-signal extension, preserving the completed initial study. Fresh official API confirms v5/6466204/235488994bytes/publishedMD5`54e123a86143b668f9cb76905152a124`/CCBY4.0; publisher declares100000W′→XY,X/Y→qqq events. No local payloadSHA/count/layout/class/overlap result is invented. Candidate/transform/calibration identities unchanged, strict FP64 SSE/native CPU. New signal has separate source/scientific identity; original validators retain original training provenance. Supported pandas-fixed singleFP64block widths2100/2101/700slots, labels absent→publisher class provenance or present→all1. Table/mixed/external/wrong-layout/source/count/structure gates refuse; exact new-source uniqueness and all-role original-fingerprint overlap gate before scoring, no subset/retry. Accepted original background score files are pinned by bytes/header/count150471 and scientific/audit/parent lineage; Phase A numeric reuse0, original fingerprint payload access0. New stdlib parent/acquire→prepare→PCA→AE→consolidate, one native worker, durable separated exposure/inflight, normal exit/reaping acceptance. 300/180/120/120/30s stages/900s whole,6GiB RSS/512MiB native/128MiB parent/2s grace inside caps; no global RAM floor/idle wait. 62new synthetic cases and1333full/portable tests, lint/format/dependencies/protected toy pass; own139-source acceptance. Human approval of plan77f92d95…179fa9 was recorded, source/acceptance/plan identities verified at actual Phase A commit e381f54, then one Phase B reserved. Acquisition interrupted at298s operation deadline inside300s cap, exit1/reaped/parent rejected; whole298.116751583s, failed_consumed_no_retry. Log≥47185920B transferred; frozen cleanup removed its own .part. All surviving logs/guards/audits/receipts preserved. No verified payload/localSHA/HDF/count/uniqueness/overlap, no preparation/originalFP numeric load/model scoring/cache numeric reuse. Raw potential_inflight retained; no live worker/model inflight. Observed39.4375MiB RSS/44MiB native/28.484375MiB parent,5494WARN advisory,0CRITICAL,terminal gap0.020402125s; memory observations do not erase deadline failure. New-signal science remains unmeasured. Planned scope is signal topology generalization with reused exposed background, not fresh background generalization or independent comparison.
 
 **What does not yet exist:** A trained/frozen particle baseline; controlled CPU/MPS comparison; CoreML export or an accepted ONNX performance comparison; quantization/trigger simulation; NVIDIA/TensorRT or FPGA measurements.
 
@@ -102,15 +102,15 @@ written/durable/retained after reaping, accepted verified complete0; partialMD5
 andSHA2be92f0d…6d549 preserved, no deletion/manifest/promotion. Exit1/reaped/parent
 rejected; transfer442.666572s, finalization0.043759s, whole445.572426s measured
 monotonically. Same recorded first-request→last-checkpoint UTC span2305.963121s
-versus442.558726s monotonic; cause was unknown at Task0029, no uninterrupted UTC wall-budget pass. Task0030 later verifies system-sleep records read-only; it does not rewrite the historical report.
+versus442.558726s monotonic; cause unknown, no uninterrupted UTC wall-budget pass.
 Observed35.453125MiB workerRSS/44MiBnative/35.421875MiBparent,7877checks(NORMAL7228 /
 WARN649/CRITICAL0/unknown0), no guard latch, terminal gap0.013391709s. Third EOF
 leaves final inflightnull, all confirmed prefix bytes fsynced; earlier failed-read
 wire/internal buffer bytes unmeasured. Frozen retry_delay reads Retry-After on
 HTTPError only, recording200/206headers58/59/59 without using them in timeout /
-truncation backoff; do not claim generic compliance. At Task0029 these and clock semantics needed versioned review/testing before
-new authorization. Separately authorized Task0030 completes that work below;
-no post-reservation patch/replay of Task0029 occurs. Byte verification/HDF structural phase unstarted. No dataset/axis/particle/label values,
+truncation backoff; do not claim generic compliance. This and clock semantics
+need versioned review/testing before new authorization, no post-reservation fix /
+replay. Byte verification/HDF structural phase unstarted. No dataset/axis/particle/label values,
 numerical custody/preparation/FP/cache/model/scoring/optimizer/scientific metrics.
 Original testsYES/YES permanent,new signal modelNO; failed0025/0028 andparticle192
 unchanged. Future science needs separate explicit custody/overlap/scoring protocol /
@@ -119,61 +119,7 @@ namespace/acceptance/authorization; no automatic launch.
 Task0029 acquired no verified local235488994Bcopy. Preserving/byte-hashing an
 incomplete prefix is not numerical custody, valid-event count/overlap or model
 exposure. Task0028 remains separately failed/consumed; future reuse of Task0029
-partial was not automatic; Task0030 explicitly authorizes a distinct verified-copy
-policy/session. Its later success does not relabel the failed Task0029 artifact.
-
-
-### Sleep-aware acquisition v3 — Task0030 complete byte artifact
-
-[Task0030](three-prong-acquisition-v3.md) is separately authorized and complete.
-Own153-source/dependency acceptance,1503 full/portable tests,89 new synthetic cases,
-lint/format/dependencies/native continuous/assertion bindings and0.213169s guarded
-metadata-only toy integration pass before source/protocol/plan freeze. All146 old
-Task0029 source bindings and196 protected files remain unchanged, including its
-acceptance/failed receipts/29990748Bprefix. Three overlapping living documents are
-saved before editing for a selective manual two-commit delivery; index stays empty.
-
-Fresh narrowly bounded pmset history confirms2026-10-11idle sleep14:51:32–14:52:02,
-maintenance14:52:47–15:08:25 and sleep-service15:09:25–15:24:28. Coarse1871s broadly
-accounts for prior UTC-minus-monotonic1863.404395s; network-interruption contribution
-is plausible, exclusive causation unproved. Python ordinary monotonic is
-mach_absolute_time; v3 uses mach_continuous_time with integer125/3 timebase→ns,
-then seconds, throughout grants/IO/waits/supervision/cleanup/acceptance. UTC is
-context/header-date anchor. Late exit0/publication rejects, suspension overshoot
-is disclosed; software cannot terminate a sleeping host. Temporary caffeinate-i-w
-assertion prevents idle system sleep and permits display sleep; actual pmset ID is
-verified before reservation and every5s, helper lifetime/RSS separate, owned
-assertion release is mandatory before accepted promotion. No persistent settings,
-app cleanup/admin/user-activity changes or real host-sleep experiment.
-
-One primary metadata check in approved context, storage277GBfree/2GiB required,
-then sole session import→transfer→verify. Distinct prefix inode copied/byte-verified;
-one206 at29990748, exact Content-Range/Content-Length205498246, weak/missing
-validators disclosed. Retry-After59 anchored to header; body completes,0retry/wait/
-restart/redirect.205498246 newly received plus29990748 imported =235488994 written/
-fsynced/retained/accepted. Complete publishedMD554e123…a124 matches; localSHA
-063fff3547d17bf4f36a40109e940ac6990105a0fe33a79f4f7c630905dd0742.
-Historical prefix unchanged; new complete .part/promoted filename share only the
-new owned inode. All3workers exit0/reaped/parent-accepted,0inflight. Continuous
-import0.374777/transfer869.023110/verify0.702536/finalization0.456040s, reserved
-870.632494s≤2000, including prerequisites872.825514s; ordinary clock differs≈0.2µs,
-no overshoot. Publication/terminal observation gaps separately recorded.
-174 owned active assertion observations, release confirmed/helper−15reaped/absence.
-Max worker49.8125MiB RSS/native44MiB; parent35.078125MiB;19530WARN advisory/
-0CRITICAL/unknown/no latch; helper sampled3.078125MiB, no hard-real-time guarantee.
-
-Exact unchanged structure inspector sees /df plus four hard-linked datasets,
-pandas-fixed FP64[100000,2101], integer axes/items and Blosc32001; no external or
-virtual dataset.100000 is shape, not valid/unique count; column/label semantics,
-axis values/order, padding, integrity custody, uniqueness/overlap are unmeasured.
-Byte reads and bounded fixed-scalar structural attributes occur; particle/axis/
-label dataset values/preparation/fingerprints/cachedBG/models/optimizer/science0.
-Original exposureYES/YES permanent, new signal modelNO. The initial scientific
-report remains complete; no new AUC/AP/efficiency or inference cost is claimed.
-Next brief requires separate local-file numerical-custody/overlap/scoring protocol,
-acceptance/namespace/explicit human consent; old Task0028 reservation cannot resume.
-Signal generalization uses exposed Task0026 background, not independent BG evidence.
-Task0025failed/provisional,0028/0029consumed failures,particle192/deferred unchanged.
+partial needs new explicit permission and distinct source-bound policy/session.
 
 ## 2. Vision, motivation, and research question
 
@@ -1133,7 +1079,7 @@ NVIDIA and FPGA branches need not block the main report if resources are unavail
 
 **Task0027 — Frozen scientific synthesis and quality/cost frontier is complete.** [Report](scientific-synthesis.md), summary/two CSVs/two static figures integrate accepted Task0026 science and Task0022 costs. No new population/scoring/custody/optimizer/model/threshold/candidate selection, export or hardware work. All original eight operating points and ten adapter cost groups remain; a two-candidate sampled tradeoff is not a universal continuous Pareto frontier. Other branches do not block completion of this initial report.
 
-Task0027 proposed an independent-population protocol. The subsequent explicit Task0028 request selects a narrower question: new three-prong signal with the accepted exposed Task0026 background scores. Phase A metadata research, isolated compatibility/custody/overlap/scoring orchestration and1333full/portable software validation are now complete. The source-bound plan `77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9` received actual explicit human approval. Its sole reserved Phase B acquisition failed at the frozen298s operation deadline; campaign failed/consumed, no retry/resume. The approval covered the pinned235488994-byte signal, integrity-only raw/all-role fingerprints, frozen preparation, one evaluation per candidate and two cached-background numeric reuses, conditional on all gates. Partial raw transfer occurred but no acquisition-integrity acceptance, raw numerical custody, preparation, model access or cached numeric reuse. All dependent phases stopped. Task0029 then implemented separately authorized durable transport but failed/consumed; Task0030 now completes a separately authorized sleep-aware copied-prefix acquisition with full byte acceptance and compatible-looking structural metadata. Numerical custody/uniqueness/overlap/scoring remain unstarted. A later scientific protocol must use the verified local file with new source acceptance/namespace/explicit human consent, preserving original science and all consumed failures.
+Task0027 proposed an independent-population protocol. The subsequent explicit Task0028 request selects a narrower question: new three-prong signal with the accepted exposed Task0026 background scores. Phase A metadata research, isolated compatibility/custody/overlap/scoring orchestration and1333full/portable software validation are now complete. The source-bound plan `77f92d951b034575299ed81d6cf61d19d49430b41b954d03b5d3ec62b1179fa9` received actual explicit human approval. Its sole reserved Phase B acquisition failed at the frozen298s operation deadline; campaign failed/consumed, no retry/resume. The approval covered the pinned235488994-byte signal, integrity-only raw/all-role fingerprints, frozen preparation, one evaluation per candidate and two cached-background numeric reuses, conditional on all gates. Partial raw transfer occurred but no acquisition-integrity acceptance, raw numerical custody, preparation, model access or cached numeric reuse. All dependent phases stopped. Next is an offline prospective transfer/evidence-retention policy review; any replacement requires separate versioned protocol/source acceptance/distinct namespace/new explicit human authorization, preserving original science and the consumed failure.
 
 This is **signal-topology generalization with a reused exposed background reference**, not a fully independent benchmark or BG domain-shift test. Candidate/transform/calibration identities and original training provenance remain separate from new signal identity. Both original tests remain exposed permanently; future design informed by results still requires an explicit methodological decision and independent evaluation protocol/population. No test-guided fitting, recalibration or candidate/threshold selection is authorized.
 
@@ -1151,7 +1097,7 @@ Scientific result: evaluated test mixture39.924782%signal; PCA AUC0.468489/AP0.3
 - **Task0025 paired CPU benchmark:** Implemented/1179 tests, all 90 cells and numerical gates measured; failed ORT3 exit deadline, consumed, descriptive comparisons only. No replay permission.
 - **Task0026 guarded native scientific comparison:** Authorized Phase B completes/accepted/consumed, all counts/scientific outputs curated; both tests exposed, no post-test tuning/replay.
 - **Task0027 frozen scientific synthesis/frontier:** Completed initial integrated report, ten accepted adapter groups/eight frozen operating points/two figures; zero new scientific execution.
-- **Task0028 three-prong extension:** Phase A software accepted; sole approved Phase B failed/consumed at acquisition deadline, scientific extension unmeasured. Separate Task0029 acquisition-v2 software accepted, real3request session failed/consumed with29990748Bunverified prefix retained; no HDF/numerical/model/cache/scientific work. Its clock/200-206Retry-After limitations are historical. Separately authorized Task0030v3 now accepts full235488994B through one206 and confirmed assertion release; structure-only FP64[100000,2101], zero numerical/model work. Next is a separately authorized local-file scientific protocol; no automatic session/science.
+- **Task0028 three-prong extension:** Phase A software accepted; sole approved Phase B failed/consumed at acquisition deadline, scientific extension unmeasured. Separate Task0029 acquisition-v2 software accepted, real3request session failed/consumed with29990748Bunverified prefix retained; no HDF/numerical/model/cache/scientific work. Clock/200-206Retry-After limitations recorded; no automatic session/partial reuse.
 - **CoreML export/equivalence:** Planned optional branch; ONNX CPU export/equivalence already accepted in Task0024. No automatic new export or performance task.
 - **Reduced-precision study:** Compare supported precision variants using training-only calibration and preregistered tolerances; freeze variant thresholds before final test.
 - **Streaming study:** Establish repeatable simulator assumptions and load scenarios, then evaluate queueing/capacity/latency and acceptance.
@@ -1367,7 +1313,6 @@ commands. Do not automatically stage, commit, push, or unblind real test data.
 - [Preprocessing contract](preprocessing-contract.md), [pipeline](preprocessing-pipeline.md), [frozen configuration](../configs/data/lhco_rnd_v5.json).
 - [Evaluation protocol](evaluation-protocol.md).
 - [Integrated frozen scientific synthesis](scientific-synthesis.md), [Task0027 summary](../results/tables/final/task0027-frozen-scientific-synthesis-summary.json), [quality/cost CSV](../results/tables/final/task0027-quality-cost-frontier.csv) and [operating interpretation](../results/tables/final/task0027-operating-point-interpretation.csv).
-- [Acquisition v3: complete verified bytes, structure only](three-prong-acquisition-v3.md), [Task0030 summary](../results/tables/final/task0030-three-prong-acquisition-summary.json), [attempts](../results/tables/final/task0030-transport-attempts.csv), [protocol](../configs/acquisition/three_prong_v3.json) and [handoff](handoffs/0030-three-prong-acquisition-v3.md).
 - [Acquisition v2: failed/consumed with retained partial](three-prong-acquisition-v2.md), [Task0029summary](../results/tables/final/task0029-three-prong-acquisition-summary.json), [attempts](../results/tables/final/task0029-transport-attempts.csv) and [handoff](handoffs/0029-three-prong-acquisition-v2.md).
 - [Three-prong extension: Phase A accepted, Phase B failed/consumed](three-prong-generalization.md), [strict protocol](../configs/evaluation/frozen_three_prong_v1.json), [summary](../results/tables/final/task0028-three-prong-generalization-summary.json) and [handoff](handoffs/0028-three-prong-generalization.md).
 - [PCA report](pca-baseline.md) and [configuration](../configs/models/pca_baseline.json).
@@ -1437,7 +1382,5 @@ Runtime documentation and compatibility must be rechecked when the corresponding
 | 1.23 / 2026-10-11 | Actual Phase A commit e381f54/clean base; approved plan77f92d95…179fa9 invoked once. Acquisition deadline failure,298.116752s whole, exit1/reaped/consumed/no retry. Interrupted raw transfer≥47185920B; frozen cleanup removed .part, surviving evidence preserved. No new scientific/numerical/model/cache work;139source unchanged, originalYES/YES/new modelNO,optimizer0,Task0025failed,particle192deferred | Actual report/summary/phase CSV/human approval; raw in-flight record disclosed, independent prospective replacement required |
 
 | 1.24 / 2026-10-11 | Verified Task0028continuation commit01617d5/clean base; Task0029own146-source/1414full+portable/81new-case byte transport acceptance then sole3request session failed/consumed. Two206continuations,2timeouts/truncatedEOF;29990748Bpartial/SHA/durable evidence retained, accepted0, no HDF/numerical/model/science. Clock/200-206Retry-After limits documented;old139/evidence/exposure/particle192 intact | Actual report/summary/attempt CSV/failed-parent receipts; any partial reuse/new request separately authorized |
-
-| 1.25 / 2026-10-11 | Task0029 continuation preserved uncommitted; fresh sleep records broadly explain historical clock divergence. Separate153-source/1503full+portable/89-case v3 acceptance, continuous deadlines and active/released idle assertion; sole206 copied-prefix session accepts235488994B/MD5/SHA,205498246 new bytes,870.632494s reserved, structureFP64[100000,2101] only. Zero new numerical/model/optimizer, originalYES/YES,new modelNO; later explicit local-file science brief, historical failures/particle192 unchanged | Task0030 frozen protocol/own software acceptance/actual source-prefix/lifecycle/checkpoint/integrity/structure/assertion receipts/report/summary/CSV;196 old bindings intact, no Git automation |
 
 Keep future entries short and focused on project-level changes. Update current-state sections in place; the revision table is not a second task log.
