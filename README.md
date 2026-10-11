@@ -55,6 +55,29 @@ scoring/cached numerical reuse or new scientific results. Interrupted raw access
 and logs remain recorded; no retry/resume. The study's planned exposed Task0026
 background reuse would provide signal-topology evidence without fresh background
 domain-shift evidence.
+Task0029 adds a separate [bounded acquisition v2](docs/three-prong-acquisition-v2.md):
+1414full/portable tests and own146-source acceptance; the sole newly authorized
+session failed/consumed after3payload requests (two read timeouts, truncated EOF).
+Two valid206continuations,0restart/redirect;29990748Breceived/written/durable/retained,
+accepted full bytes0. Partial SHA/progress/receipts preserved, no numerical/HDF /
+model work. Monotonic whole445.572426s versus2305.963121s recorded UTC endpoint
+span are distinguished; generic200/206Retry-After handling remains a frozen-code
+limitation. No further session or reuse of the failed partial is automatic.
+
+
+Task0030 completes the separately authorized [sleep-aware acquisition v3](docs/three-prong-acquisition-v3.md).
+Own153-source/1503 full+portable tests precede the sole session: a verified independent
+copy of Task0029's prefix plus205498246 new bytes through one206 yields the complete
+235488994-byte file, matching publisher MD5/local SHA. Three workers exit0/reaped /
+parent-accepted; idle-system assertion active/release confirmed, continuous reserved
+870.632494s, zero overshoot. Structure only: pandas-fixed float64[100000,2101],
+Blosc, no dataset values/numerical custody/fingerprints/cache/models/science.
+Fresh power logs broadly explain Task0029's clock divergence, without proving
+exclusive network-error causation or changing that historical failed result.
+The initial native scientific study remains complete; later three-prong numerical
+custody/uniqueness/overlap/evaluation needs a new explicit local-file protocol /
+authorization. Original testsYES/YES, new signal modelNO; particle192/deferred and
+Task0025/0028/0029failed consumed outcomes preserved. No new acquisition is automatic.
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
@@ -440,6 +463,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0027: integrated frozen scientific synthesis; ten adapter cost groups/all eight calibrated points/static figures, zero new scientific execution.
 - [x] Task0028 Phase A: isolated three-prong protocol/guarded foundation, 62 new cases / 1333 full+portable tests / protected toy integration; source-bound plan and metadata ready.
 - [x] Task0028 Phase B attempt: explicit human approval, one frozen acquisition campaign; failed/consumed at deadline, exit1/reaped, no retry/resume or later phases. Three-prong scientific generalization remains unmeasured.
+- [x] Task0029: own146-source/1414full+portable/81new-case byte-only acquisition foundation; sole3request session failed/consumed,29990748Bpartial preserved, no verified artifact/HDF/numerical science. Clock and200/206Retry-After limitations recorded.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
