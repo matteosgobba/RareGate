@@ -43,6 +43,11 @@ deployment.
 
 ## Current status
 
+The [initial native scientific study and integrated synthesis](docs/scientific-synthesis.md)
+are complete. Frozen AE v2 has a moderate observed ranking advantage over PCA
+for this signal, with higher accepted CPU cost and weak strict-tail utility.
+Both test populations remain exposed; Task0027 used only accepted aggregates.
+
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
 `0.1.0`. Task 0002 defines the data foundation using the corrected LHC Olympics
@@ -60,7 +65,9 @@ implements the [PCA baseline](docs/pca-baseline.md), background-only diagnostics
 and calibrated thresholds under the [evaluation protocol](docs/evaluation-protocol.md).
 Task 0007 adds a frozen [compact autoencoder](docs/compact-autoencoder.md),
 reproducible CPU training and separate MPS compatibility checks. Real test
-performance remains intentionally embargoed. Task 0008 closes
+performance was embargoed during those development tasks; Task0026 later completed
+the explicitly authorized frozen evaluation, permanently exposing both tests.
+Task 0008 closes
 [convergence under the frozen patience rule](docs/autoencoder-convergence.md);
 v2 is now the canonical compact AE. Task 0009 defines a
 [478-parameter particle/set autoencoder design](docs/particle-set-baseline-design.md)
@@ -172,9 +179,19 @@ neural superiority claim. [Comparison](results/tables/final/task0026-pca-ae-scie
 [ROC/PR figure](results/figures/final/task0026-pca-ae-roc-pr.png),
 [summary](results/tables/final/task0026-guarded-pca-ae-evaluation-summary.json) and
 [handoff](docs/handoffs/0026-guarded-pca-ae-evaluation.md) preserve evidence.
-Next: Task0027frozen scientific synthesis/quality-cost frontier from accepted
-Task0026/0022summaries only, no new test/scoring/model selection. Particle192and
-canonical deferral/Task0025failed consumed history remain unchanged.
+Task0027 completes the [integrated scientific synthesis](docs/scientific-synthesis.md),
+[ten-row native quality/cost table](results/tables/final/task0027-quality-cost-frontier.csv),
+[eight-point interpretation](results/tables/final/task0027-operating-point-interpretation.csv),
+[curated summary](results/tables/final/task0027-frozen-scientific-synthesis-summary.json)
+and [static frontier](results/figures/final/task0027-quality-cost-frontier.png) /
+[calibrated utility figure](results/figures/final/task0027-calibrated-operating-points.png).
+At the strict AE point, TPR0.00056 < achieved FPR0.0007709127; descriptive relative
+acceptance0.7264 and selected signal32.5581% < initial39.9248% show no observed
+enrichment in this evaluated slice. No new population/scoring/custody/optimizer
+work occurred. Particle192/192 remains consumed/deferred; Task0025 remains failed
+and consumed with provisional ratios. One proposed follow-up is an explicitly
+authorized independent-population protocol for frozen-model generalization and
+strict-tail utility; no Task0028 is launched and no exposed test becomes fresh.
 
 The existing check command now defaults to shared-host-dev-v1 and stays data-free.
 The [living project memory](docs/project-memory.md) maintains current decisions,
@@ -404,8 +421,9 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0025: isolated paired CPU foundation / 1179 full + portable tests; 90 measured cells and passing numerical gates, but ORT3 exit deadline fails; consumed, no accepted paired speedup.
 - [x] Task0026 Phase A: guarded native scientific evaluation/reporting,1259 tests/source freeze and one accepted full-store custody-only check, no test populations/scores.
 - [x] Task0026 Phase B: explicit human approval, one accepted frozen PCA/AE final evaluation, all scientific tables/figure/counts/lifecycle curated; both tests exposed, no post-test tuning/replay.
-- [ ] Task0027: frozen scientific synthesis and quality/cost frontier from existing accepted summaries, no new population/scoring/model selection.
-- [ ] Study scientific biases and compare performance with computational cost.
+- [x] Task0027: integrated frozen scientific synthesis; ten adapter cost groups/all eight calibrated points/static figures, zero new scientific execution.
+- [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison.
+- [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
 - [ ] Physical CPU/MPS comparison: Task0023 blocked, no current device proof.
 - [x] ONNX CPU export/structural/numerical equivalence: Task0024 accepted; Task0025 paired performance remains unaccepted.
