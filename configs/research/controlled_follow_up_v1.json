@@ -1,0 +1,1062 @@
+{
+  "schema_version": 1,
+  "protocol": "controlled-follow-up-v1",
+  "task": "0034",
+  "status": "design_only",
+  "is_execution_plan": false,
+  "is_source_acceptance": false,
+  "is_model_freeze": false,
+  "is_authorization_token": false,
+  "execution_authorized": false,
+  "base_HEAD": "c9f9bc5317f575ff2e29566214db20609745fcc1",
+  "date": "2026-10-12 Europe/Rome",
+  "provenance": {
+    "actual_prompt_path": "docs/prompts/0034-controlled-follow-up-protocol.md",
+    "input_file_byte_sha256": {
+      "configs/models/compact_autoencoder_v2.json": "dd6a808ee2e7a48767593dddf45fcbbb059afd63380a8791209521f0e59e8303",
+      "configs/models/pca_baseline.json": "5a346df7e9fe3def3c40b1a35d75d5512e4761ae8e5d9e4975f7264e269615a1",
+      "configs/data/lhco_rnd_v5.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+      "src/latenttrigger/models/autoencoder.py": "cf5c9507fa08404c8a287627a30201608736634e8246e298fad081201bff4738",
+      "src/latenttrigger/models/pca.py": "6c14d9a5abb5515bd137b3303ff1da693e8d1c143119496162ce705715328b4a",
+      "src/latenttrigger/training/autoencoder.py": "f89b30384ecd326fae9c090d1ec286e9cd65837b9121c4af28672f19e64b5092",
+      "src/latenttrigger/training/background.py": "4d5322385329f7d6300599ffb3d046a0ab1138f455916565fea47aee5d143d75",
+      "src/latenttrigger/evaluation/thresholds.py": "0e9b8e74eb260e66eb0efd5c289ff54f791b9501ce5bf85e43b57dfb06e2d054",
+      "docs/two-three-prong-synthesis.md": "667921ed3183480e131d05e944448942fc2ee7efe73514047450157ed8ae40cb",
+      "docs/exploratory-feature-score-diagnostics.md": "e6c0aaa43ad70e0b8c0beb132c96f1068642f891b0d3cb2e3384f7991f3143a1",
+      "docs/handoffs/0033-exploratory-feature-score-diagnostics.md": "769a2a26a998c9413926d573b790cbcb17774cdb2292046c7b3b8a47dabba9b5",
+      "docs/handoffs/0008-autoencoder-convergence.md": "226ce84e37e3b40d492a37036f7e23a8433dcdff7119a58a48e9bef14a446c90",
+      "docs/autoencoder-convergence.md": "5c20ed233e13ef6896af0f74d1bdfd88eb602315d874f0b44d820746bb307f66",
+      "docs/preprocessing-contract.md": "fe1fe361a7a0e5542300faca79e153b24437660fb1b45c993ca9b9e1b90a49b3",
+      "docs/preprocessing-pipeline.md": "125f3cb628e08b28e0075438d0e714c08eb361dd1e78e22de1bbbf16d9f68c28",
+      "docs/evaluation-protocol.md": "8f8f05ee0e1d20b33e66842dbf4810019cceb14de8354e2fb945560c86c82f52",
+      "docs/particle-canonical-feasibility.md": "77f885ed2000f73e4af8b4dcfb2650e0e5491804159e42dbd4a261f607c2ebd8",
+      "results/tables/final/task0033-exploratory-feature-score-summary.json": "a84e4aec630360280cdcf57a9729e724d5f198ac77c7b61c64b7b728e159cb85",
+      "results/tables/final/task0033-feature-marginals.csv": "73ff87cc1191546c98c32199fd25774d6b9d306b2550b356f2906f88f63b2e3c",
+      "results/tables/final/task0033-score-marginals.csv": "b563fef69b42d17fa293a1d5e91b641464dd19b539ea2a33bc34767b2d822f76",
+      "results/tables/final/task0033-feature-score-associations.csv": "24cc554070dfa43ecf28d7cc7083deeea15eee78a5ebed2786cfdce53bd0e004",
+      "results/tables/final/task0033-tail-counts.csv": "3d9d21a089142f66210f488de99c563574f6aacbcc4e3bf7556a49e955f5a0f3",
+      "results/tables/final/task0031-local-three-prong-evaluation-summary.json": "1657524c4fa1efe795f8ba97c05cdf3bcf5c75ae8189dfde693a1c0437c09ead",
+      "docs/prompts/0034-controlled-follow-up-protocol.md": "71492766714f0e64ae8ad9e23c235dae26d601d5a2fb841394b4f4d8d0cafde7"
+    },
+    "motivating_aggregates": {
+      "PCA_retained_dimension": 6,
+      "historical_AE_bottleneck": 3,
+      "AE_score_marginals": [
+        {
+          "population": "background",
+          "count": "150471",
+          "q0.5": "1.237087380318145",
+          "q0.999": "15.720911284067139"
+        },
+        {
+          "population": "two_prong",
+          "count": "100000",
+          "q0.5": "2.008749135648017",
+          "q0.999": "15.001870708947788"
+        },
+        {
+          "population": "three_prong",
+          "count": "100000",
+          "q0.5": "1.5766393481740306",
+          "q0.999": "14.419350847699981"
+        }
+      ],
+      "strict_AE_counts": [
+        {
+          "population": "background",
+          "threshold": "16.642218868621573",
+          "denominator": "150471",
+          "accepted_count": "116",
+          "accepted_fraction": "0.0007709126675572038"
+        },
+        {
+          "population": "two_prong",
+          "threshold": "16.642218868621573",
+          "denominator": "100000",
+          "accepted_count": "56",
+          "accepted_fraction": "0.00056"
+        },
+        {
+          "population": "three_prong",
+          "threshold": "16.642218868621573",
+          "denominator": "100000",
+          "accepted_count": "34",
+          "accepted_fraction": "0.00034"
+        }
+      ],
+      "signed_eta_marginals": [
+        {
+          "population": "background",
+          "mean": "-0.000869324861276231",
+          "q0.5": "-0.001912920968607068"
+        },
+        {
+          "population": "two_prong",
+          "mean": "-0.0017665537038874027",
+          "q0.5": "-0.004854031838476658"
+        },
+        {
+          "population": "three_prong",
+          "mean": "-9.077745718778716e-05",
+          "q0.5": "0.003940200200304389"
+        }
+      ],
+      "signed_eta_AE_associations": [
+        {
+          "population": "background",
+          "spearman_rho": "-0.009297171620181358"
+        },
+        {
+          "population": "two_prong",
+          "spearman_rho": "-0.2524968466859474"
+        },
+        {
+          "population": "three_prong",
+          "spearman_rho": "-0.2858662824686529"
+        }
+      ],
+      "interpretation": "exploratory/result-informed motivation only; no symmetry-defect or causal/importance claim"
+    },
+    "historical_outcomes": "Task0032 complete; Task0033 accepted exploratory; permanent exposureYES/YES/YES; particle192consumed/deferred; Task0025failed/consumed"
+  },
+  "question": "Under fixed background-only training, how does replacing the two ReLUs with identities change independent strict-tail signal/background acceptance at equal representation/bottleneck/layers/parameter count?",
+  "arms": [
+    {
+      "name": "nonlinear",
+      "layers": [
+        8,
+        6,
+        3,
+        6,
+        8
+      ],
+      "hidden_activations": [
+        "relu",
+        "relu"
+      ],
+      "latent_activation": "identity",
+      "output_activation": "identity",
+      "biased_layers": true,
+      "bottleneck": 3,
+      "parameters": 155
+    },
+    {
+      "name": "linear",
+      "layers": [
+        8,
+        6,
+        3,
+        6,
+        8
+      ],
+      "hidden_activations": [
+        "identity",
+        "identity"
+      ],
+      "latent_activation": "identity",
+      "output_activation": "identity",
+      "biased_layers": true,
+      "bottleneck": 3,
+      "parameters": 155
+    }
+  ],
+  "seeds": [
+    1729,
+    1730,
+    1731
+  ],
+  "max_future_fits": 6,
+  "pairing": {
+    "initialization": "one default PyTorch Linear FP32 tensor document per seed; clone all named weights/biases to both arms; identical shapes/order/bytes hashed before fitting",
+    "row_permutations": "retain original RandomSampler+DataLoader generator semantics; separate local CPU generator reset to seed per arm, state persists across epochs; hash every complete epoch permutation and tail without persisting row lists",
+    "common_epochs": "permutation/initialization identity required; stopping epochs may differ; fixed process order seed ascending then nonlinear/linear",
+    "RNG": "seed Python/NumPy/Torch; deterministic CPU; version/build/thread identities; model RNG isolated from local loader generator"
+  },
+  "training": {
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "batch_size": 4096,
+    "max_epochs": 1000,
+    "early_stopping_patience": 15,
+    "min_delta": 0.0,
+    "seed": 1729,
+    "device": "cpu",
+    "num_workers": 0,
+    "num_threads": 1,
+    "deterministic_algorithms": true,
+    "loss": "mean_squared_reconstruction_error",
+    "initialization": "pytorch_linear_default",
+    "adam_defaults": {
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "foreach": null,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null,
+      "decoupled_weight_decay": false
+    },
+    "defaults_verified_from": {
+      "Python": "3.12.12",
+      "Torch_distribution": "2.14.1",
+      "source": ".venv/lib/python3.12/site-packages/torch/optim/adam.py",
+      "byte_sha256": "6f4a96e7bccd5e233a66f846c39f7a9da0157cf657c2275d2a269a78a6b90921",
+      "scope": "source text and distribution metadata only; no Torch import/model instantiation"
+    },
+    "seed_semantics": "historical base seed1729 is replaced by each prespecified paired seed1729/1730/1731; no additional fits",
+    "early_stopping": "selection_loss < best_loss - 0; ties retain earliest; stop after15consecutive failures; restore OWN best state; max1000is a cap, not convergence",
+    "selection_uses_signal": false,
+    "max_future_optimizer_updates": 1026000,
+    "old_validator_reuse": "historical architecture validator accepts ReLU only; separate research schema/factory required; never mutate original JSON/code"
+  },
+  "inputs": {
+    "accepted_original_identity": {
+      "path": "data/processed/lhco-rd-v1/schema-v1/full",
+      "scientific_sha256": "d12574e90e9ba9dff71e4e796f5004e704bce5d824db98c545a96d2df08e12d2",
+      "split_identity_sha256": "74a97d8956a4b75d5710d456bc207fdfa9d27569256bafe7b8e72a7891468fea",
+      "configuration_canonical_JSON_sha256": "4eae7a9f689ad8bd9faaa56f439e33540fddc586a8e9a51be96ea78dc52ec8ea",
+      "preprocessing_parameters_canonical_JSON_sha256": "927a37162dbe7364bf094e9669d3b2ec72a1ba48070a6601e054c63b069ce4b2",
+      "counts": {
+        "train_background": 699957,
+        "validation_selection_background": 74749,
+        "validation_calibration_background": 74823,
+        "test_background": 150471,
+        "test_signal": 100000
+      },
+      "metadata_file_byte_sha256": {
+        "manifest.json": "4b64c2c5a2432ee9cacebea7f1dd268767cf34313f4f24a0e2b46f75ef8cdc9c",
+        "configuration.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68"
+      }
+    },
+    "accepted_preprocessing_parameter_identity": {
+      "path": "data/processed/lhco-rd-v1/schema-v1/full/configuration.json",
+      "file_byte_sha256": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+      "canonical_JSON_sha256": "4eae7a9f689ad8bd9faaa56f439e33540fddc586a8e9a51be96ea78dc52ec8ea",
+      "preprocessing_parameters_canonical_JSON_sha256": "927a37162dbe7364bf094e9669d3b2ec72a1ba48070a6601e054c63b069ce4b2"
+    },
+    "features": [
+      "multiplicity",
+      "scalar_pt",
+      "max_pt",
+      "pt_balance",
+      "weighted_eta_mean",
+      "weighted_eta_std",
+      "pt_concentration",
+      "massless_event_mass"
+    ],
+    "dtype": "float32",
+    "same_original_scalers": true,
+    "preprocessing_config_sha256": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "full_event": true,
+    "sequence": "sourceFP64sort/wrap ->physicalFP32allparticles ->aggregateFP64 ->frozenlogs/scaler ->featuresFP32",
+    "no_inverse": true,
+    "no_restandardization": true,
+    "equal_event_weights": true
+  },
+  "score": {
+    "definition": "sum_squared_reconstruction_residual",
+    "orientation": "higher_is_more_anomalous",
+    "dtype": "float64"
+  },
+  "controlled": [
+    "input representation",
+    "layer widths/order/biases",
+    "bottleneck3",
+    "parameter_count155",
+    "initial tensors within seed",
+    "epoch permutations within seed",
+    "optimizer/batch/selection/calibration rules"
+  ],
+  "not_controlled": [
+    "expressivity",
+    "optimization path/convergence/global optimum",
+    "activation interaction with background-only checkpoint selection",
+    "simulation uncertainty",
+    "particle information loss"
+  ],
+  "deferred": [
+    "signed_eta_symmetry",
+    "residual_attribution",
+    "richer_particle_representation",
+    "feature_removal",
+    "perturbations",
+    "extra_scores",
+    "subgroups",
+    "extra_architectures"
+  ],
+  "references": {
+    "historical_AE_v2": "frozen reference; historical thresholds unchanged; not a trained arm",
+    "historical_PCA_six": "frozen reference; historical thresholds unchanged; not parameter matched",
+    "PCA_three": {
+      "default_enabled": false,
+      "construction": "derive leading3ofaccepted8ordered full-SVD axes and identical center; no refit/whitening",
+      "source_schema_support": "PCA source explicitly stores all8axes, reconstructs components[:k]; existing component values not inspected here",
+      "prerequisites": "future accepted artifact bytes/scientific identity +order/shape/finite/orthonormal checks, separate derivative identity and own original-background calibration before confirmation",
+      "interpretation": "linear rank/compression diagnostic, not parameter-matched activation comparison"
+    },
+    "default_confirmation_candidates": 8,
+    "maximum_confirmation_candidates": 9
+  },
+  "roles": {
+    "fit": {
+      "name": "train_background",
+      "count": 699957
+    },
+    "selection": {
+      "name": "validation_selection_background",
+      "count": 74749
+    },
+    "calibration": {
+      "name": "validation_calibration_background",
+      "count": 74823
+    },
+    "original_test": "historical context only; no future rescoring in first comparison",
+    "confirmation_background": "all accepted612858extraQCD SR rows, before invalidity/overlap acceptance; no score-guided subset",
+    "confirmation_signal": "ONLY independently generated XtoYYprime full-event source with prespecified SRmJJ(3300,3700)GeV membership; count/units/full-event source unresolved",
+    "domain_calibration": "not in this first protocol; would require disjoint role/new estimand/separate prospective amendment"
+  },
+  "calibration": {
+    "primary_alpha": 0.001,
+    "secondary_alphas": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "method": "higher",
+    "decision": "score > threshold",
+    "index": "ceil((N-1)*(1-alpha))",
+    "once_per_new_model": true,
+    "new_threshold_count": 24,
+    "maximum_with_optional_PCA_three": 28,
+    "old_thresholds_on_new_models": false,
+    "confirmation_threshold_adjustment": false
+  },
+  "confirmation": {
+    "preferred_route": "conditional8370758fullCartesiancQCD +18983506XtoYYprimefull-event",
+    "primary_signal": "XtoYYprime",
+    "other_signals": "not included; no substitution after results; all source candidates documented",
+    "estimand": "transported simulated signal-region acceptance using original-background calibrated thresholds; not original-topology replication",
+    "fixed_membership_rule": "background:publisherQCDrole0 and declared full SR membership; signal:label1,anti-kT R1leadingjet pT>1200GeV and3300<mJJ<3700GeV using accepted publisher jet4vectors or exact membership; no endpoint/label ambiguity accepted",
+    "membership": "freeze rule/source identity/labels/SR endpoints before payload numerical audit; freeze realized membership/identity before feature preparation; freeze all checkpoints/thresholds before confirmation numerical feature access/scoring",
+    "overlap_audit": "future separate authorized within-source/all-original1100000role/all-three-prong100000 fingerprint audit plus run/seed/event-ID provenance; conversion/rounding may defeat exact-content matches; disjointness alone not independent generation",
+    "source_accepted": false
+  },
+  "analysis": {
+    "primary_estimand": "Delta_S = (1/3)sum_s(TPR_nonlin_s -TPR_lin_s) at each own frozen alpha=.001threshold",
+    "event_variable": "D_i=(1/3)sum_s(A_nonlin_s(i)-A_lin_s(i)), range[-1,1]; retain all3seed pairs; sameNevents not3N",
+    "background_estimands": "six realized FPRs +equal-seed mean paired FPR_nonlin-minus-linear contrast",
+    "secondary": "all3other calibrated alphas; allseed/candidate counts/denominators/rates; descriptive only, no selected best point/seed",
+    "method": "two-sided empirical Bernstein for bounded event-level means; unbiased sample variance preserves shared-event seed covariance; h=sqrt(2*V*ln(4/delta)/N)+7*range_width*ln(4/delta)/(3*(N-1)); clip to permissible range",
+    "method_source": "https://arxiv.org/pdf/0907.3740 theorem4 plus affine scaling/two-tail union bound",
+    "family_error_budget": {
+      "total": 0.05,
+      "primary_signal_delta": 0.025,
+      "paired_background_delta": 0.0125,
+      "each_of_six_background_rates_delta": 0.0020833333333333333
+    },
+    "conditional_rate_intervals": "Wilson95individual rates/seed rows; separate descriptive intervals, not an improvement decision or multiplicity correction; exact95one-sided zero-rate upper bound",
+    "assumptions": "i.i.d.independent source events conditional on frozen models/thresholds; no inference to all optimizer seeds; excluded calibration/training/simulation uncertainty; if generation/clustering assumptions fail, no confirmatory claim"
+  },
+  "criteria": {
+    "precision_uses_unclipped_EB_halfwidth": true,
+    "background_rate_band": [
+      0.00075,
+      0.00125
+    ],
+    "all_six_simultaneous_rate_bounds_inside_band": true,
+    "nonlinear_minus_linear_background_difference_upper_max": 0.0001,
+    "practically_relevant_signal_difference": 0.0002,
+    "primary_signal_interval_halfwidth_max": 0.0001,
+    "paired_background_interval_halfwidth_max": 0.0001,
+    "each_background_rate_interval_halfwidth_max": 0.0002,
+    "improvement": "allsource/independence/precision/BGgates AND primaryDelta lower bound >0.0002",
+    "negative": "BGgates+precision pass and upperDelta <0.0002: no practically relevant nonlinear advantage; upper < -0.0002 AND paired background lower >= -0.0001: practically relevant linear advantage under precision and all-six rate gates; interval within[-0.0002,+0.0002]: practical equivalence",
+    "inconclusive": "missing source/count/independence; imprecise interval; interval crossing practical boundary; failed/ambiguous background gate; failed fit or missing restored state prevents complete prescribed set; reaching1000is valid fixed-cap outcome, not convergence; report all observed results, do not retune/retry",
+    "rationale": "benchmark design choices: 25%BGband,10%alphamaxBGdifference; absolute20signal events per100000minimum relevance; halfwidth half of relevance. Not physical trigger/purity requirements"
+  },
+  "planning": {
+    "not_scientific_measurements": true,
+    "N_alpha_is_expectation": true,
+    "rate_sensitivity": [
+      {
+        "N": 834,
+        "hypothetical_rate": 0.0001,
+        "expected_accepted": 0.0834,
+        "empirical_resolution": 0.001199040767386091,
+        "binomial_standard_error": 0.00034625436651533403,
+        "approx_95_halfwidth": 0.0006786460878597862,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 834,
+        "hypothetical_rate": 0.0005,
+        "expected_accepted": 0.417,
+        "empirical_resolution": 0.001199040767386091,
+        "binomial_standard_error": 0.0007740934203965301,
+        "approx_95_halfwidth": 0.0015171952246466217,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 834,
+        "hypothetical_rate": 0.001,
+        "expected_accepted": 0.834,
+        "empirical_resolution": 0.001199040767386091,
+        "binomial_standard_error": 0.0010944595591517784,
+        "approx_95_halfwidth": 0.00214510131847307,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 834,
+        "hypothetical_rate": 0.005,
+        "expected_accepted": 4.17,
+        "empirical_resolution": 0.001199040767386091,
+        "binomial_standard_error": 0.0024423815872516323,
+        "approx_95_halfwidth": 0.00478697994751697,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 834,
+        "hypothetical_rate": 0.01,
+        "expected_accepted": 8.34,
+        "empirical_resolution": 0.001199040767386091,
+        "binomial_standard_error": 0.003445359719553577,
+        "approx_95_halfwidth": 0.0067527809641100296,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1200,
+        "hypothetical_rate": 0.0001,
+        "expected_accepted": 0.12000000000000001,
+        "empirical_resolution": 0.0008333333333333334,
+        "binomial_standard_error": 0.0002886607004772212,
+        "approx_95_halfwidth": 0.0005657645766874573,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1200,
+        "hypothetical_rate": 0.0005,
+        "expected_accepted": 0.6,
+        "empirical_resolution": 0.0008333333333333334,
+        "binomial_standard_error": 0.0006453358298849781,
+        "approx_95_halfwidth": 0.0012648349845078238,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1200,
+        "hypothetical_rate": 0.001,
+        "expected_accepted": 1.2,
+        "empirical_resolution": 0.0008333333333333334,
+        "binomial_standard_error": 0.0009124143795447329,
+        "approx_95_halfwidth": 0.0017882993228841354,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1200,
+        "hypothetical_rate": 0.005,
+        "expected_accepted": 6.0,
+        "empirical_resolution": 0.0008333333333333334,
+        "binomial_standard_error": 0.0020361319538117696,
+        "approx_95_halfwidth": 0.00399074529724224,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1200,
+        "hypothetical_rate": 0.01,
+        "expected_accepted": 12.0,
+        "empirical_resolution": 0.0008333333333333334,
+        "binomial_standard_error": 0.0028722813232690144,
+        "approx_95_halfwidth": 0.005629567947074314,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 2000,
+        "hypothetical_rate": 0.0001,
+        "expected_accepted": 0.2,
+        "empirical_resolution": 0.0005,
+        "binomial_standard_error": 0.00022359561713056902,
+        "approx_95_halfwidth": 0.00043823935667692225,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 2000,
+        "hypothetical_rate": 0.0005,
+        "expected_accepted": 1.0,
+        "empirical_resolution": 0.0005,
+        "binomial_standard_error": 0.0004998749843710925,
+        "approx_95_halfwidth": 0.0009797369661398634,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 2000,
+        "hypothetical_rate": 0.001,
+        "expected_accepted": 2.0,
+        "empirical_resolution": 0.0005,
+        "binomial_standard_error": 0.0007067531393633848,
+        "approx_95_halfwidth": 0.0013852106991128514,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 2000,
+        "hypothetical_rate": 0.005,
+        "expected_accepted": 10.0,
+        "empirical_resolution": 0.0005,
+        "binomial_standard_error": 0.0015771810295587506,
+        "approx_95_halfwidth": 0.0030912180150349526,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 2000,
+        "hypothetical_rate": 0.01,
+        "expected_accepted": 20.0,
+        "empirical_resolution": 0.0005,
+        "binomial_standard_error": 0.0022248595461286987,
+        "approx_95_halfwidth": 0.004360644581072379,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 20000,
+        "hypothetical_rate": 0.0001,
+        "expected_accepted": 2.0,
+        "empirical_resolution": 5e-05,
+        "binomial_standard_error": 7.070714249635605e-05,
+        "approx_95_halfwidth": 0.00013858345274259934,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 20000,
+        "hypothetical_rate": 0.0005,
+        "expected_accepted": 10.0,
+        "empirical_resolution": 5e-05,
+        "binomial_standard_error": 0.0001580743495953724,
+        "approx_95_halfwidth": 0.0003098200320865234,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 20000,
+        "hypothetical_rate": 0.001,
+        "expected_accepted": 20.0,
+        "empirical_resolution": 5e-05,
+        "binomial_standard_error": 0.0002234949663862701,
+        "approx_95_halfwidth": 0.00043804208484307926,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 20000,
+        "hypothetical_rate": 0.005,
+        "expected_accepted": 100.0,
+        "empirical_resolution": 5e-05,
+        "binomial_standard_error": 0.0004987484335815,
+        "approx_95_halfwidth": 0.000977528967165507,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 20000,
+        "hypothetical_rate": 0.01,
+        "expected_accepted": 200.0,
+        "empirical_resolution": 5e-05,
+        "binomial_standard_error": 0.0007035623639735144,
+        "approx_95_halfwidth": 0.0013789568942659486,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 100000,
+        "hypothetical_rate": 0.0001,
+        "expected_accepted": 10.0,
+        "empirical_resolution": 1e-05,
+        "binomial_standard_error": 3.162119542332326e-05,
+        "approx_95_halfwidth": 6.197640417781637e-05,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 100000,
+        "hypothetical_rate": 0.0005,
+        "expected_accepted": 50.0,
+        "empirical_resolution": 1e-05,
+        "binomial_standard_error": 7.06929982388638e-05,
+        "approx_95_halfwidth": 0.00013855573050732645,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 100000,
+        "hypothetical_rate": 0.001,
+        "expected_accepted": 100.0,
+        "empirical_resolution": 1e-05,
+        "binomial_standard_error": 9.994998749374609e-05,
+        "approx_95_halfwidth": 0.0001958983757429711,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 100000,
+        "hypothetical_rate": 0.005,
+        "expected_accepted": 500.0,
+        "empirical_resolution": 1e-05,
+        "binomial_standard_error": 0.00022304708023195463,
+        "approx_95_halfwidth": 0.0004371642441114468,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 100000,
+        "hypothetical_rate": 0.01,
+        "expected_accepted": 1000.0,
+        "empirical_resolution": 1e-05,
+        "binomial_standard_error": 0.0003146426544510455,
+        "approx_95_halfwidth": 0.0006166882707241303,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 612858,
+        "hypothetical_rate": 0.0001,
+        "expected_accepted": 61.2858,
+        "empirical_resolution": 1.6316993496046393e-06,
+        "binomial_standard_error": 1.2773160061901983e-05,
+        "approx_95_halfwidth": 2.5034933690093287e-05,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 612858,
+        "hypothetical_rate": 0.0005,
+        "expected_accepted": 306.42900000000003,
+        "empirical_resolution": 1.6316993496046393e-06,
+        "binomial_standard_error": 2.855594071230921e-05,
+        "approx_95_halfwidth": 5.596861534078709e-05,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 612858,
+        "hypothetical_rate": 0.001,
+        "expected_accepted": 612.8580000000001,
+        "empirical_resolution": 1.6316993496046393e-06,
+        "binomial_standard_error": 4.037409627787394e-05,
+        "approx_95_halfwidth": 7.913177461298554e-05,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 612858,
+        "hypothetical_rate": 0.005,
+        "expected_accepted": 3064.29,
+        "empirical_resolution": 1.6316993496046393e-06,
+        "binomial_standard_error": 9.009830333742739e-05,
+        "approx_95_halfwidth": 0.00017658942960952257,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 612858,
+        "hypothetical_rate": 0.01,
+        "expected_accepted": 6128.58,
+        "empirical_resolution": 1.6316993496046393e-06,
+        "binomial_standard_error": 0.00012709769298097402,
+        "approx_95_halfwidth": 0.00024910690076083823,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1000000,
+        "hypothetical_rate": 0.0001,
+        "expected_accepted": 100.0,
+        "empirical_resolution": 1e-06,
+        "binomial_standard_error": 9.999499987499376e-06,
+        "approx_95_halfwidth": 1.959865983890749e-05,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1000000,
+        "hypothetical_rate": 0.0005,
+        "expected_accepted": 500.0,
+        "empirical_resolution": 1e-06,
+        "binomial_standard_error": 2.235508890610816e-05,
+        "approx_95_halfwidth": 4.381516912716289e-05,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1000000,
+        "hypothetical_rate": 0.001,
+        "expected_accepted": 1000.0,
+        "empirical_resolution": 1e-06,
+        "binomial_standard_error": 3.160696125855822e-05,
+        "approx_95_halfwidth": 6.194850572752687e-05,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1000000,
+        "hypothetical_rate": 0.005,
+        "expected_accepted": 5000.0,
+        "empirical_resolution": 1e-06,
+        "binomial_standard_error": 7.053367989832942e-05,
+        "approx_95_halfwidth": 0.0001382434722978024,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      },
+      {
+        "N": 1000000,
+        "hypothetical_rate": 0.01,
+        "expected_accepted": 10000.0,
+        "empirical_resolution": 1e-06,
+        "binomial_standard_error": 9.9498743710662e-05,
+        "approx_95_halfwidth": 0.00019501395417987868,
+        "interpretation": "planning expectation/normal approximation, not an observed count or interval"
+      }
+    ],
+    "paired_precision_sensitivity": [
+      {
+        "N": 834,
+        "discordance_variance_planning_upper": 0.0002,
+        "paired_summary_EB_halfwidth": 0.029992518128475382,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 834,
+        "discordance_variance_planning_upper": 0.001,
+        "paired_summary_EB_halfwidth": 0.03192099656031577,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 834,
+        "discordance_variance_planning_upper": 0.002,
+        "paired_summary_EB_halfwidth": 0.033366042810928156,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 834,
+        "discordance_variance_planning_upper": 0.01,
+        "paired_summary_EB_halfwidth": 0.03946442707405356,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 1200,
+        "discordance_variance_planning_upper": 0.0002,
+        "paired_summary_EB_halfwidth": 0.021053911239834126,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 1200,
+        "discordance_variance_planning_upper": 0.001,
+        "paired_summary_EB_halfwidth": 0.022661619297331233,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 1200,
+        "discordance_variance_planning_upper": 0.002,
+        "paired_summary_EB_halfwidth": 0.023866306091960523,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 1200,
+        "discordance_variance_planning_upper": 0.01,
+        "paired_summary_EB_halfwidth": 0.02895032536625633,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 2000,
+        "discordance_variance_planning_upper": 0.0002,
+        "paired_summary_EB_halfwidth": 0.012855485570105631,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 2000,
+        "discordance_variance_planning_upper": 0.001,
+        "paired_summary_EB_halfwidth": 0.014100810876555585,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 2000,
+        "discordance_variance_planning_upper": 0.002,
+        "paired_summary_EB_halfwidth": 0.015033957255154632,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 2000,
+        "discordance_variance_planning_upper": 0.01,
+        "paired_summary_EB_halfwidth": 0.018972021651383668,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 20000,
+        "discordance_variance_planning_upper": 0.0002,
+        "paired_summary_EB_halfwidth": 0.0015028625390256238,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 20000,
+        "discordance_variance_planning_upper": 0.001,
+        "paired_summary_EB_halfwidth": 0.0018966689786485272,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 20000,
+        "discordance_variance_planning_upper": 0.002,
+        "paired_summary_EB_halfwidth": 0.0021917557733196064,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 20000,
+        "discordance_variance_planning_upper": 0.01,
+        "paired_summary_EB_halfwidth": 0.0034370810797695614,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 100000,
+        "discordance_variance_planning_upper": 0.0002,
+        "paired_summary_EB_halfwidth": 0.00037932432150346816,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 100000,
+        "discordance_variance_planning_upper": 0.001,
+        "paired_summary_EB_halfwidth": 0.0005554399152982639,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 100000,
+        "discordance_variance_planning_upper": 0.002,
+        "paired_summary_EB_halfwidth": 0.0006874067417276749,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 100000,
+        "discordance_variance_planning_upper": 0.01,
+        "paired_summary_EB_halfwidth": 0.0012443331495922464,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 612858,
+        "discordance_variance_planning_upper": 0.0002,
+        "paired_summary_EB_halfwidth": 9.619946800618263e-05,
+        "target": 0.0001,
+        "meets_planning_width": true
+      },
+      {
+        "N": 612858,
+        "discordance_variance_planning_upper": 0.001,
+        "paired_summary_EB_halfwidth": 0.00016734012663158695,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 612858,
+        "discordance_variance_planning_upper": 0.002,
+        "paired_summary_EB_halfwidth": 0.0002206472003926507,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 612858,
+        "discordance_variance_planning_upper": 0.01,
+        "paired_summary_EB_halfwidth": 0.00044561371589343164,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 1000000,
+        "discordance_variance_planning_upper": 0.0002,
+        "paired_summary_EB_halfwidth": 6.87404610131225e-05,
+        "target": 0.0001,
+        "meets_planning_width": true
+      },
+      {
+        "N": 1000000,
+        "discordance_variance_planning_upper": 0.001,
+        "paired_summary_EB_halfwidth": 0.00012443310179957964,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 1000000,
+        "discordance_variance_planning_upper": 0.002,
+        "paired_summary_EB_halfwidth": 0.00016616467650968413,
+        "target": 0.0001,
+        "meets_planning_width": false
+      },
+      {
+        "N": 1000000,
+        "discordance_variance_planning_upper": 0.01,
+        "paired_summary_EB_halfwidth": 0.00034228027030447984,
+        "target": 0.0001,
+        "meets_planning_width": false
+      }
+    ],
+    "required_signal_sample_sizes": [
+      {
+        "variance_upper_assumption": 0.0002,
+        "required_N_signal": 579973,
+        "planning_halfwidth": 9.999989129448421e-05,
+        "assumption": "V(D)<=q; worst fully correlated seed differences; observed variance may differ"
+      },
+      {
+        "variance_upper_assumption": 0.001,
+        "required_N_signal": 1450034,
+        "planning_halfwidth": 9.999997549142383e-05,
+        "assumption": "V(D)<=q; worst fully correlated seed differences; observed variance may differ"
+      },
+      {
+        "variance_upper_assumption": 0.002,
+        "required_N_signal": 2481145,
+        "planning_halfwidth": 9.999998953480189e-05,
+        "assumption": "V(D)<=q; worst fully correlated seed differences; observed variance may differ"
+      },
+      {
+        "variance_upper_assumption": 0.01,
+        "required_N_signal": 10618749,
+        "planning_halfwidth": 9.999999534084597e-05,
+        "assumption": "V(D)<=q; worst fully correlated seed differences; observed variance may differ"
+      }
+    ],
+    "zero_variance_bound_at_N20000": 0.0011842664368764033,
+    "zero_variance_minimum_N_signal": 236843,
+    "original_calibration_expected_tail": 74.82300000000001,
+    "original_calibration_empirical_resolution": 1.3364874437004664e-05,
+    "original_calibration_rate_SE_planning": 0.00011554873241436992
+  },
+  "resources": {
+    "status": "proposed ceilings, not granted budget or measured feasibility",
+    "historical_aggregate_training": {
+      "source": "docs/handoffs/0008-autoencoder-convergence.md",
+      "epochs": 396,
+      "training_seconds": [
+        59.70038225,
+        59.063456375
+      ],
+      "core_seconds": [
+        66.846885583,
+        66.036752583
+      ],
+      "peak_RSS_bytes": [
+        2051489792,
+        2553315328
+      ],
+      "native_reserved": "not recorded",
+      "scope": "legacy full-store/orchestration; not current narrow-reader guarded activation-comparison performance"
+    },
+    "training_projection_seconds_per_fit": 603.0341641414141,
+    "projection_formula": "4*max(two historical training seconds)/396*1000; safety factor is design assumption; identity-arm and guarded cost unmeasured",
+    "future_limits": {
+      "prerequisites_seconds": 60,
+      "pair_initialization_seconds": 60,
+      "fit_seconds_each": 900,
+      "fit_workers_max": 6,
+      "calibration_seconds_each": 120,
+      "calibration_workers_default": 6,
+      "calibration_workers_max": 7,
+      "freeze_seconds": 60,
+      "background_development_reporting_seconds": 120,
+      "parent_finalization_seconds": 15,
+      "background_development_session_seconds": 6600,
+      "cleanup_seconds_inside_each_worker": 2,
+      "initialization_RSS_bytes": 1073741824,
+      "fit_RSS_bytes": 3221225472,
+      "calibration_RSS_bytes": 3221225472,
+      "native_reserved_bytes": 536870912,
+      "controller_RSS_bytes": 134217728,
+      "report_RSS_bytes": 1073741824,
+      "guard_journal_per_worker_bytes": 67108864,
+      "log_per_worker_bytes": 1048576,
+      "development_storage_bytes": 1073741824
+    },
+    "future_confirmation": {
+      "status": "not ready; no granted transport/preparation/scoring budget",
+      "prerequisites_seconds": 60,
+      "audit_seconds_per_source_provisional": 600,
+      "preparation_seconds_per_source_provisional": 600,
+      "sources_max": 2,
+      "raw_rows_per_source_max": 4000000,
+      "signal_rows_max": 4000000,
+      "background_rows_max": 612858,
+      "scoring_seconds_per_candidate_provisional": 600,
+      "candidates_max": 9,
+      "numerical_scoring_workers_max": 1,
+      "numerical_scoring_worker_seconds_provisional": 5400,
+      "scoring_guard_journal_bytes": 536870912,
+      "other_guard_journal_bytes": 67108864,
+      "aggregate_analysis_seconds_provisional": 120,
+      "parent_finalization_seconds": 15,
+      "session_seconds_provisional": 8400,
+      "worker_RSS_bytes": 3221225472,
+      "preparation_chunk_rows_max": 992,
+      "score_batch_rows": 4096,
+      "native_reserved_bytes": 536870912,
+      "controller_RSS_bytes": 134217728,
+      "working_storage_bytes": 17179869184,
+      "free_disk_admission_bytes": 21474836480,
+      "max_selected_archive_extraction_bytes": 7516192768,
+      "large_N_requires_new_storage_time_acceptance": true,
+      "projection_evidence": {
+        "source": "results/tables/final/task0031-local-three-prong-evaluation-summary.json",
+        "prepare_parent_elapsed_seconds_at_N100000": 13.821576000016648,
+        "max_PCA_AE_parent_elapsed_seconds_at_N100000": 2.452940999995917,
+        "audit_plus_prepare_projection_seconds_per_source_at_raw_N4000000": 1105.7260800013319,
+        "score_projection_seconds_per_candidate_at_total_N4612858": 452.6027406143666,
+        "assumptions": "linear row scaling;2x preparation and4x score safety factors are design assumptions; source formats/audit/guards/cache costs may differ; larger counts require separate prospective plan before acquisition"
+      },
+      "transport_deadline": "unassigned: requires separate size/network/selected-member plan and authorization"
+    },
+    "policies": [
+      "continuousclockTask0030",
+      "temporaryverifiedownedidlesleepassertion;displayallowed;releaseverified",
+      "normalexit/reaping/bodyandparentacceptance",
+      "WARNadvisory/CRITICALveto",
+      "invalidprimaryaccountingveto/unavailablepressuredisclosed",
+      "globalRAMcontextonly",
+      "oneattemptstate/noautomaticretryorallowancereset",
+      "noidleMac/appclosure/polling/monitoroptimization"
+    ],
+    "no_diagnostic_or_particle_training_time_proxy": true
+  },
+  "future_access_accounting": {
+    "pair_initialization": "3syntheticparameterdocuments;0populations",
+    "fit_workers": "6workers,each2feature populations/train+selection;12requests/4648236unique-per-worker feature rows;membership3*1100000eachworker=19800000records",
+    "calibration_workers": "6default workers,each1calibrationfeature population;6requests/448938rows;membership19800000records;6score computations/24thresholds; optionalPCA3 adds1request/74823rows/3300000membershiprecords/1scorecomputation/4thresholds",
+    "max_epoch_presentations": 4652884236,
+    "max_optimizer_updates": 1026000,
+    "batch_tails": {
+      "training": 3637,
+      "selection": 1021,
+      "calibration": 1095
+    },
+    "confirmation": "ONE isolated numerical scoring worker owns2featurepopulationrequests/N_BG+N_SIGrows reused by8default(9max)sequential candidate phases; stdlib parent never owns population buffers;M*(N_BG+N_SIG)forwardpresentations;0oldscorecacheloads;futurebyte/header,rawcustody,labels/IDs/overlapaudits accounted separately",
+    "confirmation_aggregates": "64acceptancepatterncounts for6primarymodels atalpha=.001; sixper-model counts/fourthresholds; no event bootstrap/per-eventexport/weightaveraging/ensemble"
+  },
+  "readiness": {
+    "implementation": "design ready; Task0035 proposed synthetic-only research factory/pairing/uncertainty/boundary/lifecycle software; NOT launched",
+    "training": "not ready: new implementation/currentsource synthetic/native acceptance, exact original-input identities and separately authorized bounded6fit+calibration plan required",
+    "confirmation": "not ready: full-event new signal/unit/count/SR/generation provenance/overlap/precision/storage prerequisites; separate acquisition and confirmation authorizations"
+  },
+  "implementation_synthetic_limits": {
+    "status": "proposal only; no current acceptance or execution grant",
+    "native_integrations_max": 1,
+    "worker_seconds": 60,
+    "whole_session_seconds": 120,
+    "parent_finalization_seconds": 15,
+    "cleanup_inside_worker_seconds": 2,
+    "worker_RSS_bytes": 1073741824,
+    "native_reserved_bytes": 536870912,
+    "controller_RSS_bytes": 134217728,
+    "guard_journal_bytes": 67108864,
+    "log_bytes": 1048576,
+    "storage_bytes": 134217728,
+    "synthetic_optimizer_steps_per_arm_seed_max": 2,
+    "no_real_source_or_fit": true
+  },
+  "task0035_brief": "Implement only minimal separate research schema/factory, exact paired tensors and loader-permutation proofs, own best-state restoration, finite FP64SSE/higherstrictcalibration, bounded shared-event acceptance arithmetic and synthetic source/role/lifecycle tests. No real populations/training/acquisition/confirmation absent explicit later authorization; no new dependency/infrastructure project."
+}

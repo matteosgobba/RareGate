@@ -9,16 +9,16 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.28 |
+| Memory revision | 1.29 |
 | Last factual verification | 2026-10-12, Europe/Rome |
-| Last completed phase | 0033 — one accepted exploratory frozen-feature/score diagnostic session;24feature/6score marginals,48rank associations,24original tail counts/192profiles,16suppressed feature rows/two curated figures |
-| Latest task outcome | New diagnostics read350471feature rows/700942stored scores plus3300000membership records; strict profiles differ across populations, with weak global associations not excluding distinct tails. No causal mechanism, residual attribution, selected feature/cut, tail repair or independent confirmation. Zero new model/reconstruction/AUC-AP/significance/fingerprint/optimizer/download work; Task0032 baseline remains complete |
+| Last completed phase | 0034 — design-only paired ReLU/identity aggregate AE comparison and conditional independent-confirmation protocol; no implementation or campaign launched |
+| Latest task outcome | Same8→6→3→6→8 biased layers/bottleneck3/155parameters, three fixed paired seeds, exact background-only recipe/own checkpoints/calibration, primary alpha0.001, shared-event uncertainty and fixed decision gates. Preferred extra SR QCD/new XtoYYprime route remains unaccepted: full-event signal coverage, counts, generation independence, overlap and precision unresolved. Nineteen synthetic assertions and metadata/consistency checks; zero operational numerical/model/fit/calibration/event-payload work. Task0032 complete and Task0033 accepted exploratory |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0033 base | `a671b9843f0913d7324df2dfa1a03bb60d16f07b`, actual committed Task0032; clean main/origin/main and empty index at Task0033 start. No new commit/push/hosted CI claimed |
+| Verified HEAD / Task0034 base | `c9f9bc5317f575ff2e29566214db20609745fcc1`, actual committed Task0033; clean main/origin/main and empty index at Task0034 start. Task0033's historical base `a671b98` is preserved in its records. No Task0034 commit/push/hosted CI claimed |
 | Current compact neural baseline | `compact-autoencoder-v2` |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Preserve the completed baseline and explicitly exploratory Task0033 evidence. Define a separately authorized independent-confirmation protocol with capacity/representation controls before result-informed development; no favorable feature/candidate/threshold selected, no automaticTask0034. Exposed reshuffling cannot supply a fresh test |
-| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 adds3feature requests/350471rows and6stored score loads/700942values, plus3full membership arrays/3300000records. No new forward/reconstruction/fingerprint load; no inflight. These samples cannot be reblinded or described as untouched |
+| Next action | Task0035 proposed synthetic-only research factory/pairing/checkpoint/uncertainty/boundary/lifecycle implementation; requires its own explicit authorization, not launched. Training awaits current-source synthetic/native acceptance and a separate bounded plan; acquisition/confirmation await source/full-event/count/independence/precision/storage acceptance and separate scopes. No exposed-test rescoring, favorable seed/cut or particle budget reset |
+| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows and6stored score loads/700942values, plus3full membership arrays/3300000records. Task0034 adds zero population/features/scores/membership/fingerprint/forward/reconstruction/calibration/evaluation/optimizer/event-payload work; no inflight. These samples cannot be reblinded or described as untouched |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
 
@@ -323,10 +323,63 @@ independent confirmation. Both readable median/IQR and quantile figures are
 curated; the third heatmap fails visual curation because its colorbar overlaps,
 remains ignored/unchanged, and all48coefficients are delivered in the table.
 
-Supported next decision is a separately authorized independent-confirmation
-protocol with representation/capacity controls before informed development.
-Permanent exposureYES/YES/YES and historical consumed failures/particle192 are
-preserved. No Task0034, test launch, retry, source or plan mutation after reservation.
+At Task0033 completion, the next decision was a separately authorized independent-
+confirmation protocol with representation/capacity controls. Task0034 now supplies
+that design below. Permanent exposureYES/YES/YES and historical consumed failures /
+particle192 are preserved; Task0033 had no successor launch, retry, source or plan
+mutation after reservation.
+
+### Controlled activation follow-up — Task0034 design completed
+
+[Protocol](controlled-follow-up-protocol.md),
+[design-only sidecar](../configs/research/controlled_follow_up_v1.json),
+[source registry](../results/tables/final/task0034-confirmation-source-registry.csv)
+and [curated summary](../results/tables/final/task0034-controlled-follow-up-summary.json)
+fix one question: two ReLUs versus identities at the same existing locations,
+same8→6→3→6→8 biased layers/155parameters/bottleneck3, seeds1729/1730/1731.
+Paired named initial tensors and actual loader-permutation hashes, exact Adam /
+batch4096/max1000/patience15/min_delta0, own selected-state restore and own four
+background thresholds are required; all six fits reported, no best seed/ensemble.
+Old AE/PCA-six stay frozen references. Optional PCA-three is a separately identified,
+calibrated leading-three-axis derivative, not parameter matched; no numerical
+components inspected. Activation includes optimizer/checkpoint interaction, not
+global optimization or causal physics. Eta symmetry, residual attribution and
+richer particles remain deferred.
+
+Primary alpha0.001 compares equal-weight paired TPR across the three fixed pairs,
+with six realized background FPRs. Shared event-level acceptance differences,
+empirical Bernstein bounds and family error allocation0.05 preserve dependence;
+same events are not3N. Conditional uncertainty excludes calibration/training /
+simulation uncertainty. All six background bounds must fit[0.00075,0.00125],
+paired FPR upper≤0.0001; practical nonlinear TPR advantage requires lower>0.0002,
+signal halfwidth≤0.0001 plus source/precision/lifecycle gates. Negative,
+equivalent and inconclusive outcomes are specified. All secondary cuts reported
+descriptively; Wilson overlap alone cannot establish improvement.
+
+Three primary Zenodo records/16file rows are metadata-verified, zero accepted.
+Preferred route is additional612858Cartesian full-event QCD rows restricted to
+mJJ3.3–3.7TeV plus newly generated XtoYYprime. New signal jet-constituent versus
+full-event coverage, units/counts/SR membership/generation runs, overlap and
+expanded storage are unresolved. Old R&D EFPs remain exposed events; public BB
+keys do not restore challenge blindness. This route could support independent
+discrimination in a transported SR, not replication of the original topology
+pair. Conservative planning needs≥236843signals even at zero observed variance;
+variance0.001 scenario needs1450034. Publisher's≈20000analysis subset is not total
+source count and insufficient for the specified precision. Fresh BG with old
+signals supplies only fresh-background-rate evidence.
+
+Task0034 makes24logical URL/GET attempts plus6text finds, including3accepted API
+JSON bodies/30856bytes; no payload/key rows/archives. Nineteen synthetic
+assertions,35rate/28variance scenarios/five minimum-N solves and design checks
+use curated/config/source text only. No tracked code/dependency/new controller /
+plot/full operational suite. Historical input bytes are preserved except intended
+living documents. Implementation design is ready; Task0035 synthetic-only brief
+is proposed, not launched. Six-fit development projection603s/fit→900s cap /
+6600s whole/3GiB RSS is based on Task0008 aggregate evidence with explicit safety
+assumptions, not Task0033 or particle timing. Confirmation8400s/16GiB working
+envelope is conditional and ungranted; source counts/storage can invalidate it.
+Continuous deadlines/scoped verified sleep assertion/release and parent lifecycle
+remain required. Acquisition, development and confirmation need separate scopes.
 
 ## 2. Vision, motivation, and research question
 
@@ -1278,7 +1331,7 @@ The roadmap is dependency-driven. Dates, speedups, and physical trigger budgets 
 | NVIDIA / TensorRT | Comparable workload on documented supported hardware, engine provenance and transfer-aware timing | Conditional |
 | FPGA / hls4ml | Compatible fixed-point model and synthesis/resource/latency evidence; board measurements if available | Optional |
 | Final test unblinding | Explicit human-authorized frozen plan and thresholds; audited real metrics | Completed/accepted Task0026 Phase B; both tests exposed,4requests/500942presentations, frozen candidates/thresholds unchanged, no retry or post-test tuning |
-| Initial final reporting | Frozen native quality/cost comparison, scoped uncertainty, reproducibility, limitations and conclusions | Completed Task0027/0032; Task0033 adds exploratory feature/score descriptions; causal feature bias and independent generalization remain unresolved |
+| Initial final reporting | Frozen native quality/cost comparison, scoped uncertainty, reproducibility, limitations and conclusions | Completed Task0027/0032; Task0033 adds exploratory descriptions; Task0034 defines a controlled conditional follow-up, without implementation/independent confirmation |
 
 NVIDIA and FPGA branches need not block the main report if resources are unavailable. Report unexecuted branches honestly. Final unblinding must not occur merely because another milestone completes.
 
@@ -1309,7 +1362,7 @@ Scientific result: evaluated test mixture39.924782%signal; PCA AUC0.468489/AP0.3
 - **Reduced-precision study:** Compare supported precision variants using training-only calibration and preregistered tolerances; freeze variant thresholds before final test.
 - **Streaming study:** Establish repeatable simulator assumptions and load scenarios, then evaluate queueing/capacity/latency and acceptance.
 - **Conditional deployment branches:** NVIDIA/TensorRT and optional FPGA/hls4ml as resources permit.
-- **Integrated scientific reporting:** Task0032 closes the frozen baseline; Task0033 adds accepted exploratory feature/score descriptions, not causal feature bias or repaired tails. Capacity, independent generalization and physical deployment remain separate; informed development requires disclosed influence and independent confirmation, never exposed-sample reshuffling. No automaticTask0034.
+- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 adds accepted exploratory descriptions. Task0034 designs paired activation arms with own calibration, fixed conditional uncertainty/criteria and a conditional new-source route. Task0035 synthetic-only software is proposed, not launched; fitting/acquisition/confirmation require separate plans and authorization, full-event/count/generation/precision prerequisites remain. Exposure/result-informed origin, failed campaigns and particle192 are preserved.
 
 Do not treat these bullets as already executed tasks or fixed task numbers. Choose the next bounded task from the live state, dependency order, unresolved evidence, and user direction.
 
@@ -1519,6 +1572,7 @@ commands. Do not automatically stage, commit, push, or unblind real test data.
 - [Data design](data-design.md), [raw audit](raw-data-audit.md), [training EDA](training-data-eda.md).
 - [Preprocessing contract](preprocessing-contract.md), [pipeline](preprocessing-pipeline.md), [frozen configuration](../configs/data/lhco_rnd_v5.json).
 - [Evaluation protocol](evaluation-protocol.md).
+- [Controlled follow-up protocol](controlled-follow-up-protocol.md), [design-only sidecar](../configs/research/controlled_follow_up_v1.json), [Task0034 source registry](../results/tables/final/task0034-confirmation-source-registry.csv), [summary](../results/tables/final/task0034-controlled-follow-up-summary.json) and [handoff](handoffs/0034-controlled-follow-up-protocol.md).
 - [Exploratory frozen-feature and score-tail diagnostics](exploratory-feature-score-diagnostics.md), [Task0033 summary](../results/tables/final/task0033-exploratory-feature-score-summary.json), [feature/score associations](../results/tables/final/task0033-feature-score-associations.csv) and [handoff](handoffs/0033-exploratory-feature-score-diagnostics.md).
 - [Integrated two-/three-prong synthesis and decision brief](two-three-prong-synthesis.md), [Task0032 summary](../results/tables/final/task0032-two-three-prong-synthesis-summary.json), [calibrated utility](../results/tables/final/task0032-calibrated-utility.csv), [quality/cost](../results/tables/final/task0032-quality-cost.csv) and [handoff](handoffs/0032-two-three-prong-synthesis.md).
 - [Integrated frozen scientific synthesis](scientific-synthesis.md), [Task0027 summary](../results/tables/final/task0027-frozen-scientific-synthesis-summary.json), [quality/cost CSV](../results/tables/final/task0027-quality-cost-frontier.csv) and [operating interpretation](../results/tables/final/task0027-operating-point-interpretation.csv).
@@ -1601,5 +1655,7 @@ Runtime documentation and compatibility must be rechecked when the corresponding
 | 1.27 / 2026-10-12 | Clean committed Task0031 bf6a5c3; offline20-source synthesis completes frozen two-/three-prong baseline:4global/16calibrated/8topology/10CPU groups/3figures, all cuts/shared background preserved. AE advantage weaker on three prong; both strict selected fractions below mixture. Post-evaluation arithmetic/no significance/mechanism; B4096quality vs historical prepared-feature CPU costs. New access/arrays/scoring/fingerprints/optimizer/downloads0, permanentYES/YES/YES; next explicit exploratory/methodology decision with independent confirmation; no0033 or particle budget reset | Task0032 pinned curated registry, boundary-enforced separate helper, focused synthetic tests, report/tables/figures and decision matrix; historical evidence/dependencies unchanged |
 
 | 1.28 / 2026-10-12 | Clean committed Task0032a671b98; one authorized exploratory8.778443s session after200-source/43-package/90new/179focused/1728full+portable acceptance.3features/350471rows,6scores/700942values,3membership loads/3300000records;24/6marginals/48rho/24exacttails/192profiles/16suppressed/two curated figures. Distinct profiles and weak global associations yield hypotheses, no residual/causal/selection/tail-repair/independent claim. Zero new forwards/reconstruction/AUC-AP/significance/FP/optimizer/download; all3exposureYES, baseline/failed campaigns/particle192 preserved. Next independent-confirmation methodology/no0034 | Task0033 actual prompt/frozen acceptance/plan/sole parent receipts/access/resource/assertion evidence, report/tables and visual QA; source unchanged after reservation |
+
+| 1.29 / 2026-10-12 | Clean committed Task0033c9f9bc5 reconciled; Task0034 design-only ReLU/identity155parameter/bottleneck3/three-paired-seed comparison, exact background recipe/own calibration, alpha0.001/shared-event bounds/fixed gates.3publisher records/16metadata rows/0accepted; extra SR QCD+new XtoYYprime conditional on full-event/count/independence/precision/storage.19synthetic assertions and metadata/design checks, zero new operational access/model/fit/calibration/payload; YES/YES/YES/baseline/failed campaigns/particle192 preserved. Synthetic-onlyTask0035 proposed, no launch; training/acquisition/confirmation ungranted | Actual prompt, protocol/design-only sidecar, source registry/curated summary, prospective resource/access brief and handoff; Task0033 historicala671b98base unchanged |
 
 Keep future entries short and focused on project-level changes. Update current-state sections in place; the revision table is not a second task log.

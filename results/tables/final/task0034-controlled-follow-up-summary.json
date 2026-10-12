@@ -1,0 +1,411 @@
+{
+  "task": "0034",
+  "status": "design_only_complete_conditional",
+  "date": "2026-10-12 Europe/Rome",
+  "base_HEAD": "c9f9bc5317f575ff2e29566214db20609745fcc1",
+  "branch": "main",
+  "upstream": "origin/main",
+  "initial_clean": true,
+  "index_empty": true,
+  "prior_memory": "1.28",
+  "new_memory": "1.29",
+  "baseline_preserved": true,
+  "Task0035_launched": false,
+  "counters": {
+    "original_test_background model/evaluation accessed": "YES",
+    "original_test_signal model/evaluation accessed": "YES",
+    "three_prong_signal model/evaluation accessed": "YES",
+    "new_operational_population_requests_in_Task0034": 0,
+    "new_feature_rows_read_in_Task0034": 0,
+    "new_stored_score_array_loads_in_Task0034": 0,
+    "new_membership_or_fingerprint_numeric_loads_in_Task0034": 0,
+    "new_model_forward_calls_in_Task0034": 0,
+    "new_reconstruction_computations_in_Task0034": 0,
+    "new_calibration_or_scientific_evaluations_in_Task0034": 0,
+    "optimizer_updates_in_Task0034": 0,
+    "event_payload_downloads_in_Task0034": 0
+  },
+  "question": "Under fixed background-only training, how does replacing the two ReLUs with identities change independent strict-tail signal/background acceptance at equal representation/bottleneck/layers/parameter count?",
+  "design_sidecar": {
+    "path": "configs/research/controlled_follow_up_v1.json",
+    "file_sha256": "caf2e949f48a3ecf8e8a90306bab49986deb07f4701c4b9689a0d755b5e1b39e",
+    "canonical_sha256": "cf39816a9eefacfe075e9e02a84ee943bd8f7e19bc2e1d3317120d04d1659d8e",
+    "execution_authorized": false
+  },
+  "motivating_aggregates": {
+    "PCA_retained_dimension": 6,
+    "historical_AE_bottleneck": 3,
+    "AE_score_marginals": [
+      {
+        "population": "background",
+        "count": "150471",
+        "q0.5": "1.237087380318145",
+        "q0.999": "15.720911284067139"
+      },
+      {
+        "population": "two_prong",
+        "count": "100000",
+        "q0.5": "2.008749135648017",
+        "q0.999": "15.001870708947788"
+      },
+      {
+        "population": "three_prong",
+        "count": "100000",
+        "q0.5": "1.5766393481740306",
+        "q0.999": "14.419350847699981"
+      }
+    ],
+    "strict_AE_counts": [
+      {
+        "population": "background",
+        "threshold": "16.642218868621573",
+        "denominator": "150471",
+        "accepted_count": "116",
+        "accepted_fraction": "0.0007709126675572038"
+      },
+      {
+        "population": "two_prong",
+        "threshold": "16.642218868621573",
+        "denominator": "100000",
+        "accepted_count": "56",
+        "accepted_fraction": "0.00056"
+      },
+      {
+        "population": "three_prong",
+        "threshold": "16.642218868621573",
+        "denominator": "100000",
+        "accepted_count": "34",
+        "accepted_fraction": "0.00034"
+      }
+    ],
+    "signed_eta_marginals": [
+      {
+        "population": "background",
+        "mean": "-0.000869324861276231",
+        "q0.5": "-0.001912920968607068"
+      },
+      {
+        "population": "two_prong",
+        "mean": "-0.0017665537038874027",
+        "q0.5": "-0.004854031838476658"
+      },
+      {
+        "population": "three_prong",
+        "mean": "-9.077745718778716e-05",
+        "q0.5": "0.003940200200304389"
+      }
+    ],
+    "signed_eta_AE_associations": [
+      {
+        "population": "background",
+        "spearman_rho": "-0.009297171620181358"
+      },
+      {
+        "population": "two_prong",
+        "spearman_rho": "-0.2524968466859474"
+      },
+      {
+        "population": "three_prong",
+        "spearman_rho": "-0.2858662824686529"
+      }
+    ],
+    "interpretation": "exploratory/result-informed motivation only; no symmetry-defect or causal/importance claim"
+  },
+  "input_file_byte_sha256": {
+    "configs/models/compact_autoencoder_v2.json": "dd6a808ee2e7a48767593dddf45fcbbb059afd63380a8791209521f0e59e8303",
+    "configs/models/pca_baseline.json": "5a346df7e9fe3def3c40b1a35d75d5512e4761ae8e5d9e4975f7264e269615a1",
+    "configs/data/lhco_rnd_v5.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "src/latenttrigger/models/autoencoder.py": "cf5c9507fa08404c8a287627a30201608736634e8246e298fad081201bff4738",
+    "src/latenttrigger/models/pca.py": "6c14d9a5abb5515bd137b3303ff1da693e8d1c143119496162ce705715328b4a",
+    "src/latenttrigger/training/autoencoder.py": "f89b30384ecd326fae9c090d1ec286e9cd65837b9121c4af28672f19e64b5092",
+    "src/latenttrigger/training/background.py": "4d5322385329f7d6300599ffb3d046a0ab1138f455916565fea47aee5d143d75",
+    "src/latenttrigger/evaluation/thresholds.py": "0e9b8e74eb260e66eb0efd5c289ff54f791b9501ce5bf85e43b57dfb06e2d054",
+    "docs/two-three-prong-synthesis.md": "667921ed3183480e131d05e944448942fc2ee7efe73514047450157ed8ae40cb",
+    "docs/exploratory-feature-score-diagnostics.md": "e6c0aaa43ad70e0b8c0beb132c96f1068642f891b0d3cb2e3384f7991f3143a1",
+    "docs/handoffs/0033-exploratory-feature-score-diagnostics.md": "769a2a26a998c9413926d573b790cbcb17774cdb2292046c7b3b8a47dabba9b5",
+    "docs/handoffs/0008-autoencoder-convergence.md": "226ce84e37e3b40d492a37036f7e23a8433dcdff7119a58a48e9bef14a446c90",
+    "docs/autoencoder-convergence.md": "5c20ed233e13ef6896af0f74d1bdfd88eb602315d874f0b44d820746bb307f66",
+    "docs/preprocessing-contract.md": "fe1fe361a7a0e5542300faca79e153b24437660fb1b45c993ca9b9e1b90a49b3",
+    "docs/preprocessing-pipeline.md": "125f3cb628e08b28e0075438d0e714c08eb361dd1e78e22de1bbbf16d9f68c28",
+    "docs/evaluation-protocol.md": "8f8f05ee0e1d20b33e66842dbf4810019cceb14de8354e2fb945560c86c82f52",
+    "docs/particle-canonical-feasibility.md": "77f885ed2000f73e4af8b4dcfb2650e0e5491804159e42dbd4a261f607c2ebd8",
+    "results/tables/final/task0033-exploratory-feature-score-summary.json": "a84e4aec630360280cdcf57a9729e724d5f198ac77c7b61c64b7b728e159cb85",
+    "results/tables/final/task0033-feature-marginals.csv": "73ff87cc1191546c98c32199fd25774d6b9d306b2550b356f2906f88f63b2e3c",
+    "results/tables/final/task0033-score-marginals.csv": "b563fef69b42d17fa293a1d5e91b641464dd19b539ea2a33bc34767b2d822f76",
+    "results/tables/final/task0033-feature-score-associations.csv": "24cc554070dfa43ecf28d7cc7083deeea15eee78a5ebed2786cfdce53bd0e004",
+    "results/tables/final/task0033-tail-counts.csv": "3d9d21a089142f66210f488de99c563574f6aacbcc4e3bf7556a49e955f5a0f3",
+    "results/tables/final/task0031-local-three-prong-evaluation-summary.json": "1657524c4fa1efe795f8ba97c05cdf3bcf5c75ae8189dfde693a1c0437c09ead",
+    "docs/prompts/0034-controlled-follow-up-protocol.md": "71492766714f0e64ae8ad9e23c235dae26d601d5a2fb841394b4f4d8d0cafde7"
+  },
+  "preferred_route": {
+    "preferred_route": "conditional8370758fullCartesiancQCD +18983506XtoYYprimefull-event",
+    "primary_signal": "XtoYYprime",
+    "other_signals": "not included; no substitution after results; all source candidates documented",
+    "estimand": "transported simulated signal-region acceptance using original-background calibrated thresholds; not original-topology replication",
+    "fixed_membership_rule": "background:publisherQCDrole0 and declared full SR membership; signal:label1,anti-kT R1leadingjet pT>1200GeV and3300<mJJ<3700GeV using accepted publisher jet4vectors or exact membership; no endpoint/label ambiguity accepted",
+    "membership": "freeze rule/source identity/labels/SR endpoints before payload numerical audit; freeze realized membership/identity before feature preparation; freeze all checkpoints/thresholds before confirmation numerical feature access/scoring",
+    "overlap_audit": "future separate authorized within-source/all-original1100000role/all-three-prong100000 fingerprint audit plus run/seed/event-ID provenance; conversion/rounding may defeat exact-content matches; disjointness alone not independent generation",
+    "source_accepted": false
+  },
+  "source_registry": {
+    "record_count": 3,
+    "file_metadata_rows": 16,
+    "accepted_sources": 0,
+    "path": "results/tables/final/task0034-confirmation-source-registry.csv",
+    "file_byte_sha256": "29f79c3dd01ecb928460c0bb55a12cf09053499f7d71b40c62938597b145d002"
+  },
+  "criteria": {
+    "precision_uses_unclipped_EB_halfwidth": true,
+    "background_rate_band": [
+      0.00075,
+      0.00125
+    ],
+    "all_six_simultaneous_rate_bounds_inside_band": true,
+    "nonlinear_minus_linear_background_difference_upper_max": 0.0001,
+    "practically_relevant_signal_difference": 0.0002,
+    "primary_signal_interval_halfwidth_max": 0.0001,
+    "paired_background_interval_halfwidth_max": 0.0001,
+    "each_background_rate_interval_halfwidth_max": 0.0002,
+    "improvement": "allsource/independence/precision/BGgates AND primaryDelta lower bound >0.0002",
+    "negative": "BGgates+precision pass and upperDelta <0.0002: no practically relevant nonlinear advantage; upper < -0.0002 AND paired background lower >= -0.0001: practically relevant linear advantage under precision and all-six rate gates; interval within[-0.0002,+0.0002]: practical equivalence",
+    "inconclusive": "missing source/count/independence; imprecise interval; interval crossing practical boundary; failed/ambiguous background gate; failed fit or missing restored state prevents complete prescribed set; reaching1000is valid fixed-cap outcome, not convergence; report all observed results, do not retune/retry",
+    "rationale": "benchmark design choices: 25%BGband,10%alphamaxBGdifference; absolute20signal events per100000minimum relevance; halfwidth half of relevance. Not physical trigger/purity requirements"
+  },
+  "uncertainty": {
+    "primary_estimand": "Delta_S = (1/3)sum_s(TPR_nonlin_s -TPR_lin_s) at each own frozen alpha=.001threshold",
+    "event_variable": "D_i=(1/3)sum_s(A_nonlin_s(i)-A_lin_s(i)), range[-1,1]; retain all3seed pairs; sameNevents not3N",
+    "background_estimands": "six realized FPRs +equal-seed mean paired FPR_nonlin-minus-linear contrast",
+    "secondary": "all3other calibrated alphas; allseed/candidate counts/denominators/rates; descriptive only, no selected best point/seed",
+    "method": "two-sided empirical Bernstein for bounded event-level means; unbiased sample variance preserves shared-event seed covariance; h=sqrt(2*V*ln(4/delta)/N)+7*range_width*ln(4/delta)/(3*(N-1)); clip to permissible range",
+    "method_source": "https://arxiv.org/pdf/0907.3740 theorem4 plus affine scaling/two-tail union bound",
+    "family_error_budget": {
+      "total": 0.05,
+      "primary_signal_delta": 0.025,
+      "paired_background_delta": 0.0125,
+      "each_of_six_background_rates_delta": 0.0020833333333333333
+    },
+    "conditional_rate_intervals": "Wilson95individual rates/seed rows; separate descriptive intervals, not an improvement decision or multiplicity correction; exact95one-sided zero-rate upper bound",
+    "assumptions": "i.i.d.independent source events conditional on frozen models/thresholds; no inference to all optimizer seeds; excluded calibration/training/simulation uncertainty; if generation/clustering assumptions fail, no confirmatory claim"
+  },
+  "readiness": {
+    "implementation": "design ready; Task0035 proposed synthetic-only research factory/pairing/uncertainty/boundary/lifecycle software; NOT launched",
+    "training": "not ready: new implementation/currentsource synthetic/native acceptance, exact original-input identities and separately authorized bounded6fit+calibration plan required",
+    "confirmation": "not ready: full-event new signal/unit/count/SR/generation provenance/overlap/precision/storage prerequisites; separate acquisition and confirmation authorizations"
+  },
+  "sample_planning": {
+    "rate_scenarios": 35,
+    "paired_precision_scenarios": 28,
+    "required_signal_sample_sizes": [
+      {
+        "variance_upper_assumption": 0.0002,
+        "required_N_signal": 579973,
+        "planning_halfwidth": 9.999989129448421e-05,
+        "assumption": "V(D)<=q; worst fully correlated seed differences; observed variance may differ"
+      },
+      {
+        "variance_upper_assumption": 0.001,
+        "required_N_signal": 1450034,
+        "planning_halfwidth": 9.999997549142383e-05,
+        "assumption": "V(D)<=q; worst fully correlated seed differences; observed variance may differ"
+      },
+      {
+        "variance_upper_assumption": 0.002,
+        "required_N_signal": 2481145,
+        "planning_halfwidth": 9.999998953480189e-05,
+        "assumption": "V(D)<=q; worst fully correlated seed differences; observed variance may differ"
+      },
+      {
+        "variance_upper_assumption": 0.01,
+        "required_N_signal": 10618749,
+        "planning_halfwidth": 9.999999534084597e-05,
+        "assumption": "V(D)<=q; worst fully correlated seed differences; observed variance may differ"
+      }
+    ],
+    "not_measured": true
+  },
+  "resource_projections": {
+    "status": "proposed ceilings, not granted budget or measured feasibility",
+    "historical_aggregate_training": {
+      "source": "docs/handoffs/0008-autoencoder-convergence.md",
+      "epochs": 396,
+      "training_seconds": [
+        59.70038225,
+        59.063456375
+      ],
+      "core_seconds": [
+        66.846885583,
+        66.036752583
+      ],
+      "peak_RSS_bytes": [
+        2051489792,
+        2553315328
+      ],
+      "native_reserved": "not recorded",
+      "scope": "legacy full-store/orchestration; not current narrow-reader guarded activation-comparison performance"
+    },
+    "training_projection_seconds_per_fit": 603.0341641414141,
+    "projection_formula": "4*max(two historical training seconds)/396*1000; safety factor is design assumption; identity-arm and guarded cost unmeasured",
+    "future_limits": {
+      "prerequisites_seconds": 60,
+      "pair_initialization_seconds": 60,
+      "fit_seconds_each": 900,
+      "fit_workers_max": 6,
+      "calibration_seconds_each": 120,
+      "calibration_workers_default": 6,
+      "calibration_workers_max": 7,
+      "freeze_seconds": 60,
+      "background_development_reporting_seconds": 120,
+      "parent_finalization_seconds": 15,
+      "background_development_session_seconds": 6600,
+      "cleanup_seconds_inside_each_worker": 2,
+      "initialization_RSS_bytes": 1073741824,
+      "fit_RSS_bytes": 3221225472,
+      "calibration_RSS_bytes": 3221225472,
+      "native_reserved_bytes": 536870912,
+      "controller_RSS_bytes": 134217728,
+      "report_RSS_bytes": 1073741824,
+      "guard_journal_per_worker_bytes": 67108864,
+      "log_per_worker_bytes": 1048576,
+      "development_storage_bytes": 1073741824
+    },
+    "future_confirmation": {
+      "status": "not ready; no granted transport/preparation/scoring budget",
+      "prerequisites_seconds": 60,
+      "audit_seconds_per_source_provisional": 600,
+      "preparation_seconds_per_source_provisional": 600,
+      "sources_max": 2,
+      "raw_rows_per_source_max": 4000000,
+      "signal_rows_max": 4000000,
+      "background_rows_max": 612858,
+      "scoring_seconds_per_candidate_provisional": 600,
+      "candidates_max": 9,
+      "numerical_scoring_workers_max": 1,
+      "numerical_scoring_worker_seconds_provisional": 5400,
+      "scoring_guard_journal_bytes": 536870912,
+      "other_guard_journal_bytes": 67108864,
+      "aggregate_analysis_seconds_provisional": 120,
+      "parent_finalization_seconds": 15,
+      "session_seconds_provisional": 8400,
+      "worker_RSS_bytes": 3221225472,
+      "preparation_chunk_rows_max": 992,
+      "score_batch_rows": 4096,
+      "native_reserved_bytes": 536870912,
+      "controller_RSS_bytes": 134217728,
+      "working_storage_bytes": 17179869184,
+      "free_disk_admission_bytes": 21474836480,
+      "max_selected_archive_extraction_bytes": 7516192768,
+      "large_N_requires_new_storage_time_acceptance": true,
+      "projection_evidence": {
+        "source": "results/tables/final/task0031-local-three-prong-evaluation-summary.json",
+        "prepare_parent_elapsed_seconds_at_N100000": 13.821576000016648,
+        "max_PCA_AE_parent_elapsed_seconds_at_N100000": 2.452940999995917,
+        "audit_plus_prepare_projection_seconds_per_source_at_raw_N4000000": 1105.7260800013319,
+        "score_projection_seconds_per_candidate_at_total_N4612858": 452.6027406143666,
+        "assumptions": "linear row scaling;2x preparation and4x score safety factors are design assumptions; source formats/audit/guards/cache costs may differ; larger counts require separate prospective plan before acquisition"
+      },
+      "transport_deadline": "unassigned: requires separate size/network/selected-member plan and authorization"
+    },
+    "policies": [
+      "continuousclockTask0030",
+      "temporaryverifiedownedidlesleepassertion;displayallowed;releaseverified",
+      "normalexit/reaping/bodyandparentacceptance",
+      "WARNadvisory/CRITICALveto",
+      "invalidprimaryaccountingveto/unavailablepressuredisclosed",
+      "globalRAMcontextonly",
+      "oneattemptstate/noautomaticretryorallowancereset",
+      "noidleMac/appclosure/polling/monitoroptimization"
+    ],
+    "no_diagnostic_or_particle_training_time_proxy": true
+  },
+  "actual_research_access": {
+    "web_URL_open_click_attempts": 19,
+    "web_in_tool_find_operations": 6,
+    "bounded_HTTP_GET_attempts": 5,
+    "logical_URL_GET_attempts_total": 24,
+    "logical_URL_GET_successes": 16,
+    "logical_URL_GET_failures": 8,
+    "publisher_JSON_successes": 3,
+    "accepted_metadata_JSON_bytes": 30856,
+    "standalone_Pythia_text_card_GETs": 2,
+    "standalone_Pythia_text_card_successes": 0,
+    "standalone_Pythia_text_card_timeouts": 2,
+    "web_open_failures": "8370758page429;3APIwebunavailable;2Pythiacardweberrors",
+    "physical_HTTP_request_or_cache_count": "web service internal/cache behavior unavailable; counts above are logical requests",
+    "event_payload_requests": 0,
+    "answer_key_row_requests": 0,
+    "binary_archive_requests": 0,
+    "metadata_JSON_file_sha256": {
+      "4536624": "75a107eaeca798f6a65af021fa041fcdfdf1c793aa4219468c8e6a33ac1fbf6a",
+      "8370758": "cdca9a8d7bfbe99ad8861935cabd975d15dd4a986fa45e8c4bcc82010a015380",
+      "18983506": "484a3e6f1b44ab4e20ea645411ad3dead9c0ba36eb1a8442947ca333aa8e740d"
+    }
+  },
+  "validation": {
+    "synthetic_checks": [
+      "parameter_count_155",
+      "same_seed_predictions_do_not_triple_N",
+      "zero_discordance_nonzero_uncertainty",
+      "range_scaling",
+      "width_decreases_with_N",
+      "width_increases_with_variance",
+      "family_error_budget",
+      "shared_pattern_mean_and_unbiased_variance",
+      "full_seed_dependence_not_variance_divided_by_three",
+      "declared_BG_count",
+      "no_declared_signal_count_invented",
+      "required_N_minimal_0.0002",
+      "required_N_minimal_0.001",
+      "required_N_minimal_0.002",
+      "required_N_minimal_0.01",
+      "zero_variance_minimal_N",
+      "projection_inside_proposed_fit_ceiling",
+      "max_training_updates",
+      "future_roles_exclude_test"
+    ],
+    "full_operational_suite_rerun": false,
+    "Task0033_acceptance_covers_new_code": false,
+    "new_tracked_helper_or_controller": false,
+    "lint": "passed",
+    "format": "passed174unchangedPythonfiles",
+    "dependencies": "passed;pip cache unavailable warning, no changes",
+    "dependency_changes": false,
+    "scientific_plots": false,
+    "heatmap_repairs": false,
+    "structural_design_and_custody_assertions": 820,
+    "local_links_checked": 322,
+    "historical_tracked_files_preserved": 397,
+    "input_bindings_use_raw_file_bytes": true,
+    "registry_grid_roundtrip": "passed16rows31columns",
+    "strict_JSON_and_consistency": "passed",
+    "new_operational_acceptance": false,
+    "ignored_evidence": "data/task0034-validation/design-validation.json; not operational acceptance"
+  },
+  "next": "Task0035 synthetic-only implementation brief ready to authorize; background development and independent confirmation remain separate, ungranted scopes",
+  "curated_design_artifact_file_byte_sha256": {
+    "README.md": "f9de4c99f9514787462b1ee108b372119d201c67e740923d0ca7209d23cd4fea",
+    "configs/research/controlled_follow_up_v1.json": "caf2e949f48a3ecf8e8a90306bab49986deb07f4701c4b9689a0d755b5e1b39e",
+    "docs/controlled-follow-up-protocol.md": "aeab83547a358346d474bedfc4dc69d1fef92ad8de265a955ba8e7dcd4a17d61",
+    "docs/handoffs/0034-controlled-follow-up-protocol.md": "ceaeca30473e0a3f4d6252d83984f8b440ba463a187579f0a521a880217b96cd",
+    "docs/handoffs/README.md": "5eb5a4ddc2be65fd4438f068a2d723e10f9c35fdfa039302af7203b880eb2c36",
+    "docs/project-memory.md": "3da6dda38797380bdc5b1c3399df19d87adadd32718dd5705fbab7821d33ada2",
+    "docs/prompts/0034-controlled-follow-up-protocol.md": "71492766714f0e64ae8ad9e23c235dae26d601d5a2fb841394b4f4d8d0cafde7",
+    "results/tables/final/task0034-confirmation-source-registry.csv": "29f79c3dd01ecb928460c0bb55a12cf09053499f7d71b40c62938597b145d002"
+  },
+  "final_delivery_check": {
+    "status": "passed_design_only",
+    "Git": {
+      "HEAD": "c9f9bc5317f575ff2e29566214db20609745fcc1",
+      "branch": "main",
+      "upstream": "origin/main",
+      "index_empty": true
+    },
+    "intended_files": 9,
+    "index_unchanged_empty": true,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "actual_assertion_or_reserved_campaign": "none in Task0034",
+    "future_resource_limits": "proposals only; no measured feasibility or authorization",
+    "historical_ignored_arrays": "not opened or modified; no new numerical/byte-identity validation claimed"
+  }
+}

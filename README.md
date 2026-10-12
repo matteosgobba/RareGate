@@ -126,8 +126,22 @@ all coefficients in the table.90specific/179focused/1728full+portable checks pre
 200-source/43-package freeze and actual prompt-bound consent. Limits/assertion
 release pass; sampled monitoring gaps are disclosed. Correlations and distinct
 strict-tail profiles generate hypotheses, not causal mechanisms or repaired utility.
-Next is an explicit independent-confirmation methodology decision before informed
-development; no favorable feature/candidate/cut chosen and no automaticTask0034.
+No favorable feature/candidate/cut was chosen. Task0034 subsequently completes the
+explicitly requested [controlled follow-up protocol](docs/controlled-follow-up-protocol.md).
+
+Task0034 is design only: paired ReLU/identity AEs with the same8→6→3→6→8 biased
+layers, bottleneck3/155parameters and three fixed seeds. Exact background-only
+training, own checkpoint restoration/calibration, primary alpha0.001, shared-event
+uncertainty and numerical decision criteria are specified. The
+[source registry](results/tables/final/task0034-confirmation-source-registry.csv)
+recommends extra SR QCD plus newly generated XtoYYprime only conditionally:
+full-event signal coverage, counts, generation independence, overlap and strict-tail
+precision remain unverified; no source accepted or original topology replication
+claimed. Nineteen synthetic assertions and metadata/design consistency checks
+support the design, with zero new operational access/model/fit/calibration/payload
+work. Task0035's synthetic-only software brief is ready to authorize; training,
+acquisition and independent confirmation require separate plans/authorizations.
+None is launched. Baseline/exposure/failed campaigns/particle192 remain preserved.
 
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
@@ -518,6 +532,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0031: accepted local three-prong evaluation with shared exposed background; all original thresholds preserved.
 - [x] Task0032: integrated two-/three-prong synthesis and quality/cost decision brief; frozen baseline complete within scope, zero new scientific execution.
 - [x] Task0033: accepted exploratory frozen-feature/score diagnostics on exposed samples;3requests/350471feature rows,6loads/700942scores,48associations/all24original tails,16suppressed profile rows/two curated figures; no new model work or independent confirmation.
+- [x] Task0034: design-only paired activation comparison and conditional independent-source protocol; primary strict-tail estimands/uncertainty/criteria/resource brief, zero operational numerical access; synthetic-only Task0035 proposed, not launched.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
