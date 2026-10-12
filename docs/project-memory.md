@@ -9,16 +9,16 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.29 |
+| Memory revision | 1.30 |
 | Last factual verification | 2026-10-12, Europe/Rome |
-| Last completed phase | 0034 — design-only paired ReLU/identity aggregate AE comparison and conditional independent-confirmation protocol; no implementation or campaign launched |
-| Latest task outcome | Same8→6→3→6→8 biased layers/bottleneck3/155parameters, three fixed paired seeds, exact background-only recipe/own checkpoints/calibration, primary alpha0.001, shared-event uncertainty and fixed decision gates. Preferred extra SR QCD/new XtoYYprime route remains unaccepted: full-event signal coverage, counts, generation independence, overlap and precision unresolved. Nineteen synthetic assertions and metadata/consistency checks; zero operational numerical/model/fit/calibration/event-payload work. Task0032 complete and Task0033 accepted exploratory |
+| Last completed phase | 0035 — additive synthetic-only controlled-activation foundation, current-source software/final native integration accepted; no operational campaign |
+| Latest task outcome | Strict separate schema/two155parameter arms/three fixed seeds, independent initialized states and actual consumed row-order pairing, own checkpoint byte/score restoration, FP64 SSE/own strict calibration, exact shared-event moments/unchanged conditional gates.189focused/1917full+portable/219bindings/43packages; three native attempts, first two pre-numerical failures preserved, final2.683233s/12started+completed/0inflight toy steps/65research forwards/2333rows/6toy calibrations/owned assertion released. Operational work0, source/model freeze0; confirmation source blockers remain |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0034 base | `c9f9bc5317f575ff2e29566214db20609745fcc1`, actual committed Task0033; clean main/origin/main and empty index at Task0034 start. Task0033's historical base `a671b98` is preserved in its records. No Task0034 commit/push/hosted CI claimed |
+| Verified HEAD / Task0035 base | `f27ce613565fff4d5107b1699af485afb582edd3`, actual committed Task0034; clean main/origin/main and empty index at Task0035 start. Historical Task0034c9f9bc5/Task0033a671b98 bases remain in their records. No Task0035 commit/push/hosted CI claimed |
 | Current compact neural baseline | `compact-autoencoder-v2` |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Task0035 proposed synthetic-only research factory/pairing/checkpoint/uncertainty/boundary/lifecycle implementation; requires its own explicit authorization, not launched. Training awaits current-source synthetic/native acceptance and a separate bounded plan; acquisition/confirmation await source/full-event/count/independence/precision/storage acceptance and separate scopes. No exposed-test rescoring, favorable seed/cut or particle budget reset |
-| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows and6stored score loads/700942values, plus3full membership arrays/3300000records. Task0034 adds zero population/features/scores/membership/fingerprint/forward/reconstruction/calibration/evaluation/optimizer/event-payload work; no inflight. These samples cannot be reblinded or described as untouched |
+| Next action | Separate metadata-only confirmation-source adequacy go/no-go: full-event coverage, units/run lineage, selected signal count, independent generation/all-role overlap audit prerequisites, precision/storage feasibility. Possible background-development reader/controller and six-fit/calibration execution need distinct implementation/acceptance/plan/authorization; acquisition/confirmation separate. Software readiness is not useful confirmation progress if source cannot meet requirements. No Task0036, exposed-test rescoring, favorable seed/cut or particle reset |
+| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps, no inflight. Exposed samples cannot be reblinded or described as untouched |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
 
@@ -373,13 +373,62 @@ JSON bodies/30856bytes; no payload/key rows/archives. Nineteen synthetic
 assertions,35rate/28variance scenarios/five minimum-N solves and design checks
 use curated/config/source text only. No tracked code/dependency/new controller /
 plot/full operational suite. Historical input bytes are preserved except intended
-living documents. Implementation design is ready; Task0035 synthetic-only brief
-is proposed, not launched. Six-fit development projection603s/fit→900s cap /
+living documents. At Task0034 completion, implementation design was ready and
+Task0035 was proposed without launch; the subsequently authorized foundation
+is completed below. Six-fit development projection603s/fit→900s cap /
 6600s whole/3GiB RSS is based on Task0008 aggregate evidence with explicit safety
 assumptions, not Task0033 or particle timing. Confirmation8400s/16GiB working
 envelope is conditional and ungranted; source counts/storage can invalidate it.
 Continuous deadlines/scoped verified sleep assertion/release and parent lifecycle
 remain required. Acquisition, development and confirmation need separate scopes.
+
+### Controlled activation synthetic foundation — Task0035 completed
+
+[Report](controlled-activation-synthetic-foundation.md),
+[implementation config](../configs/research/controlled_activation_synthetic_v1.json),
+[summary](../results/tables/final/task0035-controlled-activation-synthetic-summary.json)
+and [handoff](handoffs/0035-controlled-activation-synthetic-foundation.md) record
+additive research helpers only. Six Task0034 raw artifact identities remain
+prerequisites; original model/training/evaluation validators/controllers unchanged.
+Strict two-arm/three-seed/CPUFP32/155parameter recipe is separate from the fixed
+two-epoch tiny profile. Own independent initial tensors, actual shared-generator
+consumed orders/4096+1tail, strict15nonimprovement/earliest ties, own finite JSON
+selected states and restored score identity, FP64-before-subtraction SSE and
+once-only own four higher/strict thresholds pass synthetic checks. Python/NumPy /
+TorchCPU RNG/thread/deterministic state restores; other-device RNG untouched.
+
+64ordered pattern counts use exact Python integers/rational moments, preserving
+shared-event seed dependence/Nnot3N. Original empirical Bernstein family0.05 /
+unclipped precision and numerical gates remain; explicit precedence/eligibility
+reasons cannot accept a source or issue an actual confirmation claim. All64patterns,
+opposing/fully correlated seeds,10^25sparse counts and236843zero-variance floor /
+all variance planning cases tested. No p-values/AUC/AP/subgroups/plots; unit
+numerics are not coverage proof or causal physics. PCA-three unimplemented.
+
+Final219bindings/43packages/189focused/1917full+1917portable/lint/format/dependencies
+acceptance is fresh; complete suites are artifact-free with the unchanged portable
+legacy schema plugin. Three native invocations: sandboxps assertion accounting
+failure then __main__ child-dispatch failure, both before numerical work and both
+released; corrected final source accepted/exit0/reaped,2.683233swhole /
+2.515030sdispatch/2.270242sworker,12started+completed/0inflight,9research instances /
+65forwards+reconstructions/2333rows/6calibrations,3historical reference forwards
+separate. Each final pytest process has85research instances/31forwards/8710rows /
+2updates/2calibrations; unrelated legacy/earlier repair work outside counter scope.
+
+Observed RSS373604352B/native171622400B/controller30064640B pass1GiB/512MiB /
+128MiB;102NORMAL, no WARN/CRITICAL/unknown. Owned assertion3active observations /
+release confirmed/display permitted/no persistent settings; cleanup0.000094s /
+overshoot0. Sample gap0.107453s and terminal0.245562s disclosed; optional global
+RAM query prohibited by child policy/context unavailable, never admission. No
+physical suspension/performance/real-fit projection claim. All detailed failed /
+accepted receipts/maps/checkpoints/journals ignored.403historical tracked bytes
+except three living docs preserved; original arrays not opened/modified.
+
+Zero operational work, permanent exposure/baseline/failed campaigns/particle192
+unchanged. Source/model freeze and real execution remain absent; source full-event,
+independence/count/overlap/precision/storage blockers persist. Next source-adequacy
+go/no-go before any separately scoped background-development implementation /
+execution/acquisition/confirmation; no automaticTask0036.
 
 ## 2. Vision, motivation, and research question
 
@@ -1331,7 +1380,7 @@ The roadmap is dependency-driven. Dates, speedups, and physical trigger budgets 
 | NVIDIA / TensorRT | Comparable workload on documented supported hardware, engine provenance and transfer-aware timing | Conditional |
 | FPGA / hls4ml | Compatible fixed-point model and synthesis/resource/latency evidence; board measurements if available | Optional |
 | Final test unblinding | Explicit human-authorized frozen plan and thresholds; audited real metrics | Completed/accepted Task0026 Phase B; both tests exposed,4requests/500942presentations, frozen candidates/thresholds unchanged, no retry or post-test tuning |
-| Initial final reporting | Frozen native quality/cost comparison, scoped uncertainty, reproducibility, limitations and conclusions | Completed Task0027/0032; Task0033 adds exploratory descriptions; Task0034 defines a controlled conditional follow-up, without implementation/independent confirmation |
+| Initial final reporting | Frozen native quality/cost comparison, scoped uncertainty, reproducibility, limitations and conclusions | Completed Task0027/0032; Task0033 adds exploratory descriptions; Task0034 defines a conditional follow-up; Task0035 validates its synthetic software, independent confirmation remains unresolved |
 
 NVIDIA and FPGA branches need not block the main report if resources are unavailable. Report unexecuted branches honestly. Final unblinding must not occur merely because another milestone completes.
 
@@ -1362,7 +1411,7 @@ Scientific result: evaluated test mixture39.924782%signal; PCA AUC0.468489/AP0.3
 - **Reduced-precision study:** Compare supported precision variants using training-only calibration and preregistered tolerances; freeze variant thresholds before final test.
 - **Streaming study:** Establish repeatable simulator assumptions and load scenarios, then evaluate queueing/capacity/latency and acceptance.
 - **Conditional deployment branches:** NVIDIA/TensorRT and optional FPGA/hls4ml as resources permit.
-- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 adds accepted exploratory descriptions. Task0034 designs paired activation arms with own calibration, fixed conditional uncertainty/criteria and a conditional new-source route. Task0035 synthetic-only software is proposed, not launched; fitting/acquisition/confirmation require separate plans and authorization, full-event/count/generation/precision prerequisites remain. Exposure/result-informed origin, failed campaigns and particle192 are preserved.
+- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 adds exploratory descriptions; Task0034 remains design-only. Task0035 implements/validates synthetic paired arms/restoration/calibration/uncertainty/lifecycle, without operational reader/fits/source acceptance. Separate source-adequacy decision is next; background-development implementation/execution/acquisition/confirmation require distinct scopes, full-event/count/generation/overlap/precision/storage remain unresolved. No automaticTask0036; exposure/result-informed origin, failed campaigns and particle192 preserved.
 
 Do not treat these bullets as already executed tasks or fixed task numbers. Choose the next bounded task from the live state, dependency order, unresolved evidence, and user direction.
 
@@ -1572,6 +1621,7 @@ commands. Do not automatically stage, commit, push, or unblind real test data.
 - [Data design](data-design.md), [raw audit](raw-data-audit.md), [training EDA](training-data-eda.md).
 - [Preprocessing contract](preprocessing-contract.md), [pipeline](preprocessing-pipeline.md), [frozen configuration](../configs/data/lhco_rnd_v5.json).
 - [Evaluation protocol](evaluation-protocol.md).
+- [Controlled activation synthetic foundation](controlled-activation-synthetic-foundation.md), [Task0035 config](../configs/research/controlled_activation_synthetic_v1.json), [summary](../results/tables/final/task0035-controlled-activation-synthetic-summary.json) and [handoff](handoffs/0035-controlled-activation-synthetic-foundation.md).
 - [Controlled follow-up protocol](controlled-follow-up-protocol.md), [design-only sidecar](../configs/research/controlled_follow_up_v1.json), [Task0034 source registry](../results/tables/final/task0034-confirmation-source-registry.csv), [summary](../results/tables/final/task0034-controlled-follow-up-summary.json) and [handoff](handoffs/0034-controlled-follow-up-protocol.md).
 - [Exploratory frozen-feature and score-tail diagnostics](exploratory-feature-score-diagnostics.md), [Task0033 summary](../results/tables/final/task0033-exploratory-feature-score-summary.json), [feature/score associations](../results/tables/final/task0033-feature-score-associations.csv) and [handoff](handoffs/0033-exploratory-feature-score-diagnostics.md).
 - [Integrated two-/three-prong synthesis and decision brief](two-three-prong-synthesis.md), [Task0032 summary](../results/tables/final/task0032-two-three-prong-synthesis-summary.json), [calibrated utility](../results/tables/final/task0032-calibrated-utility.csv), [quality/cost](../results/tables/final/task0032-quality-cost.csv) and [handoff](handoffs/0032-two-three-prong-synthesis.md).
@@ -1657,5 +1707,7 @@ Runtime documentation and compatibility must be rechecked when the corresponding
 | 1.28 / 2026-10-12 | Clean committed Task0032a671b98; one authorized exploratory8.778443s session after200-source/43-package/90new/179focused/1728full+portable acceptance.3features/350471rows,6scores/700942values,3membership loads/3300000records;24/6marginals/48rho/24exacttails/192profiles/16suppressed/two curated figures. Distinct profiles and weak global associations yield hypotheses, no residual/causal/selection/tail-repair/independent claim. Zero new forwards/reconstruction/AUC-AP/significance/FP/optimizer/download; all3exposureYES, baseline/failed campaigns/particle192 preserved. Next independent-confirmation methodology/no0034 | Task0033 actual prompt/frozen acceptance/plan/sole parent receipts/access/resource/assertion evidence, report/tables and visual QA; source unchanged after reservation |
 
 | 1.29 / 2026-10-12 | Clean committed Task0033c9f9bc5 reconciled; Task0034 design-only ReLU/identity155parameter/bottleneck3/three-paired-seed comparison, exact background recipe/own calibration, alpha0.001/shared-event bounds/fixed gates.3publisher records/16metadata rows/0accepted; extra SR QCD+new XtoYYprime conditional on full-event/count/independence/precision/storage.19synthetic assertions and metadata/design checks, zero new operational access/model/fit/calibration/payload; YES/YES/YES/baseline/failed campaigns/particle192 preserved. Synthetic-onlyTask0035 proposed, no launch; training/acquisition/confirmation ungranted | Actual prompt, protocol/design-only sidecar, source registry/curated summary, prospective resource/access brief and handoff; Task0033 historicala671b98base unchanged |
+
+| 1.30 / 2026-10-12 | Clean committed Task0034f27ce61; additive synthetic-only controlled activation foundation/219bindings/43packages/189focused/1917full+portable. Paired155parameter arms/actual order/own restore+calibration/shared-event integer bounds/unchanged gates.3native attempts,2pre-numerical failures preserved then final2.683233s accepted/12toy updates/65forwards/2333rows/6calibrations/assertion release; caps/gaps/context disclosed.403old bytes preserved except living docs, operational work0/YES3/baseline/failed campaigns/particle192 unchanged. Source adequacy go/no-go next; no0036/source acceptance/real allowance | Actual prompt, separate config/source/tests/entrypoint, final synthetic-only acceptance and native receipts, curated report/summary; detailed maps/weights/logs ignored |
 
 Keep future entries short and focused on project-level changes. Update current-state sections in place; the revision table is not a second task log.

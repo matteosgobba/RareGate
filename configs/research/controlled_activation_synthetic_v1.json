@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "scope": "synthetic_only",
+  "operational_execution": false,
+  "PCA_three": false,
+  "design_files": {
+    "docs/prompts/0034-controlled-follow-up-protocol.md": "71492766714f0e64ae8ad9e23c235dae26d601d5a2fb841394b4f4d8d0cafde7",
+    "docs/handoffs/0034-controlled-follow-up-protocol.md": "ceaeca30473e0a3f4d6252d83984f8b440ba463a187579f0a521a880217b96cd",
+    "docs/controlled-follow-up-protocol.md": "aeab83547a358346d474bedfc4dc69d1fef92ad8de265a955ba8e7dcd4a17d61",
+    "configs/research/controlled_follow_up_v1.json": "caf2e949f48a3ecf8e8a90306bab49986deb07f4701c4b9689a0d755b5e1b39e",
+    "results/tables/final/task0034-confirmation-source-registry.csv": "29f79c3dd01ecb928460c0bb55a12cf09053499f7d71b40c62938597b145d002",
+    "results/tables/final/task0034-controlled-follow-up-summary.json": "5fc2be7de8f7b00d6c56153ccce808d01ea1f42fc8157ed96a6ebfbe034d7f5d"
+  },
+  "design_digest": "cf39816a9eefacfe075e9e02a84ee943bd8f7e19bc2e1d3317120d04d1659d8e",
+  "arms": [
+    "nonlinear",
+    "linear"
+  ],
+  "seeds": [
+    1729,
+    1730,
+    1731
+  ],
+  "features": [
+    "multiplicity",
+    "scalar_pt",
+    "max_pt",
+    "pt_balance",
+    "weighted_eta_mean",
+    "weighted_eta_std",
+    "pt_concentration",
+    "massless_event_mass"
+  ],
+  "layers": [
+    8,
+    6,
+    3,
+    6,
+    8
+  ],
+  "parameters": 155,
+  "forward_dtype": "float32",
+  "score_dtype": "float64",
+  "training_contract": {
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "batch_size": 4096,
+    "max_epochs": 1000,
+    "early_stopping_patience": 15,
+    "min_delta": 0.0,
+    "device": "cpu",
+    "num_workers": 0,
+    "num_threads": 1,
+    "deterministic_algorithms": true,
+    "loss": "mean_squared_reconstruction_error",
+    "initialization": "pytorch_linear_default",
+    "adam_defaults": {
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "amsgrad": false,
+      "foreach": null,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false,
+      "fused": null,
+      "decoupled_weight_decay": false
+    }
+  },
+  "synthetic_profile": {
+    "name": "tiny_two_epoch_v1",
+    "train_rows": 17,
+    "selection_rows": 13,
+    "calibration_rows": 21,
+    "background_rows": 127,
+    "signal_rows": 131,
+    "epochs": 2,
+    "batch_size": 4096,
+    "steps_per_arm_seed_max": 2
+  },
+  "limits": {
+    "prerequisite_seconds": 30,
+    "worker_seconds": 60,
+    "finalization_seconds": 15,
+    "whole_seconds": 120,
+    "cleanup_seconds": 2,
+    "worker_RSS_bytes": 1073741824,
+    "native_reserved_bytes": 536870912,
+    "controller_RSS_bytes": 134217728,
+    "guard_journal_bytes": 67108864,
+    "worker_log_bytes": 1048576,
+    "storage_bytes": 134217728,
+    "optimizer_steps_max": 12
+  },
+  "dependencies": {
+    "Python": "3.12.12 (main, Oct  9 2025, 11:07:00) [Clang 17.0.0 (clang-1700.3.19.1)]",
+    "Torch": "2.14.1",
+    "NumPy": "2.5.3",
+    "torch_build_sha256": "7dc7bbe085616975d2b87b5c43ed0bd5e4a3a26e8e1013db641518c8d46daa1c",
+    "adam_source_sha256": "6f4a96e7bccd5e233a66f846c39f7a9da0157cf657c2275d2a269a78a6b90921"
+  }
+}

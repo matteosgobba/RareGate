@@ -141,7 +141,25 @@ claimed. Nineteen synthetic assertions and metadata/design consistency checks
 support the design, with zero new operational access/model/fit/calibration/payload
 work. Task0035's synthetic-only software brief is ready to authorize; training,
 acquisition and independent confirmation require separate plans/authorizations.
-None is launched. Baseline/exposure/failed campaigns/particle192 remain preserved.
+Task0034 launched none of those scopes. Baseline/exposure/failed campaigns /
+particle192 remain preserved.
+
+Task0035 now implements the explicitly requested
+[synthetic controlled-activation foundation](docs/controlled-activation-synthetic-foundation.md):
+separate strict schema/factory, independent paired parameters/actual loader order,
+own-state restoration, FP64 SSE/own strict thresholds, integer shared-event moments
+and unchanged conditional bounds/gates.189focused/1917full+1917portable tests,
+lint/format/dependencies and219source/43package binding pass. Three native
+synthetic invocations are preserved: sandbox assertion check and child-module
+dispatch fail before numerical work, then the final source is parent-accepted /
+exit0/reaped in2.683233s with12started/12completed/0inflight toy updates,65research
+forwards/2333rows,6own toy calibrations and verified assertion release. Resource
+caps pass; sampling/terminal gaps and unavailable optional RAM context are disclosed.
+New operational access/forward/reconstruction/calibration/optimizer/payload work0;
+no model/source freeze, scientific ranking or confirmation claim. Software readiness
+does not resolve full-event/count/generation/overlap/precision source blockers.
+Next is a separately authorized source-adequacy go/no-go; background development,
+acquisition and confirmation remain distinct scopes. No Task0036 launched.
 
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
@@ -533,6 +551,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0032: integrated two-/three-prong synthesis and quality/cost decision brief; frozen baseline complete within scope, zero new scientific execution.
 - [x] Task0033: accepted exploratory frozen-feature/score diagnostics on exposed samples;3requests/350471feature rows,6loads/700942scores,48associations/all24original tails,16suppressed profile rows/two curated figures; no new model work or independent confirmation.
 - [x] Task0034: design-only paired activation comparison and conditional independent-source protocol; primary strict-tail estimands/uncertainty/criteria/resource brief, zero operational numerical access; synthetic-only Task0035 proposed, not launched.
+- [x] Task0035: separate synthetic controlled-activation foundation;189focused/1917full+portable checks, final native accepted with12toy updates/all6arms/paired orders/own restoration/calibration; zero operational work, confirmation source unresolved.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
