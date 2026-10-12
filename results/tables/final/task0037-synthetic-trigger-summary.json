@@ -1,0 +1,2220 @@
+{
+  "task": "0037",
+  "status": "parent_accepted_synthetic_sweep",
+  "date": "2026-10-12 Europe/Rome",
+  "branch": "main",
+  "upstream": "origin/main",
+  "base_HEAD": "34d74010aa58b6cd11883d14cdca03643ddc4898",
+  "prior_memory": "1.31",
+  "new_memory": "1.32",
+  "actual_prompt_sha256": "2a50169aee844301c335a92102ac294c516499b99c3cf70e83641dbd4f6cb951",
+  "config_sha256": "4b5ebaa854e22a4fb2f2f7e53b2d08b8e1dfe0144f1dc093a8218f5397f8b39c",
+  "source_binding_count": 200,
+  "source_map_canonical_sha256": "fe3c414e3b988304254a3396f870bf4fc7c3ccdebe84ffb1cd76c014d6b804ff",
+  "installed_package_binding_count": 43,
+  "software_acceptance": {
+    "path": "data/task0037-validation/f73ef9fc01194dfe9eeddb8a42c7e98b/software-acceptance.json",
+    "file_sha256": "4851de7224e5f17c71c1da47254c8b135ccef26935299b8e0b936baf3efb0063",
+    "status": "software_accepted_synthetic_simulator_only",
+    "checks": {
+      "focused": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.34800316600012593,
+        "log": "data/task0037-validation/f73ef9fc01194dfe9eeddb8a42c7e98b/focused.txt",
+        "log_sha256": "e8d55c9f074460c8b73108a9feae290840adde47f2f33b09b0892cc5c684f5a0",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "tests/test_synthetic_trigger.py",
+          "tests/test_synthetic_trigger_runtime.py",
+          "-q"
+        ],
+        "scope": "new simulator synthetic fixtures only / static checks"
+      },
+      "full": {
+        "exit_code": 0,
+        "elapsed_seconds": 54.235883625020506,
+        "log": "data/task0037-validation/f73ef9fc01194dfe9eeddb8a42c7e98b/full.txt",
+        "log_sha256": "a0a29ec527960b26285917ca820ab49c042d2a5a307a009424d6bb3b3ced2bdd",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "-p",
+          "tests.cpu_mps_portable_plugin",
+          "-p",
+          "tests.controlled_activation_counter_plugin",
+          "-q"
+        ],
+        "scope": "artifact-free synthetic full suite; historical model fixtures permitted"
+      },
+      "portable": {
+        "exit_code": 0,
+        "elapsed_seconds": 52.45033358299406,
+        "log": "data/task0037-validation/f73ef9fc01194dfe9eeddb8a42c7e98b/portable.txt",
+        "log_sha256": "8423dcc062311c51421847cd7e3437ef6a56b9d49760cfdcd6fd9ea6be900eac",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "-p",
+          "tests.cpu_mps_portable_plugin",
+          "-p",
+          "tests.controlled_activation_counter_plugin",
+          "-q"
+        ],
+        "scope": "artifact-free synthetic full suite; historical model fixtures permitted"
+      },
+      "lint": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.07683604201884009,
+        "log": "data/task0037-validation/f73ef9fc01194dfe9eeddb8a42c7e98b/lint.txt",
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "ruff",
+          "check",
+          "."
+        ],
+        "scope": "new simulator synthetic fixtures only / static checks"
+      },
+      "format": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.03926445901743136,
+        "log": "data/task0037-validation/f73ef9fc01194dfe9eeddb8a42c7e98b/format.txt",
+        "log_sha256": "b97a8d0bc243470d227e418032b6895b1e996be9295ec0d050fe7b8f6bb3cd01",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "scope": "new simulator synthetic fixtures only / static checks"
+      },
+      "dependencies": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.1869830419891514,
+        "log": "data/task0037-validation/f73ef9fc01194dfe9eeddb8a42c7e98b/dependencies.txt",
+        "log_sha256": "cfb74c1516d79d80a7df2705283d599d3604f6de13e0acd4e9be997ba02937b3",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "scope": "new simulator synthetic fixtures only / static checks"
+      }
+    },
+    "focused_passed": 105,
+    "full_passed": 2022,
+    "portable_passed": 2022
+  },
+  "validation_history": {
+    "initial_focused": "101passed/1mock-configuration fixture failure; fixed before acceptance",
+    "software_acceptances": [
+      "0a1dfa771ec74f41b73b2f6cd3a2417a",
+      "5dfa977a6cb441c5a039458c404b77b6",
+      "f73ef9fc01194dfe9eeddb8a42c7e98b"
+    ],
+    "reason_for_final_repeat": "visual layout only; same fixed matrix, no scenario expansion",
+    "historical_Task0035_acceptance_not_reused": true
+  },
+  "historical_synthetic_regression_activity": {
+    "full": {
+      "exit_status": 0,
+      "scope": "this pytest process; instrumented new research helpers only; excludes unrelated historical models and native subprocess",
+      "counters": {
+        "model_instances": 85,
+        "forward_calls": 31,
+        "forward_rows": 8710,
+        "reconstruction_computations": 31,
+        "optimizer_steps_started": 2,
+        "optimizer_steps_completed": 2,
+        "optimizer_steps_inflight": 0,
+        "synthetic_calibrations": 2
+      }
+    },
+    "portable": {
+      "exit_status": 0,
+      "scope": "this pytest process; instrumented new research helpers only; excludes unrelated historical models and native subprocess",
+      "counters": {
+        "model_instances": 85,
+        "forward_calls": 31,
+        "forward_rows": 8710,
+        "reconstruction_computations": 31,
+        "optimizer_steps_started": 2,
+        "optimizer_steps_completed": 2,
+        "optimizer_steps_inflight": 0,
+        "synthetic_calibrations": 2
+      }
+    }
+  },
+  "historical_test_counter_scope": "Per final complete pytest process: existing controlled-activation helpers only; other historical synthetic model work is permitted but not quantified; no global zero-forward/update claim",
+  "timing_provenance": {
+    "source_loads": [
+      {
+        "path": "results/tables/final/task0022-frozen-cpu-benchmark-v2-cells.csv",
+        "sha256": "ddd4d1ed21d11f28999687c757638238bb548e156061525a0c4ded368ed9d75b",
+        "bytes": 14967,
+        "numerical_loads": 1
+      },
+      {
+        "path": "results/tables/final/task0022-frozen-cpu-benchmark-v2-summary.json",
+        "sha256": "33c09221548ef56ef1b96f10c951161b65bea8d9565f2f3c100fd5f7a7c5744e",
+        "bytes": 241298,
+        "numerical_loads": 1
+      },
+      {
+        "path": "results/tables/final/task0032-quality-cost.csv",
+        "sha256": "64883a3668c82edbe34b38fd125326196f579a9f3b58db89e12ce791ed10720d",
+        "bytes": 7134,
+        "numerical_loads": 1
+      }
+    ],
+    "curated_numerical_loads": 3,
+    "profiles": [
+      {
+        "candidate": "pca-v1",
+        "batch": 1,
+        "pooled_mean_decimal_ns": "8422.183333333333333333333333",
+        "service_ns": 8423,
+        "workers": [
+          {
+            "worker": "PCA1",
+            "count": 200,
+            "mean_ns": "8151.515",
+            "p99_ns": "10836.339999999997",
+            "max_ns": "11333"
+          },
+          {
+            "worker": "PCA2",
+            "count": 200,
+            "mean_ns": "8330.195",
+            "p99_ns": "12708.749999999924",
+            "max_ns": "25708"
+          },
+          {
+            "worker": "PCA3",
+            "count": 200,
+            "mean_ns": "8784.84",
+            "p99_ns": "17234.409999999978",
+            "max_ns": "20167"
+          }
+        ],
+        "model_scientific_sha256": "d09f96bb7b1536e8da147458f3b0bf50a120bdf6cfc4c247b37970f4f51bf42f"
+      },
+      {
+        "candidate": "pca-v1",
+        "batch": 8,
+        "pooled_mean_decimal_ns": "8776.186666666666666666666667",
+        "service_ns": 8777,
+        "workers": [
+          {
+            "worker": "PCA1",
+            "count": 200,
+            "mean_ns": "8805.22",
+            "p99_ns": "14047.669999999995",
+            "max_ns": "27458"
+          },
+          {
+            "worker": "PCA2",
+            "count": 200,
+            "mean_ns": "8700.81",
+            "p99_ns": "12250.83",
+            "max_ns": "16125"
+          },
+          {
+            "worker": "PCA3",
+            "count": 200,
+            "mean_ns": "8822.53",
+            "p99_ns": "12676.57999999999",
+            "max_ns": "14375"
+          }
+        ],
+        "model_scientific_sha256": "d09f96bb7b1536e8da147458f3b0bf50a120bdf6cfc4c247b37970f4f51bf42f"
+      },
+      {
+        "candidate": "pca-v1",
+        "batch": 32,
+        "pooled_mean_decimal_ns": "17973.300",
+        "service_ns": 17974,
+        "workers": [
+          {
+            "worker": "PCA1",
+            "count": 200,
+            "mean_ns": "9713.38",
+            "p99_ns": "16638.33999999999",
+            "max_ns": "23875"
+          },
+          {
+            "worker": "PCA2",
+            "count": 200,
+            "mean_ns": "9569.635",
+            "p99_ns": "12959.249999999998",
+            "max_ns": "13333"
+          },
+          {
+            "worker": "PCA3",
+            "count": 200,
+            "mean_ns": "34636.885",
+            "p99_ns": "335702.16999999934",
+            "max_ns": "440708"
+          }
+        ],
+        "model_scientific_sha256": "d09f96bb7b1536e8da147458f3b0bf50a120bdf6cfc4c247b37970f4f51bf42f"
+      },
+      {
+        "candidate": "pca-v1",
+        "batch": 128,
+        "pooled_mean_decimal_ns": "15981.385",
+        "service_ns": 15982,
+        "workers": [
+          {
+            "worker": "PCA1",
+            "count": 200,
+            "mean_ns": "16232.715",
+            "p99_ns": "27372.499999999887",
+            "max_ns": "80833"
+          },
+          {
+            "worker": "PCA2",
+            "count": 200,
+            "mean_ns": "15369.395",
+            "p99_ns": "19230.24999999998",
+            "max_ns": "24708"
+          },
+          {
+            "worker": "PCA3",
+            "count": 200,
+            "mean_ns": "16342.045",
+            "p99_ns": "31365.50999999997",
+            "max_ns": "45083"
+          }
+        ],
+        "model_scientific_sha256": "d09f96bb7b1536e8da147458f3b0bf50a120bdf6cfc4c247b37970f4f51bf42f"
+      },
+      {
+        "candidate": "pca-v1",
+        "batch": 1024,
+        "pooled_mean_decimal_ns": "45868.39833333333333333333333",
+        "service_ns": 45869,
+        "workers": [
+          {
+            "worker": "PCA1",
+            "count": 200,
+            "mean_ns": "45104.36",
+            "p99_ns": "49485.659999999974",
+            "max_ns": "222292"
+          },
+          {
+            "worker": "PCA2",
+            "count": 200,
+            "mean_ns": "45386.45",
+            "p99_ns": "53515.82999999999",
+            "max_ns": "186542"
+          },
+          {
+            "worker": "PCA3",
+            "count": 200,
+            "mean_ns": "47114.385",
+            "p99_ns": "84555.32999999999",
+            "max_ns": "205333"
+          }
+        ],
+        "model_scientific_sha256": "d09f96bb7b1536e8da147458f3b0bf50a120bdf6cfc4c247b37970f4f51bf42f"
+      },
+      {
+        "candidate": "compact-autoencoder-v2",
+        "batch": 1,
+        "pooled_mean_decimal_ns": "35217.075",
+        "service_ns": 35218,
+        "workers": [
+          {
+            "worker": "AE1",
+            "count": 200,
+            "mean_ns": "23980.265",
+            "p99_ns": "41579.49999999996",
+            "max_ns": "160250"
+          },
+          {
+            "worker": "AE2",
+            "count": 200,
+            "mean_ns": "54258.535",
+            "p99_ns": "214305.65999999945",
+            "max_ns": "449250"
+          },
+          {
+            "worker": "AE3",
+            "count": 200,
+            "mean_ns": "27412.425",
+            "p99_ns": "50998.15999999997",
+            "max_ns": "167875"
+          }
+        ],
+        "model_scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b"
+      },
+      {
+        "candidate": "compact-autoencoder-v2",
+        "batch": 8,
+        "pooled_mean_decimal_ns": "29806.24333333333333333333333",
+        "service_ns": 29807,
+        "workers": [
+          {
+            "worker": "AE1",
+            "count": 200,
+            "mean_ns": "24160.05",
+            "p99_ns": "29870.83999999989",
+            "max_ns": "163750"
+          },
+          {
+            "worker": "AE2",
+            "count": 200,
+            "mean_ns": "33060.8",
+            "p99_ns": "124570.82999999948",
+            "max_ns": "195084"
+          },
+          {
+            "worker": "AE3",
+            "count": 200,
+            "mean_ns": "32197.88",
+            "p99_ns": "91586.15999999973",
+            "max_ns": "232083"
+          }
+        ],
+        "model_scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b"
+      },
+      {
+        "candidate": "compact-autoencoder-v2",
+        "batch": 32,
+        "pooled_mean_decimal_ns": "35809.54833333333333333333333",
+        "service_ns": 35810,
+        "workers": [
+          {
+            "worker": "AE1",
+            "count": 200,
+            "mean_ns": "25824.87",
+            "p99_ns": "35047.07999999996",
+            "max_ns": "157542"
+          },
+          {
+            "worker": "AE2",
+            "count": 200,
+            "mean_ns": "53796.69",
+            "p99_ns": "267943.83999999944",
+            "max_ns": "367833"
+          },
+          {
+            "worker": "AE3",
+            "count": 200,
+            "mean_ns": "27807.085",
+            "p99_ns": "49144.66999999995",
+            "max_ns": "212500"
+          }
+        ],
+        "model_scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b"
+      },
+      {
+        "candidate": "compact-autoencoder-v2",
+        "batch": 128,
+        "pooled_mean_decimal_ns": "110924.545",
+        "service_ns": 110925,
+        "workers": [
+          {
+            "worker": "AE1",
+            "count": 200,
+            "mean_ns": "31706.725",
+            "p99_ns": "42809.33999999998",
+            "max_ns": "174542"
+          },
+          {
+            "worker": "AE2",
+            "count": 200,
+            "mean_ns": "267598.6",
+            "p99_ns": "1161229.6699999992",
+            "max_ns": "26248500"
+          },
+          {
+            "worker": "AE3",
+            "count": 200,
+            "mean_ns": "33468.31",
+            "p99_ns": "49321.66999999993",
+            "max_ns": "178875"
+          }
+        ],
+        "model_scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b"
+      },
+      {
+        "candidate": "compact-autoencoder-v2",
+        "batch": 1024,
+        "pooled_mean_decimal_ns": "86257.81",
+        "service_ns": 86258,
+        "workers": [
+          {
+            "worker": "AE1",
+            "count": 200,
+            "mean_ns": "89907.78",
+            "p99_ns": "108066.24999999949",
+            "max_ns": "240500"
+          },
+          {
+            "worker": "AE2",
+            "count": 200,
+            "mean_ns": "88543.16",
+            "p99_ns": "126019.99999999964",
+            "max_ns": "220416"
+          },
+          {
+            "worker": "AE3",
+            "count": 200,
+            "mean_ns": "80322.49",
+            "p99_ns": "101339.81999999999",
+            "max_ns": "213167"
+          }
+        ],
+        "model_scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b"
+      }
+    ],
+    "historical_hardware": {
+      "platform": "darwin",
+      "shared_host": "normal_shared_Mac_use_apps_open;no_app_content_inspected",
+      "load_average": [
+        2.7978515625,
+        2.95166015625,
+        2.66796875
+      ],
+      "power_thermal_status": "unknown_until_query",
+      "hw.model": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.model']' returned non-zero exit status 1."
+      },
+      "machdep.cpu.brand_string": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'machdep.cpu.brand_string']' returned non-zero exit status 1."
+      },
+      "hw.memsize": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.memsize']' returned non-zero exit status 1."
+      },
+      "hw.physicalcpu": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.physicalcpu']' returned non-zero exit status 1."
+      },
+      "hw.logicalcpu": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.logicalcpu']' returned non-zero exit status 1."
+      },
+      "hw.perflevel0.physicalcpu": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.perflevel0.physicalcpu']' returned non-zero exit status 1."
+      },
+      "hw.perflevel1.physicalcpu": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'hw.perflevel1.physicalcpu']' returned non-zero exit status 1."
+      },
+      "kern.osproductversion": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'kern.osproductversion']' returned non-zero exit status 1."
+      },
+      "kern.osversion": {
+        "status": "unavailable",
+        "error": "Command '['/usr/sbin/sysctl', '-n', 'kern.osversion']' returned non-zero exit status 1."
+      },
+      "architecture": "arm64",
+      "os": "macOS-26.6.2-arm64-arm-64bit",
+      "power": {
+        "status": "available",
+        "raw": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=22675555)\t80%; AC attached; not charging present: true\n"
+      },
+      "thermal": {
+        "status": "unknown",
+        "raw": "Error:Failed to get thermal warning level with error code 0xe00002bc\nError: Failed to get performance warning level with error code 0xe00002bc\nError: No CPU power status with error code 0xe00002bc\n"
+      },
+      "fresh_hardware_profile": {
+        "machine_name": "MacBook Pro",
+        "machine_model": "Mac17,2",
+        "chip_type": "Apple M5",
+        "physical_memory": "16 GB",
+        "number_processors": "proc 10:4:6:0",
+        "status": "available"
+      }
+    },
+    "historical_runtime": {
+      "python": "3.12.12",
+      "numpy": "2.5.3",
+      "torch": "2.14.1",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "threadpoolctl": "3.7.0",
+      "h5py": "3.16.0",
+      "hdf5plugin": "7.1.0"
+    },
+    "historical_effective_threads": {
+      "prepare": {
+        "before": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        },
+        "after": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        }
+      },
+      "PCA1": {
+        "before": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        },
+        "after": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        }
+      },
+      "AE1": {
+        "before": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        },
+        "after": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        }
+      },
+      "PCA2": {
+        "before": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        },
+        "after": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        }
+      },
+      "AE2": {
+        "before": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        },
+        "after": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        }
+      },
+      "PCA3": {
+        "before": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        },
+        "after": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        }
+      },
+      "AE3": {
+        "before": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        },
+        "after": {
+          "pytorch_intra": 1,
+          "pytorch_inter": 1,
+          "deterministic_algorithms": true,
+          "threadpools": [
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+              "version": null
+            },
+            {
+              "user_api": "openmp",
+              "internal_api": "openmp",
+              "num_threads": 1,
+              "prefix": "libomp",
+              "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+              "version": null
+            }
+          ],
+          "numpy_blas_build": {
+            "name": "accelerate",
+            "found": true,
+            "version": "unknown",
+            "detection method": "system",
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown"
+          },
+          "accelerate_thread_control": {
+            "method": "public_BLASSetThreading_success_and_BLASGetThreading_query",
+            "library": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+            "framework_bundle_version": "Accelerate 1.11",
+            "previous_mode": 0,
+            "queried_mode": 1,
+            "BLAS_THREADING_SINGLE_THREADED_enum": 1,
+            "setter_returncode": 0,
+            "thread_local": true,
+            "owner_python_thread_id": 8521589120,
+            "all_benchmark_BLAS_calls_on_owner_thread": true
+          }
+        }
+      }
+    },
+    "cost_scope": "adapter_decision: prepared development inputs; validation/wrapping/forward/FP64 SSE/four decisions included; excludes physical features/raw I/O/transport/queueing",
+    "rounding": "Decimal CSV worker means weighted by200/600, ROUND_CEILING to integer ns; no favorable repetition removal",
+    "empirical_distribution_reproduced": false
+  },
+  "trace_generation_metadata": [
+    {
+      "mode": "periodic",
+      "nominal_rate": 10000,
+      "seed": 41,
+      "count": 5000,
+      "horizon_ns": 500000000,
+      "arrival_sha256": "25fb36c19902b2bfb8ace2087b372be0d2d7d2e95ff63353dfe103a5caadfcba",
+      "score_sha256": "31c893fedc97156354b7a45b04788cfcb98576a82ae3b56d1699b374172ed907",
+      "trace_sha256": "952deef136da7b5c7ac2b688895412ed7d401ecb52a7be71afe20933d5fd1ba3",
+      "arrival_stream_key": [
+        3700,
+        41,
+        0,
+        10000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        41,
+        0,
+        10000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "periodic",
+      "nominal_rate": 10000,
+      "seed": 42,
+      "count": 5000,
+      "horizon_ns": 500000000,
+      "arrival_sha256": "25fb36c19902b2bfb8ace2087b372be0d2d7d2e95ff63353dfe103a5caadfcba",
+      "score_sha256": "83495f49b9fa58f88f8f99e0993065ebcbbedec97bb547f6f6fc7cac523b28b3",
+      "trace_sha256": "a019e71faf97b22a82be318bd4c8bbceec46baaae47abc7f7e4bde97b61d4540",
+      "arrival_stream_key": [
+        3700,
+        42,
+        0,
+        10000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        42,
+        0,
+        10000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "periodic",
+      "nominal_rate": 10000,
+      "seed": 43,
+      "count": 5000,
+      "horizon_ns": 500000000,
+      "arrival_sha256": "25fb36c19902b2bfb8ace2087b372be0d2d7d2e95ff63353dfe103a5caadfcba",
+      "score_sha256": "2316f6dc06348ccaef9aadd311979e32b3ad4efaf57ccbaea3485115400ef09c",
+      "trace_sha256": "c98ad46d5238aea3753f1f0dffa954d69fec5b122fd8a6150c18bb86d668c5d8",
+      "arrival_stream_key": [
+        3700,
+        43,
+        0,
+        10000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        43,
+        0,
+        10000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 10000,
+      "seed": 41,
+      "count": 5000,
+      "horizon_ns": 493513516,
+      "arrival_sha256": "f09b8e1b713a48e386905abc0d7d0afac35401e59c7b50ac99c6743bf158df6d",
+      "score_sha256": "41dae06584a1b215a7b2ad0245e3ca4a3e74475cc598c1e1c8d3521ddb1ca0b0",
+      "trace_sha256": "c675f84ff81ff2524bd539de1bd1ab167a32949e123bb903af07f79c0ee9c0a5",
+      "arrival_stream_key": [
+        3700,
+        41,
+        1,
+        10000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        41,
+        1,
+        10000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 10000,
+      "seed": 42,
+      "count": 5000,
+      "horizon_ns": 505626839,
+      "arrival_sha256": "a8c6397de67ccfd828595777ffe936664eb1d11e1c72b72056c5c2e06ae402a3",
+      "score_sha256": "fe5c2d4d6602e17e88a2d85b5761930ff1771198f41c301ffb4f48777f796597",
+      "trace_sha256": "152c3af64b79811fc52ad42dc64e604e3f635f2161e7a3b07b2fbb50f7675de7",
+      "arrival_stream_key": [
+        3700,
+        42,
+        1,
+        10000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        42,
+        1,
+        10000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 10000,
+      "seed": 43,
+      "count": 5000,
+      "horizon_ns": 495481328,
+      "arrival_sha256": "19efcc0e7dc9a821ec3ed398c1e519befe7fe281b8f3afa8be9f2a9acaf7cdbd",
+      "score_sha256": "5421e1669c2f6e6b3791cefc97006471c220e837833fa85fec5f1d21395f00a1",
+      "trace_sha256": "16ddc836b273aed7a1a83df881ff65db84e85f59a036460e31322f769673f731",
+      "arrival_stream_key": [
+        3700,
+        43,
+        1,
+        10000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        43,
+        1,
+        10000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "periodic",
+      "nominal_rate": 100000,
+      "seed": 41,
+      "count": 5000,
+      "horizon_ns": 50000000,
+      "arrival_sha256": "5e6a11843c394790a88656d5fbe143d7bd04a83481975e0ad1551dad92f7c748",
+      "score_sha256": "de63bd9ad518b1664de7187736dabc42becce05bad7ec58cc5dcb910d0f98d55",
+      "trace_sha256": "bf35c80e57dc81beea9b5d15c420b7cff53fee04cde8ff1239af419a90033e2e",
+      "arrival_stream_key": [
+        3700,
+        41,
+        0,
+        100000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        41,
+        0,
+        100000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "periodic",
+      "nominal_rate": 100000,
+      "seed": 42,
+      "count": 5000,
+      "horizon_ns": 50000000,
+      "arrival_sha256": "5e6a11843c394790a88656d5fbe143d7bd04a83481975e0ad1551dad92f7c748",
+      "score_sha256": "00a15400e8a137806744199862b9fb98070e76b7985b5fdfbd87d6d690596bff",
+      "trace_sha256": "b0b5a802d5b915ceda922bfcbf5225e870aa6f0f9c1facc073827f2e52ad0bed",
+      "arrival_stream_key": [
+        3700,
+        42,
+        0,
+        100000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        42,
+        0,
+        100000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "periodic",
+      "nominal_rate": 100000,
+      "seed": 43,
+      "count": 5000,
+      "horizon_ns": 50000000,
+      "arrival_sha256": "5e6a11843c394790a88656d5fbe143d7bd04a83481975e0ad1551dad92f7c748",
+      "score_sha256": "3a2dd212d0f1ce287bc03bd8c2c7069fc17591f4726a082c2c9c01a8282b2b45",
+      "trace_sha256": "166c40182ccf5c784c7901afacaa406078164dd9cc878b97406b2ec6e6f2cc6d",
+      "arrival_stream_key": [
+        3700,
+        43,
+        0,
+        100000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        43,
+        0,
+        100000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 100000,
+      "seed": 41,
+      "count": 5000,
+      "horizon_ns": 50549959,
+      "arrival_sha256": "92119613cbc936da0b2817f53e767fc3197583ac189d73a7ef0a732390a34286",
+      "score_sha256": "ae06be7784e1346b2996629a24c90be02ac748ab21acbeb2d9be867ac84a38b8",
+      "trace_sha256": "bd1a068f1c9d0186546670107e37e2b980a44db4a4471f7fa87faf054e70e343",
+      "arrival_stream_key": [
+        3700,
+        41,
+        1,
+        100000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        41,
+        1,
+        100000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 100000,
+      "seed": 42,
+      "count": 5000,
+      "horizon_ns": 48879209,
+      "arrival_sha256": "01aa4e74d9ffb2c2cbfd2aa972299be220e3bbc3d3789a660f0a346d36864cf1",
+      "score_sha256": "68de8f30fb3a056701f0f93aefa70e4c0c8f22d9406b52defc87bf0701de7e55",
+      "trace_sha256": "b9aceeafdfb6ce7c282a74be8ba56caa281f9f1d5cf94d84a18b3537b75269ee",
+      "arrival_stream_key": [
+        3700,
+        42,
+        1,
+        100000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        42,
+        1,
+        100000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 100000,
+      "seed": 43,
+      "count": 5000,
+      "horizon_ns": 49020000,
+      "arrival_sha256": "bdba1d620d7f5566064ff3ae41388028ac1989dc2a0a599c4f34541154ab9eab",
+      "score_sha256": "a2f486be107d340098b889e37b13b6d2d8e6f09d2ea88bc736b5592c39ebd797",
+      "trace_sha256": "d2536e3e2d42222c20493f2ad54b455f3cab7d1cee2a9ebda396948634689e56",
+      "arrival_stream_key": [
+        3700,
+        43,
+        1,
+        100000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        43,
+        1,
+        100000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "periodic",
+      "nominal_rate": 1000000,
+      "seed": 41,
+      "count": 5000,
+      "horizon_ns": 5000000,
+      "arrival_sha256": "2748e4a58c4a487d1452c5631ce9d47fe726ce58b1eb903099d71029fe0badde",
+      "score_sha256": "8aa7f0bccac3194506b321115910a54312ff3b73922c7c7c0100d6730dd3f37b",
+      "trace_sha256": "ac5163039ce34f1dc2f4426a77fb288bfd39bcd2ebbe702a23c0521c0cd71475",
+      "arrival_stream_key": [
+        3700,
+        41,
+        0,
+        1000000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        41,
+        0,
+        1000000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "periodic",
+      "nominal_rate": 1000000,
+      "seed": 42,
+      "count": 5000,
+      "horizon_ns": 5000000,
+      "arrival_sha256": "2748e4a58c4a487d1452c5631ce9d47fe726ce58b1eb903099d71029fe0badde",
+      "score_sha256": "2571d7c789e5678c8b20e3da855d9176ced27b858b08288d0e166ac14160a537",
+      "trace_sha256": "0479eb01b41240302770ad82998c256f894fea7b14bf9fe3a49a325be2f8dbec",
+      "arrival_stream_key": [
+        3700,
+        42,
+        0,
+        1000000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        42,
+        0,
+        1000000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "periodic",
+      "nominal_rate": 1000000,
+      "seed": 43,
+      "count": 5000,
+      "horizon_ns": 5000000,
+      "arrival_sha256": "2748e4a58c4a487d1452c5631ce9d47fe726ce58b1eb903099d71029fe0badde",
+      "score_sha256": "a92cb75962e8df7b22fb77d426e39ebb0748ab98ee74da56e7f8d8b25cd66b9a",
+      "trace_sha256": "a6ac1c801e962c9e6ecef0ecc05458f6739c0dfc80d1f0d27d2ba2a93a87a880",
+      "arrival_stream_key": [
+        3700,
+        43,
+        0,
+        1000000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        43,
+        0,
+        1000000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 1000000,
+      "seed": 41,
+      "count": 5000,
+      "horizon_ns": 4950449,
+      "arrival_sha256": "45a06be67306da5f7fa6e292baa5f51c6d9d54e8084e9b8f61b30032ed35d53a",
+      "score_sha256": "8f72ab1d6e46c18eb2d5dd514b708af5670d3cfdd8df3d32b4c7055b8fc4c336",
+      "trace_sha256": "ce9cdead3ae9df7906b9938e72f4576c408296c9e163df976f8cb264395c5adc",
+      "arrival_stream_key": [
+        3700,
+        41,
+        1,
+        1000000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        41,
+        1,
+        1000000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 1000000,
+      "seed": 42,
+      "count": 5000,
+      "horizon_ns": 5090604,
+      "arrival_sha256": "22cf9c1e95dff7a34976bc27dcecefd16db787bb69c43685b7766386e88905b8",
+      "score_sha256": "5925acc27b7286613b8d123a9096f9024e43cf61c767d23e3990e4b4d27d3d38",
+      "trace_sha256": "5065b76a1945fab6830087e89cae42ab03ed8630ff9b633e015391bde16763a6",
+      "arrival_stream_key": [
+        3700,
+        42,
+        1,
+        1000000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        42,
+        1,
+        1000000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    },
+    {
+      "mode": "poisson",
+      "nominal_rate": 1000000,
+      "seed": 43,
+      "count": 5000,
+      "horizon_ns": 5059295,
+      "arrival_sha256": "733a3d15eaa9319a6e60d39d0ac0ac648251b37d4c9feb04a1686a3ef8d5cc0f",
+      "score_sha256": "7e1124808682834185bd612c86114f3696ff5e4ca33c582cdbb86ff8339c7d53",
+      "trace_sha256": "06fb97d5aa63d74b0c6d080007e800a4080c2642d7d863e1db6d007f2885e3b3",
+      "arrival_stream_key": [
+        3700,
+        43,
+        1,
+        1000000,
+        0
+      ],
+      "score_stream_key": [
+        3700,
+        43,
+        1,
+        1000000,
+        1
+      ],
+      "generator": "NumPy Generator/PCG64/SeedSequence",
+      "numpy_version": "2.5.3",
+      "time_rule": "ceil exponential gaps to >=1ns; periodic ceil(1e9/rate); first arrival after first gap",
+      "retained_python_bytes": 340128
+    }
+  ],
+  "retained_trace_object_payload_estimate_bytes": 6122304,
+  "scenario_groups": {
+    "main": {
+      "scenarios": 324,
+      "event_presentations": 1620000,
+      "completed": 1528515,
+      "overflow_dropped": 91485,
+      "pending": 0
+    },
+    "sensitivity": {
+      "scenarios": 54,
+      "event_presentations": 270000,
+      "completed": 258111,
+      "overflow_dropped": 11889,
+      "pending": 0
+    }
+  },
+  "final_invocation_counters": {
+    "curated_timing_table_metadata_loads": 3,
+    "synthetic_unique_traces": 18,
+    "synthetic_unique_events": 90000,
+    "synthetic_scenarios_started": 378,
+    "synthetic_scenarios_completed": 378,
+    "synthetic_event_presentations_started": 1890000,
+    "synthetic_event_presentations_completed": 1890000,
+    "new_simulator_model_instantiations_or_forward_calls": 0,
+    "original_test_background_model_evaluation_accessed": "YES",
+    "original_test_signal_model_evaluation_accessed": "YES",
+    "three_prong_signal_model_evaluation_accessed": "YES",
+    "new_operational_population_requests_in_Task0037": 0,
+    "new_event_feature_score_membership_fingerprint_loads_in_Task0037": 0,
+    "operational_reconstruction_calibration_scientific_evaluations_in_Task0037": 0,
+    "operational_optimizer_updates_in_Task0037": 0,
+    "event_payload_downloads_in_Task0037": 0,
+    "new_operational_physical_inference_timing_measurements_in_Task0037": 0
+  },
+  "all_actual_invocation_accounting": {
+    "actual_invocations": 2,
+    "simulation_workers": 2,
+    "reporting_workers": 2,
+    "curated_timing_numeric_loads_in_sweeps": 6,
+    "preparatory_curated_prefix_or_JSON_reads": 6,
+    "curated_timing_task_handling_total_reads": 12,
+    "byte_custody_hashing_separate": true,
+    "trace_generation_requests": 36,
+    "synthetic_events_generated_with_repeated_identical_streams": 180000,
+    "distinct_joint_trace_hashes": 18,
+    "unique_synthetic_source_events_per_stream_keys": 90000,
+    "scenarios": 756,
+    "event_presentations": 3780000,
+    "failed_native_invocations": 0,
+    "first_numerically_accepted_visuals_not_curated": true,
+    "ordinary_unit_fixtures_and_historical_regressions_separate": true
+  },
+  "native_invocations": [
+    {
+      "invocation": "5755e3bb24984ef091614652e7128eed",
+      "status": "parent_accepted_synthetic_sweep",
+      "visual_curation": "rejected_overlap",
+      "workflow_sha256": "4c44a5c0f834670a818dc37c2abf2541262241a63e45ef796107fd98376d36b8",
+      "parent_acceptance_sha256": "9682b2ab4a8b5ecc0f85972607c972252a6dea317461b14e2bc2a9219b9c01b5",
+      "plan_sha256": "f9f706e94179b4268e83bad3a994ab8e31d9b31d155e8e66ccd63e724a081fc7",
+      "source_map_canonical_sha256": "bf5476e99d78f01cbbf906bb26a6a11c12615730e62502e3f6ecbe36880d28ca",
+      "whole_seconds": 5.535386125033256,
+      "counters": {
+        "curated_timing_table_metadata_loads": 3,
+        "synthetic_unique_traces": 18,
+        "synthetic_unique_events": 90000,
+        "synthetic_scenarios_started": 378,
+        "synthetic_scenarios_completed": 378,
+        "synthetic_event_presentations_started": 1890000,
+        "synthetic_event_presentations_completed": 1890000,
+        "new_simulator_model_instantiations_or_forward_calls": 0
+      },
+      "assertion_released": true,
+      "phases": [
+        {
+          "phase": "simulation",
+          "normal_exit": true,
+          "reaped": true,
+          "dispatch_through_reap_seconds": 3.2628072919906117,
+          "worker_seconds": 3.219436958024744,
+          "cleanup_seconds": 0.00044845801312476397,
+          "RSS_bytes": 60276736,
+          "native_reserved_bytes": 41943040,
+          "pressure_counts": {
+            "NORMAL": 2869,
+            "WARN": 0,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_sample_gap_seconds": 0.05188416701275855,
+          "terminal_unmonitored_seconds": 0.04401704098563641,
+          "output_sha256": {
+            "aggregates.json": "f0cf7f2137460ee3c8db6c0156c735e91c2f6c65e710319627cf9e7efacad0ee",
+            "scenarios.csv": "e90c2a694e45b09788ebf96eb268413caad08b95df732a854126a3a2f58fd393"
+          }
+        },
+        {
+          "phase": "reporting",
+          "normal_exit": true,
+          "reaped": true,
+          "dispatch_through_reap_seconds": 1.9778031250461936,
+          "worker_seconds": 1.9089967499603517,
+          "cleanup_seconds": 7.325003389269114e-05,
+          "RSS_bytes": 134037504,
+          "native_reserved_bytes": 89456640,
+          "pressure_counts": {
+            "NORMAL": 36,
+            "WARN": 0,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_sample_gap_seconds": 0.13159620796795934,
+          "terminal_unmonitored_seconds": 0.07022016594419256,
+          "output_sha256": {
+            "latency.png": "c9e0a29311b552cad4adbcb964ad1afe069e00aa45dd1a70f945b3474bf34f0f",
+            "loss.png": "5143aa530a4e257f40552c85625bd5636e37ab4090230bc21ce48854403b4d81",
+            "sensitivity.png": "b65760d80d97e7b754edb8f5a0725aefbfd962f700b2cb1a4910eb6d9c7a9df1",
+            "reporting.json": "2f54d26a9a9a64181657ebf48c220e42ba9df55c4ad0aa82121e461d2e92636e"
+          }
+        }
+      ]
+    },
+    {
+      "invocation": "29adbd34fce9432dace973aea3e1daa3",
+      "status": "parent_accepted_synthetic_sweep",
+      "visual_curation": "passed_all_three",
+      "workflow_sha256": "f9f819a88c441bff300dc0ca2f099b133d8fc4e10c4171f89c56de77a309773b",
+      "parent_acceptance_sha256": "e861525dd9b761d9e22c110d43cad9f6807c0a5ed2be196410eb65c9a4b674fc",
+      "plan_sha256": "382df4f6735d2a47ccad9d7fb43491a755d338976d8c562d6ea78d3b1ebdf06a",
+      "source_map_canonical_sha256": "fe3c414e3b988304254a3396f870bf4fc7c3ccdebe84ffb1cd76c014d6b804ff",
+      "whole_seconds": 6.105817540956195,
+      "counters": {
+        "curated_timing_table_metadata_loads": 3,
+        "synthetic_unique_traces": 18,
+        "synthetic_unique_events": 90000,
+        "synthetic_scenarios_started": 378,
+        "synthetic_scenarios_completed": 378,
+        "synthetic_event_presentations_started": 1890000,
+        "synthetic_event_presentations_completed": 1890000,
+        "new_simulator_model_instantiations_or_forward_calls": 0
+      },
+      "assertion_released": true,
+      "phases": [
+        {
+          "phase": "simulation",
+          "normal_exit": true,
+          "reaped": true,
+          "dispatch_through_reap_seconds": 3.308454875019379,
+          "worker_seconds": 3.259249583003111,
+          "cleanup_seconds": 0.00048162502935156226,
+          "RSS_bytes": 52527104,
+          "native_reserved_bytes": 41943040,
+          "pressure_counts": {
+            "NORMAL": 0,
+            "WARN": 2870,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_sample_gap_seconds": 0.052096292027272284,
+          "terminal_unmonitored_seconds": 0.04990500002168119,
+          "output_sha256": {
+            "aggregates.json": "f0cf7f2137460ee3c8db6c0156c735e91c2f6c65e710319627cf9e7efacad0ee",
+            "scenarios.csv": "e90c2a694e45b09788ebf96eb268413caad08b95df732a854126a3a2f58fd393"
+          }
+        },
+        {
+          "phase": "reporting",
+          "normal_exit": true,
+          "reaped": true,
+          "dispatch_through_reap_seconds": 2.4463296250323765,
+          "worker_seconds": 2.386706207995303,
+          "cleanup_seconds": 0.00011237501166760921,
+          "RSS_bytes": 129613824,
+          "native_reserved_bytes": 102039552,
+          "pressure_counts": {
+            "NORMAL": 0,
+            "WARN": 42,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_sample_gap_seconds": 0.10718495800392702,
+          "terminal_unmonitored_seconds": 0.06183416600106284,
+          "output_sha256": {
+            "latency.png": "05a1a095414008f5a674d8f6da64d75b984b40818426ed152c8e8f7968f80de1",
+            "loss.png": "570c396ca818e62b56005363eee11d593483793b047fc0a449152c5ff0935e75",
+            "sensitivity.png": "d4861bdefdc86ab79e978ec1b5bab18dbc59e1e1daa79749b597723d5fca078f",
+            "reporting.json": "2f54d26a9a9a64181657ebf48c220e42ba9df55c4ad0aa82121e461d2e92636e"
+          }
+        }
+      ]
+    }
+  ],
+  "final_native": {
+    "invocation": "29adbd34fce9432dace973aea3e1daa3",
+    "prerequisite_seconds": 0.16003070794977248,
+    "finalization_seconds": 0.0728903750423342,
+    "whole_seconds": 6.105817540956195,
+    "overshoot_seconds": 0,
+    "controller_peak_RSS_bytes": 39075840,
+    "owned_storage_bytes_at_final_measurement": 5536034,
+    "assertion_active_observations": 6,
+    "assertion_released": true,
+    "helper_reaped": true,
+    "display_sleep_permitted": true,
+    "persistent_settings_changed": false,
+    "optional_global_RAM_context": "unavailable: worker subprocess access prohibited; contextual only",
+    "physical_suspension_test": false
+  },
+  "observed_B1_ranges": [
+    {
+      "scope": "all two arrival modes/three seeds; fixed B1",
+      "candidate": "pca-v1",
+      "nominal_rate": 10000,
+      "overflow_fraction_range": [
+        0.0,
+        0.0
+      ],
+      "p99_latency_us_range": [
+        8.423,
+        16.16768
+      ],
+      "processed_deadline_miss_fraction_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scope": "all two arrival modes/three seeds; fixed B1",
+      "candidate": "pca-v1",
+      "nominal_rate": 100000,
+      "overflow_fraction_range": [
+        0.0,
+        0.0
+      ],
+      "p99_latency_us_range": [
+        8.423,
+        165.81143
+      ],
+      "processed_deadline_miss_fraction_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scope": "all two arrival modes/three seeds; fixed B1",
+      "candidate": "pca-v1",
+      "nominal_rate": 1000000,
+      "overflow_fraction_range": [
+        0.6744,
+        0.6778
+      ],
+      "p99_latency_us_range": [
+        8625.096539999999,
+        8625.115730000001
+      ],
+      "processed_deadline_miss_fraction_range": [
+        0.9156403940886699,
+        0.9174425822470516
+      ]
+    },
+    {
+      "scope": "all two arrival modes/three seeds; fixed B1",
+      "candidate": "compact-autoencoder-v2",
+      "nominal_rate": 10000,
+      "overflow_fraction_range": [
+        0.0,
+        0.0
+      ],
+      "p99_latency_us_range": [
+        35.218,
+        113.54239
+      ],
+      "processed_deadline_miss_fraction_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scope": "all two arrival modes/three seeds; fixed B1",
+      "candidate": "compact-autoencoder-v2",
+      "nominal_rate": 100000,
+      "overflow_fraction_range": [
+        0.5084,
+        0.5178
+      ],
+      "p99_latency_us_range": [
+        36062.94204,
+        36063.05496
+      ],
+      "processed_deadline_miss_fraction_range": [
+        0.9834368530020704,
+        0.9857607811228641
+      ]
+    },
+    {
+      "scope": "all two arrival modes/three seeds; fixed B1",
+      "candidate": "compact-autoencoder-v2",
+      "nominal_rate": 1000000,
+      "overflow_fraction_range": [
+        0.7664,
+        0.7672
+      ],
+      "p99_latency_us_range": [
+        36062.99906,
+        36063.1256
+      ],
+      "processed_deadline_miss_fraction_range": [
+        0.9750859106529209,
+        0.9751712328767124
+      ]
+    }
+  ],
+  "fixed_AE2_stress": [
+    {
+      "worker": "AE2",
+      "batch": 128,
+      "nominal_rate": 100000,
+      "arrival_mode": "poisson",
+      "timeout_us": 100,
+      "statistic": "mean_ns",
+      "constant_service_ns": 267599,
+      "seeds": [
+        41,
+        42,
+        43
+      ],
+      "overflow_fraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "p99_latency_ms": [
+        0.53241608,
+        0.53174337,
+        0.5318290600000001
+      ],
+      "processed_miss_fraction": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "worker": "AE2",
+      "batch": 128,
+      "nominal_rate": 100000,
+      "arrival_mode": "poisson",
+      "timeout_us": 100,
+      "statistic": "p99_ns",
+      "constant_service_ns": 1161230,
+      "seeds": [
+        41,
+        42,
+        43
+      ],
+      "overflow_fraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "p99_latency_ms": [
+        2.31765181,
+        2.36035484,
+        2.3821091400000003
+      ],
+      "processed_miss_fraction": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "worker": "AE2",
+      "batch": 128,
+      "nominal_rate": 100000,
+      "arrival_mode": "poisson",
+      "timeout_us": 100,
+      "statistic": "max_ns",
+      "constant_service_ns": 26248500,
+      "seeds": [
+        41,
+        42,
+        43
+      ],
+      "overflow_fraction": [
+        0.7918,
+        0.7924,
+        0.7936
+      ],
+      "p99_latency_ms": [
+        227.0678366,
+        227.34208529,
+        227.02915736000003
+      ],
+      "processed_miss_fraction": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "curated_outputs_sha256": {
+    "results/tables/final/task0037-synthetic-trigger-scenarios.csv": "e90c2a694e45b09788ebf96eb268413caad08b95df732a854126a3a2f58fd393",
+    "results/figures/final/task0037-synthetic-trigger-latency.png": "05a1a095414008f5a674d8f6da64d75b984b40818426ed152c8e8f7968f80de1",
+    "results/figures/final/task0037-synthetic-trigger-loss.png": "570c396ca818e62b56005363eee11d593483793b047fc0a449152c5ff0935e75",
+    "results/figures/final/task0037-synthetic-trigger-sensitivity.png": "d4861bdefdc86ab79e978ec1b5bab18dbc59e1e1daa79749b597723d5fca078f"
+  },
+  "matrix_CSV_byte_identical_between_invocations": true,
+  "figures_visual_inspection": "passed all three final figures after lower-legend repair; log latency axes/no clipping, loss0-100%, all three seeds shown",
+  "metrics": {
+    "time_provenance": "checked nonnegative signed64 integer ns; linear quantiles rational rank positions; fractional ns display",
+    "dispatch_wait": "combined queue and batching wait",
+    "deadline": "strict latency>1000000ns; drops never on-time",
+    "throughput": "completed/H, completed/final_completion, postHcompleted/drain; finite startup+drain",
+    "toy_decisions": "four strict Uniform[0,1) cuts after processing; no physics labels"
+  },
+  "limits": {
+    "prerequisite_seconds": 30,
+    "simulation_seconds": 120,
+    "reporting_seconds": 60,
+    "finalization_seconds": 15,
+    "whole_seconds": 240,
+    "cleanup_seconds": 2,
+    "worker_RSS_bytes": 1073741824,
+    "native_reserved_bytes": 536870912,
+    "controller_RSS_bytes": 134217728,
+    "guard_journal_bytes": 67108864,
+    "worker_log_bytes": 1048576,
+    "owned_storage_bytes": 134217728,
+    "retained_trace_bytes": 16777216,
+    "max_latency_entries_per_scenario": 5000
+  },
+  "confirmation_route": "unresolved_no_acquisition",
+  "confirmation_source_accepted": false,
+  "Task0034_protocol_amended_or_retired": false,
+  "model_freeze": false,
+  "scientific_or_physical_inference_claim": false,
+  "Task0038_launched": false,
+  "preservation": {
+    "Task0036_nonliving_initial_identities": {
+      "docs/confirmation-source-feasibility.md": {
+        "bytes": 20446,
+        "sha256": "8f8ceacc4a4e95214a51494aa0b324b6ae03a0d5a9629281d2b1f1b5c9336b41"
+      },
+      "docs/handoffs/0036-confirmation-source-feasibility.md": {
+        "bytes": 9268,
+        "sha256": "7d285868dc8e625ea42c29aebce89447d03966cd49d2f32b8e22b45384bccf2d"
+      },
+      "docs/prompts/0036-confirmation-source-feasibility.md": {
+        "bytes": 16723,
+        "sha256": "b124a0c86df62f12d5c5e4b06903f84518dd147bf96f05bd1bb410c022d9bfdd"
+      },
+      "results/tables/final/task0036-confirmation-source-evidence.csv": {
+        "bytes": 15176,
+        "sha256": "c948923874f2c6989d757ab9fe6842e5702093e1f820b64960e433d3b10d4cfd"
+      },
+      "results/tables/final/task0036-confirmation-source-feasibility-summary.json": {
+        "bytes": 39118,
+        "sha256": "b8ffa60e83b99d2e7f8c61628f8a0c963d70a6469b2ecccfb125eb11461eaf95"
+      }
+    },
+    "living_initial_identities": {
+      "README.md": {
+        "bytes": 39195,
+        "sha256": "3ba92925461aff1bf215f1056196e99f4004451405e38aab9c9177d1015670a0"
+      },
+      "docs/project-memory.md": {
+        "bytes": 216355,
+        "sha256": "698b3492556060a061d5bdea9c36b42e2afd8404d551e4e0ef4b6fea321c5368"
+      },
+      "docs/handoffs/README.md": {
+        "bytes": 21536,
+        "sha256": "e6c7997c893eb9edbf28bd2586cbd6dbcd8abea50f1cb0cc47cc36706a63b44c"
+      }
+    },
+    "Task0036_specific_files_unchanged": true,
+    "Task0036_receipts_and_acceptance_not_modified": true,
+    "old_tracked_nonliving_files_expected_unchanged": 419,
+    "living_final_identities": {
+      "README.md": {
+        "bytes": 40849,
+        "sha256": "47413e1befbba8d18f3a86663b53193cb14011b4d27e9a5abb00b6a95faa0737"
+      },
+      "docs/handoffs/README.md": {
+        "bytes": 22749,
+        "sha256": "969c00632bf2d47348031e2a3ca8cd3a52e155933d7e175234dac9fe172aeefb"
+      },
+      "docs/project-memory.md": {
+        "bytes": 222154,
+        "sha256": "28ca8bf7b0588bacab71cfb20ecf1dc4d253e11f397fa59a4e3e98cddbf76eab"
+      }
+    }
+  },
+  "next_decision": "Separately authorize a bounded development-only service variability/partial-shape and missing-chain-cost measurement plan; no deployed policy, publisher research, acquisition or exposed-test rescoring",
+  "final_delivery_validation": {
+    "status": "passed",
+    "CSV_rows": 378,
+    "CSV_columns": 93,
+    "CSV_JSON_agreement": true,
+    "links_checked_without_network": 351,
+    "unchanged_old_tracked_nonliving_files": 419,
+    "preserved_Task0036_specific_files": 5,
+    "exact_prior_plus_Task0037_worktree": true,
+    "index_empty": true,
+    "final_source_acceptance_identity_current": true,
+    "curated_three_figures_visual_pass": true
+  }
+}
