@@ -112,10 +112,22 @@ utility for both. Shared background is historical evidence, not independent FPR
 replication. New arithmetic is post-evaluation description, without significance,
 mechanism, combined utility score or physical-trigger claim. All samples retain
 exposure YES; new population/array/model/fingerprint/optimizer/download work is zero.
-The frozen baseline study is complete within scope. Next is a methodological
-decision on explicitly exploratory diagnostics or independent confirmation design,
-with no automatic Task0033 or new development authorization. Particle192/192
+The frozen baseline study is complete within scope. Particle192/192
 consumed/canonical deferral and historical failures remain preserved.
+
+Task0033 completes the explicitly authorized [exploratory feature/score diagnostics](docs/exploratory-feature-score-diagnostics.md)
+on these exposed samples: one parent-accepted8.778443s session,3feature requests /
+350471rows,6stored score loads/700942values and separate3membership loads /
+3300000records. Zero new forwards/reconstruction/AUC-AP/significance/fingerprints /
+optimizer/downloads. Frozen standardized marginals,48rank associations and all24
+original tails are retained;16small-tail feature rows suppressed. Two inspected
+figures are curated; an overlapping heatmap is retained only operationally, with
+all coefficients in the table.90specific/179focused/1728full+portable checks precede
+200-source/43-package freeze and actual prompt-bound consent. Limits/assertion
+release pass; sampled monitoring gaps are disclosed. Correlations and distinct
+strict-tail profiles generate hypotheses, not causal mechanisms or repaired utility.
+Next is an explicit independent-confirmation methodology decision before informed
+development; no favorable feature/candidate/cut chosen and no automaticTask0034.
 
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
@@ -505,6 +517,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0029: own146-source/1414full+portable/81new-case byte-only acquisition foundation; sole3request session failed/consumed,29990748Bpartial preserved, no verified artifact/HDF/numerical science. Clock and200/206Retry-After limitations recorded.
 - [x] Task0031: accepted local three-prong evaluation with shared exposed background; all original thresholds preserved.
 - [x] Task0032: integrated two-/three-prong synthesis and quality/cost decision brief; frozen baseline complete within scope, zero new scientific execution.
+- [x] Task0033: accepted exploratory frozen-feature/score diagnostics on exposed samples;3requests/350471feature rows,6loads/700942scores,48associations/all24original tails,16suppressed profile rows/two curated figures; no new model work or independent confirmation.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
