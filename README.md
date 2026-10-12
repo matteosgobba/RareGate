@@ -74,10 +74,34 @@ parent-accepted; idle-system assertion active/release confirmed, continuous rese
 Blosc, no dataset values/numerical custody/fingerprints/cache/models/science.
 Fresh power logs broadly explain Task0029's clock divergence, without proving
 exclusive network-error causation or changing that historical failed result.
-The initial native scientific study remains complete; later three-prong numerical
-custody/uniqueness/overlap/evaluation needs a new explicit local-file protocol /
-authorization. Original testsYES/YES, new signal modelNO; particle192/deferred and
+At Task0030 completion, numerical custody/uniqueness/overlap/evaluation still
+required a separate local-file protocol and authorization. Task0031 below
+subsequently completes that scope. Task0030 exposure was originalYES/YES and new
+signal modelNO; particle192/deferred and
 Task0025/0028/0029failed consumed outcomes preserved. No new acquisition is automatic.
+
+
+Task0031 completes the separately authorized [local three-prong scientific evaluation](docs/local-three-prong-evaluation.md).
+All 100000 events pass labels, axes, particle validity, exact uniqueness and
+all-role fingerprint disjointness. Frozen native PCA has ROC-AUC 0.462953 / AP
+0.360220; AE has 0.585877 / 0.479972 in a 39.9248% signal mixture. AE retains an
+observed advantage, weaker than for the two-prong signal. At the strict threshold,
+AE accepts 34 signals and 116 shared background events: relative acceptance
+0.4410, selected signal fraction 22.6667%, with no observed enrichment.
+All four workers exit normally and are reaped and accepted within 29.058839s
+reserved time. Two signal requests yield 50 complete canonical batches and
+200000 scored presentations; two original background caches are numerically
+loaded, with zero new background forwards, optimizer updates or downloads.
+Fresh 1590-test full and portable validation covers 161 source/dependency bindings;
+all 153 historical bindings and scientific evidence are preserved. Continuous
+deadlines and a temporary idle-system assertion are verified, including release.
+Original tests YES/YES and new three-prong model YES are permanent exposure states.
+Shared background remains historical evidence; no independent background,
+significance or physical-rate claim is added, and original thresholds are unchanged.
+The [tables/summary](results/tables/final/task0031-local-three-prong-evaluation-summary.json)
+and [ROC/PR](results/figures/final/task0031-three-prong-roc-pr.png) are accepted.
+The justified follow-up is an offline integrated synthesis from curated aggregates;
+no subsequent scientific or training task is launched.
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
