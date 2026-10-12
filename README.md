@@ -100,8 +100,23 @@ Shared background remains historical evidence; no independent background,
 significance or physical-rate claim is added, and original thresholds are unchanged.
 The [tables/summary](results/tables/final/task0031-local-three-prong-evaluation-summary.json)
 and [ROC/PR](results/figures/final/task0031-three-prong-roc-pr.png) are accepted.
-The justified follow-up is an offline integrated synthesis from curated aggregates;
-no subsequent scientific or training task is launched.
+Task0032 below subsequently completes the offline integrated synthesis from
+curated aggregates; no subsequent scientific or training task is launched.
+
+Task0032 completes the [two-/three-prong synthesis and methodological decision brief](docs/two-three-prong-synthesis.md).
+Twenty pinned curated sources produce four global-quality rows, all sixteen
+calibrated points, eight descriptive topology comparisons, ten scoped native CPU
+cost groups and three static figures. AE has higher observed quality on both
+signals at higher CPU cost, with weaker three-prong performance and weak strict-tail
+utility for both. Shared background is historical evidence, not independent FPR
+replication. New arithmetic is post-evaluation description, without significance,
+mechanism, combined utility score or physical-trigger claim. All samples retain
+exposure YES; new population/array/model/fingerprint/optimizer/download work is zero.
+The frozen baseline study is complete within scope. Next is a methodological
+decision on explicitly exploratory diagnostics or independent confirmation design,
+with no automatic Task0033 or new development authorization. Particle192/192
+consumed/canonical deferral and historical failures remain preserved.
+
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
@@ -486,9 +501,11 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0026 Phase B: explicit human approval, one accepted frozen PCA/AE final evaluation, all scientific tables/figure/counts/lifecycle curated; both tests exposed, no post-test tuning/replay.
 - [x] Task0027: integrated frozen scientific synthesis; ten adapter cost groups/all eight calibrated points/static figures, zero new scientific execution.
 - [x] Task0028 Phase A: isolated three-prong protocol/guarded foundation, 62 new cases / 1333 full+portable tests / protected toy integration; source-bound plan and metadata ready.
-- [x] Task0028 Phase B attempt: explicit human approval, one frozen acquisition campaign; failed/consumed at deadline, exit1/reaped, no retry/resume or later phases. Three-prong scientific generalization remains unmeasured.
+- [x] Task0028 Phase B attempt: explicit human approval, one frozen acquisition campaign; failed/consumed at deadline, exit1/reaped, no retry/resume or later phases. Task0028 itself produces no scientific result; Task0031 later supplies the accepted local-file study.
 - [x] Task0029: own146-source/1414full+portable/81new-case byte-only acquisition foundation; sole3request session failed/consumed,29990748Bpartial preserved, no verified artifact/HDF/numerical science. Clock and200/206Retry-After limitations recorded.
-- [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison.
+- [x] Task0031: accepted local three-prong evaluation with shared exposed background; all original thresholds preserved.
+- [x] Task0032: integrated two-/three-prong synthesis and quality/cost decision brief; frozen baseline complete within scope, zero new scientific execution.
+- [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
 - [ ] Physical CPU/MPS comparison: Task0023 blocked, no current device proof.

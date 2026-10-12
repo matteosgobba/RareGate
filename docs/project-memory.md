@@ -9,15 +9,15 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.26 |
-| Last factual verification | 2026-10-11, Europe/Rome |
-| Last completed phase | 0031 — own161-source/1590full+portable/87-case validation and sole accepted local three-prong scientific campaign;100000valid/unique/disjoint events,2model requests/50batches/200000presentations,2cachedBGloads,0newBGforward/optimizer/download |
-| Latest task outcome | Task0031 prepare→PCA→AE→consolidate all exit0/reaped/parent accepted,29.058839s reserved/29.607650s including prerequisites,assertion7active/released/no overshoot/inflight. PCA AUC0.462953/AP0.360220; AE0.585877/0.479972 at39.9248%mixture. Strict PCA1signal/124BG, AE34/116; AErelative0.4410/selected22.6667%below prevalence. Both rank/accept less signal than two-prong; shared exposed BG,no independent BG/significance claim |
+| Memory revision | 1.27 |
+| Last factual verification | 2026-10-12, Europe/Rome |
+| Last completed phase | 0032 — completed offline two-/three-prong synthesis and quality/cost decision brief from 20 pinned curated sources; 4 quality rows, 16 calibrated points, 8 topology comparisons, 10 accepted adapter cost groups and 3 static figures |
+| Latest task outcome | Frozen AE has higher observed quality on both signals at higher scoped CPU cost; both models weaker on three prong. AE strict selected fractions 32.5581% / 22.6667% fall below 39.9248% mixture prevalence. Shared historical background, conditional intervals, unequal capacity; no significance/mechanism/physical-rate claim. New access/scoring/arrays/fingerprints/optimizer/downloads all zero |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0031 base | `c825445526a4620a3049bd7732a709116cb5600b`, actual Task0030 commit; Task0029 commit e1e8faa verified. Task0031 starts clean main/origin/main/index; historical Task0030 restoration instructions are obsolete for this state. No new commit/push/hosted CI claimed |
+| Verified HEAD / Task0032 base | `bf6a5c3b271f8d09d4e9391655a73c1e6f1046f1`, actual committed Task0031; clean main/origin/main and empty index at Task0032 start. No new commit/push/hosted CI claimed |
 | Current compact neural baseline | `compact-autoencoder-v2` |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Offline integrated two-/three-prong synthesis with accepted Task0022 scoped CPU costs,from curated aggregates only. No automatic training/optimization/evaluation or threshold choice; future model development needs explicit methodology and independent evaluation population/protocol because all evaluated samples are exposed |
+| Next action | Close/preserve the completed frozen baseline; decide whether to authorize explicitly exploratory feature/score-tail diagnostics on exposed samples. No automatic Task0033/development/evaluation. Any informed development must disclose influence and define independent confirmation protocol/population; reshuffling exposed samples is not a fresh test |
 | Real test evaluation exposure | OriginalYES/YES permanent from Task0026; new three-prong modelYES in Task0031:100000valid rows evaluated once per frozen candidate,2requests/50batches/200000presentations. Two accepted original BGcache loads,0newBGforward/oldsignal numeric load; no unknown inflight. Never describe these evaluated samples as untouched again |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
@@ -233,11 +233,60 @@ Observed AE advantage persists for these signals but weakens on three-prong;
 nonlinearity. Representation/bottleneck/score explanations remain hypotheses,
 feature-level bias/other populations/physical deployment unmeasured. Task0022
 accepted prepared-feature CPU costs are historical context; campaigntimes are
-not inference benchmarks. Next offline combined synthesis from accepted aggregates
-only, no automatic successor. Future model development needs explicit methodology
+not inference benchmarks. Task0032 subsequently completes the offline combined
+synthesis from accepted aggregates; no automatic successor. Future model development needs explicit methodology
 and independent population/evaluation protocol; these evaluated samples are not
 fresh tuning sets. Task0025failed/provisional,0028/0029consumed failures,0030accepted
 acquisition,particle192/canonical deferral retain their actual historical outcomes.
+
+### Integrated two-/three-prong synthesis and decision brief — Task0032 completed
+
+[Task0032 report](two-three-prong-synthesis.md) closes the frozen baseline study
+within its declared scope, using accepted Task0026/0031 science and Task0022
+native CPU costs. A separate helper reads exactly 20 byte-pinned curated reports,
+summaries, CSVs and PNGs, with input/output boundaries and symlink refusal. It
+compares recorded model/config/calibration/store/scaler/cache identities without
+following operational paths. Task0027 and all historical evidence remain unchanged.
+Four global rows, sixteen calibrated points, eight descriptive topology comparisons,
+ten adapter cost groups and three inspected static figures are curated. All four
+thresholds and copied conditional Wilson intervals/rejection factors are retained;
+28 descriptive empirical points remain separate from calibrated cuts.
+
+AE ranks and accepts more signal than PCA on both declared samples, but the
+advantage and absolute efficiencies are weaker on three prong. New Task0032
+arithmetic is post-evaluation description: AE AUC change −0.0741866875 and AP
+change −0.0674556167, with no significance/causal-topology claim. At strict AE
+cut, two prong56/100000 and three prong34/100000 are below shared background
+116/150471. Relative acceptance0.7264117/0.4410357 and selected fractions
+56/172=32.5581% /34/150=22.6667% are below initial39.9248%; no observed enrichment.
+First three AE points show descriptive enrichment for both signals, no winner
+threshold. Avoid multiplicative claims from PCA's two/one strict-tail signals.
+
+Cost remains historical prepared-feature CPU adapter B1/8/32/128/1024, three
+worker medians/means and all outliers retained. B1 median of worker p50s8.125µs
+PCA/24.708µsAE; pooled throughput uses600invocations and B/pooled mean, not
+inverse median or averaged reciprocals. Quality reference is B4096, not new
+quality at each cost batch. No combined utility score/deployment optimum,
+end-to-end/trigger-rate claim or campaign-duration inference benchmark.
+
+All three exposure states remain YES historically; new population/score-curve /
+fingerprint numeric loads/model scoring/optimizer/download counts are zero.
+Fresh focused synthetic validation is separate from historical scientific acceptance;
+no campaign/full-suite rerun, hosted CI or dependency change is implied. Shared
+background, exact-disjointness limits, preselected simulation, unequal6/3capacity,
+residual-scale ambiguity and conditional-uncertainty limits remain visible. No
+feature mechanism is measured; representation/bottleneck/tail explanations remain
+hypotheses. Task0025/0028/0029 failures, Task0030 acquisition and particle192/192
+consumed/canonical deferral remain intact.
+
+Recommended decision: preserve the complete baseline, then decide whether an
+explicitly exploratory exposed-sample diagnostic is worth authorizing. Questions,
+access scope, bounded outputs and honest negative/ambiguous outcomes must be
+specified prospectively. Any subsequent representation/model development informed
+by current results needs disclosed influence and independent confirmation data /
+protocol; exposed-sample reshuffling does not restore independence. Independent
+background/signal generalization and physical deployment remain open separate
+objectives; particle needs a new feasibility/budget decision. No successor launched.
 
 ## 2. Vision, motivation, and research question
 
@@ -1220,7 +1269,7 @@ Scientific result: evaluated test mixture39.924782%signal; PCA AUC0.468489/AP0.3
 - **Reduced-precision study:** Compare supported precision variants using training-only calibration and preregistered tolerances; freeze variant thresholds before final test.
 - **Streaming study:** Establish repeatable simulator assumptions and load scenarios, then evaluate queueing/capacity/latency and acceptance.
 - **Conditional deployment branches:** NVIDIA/TensorRT and optional FPGA/hls4ml as resources permit.
-- **Integrated scientific reporting:** Initial frozen native comparison and synthesis completed in Task0026/0027. Separate extensions address bias, capacity and generalization; any future model variant needs an explicit method/evaluation population, not repeated use of exposed tests as untouched.
+- **Integrated scientific reporting:** Initial comparison/synthesis completed in Task0026/0027; Task0031 adds accepted three-prong science and Task0032 completes the integrated two-/three-prong quality/cost decision brief. Frozen baseline closed within scope. Bias, capacity, independent generalization and physical deployment remain separate; informed model development requires disclosed influence and independent confirmation, never exposed-sample reshuffling.
 
 Do not treat these bullets as already executed tasks or fixed task numbers. Choose the next bounded task from the live state, dependency order, unresolved evidence, and user direction.
 
@@ -1430,6 +1479,7 @@ commands. Do not automatically stage, commit, push, or unblind real test data.
 - [Data design](data-design.md), [raw audit](raw-data-audit.md), [training EDA](training-data-eda.md).
 - [Preprocessing contract](preprocessing-contract.md), [pipeline](preprocessing-pipeline.md), [frozen configuration](../configs/data/lhco_rnd_v5.json).
 - [Evaluation protocol](evaluation-protocol.md).
+- [Integrated two-/three-prong synthesis and decision brief](two-three-prong-synthesis.md), [Task0032 summary](../results/tables/final/task0032-two-three-prong-synthesis-summary.json), [calibrated utility](../results/tables/final/task0032-calibrated-utility.csv), [quality/cost](../results/tables/final/task0032-quality-cost.csv) and [handoff](handoffs/0032-two-three-prong-synthesis.md).
 - [Integrated frozen scientific synthesis](scientific-synthesis.md), [Task0027 summary](../results/tables/final/task0027-frozen-scientific-synthesis-summary.json), [quality/cost CSV](../results/tables/final/task0027-quality-cost-frontier.csv) and [operating interpretation](../results/tables/final/task0027-operating-point-interpretation.csv).
 - [Local three-prong scientific evaluation: accepted/consumed](local-three-prong-evaluation.md), [Task0031 summary](../results/tables/final/task0031-local-three-prong-evaluation-summary.json), [calibrated points](../results/tables/final/task0031-three-prong-calibrated-operating-points.csv), [topology comparison](../results/tables/final/task0031-two-vs-three-prong-comparison.csv), [figure](../results/figures/final/task0031-three-prong-roc-pr.png) and [handoff](handoffs/0031-local-three-prong-evaluation.md).
 - [Acquisition v3: complete verified bytes, structure only](three-prong-acquisition-v3.md), [Task0030 summary](../results/tables/final/task0030-three-prong-acquisition-summary.json), [attempts](../results/tables/final/task0030-transport-attempts.csv), [protocol](../configs/acquisition/three_prong_v3.json) and [handoff](handoffs/0030-three-prong-acquisition-v3.md).
@@ -1506,5 +1556,7 @@ Runtime documentation and compatibility must be rechecked when the corresponding
 | 1.25 / 2026-10-11 | Task0029 continuation preserved uncommitted; fresh sleep records broadly explain historical clock divergence. Separate153-source/1503full+portable/89-case v3 acceptance, continuous deadlines and active/released idle assertion; sole206 copied-prefix session accepts235488994B/MD5/SHA,205498246 new bytes,870.632494s reserved, structureFP64[100000,2101] only. Zero new numerical/model/optimizer, originalYES/YES,new modelNO; later explicit local-file science brief, historical failures/particle192 unchanged | Task0030 frozen protocol/own software acceptance/actual source-prefix/lifecycle/checkpoint/integrity/structure/assertion receipts/report/summary/CSV;196 old bindings intact, no Git automation |
 
 | 1.26 / 2026-10-11 | Clean actual c825445/committed0029–0030; separate161-source/1590full+portable/87-case local-science acceptance then sole29.058839sreserved campaign accepted.100000valid/nonempty/unique/disjoint,2signal requests/50batches/200000presentations,1all-roleFPload/2BGcacheloads/0newBGforward/optimizer/download,all3exposureYES. PCA AUC0.462953/AP0.360220,AE0.585877/0.479972; weaker than two-prong,strict AE34/116relative0.4410/selected22.6667%not enriched. Four tables/ROC-PR/conditional intervals/shared-BG limits; next offline synthesis, no automatic successor; historical failures/particle192 unchanged | Task0031 own frozen acceptance/plan/actual prospective authorization and complete custody/overlap/access/parameter/thread/continuous/resource/assertion/parent receipts; all153old sources/science preserved |
+
+| 1.27 / 2026-10-12 | Clean committed Task0031 bf6a5c3; offline20-source synthesis completes frozen two-/three-prong baseline:4global/16calibrated/8topology/10CPU groups/3figures, all cuts/shared background preserved. AE advantage weaker on three prong; both strict selected fractions below mixture. Post-evaluation arithmetic/no significance/mechanism; B4096quality vs historical prepared-feature CPU costs. New access/arrays/scoring/fingerprints/optimizer/downloads0, permanentYES/YES/YES; next explicit exploratory/methodology decision with independent confirmation; no0033 or particle budget reset | Task0032 pinned curated registry, boundary-enforced separate helper, focused synthetic tests, report/tables/figures and decision matrix; historical evidence/dependencies unchanged |
 
 Keep future entries short and focused on project-level changes. Update current-state sections in place; the revision table is not a second task log.
