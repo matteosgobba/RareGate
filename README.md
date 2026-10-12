@@ -158,8 +158,36 @@ caps pass; sampling/terminal gaps and unavailable optional RAM context are discl
 New operational access/forward/reconstruction/calibration/optimizer/payload work0;
 no model/source freeze, scientific ranking or confirmation claim. Software readiness
 does not resolve full-event/count/generation/overlap/precision source blockers.
-Next is a separately authorized source-adequacy go/no-go; background development,
-acquisition and confirmation remain distinct scopes. No Task0036 launched.
+At Task0035 completion, source adequacy was the next separate scope. Task0036 now
+completes the [confirmation-source feasibility decision](docs/confirmation-source-feasibility.md):
+`unresolved_no_acquisition` for extra QCD/XtoYYprime under the unchanged protocol.
+The pinned exporter includes all EFlow objects before its700-object overflow cut;
+release coverage, realized strict-SR signal count and selected expanded storage
+remain unknown. Requested50000/card is not a completed total or upper bound.
+The236843 zero-variance floor and1450034 variance0.001 requirement remain fixed.
+18metadata/text retrievals,0searches and one16084B metadata-card download add no
+event-payload/model/numerical work. Source acceptance stays false; publisher-bound
+representation/run/count/member evidence is the next prerequisite. Background-only
+stability remains conditional; training/acquisition/confirmation are separate,
+ungranted scopes. No Task0037 launched.
+
+Task0037 subsequently completes the explicitly authorized
+[synthetic trigger/queue engineering study](docs/synthetic-trigger-simulator.md):
+one FIFO server, actual waiting+in-service capacity/drop-tail, oldest-arrival
+flush, modeled padded partial batches and post-processing Uniform toy decisions.
+Accepted historical adapter means supply scoped constant costs; no model executes
+in the simulator. The fixed324main+54stress matrix uses18traces/90000unique events /
+1890000presentations. Final105targeted/2022full+portable/200bindings/43packages;
+two native sweeps are preserved, first visuals rejected for title/legend overlap,
+layout repaired/revalidated, final6.105818s parent accepted with all3figures checked.
+Numerical CSVs are identical; actual total756scenarios/3780000presentations, no
+scenario expansion. Buffering/batching/timeouts affect modeled latency and loss;
+constant AE2/B12826.2485ms stress is harsh, not recurring-stall evidence. Final
+WARN advisory/caps/deadlines/normal exit/reap/assertion release pass, sampling gaps
+and optional RAM-context absence disclosed. Source confirmation remains unresolved,
+scientific protocol unchanged; no deployment policy, real inference benchmark or
+Task0038. Next separate decision: development-only service variability/partial-
+shape and missing-chain-cost measurement plan.
 
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
@@ -552,6 +580,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0033: accepted exploratory frozen-feature/score diagnostics on exposed samples;3requests/350471feature rows,6loads/700942scores,48associations/all24original tails,16suppressed profile rows/two curated figures; no new model work or independent confirmation.
 - [x] Task0034: design-only paired activation comparison and conditional independent-source protocol; primary strict-tail estimands/uncertainty/criteria/resource brief, zero operational numerical access; synthetic-only Task0035 proposed, not launched.
 - [x] Task0035: separate synthetic controlled-activation foundation;189focused/1917full+portable checks, final native accepted with12toy updates/all6arms/paired orders/own restoration/calibration; zero operational work, confirmation source unresolved.
+- [x] Task0036: pinned confirmation-source feasibility completed as `unresolved_no_acquisition`;30evidence rows, unchanged precision/gates, realized counts/complete-event coverage/expanded storage unresolved;1small metadata archive, zero event-payload or operational scientific work.
+- [x] Task0037: model-free synthetic FIFO trigger simulator;324main+54fixed stress scenarios/378row table/3inspected figures, fresh105targeted/2022full+portable acceptance, final native parent-accepted with release;2actual sweeps after layout repair, scientific route unchanged/no deployment or physical-inference claim.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.

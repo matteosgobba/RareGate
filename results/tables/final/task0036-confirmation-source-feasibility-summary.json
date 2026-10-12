@@ -1,0 +1,969 @@
+{
+  "task": "0036",
+  "status": "completed_metadata_feasibility_only",
+  "date": "2026-10-12 Europe/Rome",
+  "base_HEAD": "34d74010aa58b6cd11883d14cdca03643ddc4898",
+  "branch": "main",
+  "upstream": "origin/main",
+  "initial_checkout_clean": true,
+  "Task0035_committed_HEAD": "34d74010aa58b6cd11883d14cdca03643ddc4898",
+  "Task0035_historical_base_preserved": "f27ce613565fff4d5107b1699af485afb582edd3",
+  "prior_memory": "1.30",
+  "new_memory": "1.31",
+  "route_decision": "unresolved_no_acquisition",
+  "source_accepted": false,
+  "confirmation_source_accepted": false,
+  "operational_authorization": false,
+  "operational_model_freeze": false,
+  "Task0037_launched": false,
+  "actual_prompt_sha256": "b124a0c86df62f12d5c5e4b06903f84518dd147bf96f05bd1bb410c022d9bfdd",
+  "motivating_provenance_sha256": {
+    "docs/controlled-follow-up-protocol.md": "aeab83547a358346d474bedfc4dc69d1fef92ad8de265a955ba8e7dcd4a17d61",
+    "configs/research/controlled_follow_up_v1.json": "caf2e949f48a3ecf8e8a90306bab49986deb07f4701c4b9689a0d755b5e1b39e",
+    "results/tables/final/task0034-confirmation-source-registry.csv": "29f79c3dd01ecb928460c0bb55a12cf09053499f7d71b40c62938597b145d002",
+    "results/tables/final/task0034-controlled-follow-up-summary.json": "5fc2be7de8f7b00d6c56153ccce808d01ea1f42fc8157ed96a6ebfbe034d7f5d",
+    "docs/controlled-activation-synthetic-foundation.md": "8ad1628efee6634b7bbcb4908168bc0f66cba96653d3cdd03a81cddc8d277b1f",
+    "results/tables/final/task0035-controlled-activation-synthetic-summary.json": "78bbfeb66b1125e0b6c5bf38b98932f9b56702e2b9cf789824d6eb683ba2558d",
+    "docs/handoffs/0035-controlled-activation-synthetic-foundation.md": "57a0fbc34afcbdc8ec1cbca58828ce87da251cfbf7b5cce30047c284c7252207",
+    "docs/preprocessing-contract.md": "fe1fe361a7a0e5542300faca79e153b24437660fb1b45c993ca9b9e1b90a49b3"
+  },
+  "unchanged_protocol": {
+    "arms": 2,
+    "paired_seeds": [
+      1729,
+      1730,
+      1731
+    ],
+    "max_fits": 6,
+    "primary_alpha": 0.001,
+    "signal": "XtoYYprime",
+    "SR_GeV": [
+      3300,
+      3700
+    ],
+    "SR_comparison": "strict",
+    "leading_jet_pT_GeV": 1200,
+    "leading_jet_comparison": "strict",
+    "conditional_claim": "SR-conditional transported-domain background stability and discrimination on one new signal",
+    "replicates_original_topology_difference": false,
+    "original_roles": [
+      699957,
+      74749,
+      74823
+    ],
+    "signal_delta": 0.025,
+    "background_paired_delta": 0.0125,
+    "six_background_rate_delta_each": 0.0020833333333333333,
+    "signal_halfwidth_gate": 0.0001,
+    "signal_practical_advantage_lower_gate": 0.0002,
+    "background_rate_interval_band": [
+      0.00075,
+      0.00125
+    ],
+    "background_paired_upper_gate": 0.0001,
+    "background_individual_halfwidth_gate": 0.0002,
+    "background_paired_halfwidth_gate": 0.0001
+  },
+  "author_repository": {
+    "repository": "https://github.com/lang-lukas/KitchenSink",
+    "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+    "commit_date": "2026-05-04T09:06:02Z",
+    "license": "GPL-3.0",
+    "source_text_only": true,
+    "executed_or_imported": false,
+    "exact_distribution_production_commit_bound": false,
+    "file_sha256": {
+      "feature/process_root.py": "266e9185031b6ea7c8673bb1ecc21086508fa9c5b765ad0c553f103e7e06556e",
+      "feature/README.md": "285a804791bed39e1f3073da3a3828b29a85f950f7ea7ca2f26c06a63c42adf0",
+      "model_cards/README.md": "d35407fd37e987661473cbeb543b9b83782bc8c29cf8e151d4427222ddc6df07",
+      "model_cards/pythia8_card.dat": "f4e6450ffd640b4b0ab970ecfce5d9a3b860caee40210e87f009e30ea44fa486",
+      "model_cards/delphes_card_RnD.dat": "c9d89d412432c6e6b4844c391c83be140a8ae872dac5ac9c6407f7b590cd0215",
+      "feature/feature_generation.sh": "98e7e5fb7fd0f1b82d9a2e9f93a8d0bbfc42ff52a673ed47d5cc4d130712a783",
+      "feature/jet_clustering.py": "410072349896e860fa3530d42c5379b5c954d57dd60f4c78f95e0e16ea952b41",
+      "feature/data_prep.py": "840a3bb4227d69040308b9d48fa0d5b0618034b9a0a541e96417c56d9e6de681",
+      "model_cards/XtoYYprime/XtoYYprime.mg5": "443de03f10b1d7917b3ccdbd8f5d09923d7a4d8d95631a412c5a7af0ba5f95be",
+      "model_cards/XtoYYprime/run_card.dat": "c925d7cff1f82439aa050cc309fd437cb7a357d12d27419656ec0d3edf8bbff6",
+      "model_cards/XtoYYprime/pythia8_card.dat": "abb58d8bf708d9ff942f655dbb1239928aba4c9eb8dfad3565e696b651c8e5b0"
+    },
+    "directory_metadata_sha256": {
+      "model_cards": "83712367d4781d687b57e068413675d434ee415843ae777c103dcbae830a3af7",
+      "feature": "f2979b1fe319e51f57af844755635041d4e892e4801bea2db94620c33b75cf78",
+      "model_cards/XtoYYprime": "0dd7aa362ef5aa645e91f6ea181e8bb07719987177cb39325ae371c49af5c762"
+    }
+  },
+  "publisher_metadata_reused": {
+    "4536624": {
+      "path": "data/task0034-validation/4536624-metadata.json",
+      "bytes": 9600,
+      "sha256": "75a107eaeca798f6a65af021fa041fcdfdf1c793aa4219468c8e6a33ac1fbf6a",
+      "retrieved": "2026-10-12 Europe/Rome",
+      "new_network_request": false
+    },
+    "8370758": {
+      "path": "data/task0034-validation/8370758-metadata.json",
+      "bytes": 5395,
+      "sha256": "cdca9a8d7bfbe99ad8861935cabd975d15dd4a986fa45e8c4bcc82010a015380",
+      "retrieved": "2026-10-12 Europe/Rome",
+      "new_network_request": false
+    },
+    "18983506": {
+      "path": "data/task0034-validation/18983506-metadata.json",
+      "bytes": 15861,
+      "sha256": "484a3e6f1b44ab4e20ea645411ad3dead9c0ba36eb1a8442947ca333aa8e740d",
+      "retrieved": "2026-10-12 Europe/Rome",
+      "new_network_request": false
+    }
+  },
+  "metadata_archive": {
+    "status": "rejected_preflight",
+    "identity_pass": true,
+    "compressed_bytes": 16084,
+    "compressed_sha256": "8d3c20295b5f9ab3a8736ee83595112e8164cedf8f63c0a948be104eef17821c",
+    "reason": "nontext_or_event_member: conservative text-suffix preflight rejected an unallowlisted regular member; no card text accepted",
+    "archive_route_stopped": true,
+    "parsed_cards": 0,
+    "unrestricted_extraction": false,
+    "retries": 0,
+    "constraint_widening": false
+  },
+  "research": {
+    "logical_document_file_retrieval_attempts": 18,
+    "logical_search_requests": 0,
+    "direct_HTTP_requests": 16,
+    "web_document_open_operations": 2,
+    "web_find_operations": 3,
+    "direct_request_retry_count": 0,
+    "direct_received_material_bytes": 153614,
+    "locally_referenced_reused_metadata_bytes": 30856,
+    "physical_web_requests_and_response_bytes": "unavailable; caching/physical request count uncertain",
+    "limits": {
+      "retrievals": 30,
+      "searches": 6,
+      "timeout_seconds": 20,
+      "metadata_bytes_per_file": 2097152,
+      "paper_bytes_per_file": 8388608,
+      "retained_material_bytes": 33554432
+    },
+    "attempts": [
+      {
+        "id": 1,
+        "kind": "metadata_archive",
+        "url": "https://zenodo.org/api/records/18983506/files/model_cards.tar.gz/content",
+        "timeout_seconds": 20,
+        "byte_limit": 262144,
+        "expected_bytes": 16084,
+        "expected_md5": "aa118b826a073caea101aa0c081baecd",
+        "utc": "2026-10-12T16:20:04.644144+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://zenodo.org/api/records/18983506/files/model_cards.tar.gz/content",
+        "bytes": 16084,
+        "md5": "aa118b826a073caea101aa0c081baecd",
+        "sha256": "8d3c20295b5f9ab3a8736ee83595112e8164cedf8f63c0a948be104eef17821c",
+        "identity_pass": true
+      },
+      {
+        "id": 2,
+        "kind": "web_primary_text",
+        "url": "https://arxiv.org/html/2604.20965v1",
+        "status": "success",
+        "physical_requests_and_bytes": "tool cache/HTTP internals unavailable",
+        "local_retained_bytes": 0
+      },
+      {
+        "id": 3,
+        "kind": "web_primary_text",
+        "url": "https://github.com/lang-lukas/KitchenSink",
+        "status": "success",
+        "physical_requests_and_bytes": "tool cache/HTTP internals unavailable",
+        "local_retained_bytes": 0
+      },
+      {
+        "id": 4,
+        "kind": "commit_metadata",
+        "url": "https://api.github.com/repos/lang-lukas/KitchenSink/commits/main",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:21:08.934073+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://api.github.com/repos/lang-lukas/KitchenSink/commits/main",
+        "bytes": 6285,
+        "sha256": "2e4ef187baf29b3cc5c602e847e4d38542aca220be6b422a664510fad61af7a8"
+      },
+      {
+        "id": 5,
+        "kind": "pinned_author_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/process_root.py",
+        "file": "feature/process_root.py",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:21:58.281895+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/process_root.py",
+        "bytes": 8923,
+        "sha256": "266e9185031b6ea7c8673bb1ecc21086508fa9c5b765ad0c553f103e7e06556e"
+      },
+      {
+        "id": 6,
+        "kind": "pinned_author_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/README.md",
+        "file": "feature/README.md",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:21:58.646429+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/README.md",
+        "bytes": 14418,
+        "sha256": "285a804791bed39e1f3073da3a3828b29a85f950f7ea7ca2f26c06a63c42adf0"
+      },
+      {
+        "id": 7,
+        "kind": "pinned_author_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/README.md",
+        "file": "model_cards/README.md",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:21:58.951524+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/README.md",
+        "bytes": 4288,
+        "sha256": "d35407fd37e987661473cbeb543b9b83782bc8c29cf8e151d4427222ddc6df07"
+      },
+      {
+        "id": 8,
+        "kind": "relevant_directory_metadata",
+        "url": "https://api.github.com/repos/lang-lukas/KitchenSink/contents/model_cards?ref=6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:22:31.494101+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://api.github.com/repos/lang-lukas/KitchenSink/contents/model_cards?ref=6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "bytes": 6756,
+        "sha256": "83712367d4781d687b57e068413675d434ee415843ae777c103dcbae830a3af7"
+      },
+      {
+        "id": 9,
+        "kind": "relevant_directory_metadata",
+        "url": "https://api.github.com/repos/lang-lukas/KitchenSink/contents/feature?ref=6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:22:31.938014+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://api.github.com/repos/lang-lukas/KitchenSink/contents/feature?ref=6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "bytes": 12142,
+        "sha256": "f2979b1fe319e51f57af844755635041d4e892e4801bea2db94620c33b75cf78"
+      },
+      {
+        "id": 10,
+        "kind": "directory_metadata",
+        "url": "https://api.github.com/repos/lang-lukas/KitchenSink/contents/model_cards/XtoYYprime?ref=6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "file": "model_cards/XtoYYprime",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:03.031799+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://api.github.com/repos/lang-lukas/KitchenSink/contents/model_cards/XtoYYprime?ref=6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "bytes": 3352,
+        "sha256": "0dd7aa362ef5aa645e91f6ea181e8bb07719987177cb39325ae371c49af5c762"
+      },
+      {
+        "id": 11,
+        "kind": "pinned_direct_dependency_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/pythia8_card.dat",
+        "file": "model_cards/pythia8_card.dat",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:03.475108+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/pythia8_card.dat",
+        "bytes": 4434,
+        "sha256": "f4e6450ffd640b4b0ab970ecfce5d9a3b860caee40210e87f009e30ea44fa486"
+      },
+      {
+        "id": 12,
+        "kind": "pinned_direct_dependency_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/delphes_card_RnD.dat",
+        "file": "model_cards/delphes_card_RnD.dat",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:03.744355+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/delphes_card_RnD.dat",
+        "bytes": 22437,
+        "sha256": "c9d89d412432c6e6b4844c391c83be140a8ae872dac5ac9c6407f7b590cd0215"
+      },
+      {
+        "id": 13,
+        "kind": "pinned_direct_dependency_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/feature_generation.sh",
+        "file": "feature/feature_generation.sh",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:04.041435+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/feature_generation.sh",
+        "bytes": 10165,
+        "sha256": "98e7e5fb7fd0f1b82d9a2e9f93a8d0bbfc42ff52a673ed47d5cc4d130712a783"
+      },
+      {
+        "id": 14,
+        "kind": "pinned_direct_dependency_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/jet_clustering.py",
+        "file": "feature/jet_clustering.py",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:04.402663+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/jet_clustering.py",
+        "bytes": 11577,
+        "sha256": "410072349896e860fa3530d42c5379b5c954d57dd60f4c78f95e0e16ea952b41"
+      },
+      {
+        "id": 15,
+        "kind": "pinned_direct_dependency_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/data_prep.py",
+        "file": "feature/data_prep.py",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:04.707611+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/feature/data_prep.py",
+        "bytes": 11374,
+        "sha256": "840a3bb4227d69040308b9d48fa0d5b0618034b9a0a541e96417c56d9e6de681"
+      },
+      {
+        "id": 16,
+        "kind": "pinned_signal_card_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/XtoYYprime/XtoYYprime.mg5",
+        "file": "model_cards/XtoYYprime/XtoYYprime.mg5",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:40.463805+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/XtoYYprime/XtoYYprime.mg5",
+        "bytes": 605,
+        "sha256": "443de03f10b1d7917b3ccdbd8f5d09923d7a4d8d95631a412c5a7af0ba5f95be"
+      },
+      {
+        "id": 17,
+        "kind": "pinned_signal_card_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/XtoYYprime/run_card.dat",
+        "file": "model_cards/XtoYYprime/run_card.dat",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:40.752446+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/XtoYYprime/run_card.dat",
+        "bytes": 15990,
+        "sha256": "c925d7cff1f82439aa050cc309fd437cb7a357d12d27419656ec0d3edf8bbff6"
+      },
+      {
+        "id": 18,
+        "kind": "pinned_signal_card_text",
+        "url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/XtoYYprime/pythia8_card.dat",
+        "file": "model_cards/XtoYYprime/pythia8_card.dat",
+        "commit": "6ed1f07de4df14c935d3d1b70680b0f9275672bf",
+        "timeout_seconds": 20,
+        "byte_limit": 2097152,
+        "utc": "2026-10-12T16:23:41.113203+00:00",
+        "retries": 0,
+        "status": 200,
+        "final_url": "https://raw.githubusercontent.com/lang-lukas/KitchenSink/6ed1f07de4df14c935d3d1b70680b0f9275672bf/model_cards/XtoYYprime/pythia8_card.dat",
+        "bytes": 4784,
+        "sha256": "abb58d8bf708d9ff942f655dbb1239928aba4c9eb8dfad3565e696b651c8e5b0"
+      }
+    ],
+    "retained_source_material_with_reused_metadata_bytes": 184470,
+    "raw_HTTP_headers_receipts_and_tool_reference_ids": "ignored only; intentionally omitted from curated inventory"
+  },
+  "count_stage_ledger": {
+    "background": {
+      "1_requested": null,
+      "2_completed_generated": null,
+      "3_detector_exported": null,
+      "4_trigger_selected": null,
+      "5_SR_declared": 612858,
+      "6_available_file_declared": 612858,
+      "actual_payload_verified_counts": false,
+      "strict_boundary_binding": false
+    },
+    "signal": {
+      "1_requested_per_card": 50000,
+      "requested_seed": 0,
+      "seed_interpretation": "automatic assignment; actual unknown",
+      "2_completed_generated": null,
+      "3_detector_exported": null,
+      "4_trigger_selected": null,
+      "5_SR_selected": null,
+      "6_available_file": null,
+      "paper_test_subset_approximate": 20000,
+      "verified_raw_upper_bound": null,
+      "count_mathematical_impossibility_certified": false
+    }
+  },
+  "planning": {
+    "method": "pure scalar declared-count planning; no operational inputs or empirical variance",
+    "formula": "sqrt(2*V*ln(4/delta)/N)+7*R*ln(4/delta)/(3*(N-1))",
+    "signal_delta": 0.025,
+    "signal_range_width": 2,
+    "required_halfwidth": 0.0001,
+    "minimum_N_by_variance": [
+      {
+        "variance": 0,
+        "minimum_N": 236843
+      },
+      {
+        "variance": 0.0002,
+        "minimum_N": 579973
+      },
+      {
+        "variance": 0.001,
+        "minimum_N": 1450034
+      },
+      {
+        "variance": 0.002,
+        "minimum_N": 2481145
+      },
+      {
+        "variance": 0.01,
+        "minimum_N": 10618749
+      }
+    ],
+    "signal_scenarios": [
+      {
+        "N": 20000,
+        "N_basis": "paper_analysis_subset_not_source_total",
+        "variance": 0,
+        "h": 0.0011842664368764033,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 20000,
+        "N_basis": "paper_analysis_subset_not_source_total",
+        "variance": 0.0002,
+        "h": 0.0015028625390256238,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 20000,
+        "N_basis": "paper_analysis_subset_not_source_total",
+        "variance": 0.001,
+        "h": 0.0018966689786485272,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 20000,
+        "N_basis": "paper_analysis_subset_not_source_total",
+        "variance": 0.002,
+        "h": 0.0021917557733196064,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 20000,
+        "N_basis": "paper_analysis_subset_not_source_total",
+        "variance": 0.01,
+        "h": 0.0034370810797695614,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 50000,
+        "N_basis": "requested_per_card_not_realized",
+        "variance": 0,
+        "h": 0.00047369236326908924,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 50000,
+        "N_basis": "requested_per_card_not_realized",
+        "variance": 0.0002,
+        "h": 0.0006751902305577298,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 50000,
+        "N_basis": "requested_per_card_not_realized",
+        "variance": 0.001,
+        "h": 0.0009242552918477208,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 50000,
+        "N_basis": "requested_per_card_not_realized",
+        "variance": 0.002,
+        "h": 0.0011108845675675302,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 50000,
+        "N_basis": "requested_per_card_not_realized",
+        "variance": 0.01,
+        "h": 0.001898497446813337,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 236843,
+        "N_basis": "protocol_planning_count",
+        "variance": 0,
+        "h": 9.999976554450305e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 236843,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.0002,
+        "h": 0.00019258147153974003,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 236843,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.001,
+        "h": 0.00030701875362275274,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 236843,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.002,
+        "h": 0.0003927688261535178,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 236843,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.01,
+        "h": 0.0007546512867750161,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 612858,
+        "N_basis": "declared_background_only",
+        "variance": 0,
+        "h": 3.864546618720385e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 612858,
+        "N_basis": "declared_background_only",
+        "variance": 0.0002,
+        "h": 9.619946800618263e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 612858,
+        "N_basis": "declared_background_only",
+        "variance": 0.001,
+        "h": 0.00016734012663158695,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 612858,
+        "N_basis": "declared_background_only",
+        "variance": 0.002,
+        "h": 0.0002206472003926507,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 612858,
+        "N_basis": "declared_background_only",
+        "variance": 0.01,
+        "h": 0.00044561371589343164,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 1450034,
+        "N_basis": "protocol_planning_count",
+        "variance": 0,
+        "h": 1.633352101027438e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 1450034,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.0002,
+        "h": 5.37502969415228e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 1450034,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.001,
+        "h": 9.999997549142383e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 1450034,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.002,
+        "h": 0.00013465575565318715,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 1450034,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.01,
+        "h": 0.0002809100809215079,
+        "meets_signal_halfwidth_arithmetically": false
+      },
+      {
+        "N": 4000000,
+        "N_basis": "protocol_planning_count",
+        "variance": 0,
+        "h": 5.921037598032197e-06,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 4000000,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.0002,
+        "h": 2.8449184026963778e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 4000000,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.001,
+        "h": 5.6295504420192345e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 4000000,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.002,
+        "h": 7.716129177524458e-05,
+        "meets_signal_halfwidth_arithmetically": true
+      },
+      {
+        "N": 4000000,
+        "N_basis": "protocol_planning_count",
+        "variance": 0.01,
+        "h": 0.00016521908867264245,
+        "meets_signal_halfwidth_arithmetically": false
+      }
+    ],
+    "background_scenarios": [
+      {
+        "N": 612858,
+        "metric": "individual_background_rate",
+        "delta": 0.0020833333333333333,
+        "range_width": 1,
+        "assumed_variance": 0,
+        "h": 2.878352984744826e-05
+      },
+      {
+        "N": 612858,
+        "metric": "individual_background_rate",
+        "delta": 0.0020833333333333333,
+        "range_width": 1,
+        "assumed_variance": 0.0002,
+        "h": 9.902818338843985e-05
+      },
+      {
+        "N": 612858,
+        "metric": "individual_background_rate",
+        "delta": 0.0020833333333333333,
+        "range_width": 1,
+        "assumed_variance": 0.000999,
+        "h": 0.0001857767946670393
+      },
+      {
+        "N": 612858,
+        "metric": "individual_background_rate",
+        "delta": 0.0020833333333333333,
+        "range_width": 1,
+        "assumed_variance": 0.001,
+        "h": 0.00018585535022102676
+      },
+      {
+        "N": 612858,
+        "metric": "individual_background_rate",
+        "delta": 0.0020833333333333333,
+        "range_width": 1,
+        "assumed_variance": 0.002,
+        "h": 0.0002509166284863936
+      },
+      {
+        "N": 612858,
+        "metric": "individual_background_rate",
+        "delta": 0.0020833333333333333,
+        "range_width": 1,
+        "assumed_variance": 0.01,
+        "h": 0.000525488238456796
+      },
+      {
+        "N": 612858,
+        "metric": "paired_background_contrast",
+        "delta": 0.0125,
+        "range_width": 2,
+        "assumed_variance": 0,
+        "h": 4.392351121665294e-05
+      },
+      {
+        "N": 612858,
+        "metric": "paired_background_contrast",
+        "delta": 0.0125,
+        "range_width": 2,
+        "assumed_variance": 0.0002,
+        "h": 0.00010528201712136831
+      },
+      {
+        "N": 612858,
+        "metric": "paired_background_contrast",
+        "delta": 0.0125,
+        "range_width": 2,
+        "assumed_variance": 0.000999,
+        "h": 0.00018105668336351413
+      },
+      {
+        "N": 612858,
+        "metric": "paired_background_contrast",
+        "delta": 0.0125,
+        "range_width": 2,
+        "assumed_variance": 0.001,
+        "h": 0.00018112530141741877
+      },
+      {
+        "N": 612858,
+        "metric": "paired_background_contrast",
+        "delta": 0.0125,
+        "range_width": 2,
+        "assumed_variance": 0.002,
+        "h": 0.000237956143700444
+      },
+      {
+        "N": 612858,
+        "metric": "paired_background_contrast",
+        "delta": 0.0125,
+        "range_width": 2,
+        "assumed_variance": 0.01,
+        "h": 0.00047779366730364367
+      }
+    ],
+    "calibration_resolution": {
+      "N": 74823,
+      "alpha": 0.001,
+      "expected_tail_count": 74.82300000000001,
+      "single_event_resolution": 1.3364874437004664e-05,
+      "planning_binomial_SE_at_alpha": 0.00011554873241436992,
+      "higher_quantile_index": 74748,
+      "max_strict_exceedances_without_ties": 74
+    },
+    "storage": {
+      "background_source_bytes": 2665142971,
+      "signal_archive_bytes": 4924678720,
+      "combined_source_bytes": 7589821691,
+      "combined_source_GiB": 7.068572278134525,
+      "background_features_FP32_bytes_including_NPY_header": 19611584,
+      "cap_features_FP32_bytes_including_two_NPY_headers": 147611712,
+      "hypothetical_50000_signal_features_bytes": 1600128,
+      "working_envelope_bytes": 17179869184,
+      "free_disk_admission_bytes": 21474836480,
+      "selected_extraction_envelope_bytes": 7516192768,
+      "signal_expanded_selected_members_bytes": null,
+      "root_export_temporary_bytes": null
+    },
+    "scalar_monotonic_checks": 35,
+    "minimum_integer_boundary_checks": 10
+  },
+  "compatibility": {
+    "background_all_event_collection_declaration": "verified_compatible",
+    "background_file_level_units_dtype_overflow_SR": "unknown",
+    "signal_nonoverflow_export_method": "verified_compatible",
+    "signal_overflow_export_branch": "verified_incompatible",
+    "signal_distributed_full_event_coverage": "unknown",
+    "ROOT_full_event_alternative": "unknown",
+    "adapter_implemented_or_validated": false
+  },
+  "independence": {
+    "publisher_new_signal_generation_declaration": true,
+    "background_additional_event_declaration": true,
+    "executed_run_seed_identity_complete": false,
+    "exact_content_disjointness_verified": false,
+    "all_role_overlap_audit_performed": false,
+    "source_future_exposure_status": "metadata only; no event requests",
+    "simulation_transport": "different generator/detector versions and signal process; same detector card claimed; no matched topology replication"
+  },
+  "storage_decision": "known source bytes fit raw arithmetic alone; selected expansion/ROOT scratch/HDF working-space unknown;7GiB extraction/16GiB working/20GiB admission not certified",
+  "background_only_claim": "potentially feasible conditional SR background-rate stability; source/schema/lineage/SR/storage/audit not accepted and future authorization required",
+  "blockers": [
+    "Publisher-bound full-event coverage including700-slot overflow incidence or untruncated alternative",
+    "Realized independent signal run/export/trigger/strictSR/file counts;requested50000 is not an upper bound",
+    "Source/file units/dtype/rounding and exact SR/jet identity",
+    "Executed generator/cards/seeds/run lineage and all-role overlap prerequisites",
+    "Selected member expanded sizes and preparation/toolchain working storage"
+  ],
+  "smallest_next_prerequisite": "One publisher-supported manifest binding exact eligible full-event representation, executed runs and realized selected counts, strictSR/leading-jet production identity, overflow policy and selected expanded member bytes; no author message sent",
+  "options": [
+    "Publisher-supported compatible sample and complete manifest/count declaration",
+    "Separately budgeted design of fresh independent generation, not generator execution",
+    "Prospective amendment or retirement of current confirmatory claim with explicitly changed uncertainty/effect/precision/scope before any event access"
+  ],
+  "recommended_next_decision": "Keep acquisition/training on hold for this claim; seek the complete publisher-supported manifest as the smallest prerequisite. If unavailable, make an explicit prospective amendment/retirement decision rather than running the unchanged infeasible-to-certify route.",
+  "actual_counters": {
+    "original_test_background model/evaluation accessed": "YES",
+    "original_test_signal model/evaluation accessed": "YES",
+    "three_prong_signal model/evaluation accessed": "YES",
+    "new_operational_population_requests_in_Task0036": 0,
+    "new_operational_feature_or_score_array_loads_in_Task0036": 0,
+    "new_operational_membership_or_fingerprint_loads_in_Task0036": 0,
+    "model_instantiations_or_forward_calls_in_Task0036": 0,
+    "reconstruction_computations_in_Task0036": 0,
+    "optimizer_updates_in_Task0036": 0,
+    "calibrations_or_scientific_evaluations_in_Task0036": 0,
+    "generator_executions_in_Task0036": 0,
+    "event_payload_requests_or_downloads_in_Task0036": 0,
+    "metadata_archive_downloads": 1,
+    "metadata_archive_bytes": 16084,
+    "logical_research_retrievals": 18,
+    "logical_research_searches": 0,
+    "confirmation_source_accepted": false,
+    "route_decision": "unresolved_no_acquisition"
+  },
+  "preservation": {
+    "Task0035_nonliving_initial_raw_identities": {
+      "configs/research/controlled_activation_synthetic_v1.json": {
+        "bytes": 3124,
+        "sha256": "19734861cfc3ba16bd6272f20507d7d00d4cc90eb774838e33cd488d09d45958"
+      },
+      "docs/controlled-activation-synthetic-foundation.md": {
+        "bytes": 13876,
+        "sha256": "8ad1628efee6634b7bbcb4908168bc0f66cba96653d3cdd03a81cddc8d277b1f"
+      },
+      "docs/handoffs/0035-controlled-activation-synthetic-foundation.md": {
+        "bytes": 12594,
+        "sha256": "57a0fbc34afcbdc8ec1cbca58828ce87da251cfbf7b5cce30047c284c7252207"
+      },
+      "docs/prompts/0035-controlled-activation-synthetic-foundation.md": {
+        "bytes": 18370,
+        "sha256": "ba4442f42fc445f37905f5f34a4d737e040b63b0c2310d419cf2fa2717f5d2ec"
+      },
+      "results/tables/final/task0035-controlled-activation-synthetic-summary.json": {
+        "bytes": 27723,
+        "sha256": "78bbfeb66b1125e0b6c5bf38b98932f9b56702e2b9cf789824d6eb683ba2558d"
+      },
+      "scripts/validate_controlled_activation.py": {
+        "bytes": 4954,
+        "sha256": "76871390d62458f61bf568f2ef10ef7ff63b327bfd2f6e2e1c92d7a805e04fb7"
+      },
+      "src/latenttrigger/research/__init__.py": {
+        "bytes": 72,
+        "sha256": "c655341585c67ebb24bfcc13a9c8f958db5e630a45df62dc089049044f597acd"
+      },
+      "src/latenttrigger/research/controlled_activation/__init__.py": {
+        "bytes": 64,
+        "sha256": "50cc9c4b497304f295082f7aac95eb11191526341b3f590f35b4417b5920b136"
+      },
+      "src/latenttrigger/research/controlled_activation/inference.py": {
+        "bytes": 12553,
+        "sha256": "02b6a621dd67d3eb12bee048684540e2555972ee5301730db840b6345b7f34d5"
+      },
+      "src/latenttrigger/research/controlled_activation/models.py": {
+        "bytes": 21921,
+        "sha256": "e77cec53691abc43109ba7182007843d4dc0b1b145dd0edce4584c62acc83abd"
+      },
+      "src/latenttrigger/research/controlled_activation/native.py": {
+        "bytes": 16513,
+        "sha256": "33ba3498b621c75284b85d097b4e7dbbecaec2400ddd14a3d20f0c3efea19d6c"
+      },
+      "src/latenttrigger/research/controlled_activation/protocol.py": {
+        "bytes": 7202,
+        "sha256": "f32f9b7b39c5ae5b754ba81bedb8cd31f65f5e57e0da8300527257c977a041ca"
+      },
+      "src/latenttrigger/research/controlled_activation/runtime.py": {
+        "bytes": 8559,
+        "sha256": "9234fd222bac65467c0c6b3bd5730a6ec1b8887115101ca972e7e4fb1a02f939"
+      },
+      "tests/controlled_activation_counter_plugin.py": {
+        "bytes": 790,
+        "sha256": "38af9de427a5c4155c78b06323c0174e74da0472b13b44b7006667ed131588a9"
+      },
+      "tests/test_controlled_activation.py": {
+        "bytes": 23752,
+        "sha256": "6c320b2c5de35b1e5a137f59ac1f117df76f683c7161c93bdbd115ce59ad5a24"
+      },
+      "tests/test_controlled_activation_lifecycle.py": {
+        "bytes": 16307,
+        "sha256": "93178ab193ed3750abb9fac31c79664bb1ee70ba0d9c826ec7a121013cf9e682"
+      }
+    },
+    "living_initial_raw_identities": {
+      "README.md": {
+        "bytes": 38118,
+        "sha256": "15d93f354d713c85ee79fba7bd77d2cda44fe2bad840861977cea513a788a3f5"
+      },
+      "docs/project-memory.md": {
+        "bytes": 211461,
+        "sha256": "522a6b194079be3ae749aada52d97141525fa96797824a16401d27c55222daa8"
+      },
+      "docs/handoffs/README.md": {
+        "bytes": 20304,
+        "sha256": "da774426b5bc796a894a2a9655ee0acc58a3b43c198ef62a75a1eeee5c80bca7"
+      }
+    },
+    "Task0035_prior_summary_and_acceptance_not_rewritten": true,
+    "historical_task_time_bases_not_rewritten": true,
+    "initial_tracked_files": 422,
+    "expected_unchanged_tracked_nonliving": 419,
+    "living_final_raw_identities": {
+      "README.md": {
+        "bytes": 39195,
+        "sha256": "3ba92925461aff1bf215f1056196e99f4004451405e38aab9c9177d1015670a0"
+      },
+      "docs/handoffs/README.md": {
+        "bytes": 21536,
+        "sha256": "e6c7997c893eb9edbf28bd2586cbd6dbcd8abea50f1cb0cc47cc36706a63b44c"
+      },
+      "docs/project-memory.md": {
+        "bytes": 216355,
+        "sha256": "698b3492556060a061d5bdea9c36b42e2afd8404d551e4e0ef4b6fea321c5368"
+      }
+    }
+  },
+  "validation": {
+    "archive_synthetic_boundary_tests_passed": 26,
+    "signal_scenario_rows": 30,
+    "background_scenario_rows": 12,
+    "scalar_monotonic_checks": 35,
+    "minimum_N_integer_boundary_checks": 10,
+    "temporary_helpers_only": true,
+    "new_tracked_code_or_dependencies": false,
+    "focused_lint_format_dependencies": "pass; stdlib archive inspector/test only; no install",
+    "Task0035_suite_or_native_rerun": false,
+    "historical_acceptance_covers_Task0036_helpers": false,
+    "final_JSON_CSV_link_identity_consistency": "passed",
+    "CSV_rows": 30,
+    "CSV_columns": 16,
+    "unchanged_tracked_nonliving_files_verified": 419,
+    "Task0035_nonliving_files_verified": 16,
+    "links_checked_without_network": 355,
+    "eight_intended_paths_empty_index": true,
+    "CSV_full_grid_cells_including_header": 496
+  }
+}

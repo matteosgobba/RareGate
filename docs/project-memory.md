@@ -9,16 +9,16 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.30 |
+| Memory revision | 1.32 |
 | Last factual verification | 2026-10-12, Europe/Rome |
-| Last completed phase | 0035 — additive synthetic-only controlled-activation foundation, current-source software/final native integration accepted; no operational campaign |
-| Latest task outcome | Strict separate schema/two155parameter arms/three fixed seeds, independent initialized states and actual consumed row-order pairing, own checkpoint byte/score restoration, FP64 SSE/own strict calibration, exact shared-event moments/unchanged conditional gates.189focused/1917full+portable/219bindings/43packages; three native attempts, first two pre-numerical failures preserved, final2.683233s/12started+completed/0inflight toy steps/65research forwards/2333rows/6toy calibrations/owned assertion released. Operational work0, source/model freeze0; confirmation source blockers remain |
+| Last completed phase | 0037 — bounded model-free synthetic trigger/queue engineering study, final parent-accepted; confirmation route remains `unresolved_no_acquisition` |
+| Latest task outcome | One FIFO/nonpreemptive actual-capacity drop-tail server, oldest-arrival flush, modeled padded batches and post-processing toy decisions; fixed324main+54stress/18traces/90000unique events/1890000presentations,378×93table/3inspected figures.105targeted/2022full+portable/200bindings/43package versions.2actual sweeps: first numerical pass/visual overlap rejected, layout-only repair/revalidation, final6.105818s accepted; CSVidentical/756total scenarios/3780000presentations. Final all2912WARN advisory/caps/deadlines/reaping/release pass; sampling gaps/optional RAM absent disclosed. No new operational/model/physical timing work, no deployment selection or scientific protocol amendment |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0035 base | `f27ce613565fff4d5107b1699af485afb582edd3`, actual committed Task0034; clean main/origin/main and empty index at Task0035 start. Historical Task0034c9f9bc5/Task0033a671b98 bases remain in their records. No Task0035 commit/push/hosted CI claimed |
+| Verified HEAD / Task0037 base | `34d74010aa58b6cd11883d14cdca03643ddc4898`, committed Task0035; main/origin/main with eight intentional uncommittedTask0036paths/empty index at Task0037 start. Five Task0036specific raw identities preserved; three living documents updated separately. Historical bases/acceptance hashes unchanged. No Task0036/0037 commit/push/hosted CI claimed |
 | Current compact neural baseline | `compact-autoencoder-v2` |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Separate metadata-only confirmation-source adequacy go/no-go: full-event coverage, units/run lineage, selected signal count, independent generation/all-role overlap audit prerequisites, precision/storage feasibility. Possible background-development reader/controller and six-fit/calibration execution need distinct implementation/acceptance/plan/authorization; acquisition/confirmation separate. Software readiness is not useful confirmation progress if source cannot meet requirements. No Task0036, exposed-test rescoring, favorable seed/cut or particle reset |
-| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps, no inflight. Exposed samples cannot be reblinded or described as untouched |
+| Next action | Separately authorize a bounded development-only service-time variability/partial-shape and missing-chain-cost measurement plan before a variable-service/deployment claim. No automaticTask0038 or policy winner. Hold acquisition/training for the unchanged scientific claim; Task0036 publisher manifest prerequisites remain unresolved/unaccepted and no new search/amendment/retirement is performed. No exposed-test rescoring, favorable seed/cut or particle reset |
+| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035/0036/0037 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps; Task0036 has1metadata-card download16084B. Task0037 reads accepted curated timing/produces synthetic streams; permitted artifact-free historical model regressions have forwards/updates, separate from model-free simulator. No global-zero numerical/forward/update/download claim; samples cannot be reblinded |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
 
@@ -429,6 +429,116 @@ unchanged. Source/model freeze and real execution remain absent; source full-eve
 independence/count/overlap/precision/storage blockers persist. Next source-adequacy
 go/no-go before any separately scoped background-development implementation /
 execution/acquisition/confirmation; no automaticTask0036.
+
+### Confirmation-source feasibility — Task0036 completed
+
+[Decision brief](confirmation-source-feasibility.md),
+[evidence table](../results/tables/final/task0036-confirmation-source-evidence.csv),
+[summary](../results/tables/final/task0036-confirmation-source-feasibility-summary.json)
+and [handoff](handoffs/0036-confirmation-source-feasibility.md) fix
+`unresolved_no_acquisition` for the existing extra-QCD/XtoYYprime route, with no
+source acceptance/model freeze/operational permission. Task0035 was subsequently
+committed as34d7401; its historical base/acceptance and all16nonliving Task0035
+files are preserved;419old tracked nonliving files match their initial bytes.
+
+The publisher-linked exporter at author commit6ed1f07 reads every EFlowTrack /
+EFlowPhoton/EFlowNeutralHadron object, including outside the two selected jets;
+≤700 zero-paddedFP32 triplets are compatible in principle. Above700 it retains
+highest-pT700 then shuffles, incompatible with all-particle construction for those
+events. Actual overflow/release production binding remains unknown; selected-jet
+intermediate arrays cannot substitute. ROOT/card branches offer an untruncated
+alternative in principle, without verified members/adapter/counts/storage. Extra
+background declares full-event Cartesian2100+14fields/612858SR rows, but explicit
+units/dtype/overflow and strict leading-jet/SR identity need binding.
+
+XtoYYprime card requests50000events/automatic seed0; realized generation, detector,
+trigger, strictSR and available totals are unknown. This is no certified upper
+bound, so no mathematical count no-go is asserted. If50000were selected total,
+minimum signalh0.0004736924 would fail fixed0.0001.236843zero-variance floor and
+1450034forV0.001 remain;4Mcap does not guarantee precision. BG612858individual
+h≈0.000185777 at assumedalpha variance may meet individual precision; paired
+precision/background-band/independence remain unobserved. No threshold/family /
+practical-effect/eligible-signal/SR amendment or original topology replication.
+
+Three same-date metadata bodies/30856B reused;18logical retrievals/0searches /
+3text finds,16direct capped20sHTTP requests/153614receivedB. One16084B card archive
+has pinnedMD5/localSHA; conservative suffix preflight fails and archive route
+stops without widening/retry/extraction. Separate pinned repository card texts
+give recipe evidence, not executed logs. Web cache/physical requests/bytes unknown.
+Known source bytes7589821691=7.068572GiB do not bound selected expandedROOT/HDF /
+scratch within7GiBextraction/16GiBworking/20GiBadmission. No source payload/header /
+range/key rows, operational arrays/models/generation/fits/evaluation or author
+message.26temporary archive-boundary tests/35scalar monotonic+10integer boundaries,
+30signal/12BGscenarios/CSVroundtrip/visual/JSON-link-identity checks; no full1917 /
+native rerun, tracked code/dependency/controller or scientific plot added.
+
+Next prerequisite is one publisher-bound representation/run/count/SR/overflow /
+selected-member-size manifest. Hold acquisition/training for this claim; if that
+cannot be supplied, prospectively amend/retire the claim or separately budget a
+fresh-generation design. Background-only stability remains a separate conditional
+possibility. The synthetic foundation stays valid. No automaticTask0037; permanent
+YES3, completed baseline/exploratory status, failed campaigns and particle192 remain.
+
+### Synthetic trigger/queue engineering study — Task0037 completed
+
+[Report](synthetic-trigger-simulator.md),
+[fixed config](../configs/simulation/synthetic_trigger_v1.json),
+[scenario table](../results/tables/final/task0037-synthetic-trigger-scenarios.csv),
+[summary](../results/tables/final/task0037-synthetic-trigger-summary.json) and
+[handoff](handoffs/0037-synthetic-trigger-simulator.md) advance an explicitly chosen
+engineering branch independent of the unresolved scientific source. No publisher
+research/acquisition/source acceptance, real model execution, benchmark or change
+to Task0034's alpha/arms/seeds/uncertainty/effect/precision/SR protocol.
+
+One integer-ns FIFO nonpreemptive server includes waiting+actual in-service events
+in1024capacity, drop-tail admission and completion-before-arrival-before-dispatch
+ties. B1immediate; other batches flush from oldest original arrival, including
+expired timeouts after busy periods and final partials. Partial m≤B pays frozen
+B-slot constant service, no tensor/model padding; all admitted events process
+before four strict Uniform toy cuts. Combined dispatch wait and full latency /
+strict1msmisses have explicit completed/selected/generated denominators; drops
+excluded from survivor latency but reported alongside. H and full-drain accounting
+are separate; startup/drain and seed variation prevent stationarity guarantees.
+
+Three curated SHA-pinned timing files/accepted Task0022 lineage/unique90cells /
+Task0032 agreement supply only30adapter cells. Count-weighted600invocation means,
+Decimalupward ns rounding/all repetitions+outliers retained. Main324scenarios
+uses18PCG64separate-stream traces/90000events reused; stress54uses fixed worker
+mean/p99/max at Poisson100000/B128/100µs. New simulator models/forwards0; six
+curated loads across2actual sweeps plus six preparation inspections, byte custody
+separate. The same18hashes are generated twice/180000materialized events;756actual
+scenarios/3780000presentations; finalcurated378rows/1890000presentations.
+
+B1 at1M/s loses67.44–67.78%PCA/76.64–76.72%AE under assumed means, while low-rate
+B1024/100µs has0loss but≈0.19%slots used. Low-rate1000µsflush can cause1msdeadline
+misses without overflow. Constant AE2/B128max26.2485ms yields79.18–79.36%loss /
+≈227ms survivorp99; its worker p99 constant has0loss but100%deadline misses.
+These finite what-ifs establish neither recurring stall frequency/cause nor policy
+winner, whole-detector latency, physics acceptance or service distribution.
+
+Final105targeted/2022full+2022portable/200source/config/prompt/43package-version
+acceptance covers new code; complete suites artifact-free. Existing controlled-
+activation helpers per final full/portable process have85instances/31forwards /
+8710rows/2started+completed updates/2calibrations; other legacy synthetic activity
+unquantified, no globallyzero regression model work. Historical1917acceptance not
+reused. First native5.535386s numerical acceptance preserved; figure title/legend
+overlap rejected forcuration. Layout-only repair/revalidation yields final6.105818s,
+both phases exit0/reaped/accepted; identical CSV, all3finalfigures visually pass.
+
+Final simulation/report dispatch3.308455/2.446330s, RSS52527104/129613824B /
+native41943040/102039552B, parent39075840B, ownedstorage5536034B. Trace object
+payload estimate6122304B≤16MiB,1GiBRSS/512MiBnative/128MiBparent/128MiBstorage
+caps pass.2912WARN advisory/0CRITICAL/unknown, no primary error; optionalRAM context
+unavailable because worker children forbidden. Sample gaps0.052096/0.107185s /
+terminal gaps0.049905/0.061834s; cleanup0.000482/0.000112s andovershoot0. Six owned
+active assertion observations/release/absence/helperreap/displayallowed/settings
+unchanged. No physical-suspension or empirical inference performance certificate.
+
+Five uncommittedTask0036specific files and419oldtracked nonliving files preserve
+initial bytes; shared README/index/memory1.32 updates are separate. Task0036route
+stays unresolved/unaccepted, baseline/exploratory/permanentYES3/historicalfailed
+campaigns/particle192 preserved. Next separate development-only variability /
+missing-chain-cost planning decision; no automaticTask0038 or deployment choice.
 
 ## 2. Vision, motivation, and research question
 
@@ -1411,7 +1521,7 @@ Scientific result: evaluated test mixture39.924782%signal; PCA AUC0.468489/AP0.3
 - **Reduced-precision study:** Compare supported precision variants using training-only calibration and preregistered tolerances; freeze variant thresholds before final test.
 - **Streaming study:** Establish repeatable simulator assumptions and load scenarios, then evaluate queueing/capacity/latency and acceptance.
 - **Conditional deployment branches:** NVIDIA/TensorRT and optional FPGA/hls4ml as resources permit.
-- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 adds exploratory descriptions; Task0034 remains design-only. Task0035 implements/validates synthetic paired arms/restoration/calibration/uncertainty/lifecycle, without operational reader/fits/source acceptance. Separate source-adequacy decision is next; background-development implementation/execution/acquisition/confirmation require distinct scopes, full-event/count/generation/overlap/precision/storage remain unresolved. No automaticTask0036; exposure/result-informed origin, failed campaigns and particle192 preserved.
+- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 exploratory/Task0034 design-only/Task0035 synthetic foundation remain. Task0036route stays `unresolved_no_acquisition`, unchanged/unaccepted. Explicitly chosen Task0037engineering branch completes a model-free fixed synthetic FIFO trigger study with scoped historical constant costs,105targeted/2022full+portable and final bounded native/3figures. No deployment winner, scientific confirmation or physical inference claim. Separately authorize development-only variability/partial-shape/missing-chain-cost plan; acquisition/training/confirmation remain ungranted and no automaticTask0038. Exposure/result-informed origin, failures/particle192 preserved.
 
 Do not treat these bullets as already executed tasks or fixed task numbers. Choose the next bounded task from the live state, dependency order, unresolved evidence, and user direction.
 
@@ -1621,6 +1731,8 @@ commands. Do not automatically stage, commit, push, or unblind real test data.
 - [Data design](data-design.md), [raw audit](raw-data-audit.md), [training EDA](training-data-eda.md).
 - [Preprocessing contract](preprocessing-contract.md), [pipeline](preprocessing-pipeline.md), [frozen configuration](../configs/data/lhco_rnd_v5.json).
 - [Evaluation protocol](evaluation-protocol.md).
+- [Synthetic trigger/queue simulator](synthetic-trigger-simulator.md), [Task0037 config](../configs/simulation/synthetic_trigger_v1.json), [scenario CSV](../results/tables/final/task0037-synthetic-trigger-scenarios.csv), [summary](../results/tables/final/task0037-synthetic-trigger-summary.json) and [handoff](handoffs/0037-synthetic-trigger-simulator.md).
+- [Confirmation-source feasibility](confirmation-source-feasibility.md), [Task0036 evidence](../results/tables/final/task0036-confirmation-source-evidence.csv), [summary](../results/tables/final/task0036-confirmation-source-feasibility-summary.json) and [handoff](handoffs/0036-confirmation-source-feasibility.md).
 - [Controlled activation synthetic foundation](controlled-activation-synthetic-foundation.md), [Task0035 config](../configs/research/controlled_activation_synthetic_v1.json), [summary](../results/tables/final/task0035-controlled-activation-synthetic-summary.json) and [handoff](handoffs/0035-controlled-activation-synthetic-foundation.md).
 - [Controlled follow-up protocol](controlled-follow-up-protocol.md), [design-only sidecar](../configs/research/controlled_follow_up_v1.json), [Task0034 source registry](../results/tables/final/task0034-confirmation-source-registry.csv), [summary](../results/tables/final/task0034-controlled-follow-up-summary.json) and [handoff](handoffs/0034-controlled-follow-up-protocol.md).
 - [Exploratory frozen-feature and score-tail diagnostics](exploratory-feature-score-diagnostics.md), [Task0033 summary](../results/tables/final/task0033-exploratory-feature-score-summary.json), [feature/score associations](../results/tables/final/task0033-feature-score-associations.csv) and [handoff](handoffs/0033-exploratory-feature-score-diagnostics.md).
@@ -1709,5 +1821,9 @@ Runtime documentation and compatibility must be rechecked when the corresponding
 | 1.29 / 2026-10-12 | Clean committed Task0033c9f9bc5 reconciled; Task0034 design-only ReLU/identity155parameter/bottleneck3/three-paired-seed comparison, exact background recipe/own calibration, alpha0.001/shared-event bounds/fixed gates.3publisher records/16metadata rows/0accepted; extra SR QCD+new XtoYYprime conditional on full-event/count/independence/precision/storage.19synthetic assertions and metadata/design checks, zero new operational access/model/fit/calibration/payload; YES/YES/YES/baseline/failed campaigns/particle192 preserved. Synthetic-onlyTask0035 proposed, no launch; training/acquisition/confirmation ungranted | Actual prompt, protocol/design-only sidecar, source registry/curated summary, prospective resource/access brief and handoff; Task0033 historicala671b98base unchanged |
 
 | 1.30 / 2026-10-12 | Clean committed Task0034f27ce61; additive synthetic-only controlled activation foundation/219bindings/43packages/189focused/1917full+portable. Paired155parameter arms/actual order/own restore+calibration/shared-event integer bounds/unchanged gates.3native attempts,2pre-numerical failures preserved then final2.683233s accepted/12toy updates/65forwards/2333rows/6calibrations/assertion release; caps/gaps/context disclosed.403old bytes preserved except living docs, operational work0/YES3/baseline/failed campaigns/particle192 unchanged. Source adequacy go/no-go next; no0036/source acceptance/real allowance | Actual prompt, separate config/source/tests/entrypoint, final synthetic-only acceptance and native receipts, curated report/summary; detailed maps/weights/logs ignored |
+
+| 1.31 / 2026-10-12 | Clean committedTask0035 34d7401 reconciled; Task0036 metadata-only pinned extra-QCD/XtoYYprime decision `unresolved_no_acquisition`. Full-event nonoverflow method identified, overflow/release/realized selected count/member expansion unresolved;requested50000notupperbound,236843floor/1450034V0.001/unchanged gates preserved.18retrievals/0searches/1metadata archive16084B/0event requests; archivepreflight rejected/stopped, pinned author texts support recipe.30evidence rows/26temporary boundary/scalar/CSV/identity checks;419old nonliving tracked bytes preserved, memory1.31/YES3/baseline/failed campaigns/particle192 unchanged. Manifest prerequisite or prospective amendment/retirement; no0037/source acceptance/model freeze/real allowance | Actual prompt, decision/evidence/curated summary/handoff; raw research/cards/archive/temporary helpers/checks ignored, Task0035 hashes historical and unchanged |
+
+| 1.32 / 2026-10-12 | Task0036eight paths uncommitted/HEAD34d7401/empty index preserved. Explicit Task0037engineering branch: one model-free FIFO actual-capacity drop-tail/oldest flush/modeled padded batches/post-service toy cuts,324main+54stress/18traces/90000unique/1890000presentations.105targeted/2022full+portable/200bindings/43versions.2native numerical passes, firstvisualoverlap rejected then layoutrepair/revalidation/final6.105818s accepted/CSVidentical/3figures;actual756scenarios/3780000presentations. FinalWARNadvisory/caps/reap/release/gaps disclosed, operational0/YES3/sourceunresolved/Task0034unchanged.419oldtracked+5priorTask0036bytes preserved except sharedliving1.32. Next separate development-only variability/missing-chain-cost plan,no0038/deploymentwinner | Actual prompt/config/source/tests/validation+native entrypoints/final source-bound acceptance/receipts, curated table/figures/report; detailed states/streams/logs/receipts/maps ignored |
 
 Keep future entries short and focused on project-level changes. Update current-state sections in place; the revision table is not a second task log.
