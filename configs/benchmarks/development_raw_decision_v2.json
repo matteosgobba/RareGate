@@ -1,0 +1,396 @@
+{
+  "membership": {
+    "path": "data/analysis/lhco-rd-v1/dev_train_background.npy",
+    "shape": [
+      6999
+    ],
+    "dtype": "<i8",
+    "size_bytes": 56120,
+    "file_sha256": "2662f0762cf57e39156b0e5c6b1c8e7ac7279a2ecc98c33b2ed69d67a964c781",
+    "selected_count": 1024,
+    "selected_sha256": "f80a9483f5ddafcac0e05d9fd6de757e5bbfe9e805f65ced1c0aa801cc266f1a",
+    "ordering": "stable_ascending_source_ID_then_first1024"
+  },
+  "raw": {
+    "path": "data/raw/lhco/6466204/events_anomalydetection_v2.h5",
+    "size_bytes": 2908260409,
+    "file_sha256": "5da8fda2ca78edf8fa5acc0af92fcb6a2d464ba7bf0fd75e3944a169b88cecc6",
+    "publisher_md5": "629789d55813be3860781b084ae7f1de",
+    "record": 6466204,
+    "version": "v5",
+    "dataset": "/df/block0_values",
+    "audit_schema": {
+      "chunks": [
+        62,
+        2101
+      ],
+      "dtype": "float64",
+      "filters": [
+        {
+          "flags": 1,
+          "id": 32001,
+          "name": "blosc",
+          "parameters": [
+            2,
+            2,
+            8,
+            1042096,
+            5,
+            1
+          ]
+        }
+      ],
+      "shape": [
+        1100000,
+        2101
+      ]
+    }
+  },
+  "golden": {
+    "path": "results/benchmarks/task0020-frozen-cpu/prepare/input.npy",
+    "shape": [
+      1024,
+      8
+    ],
+    "dtype": "<f4",
+    "size_bytes": 32896,
+    "file_sha256": "7164bfd7a86a9561ae3abc7b44b396c1a60db0114fc8542443ad3f71d2990a5e",
+    "payload_sha256": "2ba0776aa1b5dfb7eb91dc0df4993d0a2ec52c83a79cc5424acc9b98a59b3d05"
+  },
+  "transform_config": "configs/data/lhco_rnd_v5.json",
+  "lineage": {
+    "split_manifest": "data/analysis/lhco-rd-v1/split-manifest.json",
+    "dev_manifest": "data/processed/lhco-rd-v1/schema-v1/dev/manifest.json",
+    "dev_configuration": "data/processed/lhco-rd-v1/schema-v1/dev/configuration.json",
+    "prepared": "results/benchmarks/task0020-frozen-cpu/prepare/prepared.json",
+    "prepare_receipt": "results/benchmarks/task0020-frozen-cpu/prepare/receipt.json",
+    "acquisition": "data/raw/lhco/6466204/events_anomalydetection_v2.h5.manifest.json",
+    "raw_audit": "data/raw/lhco/6466204/raw-schema-audit.json",
+    "dev_scientific_sha256": "2eb34e5b811c12ae5c47afba1ecdb6322feb7c7774b6c9ec5331abe78b3c9a2a"
+  },
+  "byte_pins": {
+    "data/analysis/lhco-rd-v1/split-manifest.json": "a94af59fa842ca24816c38170b3cf58698748a85cd865d65b6e3fa4f615bdc43",
+    "data/processed/lhco-rd-v1/schema-v1/dev/manifest.json": "da87559cc142c0736c4c18d6559c0df3551518408cf84e9b6862ebc5327c1878",
+    "data/processed/lhco-rd-v1/schema-v1/dev/configuration.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "results/benchmarks/task0020-frozen-cpu/prepare/prepared.json": "4a04588b5215b2a272d59be79e50af0b354ba61dee7cfdabf950e284f545afa3",
+    "results/benchmarks/task0020-frozen-cpu/prepare/receipt.json": "1d8c9183e5c49398647275381e6c1fb8da75eab71b947ffca2ed09c8bac28bac",
+    "data/raw/lhco/6466204/events_anomalydetection_v2.h5.manifest.json": "7899079e0c66feac1b5c7391fce66fe51f0eb6181aa76a9f5681b6d595915d09",
+    "data/raw/lhco/6466204/raw-schema-audit.json": "38b50cae8c9c8d233c5a47d0b2f212d1db94f541a92db032e6ac528d9cb82332",
+    "configs/data/lhco_rnd_v5.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "src/latenttrigger/data/features.py": "fac40f3fb9e16f8d9048094cd9b031871eb399e11d37e04963e301b2f9a2ce42",
+    "src/latenttrigger/data/inspection.py": "9c78ed557ae2d3f7e2f70e184483efe3fb01838aaf03f38e4513ca096e6f9a61",
+    "src/latenttrigger/data/preprocessing.py": "6aa6f8bae59667ee28dfec5798960aba2c28993719a3d88679659f53d5dab6e0",
+    "src/latenttrigger/data/processed.py": "911c1bdb85831396b5e35dd6c3b5206a1ef22b5c62b55efb40108a4cd8cea5ea",
+    "src/latenttrigger/benchmarks/core.py": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987",
+    "docs/preprocessing-contract.md": "fe1fe361a7a0e5542300faca79e153b24437660fb1b45c993ca9b9e1b90a49b3",
+    "configs/benchmarks/prepared_batch_service_v1.json": "d1452face2ac3ca3f284ef1be8e2ec2067d55cc9ddb90a6a1322b474bb944368",
+    "results/tables/final/task0038-prepared-batch-service-summary.json": "82399b84db56e359abf37b55389b2859cfe3bc32baf25ed3f2a121783909f679",
+    "configs/benchmarks/development_raw_features_v1.json": "702ca63f9cf2f690161306e5d844b40137426ba22f2af55167e1a664ae80ed4f",
+    "docs/prompts/0039-development-raw-feature-foundation.md": "f4cea291e70b7ae215c0822ee3e451b9eca6135eae448945bdbea669f971e165",
+    "docs/development-raw-feature-benchmark-design.md": "58cc253b9a6857aac1a545fc3c59d2d6937b8d5a4af0abf8080194d3635db18b",
+    "docs/handoffs/0039-development-raw-feature-foundation.md": "8c84eb5bc4edc926e256e8e412750666b8538352246baa07700cd6efec812b41",
+    "results/tables/final/task0039-development-raw-feature-summary.json": "9fee8aac1ff087be14fe8a2990f038d8518be13c8ce086fb698c1e4624d9e352",
+    "results/benchmarks/task0039-development-raw-features/attempt.json": "c27e309ff8bf526a0e329cf8ce9f673df40b8394a855e186f9233921b6128608",
+    "results/benchmarks/task0039-development-raw-features/5ddf2cde9caa4040bba5675e15e96ccc/workflow.json": "d6df0701cc2552071f4f9b7916d561ffd6e24aa4a5a0f92e0c86b959f7a04252",
+    "results/benchmarks/task0039-development-raw-features/5ddf2cde9caa4040bba5675e15e96ccc/parent-acceptance.json": "99b6466293381db565daa55b695a28868158b2d351ae63833749c88cf80fd35a",
+    "data/baselines/pca-v1/model.json": "6dd54d8aa788ab27f3cbd674d82c549ce31787b9865a911635d9ebd8faee3190",
+    "configs/models/pca_baseline.json": "5a346df7e9fe3def3c40b1a35d75d5512e4761ae8e5d9e4975f7264e269615a1",
+    "results/tables/final/task0006-pca-background-results.json": "d063102533d222f1c7c83590247dcabfd00d136fcd8d818e805d30c1be98c212",
+    "artifacts/models/compact-autoencoder-v2/model.json": "a0b1563c34526bbfd965de6b63d041da2dfa713e9fe4bbc514852595ea813bf5",
+    "configs/models/compact_autoencoder_v2.json": "dd6a808ee2e7a48767593dddf45fcbbb059afd63380a8791209521f0e59e8303",
+    "results/tables/final/task0008-autoencoder-convergence-summary.json": "5991605a445b83627ad2e47a7805d6c42d335d50198b8dfea525dd3d69776352",
+    "configs/benchmarks/development_raw_measurement_v1.json": "24056865949c795bd9981a5e3356332cfb25e0afab1f85fcb69a96e92bb6b053",
+    "docs/prompts/0040-development-raw-feature-measurement.md": "6c7f486f2187f9d8c182d59fc0b34f5761ce468a638def8d83120a6eb9e3cc7d",
+    "docs/development-raw-feature-measurement.md": "4af9139e6de86de272da638d9941413588d733330efeaa7ca1503667025b8724",
+    "docs/handoffs/0040-development-raw-feature-measurement.md": "592127f394c234923bb803d9181153c28da1a5204722b44e01960a3a7e0d2f1f",
+    "results/tables/final/task0040-development-raw-feature-summary.json": "119ca5a7bb8fb08ea712263fb6b23e3694f623c04e6b59ecd786d2468189ee6e",
+    "src/latenttrigger/benchmarks/prepared_service.py": "284c89d826965cc81841a6080870a21c6c1a414a4205897606bf2423bdbcbc6a",
+    "src/latenttrigger/models/autoencoder.py": "cf5c9507fa08404c8a287627a30201608736634e8246e298fad081201bff4738",
+    "src/latenttrigger/models/pca.py": "6c14d9a5abb5515bd137b3303ff1da693e8d1c143119496162ce705715328b4a",
+    "docs/arithmetic-cpu-v2-policy.md": "0957f1fb955e39a3764ff4b95cacae1bb1bc6d8cfc26cf798f8864da3cc5ecec",
+    "results/benchmarks/task0040-development-raw-features/76ef4bc0a464437bbf0c7046243a6557/plan.json": "a44db7f21fda79b63779feaff8edece6cff92d8b155f87b197a8d6db8b8d5f23",
+    "results/benchmarks/task0040-development-raw-features/76ef4bc0a464437bbf0c7046243a6557/workflow.json": "f1c8827f9d5c37b9188b18f68c957ed3d4337becf337381e4abbf87cdfd5a018",
+    "results/benchmarks/task0040-development-raw-features/76ef4bc0a464437bbf0c7046243a6557/parent-acceptance.json": "64605ad6e7e36d3eb69fdb55366408d77b0ffb94dc47ac0f86a75e254b4a4117",
+    "results/benchmarks/task0040-development-raw-features/attempt.json": "01af8c26c286162b146cc7d2273eba486848f4cb3fe5f55676589e39df9cefc3",
+    "configs/benchmarks/frozen_cpu_v2.json": "b2658f7666e108e13c131b338b4554894f384ce559881120cf2a013a02847c8a",
+    "results/tables/final/task0022-frozen-cpu-benchmark-v2-summary.json": "33c09221548ef56ef1b96f10c951161b65bea8d9565f2f3c100fd5f7a7c5744e",
+    "src/latenttrigger/benchmarks/arithmetic_cpu_v2.py": "dac69bddfd76bc914f8fc9a22240cc4a666518e6963a47182dc208ff4eebb631",
+    "src/latenttrigger/benchmarks/accelerate_threads.py": "dd11e84796a9bb6611f444b6dce08a03ab9b0e6bc910e8af73ae346bcd96f80f",
+    "results/benchmarks/task0020-frozen-cpu/prepare/input.npy": "7164bfd7a86a9561ae3abc7b44b396c1a60db0114fc8542443ad3f71d2990a5e",
+    "docs/prompts/0041-development-raw-decision-measurement.md": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+    "configs/benchmarks/development_raw_decision_v1.json": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+    "docs/development-raw-decision-measurement.md": "191a499fb91f32493803353e5991dfe1ab1bf1e6ebbfe6c1676003b69cd48851",
+    "docs/handoffs/0041-development-raw-decision-measurement.md": "de222a79e30f3dd9c067bf4b765bbe1c9267bb1b72dae9eeeed865dcde4c03e8",
+    "results/tables/final/task0041-development-raw-decision-summary.json": "c826c68a0cd8f6ff7370af7b4cf68133f2d4f6e4f19f094a43209713fdf72536",
+    "results/tables/final/task0041-development-raw-decision-cells.csv": "d4aa63025f149f6769afa1363eb0456218c1bd4cbf2feab69be41a603722732b",
+    "results/benchmarks/task0041-development-raw-decisions/prerequisite-attempt.json": "e12e95bf539b0ba1fbd4e4fec0d5f2b2aa5cc333abdcb219db784e2c9e8898c0",
+    "docs/prompts/0042-development-decision-admission-repair.md": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3",
+    "docs/development-decision-admission-repair.md": "3f4239f628f689d60dc3a1fd4db861f68cbe0eafe5f17dd72a1b875eb55ccd2b",
+    "docs/handoffs/0042-development-decision-admission-repair.md": "4f024ca9fed65f9e797d85abf07e16a71bebbb73ab1de84274e4026c57977023",
+    "results/tables/final/task0042-development-decision-admission-summary.json": "0df1e62149c915b824840d5bc7f48badb57eb30c05688e77d14c0caa965b082f",
+    "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/software-acceptance.json": "42cc5f1a971c0b681af7063d778d35984f37cc330a7cc03aac513b0231e36338",
+    "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/repair-acceptance.json": "37066812e3ca68572f08b007f38561c1c1e400dc8ad839e9d9e09ef659ecdb0d"
+  },
+  "cache": {
+    "rdcc_nbytes": 1048576,
+    "rdcc_nslots": 521,
+    "rdcc_w0": 0.75
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLOSC_NTHREADS": "1"
+  },
+  "limits": {
+    "prerequisite_seconds": 60,
+    "numerical_worker_seconds": 180,
+    "reporting_seconds": 60,
+    "finalization_seconds": 15,
+    "reserved_seconds": 720,
+    "whole_seconds": 780,
+    "cleanup_seconds": 2,
+    "worker_RSS_bytes": 1073741824,
+    "native_reserved_bytes": 536870912,
+    "controller_RSS_bytes": 134217728,
+    "guard_journal_bytes": 16777216,
+    "log_bytes": 1048576,
+    "owned_storage_bytes": 134217728,
+    "owned_array_buffer_bytes": 67108864
+  },
+  "schema_version": 1,
+  "task": "0043",
+  "kind": "one_conditional_selected_development_raw_to_decision_CPU_session_v2",
+  "strategy": "natural",
+  "scope": "selected_raw_to_decisions",
+  "models": [
+    {
+      "name": "pca-v1",
+      "config_path": "configs/models/pca_baseline.json",
+      "config_canonical_sha256": "e61e43bc57afc010286bf2b1deff91167b4951644d52d882ecbd1cf10f938f95",
+      "config_file_sha256": "5a346df7e9fe3def3c40b1a35d75d5512e4761ae8e5d9e4975f7264e269615a1",
+      "model_path": "data/baselines/pca-v1/model.json",
+      "model_scientific_sha256": "d09f96bb7b1536e8da147458f3b0bf50a120bdf6cfc4c247b37970f4f51bf42f",
+      "model_file_sha256": "6dd54d8aa788ab27f3cbd674d82c549ce31787b9865a911635d9ebd8faee3190",
+      "results_path": "results/tables/final/task0006-pca-background-results.json",
+      "results_scientific_sha256": "285a254847424870b5bee08e5a218733dcbe553ff7a4d00ec5c9493288600ccb",
+      "results_file_sha256": "d063102533d222f1c7c83590247dcabfd00d136fcd8d818e805d30c1be98c212",
+      "score_definition": "sum_squared_reconstruction_residual",
+      "orientation": "higher_is_more_anomalous",
+      "forward_dtype": "float64",
+      "score_dtype": "float64",
+      "threshold_decision": "score > threshold",
+      "calibration_count": 74823,
+      "thresholds": [
+        {
+          "target_fpr": 0.1,
+          "threshold": 0.3496768162794852
+        },
+        {
+          "target_fpr": 0.05,
+          "threshold": 0.5642097175249418
+        },
+        {
+          "target_fpr": 0.01,
+          "threshold": 1.4232146905138892
+        },
+        {
+          "target_fpr": 0.001,
+          "threshold": 4.1356483360291865
+        }
+      ]
+    },
+    {
+      "name": "compact-autoencoder-v2",
+      "config_path": "configs/models/compact_autoencoder_v2.json",
+      "config_canonical_sha256": "0af02cba0dcab4cd750b19f6357fe5030aadb56c7c0422c4f35ea4adc1521800",
+      "config_file_sha256": "dd6a808ee2e7a48767593dddf45fcbbb059afd63380a8791209521f0e59e8303",
+      "model_path": "artifacts/models/compact-autoencoder-v2/model.json",
+      "model_scientific_sha256": "6a7044ae199cf6609d096377d7bca782b0ae2a0398ad870a4f63cb874a46777b",
+      "model_file_sha256": "a0b1563c34526bbfd965de6b63d041da2dfa713e9fe4bbc514852595ea813bf5",
+      "results_path": "results/tables/final/task0008-autoencoder-convergence-summary.json",
+      "results_scientific_sha256": "324d7363b3e2d2ec96f57cc88790af99895097a35c91efe4839c3cead25c7d33",
+      "results_file_sha256": "5991605a445b83627ad2e47a7805d6c42d335d50198b8dfea525dd3d69776352",
+      "score_definition": "sum_squared_reconstruction_residual",
+      "orientation": "higher_is_more_anomalous",
+      "forward_dtype": "float32",
+      "score_dtype": "float64",
+      "threshold_decision": "score > threshold",
+      "calibration_count": 74823,
+      "thresholds": [
+        {
+          "target_fpr": 0.1,
+          "threshold": 3.478338537407165
+        },
+        {
+          "target_fpr": 0.05,
+          "threshold": 4.681070974717348
+        },
+        {
+          "target_fpr": 0.01,
+          "threshold": 8.324174660133213
+        },
+        {
+          "target_fpr": 0.001,
+          "threshold": 16.642218868621573
+        }
+      ]
+    }
+  ],
+  "channels": [
+    "multiplicity",
+    "scalar_pt",
+    "max_pt",
+    "pt_balance",
+    "weighted_eta_mean",
+    "weighted_eta_std",
+    "pt_concentration",
+    "massless_event_mass"
+  ],
+  "runtime": {
+    "device": "cpu",
+    "pytorch_intra_threads": 1,
+    "pytorch_inter_threads": 1,
+    "effective_blas_openmp_threads": 1,
+    "deterministic_algorithms": true,
+    "thread_environment_before_imports": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "pca_compute_dtype": "float64",
+    "ae_forward_dtype": "float32",
+    "score_dtype": "float64",
+    "amp": false
+  },
+  "numerical": {
+    "policy": "arithmetic-cpu-v2",
+    "u32": "2^-24",
+    "u64": "2^-53",
+    "affine_dimensions": [
+      8,
+      6,
+      3,
+      6
+    ],
+    "gamma_m": "m*u/(1-m*u);m=2*n+2",
+    "supported_nonzero_value_band": [
+      "2^-40",
+      "2^40"
+    ],
+    "rounding": "ordinary_IEEE_binary32_binary64_round_to_nearest;bounded_dot_product_addition_tree;checked_exponent_band_excludes_underflow_overflow;local_checks_required",
+    "bound_operations": "binary64_elementwise_operation_then_outward_nextafter_each_primitive;nonnegative_dot_accumulates_each_product_and_add;zero_exact;nonfinite_subnormal_bound_intermediates_refused",
+    "recurrence": "E0=0;M=abs(W)*abs(h64)+abs(b);E=(1+gamma32)*abs(W)*Eprev+(gamma32+gamma64)*M;ReLU_1_Lipschitz",
+    "reconstruction": "both_FP32_shapes_vs_fixed_FP64_diagnostic<=E;across_shape<=2E;local_affine_vs_FP64_same_FP32_inputs<=gamma32_plus_gamma64_magnitude",
+    "SSE": "outward_exact_residual_upper_from_computed_residual/(1-u64);Q=2sum(R*D)+sum(D^2);add_gamma32(u64)/(1-gamma32(u64))*(computed_public_SSE_B+computed_public_SSE_reference)",
+    "same_shape_score_atol": 1e-12,
+    "same_shape_score_rtol": 1e-12,
+    "PCA_atol": 1e-12,
+    "PCA_rtol": 1e-12,
+    "byte_exact_same_shape_repeats": true,
+    "byte_exact_reference_pre_post": true,
+    "frozen_decision_mismatches_allowed": 0,
+    "local_affine_violations_allowed": 0,
+    "no_observed_error_multiplier_or_arbitrary_tolerance": true,
+    "engineering_bound_not_universal_kernel_certificate": true,
+    "derivation_path": "docs/arithmetic-cpu-v2-policy.md",
+    "primary_sources": [
+      "https://nhigham.com/wp-content/uploads/2023/10/high93s.pdf",
+      "https://docs.pytorch.org/docs/2.14/notes/numerical_accuracy.html"
+    ],
+    "runtime_torch_build_sha256": "6d6fa299a6d76bc6add8bfff4916da33cbc1636da24e90df594e6434f918b26c",
+    "derivation_file_sha256": "0957f1fb955e39a3764ff4b95cacae1bb1bc6d8cfc26cf798f8864da3cc5ecec"
+  },
+  "expected": {
+    "cells": 24,
+    "timed": {
+      "calls": 480,
+      "rows": 20280
+    },
+    "warmup": {
+      "calls": 72,
+      "rows": 3042
+    },
+    "chain_gates": {
+      "calls": 288,
+      "rows": 12168
+    },
+    "golden_references": {
+      "calls": 144,
+      "rows": 6084
+    },
+    "selected_reads_and_feature_constructions": {
+      "calls": 840,
+      "rows": 35490
+    },
+    "public_service": {
+      "calls": 984,
+      "rows": 41574
+    },
+    "per_worker": {
+      "raw_calls": 280,
+      "raw_rows": 11830,
+      "service_calls": 328,
+      "service_rows": 13858,
+      "reference_calls": 48,
+      "reference_rows": 2028
+    },
+    "per_candidate": {
+      "calls": 492,
+      "rows": 20787
+    },
+    "decision_boolean_values": 166296,
+    "gate_window_records": 144,
+    "membership_loads": 3,
+    "membership_ID_records": 20997,
+    "golden_loads": 3,
+    "golden_rows": 3072,
+    "model_threshold_loads_and_instantiations": 6,
+    "HDF_handles": 3,
+    "raw_hash_passes": 2,
+    "raw_hash_bytes": 5816520818,
+    "unique_approved_rows": 1024,
+    "unique_raw_rows": 384,
+    "raw_buffer_preloads": 0,
+    "dummy_rows": 0
+  },
+  "schedule": "rep1_3_PCA_AE_ascendingB;rep2_AE_PCA_descendingB;3warmup20timed_windows1/1/1_then7/7/6",
+  "gates": "per_candidate_pre_post_ascending12windows:one_golden_service_two_chain_repeats;exact_feature_score_mask_bytes",
+  "post_custody_seconds": 45,
+  "owned_array_policy": "24FP64particle-temporaries_plus_current_raw_and2MiBfixed_model_reference_result_metadata_envelope;no_preloaded_raw_windows",
+  "authorization": "actual_Task0043_prompt_after_current_serialized_admission_roundtrip_and_immutable_freeze",
+  "scientific_evaluation_authorized": false,
+  "historical_acceptances": {
+    "0038": {
+      "path": "data/task0038-validation/84d29c2635b84253a4622141da03d8c5/software-acceptance.json",
+      "sha256": "b696a3154e9b2c32f290e937b0661f04d33ced45a5aee59e21da0402a00d558d"
+    },
+    "0039": {
+      "path": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/software-acceptance.json",
+      "sha256": "f110204f38212e8f6752ab1883afde1df040e56c2c4cb8df20af00fb79decd91"
+    },
+    "0040": {
+      "path": "data/task0040-validation/d9d3127d67864a0886fc1761099fc64b/software-acceptance.json",
+      "sha256": "508a95a0b7e432ffaf800369d8c988447bebcff5e131305c01a26352132b02d5"
+    },
+    "0041": {
+      "path": "data/task0041-validation/a09896d5ef3f4c81b150f50b075b58f3/software-acceptance.json",
+      "sha256": "a86c964e9b6a4355c97c231c0617dda0ef5158ac529d5e7fe1c62bb2f5b08c4c",
+      "role": "checks_passed_not_admitted_operational_failed_consumed"
+    },
+    "0042": {
+      "path": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/software-acceptance.json",
+      "sha256": "42cc5f1a971c0b681af7063d778d35984f37cc330a7cc03aac513b0231e36338",
+      "role": "historical_software_only_synthetic_repair"
+    }
+  },
+  "validation_owner": "0043",
+  "authorization_prompt": "docs/prompts/0043-development-raw-decision-campaign-v2.md",
+  "authorization_prompt_sha256": "1a39bc50e8d7bea3ebfbe9f8c0dae9cfab272a86e48cf19760487127a355364f",
+  "payload_scope": "approved_background_training_1024prefix_12windows_native_CPU_original_models",
+  "operational_allowances": 1
+}

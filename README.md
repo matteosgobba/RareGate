@@ -269,6 +269,22 @@ the latest accepted raw boundary; a new real campaign requires a separate prompt
 namespace/current acceptance/freeze/allowance. No Task0043 or source acquisition.
 
 
+Task0043 completes the separately authorized [independent raw-to-decision CPU campaign v2](docs/development-raw-decision-campaign-v2.md).
+New closed task/owner0043 admission and immutable freeze lead to one37.337518s
+`parent_accepted_development_raw_decision_measurement`:24cells/480timed/72warmups,
+3ID+3golden loads,840raw reads/features35490rows,6frozen models/984services41574rows,
+all exact feature/score/four-mask gates/normal exits/reaping/assertion release.
+Fresh214focused/2588full+portable/268bindings/43packages/41native and actual emitted
+record→synthetic dispatch roundtrip precede the one real session. PCA/AE pooled
+batch means atB1/8/32/128are0.573/3.252/12.036/48.048ms and
+0.606/3.295/12.346/47.515ms; every repetition/outlier retained,2inspected figures.
+This is now the latest accepted sparse-development joint boundary, with warm cache,
+fixed order and unknown decoder/physical-I/O limits; no production-p99/policy/science
+claim or component-median sums. Task0041failed/consumed and0042software-only remain
+intact; source confirmation remains unresolved. Next separately authorized systems
+replay may use these joint sequences with fixed synthetic arrivals; no Task0044.
+
+
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
 `0.1.0`. Task 0002 defines the data foundation using the corrected LHC Olympics
@@ -666,6 +682,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0040: one accepted development selected-read/full-frozen-feature/direct-joint session,36cells/720timed/108warmups, exact golden parity and original membership/source identity; no models/held-out/scientific work.
 - [x] Task0041 bounded outcome: direct CPU chain/planner synthetically validated107focused/2417full+portable; sole real prerequisite failed/consumed before numerical work on inconsistent acceptance status, no measured costs or retry.
 - [x] Task0042: strict emitted-record admission and fail-closed synthetic freeze/dispatch,172focused/2482full+portable/current256bindings, final native roundtrip accepted; original Task0041 failure consumed/preserved, zero new operational work.
+- [x] Task0043: one new accepted sparse-development raw→frozen features→native CPU/four decisions session,24cells/480timings/exact parity/complete984services; separate closed admission, fresh214focused2588full+portable, no scientific re-evaluation or Task0044.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
