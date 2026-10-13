@@ -43,6 +43,17 @@ deployment.
 
 ## Current status
 
+The [Task0044 deterministic joint-service replay](docs/deterministic-joint-service-replay.md)
+is parent accepted:1764 fixed scenarios/8,820,000 presentations,756 mean-control
+and252 ordering contrasts, conservation/final pending0 and three inspected figures.
+Finite Task0043 full-B samples drive synthetic FIFO services; partial batches pay
+an explicit hypothetical full-B bill. Mean-only counts often agree, while deadline
+and survivor latency differences remain; no deployment policy is selected.
+Fresh188focused/2749full+portable validation and normal bounded lifecycle pass.
+One earlier source-admission failure before scenarios is retained; no new
+raw/model/scientific/physical measurement work. Task0043 stays accepted/consumed,
+Task0041 failed/consumed, Task0042 software-only and Task0036 unresolved.
+
 The [initial native scientific study and integrated synthesis](docs/scientific-synthesis.md)
 are complete. Frozen AE v2 has a moderate observed ranking advantage over PCA
 for this signal, with higher accepted CPU cost and weak strict-tail utility.

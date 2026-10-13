@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "task": "0044",
+  "kind": "deterministic_joint_service_replay",
+  "source_directory": "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e",
+  "source_pins": {
+    "results/tables/final/task0043-development-raw-decision-summary.json": "3baa1cc3c04d4b830912a7d7d06d535f23fe85952ed61ee4b63070e973d9a01b",
+    "results/tables/final/task0043-development-raw-decision-cells.csv": "467583e24cb3f07303208c5e08a7f609da9a0494607bf4b67019e7547756436e",
+    "configs/benchmarks/development_raw_decision_v2.json": "7acb4b3184b4c8ee997a463e80bff72c4adabae34958ac855198aad50da55b9a",
+    "docs/prompts/0043-development-raw-decision-campaign-v2.md": "1a39bc50e8d7bea3ebfbe9f8c0dae9cfab272a86e48cf19760487127a355364f",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/workflow.json": "2259f76f4f7bd27dab3a2bf803bc4b0bf354e05d42ef69129dab6832b25694f9",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/parent-acceptance.json": "96b5becdfb04c92fb4fb79b59a9e6cd671aa5fedb2b04e81e8a787665c746c97",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/plan.json": "283f66813f7c6375a032c643f4436e8db30b61ceebe60ee795f0ab692eeb6810",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition1/receipt.json": "71cd30038701ba0a92aa7ee12fff4434809821d5aa78c2e44560f9c42d4f39b7",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition1/aggregate.json": "279c086dab4f48de5a011edba62adfe5f14c3b501d2ed9ca46a17b305757fe94",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition1/timings.jsonl": "59591523c9938015539ee90177ed438b041628bfa4c55e93e4141fd81f670cdc",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition1/timer.json": "8ef1c7e830557cd888b64e746e1e1dbfc58073f98dece8cef020281bc86e097b",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition2/receipt.json": "91c642ed45af2c1774df4713949b79f6840988ecf7616e27755ebd98641a7878",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition2/aggregate.json": "647015ca0d5bcc06b1d24800d687491e6abb379e2b3c9dcd9e7f81d98bab97f2",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition2/timings.jsonl": "280134c291899aebbcb50eec91c712984e9498ca964ff8a96a1224d9f6be3957",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition2/timer.json": "8ef1c7e830557cd888b64e746e1e1dbfc58073f98dece8cef020281bc86e097b",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition3/receipt.json": "91e402a9b4bc8b86ebfe3195ee7353e412d491b7a9ab4303b590d4d6cd67e2ad",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition3/aggregate.json": "025b8c523b2da24f58736203f8caa418d26d3f9564767f4d3ab7b14fc8e7ffce",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition3/timings.jsonl": "025204e86852d61083fefbbf97177d536cbea36beaf496680194ec4a4e4863c4",
+    "results/benchmarks/task0043-development-raw-decisions/e94e4aea9d6549f78c24c8ffe0881c4e/repetition3/timer.json": "8ef1c7e830557cd888b64e746e1e1dbfc58073f98dece8cef020281bc86e097b"
+  },
+  "server": "one_fifo_nonpreemptive",
+  "admission": "drop_tail_waiting_plus_in_service",
+  "tie_order": [
+    "completion",
+    "arrivals_source_order",
+    "dispatch_flush"
+  ],
+  "flush_origin": "oldest_waiting_original_arrival",
+  "partial_service": "hypothetical_full_B_bill_for_m_actual_rows",
+  "source_events_per_trace": 5000,
+  "seeds": [
+    41,
+    42,
+    43
+  ],
+  "rates_per_second": [
+    500,
+    2500,
+    5000
+  ],
+  "arrival_modes": [
+    "periodic",
+    "poisson"
+  ],
+  "rng": "PCG64_SeedSequence_[3700,seed,mode_id,rate,stream_id]",
+  "toy_thresholds": [
+    0.9,
+    0.95,
+    0.99,
+    0.999
+  ],
+  "toy_decision": "strict_score_gt_threshold_after_completion",
+  "candidates": [
+    "pca-v1",
+    "compact-autoencoder-v2"
+  ],
+  "policies": [
+    [
+      1,
+      0
+    ],
+    [
+      8,
+      1000000
+    ],
+    [
+      8,
+      10000000
+    ],
+    [
+      32,
+      1000000
+    ],
+    [
+      32,
+      10000000
+    ],
+    [
+      128,
+      1000000
+    ],
+    [
+      128,
+      10000000
+    ]
+  ],
+  "capacity_actual_events": 1024,
+  "deadline_ns": 100000000,
+  "main_assignments": [
+    "cyclic",
+    "constant"
+  ],
+  "order_assignments": [
+    "reverse",
+    "rotation10"
+  ],
+  "order_arrival_mode": "poisson",
+  "order_rate_per_second": 2500,
+  "expected": {
+    "traces": 18,
+    "unique_events": 90000,
+    "main_scenarios": 1512,
+    "order_scenarios": 252,
+    "scenarios": 1764,
+    "event_presentations": 8820000,
+    "main_contrasts": 756,
+    "order_contrasts": 252
+  },
+  "limits": {
+    "prerequisite_seconds": 30,
+    "simulation_seconds": 120,
+    "reporting_seconds": 60,
+    "finalization_seconds": 15,
+    "whole_seconds": 240,
+    "cleanup_seconds": 2,
+    "worker_RSS_bytes": 1073741824,
+    "native_reserved_bytes": 536870912,
+    "controller_RSS_bytes": 134217728,
+    "guard_journal_bytes": 67108864,
+    "worker_log_bytes": 1048576,
+    "owned_storage_bytes": 134217728,
+    "retained_trace_bytes": 16777216,
+    "max_latency_entries_per_scenario": 5000,
+    "source_bundle_bytes": 8388608,
+    "retained_service_vectors_bytes": 1048576
+  },
+  "execution_authorization": "actual_Task0044_prompt_after_fresh_serialized_software_admission_freeze_claim",
+  "new_physical_or_model_work_authorized": false,
+  "float_serialization": "integer duration/order exact; binary64 aggregate/CSV stats within 32 ULP of stdlib linear/population computations; no empirical cost multiplier",
+  "historical_metadata_pins": {
+    "configs/benchmarks/development_raw_decision_v1.json": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+    "configs/benchmarks/development_raw_decision_v2.json": "7acb4b3184b4c8ee997a463e80bff72c4adabae34958ac855198aad50da55b9a",
+    "configs/benchmarks/development_raw_features_v1.json": "702ca63f9cf2f690161306e5d844b40137426ba22f2af55167e1a664ae80ed4f",
+    "configs/benchmarks/development_raw_measurement_v1.json": "24056865949c795bd9981a5e3356332cfb25e0afab1f85fcb69a96e92bb6b053",
+    "configs/benchmarks/prepared_batch_service_v1.json": "d1452face2ac3ca3f284ef1be8e2ec2067d55cc9ddb90a6a1322b474bb944368",
+    "docs/prompts/0039-development-raw-feature-foundation.md": "f4cea291e70b7ae215c0822ee3e451b9eca6135eae448945bdbea669f971e165",
+    "docs/prompts/0041-development-raw-decision-measurement.md": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+    "docs/prompts/0042-development-decision-admission-repair.md": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3",
+    "docs/prompts/0043-development-raw-decision-campaign-v2.md": "1a39bc50e8d7bea3ebfbe9f8c0dae9cfab272a86e48cf19760487127a355364f",
+    "pyproject.toml": "1c304182e8445c02346509e46005e6bb6be5201aa0d32bfff9866a96d514ec21",
+    "results/tables/final/task0039-development-raw-feature-summary.json": "9fee8aac1ff087be14fe8a2990f038d8518be13c8ce086fb698c1e4624d9e352",
+    "results/tables/final/task0040-development-raw-feature-summary.json": "119ca5a7bb8fb08ea712263fb6b23e3694f623c04e6b59ecd786d2468189ee6e",
+    "results/tables/final/task0042-development-decision-admission-summary.json": "0df1e62149c915b824840d5bc7f48badb57eb30c05688e77d14c0caa965b082f"
+  }
+}
