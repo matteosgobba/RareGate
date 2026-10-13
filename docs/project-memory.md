@@ -9,16 +9,16 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.32 |
-| Last factual verification | 2026-10-12, Europe/Rome |
-| Last completed phase | 0037 — bounded model-free synthetic trigger/queue engineering study, final parent-accepted; confirmation route remains `unresolved_no_acquisition` |
-| Latest task outcome | One FIFO/nonpreemptive actual-capacity drop-tail server, oldest-arrival flush, modeled padded batches and post-processing toy decisions; fixed324main+54stress/18traces/90000unique events/1890000presentations,378×93table/3inspected figures.105targeted/2022full+portable/200bindings/43package versions.2actual sweeps: first numerical pass/visual overlap rejected, layout-only repair/revalidation, final6.105818s accepted; CSVidentical/756total scenarios/3780000presentations. Final all2912WARN advisory/caps/deadlines/reaping/release pass; sampling gaps/optional RAM absent disclosed. No new operational/model/physical timing work, no deployment selection or scientific protocol amendment |
+| Memory revision | 1.33 |
+| Last factual verification | 2026-10-13, Europe/Rome; Task0038 measurement began2026-10-12 |
+| Last completed phase | 0038 — one parent-accepted prepared-development natural/padded CPU service measurement; scientific confirmation route unchanged |
+| Latest task outcome | Same1024prepared dev-training rows,3original array loads/3072rows,6canonical models plus6FP64proof copies. Fixed204cells/10200timed/2040warm-ups/600empty pairs; pre/post bounds/exact references/zero four-cut actual-row mismatches. Fresh100focused/2122full+portable/211bindings/43versions/native synthetic acceptance and actual prompt-bound freeze; one real43.942592s session parent accepted, exits/reaping/caps/release/overshoot0. Three inspected figures/204row table; B1024/m1natural vs padded17.570/64.592µs PCA and39.320/111.707µs AE. All slow calls retained,50serial observations/cell not production-p99. No simulator update/deployment/scientific source claim |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0037 base | `34d74010aa58b6cd11883d14cdca03643ddc4898`, committed Task0035; main/origin/main with eight intentional uncommittedTask0036paths/empty index at Task0037 start. Five Task0036specific raw identities preserved; three living documents updated separately. Historical bases/acceptance hashes unchanged. No Task0036/0037 commit/push/hosted CI claimed |
+| Verified HEAD / Task0038 base | `84252b62f14c6cca442d76d0d4421365b1eb0b2d`, committed Task0037, clean main/origin/main and empty index at Task0038 start. Prior commits Task0036`2427373`/Task0035`34d7401` reconcile the earlier historical task-time bases without rewriting them.448initial tracked raw identities preserved except separately updated README/index/memory. No Task0038 commit/push/hosted CI claimed |
 | Current compact neural baseline | `compact-autoencoder-v2` |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Separately authorize a bounded development-only service-time variability/partial-shape and missing-chain-cost measurement plan before a variable-service/deployment claim. No automaticTask0038 or policy winner. Hold acquisition/training for the unchanged scientific claim; Task0036 publisher manifest prerequisites remain unresolved/unaccepted and no new search/amendment/retirement is performed. No exposed-test rescoring, favorable seed/cut or particle reset |
-| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035/0036/0037 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps; Task0036 has1metadata-card download16084B. Task0037 reads accepted curated timing/produces synthetic streams; permitted artifact-free historical model regressions have forwards/updates, separate from model-free simulator. No global-zero numerical/forward/update/download claim; samples cannot be reblinded |
+| Next action | Separately design a small raw-HDF read/full-particle feature-construction measurement on the exact accepted1024development IDs; first establish source/layout/membership/adapter allowlists and continuous/access caps. Those costs, transport, actual streaming and device paths remain unmeasured. No automaticTask0039, source acquisition, exposed-test scoring, deployment policy or change to Task0034 gates; Task0036 remains unresolved_no_acquisition |
+| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035/0036/0037 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps; Task0036 has1metadata-card download16084B. Task0037 reads accepted curated timing/produces synthetic streams; permitted artifact-free historical model regressions have forwards/updates, separate from model-free simulator. Task0038 adds authorized prepared-development engineering reads/inference:15708public adapter calls plus separately accounted FP32/FP64 full/local proof work, no new held-out/population/optimizer/calibration/scientific/download activity. Synthetic regressions remain separate. No global-zero numerical/forward/update/download claim; samples cannot be reblinded |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
 
@@ -66,7 +66,7 @@ The earlier planning conversation stopped at Task 0007 and described Task 0008 a
 
 **Three-prong extension software and consumed attempt:** [Task0028](three-prong-generalization.md) implements the separately authorized prospective frozen-signal extension, preserving the completed initial study. Fresh official API confirms v5/6466204/235488994bytes/publishedMD5`54e123a86143b668f9cb76905152a124`/CCBY4.0; publisher declares100000W′→XY,X/Y→qqq events. Task0028 established no local payloadSHA/count/layout/class/overlap result; Task0030 later establishes complete byte integrity and structure-only metadata below, while numerical/class/uniqueness/overlap were still unmeasured at Task0030 completion. Task0031 now accepts all100000valid/unique/disjoint rows and the separately authorized science below. Candidate/transform/calibration identities unchanged, strict FP64 SSE/native CPU. New signal has separate source/scientific identity; original validators retain original training provenance. Supported pandas-fixed singleFP64block widths2100/2101/700slots, labels absent→publisher class provenance or present→all1. Table/mixed/external/wrong-layout/source/count/structure gates refuse; exact new-source uniqueness and all-role original-fingerprint overlap gate before scoring, no subset/retry. Accepted original background score files are pinned by bytes/header/count150471 and scientific/audit/parent lineage; Phase A numeric reuse0, original fingerprint payload access0. New stdlib parent/acquire→prepare→PCA→AE→consolidate, one native worker, durable separated exposure/inflight, normal exit/reaping acceptance. 300/180/120/120/30s stages/900s whole,6GiB RSS/512MiB native/128MiB parent/2s grace inside caps; no global RAM floor/idle wait. 62new synthetic cases and1333full/portable tests, lint/format/dependencies/protected toy pass; own139-source acceptance. Human approval of plan77f92d95…179fa9 was recorded, source/acceptance/plan identities verified at actual Phase A commit e381f54, then one Phase B reserved. Acquisition interrupted at298s operation deadline inside300s cap, exit1/reaped/parent rejected; whole298.116751583s, failed_consumed_no_retry. Log≥47185920B transferred; frozen cleanup removed its own .part. All surviving logs/guards/audits/receipts preserved. No verified payload/localSHA/HDF/count/uniqueness/overlap, no preparation/originalFP numeric load/model scoring/cache numeric reuse. Raw potential_inflight retained; no live worker/model inflight. Observed39.4375MiB RSS/44MiB native/28.484375MiB parent,5494WARN advisory,0CRITICAL,terminal gap0.020402125s; memory observations do not erase deadline failure. Task0028 itself yields no new-signal scientific measurement; Task0031 below subsequently supplies an accepted separate campaign. Planned scope is signal topology generalization with reused exposed background, not fresh background generalization or independent comparison.
 
-**What does not yet exist:** A trained/frozen particle baseline; controlled CPU/MPS comparison; CoreML export or an accepted ONNX performance comparison; quantization/trigger simulation; NVIDIA/TensorRT or FPGA measurements.
+**What does not yet exist:** A trained/frozen particle baseline; controlled CPU/MPS comparison; CoreML export or an accepted ONNX performance comparison; quantization; NVIDIA/TensorRT or FPGA measurements. Task0037 synthetic queue simulation and Task0038 prepared-row service measurement now exist; full-chain/device/production variability remain unmeasured.
 
 **Scientific boundary:** Model development used background only. Task0026 Phase B subsequently evaluates the predeclared frozen candidates with explicit human authorization, both held-out populations fully exposed. No training/selection/calibration population reread or test-guided refit/threshold/candidate selection. Failed/partial exposure would still count; this campaign completes without uncertain inflight. Integrity custody remains separately counted: Phase A1plus two approved candidate constructors, not three model population requests. Future new model design needs a separate methodological decision and new evaluation protocol/population; these tests cannot be reblinded.
 
@@ -539,6 +539,61 @@ initial bytes; shared README/index/memory1.32 updates are separate. Task0036rout
 stays unresolved/unaccepted, baseline/exploratory/permanentYES3/historicalfailed
 campaigns/particle192 preserved. Next separate development-only variability /
 missing-chain-cost planning decision; no automaticTask0038 or deployment choice.
+
+### Prepared-batch service engineering — Task0038 completed
+
+Task0037 is now committed at84252b62; Task0036`2427373` andTask0035`34d7401`
+are committed predecessors. Their task-time bases/acceptances remain unchanged.
+Task0038's original user prompt authorizes a single development-only session
+after fresh acceptance/freeze. Same existing prepared1024source-ordered dev-training
+FP32 rows, original PCA-six/AE-v2/threshold/scientific identities; no raw/processed
+store, population selector, IDs/memberships/fingerprints/scientific stored scores.
+
+[Report](prepared-batch-service-measurement.md), [config](../configs/benchmarks/prepared_batch_service_v1.json),
+[cells](../results/tables/final/task0038-prepared-batch-service-cells.csv),
+[summary](../results/tables/final/task0038-prepared-batch-service-summary.json) and
+[handoff](handoffs/0038-prepared-batch-service-measurement.md) bind the new scope.
+Owned natural m×8 or padded B×8 with trailing FP32zero, canonical public adapter
+plus four strict decisions, first-m result retention; padding is synthetic
+standardizedzero and never useful events.17fixed cases/three paired sequential
+workers/50timed+10warm-up observations per cell. New shapes retain unchanged
+Task0022 rowwise outward AE policy/local checks and PCA tolerances, exact
+same-shape/full-reference identity and zero actual-row decision mismatches.
+
+One real sessionf7dd29ca6a234c22a3b3e84972993ac1 is consumed and parent accepted:
+204cells/10200timed/2040warm-ups/600empty pairs;3array loads/3072rows/1024unique;
+6canonical models plus6FP64diagnostic copies. Public adapter12240service+3468proof
+=15708calls (7854each); direct AE1158FP32/PCA1158reconstructions, diagnostic
+582FP64full/2328local-affine calls. Service1722960actual+855360dummy rows; all
+canonical/proof/layer presentations2517696actual+1496790dummy, local layers
+count separately. Not new population rows. No operational fitting/optimizer/
+calibration/AUC/AP/significance/download/test/signal/selection/fingerprint access.
+
+Fresh final acceptanceb696a315…558d:100focused/2122full+2122portable,211bindings/
+43versions, lint/format/dependencies,9.1953s native synthetic acceptance before
+freeze; four synthetic native invocations preserved, two preliminary failures
+and two accepted integrations with different validated sources. These are not
+real retries. Legacy synthetic fixture forwards/updates remain explicitly separate.
+No source changes after real reservation.
+
+Whole43.942592s/prerequisites3.750415s/reserved40.192176s/finalization0.077323s;
+repetition dispatch12.571306/12.701193/13.007320s, reporting1.565194s, exits0/
+reaped/pre-post/resource/deadline/owned assertion release pass. PeakRSS369934336B,
+native184205312B, parent53477376B; owned27307794B,26400NORMALpressure samples,
+WARN/CRITICAL/unknown0, overshoot0. Query and terminal monitoring gaps disclosed;
+globalRAM not queried/no floor.18assertion observations,helper−15/reaped/absent,
+display allowed/settings unchanged. Timer resolution about41.667ns inspected
+after session in same pinned runtime; empty pairs never subtracted.
+
+B1024/m1whole-batch pooled means17.570/64.592µs PCA,39.320/111.707µs AE
+(natural/padded); slot utilization0.09765625%. Near-full contrasts small/mixed,
+including AE128/127natural+1.4077µs slower. Worker variation and maximaPCA266.750/
+AE243.083µs retained.50serial calls/cell/150pooled are not i.i.d. production
+service samples or historical-stall explanations. Three inspected figures,
+all204worker cells/68pooled groups/102paired summaries curated; raw sequences/
+receipts/maps ignored. Task0037 constants/scenarios/figures are unchanged; no
+deployment policy or scientific protocol/source amendment. Next separately
+source/membership-bound raw-read/feature-construction design; no0039 launched.
 
 ## 2. Vision, motivation, and research question
 
@@ -1335,6 +1390,8 @@ If test results motivate a new design, disclose it and establish a new protocol/
 
 ## 13. Hardware inference and deployment methodology
 
+**Latest separate boundary:** Task0038 measures owned prepared-batch packing/zero padding, original CPU public adapter/four decisions and actual-row retention in one accepted development-only session. It preserves Task0022 preloaded-adapter evidence and Task0037 fixed simulation. All204cells/three inspected figures, finite numerical invariance and observed serial variability are available; no production-p99, deployment winner or missing-chain sum claim.
+
 **Status:** [Task0022CPUv2](frozen-cpu-benchmark-v2.md) is implemented, validated and measured completely under explicit prospective engineering-policy authorization. Its new90cells/18000timings/1800warm-ups/1200empty pairs come from three independent workers per model; oldPCA1is not mixed in. All pre/post numerical, local affine, supported-band, same-shape, reference/hash and strict frozen decision requirements pass. Task0020partial/v1failure and Task0021diagnostic are historical, byte preserved; v2 does not retroactively pass them.
 
 Frozen first1024dev-training FP32 aggregates are reused without scaling/store/custody/population requests; one original prepared-array read, one byte-identical local copy and six local reads. Canonical numerical forward presentations239616, timed4294800/warm-up429480, diagnostic FP64 whole-model6144/local-affine147456rows (layer operations counted separately); unique real rows1024/optimizer0. CPU1+1/effective OpenMP1/public Accelerate single-thread mode and actual build are verified. Five batches and three original timing kernels/scopes unchanged, guard queries outside pairs/periodic overlap disclosed. Full wall25.661481s versus600s, maxRSS348.609375MiB/native183.671875MiB versus1GiB/512MiB, parent27.03125MiB versus128MiB; children/watchers closed, pressure unknown/errno1/context no floor.
@@ -1521,7 +1578,7 @@ Scientific result: evaluated test mixture39.924782%signal; PCA AUC0.468489/AP0.3
 - **Reduced-precision study:** Compare supported precision variants using training-only calibration and preregistered tolerances; freeze variant thresholds before final test.
 - **Streaming study:** Establish repeatable simulator assumptions and load scenarios, then evaluate queueing/capacity/latency and acceptance.
 - **Conditional deployment branches:** NVIDIA/TensorRT and optional FPGA/hls4ml as resources permit.
-- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 exploratory/Task0034 design-only/Task0035 synthetic foundation remain. Task0036route stays `unresolved_no_acquisition`, unchanged/unaccepted. Explicitly chosen Task0037engineering branch completes a model-free fixed synthetic FIFO trigger study with scoped historical constant costs,105targeted/2022full+portable and final bounded native/3figures. No deployment winner, scientific confirmation or physical inference claim. Separately authorize development-only variability/partial-shape/missing-chain-cost plan; acquisition/training/confirmation remain ungranted and no automaticTask0038. Exposure/result-informed origin, failures/particle192 preserved.
+- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 exploratory/Task0034 design-only/Task0035 synthetic foundation remain. Task0036route stays `unresolved_no_acquisition`, unchanged/unaccepted. Explicitly chosen Task0037engineering branch completes a model-free fixed synthetic FIFO trigger study with scoped historical constant costs,105targeted/2022full+portable and final bounded native/3figures. No deployment winner, scientific confirmation or physical inference claim. Task0038 separately measures prepared natural/padded service with one parent-accepted204cell session and fresh100focused/2122full+portable acceptance. Next separately source/membership-bound raw-read/feature-construction timing design; acquisition/training/confirmation remain ungranted and no automaticTask0039. Exposure/result-informed origin, failures/particle192 preserved.
 
 Do not treat these bullets as already executed tasks or fixed task numbers. Choose the next bounded task from the live state, dependency order, unresolved evidence, and user direction.
 
@@ -1731,6 +1788,7 @@ commands. Do not automatically stage, commit, push, or unblind real test data.
 - [Data design](data-design.md), [raw audit](raw-data-audit.md), [training EDA](training-data-eda.md).
 - [Preprocessing contract](preprocessing-contract.md), [pipeline](preprocessing-pipeline.md), [frozen configuration](../configs/data/lhco_rnd_v5.json).
 - [Evaluation protocol](evaluation-protocol.md).
+- [Prepared-batch service measurement](prepared-batch-service-measurement.md), [Task0038 config](../configs/benchmarks/prepared_batch_service_v1.json), [cells](../results/tables/final/task0038-prepared-batch-service-cells.csv), [summary](../results/tables/final/task0038-prepared-batch-service-summary.json) and [handoff](handoffs/0038-prepared-batch-service-measurement.md).
 - [Synthetic trigger/queue simulator](synthetic-trigger-simulator.md), [Task0037 config](../configs/simulation/synthetic_trigger_v1.json), [scenario CSV](../results/tables/final/task0037-synthetic-trigger-scenarios.csv), [summary](../results/tables/final/task0037-synthetic-trigger-summary.json) and [handoff](handoffs/0037-synthetic-trigger-simulator.md).
 - [Confirmation-source feasibility](confirmation-source-feasibility.md), [Task0036 evidence](../results/tables/final/task0036-confirmation-source-evidence.csv), [summary](../results/tables/final/task0036-confirmation-source-feasibility-summary.json) and [handoff](handoffs/0036-confirmation-source-feasibility.md).
 - [Controlled activation synthetic foundation](controlled-activation-synthetic-foundation.md), [Task0035 config](../configs/research/controlled_activation_synthetic_v1.json), [summary](../results/tables/final/task0035-controlled-activation-synthetic-summary.json) and [handoff](handoffs/0035-controlled-activation-synthetic-foundation.md).
@@ -1827,3 +1885,5 @@ Runtime documentation and compatibility must be rechecked when the corresponding
 | 1.32 / 2026-10-12 | Task0036eight paths uncommitted/HEAD34d7401/empty index preserved. Explicit Task0037engineering branch: one model-free FIFO actual-capacity drop-tail/oldest flush/modeled padded batches/post-service toy cuts,324main+54stress/18traces/90000unique/1890000presentations.105targeted/2022full+portable/200bindings/43versions.2native numerical passes, firstvisualoverlap rejected then layoutrepair/revalidation/final6.105818s accepted/CSVidentical/3figures;actual756scenarios/3780000presentations. FinalWARNadvisory/caps/reap/release/gaps disclosed, operational0/YES3/sourceunresolved/Task0034unchanged.419oldtracked+5priorTask0036bytes preserved except sharedliving1.32. Next separate development-only variability/missing-chain-cost plan,no0038/deploymentwinner | Actual prompt/config/source/tests/validation+native entrypoints/final source-bound acceptance/receipts, curated table/figures/report; detailed states/streams/logs/receipts/maps ignored |
 
 Keep future entries short and focused on project-level changes. Update current-state sections in place; the revision table is not a second task log.
+
+| 1.33 / 2026-10-13 | Task0037committed84252b62/clean main/origin/main/448initial tracked hashes, history bases preserved. AuthorizedTask0038same1024dev rows/natural-padded public-service boundary;3loads/6models+6FP64copies/204cells/10200timed/2040warm-ups,100focused/2122full+portable/211bindings/43versions/native synthetic acceptance before freeze. One43.942592s real parent-accepted session, all pre/post/zero decisions/hash/caps/exits/reaping/release,26400NORMALpressure/overshoot0/gaps disclosed;3inspected figures/all repetitions/outliers retained. Packing cost/serial variability measured, no production-p99/Task0037change/confirmation/deployment; sourceunresolved/YES3/failed campaigns/particle192 remain. Next separately bounded raw-read/features design,no0039 | Original prompt/config/source/tests/validation+native entrypoints/final acceptance/plan/anchor; curated cells/summary/figures/report. Detailed artifacts ignored |

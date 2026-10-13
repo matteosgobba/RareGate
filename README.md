@@ -186,8 +186,27 @@ constant AE2/B12826.2485ms stress is harsh, not recurring-stall evidence. Final
 WARN advisory/caps/deadlines/normal exit/reap/assertion release pass, sampling gaps
 and optional RAM-context absence disclosed. Source confirmation remains unresolved,
 scientific protocol unchanged; no deployment policy, real inference benchmark or
-Task0038. Next separate decision: development-only service variability/partial-
-shape and missing-chain-cost measurement plan.
+Task0038 launched by that task. The separately authorized Task0038 below measures
+prepared-batch service; missing chain costs remain a later scope.
+
+
+Task0038 separately completes the authorized
+[prepared-batch CPU service measurement](docs/prepared-batch-service-measurement.md).
+Natural m-row packing and zero-padded B-row packing use the same frozen models
+and four original decisions, retaining only actual rows. Three original prepared
+array loads reuse1024unique dev-training rows; six canonical model instances,
+204cells/10200timings/2040warm-ups/600empty pairs complete with zero numerical
+decision mismatches. Fresh100focused/2122full+portable/211bindings/43versions and
+native synthetic acceptance precede the one43.942592s parent-accepted real session,
+all exits/reaping/caps/temporary assertion release verified. B1024/m1means
+natural/padded17.570/64.592µs PCA and39.320/111.707µs AE; near-full differences
+are small/mixed, all slow observations retained. Three inspected figures and
+204worker-specific cells are curated; raw timings/ledgers/plans/receipts stay ignored.
+This is a new packing/adapter/retention boundary, not replacement of Task0022,
+production-p99 or whole-trigger evidence. Task0037 scenarios remain unchanged,
+Task0036source unresolved and scientific gates intact. Next separate decision:
+source/membership-bound raw-read/full-particle feature-construction timing design;
+no automaticTask0039, source acquisition or deployment selection.
 
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
@@ -582,6 +601,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0035: separate synthetic controlled-activation foundation;189focused/1917full+portable checks, final native accepted with12toy updates/all6arms/paired orders/own restoration/calibration; zero operational work, confirmation source unresolved.
 - [x] Task0036: pinned confirmation-source feasibility completed as `unresolved_no_acquisition`;30evidence rows, unchanged precision/gates, realized counts/complete-event coverage/expanded storage unresolved;1small metadata archive, zero event-payload or operational scientific work.
 - [x] Task0037: model-free synthetic FIFO trigger simulator;324main+54fixed stress scenarios/378row table/3inspected figures, fresh105targeted/2022full+portable acceptance, final native parent-accepted with release;2actual sweeps after layout repair, scientific route unchanged/no deployment or physical-inference claim.
+- [x] Task0038: one accepted prepared-development CPU natural/padded service study,204cells/10200timings/2040warm-ups, fresh100targeted/2122full+portable, all numerical/lifecycle gates pass and assertion released; no Task0037 rerun or scientific confirmation.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
