@@ -1,0 +1,1 @@
+repetition,candidate,B,scope,strategy,count,minimum_ns,maximum_ns,mean_ns,population_std_ns,p50_ns,p95_ns,p99_ns,mean_selected_event_ns,selected_events_per_second,window_call_counts,candidate_B_order,timer_implementation,timer_resolution_seconds,cache

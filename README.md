@@ -241,6 +241,21 @@ confirmation remain unchanged. Next separate joint preprocessing+original frozen
 CPU adapter design/authorization; no Task0041 launch or deployment selection.
 
 
+Task0041 delivers the [direct development raw-to-decision foundation](docs/development-raw-decision-measurement.md),
+with107focused/2417full+portable checks and a15.980657s accepted native synthetic
+integration of both frozen-style fixture candidates/all984services/exact gates.
+The actual measurement did **not** run: emitted/controller-required acceptance status
+literals differ. The freeze check failed; the agent incorrectly continued to the
+real controller, which rejected admission in0.455644s before reservation/data/models/
+rawhash/assertion/timing and consumed the prerequisite marker. Source/deps/build/
+config/prompt match; passingchecks are not controller-admissible acceptance.
+The cellCSV is header-only, no real cost figures. No retry/reset or executable repair
+after failure. Task0040 remains the latest accepted raw boundary, prior contracts
+and unresolved scientific route unchanged. Next separate software-only status-contract,
+record-admission roundtrip and stop-on-failed-freeze repair; any new real campaign
+needs new explicit authorization/namespace/freeze, no Task0042 or replay launched.
+
+
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
 `0.1.0`. Task 0002 defines the data foundation using the corrected LHC Olympics
@@ -636,6 +651,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0038: one accepted prepared-development CPU natural/padded service study,204cells/10200timings/2040warm-ups, fresh100targeted/2122full+portable, all numerical/lifecycle gates pass and assertion released; no Task0037 rerun or scientific confirmation.
 - [x] Task0039: synthetic narrow HDF-to-frozen-feature adapter and fixed future design; one accepted6999-ID resolution/exact1024prefix/raw byte+HDFmetadata custody,88targeted/2210full+portable; real raw/golden/parity/timing unmeasured in that task; its config remains payload-unauthorized.
 - [x] Task0040: one accepted development selected-read/full-frozen-feature/direct-joint session,36cells/720timed/108warmups, exact golden parity and original membership/source identity; no models/held-out/scientific work.
+- [x] Task0041 bounded outcome: direct CPU chain/planner synthetically validated107focused/2417full+portable; sole real prerequisite failed/consumed before numerical work on inconsistent acceptance status, no measured costs or retry.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
