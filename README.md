@@ -209,6 +209,22 @@ source/membership-bound raw-read/full-particle feature-construction timing desig
 no automaticTask0039, source acquisition or deployment selection.
 
 
+Task0039 completes the [development raw-feature foundation](docs/development-raw-feature-benchmark-design.md).
+One accepted1.867575s metadata resolver loads only6999development IDs and binds
+the ascending1024prefix to the original preparation hash. One raw-byte SHA256
+pass2908260409B and one HDFmetadata open verify original schema/Blosc/cache without
+event values or numerical golden features. The synthetic narrow adapter selects
+only approved rows and reuses full-particle frozen feature arithmetic;88targeted/
+2210full+portable/223bindings/43packages/31native files plus native synthetic
+integration pass. The fixed future36cell/720timed/108warm-up design accounts all
+732raw requests/30927row presentations/768feature calls32448rows including gates
+and buffers;384unique requested rows from1024approved,312geometric chunks and
+24.501GiB repeated no-cache decoded upper bound, not measured I/O. Cache1MiB/521/
+w0.75 verified; decoder effective threading/cold-I/O/real parity/costs unknown.
+`future_measurement_execution_authorized=false`; no operational payload CLI,
+Task0040launch, source confirmation or Task0038/0037rerun.
+
+
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
 results policies, and a CPU/MPS environment diagnostic. The package version is
 `0.1.0`. Task 0002 defines the data foundation using the corrected LHC Olympics
@@ -602,6 +618,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0036: pinned confirmation-source feasibility completed as `unresolved_no_acquisition`;30evidence rows, unchanged precision/gates, realized counts/complete-event coverage/expanded storage unresolved;1small metadata archive, zero event-payload or operational scientific work.
 - [x] Task0037: model-free synthetic FIFO trigger simulator;324main+54fixed stress scenarios/378row table/3inspected figures, fresh105targeted/2022full+portable acceptance, final native parent-accepted with release;2actual sweeps after layout repair, scientific route unchanged/no deployment or physical-inference claim.
 - [x] Task0038: one accepted prepared-development CPU natural/padded service study,204cells/10200timings/2040warm-ups, fresh100targeted/2122full+portable, all numerical/lifecycle gates pass and assertion released; no Task0037 rerun or scientific confirmation.
+- [x] Task0039: synthetic narrow HDF-to-frozen-feature adapter and fixed future design; one accepted6999-ID resolution/exact1024prefix/raw byte+HDFmetadata custody,88targeted/2210full+portable; real raw/golden/parity/timing unmeasured and Task0040unauthorized.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.

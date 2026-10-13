@@ -1,0 +1,677 @@
+{
+  "schema_version": 1,
+  "task": "0039",
+  "date": "2026-10-13",
+  "timezone": "Europe/Rome",
+  "branch": "main",
+  "upstream": "origin/main",
+  "base_commit": "292a7e924ffaacfd058a56e1f84dd9a404de06e9",
+  "historical_Task0038_base": "84252b62f14c6cca442d76d0d4421365b1eb0b2d",
+  "implementation_status": "synthetic_supported_narrow_adapter_and_prospective_protocol",
+  "membership_resolution_status": "parent_accepted_membership_metadata_resolution",
+  "membership_resolution_attempts": 1,
+  "remaining_operational_membership_loads_in_Task0039": 0,
+  "future_measurement_execution_authorized": false,
+  "operational_feature_parity_status": "unmeasured_requires_Task0040",
+  "operational_raw_feature_timing_status": "unmeasured_requires_Task0040",
+  "confirmation_route": "unresolved_no_acquisition",
+  "confirmation_source_accepted": false,
+  "permanent_historical_exposure": {
+    "original_test_background": "YES",
+    "original_test_signal": "YES",
+    "three_prong_signal": "YES"
+  },
+  "actual_access": {
+    "membership_load_attempts": 1,
+    "membership_loads": 1,
+    "membership_records_inspected": 6999,
+    "selected_IDs": 1024,
+    "raw_hash_attempts": 1,
+    "raw_hash_passes": 1,
+    "raw_hash_bytes": 2908260409,
+    "raw_HDF_open_attempts": 1,
+    "raw_HDF_metadata_opens": 1,
+    "operational_raw_event_rows_requested": 0,
+    "operational_raw_event_rows_returned": 0,
+    "operational_golden_feature_loads": 0,
+    "raw_hash_inflight": false,
+    "raw_sha256": "5da8fda2ca78edf8fa5acc0af92fcb6a2d464ba7bf0fd75e3944a169b88cecc6",
+    "membership_inflight": false,
+    "HDF_metadata_inflight": false,
+    "HDF_handle_closed": true
+  },
+  "new_operational_raw_event_rows": 0,
+  "operational_feature_or_score_array_loads": 0,
+  "operational_feature_construction_or_model_forward_calls": 0,
+  "operational_optimizer_updates_calibrations_scientific_evaluations": 0,
+  "new_fingerprint_numeric_loads": 0,
+  "downloads": 0,
+  "new_real_raw_read_feature_timing_measurements": 0,
+  "membership_identity": {
+    "path": "data/analysis/lhco-rd-v1/dev_train_background.npy",
+    "shape": [
+      6999
+    ],
+    "dtype": "<i8",
+    "size_bytes": 56120,
+    "file_sha256": "2662f0762cf57e39156b0e5c6b1c8e7ac7279a2ecc98c33b2ed69d67a964c781",
+    "selected_count": 1024,
+    "selected_sha256": "f80a9483f5ddafcac0e05d9fd6de757e5bbfe9e805f65ced1c0aa801cc266f1a",
+    "ordering": "stable_ascending_source_ID_then_first1024"
+  },
+  "membership_alignment": {
+    "selected_sha256": "f80a9483f5ddafcac0e05d9fd6de757e5bbfe9e805f65ced1c0aa801cc266f1a",
+    "prepared_role": "train_background",
+    "dev_only": true,
+    "strict_ascending_source_order": true,
+    "dev_manifest_scientific_sha256": "2eb34e5b811c12ae5c47afba1ecdb6322feb7c7774b6c9ec5331abe78b3c9a2a",
+    "basis": "original6999member bytes + split/dev scientific manifest/frozen config + successfulTask0020prepare/iterator source semantics + exact1024sorted-prefix identity; no filename/length-only inference"
+  },
+  "raw_identity": {
+    "path": "data/raw/lhco/6466204/events_anomalydetection_v2.h5",
+    "size_bytes": 2908260409,
+    "file_sha256": "5da8fda2ca78edf8fa5acc0af92fcb6a2d464ba7bf0fd75e3944a169b88cecc6",
+    "publisher_md5": "629789d55813be3860781b084ae7f1de",
+    "record": 6466204,
+    "version": "v5",
+    "dataset": "/df/block0_values",
+    "audit_schema": {
+      "chunks": [
+        62,
+        2101
+      ],
+      "dtype": "float64",
+      "filters": [
+        {
+          "flags": 1,
+          "id": 32001,
+          "name": "blosc",
+          "parameters": [
+            2,
+            2,
+            8,
+            1042096,
+            5,
+            1
+          ]
+        }
+      ],
+      "shape": [
+        1100000,
+        2101
+      ]
+    }
+  },
+  "golden_identity": {
+    "path": "results/benchmarks/task0020-frozen-cpu/prepare/input.npy",
+    "shape": [
+      1024,
+      8
+    ],
+    "dtype": "<f4",
+    "size_bytes": 32896,
+    "file_sha256": "7164bfd7a86a9561ae3abc7b44b396c1a60db0114fc8542443ad3f71d2990a5e",
+    "payload_sha256": "2ba0776aa1b5dfb7eb91dc0df4993d0a2ec52c83a79cc5424acc9b98a59b3d05",
+    "Task0039_numerical_load_allowed": false
+  },
+  "transform_and_lineage_byte_pins": {
+    "data/analysis/lhco-rd-v1/split-manifest.json": "a94af59fa842ca24816c38170b3cf58698748a85cd865d65b6e3fa4f615bdc43",
+    "data/processed/lhco-rd-v1/schema-v1/dev/manifest.json": "da87559cc142c0736c4c18d6559c0df3551518408cf84e9b6862ebc5327c1878",
+    "data/processed/lhco-rd-v1/schema-v1/dev/configuration.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "results/benchmarks/task0020-frozen-cpu/prepare/prepared.json": "4a04588b5215b2a272d59be79e50af0b354ba61dee7cfdabf950e284f545afa3",
+    "results/benchmarks/task0020-frozen-cpu/prepare/receipt.json": "1d8c9183e5c49398647275381e6c1fb8da75eab71b947ffca2ed09c8bac28bac",
+    "data/raw/lhco/6466204/events_anomalydetection_v2.h5.manifest.json": "7899079e0c66feac1b5c7391fce66fe51f0eb6181aa76a9f5681b6d595915d09",
+    "data/raw/lhco/6466204/raw-schema-audit.json": "38b50cae8c9c8d233c5a47d0b2f212d1db94f541a92db032e6ac528d9cb82332",
+    "configs/data/lhco_rnd_v5.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "src/latenttrigger/data/features.py": "fac40f3fb9e16f8d9048094cd9b031871eb399e11d37e04963e301b2f9a2ce42",
+    "src/latenttrigger/data/inspection.py": "9c78ed557ae2d3f7e2f70e184483efe3fb01838aaf03f38e4513ca096e6f9a61",
+    "src/latenttrigger/data/preprocessing.py": "6aa6f8bae59667ee28dfec5798960aba2c28993719a3d88679659f53d5dab6e0",
+    "src/latenttrigger/data/processed.py": "911c1bdb85831396b5e35dd6c3b5206a1ef22b5c62b55efb40108a4cd8cea5ea",
+    "src/latenttrigger/benchmarks/core.py": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987",
+    "docs/preprocessing-contract.md": "fe1fe361a7a0e5542300faca79e153b24437660fb1b45c993ca9b9e1b90a49b3",
+    "configs/benchmarks/prepared_batch_service_v1.json": "d1452face2ac3ca3f284ef1be8e2ec2067d55cc9ddb90a6a1322b474bb944368",
+    "results/tables/final/task0038-prepared-batch-service-summary.json": "82399b84db56e359abf37b55389b2859cfe3bc32baf25ed3f2a121783909f679"
+  },
+  "verified_schema_and_cache": {
+    "schema": {
+      "shape": [
+        1100000,
+        2101
+      ],
+      "dtype": "float64",
+      "chunks": [
+        62,
+        2101
+      ],
+      "filters": [
+        {
+          "id": 32001,
+          "flags": 1,
+          "parameters": [
+            2,
+            2,
+            8,
+            1042096,
+            5,
+            1
+          ],
+          "name": "blosc"
+        }
+      ]
+    },
+    "dataset_cache": {
+      "rdcc_nslots": 521,
+      "rdcc_nbytes": 1048576,
+      "rdcc_w0": 0.75
+    },
+    "file_cache": [
+      0,
+      521,
+      1048576,
+      0.75
+    ],
+    "driver": "sec2",
+    "values_read": 0,
+    "handle_closed": true
+  },
+  "installed_runtime": {
+    "h5py": "3.16.0",
+    "HDF5": "2.0.0",
+    "hdf5plugin": "7.1.0"
+  },
+  "decoder_threading": {
+    "BLOSC_NTHREADS_environment_requested": "1",
+    "effective_decoder_threads": "unknown_not_inferred_from_BLAS_OpenMP",
+    "plugin_build": {
+      "openmp": false,
+      "native": false,
+      "bmi2": false,
+      "sse2": false,
+      "ssse3": false,
+      "avx2": false,
+      "avx512": false,
+      "cpp11": true,
+      "cpp14": true,
+      "cpp20": true,
+      "ipp": false,
+      "filter_file_extension": ".dylib",
+      "embedded_filters": [
+        "blosc",
+        "blosc2",
+        "bshuf",
+        "bzip2",
+        "fcidecomp",
+        "htj2k",
+        "lz4",
+        "sperr",
+        "sz",
+        "sz3",
+        "zfp",
+        "zstd"
+      ]
+    },
+    "production_decoder_source_bound": false
+  },
+  "geometric_planning": {
+    "windows": [
+      {
+        "B": 1,
+        "window_position": 0,
+        "selected_rows": 1,
+        "geometric_chunks": 1,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 1042096,
+        "future_logical_raw_requests": 63
+      },
+      {
+        "B": 1,
+        "window_position": 511,
+        "selected_rows": 1,
+        "geometric_chunks": 1,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 1042096,
+        "future_logical_raw_requests": 63
+      },
+      {
+        "B": 1,
+        "window_position": 1023,
+        "selected_rows": 1,
+        "geometric_chunks": 1,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 1042096,
+        "future_logical_raw_requests": 57
+      },
+      {
+        "B": 8,
+        "window_position": 0,
+        "selected_rows": 8,
+        "geometric_chunks": 8,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 8336768,
+        "future_logical_raw_requests": 63
+      },
+      {
+        "B": 8,
+        "window_position": 508,
+        "selected_rows": 8,
+        "geometric_chunks": 6,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 6252576,
+        "future_logical_raw_requests": 63
+      },
+      {
+        "B": 8,
+        "window_position": 1016,
+        "selected_rows": 8,
+        "geometric_chunks": 6,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 6252576,
+        "future_logical_raw_requests": 57
+      },
+      {
+        "B": 32,
+        "window_position": 0,
+        "selected_rows": 32,
+        "geometric_chunks": 31,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 32304976,
+        "future_logical_raw_requests": 63
+      },
+      {
+        "B": 32,
+        "window_position": 496,
+        "selected_rows": 32,
+        "geometric_chunks": 23,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 23968208,
+        "future_logical_raw_requests": 63
+      },
+      {
+        "B": 32,
+        "window_position": 992,
+        "selected_rows": 32,
+        "geometric_chunks": 24,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 25010304,
+        "future_logical_raw_requests": 57
+      },
+      {
+        "B": 128,
+        "window_position": 0,
+        "selected_rows": 128,
+        "geometric_chunks": 111,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 115672656,
+        "future_logical_raw_requests": 63
+      },
+      {
+        "B": 128,
+        "window_position": 448,
+        "selected_rows": 128,
+        "geometric_chunks": 103,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 107335888,
+        "future_logical_raw_requests": 63
+      },
+      {
+        "B": 128,
+        "window_position": 896,
+        "selected_rows": 128,
+        "geometric_chunks": 98,
+        "nominal_decoded_chunk_bytes": 1042096,
+        "per_request_decoded_upper_bytes": 102125408,
+        "future_logical_raw_requests": 57
+      }
+    ],
+    "distinct_chunks": 312,
+    "repeated_no_cache_decoded_upper_bytes": 26307713520,
+    "repeated_no_cache_decoded_upper_GiB": 24.500967487692833,
+    "meaning": "geometry only; no payload/decompression/physical-I/O measurement; cache misses unknown",
+    "future_unique_requested_raw_rows": 384,
+    "approved_prefix_rows": 1024,
+    "source_chunk_ID_lists_curated": false
+  },
+  "future_protocol": {
+    "scopes": [
+      "selected_hdf_read",
+      "frozen_feature_construction",
+      "selected_raw_to_features"
+    ],
+    "batches": [
+      1,
+      8,
+      32,
+      128
+    ],
+    "workers": [
+      1,
+      2,
+      3
+    ],
+    "case_order": [
+      "B_ascending_scopes_read_feature_joint",
+      "B_descending_scopes_joint_feature_read",
+      "B_ascending_scopes_read_feature_joint"
+    ],
+    "windows": "dedup_0_floor((1024-B)/2)_1024-B",
+    "schedule": "three_warmups_then20timed_calls; window cycles0,1,2 reset_per_scope_phase; warmups1each/timed7,7,6",
+    "HDF_handle_lifetime": "one_readonly_handle_per_worker_open_before_pre_gate_close_after_post_gate",
+    "feature_raw_buffers": "three_approved_windows_preloaded_once_per_B_for_feature_only_scope; release_before_next_B",
+    "pre_post_gate": "each_B_window_each_phase: selected_read_then_features_twice_plus_joint_read_features; exact_golden_and_repeat_bytes",
+    "parity_policy": "exact_bytes_unchanged_arithmetic; no empirical tolerance",
+    "counts": {
+      "cells": 36,
+      "timed_calls": 720,
+      "warmup_calls": 108,
+      "timing_raw_requests": 552,
+      "timing_raw_rows": 23322,
+      "timing_feature_calls": 552,
+      "timing_feature_rows": 23322,
+      "owned_feature_buffer_preparation_requests": 36,
+      "owned_feature_buffer_preparation_raw_rows": 1521,
+      "pre_post_gate_raw_requests": 144,
+      "pre_post_gate_raw_rows": 6084,
+      "pre_post_gate_feature_calls": 216,
+      "pre_post_gate_feature_rows": 9126,
+      "total_raw_requests": 732,
+      "total_raw_selected_row_presentations": 30927,
+      "total_feature_calls": 768,
+      "total_feature_row_presentations": 32448,
+      "membership_loads": 3,
+      "membership_ID_records": 20997,
+      "golden_feature_loads": 3,
+      "golden_feature_rows": 3072,
+      "unique_approved_rows": 1024,
+      "raw_hash_custody_passes": 2,
+      "raw_hash_custody_bytes": 5816520818,
+      "HDF_handles": 3,
+      "raw_buffers_per_feature_case": 3,
+      "max_retained_raw_buffers_bytes": 6454272,
+      "current_raw_bytes": 2151424,
+      "explicit_owned_array_buffer_ceiling_bytes": 67108864
+    },
+    "limits": {
+      "prerequisite_seconds": 60,
+      "numerical_worker_seconds": 180,
+      "reporting_seconds": 60,
+      "finalization_seconds": 15,
+      "reserved_seconds": 720,
+      "whole_seconds": 780,
+      "cleanup_seconds": 2,
+      "worker_RSS_bytes": 1073741824,
+      "native_reserved_bytes": 536870912,
+      "controller_RSS_bytes": 134217728,
+      "guard_journal_bytes": 16777216,
+      "log_bytes": 1048576,
+      "owned_storage_bytes": 134217728,
+      "owned_array_buffer_bytes": 67108864
+    },
+    "feasibility": "proposed_not_measured; no Task0038_timing_extrapolation",
+    "authorization_required": "separate Task0040 prompt/current-source acceptance/freeze; operational CLI not implemented in Task0039"
+  },
+  "readiness": {
+    "implementation": "synthetic_supported",
+    "membership": "resolved_exact1024source_order",
+    "raw_identity_metadata": "verified_current_bytes_and_metadata",
+    "operational_parity": "not_measured",
+    "real_cost_feasibility": "not_measured; proposed_caps_not_a_grant",
+    "decoder_effective_thread_count": "unknown",
+    "Task0040": "requires separate explicit prompt, guarded payload controller/new acceptance/freeze/one attempt"
+  },
+  "source_metadata_research": {
+    "primary_document_URLs": [
+      "https://docs.h5py.org/en/stable/high/dataset.html#chunked-storage",
+      "https://docs.h5py.org/en/stable/high/file.html"
+    ],
+    "retrieval_date": "2026-10-13",
+    "logical_document_opens": 2,
+    "logical_text_finds": 2,
+    "search_requests": 0,
+    "local_document_downloads": 0,
+    "event_payload_requests_downloads": 0,
+    "tool_cache_physical_HTTP_count": "unavailable; logical calls disclosed"
+  },
+  "validation": {
+    "focused": 88,
+    "full": 2210,
+    "portable": 2210,
+    "quality": "lint/format/pip-check passed",
+    "checks": {
+      "focused": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.7334243329823948,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "tests/test_development_raw.py",
+          "tests/test_development_raw_runtime.py",
+          "tests/test_development_raw_custody.py",
+          "-q"
+        ],
+        "log": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/focused.txt",
+        "log_sha256": "a3bb07eee0e1e9d1d9fb9797bdc1073ef5cc4cdd7bb95dc4ae009ae46b6a92c8",
+        "scope": "new synthetic only / static checks"
+      },
+      "full": {
+        "exit_code": 0,
+        "elapsed_seconds": 43.76979766698787,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "-p",
+          "tests.cpu_mps_portable_plugin",
+          "-p",
+          "tests.controlled_activation_counter_plugin",
+          "-q"
+        ],
+        "log": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/full.txt",
+        "log_sha256": "64241130ee14bb53219602b5cbe245e5dea37ad13e107d2c85852dc144c254f4",
+        "scope": "artifact-free historical/new synthetic fixtures; legacy model forwards/updates permitted"
+      },
+      "portable": {
+        "exit_code": 0,
+        "elapsed_seconds": 42.427787417022046,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "-p",
+          "tests.cpu_mps_portable_plugin",
+          "-p",
+          "tests.controlled_activation_counter_plugin",
+          "-q"
+        ],
+        "log": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/portable.txt",
+        "log_sha256": "98ca60449e585df478182a1347b88060d02e65a57f8466132550006777b705ed",
+        "scope": "artifact-free historical/new synthetic fixtures; legacy model forwards/updates permitted"
+      },
+      "lint": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.07515737498761155,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "ruff",
+          "check",
+          "."
+        ],
+        "log": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/lint.txt",
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "scope": "new synthetic only / static checks"
+      },
+      "format": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.03777062500012107,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "log": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/format.txt",
+        "log_sha256": "ecaa2e8f9b922fae6f107aae55b6a6346badcd2bfb4b00a4a17fdade65e8aa81",
+        "scope": "new synthetic only / static checks"
+      },
+      "dependencies": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.18714337499113753,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "log": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/dependencies.txt",
+        "log_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+        "scope": "new synthetic only / static checks"
+      },
+      "native_synthetic": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.7266237500007264,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "latenttrigger.benchmarks.development_raw_native",
+          "--synthetic-directory",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/task0039-validation/0f04f56726144100a7b564c0dc040f29/native-synthetic"
+        ],
+        "log": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/native_synthetic.txt",
+        "log_sha256": "92f853f4414d0300a58c67d17c3031270689fdbbe1a92f32551b3da339022539",
+        "scope": "new synthetic only / static checks"
+      }
+    },
+    "source_entries": 223,
+    "package_versions_count": 43,
+    "native_build_file_count": 31,
+    "source_map_digest": "7da366791ec7a5b71991de1fb827ba4867787cc447b43f6071314ca6f62fadcc",
+    "dependency_digest": "2331d82150c37dfd14c1c7f8e9c6cbb3ae4d00ef2a3f9b4712b9d774bf354dcf",
+    "native_build_digest": "e409e1e12454aba50c8058c5ddb89177a97fb9506d999f38d7a259dd34ef3d71",
+    "acceptance_path": "data/task0039-validation/0f04f56726144100a7b564c0dc040f29/software-acceptance.json",
+    "acceptance_sha256": "f110204f38212e8f6752ab1883afde1df040e56c2c4cb8df20af00fb79decd91",
+    "native_synthetic_status": "parent_accepted_synthetic_foundation",
+    "native_synthetic_whole_seconds": 0.6500473330379464,
+    "synthetic_native_invocations": 2,
+    "synthetic_native_failed_invocations": 0,
+    "validation_driver_precheck_failures": 1,
+    "precheck_failure_reason": "initialcopied driver expected a different config environment key; corrected before full validation/reservation; preserved empty validation directory",
+    "source_lineage_precheck_correction": "Frozen config does not have a dev-ID hash key. Bind dev hash explicitly through split/dev manifests and bind config through development recipe/counts and original full-role hash map; no silent missing-key fallback.",
+    "native_synthetic_feature_constructions_per_integration": 32,
+    "historical_instrumented_fixture_counters": {
+      "full": {
+        "exit_status": 0,
+        "scope": "this pytest process; instrumented new research helpers only; excludes unrelated historical models and native subprocess",
+        "counters": {
+          "model_instances": 85,
+          "forward_calls": 31,
+          "forward_rows": 8710,
+          "reconstruction_computations": 31,
+          "optimizer_steps_started": 2,
+          "optimizer_steps_completed": 2,
+          "optimizer_steps_inflight": 0,
+          "synthetic_calibrations": 2
+        }
+      },
+      "portable": {
+        "exit_status": 0,
+        "scope": "this pytest process; instrumented new research helpers only; excludes unrelated historical models and native subprocess",
+        "counters": {
+          "model_instances": 85,
+          "forward_calls": 31,
+          "forward_rows": 8710,
+          "reconstruction_computations": 31,
+          "optimizer_steps_started": 2,
+          "optimizer_steps_completed": 2,
+          "optimizer_steps_inflight": 0,
+          "synthetic_calibrations": 2
+        }
+      }
+    },
+    "scope": "owned HDF/member/features only; artifact-free legacy models/forwards/updates permitted and separate; no original IDs/events/golden/models during validation"
+  },
+  "provenance": {
+    "prompt_sha256": "f4cea291e70b7ae215c0822ee3e451b9eca6135eae448945bdbea669f971e165",
+    "config_sha256": "702ca63f9cf2f690161306e5d844b40137426ba22f2af55167e1a664ae80ed4f",
+    "prospective_freeze_sha256": "d643a4b51ff6fb865a5e8da4eb823ba4c42b3d60f6019d3d08e50b0222c93d8e",
+    "operational_directory": "results/benchmarks/task0039-development-raw-features/5ddf2cde9caa4040bba5675e15e96ccc",
+    "anchor_sha256": "c27e309ff8bf526a0e329cf8ce9f673df40b8394a855e186f9233921b6128608",
+    "plan_sha256": "ac93283ee17e0d4c89819802b812335a1f4d14f8474d3fe90c3903a5701fd7a0",
+    "workflow_sha256": "d6df0701cc2552071f4f9b7916d561ffd6e24aa4a5a0f92e0c86b959f7a04252",
+    "parent_acceptance_sha256": "99b6466293381db565daa55b695a28868158b2d351ae63833749c88cf80fd35a",
+    "selected_ID_file_sha256": "cdbace5d65efc65ade6d9b49e8b2a5a39ba9fe6bdbda0bae1d2c2f3e300164f3",
+    "selected_ID_payload_sha256": "f80a9483f5ddafcac0e05d9fd6de757e5bbfe9e805f65ced1c0aa801cc266f1a",
+    "geometry_sha256": "3fadf9b4ba3639eedc9005f36fbc9401a12bf9fab949191dd591d1b8c3a9ed9f",
+    "metadata_sha256": "22f00f352eb9ae8493211fb3d3bb68ffcc7007b00f93ec9502cd65bf4c54d6d0"
+  },
+  "lifecycle": {
+    "whole_seconds": 1.8675746250082739,
+    "prerequisite_seconds": 0.1166150409844704,
+    "dispatch_seconds": 1.6293817079858854,
+    "worker_seconds": 1.585260541003663,
+    "cleanup_seconds": 0.0004356249701231718,
+    "finalization_seconds": 0.07462545798625797,
+    "overshoot_seconds": 0,
+    "normal_exit_code": 0,
+    "child_reaped": true,
+    "assertion_observations": 3,
+    "assertion_released": true,
+    "helper_reaped": true,
+    "helper_returncode": -15,
+    "owned_assertion_absent": true,
+    "display_sleep_permitted": true,
+    "persistent_settings_changed": false
+  },
+  "resources": {
+    "worker_peak_RSS_bytes": 60309504,
+    "native_reserved_bytes": 50331648,
+    "controller_RSS_bytes": 31604736,
+    "owned_bytes_at_acceptance": 1479180,
+    "pressure_counts": {
+      "NORMAL": 1653,
+      "WARN": 1153,
+      "CRITICAL": 0,
+      "unknown": 0
+    },
+    "max_query_start_gap_seconds": 0.05528691702056676,
+    "terminal_resource_gap_seconds": 0.044663958018645644,
+    "global_RAM": "not_queried_context_only_no_floor",
+    "limits": {
+      "prerequisites_seconds": 30,
+      "worker_seconds": 60,
+      "reporting_seconds": 30,
+      "whole_seconds": 150,
+      "cleanup_seconds": 2,
+      "worker_RSS_bytes": 1073741824,
+      "native_reserved_bytes": 536870912,
+      "controller_RSS_bytes": 134217728,
+      "guard_journal_bytes": 16777216,
+      "log_bytes": 1048576,
+      "storage_bytes": 33554432
+    }
+  },
+  "preservation": {
+    "initial_tracked_hash_files": 466,
+    "operational_model_artifacts_excluded_from_content_reads": 2,
+    "Task0038_nonliving_paths_preserved": 20,
+    "shared_living_updates": [
+      "README.md",
+      "docs/project-memory.md",
+      "docs/handoffs/README.md"
+    ],
+    "historical_bases_acceptances_receipts_preserved": true
+  },
+  "next_task_prerequisites": [
+    "separateTask0040prompt explicitly authorizing bounded approvedraw rows/golden/IDloads/featuretiming",
+    "implement guarded payload controller; currentCLI/synthetic_providerreject operational events",
+    "fresh current-source synthetic/full/portable/native acceptance + exact plan/identity/resource freeze",
+    "same original6999-ID source resolves same1024prefix in eachworker; goldenonceperworker and exact row-position parity pre/post",
+    "rawbyteverification before/after; readonlyexactschema/cache; no models/other roles/fingerprints/downloads",
+    "pin/report HDF/Blosc runtime and declare effective decoder threading unknown unless independently verified; no single-thread claim from BLAS",
+    "36cells/720timed/108warmups/732rawrequests/30927selected-row presentations/768featurecalls32448rows; exactly fixedschedule",
+    "continuouscaps/sleepassertion/displaypermission/WARNadvisory/CRITICAL-primaryveto/normalexitreaping/release; preserve any failure/unknown gaps and no retry",
+    "aggregate-only output/no per-eventrawfeatures or sums-of-medians end-to-end claims; no automaticlaunch"
+  ]
+}

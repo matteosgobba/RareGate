@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "task": "0039",
+  "status": "prospective_synthetic_supported_not_execution_plan",
+  "future_measurement_execution_authorized": false,
+  "resolver_scope": "one_dev_ID_array_plus_raw_byte_header_metadata_only",
+  "membership": {
+    "path": "data/analysis/lhco-rd-v1/dev_train_background.npy",
+    "shape": [
+      6999
+    ],
+    "dtype": "<i8",
+    "size_bytes": 56120,
+    "file_sha256": "2662f0762cf57e39156b0e5c6b1c8e7ac7279a2ecc98c33b2ed69d67a964c781",
+    "selected_count": 1024,
+    "selected_sha256": "f80a9483f5ddafcac0e05d9fd6de757e5bbfe9e805f65ced1c0aa801cc266f1a",
+    "ordering": "stable_ascending_source_ID_then_first1024"
+  },
+  "raw": {
+    "path": "data/raw/lhco/6466204/events_anomalydetection_v2.h5",
+    "size_bytes": 2908260409,
+    "file_sha256": "5da8fda2ca78edf8fa5acc0af92fcb6a2d464ba7bf0fd75e3944a169b88cecc6",
+    "publisher_md5": "629789d55813be3860781b084ae7f1de",
+    "record": 6466204,
+    "version": "v5",
+    "dataset": "/df/block0_values",
+    "audit_schema": {
+      "chunks": [
+        62,
+        2101
+      ],
+      "dtype": "float64",
+      "filters": [
+        {
+          "flags": 1,
+          "id": 32001,
+          "name": "blosc",
+          "parameters": [
+            2,
+            2,
+            8,
+            1042096,
+            5,
+            1
+          ]
+        }
+      ],
+      "shape": [
+        1100000,
+        2101
+      ]
+    }
+  },
+  "golden": {
+    "path": "results/benchmarks/task0020-frozen-cpu/prepare/input.npy",
+    "shape": [
+      1024,
+      8
+    ],
+    "dtype": "<f4",
+    "size_bytes": 32896,
+    "file_sha256": "7164bfd7a86a9561ae3abc7b44b396c1a60db0114fc8542443ad3f71d2990a5e",
+    "payload_sha256": "2ba0776aa1b5dfb7eb91dc0df4993d0a2ec52c83a79cc5424acc9b98a59b3d05",
+    "Task0039_numerical_load_allowed": false
+  },
+  "transform_config": "configs/data/lhco_rnd_v5.json",
+  "lineage": {
+    "split_manifest": "data/analysis/lhco-rd-v1/split-manifest.json",
+    "dev_manifest": "data/processed/lhco-rd-v1/schema-v1/dev/manifest.json",
+    "dev_configuration": "data/processed/lhco-rd-v1/schema-v1/dev/configuration.json",
+    "prepared": "results/benchmarks/task0020-frozen-cpu/prepare/prepared.json",
+    "prepare_receipt": "results/benchmarks/task0020-frozen-cpu/prepare/receipt.json",
+    "acquisition": "data/raw/lhco/6466204/events_anomalydetection_v2.h5.manifest.json",
+    "raw_audit": "data/raw/lhco/6466204/raw-schema-audit.json",
+    "dev_scientific_sha256": "2eb34e5b811c12ae5c47afba1ecdb6322feb7c7774b6c9ec5331abe78b3c9a2a"
+  },
+  "byte_pins": {
+    "data/analysis/lhco-rd-v1/split-manifest.json": "a94af59fa842ca24816c38170b3cf58698748a85cd865d65b6e3fa4f615bdc43",
+    "data/processed/lhco-rd-v1/schema-v1/dev/manifest.json": "da87559cc142c0736c4c18d6559c0df3551518408cf84e9b6862ebc5327c1878",
+    "data/processed/lhco-rd-v1/schema-v1/dev/configuration.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "results/benchmarks/task0020-frozen-cpu/prepare/prepared.json": "4a04588b5215b2a272d59be79e50af0b354ba61dee7cfdabf950e284f545afa3",
+    "results/benchmarks/task0020-frozen-cpu/prepare/receipt.json": "1d8c9183e5c49398647275381e6c1fb8da75eab71b947ffca2ed09c8bac28bac",
+    "data/raw/lhco/6466204/events_anomalydetection_v2.h5.manifest.json": "7899079e0c66feac1b5c7391fce66fe51f0eb6181aa76a9f5681b6d595915d09",
+    "data/raw/lhco/6466204/raw-schema-audit.json": "38b50cae8c9c8d233c5a47d0b2f212d1db94f541a92db032e6ac528d9cb82332",
+    "configs/data/lhco_rnd_v5.json": "2c11e6a995fd677ac88a4830243bfb7944532e3ef1aa83d1b6389ab9ca802e68",
+    "src/latenttrigger/data/features.py": "fac40f3fb9e16f8d9048094cd9b031871eb399e11d37e04963e301b2f9a2ce42",
+    "src/latenttrigger/data/inspection.py": "9c78ed557ae2d3f7e2f70e184483efe3fb01838aaf03f38e4513ca096e6f9a61",
+    "src/latenttrigger/data/preprocessing.py": "6aa6f8bae59667ee28dfec5798960aba2c28993719a3d88679659f53d5dab6e0",
+    "src/latenttrigger/data/processed.py": "911c1bdb85831396b5e35dd6c3b5206a1ef22b5c62b55efb40108a4cd8cea5ea",
+    "src/latenttrigger/benchmarks/core.py": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987",
+    "docs/preprocessing-contract.md": "fe1fe361a7a0e5542300faca79e153b24437660fb1b45c993ca9b9e1b90a49b3",
+    "configs/benchmarks/prepared_batch_service_v1.json": "d1452face2ac3ca3f284ef1be8e2ec2067d55cc9ddb90a6a1322b474bb944368",
+    "results/tables/final/task0038-prepared-batch-service-summary.json": "82399b84db56e359abf37b55389b2859cfe3bc32baf25ed3f2a121783909f679"
+  },
+  "resolver_limits": {
+    "prerequisites_seconds": 30,
+    "worker_seconds": 60,
+    "reporting_seconds": 30,
+    "whole_seconds": 150,
+    "cleanup_seconds": 2,
+    "worker_RSS_bytes": 1073741824,
+    "native_reserved_bytes": 536870912,
+    "controller_RSS_bytes": 134217728,
+    "guard_journal_bytes": 16777216,
+    "log_bytes": 1048576,
+    "storage_bytes": 33554432
+  },
+  "cache": {
+    "rdcc_nbytes": 1048576,
+    "rdcc_nslots": 521,
+    "rdcc_w0": 0.75
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLOSC_NTHREADS": "1"
+  },
+  "future": {
+    "scopes": [
+      "selected_hdf_read",
+      "frozen_feature_construction",
+      "selected_raw_to_features"
+    ],
+    "batches": [
+      1,
+      8,
+      32,
+      128
+    ],
+    "workers": [
+      1,
+      2,
+      3
+    ],
+    "case_order": [
+      "B_ascending_scopes_read_feature_joint",
+      "B_descending_scopes_joint_feature_read",
+      "B_ascending_scopes_read_feature_joint"
+    ],
+    "windows": "dedup_0_floor((1024-B)/2)_1024-B",
+    "schedule": "three_warmups_then20timed_calls; window cycles0,1,2 reset_per_scope_phase; warmups1each/timed7,7,6",
+    "HDF_handle_lifetime": "one_readonly_handle_per_worker_open_before_pre_gate_close_after_post_gate",
+    "feature_raw_buffers": "three_approved_windows_preloaded_once_per_B_for_feature_only_scope; release_before_next_B",
+    "pre_post_gate": "each_B_window_each_phase: selected_read_then_features_twice_plus_joint_read_features; exact_golden_and_repeat_bytes",
+    "parity_policy": "exact_bytes_unchanged_arithmetic; no empirical tolerance",
+    "counts": {
+      "cells": 36,
+      "timed_calls": 720,
+      "warmup_calls": 108,
+      "timing_raw_requests": 552,
+      "timing_raw_rows": 23322,
+      "timing_feature_calls": 552,
+      "timing_feature_rows": 23322,
+      "owned_feature_buffer_preparation_requests": 36,
+      "owned_feature_buffer_preparation_raw_rows": 1521,
+      "pre_post_gate_raw_requests": 144,
+      "pre_post_gate_raw_rows": 6084,
+      "pre_post_gate_feature_calls": 216,
+      "pre_post_gate_feature_rows": 9126,
+      "total_raw_requests": 732,
+      "total_raw_selected_row_presentations": 30927,
+      "total_feature_calls": 768,
+      "total_feature_row_presentations": 32448,
+      "membership_loads": 3,
+      "membership_ID_records": 20997,
+      "golden_feature_loads": 3,
+      "golden_feature_rows": 3072,
+      "unique_approved_rows": 1024,
+      "raw_hash_custody_passes": 2,
+      "raw_hash_custody_bytes": 5816520818,
+      "HDF_handles": 3,
+      "raw_buffers_per_feature_case": 3,
+      "max_retained_raw_buffers_bytes": 6454272,
+      "current_raw_bytes": 2151424,
+      "explicit_owned_array_buffer_ceiling_bytes": 67108864
+    },
+    "limits": {
+      "prerequisite_seconds": 60,
+      "numerical_worker_seconds": 180,
+      "reporting_seconds": 60,
+      "finalization_seconds": 15,
+      "reserved_seconds": 720,
+      "whole_seconds": 780,
+      "cleanup_seconds": 2,
+      "worker_RSS_bytes": 1073741824,
+      "native_reserved_bytes": 536870912,
+      "controller_RSS_bytes": 134217728,
+      "guard_journal_bytes": 16777216,
+      "log_bytes": 1048576,
+      "owned_storage_bytes": 134217728,
+      "owned_array_buffer_bytes": 67108864
+    },
+    "feasibility": "proposed_not_measured; no Task0038_timing_extrapolation",
+    "authorization_required": "separate Task0040 prompt/current-source acceptance/freeze; operational CLI not implemented in Task0039"
+  },
+  "cache_limitations": "whole-file hashing may warm OS pages; fresh HDF handle not cold storage; physical I/O/cache misses unknown; decoder thread count unverified"
+}
