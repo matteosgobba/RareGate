@@ -221,8 +221,24 @@ integration pass. The fixed future36cell/720timed/108warm-up design accounts all
 and buffers;384unique requested rows from1024approved,312geometric chunks and
 24.501GiB repeated no-cache decoded upper bound, not measured I/O. Cache1MiB/521/
 w0.75 verified; decoder effective threading/cold-I/O/real parity/costs unknown.
-`future_measurement_execution_authorized=false`; no operational payload CLI,
-Task0040launch, source confirmation or Task0038/0037rerun.
+`future_measurement_execution_authorized=false` remains Task0039's configuration;
+that task enabled no operational payload CLI or source confirmation. Task0040
+uses the separate authorization/controller below; Task0038/0037 are not rerun.
+
+
+Task0040 completes the separately authorized [development raw-feature measurement](docs/development-raw-feature-measurement.md).
+Fresh100focused/2310full+portable/236bindings43packages31native files/native synthetic
+acceptance precede the sole19.498497s parent-accepted session:3original ID loads/
+3golden loads,1024approved384rawunique,732selected requests30927rows/768feature
+constructions32448rows/36cells720timed108warmups. All pre/post exact golden/repeat
+bytes, source identities, normal exits/reaping and7observed sleep assertions/release
+pass; WARNadvisory/caps/gaps disclosed, no held-out/model/scientific work. Pooled
+B128read45.143/features5.778/directjoint50.013ms, all repetitions/outliers/three
+inspected figures retained. Fixed sparse warm-cache study, decoder threading/
+physical I/O unknown, no production-p99 or summed whole-chain latency. Task0039's
+prospective flag/provider/consumed resolver, Task0038/0037 costs and unresolved
+confirmation remain unchanged. Next separate joint preprocessing+original frozen
+CPU adapter design/authorization; no Task0041 launch or deployment selection.
 
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
@@ -618,7 +634,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0036: pinned confirmation-source feasibility completed as `unresolved_no_acquisition`;30evidence rows, unchanged precision/gates, realized counts/complete-event coverage/expanded storage unresolved;1small metadata archive, zero event-payload or operational scientific work.
 - [x] Task0037: model-free synthetic FIFO trigger simulator;324main+54fixed stress scenarios/378row table/3inspected figures, fresh105targeted/2022full+portable acceptance, final native parent-accepted with release;2actual sweeps after layout repair, scientific route unchanged/no deployment or physical-inference claim.
 - [x] Task0038: one accepted prepared-development CPU natural/padded service study,204cells/10200timings/2040warm-ups, fresh100targeted/2122full+portable, all numerical/lifecycle gates pass and assertion released; no Task0037 rerun or scientific confirmation.
-- [x] Task0039: synthetic narrow HDF-to-frozen-feature adapter and fixed future design; one accepted6999-ID resolution/exact1024prefix/raw byte+HDFmetadata custody,88targeted/2210full+portable; real raw/golden/parity/timing unmeasured and Task0040unauthorized.
+- [x] Task0039: synthetic narrow HDF-to-frozen-feature adapter and fixed future design; one accepted6999-ID resolution/exact1024prefix/raw byte+HDFmetadata custody,88targeted/2210full+portable; real raw/golden/parity/timing unmeasured in that task; its config remains payload-unauthorized.
+- [x] Task0040: one accepted development selected-read/full-frozen-feature/direct-joint session,36cells/720timed/108warmups, exact golden parity and original membership/source identity; no models/held-out/scientific work.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
