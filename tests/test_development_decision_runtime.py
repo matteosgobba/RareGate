@@ -126,6 +126,13 @@ def test_assertion_failure_release_preserved_no_operational_load(
         ),
     )
     monkeypatch.setattr(rt, "supervise", supervisor)
+    from latenttrigger.benchmarks import development_decision_contract as contract
+
+    monkeypatch.setattr(
+        contract,
+        "identity",
+        lambda *a, **kw: dict(task="0041", kind="synthetic_fixed_matrix"),
+    )
     monkeypatch.setattr(p, "file_hash", lambda *args: "fixture")
     base, result = native.run(synthetic_directory=tmp_path / "native-fixture")
     assert (
@@ -147,7 +154,13 @@ def test_parent_acceptance_requires_reaping_caps_complete_output(
 ):
     monkeypatch.setattr(p, "source_map", lambda: {})
     monkeypatch.setattr(p, "dependencies", lambda: {})
-    grant = dict(source_map={}, dependencies={}, synthetic_only=True, phase="reporting")
+    grant = dict(
+        identity={"task": "0041"},
+        source_map={},
+        dependencies={},
+        synthetic_only=True,
+        phase="reporting",
+    )
     p.durable_json(tmp_path / "grant.json", grant)
     names = (
         "cells.csv",
@@ -159,6 +172,7 @@ def test_parent_acceptance_requires_reaping_caps_complete_output(
         (tmp_path / name).write_bytes(b"owned fixture bytes")
     body = dict(
         status="body_complete_awaiting_exit",
+        identity=grant["identity"],
         source_map={},
         dependencies={},
         grant_sha256=p.file_hash(tmp_path / "grant.json"),

@@ -253,7 +253,20 @@ The cellCSV is header-only, no real cost figures. No retry/reset or executable r
 after failure. Task0040 remains the latest accepted raw boundary, prior contracts
 and unresolved scientific route unchanged. Next separate software-only status-contract,
 record-admission roundtrip and stop-on-failed-freeze repair; any new real campaign
-needs new explicit authorization/namespace/freeze, no Task0042 or replay launched.
+needs new explicit authorization/namespace/freeze. No repair or replay was launched
+in Task0041; the separate authorized Task0042 follows below.
+
+
+Task0042 completes the [software-only admission repair](docs/development-decision-admission-repair.md):
+one strict producer/consumer schema, correct Task0041 chain identity with Task0042
+validation ownership, and checked admission→freeze→one synthetic dispatch.
+172focused/2482full+portable tests and a final emitted-record native roundtrip pass;
+five accepted fixture integrations/one preserved preliminary failure, assertions
+released. Original251-entry source snapshot and Task0041failed record/marker/docs/
+emptyCSV remain intact. New status `software_accepted_synthetic_admission_repair`
+grants no operational attempt, data/model access or real timing. Task0040 is still
+the latest accepted raw boundary; a new real campaign requires a separate prompt,
+namespace/current acceptance/freeze/allowance. No Task0043 or source acquisition.
 
 
 Phase 0.1 establishes the Python package, development tools, tests, CI, data and
@@ -652,6 +665,7 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0039: synthetic narrow HDF-to-frozen-feature adapter and fixed future design; one accepted6999-ID resolution/exact1024prefix/raw byte+HDFmetadata custody,88targeted/2210full+portable; real raw/golden/parity/timing unmeasured in that task; its config remains payload-unauthorized.
 - [x] Task0040: one accepted development selected-read/full-frozen-feature/direct-joint session,36cells/720timed/108warmups, exact golden parity and original membership/source identity; no models/held-out/scientific work.
 - [x] Task0041 bounded outcome: direct CPU chain/planner synthetically validated107focused/2417full+portable; sole real prerequisite failed/consumed before numerical work on inconsistent acceptance status, no measured costs or retry.
+- [x] Task0042: strict emitted-record admission and fail-closed synthetic freeze/dispatch,172focused/2482full+portable/current256bindings, final native roundtrip accepted; original Task0041 failure consumed/preserved, zero new operational work.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.

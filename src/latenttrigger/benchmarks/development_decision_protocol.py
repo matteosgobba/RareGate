@@ -75,6 +75,7 @@ def source_map(root=ROOT):
         for n in (
             CONFIG,
             PROMPT,
+            "docs/prompts/0042-development-decision-admission-repair.md",
             "pyproject.toml",
             old.CONFIG,
             old.PROMPT,
@@ -174,47 +175,10 @@ def native_build():
     )
 
 
-def acceptance(path):
-    path = Path(path).absolute()
-    require(
-        path.parent.parent == ROOT / VALIDATION
-        and path.name == "software-acceptance.json",
-        "Fresh acceptance namespace",
-    )
-    a = read(fixed(path.parent, path.name))
-    require(
-        a["status"] == "software_accepted_synthetic_development_decision"
-        and a["source_map"] == source_map()
-        and a["dependencies"] == dependencies()
-        and a["native_build"] == native_build()
-        and a["config_sha256"] == file_hash(ROOT / CONFIG)
-        and a["prompt_sha256"] == file_hash(ROOT / PROMPT),
-        "Current source/config/build/prompt acceptance",
-    )
-    require(
-        set(a["checks"])
-        == {
-            "focused",
-            "full",
-            "portable",
-            "lint",
-            "format",
-            "dependencies",
-            "native_synthetic",
-        }
-        and all(v["exit_code"] == 0 for v in a["checks"].values()),
-        "All checks required",
-    )
-    for v in a["checks"].values():
-        require(
-            file_hash(fixed(ROOT, v["log"])) == v["log_sha256"],
-            "Validation log identity",
-        )
-    require(
-        file_hash(fixed(ROOT, a["native_receipt_path"])) == a["native_receipt_sha256"],
-        "Native evidence identity",
-    )
-    return a
+def acceptance(path, *, context=None):
+    from latenttrigger.benchmarks.development_decision_contract import Context, verify
+
+    return verify(path, context or Context(ROOT))
 
 
 def hash_raw(path, spec, audit, persist, poll):
@@ -260,7 +224,13 @@ def validate_grant(directory, token, clock):
         "Phase/deadline grant",
     )
     require(
-        (grant["synthetic_only"] and base.is_relative_to(ROOT / VALIDATION))
+        (
+            grant["synthetic_only"]
+            and base.is_relative_to(
+                ROOT
+                / ("data/task" + grant["identity"]["validation_owner"] + "-validation")
+            )
+        )
         or (not grant["synthetic_only"] and base.parent == ROOT / OUTPUT),
         "Grant namespace",
     )
@@ -277,15 +247,64 @@ def validate_grant(directory, token, clock):
         ),
         "Exact phase payload path/prefix",
     )
-    plan = read(base / "plan.json")
+    plan = read(fixed(base, "plan.json"))
+    from latenttrigger.benchmarks.development_decision_contract import Context, identity
+
+    require(
+        grant["identity"]
+        == plan["identity"]
+        == identity(
+            Context(ROOT, grant["identity"]["validation_owner"]),
+            synthetic=grant["synthetic_only"],
+        )
+        and plan["task"] == plan["identity"]["task"]
+        and plan["kind"] == plan["identity"]["kind"]
+        and plan["config_sha256"] == plan["identity"]["config_sha256"]
+        and plan["prompt_sha256"] == plan["identity"]["prompt_sha256"],
+        "Protocol/task/kind/scope/owner/prompt/config grant identity",
+    )
     require(
         file_hash(base / "plan.json") == grant["plan_sha256"]
         and grant["source_map"] == plan["source_map"] == source_map()
         and grant["dependencies"] == plan["dependencies"] == dependencies()
         and plan["prompt_sha256"] == file_hash(ROOT / PROMPT)
-        and plan["native_build"] == native_build(),
+        and grant["native_build"] == plan["native_build"] == native_build(),
         "Frozen grant/source/dependency/build",
     )
+    if grant["identity"]["validation_owner"] == "0042":
+        require(
+            grant["synthetic_only"] is True,
+            "Repair grants cannot admit operational payloads",
+        )
+        if plan["validation_bootstrap"] is False:
+            from latenttrigger.benchmarks.development_decision_admission import (
+                load as frozen_load,
+            )
+
+            frozen = frozen_load(base.parent, Context(ROOT, "0042"))
+            require(
+                base == frozen.directory / "native"
+                and grant["admission_freeze_sha256"]
+                == plan["admission_freeze_sha256"]
+                == frozen.freeze_sha256,
+                "Worker independently checks synthetic admission freeze",
+            )
+            claim = read(fixed(frozen.directory, "launch-claim.json"))
+            require(
+                claim
+                == dict(
+                    record_sha256=frozen.record_sha256,
+                    freeze_sha256=frozen.freeze_sha256,
+                ),
+                "Worker coordinator claim",
+            )
+        else:
+            require(
+                plan["validation_bootstrap"] is True
+                and plan["admission_freeze_sha256"] is None
+                and grant["admission_freeze_sha256"] is None,
+                "Unadmitted validation bootstrap role",
+            )
     if not grant["synthetic_only"]:
         anchor = read(ROOT / OUTPUT / "attempt.json")
         require(

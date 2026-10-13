@@ -12,6 +12,21 @@ from pathlib import Path
 from latenttrigger.benchmarks import development_decision_protocol as p
 
 
+def emit_record(context, directory, source, checks, native):
+    """Serialized production contract, exercised by Task0042 roundtrips."""
+    from latenttrigger.benchmarks.development_decision_contract import emit
+
+    return emit(
+        directory / "software-acceptance.json",
+        context,
+        source=source,
+        dependencies=p.dependencies(),
+        build=p.native_build(),
+        checks=checks,
+        native=native / "workflow.json",
+    )
+
+
 def validate():
     root = p.ROOT
     directory = root / "data/task0041-validation" / uuid.uuid4().hex
@@ -133,21 +148,19 @@ def validate():
         "Native synthetic lifecycle",
     )
     p.require(source == p.source_map(), "Source unchanged across final acceptance")
-    acceptance = dict(
-        status="software_accepted_synthetic_development_raw_decision",
-        source_map=source,
-        dependencies=p.dependencies(),
-        config_sha256=p.file_hash(root / p.CONFIG),
-        prompt_sha256=p.file_hash(root / p.PROMPT),
-        checks=checks,
-        native_receipt_path=str((native / "workflow.json").relative_to(root)),
-        native_receipt_sha256=p.file_hash(native / "workflow.json"),
-        native_build=p.native_build(),
-        operational_reservation=False,
-        synthetic_only=True,
-        payload_scope="only the fixed Task0041 development session after this final acceptance, actual prompt and new plan freeze",
+    from latenttrigger.benchmarks.development_decision_contract import Context
+
+    path = emit_record(Context(root), directory, source, checks, native)
+    p.acceptance(path)
+    p.durable_json(
+        directory / "admission-roundtrip.json",
+        dict(
+            status="controller_compatible_software_record",
+            record_sha256=p.file_hash(path),
+            execution_authorized=False,
+        ),
+        exclusive=True,
     )
-    p.durable_json(directory / "software-acceptance.json", acceptance, exclusive=True)
     print("acceptance", directory / "software-acceptance.json", flush=True)
 
 

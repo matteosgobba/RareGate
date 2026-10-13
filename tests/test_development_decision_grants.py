@@ -23,7 +23,20 @@ def owned_grant(tmp_path, monkeypatch, phase="repetition1"):
     base = root / p.VALIDATION / "run"
     directory = base / phase
     directory.mkdir(parents=True)
+    # Generated config/prompt bindings, not operational model contents.
+    from shutil import copyfile
+
+    from latenttrigger.benchmarks.development_decision_contract import Context, identity
+
+    config = root / p.CONFIG
+    config.parent.mkdir(parents=True)
+    copyfile(p.old.ROOT / p.CONFIG, config)
+    ident = identity(Context(root), synthetic=True)
     plan = dict(
+        identity=ident,
+        config_sha256=ident["config_sha256"],
+        task=ident["task"],
+        kind=ident["kind"],
         source_map=p.source_map(),
         dependencies=p.dependencies(),
         native_build=p.native_build(),
@@ -33,6 +46,7 @@ def owned_grant(tmp_path, monkeypatch, phase="repetition1"):
     )
     p.durable_json(base / "plan.json", plan)
     grant = dict(
+        identity=ident,
         parent_pid=os.getppid(),
         token="c" * 32,
         phase=phase,
@@ -41,6 +55,7 @@ def owned_grant(tmp_path, monkeypatch, phase="repetition1"):
         plan_sha256=p.file_hash(base / "plan.json"),
         source_map=plan["source_map"],
         dependencies=plan["dependencies"],
+        native_build=plan["native_build"],
         payload_path=str(directory / "fixture.h5"),
         prefix_sha256=synthetic_prefix(),
         models=p.load()["models"],
@@ -69,6 +84,7 @@ def test_claim_once(tmp_path, monkeypatch):
         ("plan_sha256", "0" * 64),
         ("source_map", {}),
         ("dependencies", {}),
+        ("native_build", {}),
     ],
 )
 def test_foreign_stale_changed_grant(tmp_path, monkeypatch, field, value):

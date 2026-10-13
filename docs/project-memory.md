@@ -9,16 +9,16 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.36 |
+| Memory revision | 1.37 |
 | Last factual verification | 2026-10-13, Europe/Rome |
-| Last completed phase | 0041 — synthetic raw-to-decision foundation/validation delivered; actual prerequisite admission failed/consumed before reservation, no real joint measurement |
-| Latest task outcome | Separate fixed natural CPU chain/planner/provider/controller,107focused2417full+portable251bindings43packages41native files (TorchCPU included), final15.980657s synthetic parent accepted/all984services41574rows/exact fixtures. Issued status software_accepted_synthetic_development_raw_decision differs from controller expected software_accepted_synthetic_development_decision; freeze rejected, agent incorrectly invoked controller anyway. Sole actual0.455644s failed_prerequisites_no_retry marker consumes attempt before rawhash/assertion/grants/numeric/model/timing, actual counts0/CSVheaderonly/no figures. Source/deps/build/config/prompt match; no repair/retry/source change after failure. Historical500nonliving bytes preserved/living3 separate; original exposures/science/source/failures/particle192 unchanged |
+| Last completed phase | 0042 — software-only synthetic acceptance/launch-admission repair accepted; Task0041 failed/consumed unchanged |
+| Latest task outcome | Strict canonical raw_decision status/schema/role and serialized producer→consumer roundtrip; checked immutable synthetic freeze/claim gates downstream launch and independently rechecks controller/workers. Task0041 protocol task corrected from0040; validation owner0042 explicit.172focused64new/2482full+portable256bindings43packages41native; final emitted-record15.978458s native parent accepted840reads/840features984services, all exits/reaping/assertion release/caps/overshoot0. Six native synthetic invocations: first relative-grant-path failure preserved, then5accepted. Original251-map/159evidence files/failed record/consumed marker/docs/emptyCSV preserved; only six authorized live repairs plus living3. All operational work0, no allowance renewal/newcampaign. Source route/science/exposure/failures/particle192 unchanged |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0041 base | `8b6310d427c9f2f8df818140f8f728130a2f48ab`, committed Task0040; clean main/origin/main/empty index at start. Task0040historical90868d6base and earlier source/config/acceptance/attempt histories preserved.503initial byte hashes excluding unrelated model-v1contents;500nonliving preserved/model-v1Gitunchanged/19Task0040nonliving paths unchanged, living3updates separate. No stage/commit/push/hosted CI claimed |
+| Verified HEAD / Task0042 base | `a7ee0a23f92003a430a2570a233d08042f986e71`, committed Task0041; clean main/origin/main/empty index at Task0042 start. Task0041historical base `8b6310d427c9f2f8df818140f8f728130a2f48ab` and prior task-time bases/acceptances preserved.522initial tracked byte identities; original issued map251entries resolves against ignored preserved bytes. Six permitted live source/test repairs and living3updates reported separately; no automatic stage/commit/push/hosted CI |
 | Current compact neural baseline | `compact-autoencoder-v2` |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Separately authorize software-only acceptance-status contract repair, validator-record→controller roundtrip and stop-on-failed-freeze regression. Preserve Task0041failed marker/source/validation records. Any new real raw-to-decision campaign needs new prompt/namespace/acceptance/freeze; no automaticTask0042, joint-sequence replay, policy selection, source acquisition or scientific changes |
-| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035/0036/0037 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps; Task0036 has1metadata-card download16084B. Task0037 reads accepted curated timing/produces synthetic streams; permitted artifact-free historical model regressions have forwards/updates, separate from model-free simulator. Task0038 adds authorized prepared-development engineering reads/inference:15708public adapter calls plus separately accounted FP32/FP64 full/local proof work, no new held-out/population/optimizer/calibration/scientific/download activity. Task0039 adds one6999-ID numeric metadata load/1024prefix, one raw2908260409B hash and HDFmetadata open; zero event/golden/model/scientific/fingerprint numeric work. Synthetic full-particle/legacy model regressions remain separate. No global-zero numerical/forward/update/download claim; samples cannot be reblinded Task0040 adds authorized development-only3membership/3golden loads,732rawrequests30927row presentations/768feature constructions32448rows, zero operational model/held-out/optimizer/calibration/scientific/fingerprint/download work. Task0041 adds zero operational ID/golden/raw/model/service/decision/scientific work because actual admission failed before reservation; new native/full synthetic models/forwards remain separate, not globally zero. |
+| Next action | A separate explicit authorization is required for any new real raw-to-decision campaign: new namespace, current-source acceptance/freeze and one new allowance. Task0041 remains failed_prerequisites_no_retry/consumed; Task0042 software admission does not renew it. No accepted operational joint sequence exists for replay, no automaticTask0043/deployment/source acquisition/scientific amendment |
+| Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035/0036/0037 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps; Task0036 has1metadata-card download16084B. Task0037 reads accepted curated timing/produces synthetic streams; permitted artifact-free historical model regressions have forwards/updates, separate from model-free simulator. Task0038 adds authorized prepared-development engineering reads/inference:15708public adapter calls plus separately accounted FP32/FP64 full/local proof work, no new held-out/population/optimizer/calibration/scientific/download activity. Task0039 adds one6999-ID numeric metadata load/1024prefix, one raw2908260409B hash and HDFmetadata open; zero event/golden/model/scientific/fingerprint numeric work. Synthetic full-particle/legacy model regressions remain separate. No global-zero numerical/forward/update/download claim; samples cannot be reblinded Task0040 adds authorized development-only3membership/3golden loads,732rawrequests30927row presentations/768feature constructions32448rows, zero operational model/held-out/optimizer/calibration/scientific/fingerprint/download work. Task0041 adds zero operational ID/golden/raw/model/service/decision/scientific work because actual admission failed before reservation; new native/full synthetic models/forwards remain separate, not globally zero. Task0042 adds zero operational work; its generated native fixtures and historical toy regressions have separately counted numerical/model/optimizer activity. |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
 
@@ -49,6 +49,8 @@ The earlier planning conversation stopped at Task 0007 and described Task 0008 a
 21. [References and memory revision history](#21-references-and-memory-revision-history)
 
 ## 1. Start here: current project state
+
+**Current software repair:** [Task0042](development-decision-admission-repair.md) closes the producer/status and task-identity defects with actual serialization/admission and programmatic stop-on-failed-freeze tests. New synthetic admission/parent lifecycle pass, operational counts0. Final review also binds grant native-build and top-level plan config/prompt/kind explicitly; preserved version1 acceptance remains historical, final version reruns all checks. The original Task0041 issued record is preserved, not rewritten as current acceptance; its current-source bindings are invalidated by the six versioned live repairs. Original source is recoverable from the251-entry snapshot, not confused with repaired working files. Task0040 remains the last accepted raw boundary.
 
 **Project:** LatentTrigger - *Hardware-Aware Machine Learning for Real-Time LHC Event Selection*.
 
@@ -717,8 +719,8 @@ release. Fixture resources/serial costs are not operational performance evidence
 Historical research fixture subset counters85models31forwards8710rows/two toyupdates/
 two calibrations perfull/portable exclude other synthetic/native activity.
 
-Controller admission expects software_accepted_synthetic_development_decision,
-while driver emits software_accepted_synthetic_development_raw_decision. Final
+At Task0041, controller admission expected software_accepted_synthetic_development_decision,
+while its driver emitted software_accepted_synthetic_development_raw_decision. Final
 freeze check rejected; the agent incorrectly continued to the real controller,
 which rejected the same record in0.455644s and wrote its consumed prerequisite
 marker. Source/deps/build/config/prompt match: protocol status-contract defect,
@@ -727,9 +729,10 @@ assertion/rawhash/HDF/ID/golden/model/feature/service/decision/timing work; actu
 counts0, parity unrun, curatedCSVheaderonly and zero real figures. No executable
 repair/retry/reset after failure; passingchecks are not controller-ready acceptance.
 
-Next supported decision is separate software-only contract/roundtrip/orchestration
-repair before any new explicitly authorized campaign in a new namespace. Preserve
-failedTask0041history; no joint sequence replay exists/noTask0042, no median sums,
+Task0042 separately completes the authorized software-only contract/roundtrip/
+orchestration repair. Any next real campaign still needs explicit new authorization
+and namespace. Preserve
+failedTask0041history; no accepted joint sequence replay exists; Task0042 software-only repair grants no operational run, no median sums,
 deployment/source/scientific amendment. Task0036unresolved/Task0034gates/YES3/
 completed baseline/exploratory evidence/failures/particle192 remain unchanged.
 
@@ -1182,6 +1185,8 @@ Local ignored root: `data/processed/lhco-rd-v1/schema-v1/{dev,dev-repeat,full}`.
 
 ## 10. Implemented foundation and evidence
 
+Task0042 adds a shared strict contract/coordinator and separate software validation driver with64new admission cases. Actual producer serialization/default and repair-owned scope wrappers, missing/changed evidence, task0040mismatch, incomplete freeze/publication, duplicate/copy-marker refusal and native independent pre-effect gates are tested. Unit spies are distinct from four-worker native normal-exit/reaping evidence. Final source256bindings/43packages/41native,172focused2482full+portable; bootstrap and emitted-record roundtrip accepted. Software-only status does not establish real parity/costs. Original failed source/evidence recoverable from ignored snapshot; no accepted artifact rewritten.
+
 This table preserves the project-level outcome of each task. Detailed chronology, commands, changed files, and task-time failures belong to the existing handoffs.
 
 | Task | Verified local commit | Durable outcome | Recorded passing pytest count |
@@ -1528,7 +1533,7 @@ If test results motivate a new design, disclose it and establish a new protocol/
 
 ## 13. Hardware inference and deployment methodology
 
-**Latest joint-chain attempt:** Task0041 implements/synthetically exercises the full natural raw-to-decision CPU chain, but its one actual0.455644s prerequisite invocation fails the driver/controller status contract before reservation/numeric work. No measured joint costs or replay sequences; the consumed marker is preserved. Separate software repair/roundtrip test and new future authorization required. Task0040 remains the latest accepted raw boundary.
+**Latest joint-chain attempt:** Task0041 implements/synthetically exercises the full natural raw-to-decision CPU chain, but its one actual0.455644s prerequisite invocation fails the driver/controller status contract before reservation/numeric work. No measured joint costs or replay sequences; the consumed marker is preserved. Task0042 now separately repairs software admission/freezing and proves the emitted-record synthetic roundtrip; no operational allowance. New future campaign authorization remains required. Task0040 remains the latest accepted raw boundary.
 
 **Latest measured raw boundary:** Task0040 implements the separate authenticated payload grant and completes one parent-accepted36cell selected-HDF/read/feature/direct-joint study with exact development golden parity. Task0039 resolver/design remains historical metadata-only. Pooled B128read45.143/features5.778/directjoint50.013ms; fixed sparse/warm cache context and serial variability are disclosed, physical I/O/decoder threading unknown. No models in Task0040, sum-of-medians whole-chain estimate, deployment policy or Task0037change.
 
@@ -1593,6 +1598,8 @@ Simulator design/load tests can use synthetic and allowed-background events. Any
 
 ## 14. Reproducibility and artifact governance
 
+Task0042 preserves the original Task0041 record SHA a86c964e…b5b08c4c and consumed-marker SHA e12e95bf…e8898c0. All251original map entries and159evidence files are retained before narrow authorized live edits; original plans still say0040. Fresh immutable emitted record SHA42cc5f1a…1e36338 is consumed before final repair receipt SHA37066812…ecdb0d; no circular receipt/record mutation. Six live repairs are versioned against a7ee0a23, original task-time bases preserved. Current software compatibility is neither execution authorization nor retroactive historical acceptance.
+
 ### 14.1 Required provenance
 
 Each scientific experiment must identify:
@@ -1641,6 +1648,7 @@ This register captures enduring project reasoning. Add or supersede decisions he
 
 | Decision | Rationale | Status / reconsideration rule |
 | --- | --- | --- |
+| Software record admission must control launch | One strict schema/status/task/role contract and immutable verified freeze; failure prevents leaf dispatch programmatically, with independent controller/worker checks | Task0042 accepted only on generated fixtures; new real campaign requires separate allowance, Task0041 consumed marker never reset |
 | Start with corrected LHCO R&D v5 | Public, manageable, labeled particle benchmark supports shared model inputs and a clean held-out study | Frozen for the initial benchmark; new sources need a new contract |
 | Pure-background training and validation | Isolate unsupervised behavior and prevent signal-based selection | Frozen; contamination/supervised studies are separate experiments |
 | Separate selection and calibration backgrounds | Prevent thresholds from influencing model selection and avoid conflating development roles | Frozen |
@@ -1720,13 +1728,15 @@ Scientific result: evaluated test mixture39.924782%signal; PCA AUC0.468489/AP0.3
 - **Reduced-precision study:** Compare supported precision variants using training-only calibration and preregistered tolerances; freeze variant thresholds before final test.
 - **Streaming study:** Establish repeatable simulator assumptions and load scenarios, then evaluate queueing/capacity/latency and acceptance.
 - **Conditional deployment branches:** NVIDIA/TensorRT and optional FPGA/hls4ml as resources permit.
-- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 exploratory/Task0034 design-only/Task0035 synthetic foundation remain. Task0036route stays `unresolved_no_acquisition`, unchanged/unaccepted. Explicitly chosen Task0037engineering branch completes a model-free fixed synthetic FIFO trigger study with scoped historical constant costs,105targeted/2022full+portable and final bounded native/3figures. No deployment winner, scientific confirmation or physical inference claim. Task0038 separately measures prepared natural/padded service with one parent-accepted204cell session and fresh100focused/2122full+portable acceptance. Task0039 resolves exact membership and preserves its metadata-only design; separate Task0040now measures selected-development read/features/direct joint with exact golden parity,100focused/2310full+portable and one accepted36cell session. Task0041now implements/tests that composition, but actual admission fails before numerical work because emitted/expected status literals disagree; one consumed prerequisite marker/no real joint costs. Next separate software-only repair/roundtrip/orchestration regression, then new explicit campaign authorization; no automaticTask0042 or acquisition/training/confirmation. Exposure/result-informed origin, failures/particle192 preserved.
+- **Integrated scientific reporting / controlled follow-up:** Task0032 closes the frozen baseline; Task0033 exploratory/Task0034 design-only/Task0035 synthetic foundation remain. Task0036route stays `unresolved_no_acquisition`, unchanged/unaccepted. Explicitly chosen Task0037engineering branch completes a model-free fixed synthetic FIFO trigger study with scoped historical constant costs,105targeted/2022full+portable and final bounded native/3figures. No deployment winner, scientific confirmation or physical inference claim. Task0038 separately measures prepared natural/padded service with one parent-accepted204cell session and fresh100focused/2122full+portable acceptance. Task0039 resolves exact membership and preserves its metadata-only design; separate Task0040now measures selected-development read/features/direct joint with exact golden parity,100focused/2310full+portable and one accepted36cell session. Task0041now implements/tests that composition, but actual admission fails before numerical work because emitted/expected status literals disagree; one consumed prerequisite marker/no real joint costs. Task0042 subsequently completes the separately authorized software-only repair/roundtrip/orchestration regression,172focused/2482full+portable and final15.978458s native fixture acceptance, zero operational work. Next new explicit campaign authorization; no automaticTask0043 or acquisition/training/confirmation. Exposure/result-informed origin, failures/particle192 preserved.
 
 Do not treat these bullets as already executed tasks or fixed task numbers. Choose the next bounded task from the live state, dependency order, unresolved evidence, and user direction.
 
 ## 17. Observations, risks, and open questions
 
 ### 17.1 Observations that should influence future work
+
+- Passing individual suites did not prove producer/consumer compatibility in Task0041. Task0042 closes the demonstrated literal/task/orchestration defects through actual serialized-record and native synthetic roundtrips; real-data parity and joint costs remain unmeasured. Sampled runtime monitoring gaps and host drift remain disclosed.
 
 - The data foundation is already substantial. Rebuilding or refitting it without cause adds risk rather than progress.
 - Background split score differences are small for current baselines, but finite tails remain statistically limited.
@@ -1923,6 +1933,8 @@ commands. Do not automatically stage, commit, push, or unblind real test data.
 
 ## 21. References and memory revision history
 
+- [Task0042 software admission repair](development-decision-admission-repair.md), [summary](../results/tables/final/task0042-development-decision-admission-summary.json) and [handoff](handoffs/0042-development-decision-admission-repair.md).
+
 ### 21.1 Local sources of truth
 
 - [Project overview](../README.md) and [package/dependency configuration](../pyproject.toml).
@@ -2038,3 +2050,4 @@ Keep future entries short and focused on project-level changes. Update current-s
 | 1.35 / 2026-10-13 | Clean committedTask0039 90868d6 reconciled; original20paths/base/resolver preserved. Separate Task0040payload controller/100focused2310full+portable236bindings43packages31native files before freeze, one19.498497s parent-accepted raw/read/feature/joint session:3members20997IDs3golden3072rows/1024approved384rawunique732requests30927rows768constructions32448rows/36cells720timed108warmups/exact72gates;2rawSHA5816520818B3handlesclosed. Allcaps/exits/reap/7assertionsrelease/overshoot0,WARNadvisory/gaps disclosed. B128read45.143features5.778joint50.013ms/all3figures/allreps/outliers retained; cache warm/sparse and decoder/I/O unknown, no production-p99/model/science/held-out/deployment.480nonliving bytes/two unreadmodel paths preserved; YES3/sourceunresolved/Task0034/failures/particle192 unchanged. Next joint preprocessing+native adapter design/no0041 | Actual prompt/config/additive source/tests/driver/fresh acceptance/freeze/one consumed anchor; curated cells/summary/figures/report, detailed ledgers/receipts/timings ignored |
 
 | 1.36 / 2026-10-13 | Clean committedTask0040 8b6310d reconciled; original22paths/base/accepted measurement preserved. Task0041separate direct natural CPU foundation107focused2417full+portable251bindings43packages41native/TorchCPU, final15.980657s synthetic/all984fixture services/exact gates. Native3attempts/firstowned-array failure preserved then2accepted; no actualperformance. Driver emits raw_decision status, controller expects decision status; failedfreeze followed by erroneous realcontroller invocation, sole0.455644s prerequisite failure/consumed marker before reservation/data/models/hash/assertion/timing. Actual0/header-onlyCSV/no realfigures/source unchanged/no retry. Source/deps/build/config/prompt match, literal-contract defect disclosed.500nonliving bytes/living3separate, YES3/sourceunresolved/Task0034/failures/particle192 unchanged. Next separate software contract/roundtrip/orchestration repair and any new campaign newauthorization/no0042 | Actual prompt/config/additive source/tests/driver/validation record and preserved failed prerequisite; curated report/emptytable/summary; old acceptances and markers unchanged, detailed artifacts ignored |
+| 1.37 / 2026-10-13 | Task0042 verified a7ee0a23 committedTask0041; preserves251original issued-map bytes/159evidence files/522initial tracked identities before six narrow live repairs and living3. Canonical raw_decision status/schema/role +task0041/owner0042 identities +checked admission/freezing/one dispatch; no manual continuation on failure.172focused64new2482full+portable256bindings43packages41native. Six native synthetic invocations: relative path failure before fixture setup preserved, then5accepted; final emitted-record15.978458s all840reads840features984services/exactfixturegates/normalexits/reaping/assertion release/caps/overshoot0/WARN+gaps disclosed. Historical regression toy forwards/updates separate. Operational counts0; Task0041failed/consumed/emptyCSV unchanged, Task0040lastaccepted raw boundary, new campaign newexplicitprompt/namespace/acceptance/freeze/allowance/no0043; science/source/exposure/particle192 unchanged | Actual prompt, preserved snapshot, strict live repair diff, new validation immutable emitted record+noncircular repair receipt, curated report/summary/handoff; no real campaign or data/model/raw custody |

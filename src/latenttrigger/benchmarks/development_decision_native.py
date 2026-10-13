@@ -28,6 +28,7 @@ def worker(directory, token):
     )
     body = dict(
         status="failed",
+        identity=grant["identity"],
         source_map=grant["source_map"],
         dependencies=grant["dependencies"],
         grant_sha256=p.file_hash(directory / "grant.json"),
@@ -335,19 +336,65 @@ def reserve(base, plan):
     )
 
 
-def run(acceptance=None, *, synthetic_directory=None):
+def run(
+    acceptance=None,
+    *,
+    synthetic_directory=None,
+    validation_owner="0041",
+    admission_freeze=None,
+    validation_bootstrap=False,
+):
+    from latenttrigger.benchmarks.development_decision_contract import Context, identity
+
+    context = Context(p.ROOT, validation_owner)
+    if validation_owner == "0042":
+        p.require(
+            synthetic_directory is not None and acceptance is None,
+            "Repair is software-only",
+        )
+        p.require(
+            Path(synthetic_directory).absolute().is_relative_to(context.namespace),
+            "Repair fixture namespace",
+        )
+        if not validation_bootstrap:
+            from latenttrigger.benchmarks.development_decision_admission import verify
+
+            current = verify(admission_freeze)
+            p.require(
+                current.context == context
+                and Path(synthetic_directory) == current.directory / "native",
+                "Independent controller freeze gate",
+            )
+            claim = p.read(p.fixed(current.directory, "launch-claim.json"))
+            p.require(
+                claim
+                == dict(
+                    record_sha256=current.record_sha256,
+                    freeze_sha256=current.freeze_sha256,
+                ),
+                "Coordinator one-dispatch claim",
+            )
+    else:
+        p.require(
+            admission_freeze is None and validation_bootstrap is False,
+            "No foreign repair permit",
+        )
     synthetic = synthetic_directory is not None
     clock = rt.ContinuousClock()
     started = clock()
     whole = started + 780
     base = (
-        Path(synthetic_directory) if synthetic else p.ROOT / p.OUTPUT / uuid.uuid4().hex
+        Path(synthetic_directory).absolute()
+        if synthetic
+        else p.ROOT / p.OUTPUT / uuid.uuid4().hex
     )
     base.mkdir(parents=True, exist_ok=False)
     workflow = dict(
         status="prerequisites",
         synthetic_only=synthetic,
         reserved=False,
+        identity=identity(context, synthetic=synthetic),
+        validation_bootstrap=validation_bootstrap,
         started=clock.snapshot(),
         source_map=p.source_map(),
         dependencies=p.dependencies(),
@@ -404,7 +451,12 @@ def run(acceptance=None, *, synthetic_directory=None):
                     poll_before,
                 )
             plan = dict(
-                task="0040",
+                task=spec["task"],
+                validation_bootstrap=validation_bootstrap,
+                admission_freeze_sha256=admission_freeze.freeze_sha256
+                if admission_freeze is not None
+                else None,
+                identity=identity(context, synthetic=synthetic),
                 kind="synthetic_fixed_matrix"
                 if synthetic
                 else "one_development_raw_decision_measurement",
@@ -419,9 +471,16 @@ def run(acceptance=None, *, synthetic_directory=None):
                 models=spec["models"],
                 limits=spec["limits"],
                 post_custody_seconds=45,
-                authorization="actual_Task0041_prompt_bound_to_this_final_plan; no_other_task_allowance",
+                authorization="generated_fixtures_only;not_operational_allowance"
+                if synthetic
+                else "actual_Task0041_prompt_bound_to_this_final_plan; no_other_task_allowance",
                 raw_before_identity={} if synthetic else workflow["raw_before"],
                 raw_buffer_preloads=0,
+            )
+            p.require(
+                plan["task"] == plan["identity"]["task"]
+                and plan["kind"] == plan["identity"]["kind"],
+                "Controller protocol/task identity",
             )
             p.durable_json(base / "plan.json", plan, exclusive=True)
             p.require(
@@ -446,6 +505,8 @@ def run(acceptance=None, *, synthetic_directory=None):
             payload_path = directory / "fixture.h5" if synthetic else p.ROOT / p.RAW
             grant = dict(
                 phase=phase,
+                identity=plan["identity"],
+                admission_freeze_sha256=plan["admission_freeze_sha256"],
                 parent_pid=os.getpid(),
                 token=uuid.uuid4().hex,
                 synthetic_only=synthetic,
@@ -570,6 +631,7 @@ def run(acceptance=None, *, synthetic_directory=None):
                 base / "parent-acceptance.json",
                 dict(
                     status=workflow["status"],
+                    identity=workflow["identity"],
                     workflow_sha256=p.file_hash(base / "workflow.json"),
                     plan_sha256=workflow["plan_sha256"],
                 ),
@@ -620,10 +682,14 @@ def main():
     parser.add_argument("--token")
     parser.add_argument("--acceptance", type=Path)
     parser.add_argument("--synthetic-directory", type=Path)
+    parser.add_argument("--validation-bootstrap", action="store_true")
     args = parser.parse_args()
     if args.worker:
         p.require(
-            args.token and args.acceptance is None and args.synthetic_directory is None,
+            args.token
+            and args.acceptance is None
+            and args.synthetic_directory is None
+            and not args.validation_bootstrap,
             "Parent grant only",
         )
         raise SystemExit(worker(args.worker, args.token))
@@ -632,12 +698,29 @@ def main():
         and (args.acceptance is None) != (args.synthetic_directory is None),
         "Exactly fresh acceptance or synthetic-only fixtures",
     )
+    if args.validation_bootstrap:
+        p.require(
+            args.synthetic_directory is not None and args.acceptance is None,
+            "Software-only bootstrap",
+        )
     if args.synthetic_directory:
         p.require(
-            args.synthetic_directory.absolute().is_relative_to(p.ROOT / p.VALIDATION),
+            args.synthetic_directory.absolute().is_relative_to(
+                p.ROOT
+                / (
+                    "data/task0042-validation"
+                    if args.validation_bootstrap
+                    else p.VALIDATION
+                )
+            ),
             "Owned synthetic namespace",
         )
-    _, result = run(args.acceptance, synthetic_directory=args.synthetic_directory)
+    _, result = run(
+        args.acceptance,
+        synthetic_directory=args.synthetic_directory,
+        validation_owner="0042" if args.validation_bootstrap else "0041",
+        validation_bootstrap=args.validation_bootstrap,
+    )
     raise SystemExit(0 if result["status"].startswith("parent_accepted") else 1)
 
 

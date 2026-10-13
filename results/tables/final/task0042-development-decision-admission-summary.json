@@ -1,0 +1,2012 @@
+{
+  "schema_version": 1,
+  "task": "0042",
+  "status": "software_accepted_synthetic_admission_repair",
+  "scope": "software_only_generated_fixtures_no_operational_authorization",
+  "base_commit": "a7ee0a23f92003a430a2570a233d08042f986e71",
+  "branch": "main",
+  "upstream": "origin/main",
+  "protocol_task": "0041",
+  "validation_owner": "0042",
+  "canonical_status": "software_accepted_synthetic_development_raw_decision",
+  "original_defects": [
+    "producer_raw_decision_vs_consumer_decision_status",
+    "manual_continuation_after_failed_freeze",
+    "Task0041_plan_task_hardcoded0040"
+  ],
+  "contract": {
+    "schema": "strict_exact_keys_role_identity_status",
+    "unknown_or_short_status_rejected": true,
+    "operational_permission": false,
+    "namespace": "data/task0042-validation; default producer/consumer production wrapper retains Task0041 namespace",
+    "checks": [
+      "focused",
+      "full",
+      "portable",
+      "lint",
+      "format",
+      "dependencies",
+      "native_synthetic"
+    ],
+    "evidence": "owned current hashed logs and synthetic parent-accepted receipt; source/packages/native/config/protocol+repair prompts"
+  },
+  "coordinator": {
+    "pipeline": "serialized actual producer \u2192 actual verifier/outer scope \u2192 frozen plan+freeze \u2192 reverify \u2192 exclusive claim \u2192 synthetic executor \u2192 independent native/worker checks",
+    "failed_freeze_publication_cases": 2,
+    "changed_missing_partial_freeze_cases": 9,
+    "failed_freeze_downstream_controller_worker_dispatches": [
+      0,
+      0
+    ],
+    "native_pre_effect_failure_cases": 3,
+    "native_pre_effect_reservation_raw_assertion_worker_calls": 0,
+    "valid_fixture_leaf_dispatches": 1,
+    "duplicate_dispatch_refused": true,
+    "copied_fixture_consumed_marker_refused": true,
+    "spy_results_are_not_native_exit_tests": true
+  },
+  "validation": {
+    "directory": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63",
+    "focused": 172,
+    "new_admission_cases": 64,
+    "full": 2482,
+    "portable": 2482,
+    "artifact_free": true,
+    "lint": true,
+    "format": true,
+    "dependency_check": true,
+    "source_bindings": 256,
+    "package_versions": 43,
+    "native_files": 41,
+    "checks": {
+      "focused": {
+        "exit_code": 0,
+        "elapsed_seconds": 11.736207457986893,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "tests/test_development_decision_admission.py",
+          "tests/test_development_decision.py",
+          "tests/test_development_decision_runtime.py",
+          "tests/test_development_decision_grants.py",
+          "-q"
+        ],
+        "log": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/focused.txt",
+        "log_sha256": "241c6e2a195df291a8201672881c27e85195645877574686b239208355facc73",
+        "scope": "new synthetic only / static checks"
+      },
+      "full": {
+        "exit_code": 0,
+        "elapsed_seconds": 58.72031954099657,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "-p",
+          "tests.cpu_mps_portable_plugin",
+          "-p",
+          "tests.controlled_activation_counter_plugin",
+          "-q"
+        ],
+        "log": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/full.txt",
+        "log_sha256": "394868e9feec82924596313d7f520688dfed8e6ff20b822582b365b69bebaa9a",
+        "scope": "artifact-free historical/new synthetic fixtures; legacy model forwards/updates permitted"
+      },
+      "portable": {
+        "exit_code": 0,
+        "elapsed_seconds": 58.38259479199769,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pytest",
+          "-p",
+          "tests.cpu_mps_portable_plugin",
+          "-p",
+          "tests.controlled_activation_counter_plugin",
+          "-q"
+        ],
+        "log": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/portable.txt",
+        "log_sha256": "26f3fd18dc78d0cf0de3fd847ac227e7155d4d4010ec48e98b867f7eca092b36",
+        "scope": "artifact-free historical/new synthetic fixtures; legacy model forwards/updates permitted"
+      },
+      "lint": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.0478695830097422,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "ruff",
+          "check",
+          "."
+        ],
+        "log": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/lint.txt",
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "scope": "new synthetic only / static checks"
+      },
+      "format": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.044525584002258256,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "ruff",
+          "format",
+          "--check",
+          "."
+        ],
+        "log": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/format.txt",
+        "log_sha256": "681d35b1cf232b2a72d72fb3f824d62f4e49bddf5e5bc167dc34481caf918c40",
+        "scope": "new synthetic only / static checks"
+      },
+      "dependencies": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.20981862500775605,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "pip",
+          "check"
+        ],
+        "log": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/dependencies.txt",
+        "log_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+        "scope": "new synthetic only / static checks"
+      },
+      "native_synthetic": {
+        "exit_code": 0,
+        "elapsed_seconds": 15.262021208007354,
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-m",
+          "latenttrigger.benchmarks.development_decision_native",
+          "--synthetic-directory",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/native-synthetic",
+          "--validation-bootstrap"
+        ],
+        "log": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/native_synthetic.txt",
+        "log_sha256": "8d4a28a77efabd88c295e6e465ba55216f43f5f31edabf7948356c51c921d700",
+        "scope": "new synthetic only / static checks"
+      }
+    },
+    "record_sha256": "42cc5f1a971c0b681af7063d778d35984f37cc330a7cc03aac513b0231e36338",
+    "repair_receipt_sha256": "37066812e3ca68572f08b007f38561c1c1e400dc8ad839e9d9e09ef659ecdb0d",
+    "repair_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3",
+    "source_map_canonical_sha256": "7193a723a19d03f0daa6d87942142b657ae3983a22977363a33a32b375b50990",
+    "native_build": {
+      "files": {
+        "numpy:numpy/_core/_multiarray_umath.cpython-312-darwin.so": "3432cd9093d7e84b4080015b6a889598fea4c305da967063cb916215193bf85d",
+        "h5py:h5py/.dylibs/libhdf5.320.0.0.dylib": "4195ec2a6e1a86bbb6c7c77b566c7fc7ae2c38ed5b6d5e67ccf55f657ad2934b",
+        "h5py:h5py/.dylibs/libhdf5_hl.320.0.0.dylib": "27a11fd1f8fdae2aaaca90fd331db52914f2bb9d3cafed6a7412de1277d46322",
+        "h5py:h5py/.dylibs/libz.1.3.2.dylib": "27780608222fb41d66d9c866fa3706f5d12d7e6002175a3bd4901ae6433c009c",
+        "h5py:h5py/_conv.cpython-312-darwin.so": "a4d5b8607b76cdf24dd379759f556ffb2102129679a65db9d4d6344ab0285de4",
+        "h5py:h5py/_errors.cpython-312-darwin.so": "dbdc2df54e9e06f578322302ffba40da994d80f14f5eb6ba2c29e7109acbf391",
+        "h5py:h5py/_npystrings.cpython-312-darwin.so": "bbb0ea33653ab855fbd33fda5accefe42e7628bbc38c74d59013f3580e1fe957",
+        "h5py:h5py/_objects.cpython-312-darwin.so": "4ba8ae2d388bf189669471ff208b765bc8549afdfff35a5525324b0927b8e7c5",
+        "h5py:h5py/_proxy.cpython-312-darwin.so": "34358781932c1ad590d13813d9fed42579ebebb523eb6bf99c498ecd211de8e3",
+        "h5py:h5py/_selector.cpython-312-darwin.so": "17e26dd0b88d677fc1d2d056dbd19e48f2913e460c927c725a6bdcb28c4c5353",
+        "h5py:h5py/defs.cpython-312-darwin.so": "3e27fee4819883580366007639ff4432501cb1bfcab093756ccd87ff89272e28",
+        "h5py:h5py/h5.cpython-312-darwin.so": "cd3e8d358645072b30be85493455eecf51bdc876d36f08f988ab7a2a3a3f0431",
+        "h5py:h5py/h5a.cpython-312-darwin.so": "47e37438eccc9c7c21e65183ab604a3ce65b7d716c3d87056732b6e0db1804c9",
+        "h5py:h5py/h5ac.cpython-312-darwin.so": "e48aaa75cbda0aa7b20409651b85741de69c6a7087b33e458d67052d0c7a82dd",
+        "h5py:h5py/h5d.cpython-312-darwin.so": "524c1296aa6621f83b10076d32d117d6c7713be817a428193ca1281854866c0d",
+        "h5py:h5py/h5ds.cpython-312-darwin.so": "4c38772df706c3a2b11c45c1a94ac0e64b4d39ceb9a9c8c9be1704ab0421a45d",
+        "h5py:h5py/h5f.cpython-312-darwin.so": "dc563cd212daa21ea89e0d0d3d94a610375c89343be4e40537ccea48444cbe44",
+        "h5py:h5py/h5fd.cpython-312-darwin.so": "6d9027334a821090f1aabe23265882606d888773d8c4377a0d2251a92e0b8ba6",
+        "h5py:h5py/h5g.cpython-312-darwin.so": "b12ba2f44bfa5a6ab72d5489f75e942534f4624031cf77b1451e61e3e7a96ec1",
+        "h5py:h5py/h5i.cpython-312-darwin.so": "cc6e3ea0188df8da1f98a0e60451b2091bd2717baf2aab176d72e64cb16ab61d",
+        "h5py:h5py/h5l.cpython-312-darwin.so": "634122e9a7d302c604c2d04a7dbb09f054e75aa411497f602383a6b7e288d22b",
+        "h5py:h5py/h5o.cpython-312-darwin.so": "23a4bc5dbe919c98e85f2aacd2c673a830d6533b7e8c79641a61259e75e1b409",
+        "h5py:h5py/h5p.cpython-312-darwin.so": "bf4dd83b89b19a093d0708253a9cd7508bd897a273e42603b8cfde6e9f818cdd",
+        "h5py:h5py/h5pl.cpython-312-darwin.so": "4c342d5e3d32e2b6bd65a25561a94b92ff9f5ca3972b694f9ea90bce5a5376bf",
+        "h5py:h5py/h5r.cpython-312-darwin.so": "63bbf9b90d2175bcf9020364a03955b114fc334bfa62d03e3b37481df3f056fe",
+        "h5py:h5py/h5s.cpython-312-darwin.so": "66ca86e0f89d7f922e116f33c179e32e8895297b8b9075ba3259759d7a7ac800",
+        "h5py:h5py/h5t.cpython-312-darwin.so": "dd99894432e4310335863afe6da489eda4382c25ffd5542b6743a73610dc06bd",
+        "h5py:h5py/h5z.cpython-312-darwin.so": "6b2b44e006215ba7c33bc931f57484bda7d4cf4182f1cd316bcf7d6c24ff5f94",
+        "h5py:h5py/utils.cpython-312-darwin.so": "1bba48e3e2639baf292843d9d4712de9bb2ae00bdc9f7b91dde913b994a2a6db",
+        "hdf5plugin:hdf5plugin/_config.py": "e9b3c7aa483593bf2f30067e89844e685a96b6aa96fc56b092e67861f7bd0542",
+        "hdf5plugin:hdf5plugin/plugins/libh5blosc.dylib": "e70d02727174bb743ac3a9c4dc35b8f6c5a121b93f6e8c4e17b16888f636127b",
+        "torch:torch/_C.cpython-312-darwin.so": "b5b5b86566d6e00ee22b73c51e6c243bd894ffbf06f12c58d0bab0549b1840ac",
+        "torch:torch/__config__.py": "542b81c1e3a31fcd3b3b5d17aee9a56ff06bb5635340c6081a36f76b0e93da9a",
+        "torch:torch/lib/libc10.dylib": "332fdb431f20a9690f38be0768cab415584480c2ce31744153347778f85a04d8",
+        "torch:torch/lib/libomp.dylib": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4",
+        "torch:torch/lib/libshm.dylib": "cb3ae9606a65cae6cc2f3a661a75a6b03ee1821badc24e99fa51253cb3244d4e",
+        "torch:torch/lib/libtorch.dylib": "a0e3303b427f2c9b1f34ba729d2ea3d3e821b9cfeb30ec490cc60e6c5c4bfe21",
+        "torch:torch/lib/libtorch_cpu.dylib": "886a21732227bea91a64dcc355bdea98808fab5014a84891de2fe3a081744079",
+        "torch:torch/lib/libtorch_global_deps.dylib": "183fab80a5ba3e8d577a53b9979e5b1345fe560948de350d75f5879b03ad8247",
+        "torch:torch/lib/libtorch_python.dylib": "50f79f7f37dd26a7e6438d349538ece1244bc5478dd65bef2ea5c6c63aa86709",
+        "torch:torch/version.py": "a3fcf46a2c44d102a5565f1f4735ccbb10055a423ff083610ceb81bb9e3abfa8"
+      },
+      "torch_config_canonical_JSON_string_sha256": "6d6fa299a6d76bc6add8bfff4916da33cbc1636da24e90df594e6434f918b26c",
+      "torch_version": "2.14.1",
+      "build_hash_convention": "canonical_JSON_string_not_raw_UTF8"
+    },
+    "roundtrip": "passed_emitted_record_to_parent_accepted_synthetic_lifecycle",
+    "final_bindings_reverified": true,
+    "prior_accepted_version_preserved": {
+      "directory": "data/task0042-validation/89f0e0a1a5bf4286bad5330f0b8b4f69",
+      "record_sha256": "2d2b91d7f354dcf2f504fe6999a6c3cd7446370f21abb3e6f290979bd2b011c0",
+      "repair_receipt_sha256": "b2fc7cd063c3896b75775453d71dd145173f0658da6b912300803d46a22d5b8a",
+      "source_map_archive": "data/task0042-validation/accepted-version1-source",
+      "status": "accepted_synthetic_version1_historical_not_final_current_source",
+      "refinement": "explicit grant native-build/plan top-level config/prompt/kind binding and four added regression cases; final version revalidated"
+    }
+  },
+  "native_synthetic": {
+    "invocations": 6,
+    "outcomes": {
+      "failed_prerequisites_no_retry": 1,
+      "parent_accepted_synthetic_raw_decision": 5
+    },
+    "attempts": [
+      {
+        "status": "failed_prerequisites_no_retry",
+        "synthetic_only": true,
+        "reserved": false,
+        "validation_bootstrap": true,
+        "whole_seconds": 0.5607807079795748,
+        "reserved_seconds": null,
+        "overshoot_seconds": 0,
+        "storage_bytes": null,
+        "controller_peak_RSS_bytes": null,
+        "error": "FileNotFoundError: [Errno 2] No such file or directory: 'data/task0042-validation/preliminary-native-01/repetition1/receipt.json'",
+        "identity": {
+          "task": "0041",
+          "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+          "scope": "selected_raw_to_decisions",
+          "kind": "synthetic_fixed_matrix",
+          "validation_owner": "0042",
+          "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+          "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+          "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+        },
+        "directory": "data/task0042-validation/preliminary-native-01",
+        "workflow_sha256": "91f2a7047107ce65efc0b0df92e9049235dedd2c9fd9c1eb8b2b9cb9d8b1bcd3",
+        "assertion": {
+          "released": true,
+          "owned_assertion_absent": true,
+          "helper_returncode": -15,
+          "lifecycle": {
+            "reaped": true,
+            "cleanup_deadline_met": true
+          },
+          "display_sleep_permitted": true,
+          "persistent_settings_changed": false,
+          "observations": 2
+        },
+        "parent_resources": {
+          "peak_rss_bytes": 49266688,
+          "native_heap_reserved_bytes": 37748736,
+          "pressure_counts": {
+            "NORMAL": 0,
+            "WARN": 5,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_query_start_gap_seconds": 0.05979658290743828,
+          "owned_thread_alive": false,
+          "latched_error": null
+        },
+        "workers": [
+          {
+            "phase": "repetition1",
+            "dispatch": {
+              "returncode": 1,
+              "parent_error": null,
+              "child_pid": 35389,
+              "child_reaped": true,
+              "started_continuous": 539830.931048583,
+              "exit_observed_continuous": 539831.005823625,
+              "end_continuous": 539831.005849416,
+              "elapsed_continuous_seconds": 0.07480083301197737,
+              "operation_deadline_continuous": 540008.930329166,
+              "stage_deadline_continuous": 540010.930329166,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": false
+            },
+            "acceptance": null
+          }
+        ]
+      },
+      {
+        "status": "parent_accepted_synthetic_raw_decision",
+        "synthetic_only": true,
+        "reserved": false,
+        "validation_bootstrap": true,
+        "whole_seconds": 15.561766584054567,
+        "reserved_seconds": 14.90813812497072,
+        "overshoot_seconds": 0,
+        "storage_bytes": 4195055,
+        "controller_peak_RSS_bytes": 47431680,
+        "error": null,
+        "identity": {
+          "task": "0041",
+          "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+          "scope": "selected_raw_to_decisions",
+          "kind": "synthetic_fixed_matrix",
+          "validation_owner": "0042",
+          "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+          "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+          "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+        },
+        "directory": "data/task0042-validation/preliminary-native-02",
+        "workflow_sha256": "5657125db7972c5c1d2d2e3630ab89d048a643217ca35f7ce85991c431dac93b",
+        "assertion": {
+          "released": true,
+          "owned_assertion_absent": true,
+          "helper_returncode": -15,
+          "lifecycle": {
+            "reaped": true,
+            "cleanup_deadline_met": true
+          },
+          "display_sleep_permitted": true,
+          "persistent_settings_changed": false,
+          "observations": 6
+        },
+        "parent_resources": {
+          "peak_rss_bytes": 47431680,
+          "native_heap_reserved_bytes": 33554432,
+          "pressure_counts": {
+            "NORMAL": 0,
+            "WARN": 500,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_query_start_gap_seconds": 0.06039966701064259,
+          "owned_thread_alive": false,
+          "latched_error": null
+        },
+        "workers": [
+          {
+            "phase": "repetition1",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 35894,
+              "child_reaped": true,
+              "started_continuous": 541803.029618125,
+              "exit_observed_continuous": 541807.766764458,
+              "end_continuous": 541807.766778541,
+              "elapsed_continuous_seconds": 4.737160416087136,
+              "operation_deadline_continuous": 541981.028692333,
+              "stage_deadline_continuous": 541983.028692333,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.2510415830183774
+            },
+            "resources": {
+              "peak_rss_bytes": 363610112,
+              "native_heap_reserved_bytes": 192724992,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 409,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.11479704198427498,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.487045457935892,
+            "cleanup_seconds": 9.616604074835777e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition2",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 35910,
+              "child_reaped": true,
+              "started_continuous": 541807.79866075,
+              "exit_observed_continuous": 541811.876218291,
+              "end_continuous": 541811.876231208,
+              "elapsed_continuous_seconds": 4.077570457942784,
+              "operation_deadline_continuous": 541985.797916583,
+              "stage_deadline_continuous": 541987.797916583,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.24218233302235603
+            },
+            "resources": {
+              "peak_rss_bytes": 389660672,
+              "native_heap_reserved_bytes": 186499072,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 400,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.0840949579142034,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 3.8361332919448614,
+            "cleanup_seconds": 0.00013462500646710396,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition3",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 35929,
+              "child_reaped": true,
+              "started_continuous": 541811.906830541,
+              "exit_observed_continuous": 541816.017712416,
+              "end_continuous": 541816.017727541,
+              "elapsed_continuous_seconds": 4.110897000064142,
+              "operation_deadline_continuous": 541989.906098125,
+              "stage_deadline_continuous": 541991.906098125,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.30723141599446535
+            },
+            "resources": {
+              "peak_rss_bytes": 389332992,
+              "native_heap_reserved_bytes": 186499072,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 399,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.09061600000131875,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 3.80439912492875,
+            "cleanup_seconds": 0.00011537503451108932,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "reporting",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 35945,
+              "child_reaped": true,
+              "started_continuous": 541816.048883041,
+              "exit_observed_continuous": 541817.564724458,
+              "end_continuous": 541817.564735791,
+              "elapsed_continuous_seconds": 1.5158527499297634,
+              "operation_deadline_continuous": 541874.04810725,
+              "stage_deadline_continuous": 541876.04810725,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.06363687489647418
+            },
+            "resources": {
+              "peak_rss_bytes": 97124352,
+              "native_heap_reserved_bytes": 65290240,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 20,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.06526333303190768,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 1.4529926249524578,
+            "cleanup_seconds": 8.433300536125898e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            }
+          }
+        ]
+      },
+      {
+        "status": "parent_accepted_synthetic_raw_decision",
+        "synthetic_only": true,
+        "reserved": false,
+        "validation_bootstrap": true,
+        "whole_seconds": 15.407423582975753,
+        "reserved_seconds": 15.01187650009524,
+        "overshoot_seconds": 0,
+        "storage_bytes": 4198215,
+        "controller_peak_RSS_bytes": 47628288,
+        "error": null,
+        "identity": {
+          "task": "0041",
+          "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+          "scope": "selected_raw_to_decisions",
+          "kind": "synthetic_fixed_matrix",
+          "validation_owner": "0042",
+          "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+          "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+          "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+        },
+        "directory": "data/task0042-validation/89f0e0a1a5bf4286bad5330f0b8b4f69/native-synthetic",
+        "workflow_sha256": "d3271e3a81ebc5ca68a438f6a6236a74dfb66a35a52ca6464c13d3ece0ea12b4",
+        "assertion": {
+          "released": true,
+          "owned_assertion_absent": true,
+          "helper_returncode": -15,
+          "lifecycle": {
+            "reaped": true,
+            "cleanup_deadline_met": true
+          },
+          "display_sleep_permitted": true,
+          "persistent_settings_changed": false,
+          "observations": 6
+        },
+        "parent_resources": {
+          "peak_rss_bytes": 47628288,
+          "native_heap_reserved_bytes": 33554432,
+          "pressure_counts": {
+            "NORMAL": 0,
+            "WARN": 509,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_query_start_gap_seconds": 0.06199895800091326,
+          "owned_thread_alive": false,
+          "latched_error": null
+        },
+        "workers": [
+          {
+            "phase": "repetition1",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 36641,
+              "child_reaped": true,
+              "started_continuous": 542089.45281175,
+              "exit_observed_continuous": 542094.063434916,
+              "end_continuous": 542094.0634475,
+              "elapsed_continuous_seconds": 4.6106357499957085,
+              "operation_deadline_continuous": 542267.452007791,
+              "stage_deadline_continuous": 542269.452007791,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.21254974999465048
+            },
+            "resources": {
+              "peak_rss_bytes": 386695168,
+              "native_heap_reserved_bytes": 194887680,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 409,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.08683491603005677,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.3988908749306574,
+            "cleanup_seconds": 0.00015854195225983858,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition2",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 36667,
+              "child_reaped": true,
+              "started_continuous": 542094.091676,
+              "exit_observed_continuous": 542098.317574625,
+              "end_continuous": 542098.317588208,
+              "elapsed_continuous_seconds": 4.225912207970396,
+              "operation_deadline_continuous": 542272.090894875,
+              "stage_deadline_continuous": 542274.090894875,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.24535666697192937
+            },
+            "resources": {
+              "peak_rss_bytes": 388775936,
+              "native_heap_reserved_bytes": 194887680,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 403,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.06993879203218967,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 3.9813380000414327,
+            "cleanup_seconds": 0.00013804202899336815,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition3",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 36685,
+              "child_reaped": true,
+              "started_continuous": 542098.348319291,
+              "exit_observed_continuous": 542102.56955025,
+              "end_continuous": 542102.569562833,
+              "elapsed_continuous_seconds": 4.221243542036973,
+              "operation_deadline_continuous": 542276.347573208,
+              "stage_deadline_continuous": 542278.347573208,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.2366786670172587
+            },
+            "resources": {
+              "peak_rss_bytes": 391544832,
+              "native_heap_reserved_bytes": 190693376,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 402,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.08078287495300174,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 3.9853119999170303,
+            "cleanup_seconds": 0.00013924995437264442,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "reporting",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 36701,
+              "child_reaped": true,
+              "started_continuous": 542102.598971041,
+              "exit_observed_continuous": 542104.087133541,
+              "end_continuous": 542104.087147,
+              "elapsed_continuous_seconds": 1.4881759589770809,
+              "operation_deadline_continuous": 542160.598191708,
+              "stage_deadline_continuous": 542162.598191708,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.05751558404881507
+            },
+            "resources": {
+              "peak_rss_bytes": 97189888,
+              "native_heap_reserved_bytes": 61095936,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 20,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.07440362509805709,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 1.4314407500205562,
+            "cleanup_seconds": 7.812504190951586e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            }
+          }
+        ]
+      },
+      {
+        "status": "parent_accepted_synthetic_raw_decision",
+        "synthetic_only": true,
+        "reserved": false,
+        "validation_bootstrap": false,
+        "whole_seconds": 16.563598957960494,
+        "reserved_seconds": 16.22496337501798,
+        "overshoot_seconds": 0,
+        "storage_bytes": 4201485,
+        "controller_peak_RSS_bytes": 48152576,
+        "error": null,
+        "identity": {
+          "task": "0041",
+          "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+          "scope": "selected_raw_to_decisions",
+          "kind": "synthetic_fixed_matrix",
+          "validation_owner": "0042",
+          "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+          "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+          "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+        },
+        "directory": "data/task0042-validation/89f0e0a1a5bf4286bad5330f0b8b4f69/roundtrip/native",
+        "workflow_sha256": "2a00212f6533bd496b4aaafa69b1594116ce6941bee591253b412f7a1047b811",
+        "assertion": {
+          "released": true,
+          "owned_assertion_absent": true,
+          "helper_returncode": -15,
+          "lifecycle": {
+            "reaped": true,
+            "cleanup_deadline_met": true
+          },
+          "display_sleep_permitted": true,
+          "persistent_settings_changed": false,
+          "observations": 6
+        },
+        "parent_resources": {
+          "peak_rss_bytes": 48152576,
+          "native_heap_reserved_bytes": 46137344,
+          "pressure_counts": {
+            "NORMAL": 0,
+            "WARN": 546,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_query_start_gap_seconds": 0.06201116705778986,
+          "owned_thread_alive": false,
+          "latched_error": null
+        },
+        "workers": [
+          {
+            "phase": "repetition1",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 36730,
+              "child_reaped": true,
+              "started_continuous": 542107.306271166,
+              "exit_observed_continuous": 542111.977732791,
+              "end_continuous": 542111.97774,
+              "elapsed_continuous_seconds": 4.6714688340434805,
+              "operation_deadline_continuous": 542285.305470416,
+              "stage_deadline_continuous": 542287.305470416,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.28375312499701977
+            },
+            "resources": {
+              "peak_rss_bytes": 389890048,
+              "native_heap_reserved_bytes": 194887680,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 404,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.07573870907071978,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.388517334009521,
+            "cleanup_seconds": 0.000134333036839962,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition2",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 36758,
+              "child_reaped": true,
+              "started_continuous": 542112.007699458,
+              "exit_observed_continuous": 542116.610389375,
+              "end_continuous": 542116.610398416,
+              "elapsed_continuous_seconds": 4.602698958013207,
+              "operation_deadline_continuous": 542290.006898083,
+              "stage_deadline_continuous": 542292.006898083,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.21705366601236165
+            },
+            "resources": {
+              "peak_rss_bytes": 388694016,
+              "native_heap_reserved_bytes": 194887680,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 404,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.07003391708713025,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.386447874945588,
+            "cleanup_seconds": 0.00013812491670250893,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition3",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 36774,
+              "child_reaped": true,
+              "started_continuous": 542116.638542375,
+              "exit_observed_continuous": 542121.431535333,
+              "end_continuous": 542121.431546458,
+              "elapsed_continuous_seconds": 4.793004083097912,
+              "operation_deadline_continuous": 542294.637762625,
+              "stage_deadline_continuous": 542296.637762625,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.2695147080812603
+            },
+            "resources": {
+              "peak_rss_bytes": 391806976,
+              "native_heap_reserved_bytes": 194887680,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 407,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.07510454207658768,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.524269958026707,
+            "cleanup_seconds": 0.0001781251048669219,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "reporting",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 36792,
+              "child_reaped": true,
+              "started_continuous": 542121.461428916,
+              "exit_observed_continuous": 542123.144375541,
+              "end_continuous": 542123.1443905,
+              "elapsed_continuous_seconds": 1.6829615840688348,
+              "operation_deadline_continuous": 542179.460685333,
+              "stage_deadline_continuous": 542181.460685333,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.09048424998763949
+            },
+            "resources": {
+              "peak_rss_bytes": 97107968,
+              "native_heap_reserved_bytes": 61095936,
+              "pressure_counts": {
+                "NORMAL": 0,
+                "WARN": 17,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.06982391595374793,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 1.5932217920199037,
+            "cleanup_seconds": 6.750004831701517e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            }
+          }
+        ]
+      },
+      {
+        "status": "parent_accepted_synthetic_raw_decision",
+        "synthetic_only": true,
+        "reserved": false,
+        "validation_bootstrap": true,
+        "whole_seconds": 15.163857624982484,
+        "reserved_seconds": 14.757358125061728,
+        "overshoot_seconds": 0,
+        "storage_bytes": 4194106,
+        "controller_peak_RSS_bytes": 48644096,
+        "error": null,
+        "identity": {
+          "task": "0041",
+          "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+          "scope": "selected_raw_to_decisions",
+          "kind": "synthetic_fixed_matrix",
+          "validation_owner": "0042",
+          "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+          "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+          "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+        },
+        "directory": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/native-synthetic",
+        "workflow_sha256": "0002cda330fd3c546b7518d7663b49b42d24d5587a94c6a565355268a4ec2b77",
+        "assertion": {
+          "released": true,
+          "owned_assertion_absent": true,
+          "helper_returncode": -15,
+          "lifecycle": {
+            "reaped": true,
+            "cleanup_deadline_met": true
+          },
+          "display_sleep_permitted": true,
+          "persistent_settings_changed": false,
+          "observations": 6
+        },
+        "parent_resources": {
+          "peak_rss_bytes": 48644096,
+          "native_heap_reserved_bytes": 37748736,
+          "pressure_counts": {
+            "NORMAL": 497,
+            "WARN": 0,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_query_start_gap_seconds": 0.0605307089863345,
+          "owned_thread_alive": false,
+          "latched_error": null
+        },
+        "workers": [
+          {
+            "phase": "repetition1",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 38014,
+              "child_reaped": true,
+              "started_continuous": 542914.350545666,
+              "exit_observed_continuous": 542918.982093583,
+              "end_continuous": 542918.9821035,
+              "elapsed_continuous_seconds": 4.631557834101841,
+              "operation_deadline_continuous": 543092.349754041,
+              "stage_deadline_continuous": 543094.349754041,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.2053003340261057
+            },
+            "resources": {
+              "peak_rss_bytes": 389873664,
+              "native_heap_reserved_bytes": 194887680,
+              "pressure_counts": {
+                "NORMAL": 409,
+                "WARN": 0,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.08782620797865093,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.42705012508668,
+            "cleanup_seconds": 0.00011116708628833294,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition2",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 38043,
+              "child_reaped": true,
+              "started_continuous": 542919.010228916,
+              "exit_observed_continuous": 542923.140528666,
+              "end_continuous": 542923.140542458,
+              "elapsed_continuous_seconds": 4.130313542089425,
+              "operation_deadline_continuous": 543097.009529791,
+              "stage_deadline_continuous": 543099.009529791,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.25860087503679097
+            },
+            "resources": {
+              "peak_rss_bytes": 388907008,
+              "native_heap_reserved_bytes": 186499072,
+              "pressure_counts": {
+                "NORMAL": 400,
+                "WARN": 0,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.09675429190974683,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 3.8724130000919104,
+            "cleanup_seconds": 0.00010833295527845621,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition3",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 38061,
+              "child_reaped": true,
+              "started_continuous": 542923.168878041,
+              "exit_observed_continuous": 542927.297446458,
+              "end_continuous": 542927.297452916,
+              "elapsed_continuous_seconds": 4.128574875066988,
+              "operation_deadline_continuous": 543101.168089583,
+              "stage_deadline_continuous": 543103.168089583,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.2212802910944447
+            },
+            "resources": {
+              "peak_rss_bytes": 388726784,
+              "native_heap_reserved_bytes": 182304768,
+              "pressure_counts": {
+                "NORMAL": 401,
+                "WARN": 0,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.08519558294210583,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 3.9080839169910178,
+            "cleanup_seconds": 9.837490506470203e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "reporting",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 38076,
+              "child_reaped": true,
+              "started_continuous": 542927.326292083,
+              "exit_observed_continuous": 542928.736681166,
+              "end_continuous": 542928.736696958,
+              "elapsed_continuous_seconds": 1.4104048749431968,
+              "operation_deadline_continuous": 542985.325567041,
+              "stage_deadline_continuous": 542987.325567041,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.06464416696690023
+            },
+            "resources": {
+              "peak_rss_bytes": 97419264,
+              "native_heap_reserved_bytes": 61095936,
+              "pressure_counts": {
+                "NORMAL": 19,
+                "WARN": 0,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.06920545804314315,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 1.3464865839341655,
+            "cleanup_seconds": 8.991605136543512e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            }
+          }
+        ]
+      },
+      {
+        "status": "parent_accepted_synthetic_raw_decision",
+        "synthetic_only": true,
+        "reserved": false,
+        "validation_bootstrap": false,
+        "whole_seconds": 15.978458249941468,
+        "reserved_seconds": 15.62446820794139,
+        "overshoot_seconds": 0,
+        "storage_bytes": 4203652,
+        "controller_peak_RSS_bytes": 47349760,
+        "error": null,
+        "identity": {
+          "task": "0041",
+          "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+          "scope": "selected_raw_to_decisions",
+          "kind": "synthetic_fixed_matrix",
+          "validation_owner": "0042",
+          "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+          "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+          "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+        },
+        "directory": "data/task0042-validation/5296d7c09f9e4f7f9c68e73460ef8f63/roundtrip/native",
+        "workflow_sha256": "441fd7c68c61d3ccea2aba10269091898280bcda36498deb2eba990b362ecb93",
+        "assertion": {
+          "released": true,
+          "owned_assertion_absent": true,
+          "helper_returncode": -15,
+          "lifecycle": {
+            "reaped": true,
+            "cleanup_deadline_met": true
+          },
+          "display_sleep_permitted": true,
+          "persistent_settings_changed": false,
+          "observations": 6
+        },
+        "parent_resources": {
+          "peak_rss_bytes": 47349760,
+          "native_heap_reserved_bytes": 41943040,
+          "pressure_counts": {
+            "NORMAL": 524,
+            "WARN": 0,
+            "CRITICAL": 0,
+            "unknown": 0
+          },
+          "max_query_start_gap_seconds": 0.060690792044624686,
+          "owned_thread_alive": false,
+          "latched_error": null
+        },
+        "workers": [
+          {
+            "phase": "repetition1",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 38105,
+              "child_reaped": true,
+              "started_continuous": 542931.970272541,
+              "exit_observed_continuous": 542936.564825875,
+              "end_continuous": 542936.5648385,
+              "elapsed_continuous_seconds": 4.594565958948806,
+              "operation_deadline_continuous": 543109.969481958,
+              "stage_deadline_continuous": 543111.969481958,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.22223349998239428
+            },
+            "resources": {
+              "peak_rss_bytes": 377618432,
+              "native_heap_reserved_bytes": 194887680,
+              "pressure_counts": {
+                "NORMAL": 403,
+                "WARN": 0,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.07902962493244559,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.373123958008364,
+            "cleanup_seconds": 9.200000204145908e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition2",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 38123,
+              "child_reaped": true,
+              "started_continuous": 542936.594109833,
+              "exit_observed_continuous": 542941.030221583,
+              "end_continuous": 542941.030234166,
+              "elapsed_continuous_seconds": 4.4361243329476565,
+              "operation_deadline_continuous": 543114.593355166,
+              "stage_deadline_continuous": 543116.593355166,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.229838665924035
+            },
+            "resources": {
+              "peak_rss_bytes": 388743168,
+              "native_heap_reserved_bytes": 182304768,
+              "pressure_counts": {
+                "NORMAL": 401,
+                "WARN": 0,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.07300408405717462,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.207041166955605,
+            "cleanup_seconds": 9.958399459719658e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "repetition3",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 38140,
+              "child_reaped": true,
+              "started_continuous": 542941.05977925,
+              "exit_observed_continuous": 542945.544946333,
+              "end_continuous": 542945.544969875,
+              "elapsed_continuous_seconds": 4.485190625069663,
+              "operation_deadline_continuous": 543119.05904425,
+              "stage_deadline_continuous": 543121.05904425,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.236457834020257
+            },
+            "resources": {
+              "peak_rss_bytes": 391184384,
+              "native_heap_reserved_bytes": 190693376,
+              "pressure_counts": {
+                "NORMAL": 401,
+                "WARN": 0,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.08921033306978643,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 4.249468665919267,
+            "cleanup_seconds": 9.987503290176392e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            },
+            "accounting": {
+              "raw_requests": 280,
+              "raw_returned_rows": 11830,
+              "feature_completed_calls": 280,
+              "feature_completed_rows": 11830,
+              "adapter_completed_calls": 328,
+              "adapter_completed_rows": 13858,
+              "decision_completed_calls": 328,
+              "decision_completed_rows": 13858,
+              "decision_boolean_values": 55432,
+              "model_instantiations": 2,
+              "membership_loads": 1,
+              "golden_loads": 1
+            },
+            "synthetic_setup": {
+              "feature_calls": 8,
+              "feature_rows": 1024,
+              "raw_requests": 8,
+              "raw_rows": 1024,
+              "model_fixture_creations": 2,
+              "setup_model_forward_calls": 0,
+              "HDF_read_handles": 1,
+              "HDF_write_handles": 1,
+              "operational_rows": 0
+            }
+          },
+          {
+            "phase": "reporting",
+            "dispatch": {
+              "returncode": 0,
+              "parent_error": null,
+              "child_pid": 38156,
+              "child_reaped": true,
+              "started_continuous": 542945.575924125,
+              "exit_observed_continuous": 542947.205175791,
+              "end_continuous": 542947.20518725,
+              "elapsed_continuous_seconds": 1.629263125010766,
+              "operation_deadline_continuous": 543003.575188333,
+              "stage_deadline_continuous": 543005.575188333,
+              "overshoot_seconds": 0,
+              "within_deadline": true,
+              "parent_confirms_normal_exit": true
+            },
+            "acceptance": {
+              "status": "parent_accepted_worker",
+              "normal_exit_reaped": true,
+              "terminal_resource_gap_seconds": 0.07132191699929535
+            },
+            "resources": {
+              "peak_rss_bytes": 96829440,
+              "native_heap_reserved_bytes": 65290240,
+              "pressure_counts": {
+                "NORMAL": 17,
+                "WARN": 0,
+                "CRITICAL": 0,
+                "unknown": 0
+              },
+              "max_query_start_gap_seconds": 0.07355337496846914,
+              "latched_error": null,
+              "owned_thread_alive": false
+            },
+            "worker_seconds": 1.5586779579753056,
+            "cleanup_seconds": 6.516603752970695e-05,
+            "identity": {
+              "task": "0041",
+              "protocol_kind": "one_conditional_selected_development_raw_to_decision_CPU_session",
+              "scope": "selected_raw_to_decisions",
+              "kind": "synthetic_fixed_matrix",
+              "validation_owner": "0042",
+              "config_sha256": "0139b29ddee05ce15d11811d9115a343209c7c24f12c97e52ce59661adda27ed",
+              "prompt_sha256": "62f251a903629f64fe34cc925e12a416445cfbb5194805956773ac9ebec3555b",
+              "validation_prompt_sha256": "1c0fcd5673feae263aeb6494c050aaeac424350ce86159d566e632b9f62836e3"
+            }
+          }
+        ]
+      }
+    ],
+    "limits_unchanged": {
+      "prerequisite_seconds": 60,
+      "numerical_worker_seconds": 180,
+      "reporting_seconds": 60,
+      "finalization_seconds": 15,
+      "reserved_seconds": 720,
+      "whole_seconds": 780,
+      "cleanup_seconds": 2,
+      "worker_RSS_bytes": 1073741824,
+      "native_reserved_bytes": 536870912,
+      "controller_RSS_bytes": 134217728,
+      "guard_journal_bytes": 16777216,
+      "log_bytes": 1048576,
+      "owned_storage_bytes": 134217728,
+      "owned_array_buffer_bytes": 67108864
+    },
+    "per_completed_integration": {
+      "cells": 24,
+      "timed_calls": 480,
+      "warmup_calls": 72,
+      "raw_read_calls": 840,
+      "raw_rows": 35490,
+      "feature_construction_calls": 840,
+      "feature_rows": 35490,
+      "public_service_calls": 984,
+      "service_rows": 41574,
+      "decision_boolean_values": 166296,
+      "canonical_fixture_model_instantiations": 6,
+      "additional_fixture_creator_instances": 6,
+      "additional_setup_raw_and_feature_calls": 24,
+      "additional_setup_rows": 3072,
+      "setup_forwards": 0
+    },
+    "cumulative_successful_fixture_service_calls": 4920,
+    "cumulative_successful_fixture_service_rows": 207870,
+    "first_failure": "relative path violated owned parent grant before fixture numerical setup; path normalized, failed source map256entries preserved exactly",
+    "sampled_resources_only": "query and terminal exit gaps disclosed per worker; no production stochastic/real timing claim"
+  },
+  "historical_synthetic_regression_scope": {
+    "actual_full_portable_suite_runs": 4,
+    "each_full_and_portable_instrumented_research_subset": {
+      "model_instances": 85,
+      "forward_calls": 31,
+      "forward_rows": 8710,
+      "reconstruction_computations": 31,
+      "toy_optimizer_steps": 2,
+      "toy_calibrations": 2
+    },
+    "coverage_limit": "counter plugin excludes unrelated historical models and native subprocesses; no global-zero or global-total model/optimizer claim"
+  },
+  "preservation": {
+    "snapshot_manifest_path": "data/task0042-validation/preserved-original/manifest.json",
+    "snapshot_manifest_sha256": "b3da104e9edaecd3e6bfe0681ec64429f150dad9e2ee2a26541ccfd2a30ff0ed",
+    "original_map_entries_resolved": 251,
+    "evidence_files": 159,
+    "initial_tracked_paths": 522,
+    "authorized_live_repairs": [
+      "scripts/validate_development_raw_decisions.py",
+      "src/latenttrigger/benchmarks/development_decision_native.py",
+      "src/latenttrigger/benchmarks/development_decision_protocol.py",
+      "src/latenttrigger/benchmarks/development_decision_runtime.py",
+      "tests/test_development_decision_grants.py",
+      "tests/test_development_decision_runtime.py"
+    ],
+    "initial_nonliving_nonrepair_paths_preserved": 513,
+    "issued_Task0041_record_sha256": "a86c964e9b6a4355c97c231c0617dda0ef5158ac529d5e7fe1c62bb2f5b08c4c",
+    "marker_sha256": "e12e95bf539b0ba1fbd4e4fec0d5f2b2aa5cc333abdcb219db784e2c9e8898c0",
+    "Task0041_status": "failed_prerequisites_no_retry",
+    "Task0041_failure_evidence_and_marker_preserved": true,
+    "historical_Task0041_source_is_preserved_snapshot_not_repaired_live_source": true,
+    "Task0041_csv_rows": 0,
+    "Task0041_operational_attempt_plan_absent": true,
+    "living_updates_separate": [
+      "README.md",
+      "docs/project-memory.md",
+      "docs/handoffs/README.md"
+    ]
+  },
+  "access": {
+    "original_test_background_model_evaluation_accessed": "YES",
+    "original_test_signal_model_evaluation_accessed": "YES",
+    "three_prong_signal_model_evaluation_accessed": "YES",
+    "new_operational_controller_invocations_reservations_workers": [
+      0,
+      0,
+      0
+    ],
+    "new_operational_membership_golden_raw_HDF_numeric_loads": 0,
+    "new_raw_byte_hash_passes_and_real_HDF_metadata_opens": [
+      0,
+      0
+    ],
+    "new_operational_feature_model_forward_reconstruction_decision_calls": 0,
+    "new_heldout_signal_selection_calibration_accesses": 0,
+    "new_operational_optimizer_scaler_calibration_scientific_fingerprint_work": 0,
+    "downloads": 0,
+    "replacement_operational_execution_authorized": false,
+    "metadata_custody": "original source/validation/failure JSON/log bytes; installed package and41native-build file identities, repeat verification; no event/model numerical payload"
+  },
+  "remaining": "Task0040 last accepted raw boundary; no accepted operational joint chain/parity/timing; separate prompt/new namespace/current acceptance+freeze/one new allowance required; Task0041 never reset; no Task0043 launch",
+  "scientific_state": {
+    "Task0036": "unresolved_no_acquisition",
+    "Task0034_gates_unchanged": true,
+    "Task0032": "complete",
+    "Task0033": "exploratory",
+    "Task0025": "failed",
+    "particle_steps_consumed": 192,
+    "particle_canonical": "deferred",
+    "confirmation_source_accepted": false
+  }
+}

@@ -168,6 +168,7 @@ def accept(body, dispatch, grant, directory, clock, deadline):
     check_deadline(clock, deadline)
     p.require(
         body["status"] == "body_complete_awaiting_exit"
+        and body["identity"] == grant["identity"]
         and body["grant_sha256"] == p.file_hash(directory / "grant.json")
         and body["source_map"] == grant["source_map"] == p.source_map()
         and body["dependencies"] == grant["dependencies"] == p.dependencies(),
