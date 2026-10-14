@@ -1,0 +1,271 @@
+{
+  "task": "0048",
+  "validation_owner": "0048",
+  "kind": "refined_support_service_replay",
+  "scope": "closed_Task0047_timing_metadata_synthetic_FIFO",
+  "source_manifest": {
+    "results/tables/final/task0047-targeted-partial-raw-decision-summary.json": {
+      "sha256": "64a43df2274afbd236bfc2459ccb52999e1a89a17a9db00cc5033c94c1c9f916",
+      "bytes": 398200
+    },
+    "results/tables/final/task0047-targeted-partial-raw-decision-cells.csv": {
+      "sha256": "53b4a171011ad19b08489fa7dc10f84a6acc93c12225ba691f7aa2fbb8adae2a",
+      "bytes": 120801
+    },
+    "results/tables/final/task0047-targeted-partial-raw-decision-pairs.csv": {
+      "sha256": "5f15973c0e10c6e7e67bcdf65ff678d14f9555abb78738af701306ebbfbc7ec3",
+      "bytes": 847822
+    },
+    "results/tables/final/task0047-targeted-partial-selection.csv": {
+      "sha256": "e369e25f5e647bc970d9defbd5c8aa04a046d42dfda05e0e6a498f2f52895a3d",
+      "bytes": 19686
+    },
+    "configs/benchmarks/development_targeted_raw_decision_v1.json": {
+      "sha256": "16f14d89297efc84dc51179bd93fbcc5d34dfa8e91b98d55e88d62d1b5ef4d92",
+      "bytes": 24991
+    },
+    "docs/prompts/0047-targeted-partial-raw-decision-measurement.md": {
+      "sha256": "ea33de3e6ef252cbbbdf5cbe1c34466ed46eabfca755a12d5301958cff547434",
+      "bytes": 25014
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/attempt.json": {
+      "sha256": "d2a7440c3dd0d1731404845c71fe98d4df6cfe59f06f9809b30681d92adec75b",
+      "bytes": 303
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/plan.json": {
+      "sha256": "c6c9ae60aaeaa37bf5b1f1a12a2fc4e7a6dcd53623503fdcbafdc9fde0678f68",
+      "bytes": 54931
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/workflow.json": {
+      "sha256": "f04fc8f08e9d2e04628b1ef6ea1f5064ee3260773b51f309e4894a0cae4c6af3",
+      "bytes": 94877
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/parent-acceptance.json": {
+      "sha256": "7a6d50e78fc5cd9140e138d70eb90b612223366ef63052af702f7e95f726ea56",
+      "bytes": 952
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/reporting/receipt.json": {
+      "sha256": "e9b57b05be54d7a55dd39bcc2023e2b20729af9f2e1407531df421e6f9e0e4ed",
+      "bytes": 44356
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/reporting/summary.json": {
+      "sha256": "3daadab646b5d0a8cc7ed259775e693f2deece35a12cd6a0f5e639f2b30318a5",
+      "bytes": 304159
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition1/receipt.json": {
+      "sha256": "9aca76ebc01cdc7103871d1ec54c2db977224508ee8665cbcb8f0e0a382925f0",
+      "bytes": 56141
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition1/aggregate.json": {
+      "sha256": "2b1ad758e1bc5734864bebfe8f3d032805b09c8a6498d20124dcdd7cbeb79372",
+      "bytes": 3336347
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition1/timings.jsonl": {
+      "sha256": "8e2dcc91276a8ce87442b124375281a089602e12e02d784c7afe195968a36044",
+      "bytes": 1707921
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition1/timer.json": {
+      "sha256": "8ef1c7e830557cd888b64e746e1e1dbfc58073f98dece8cef020281bc86e097b",
+      "bytes": 199
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition2/receipt.json": {
+      "sha256": "4831b1f35305e845833c8501f54debfcef55b8c5ff7516212a34d409c6a8ae3b",
+      "bytes": 56143
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition2/aggregate.json": {
+      "sha256": "bd0b9107531ba51c186ee003f4f6a96f77fbdf369aa90172e3fe43bad3235a8f",
+      "bytes": 3336274
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition2/timings.jsonl": {
+      "sha256": "fdb3fa4061f769d6ede9160a102c502af50e5e1bbedb30d78db18c1631b925bf",
+      "bytes": 1707906
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition2/timer.json": {
+      "sha256": "8ef1c7e830557cd888b64e746e1e1dbfc58073f98dece8cef020281bc86e097b",
+      "bytes": 199
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition3/receipt.json": {
+      "sha256": "c11e1a9304d0dd3daa8d7204bc4a27f62f338aa0514f77e2928522ad4434197e",
+      "bytes": 56143
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition3/aggregate.json": {
+      "sha256": "3d51767152aa46e46f15d37e2960e972c19153603f99e33415ba75c24bb688d9",
+      "bytes": 3336496
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition3/timings.jsonl": {
+      "sha256": "05de80e404f272c0be1d24fccf62eb5aecc338a759094becc948e66372ca6d30",
+      "bytes": 1708036
+    },
+    "results/benchmarks/task0047-targeted-partial-raw-decisions/4b1ae2522d114b47a56a89abccd9918d/repetition3/timer.json": {
+      "sha256": "8ef1c7e830557cd888b64e746e1e1dbfc58073f98dece8cef020281bc86e097b",
+      "bytes": 199
+    }
+  },
+  "mappings": [
+    "next_anchor",
+    "previous_anchor"
+  ],
+  "billing_sides": [
+    "natural_anchor",
+    "full_control"
+  ],
+  "cursor": "independent_anchor_zero_mod20_advance_once_per_dispatch",
+  "policies": [
+    [
+      1,
+      0
+    ],
+    [
+      8,
+      1000000
+    ],
+    [
+      8,
+      10000000
+    ],
+    [
+      32,
+      1000000
+    ],
+    [
+      32,
+      10000000
+    ],
+    [
+      128,
+      1000000
+    ],
+    [
+      128,
+      10000000
+    ]
+  ],
+  "arrivals": {
+    "modes": [
+      "periodic",
+      "poisson"
+    ],
+    "rates": [
+      500,
+      2500,
+      5000
+    ],
+    "seeds": [
+      41,
+      42,
+      43
+    ],
+    "count": 5000,
+    "generator": "unchanged_Task0037_PCG64_SeedSequence"
+  },
+  "capacity": 1024,
+  "deadline_ns": 100000000,
+  "thresholds": [
+    0.9,
+    0.95,
+    0.99,
+    0.999
+  ],
+  "limits": {
+    "prerequisite_seconds": 30,
+    "simulation_seconds": 120,
+    "reporting_seconds": 60,
+    "finalization_seconds": 15,
+    "whole_seconds": 240,
+    "cleanup_seconds": 2,
+    "worker_RSS_bytes": 1073741824,
+    "native_reserved_bytes": 536870912,
+    "controller_RSS_bytes": 134217728,
+    "guard_journal_bytes": 67108864,
+    "worker_log_bytes": 1048576,
+    "owned_storage_bytes": 134217728,
+    "retained_trace_bytes": 16777216,
+    "max_latency_entries_per_scenario": 5000,
+    "source_bundle_bytes": 25165824,
+    "retained_service_vectors_bytes": 2097152,
+    "parsed_source_python_bytes": 134217728
+  },
+  "expected": {
+    "traces": 18,
+    "unique_synthetic_events": 90000,
+    "scenarios": 6048,
+    "event_presentations": 30240000,
+    "common_contexts": 756,
+    "contrasts": 6048,
+    "paired_vectors": 192,
+    "original_timed_observations": 7680,
+    "occupancy_row_bound": 291168,
+    "anchor_row_bound": 39744
+  },
+  "authorization_prompt": "docs/prompts/0048-refined-support-service-replay.md",
+  "interpretation": "finite paired warm costs transported by sparse next/previous hypotheses and independent 20-pair cycles; no bound, interpolation or policy selection",
+  "supports": {
+    "coarse_reference": {
+      "1": [
+        1
+      ],
+      "8": [
+        1,
+        2,
+        7,
+        8
+      ],
+      "32": [
+        1,
+        2,
+        8,
+        31,
+        32
+      ],
+      "128": [
+        1,
+        2,
+        32,
+        127,
+        128
+      ]
+    },
+    "refined_32": {
+      "1": [
+        1
+      ],
+      "8": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "32": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        31,
+        32
+      ],
+      "128": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        32,
+        127,
+        128
+      ]
+    }
+  }
+}

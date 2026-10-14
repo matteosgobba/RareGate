@@ -43,7 +43,35 @@ deployment.
 
 ## Current status
 
-The [Task0046 occupancy-aware replay](docs/occupancy-aware-service-replay.md) is
+The [Task0048 refined-support replay](docs/refined-support-service-replay.md) is
+parent accepted and consumed: 6,048 scenarios, 30.24 million synthetic event
+presentations, 6,048 contrasts, 39,291 occupancy rows and 39,744 anchor audits from
+the closed current Task0047 source. Refined next-anchor natural−control totals
+−55 overflow and −21,714 late events; previous-anchor totals −160,659 and −399,707,
+while modeling 473,944 fewer rows than completed events. Mapped useful-event/busy
+fractions remain 9.1235%/10.6613% for next natural and 27.3306%/15.2802% for
+previous natural. Refined−coarse interactions are −459/+589 overflow/late for
+next and +29,813/+50,377 for previous; control cases, phases and queue histories
+also change. These finite warm-window hypotheses do not establish a measured
+bound, production p99 or deployment policy.
+
+Fresh 250 focused, 3,591 full and 3,591 portable checks and an admitted native
+roundtrip preceded the single 78.911485 s source session. Normal exits, reaping,
+caps, 19 active sleep-assertion observations, release and zero overshoot pass.
+Software failures and positive legacy fixture work are preserved. All 333
+unfavorable source pairs remain; 137 occupancies remain unmeasured. New operational
+raw/model/scientific work and physical timing are zero. See the
+[Italian handoff](docs/handoffs/0048-refined-support-service-replay.md). Historical
+gates, permanent YES/YES/YES and particle 192/192 remain unchanged; no automatic
+Task0049 follows.
+
+Task0047 remains the latest accepted physical development boundary: 32 current
+paired cases, 17 new and 15 remeasured, 384 cells/3,840 pairs and its own wrapper
+using actual model rows. Task0048 transports only those current vectors; its
+coarse subset comes from the same campaign. Existing source, repetition, host
+and cache limitations persist.
+
+The historical [Task0046 occupancy-aware replay](docs/occupancy-aware-service-replay.md) is
 parent accepted and consumed: 3024 scenarios, 15.12 million synthetic event
 presentations, 2268 contrasts and complete occupancy/anchor audits from the closed
 Task0045 timing bundle. Next-anchor natural billing has +2037 overflow and +38310
@@ -55,7 +83,7 @@ retained, not physical bounds or a policy recommendation. Fresh167focused and
 accepted session; two failed native fixtures are preserved. No new operational
 raw/model/scientific/physical service work; legacy fixture activity is separate.
 See the [Italian handoff](docs/handoffs/0046-occupancy-aware-service-replay.md).
-No automatic Task0047; historical gates/exposure/particle state remain unchanged.
+Task0047 subsequently completed its separately authorized physical campaign; historical gates/exposure/particle state remain unchanged.
 
 The [Task0045 paired natural-partial measurement](docs/natural-partial-raw-decision-measurement.md)
 is parent accepted and consumed:180cells/1800timed pairs,6300raw reads/features
@@ -748,4 +776,6 @@ The software is released under the [MIT License](LICENSE).
 
 - [x] Task0046: accepted/consumed model-free occupancy replay;3024cases/2268contrasts/15.12Mpresentations, closed23file source and paired next/previous assignments,167focused3071full+portable, complete bounded lifecycle/audits. No policy or Task0047.
 
-Task0047 completed one separately authorized [targeted partial CPU campaign](docs/targeted-partial-raw-decision-measurement.md): 32 current cases (17 new/15 remeasured), 384 cells/3840 pairs, exact same-shaped parity, parent accepted/consumed320.220989s. All333 unfavorable pairs remain;137 occupancies remain unmeasured. New owned actual-row wrapper preserves public frozen scores and historical guards; no automatic queue replay/policy/Task0048. [Italian handoff](docs/handoffs/0047-targeted-partial-raw-decision-measurement.md).
+At its task-time completion, Task0047 completed one separately authorized [targeted partial CPU campaign](docs/targeted-partial-raw-decision-measurement.md): 32 current cases (17 new/15 remeasured), 384 cells/3840 pairs, exact same-shaped parity, parent accepted/consumed320.220989s. All333 unfavorable pairs remain;137 occupancies remain unmeasured. New owned actual-row wrapper preserves public frozen scores and historical guards; no automatic queue replay/policy/Task0048. [Italian handoff](docs/handoffs/0047-targeted-partial-raw-decision-measurement.md).
+
+- [x] Task0048: accepted/consumed current-source refined/coarse paired replay,6048scenarios/6048contrasts/30.24Mpresentations, complete compact audits and bounded78.911485s lifecycle;250focused3591full+portable/current324bindings, software failures preserved, no new raw/model/scientific timing or Task0049.
