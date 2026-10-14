@@ -43,6 +43,18 @@ deployment.
 
 ## Current status
 
+The [Task0045 paired natural-partial measurement](docs/natural-partial-raw-decision-measurement.md)
+is parent accepted and consumed:180cells/1800timed pairs,6300raw reads/features
+255360row presentations,7380original CPU services299136rows, exact same-shaped
+parity and complete bounded exits/reaping/assertion release. At B128/m32, natural
+PCA/AE means12.792/13.239ms versus48.611/50.181ms full real controls; paired ratios
+.2627/.2634. All351adverse pairs and slow observations remain.172focused/2921full
+and portable tests plus fresh admitted native roundtrip pass; earlier fixture
+failures are preserved. This measures sparse warm-window costs without padding,
+interpolation, queue replay, policy selection or scientific change. New raw/feature/
+model inference is positive authorized work; historical exposure/gates remain.
+No automatic Task0046; see the [Italian handoff](docs/handoffs/0045-natural-partial-raw-decision-measurement.md).
+
 The [Task0044 deterministic joint-service replay](docs/deterministic-joint-service-replay.md)
 is parent accepted:1764 fixed scenarios/8,820,000 presentations,756 mean-control
 and252 ordering contrasts, conservation/final pending0 and three inspected figures.
@@ -694,6 +706,8 @@ To format code during development, run `python -m ruff format .`.
 - [x] Task0041 bounded outcome: direct CPU chain/planner synthetically validated107focused/2417full+portable; sole real prerequisite failed/consumed before numerical work on inconsistent acceptance status, no measured costs or retry.
 - [x] Task0042: strict emitted-record admission and fail-closed synthetic freeze/dispatch,172focused/2482full+portable/current256bindings, final native roundtrip accepted; original Task0041 failure consumed/preserved, zero new operational work.
 - [x] Task0043: one new accepted sparse-development raw→frozen features→native CPU/four decisions session,24cells/480timings/exact parity/complete984services; separate closed admission, fresh214focused2588full+portable, no scientific re-evaluation or Task0044.
+- [x] Task0044: accepted deterministic synthetic joint-service replay; original source-loader failure/hypothetical full-B billing preserved, no new physical cost or policy selection.
+- [x] Task0045: one accepted/consumed paired natural-partial raw-to-decision campaign,15cases/180cells/1800pairs/exact parity/6300reads+features7380services; separate closed final-source admission and sparse warm-window interpretation, no padding/interpolation/replay/Task0046.
 - [x] Initial native PCA/AE scientific quality versus scoped CPU cost comparison; independent generalization and physical deployment remain open.
 - [ ] Feature-level bias diagnostics, capacity-controlled comparison, other signals/populations and strict-tail utility.
 - [x] Frozen PCA/AE CPU reference: Task0022 complete and accepted.
