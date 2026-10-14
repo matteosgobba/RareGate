@@ -43,6 +43,20 @@ deployment.
 
 ## Current status
 
+The [Task0046 occupancy-aware replay](docs/occupancy-aware-service-replay.md) is
+parent accepted and consumed: 3024 scenarios, 15.12 million synthetic event
+presentations, 2268 contrasts and complete occupancy/anchor audits from the closed
+Task0045 timing bundle. Next-anchor natural billing has +2037 overflow and +38310
+late completions relative to paired controls in the summed grid; previous-anchor
+has −185005/−408610, while modeling 1081653 fewer rows than completed events.
+These are two hypotheses for unmeasured occupancies, with adverse/null effects
+retained, not physical bounds or a policy recommendation. Fresh167focused and
+3071full/portable tests plus emitted-record native roundtrip precede one35.930s
+accepted session; two failed native fixtures are preserved. No new operational
+raw/model/scientific/physical service work; legacy fixture activity is separate.
+See the [Italian handoff](docs/handoffs/0046-occupancy-aware-service-replay.md).
+No automatic Task0047; historical gates/exposure/particle state remain unchanged.
+
 The [Task0045 paired natural-partial measurement](docs/natural-partial-raw-decision-measurement.md)
 is parent accepted and consumed:180cells/1800timed pairs,6300raw reads/features
 255360row presentations,7380original CPU services299136rows, exact same-shaped
@@ -53,7 +67,7 @@ and portable tests plus fresh admitted native roundtrip pass; earlier fixture
 failures are preserved. This measures sparse warm-window costs without padding,
 interpolation, queue replay, policy selection or scientific change. New raw/feature/
 model inference is positive authorized work; historical exposure/gates remain.
-No automatic Task0046; see the [Italian handoff](docs/handoffs/0045-natural-partial-raw-decision-measurement.md).
+Task0046 subsequently reuses these timings under separately declared hypotheses; see the [Italian handoff](docs/handoffs/0045-natural-partial-raw-decision-measurement.md).
 
 The [Task0044 deterministic joint-service replay](docs/deterministic-joint-service-replay.md)
 is parent accepted:1764 fixed scenarios/8,820,000 presentations,756 mean-control
@@ -731,3 +745,5 @@ those organizations. Future trigger-like experiments will be research
 approximations whose assumptions and limitations must be documented.
 
 The software is released under the [MIT License](LICENSE).
+
+- [x] Task0046: accepted/consumed model-free occupancy replay;3024cases/2268contrasts/15.12Mpresentations, closed23file source and paired next/previous assignments,167focused3071full+portable, complete bounded lifecycle/audits. No policy or Task0047.
