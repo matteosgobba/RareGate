@@ -653,6 +653,11 @@ python -m ruff format --check .
 python -m pytest
 ```
 
+The complete test suite requires `python -m pip install -e ".[dev,data,analysis]"`,
+including Matplotlib for generated reporting fixtures. Synthetic research fixtures
+bind dependency identities to the installed test runtime in memory. Native
+scientific controllers retain their frozen dependency and Darwin requirements.
+
 Device-selection tests simulate both MPS availability states. CPU tensor and
 diagnostic tests perform real computations while forcing the CPU fallback, so
 the suite works on ordinary CPU-only CI runners. GitHub Actions runs these checks

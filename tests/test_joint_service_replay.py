@@ -5,6 +5,7 @@ import random
 from pathlib import Path
 
 import pytest
+from tests.runtime_fixtures import SyntheticClock
 
 from latenttrigger.simulation import joint_admission as admission
 from latenttrigger.simulation import joint_protocol as p
@@ -697,6 +698,7 @@ def test_actual_controller_stops_before_guard_assertion_worker(software, monkeyp
 
     directory, record = software
     monkeypatch.setattr(native, "NAMESPACE", p.ROOT / p.NAMESPACE)
+    monkeypatch.setattr(native.rt, "ContinuousClock", SyntheticClock)
     called = []
     monkeypatch.setattr(
         native.rt, "IdleAssertion", lambda *a: called.append("assertion")

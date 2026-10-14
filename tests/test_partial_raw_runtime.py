@@ -7,6 +7,7 @@ from types import SimpleNamespace
 
 import numpy as np
 import pytest
+from tests.runtime_fixtures import SyntheticClock
 from tests.test_partial_raw_admission import add_roundtrip
 from tests.test_partial_raw_admission import emitted as emitted
 
@@ -138,6 +139,8 @@ def test_real_branch_fixture_custody_failure_consumes_without_raw_hash(
     add_roundtrip(context, path)
     frozen = a.prepare(path, directory, context, a.Mode.OPERATIONAL)
     effects = []
+
+    monkeypatch.setattr(rt, "ContinuousClock", SyntheticClock)
 
     def custody(root):
         assert root == context.root

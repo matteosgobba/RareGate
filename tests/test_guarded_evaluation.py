@@ -353,6 +353,10 @@ def test_atomic_stage_and_separate_final_slot(tmp_path, monkeypatch, mode):
             )[0]
         except FileExistsError:
             return None
+        except ValueError as exc:
+            # The losing thread can observe the winner before mkdir is attempted.
+            assert str(exc) == "Fixed stage reserved/partial/consumed; no retry."
+            return None
 
     with ThreadPoolExecutor(max_workers=2) as pool:
         results = list(pool.map(reserve, range(2)))

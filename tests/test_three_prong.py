@@ -4,6 +4,7 @@ import subprocess
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
+from types import SimpleNamespace
 
 import h5py
 import numpy as np
@@ -413,6 +414,9 @@ def test_failed_first_stage_prevents_dependents_and_remains_consumed(
         ),
     )
     monkeypatch.setattr(c, "parent_check", lambda **kwargs: 0)
+    monkeypatch.setattr(
+        c, "sys", SimpleNamespace(platform="darwin", executable=sys.executable)
+    )
     calls = []
 
     def fail(*args, **kwargs):
@@ -473,7 +477,26 @@ def test_body_complete_hang_is_terminated_reaped_without_success(tmp_path):
     result = tmp_path / "dispatch.json"
     body = tmp_path / "body.json"
     child = f"from pathlib import Path;import time;Path({str(body)!r}).write_text('body_complete_awaiting_exit');time.sleep(20)"
-    code = f"import sys,time,json,os;from pathlib import Path;from latenttrigger.evaluation.three_prong import supervise;r=supervise([sys.executable,'-c',{child!r}],Path({str(log)!r}),root=Path({str(tmp_path)!r}),environment=dict(os.environ),stage_seconds=2.5,whole_deadline=time.monotonic()+5);Path({str(result)!r}).write_text(json.dumps(r))"
+    # Resource admission is a fixture; process exit, deadlines and reaping are real.
+    code = f"""
+import json
+import os
+import sys
+import time
+from pathlib import Path
+from latenttrigger.evaluation import guarded
+
+guarded.parent_check = lambda **kwargs: 1
+dispatch = guarded.supervise(
+    [sys.executable, '-c', {child!r}],
+    Path({str(log)!r}),
+    root=Path({str(tmp_path)!r}),
+    environment=dict(os.environ),
+    stage_seconds=2.5,
+    whole_deadline=time.monotonic() + 5,
+)
+Path({str(result)!r}).write_text(json.dumps(dispatch))
+"""
     subprocess.run([sys.executable, "-c", code], check=True, timeout=10)
     d = p.read(result)
     assert (
@@ -483,6 +506,17 @@ def test_body_complete_hang_is_terminated_reaped_without_success(tmp_path):
         and d["returncode"] != 0
         and d["within_deadline"]
     )
+
+
+def test_unsupported_platform_refused_before_reservation(tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr(c, "parent_check", lambda **kwargs: 1)
+    monkeypatch.setattr(c, "sys", SimpleNamespace(platform="linux"))
+    assert c.run(tmp_path, allow_test=True, plan_sha256="synthetic") == 1
+    assert (
+        "Supported Darwin primary process accounting required"
+        in capsys.readouterr().out
+    )
+    assert not (tmp_path / q.OUTPUT).exists()
 
 
 def test_human_consent_refused_before_real_reservation(tmp_path, monkeypatch):

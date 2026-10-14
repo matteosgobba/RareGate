@@ -12,6 +12,7 @@ import sys
 import time
 from datetime import UTC, datetime
 from email.message import Message
+from types import SimpleNamespace
 from urllib.error import HTTPError, URLError
 
 import h5py
@@ -694,6 +695,9 @@ def controlled_session(tmp_path, monkeypatch):
     monkeypatch.setattr(c, "parent_check", lambda **kwargs: 1)
     monkeypatch.setattr(c, "controller_rss", lambda: 2**20)
     monkeypatch.setattr(
+        c, "sys", SimpleNamespace(platform="darwin", executable=sys.executable)
+    )
+    monkeypatch.setattr(
         c, "network_check", lambda spec: dict(synthetic=True, payload_requests=0)
     )
     calls = []
@@ -864,6 +868,15 @@ def test_parent_promotion_never_overwrites_foreign_file(
     assert c.run(root, network_authorized=True) == 1
     assert (root / q.RAW / spec["source"]["filename"]).read_bytes() == b"foreign"
     assert p.read(root / q.OUTPUT / "workflow.json")["accepted_verified_bytes"] == 0
+
+
+def test_unsupported_platform_refused_before_reservation(
+    controlled_session, monkeypatch
+):
+    root, _, calls, _ = controlled_session
+    monkeypatch.setattr(c, "sys", SimpleNamespace(platform="linux"))
+    assert c.run(root, network_authorized=True) == 1 and calls == []
+    assert not (root / q.OUTPUT).exists() and not (root / q.RAW).exists()
 
 
 def test_network_permission_required_before_reservation(controlled_session):

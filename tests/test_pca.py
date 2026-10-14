@@ -53,13 +53,20 @@ def test_pca_rule_reconstruction_score_direction_and_repeat(features):
     assert first.score(features, feature_names=AGGREGATE_NAMES).max() < 1
 
 
-def test_transparent_artifact_identity_roundtrip_and_corruption(features):
-    model = PCAReconstruction.fit(features, feature_names=AGGREGATE_NAMES)
+@pytest.mark.parametrize("training_events", [120, 240])
+@pytest.mark.parametrize("score_events", [32, 240])
+def test_transparent_artifact_identity_roundtrip_and_corruption(
+    features, training_events, score_events
+):
+    model = PCAReconstruction.fit(
+        features[:training_events], feature_names=AGGREGATE_NAMES
+    )
     artifact = model.artifact(provenance={"toy": True}, build={})
     loaded = PCAReconstruction.from_artifact(json.loads(json.dumps(artifact)))
+    assert loaded.artifact(provenance={"toy": True}, build={}) == artifact
     np.testing.assert_array_equal(
-        model.score(features, feature_names=AGGREGATE_NAMES),
-        loaded.score(features, feature_names=AGGREGATE_NAMES),
+        model.score(features[:score_events], feature_names=AGGREGATE_NAMES),
+        loaded.score(features[:score_events], feature_names=AGGREGATE_NAMES),
     )
     artifact["scientific"]["mean"][0] += 1
     with pytest.raises(ValueError, match="identity"):

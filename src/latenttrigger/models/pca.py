@@ -131,7 +131,8 @@ class PCAReconstruction:
             )
         return cls(
             fitted.mean_,
-            fitted.components_,
+            # Match JSON reload layout so BLAS rounding survives the roundtrip.
+            np.ascontiguousarray(fitted.components_),
             fitted.explained_variance_,
             ratios,
             k,

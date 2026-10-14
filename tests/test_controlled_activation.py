@@ -2,9 +2,13 @@
 
 import copy
 import hashlib
+import importlib.metadata
+import inspect
 import math
 import random
+import sys
 from fractions import Fraction
+from pathlib import Path
 
 import numpy as np
 import pytest
@@ -19,7 +23,26 @@ from latenttrigger.training.autoencoder import deterministic_cpu, feature_loader
 
 @pytest.fixture(scope="module")
 def spec():
-    return p.load_config()
+    # Bind only this in-memory fixture to the test runtime, retaining frozen files.
+    config = p.read(p.ROOT / p.CONFIG)
+    config["dependencies"] = dict(
+        Python=sys.version,
+        Torch=importlib.metadata.version("torch"),
+        NumPy=importlib.metadata.version("numpy"),
+        torch_build_sha256=hashlib.sha256(torch.__config__.show().encode()).hexdigest(),
+        adam_source_sha256=p.file_hash(Path(inspect.getfile(torch.optim.Adam))),
+    )
+    return p.validate_config(config)
+
+
+@pytest.mark.parametrize(
+    "field", ["Python", "Torch", "NumPy", "torch_build_sha256", "adam_source_sha256"]
+)
+def test_changed_runtime_identity_refused(spec, field):
+    changed = copy.deepcopy(spec)
+    changed["dependencies"][field] = "foreign runtime"
+    with pytest.raises(ValueError):
+        m.verify_runtime(changed)
 
 
 @pytest.fixture

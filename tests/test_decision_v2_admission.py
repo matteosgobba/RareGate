@@ -407,7 +407,7 @@ def test_operational_freeze_requires_independent_roundtrip(emitted):
     effects = []
     a.dispatch(frozen, lambda f: effects.append("fixture_operational_branch"))
     assert effects == ["fixture_operational_branch"]
-    assert not (p.ROOT / p.OUTPUT).exists()
+    assert not (context.root / p.OUTPUT).exists()
 
 
 @pytest.mark.parametrize("old", ["0040", "0041", "0042"])

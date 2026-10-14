@@ -111,6 +111,7 @@ def test_assertion_failure_release_preserved_no_operational_load(
     monkeypatch.setattr(p, "load", lambda: spec)
     monkeypatch.setattr(p, "source_map", lambda: {})
     monkeypatch.setattr(p, "dependencies", lambda: {})
+    monkeypatch.setattr(p, "native_build", lambda: {"fixture": "native build"})
     monkeypatch.setattr(rt, "ContinuousClock", Clock)
     monkeypatch.setattr(rt, "alarm", lambda *args: nullcontext())
     monkeypatch.setattr(rt, "IdleAssertion", Assertion)
@@ -140,6 +141,8 @@ def test_assertion_failure_release_preserved_no_operational_load(
         and not result["reserved"]
         and not (base / "parent-acceptance.json").exists()
     )
+    expected_error = "assertion lost" if failure == "loss" else "assertion setup"
+    assert result["error"] == "RuntimeError: " + expected_error
     if failure == "release":
         assert "release_error" in result["sleep_assertion"]
     else:
