@@ -747,3 +747,5 @@ approximations whose assumptions and limitations must be documented.
 The software is released under the [MIT License](LICENSE).
 
 - [x] Task0046: accepted/consumed model-free occupancy replay;3024cases/2268contrasts/15.12Mpresentations, closed23file source and paired next/previous assignments,167focused3071full+portable, complete bounded lifecycle/audits. No policy or Task0047.
+
+Task0047 completed one separately authorized [targeted partial CPU campaign](docs/targeted-partial-raw-decision-measurement.md): 32 current cases (17 new/15 remeasured), 384 cells/3840 pairs, exact same-shaped parity, parent accepted/consumed320.220989s. All333 unfavorable pairs remain;137 occupancies remain unmeasured. New owned actual-row wrapper preserves public frozen scores and historical guards; no automatic queue replay/policy/Task0048. [Italian handoff](docs/handoffs/0047-targeted-partial-raw-decision-measurement.md).
