@@ -516,40 +516,13 @@ def observe_pilot(root):
 
 
 def own_tracker_rss():
-    """Only this subject's multiprocessing tracker PID; no process inventory."""
-    import ctypes
-    import sys
-    from multiprocessing import resource_tracker
+    """Legacy name delegates typed observation; no private16MiB partition remains.
 
-    pid = resource_tracker._resource_tracker._pid
-    if pid is None:
-        return 0
-    if sys.platform == "darwin":
-        # Darwin proc_taskinfo: six uint64 followed by twelve int32,96B.
-        library = ctypes.CDLL("/usr/lib/libproc.dylib", use_errno=True)
-        query = library.proc_pidinfo
-        query.argtypes = [
-            ctypes.c_int,
-            ctypes.c_int,
-            ctypes.c_uint64,
-            ctypes.c_void_p,
-            ctypes.c_int,
-        ]
-        query.restype = ctypes.c_int
-        buffer = (ctypes.c_uint64 * 12)()
-        require(
-            query(pid, 4, 0, ctypes.byref(buffer), 96) == 96,
-            "Own tracker RSS observation",
-        )
-        rss = int(buffer[1])
-    else:
-        import resource
+    This does not reopen the consumed Task0054 activation or change its evidence.
+    """
+    from .resources import TrackerBudget
 
-        fields = (Path("/proc") / str(pid) / "statm").read_text().split()
-        rss = int(fields[1]) * os.sysconf("SC_PAGE_SIZE")
-        del resource
-    require(0 < rss <= 16 * 1024**2, "Own tracker16MiB allowance within inner80MiB")
-    return rss
+    return TrackerBudget().observe()["rss_bytes"]
 
 
 def validate_spec(spec, repo):

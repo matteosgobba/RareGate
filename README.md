@@ -43,7 +43,35 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
-Task0054 adds a **partial/failed bounded HDF consumer pilot**:
+Task0055 completes the **software-only streaming startup/resource repair**:
+`completed_software_only_streaming_startup_repair`; readiness
+`requires_fresh_bounded_operational_authorization`.
+[Report](docs/development-streaming-startup-repair.md),
+[source-free qualification plan](configs/streaming/development_streaming_startup_v1.json),
+[28-case table](results/tables/final/task0055-streaming-startup-cases.csv),
+[summary](results/tables/final/task0055-streaming-startup-summary.json) and
+[Italian handoff](docs/handoffs/0055-streaming-startup-resource-repair.md).
+The actual consumer and source-free workers share installed CPU initialization;
+payload initialization remains separately gated. Typed tracker observations replace
+lost values and the authorized joint inner/tracker **80 MiB** policy replaces the
+private 64+16 partition, without increasing total limits. Final tracker peak
+16,842,752 B and joint charge 48,332,800 B pass that policy; neither recovers the
+missing Task0054 observation or proves its old 16 MiB condition.
+All 12 generated cases and both fresh CPU bootstraps pass on final bundle
+`27753982…`; 96 focused tests pass. Both retained groups consume 28 native
+invocations and 1,120 generated offers. A correctness repair to failure-context
+propagation required the complete second group. Two event diagnostic exceedances
+remain (maximum 98.667 µs); no recorder comparison occurred. The global 370-entry
+ledger reserves 22,349,984 B under 32 MiB; externally observed subjects total
+18.176365082 s, or 26.176365082 s including observer reserves, under 200 s.
+Real Torch/NumPy/HDF-library imports and effective CPU thread queries are positive
+runtime work, without HDF files, scientific arrays, candidate construction or
+public inference. **Zero new operational custody/data/model work**; Task0054's
+positive historical custody below remains. Its failed pilot and Task0052's
+partial/negative outcome are preserved. P4 is ungranted here; only a fresh narrow
+pilot decision could authorize real integration. No Task0056 follows.
+
+Historical Task0054 adds a **partial/failed bounded HDF consumer pilot**:
 `partial_failed_development_hdf_consumer_pilot`, final qualification
 `generated_validation_incomplete`, operational readiness **false**.
 [Report](docs/development-hdf-consumer-pilot.md),
@@ -64,7 +92,7 @@ consumed.334entry ledger reserves21,324,448B within32MiB; whole external interva
 are retained. Two50µs event diagnostic exceedances remain. Resource/thread/parity
 integration and final qualification remain unresolved; a separately scoped repair
 and qualification must precede any new narrow real authorization. No larger study,
-recorder comparison, Task0055 or scientific-baseline change follows.
+recorder comparison or scientific-baseline change followed within Task0054. The separately scoped Task0055 above repairs and qualifies software only.
 
 Historical Task0053 completes the **instrumented development-request contract v2**:
 `completed_generated_streaming_contract_v2_validation`, qualification

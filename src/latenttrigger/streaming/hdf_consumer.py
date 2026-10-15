@@ -9,6 +9,7 @@ import zlib
 from pathlib import Path
 
 from . import quota
+from .cpu_runtime import canonical_build_hash as canonical_build_hash
 from .generated import gather_plan
 from .pilot54 import fixed_path, source_bytes
 from .protocol import require
@@ -161,6 +162,7 @@ class RealBackend:
             progress,
         )
         self.handle = self.limiter = None
+        self.payload_armed = False
         self.fd = quota.open_file(
             self.directory / "consumer-audit.bin", os.O_CREAT | os.O_EXCL | os.O_RDWR
         )
@@ -183,23 +185,35 @@ class RealBackend:
         self.entry = next(x for x in self.spec["models"] if x["name"] == candidate)
         self.files = {x["role"]: x for x in self.spec["allowed_files"]}
         self.checkpoint()
-        import numpy as np
+        from .cpu_runtime import RuntimeSession
 
-        from latenttrigger.benchmarks import core
-        from latenttrigger.data.features import Parameters
+        self.runtime = RuntimeSession(publish=lambda evidence: self.checkpoint())
+        self.runtime.initialize()
+        np, core = self.runtime.np, self.runtime.core
         from latenttrigger.data.inspection import AGGREGATE_NAMES
 
         self.np, self.core, self.channels = np, core, list(AGGREGATE_NAMES)
-        self.limiter, self.threads_before = core.configure_threads(self.spec)
-        require(
-            canonical_build_hash(core.torch.__config__.show())
-            == self.spec["numerical"]["runtime_torch_build_sha256"],
-            "Original supported Torch build",
-        )
-        import ctypes
-
-        require(ctypes.CDLL(None).fegetround() == 0, "CPU round-to-nearest")
+        self.threads_before = self.runtime.evidence["threads"]
         self.checkpoint()
+        # Payload verification below is still guarded by the existing consumed
+        # Task0054 activation/source identity above. Bootstrap provides no grant.
+        self._initialize_payload(candidate)
+
+    def _initialize_payload(self, candidate):
+        # Recheck the separately gated source bundle immediately before any file
+        # verification/load. The source-free RuntimeSession never calls this.
+        from .pilot54 import source_manifest
+        from .validation_v2 import fingerprint
+
+        active = json.loads((self.root / "pilot/activation.json").read_text())
+        require(
+            active["bundle_sha256"] == fingerprint(source_manifest(self.repo)),
+            "New valid payload authorization/source binding required",
+        )
+        self.payload_armed = True
+        from latenttrigger.data.features import Parameters
+
+        np, core = self.np, self.core
         # Hash only this candidate's small original sources, not the other model.
         roles = ["membership", "golden", "transform"] + list(self.spec["lineage_roles"])
         roles += [candidate + ":" + k for k in ("model", "config", "calibration")]
@@ -571,7 +585,9 @@ class RealBackend:
                 self.handle = None
         finally:
             try:
-                if self.limiter is not None:
+                if hasattr(self, "runtime"):
+                    require(self.runtime.close(), "CPU runtime cleanup failure")
+                elif self.limiter is not None:
                     self.limiter.restore_original_limits()
             finally:
                 if hasattr(self, "fd"):
@@ -673,32 +689,33 @@ def validate_lineage(docs, spec):
     )
 
 
-def canonical_build_hash(text):
-    """Original CPU policy hashes the canonical JSON string, not raw build text."""
-    return hashlib.sha256(
-        json.dumps(
-            text, sort_keys=True, separators=(",", ":"), allow_nan=False
-        ).encode()
-    ).hexdigest()
-
-
 def record_initialization_failure(backend, path, exc):
-    """Bounded failure evidence; cleanup must proceed even if this cannot write."""
+    """Keep the original startup context even when its checkpoint cannot publish."""
+    from .cpu_runtime import exception_record
+
+    runtime = getattr(backend, "runtime", None)
+    record = dict(
+        valid=False,
+        initialization_failed=True,
+        error_type=type(exc).__name__,
+        error=str(exc)[:500],
+        primary_failure=exception_record(exc),
+        runtime=runtime.evidence
+        if runtime is not None
+        else getattr(exc, "evidence", None),
+        phase=getattr(backend, "phase", "partial_constructor"),
+        payload_armed=getattr(backend, "payload_armed", False),
+        budget=backend.budget.__dict__ if hasattr(backend, "budget") else None,
+        phase_observations=getattr(backend, "observations", {}),
+        operational_parity_unperformed=True,
+        report_failure=None,
+    )
     try:
         backend.checkpoint()
-        quota.CURRENT.write_json(
-            path,
-            dict(
-                valid=False,
-                initialization_failed=True,
-                error_type=type(exc).__name__,
-                error=str(exc)[:500],
-                phase=backend.phase,
-                budget=backend.budget.__dict__,
-                phase_observations=backend.observations,
-                operational_parity_unperformed=True,
-            ),
-        )
-        return None
-    except (OSError, ValueError, AttributeError) as report_exc:
-        return type(report_exc).__name__
+    except (OSError, ValueError, AttributeError) as report:
+        record["report_failure"] = exception_record(report)
+    try:
+        quota.CURRENT.write_json(path, record)
+    except (OSError, ValueError, AttributeError) as report:
+        return type(report).__name__
+    return None

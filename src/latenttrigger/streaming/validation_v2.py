@@ -186,12 +186,9 @@ def prepare(root, suite, repo):
 
 
 def write_heartbeat(fd, clocks, peaks, generation):
-    inner = own_rss()
-    if quota.CURRENT is not None and quota.CURRENT.task == "0054":
-        from .pilot54 import own_tracker_rss
+    from .resources import POLICY, heartbeat_joint
 
-        require(inner <= 64 * 1024**2, "Task0054 inner64MiB plus tracker16MiB")
-        inner += own_tracker_rss()
+    inner = heartbeat_joint(peaks, POLICY)
     require(inner <= INNER_RSS, "Inner RSS guard")
     prod, consumer = peaks.get("producer", 0), peaks.get("consumer", 0)
     # Conservative resident-native charge, not attribution of native workspace.

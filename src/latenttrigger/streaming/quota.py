@@ -21,7 +21,7 @@ def check(condition, message):
 
 class Ledger:
     def __init__(self, root, entries, *, task="0053"):
-        check(task in ("0053", "0054"), "Explicit task quota")
+        check(task in ("0053", "0054", "0055"), "Explicit task quota")
         self.task = task
         self.cap = CAP if task == "0053" else 32 * 1024**2
         self.root = Path(root)
@@ -177,7 +177,7 @@ def activate(root):
     path = root / "ledger.json"
     check(not path.is_symlink() and path.stat().st_size <= 65536, "Ledger metadata")
     data = json.loads(path.read_text())
-    check(data["task"] in ("0053", "0054"), "Task ledger identity")
+    check(data["task"] in ("0053", "0054", "0055"), "Task ledger identity")
     CURRENT = Ledger(root, data["files"], task=data["task"])
     check(data["cap_bytes"] == CURRENT.cap, "Scoped task cap")
     return CURRENT

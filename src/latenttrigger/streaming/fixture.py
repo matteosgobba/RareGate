@@ -21,6 +21,7 @@ from .records import (
     stage_projection,
     timing_summary,
 )
+from .resources import POLICY, TrackerBudget
 from .supervision import (
     Clocks,
     Monitor,
@@ -178,6 +179,12 @@ def _producer(
 ):
     if quota_root is not None:
         quota.activate(quota_root)
+    from .startup55 import install_payload_denial
+
+    payload_audit = install_payload_denial(
+        Path(__file__).resolve().parents[3],
+        quota.CURRENT.root if quota.CURRENT is not None else Path(directory),
+    )
     clocks = Clocks()
     init = clocks.service()
     samples = Samples(Path(directory) / "producer-samples.bin", 768)
@@ -200,6 +207,10 @@ def _producer(
         samples.add(9, e["status"], 1, 1, before, clocks.service())
 
     try:
+        require(
+            payload_audit["denied_open_attempts"] == 0,
+            "Unexpected producer payload access",
+        )
         ring.update(producer_ready=1, producer_rss=own_rss())
         phases.append(2, clocks, own_rss())
         require(start.wait(setup_seconds), "Bounded producer setup timeout")
@@ -262,6 +273,10 @@ def _producer(
             stop.wait(max(0, (scheduler.horizon - clocks.service()) / 1e9))
             ring.update(producer_closed=1, producer_rss=own_rss())
             phases.append(4, clocks, own_rss())
+        require(
+            payload_audit["denied_open_attempts"] == 0,
+            "Unexpected producer payload access",
+        )
         _summary(Path(directory) / "producer.json", "producer", clocks, stats)
     finally:
         final_start = clocks.service()
@@ -302,8 +317,19 @@ def _consumer(
     )
     phases.append(1, clocks, own_rss())
     backend = None
+    payload_audit = None
     if pilot is None:
+        from .startup55 import install_payload_denial
+
+        payload_audit = install_payload_denial(
+            Path(__file__).resolve().parents[3],
+            quota.CURRENT.root if quota.CURRENT is not None else Path(directory),
+        )
         backend = GeneratedBackend()
+        require(
+            payload_audit["denied_open_attempts"] == 0,
+            "Unexpected generated payload access",
+        )
     else:
         from .hdf_consumer import RealBackend
 
@@ -530,6 +556,11 @@ def _consumer(
                 raise
         if pilot is not None:
             backend.finish(write)
+        if payload_audit is not None:
+            require(
+                payload_audit["denied_open_attempts"] == 0,
+                "Unexpected generated payload access",
+            )
         _summary(Path(directory) / "consumer.json", "consumer", clocks, stats)
     finally:
         final_start = clocks.service()
@@ -551,10 +582,25 @@ def _consumer(
                 require(not errors, "Consumer resource close failure")
 
 
-def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat=None):
+def run_fixture(
+    directory,
+    scenario,
+    *,
+    task52=False,
+    quota_root=None,
+    heartbeat=None,
+    resource_policy=POLICY,
+    resource_publish=lambda _: None,
+):
     """Generated-only API; operational options are deliberately absent."""
     return _run_pipeline(
-        directory, scenario, task52=task52, quota_root=quota_root, heartbeat=heartbeat
+        directory,
+        scenario,
+        task52=task52,
+        quota_root=quota_root,
+        heartbeat=heartbeat,
+        resource_policy=resource_policy,
+        resource_publish=resource_publish,
     )
 
 
@@ -579,7 +625,15 @@ def run_pilot_core(directory, candidate, *, quota_root, heartbeat):
 
 
 def _run_pipeline(
-    directory, scenario, *, task52=False, quota_root=None, heartbeat=None, pilot=None
+    directory,
+    scenario,
+    *,
+    task52=False,
+    quota_root=None,
+    heartbeat=None,
+    pilot=None,
+    resource_policy=POLICY,
+    resource_publish=lambda _: None,
 ):
     """Shared actual producer/ring/batching/consumer/record/lifecycle core."""
     if quota_root is not None:
@@ -662,7 +716,9 @@ def _run_pipeline(
     max_rss = {"supervisor": own_rss(), "producer": 0, "consumer": 0}
     t0 = None
     last_snapshot = None
+    resources = TrackerBudget(resource_policy, persist=resource_publish)
     try:
+        resources.await_ready(clocks, stop.wait, monitor)
         producer.start()
         if scenario == "failed_start":
             raise RuntimeError("Injected second-child start failure")
@@ -670,6 +726,7 @@ def _run_pipeline(
         while True:
             service, continuous, _ = clocks.observation()
             monitor.observe(service, continuous)
+            resources.observe(peaks=max_rss)
             samples += 1
             if heartbeat is not None:
                 heartbeat(max_rss)
@@ -694,6 +751,7 @@ def _run_pipeline(
         while True:
             service, continuous, _ = clocks.observation()
             monitor.observe(service, continuous)
+            resources.observe(peaks=max_rss)
             if pilot is None:
                 safety(continuous, started, continuous, continuous, 0)
             else:
@@ -715,6 +773,7 @@ def _run_pipeline(
         while any(p.is_alive() for p in children):
             service, continuous, _ = clocks.observation()
             monitor.observe(service, continuous)
+            resources.observe(peaks=max_rss)
             samples += 1
             require(
                 not any(p.exitcode not in (None, 0) for p in children), "Child failure"
@@ -984,6 +1043,8 @@ def _run_pipeline(
         software_checks_passed=all(checks.values()),
         phase_observations=phase_counts,
         fixture_only=pilot is None,
+        payload_denial_enforced=pilot is None,
+        payload_audit_scope="Python open denial throughout generated/producer lifecycle; no HDF/model backend; normal exits also require zero denied attempts",
         arrival_clock_issued=t0 is not None,
         timing_observations=timing_summary(events, batches, cutoff)
         if not invalid_records
@@ -1023,6 +1084,7 @@ def _run_pipeline(
         synthetic_stage_counts=stage_counts if not invalid_records else None,
         observed_final_shared_counters=last_snapshot,
         synchronization_inventory=sync_inventory,
+        tracker_resource_observations=resources.summary(),
         cross_process_service_observation=dict(
             parent_interval_ns=[observation[0], cutoff],
             phase_timestamps_within_parent_interval=all(
