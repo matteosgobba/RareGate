@@ -4,7 +4,7 @@
 
 LatentTrigger is an independent research and engineering project inspired by the
 computational challenges of real-time event selection at the Large Hadron
-Collider (LHC). It will investigate how anomaly-detection quality changes when
+Collider (LHC). It investigates how anomaly-detection quality changes when
 models must meet strict latency, throughput, and memory constraints.
 
 ## Motivation
@@ -24,11 +24,11 @@ clearly stated experimental assumptions.
 
 The planned work spans scientific event-data preparation, anomaly-detection
 models, scientific evaluation and bias analysis, and hardware-aware inference.
-Apple Silicon CPU/GPU measurements will be the initial hardware focus. Later
-phases may investigate heterogeneous inference, NVIDIA hardware, and FPGA-oriented
-deployment.
+The declared native CPU and synthetic systems phase is complete within scope.
+Streaming/cache/transport, independent scientific confirmation, other hardware
+and optimized runtimes remain separate future questions.
 
-## Planned methodology
+## Methodology and study status
 
 1. Select and document a suitable dataset, event representation, and reproducible
    preparation procedure.
@@ -38,10 +38,29 @@ deployment.
    data splits and evaluation assumptions.
 4. Measure latency, throughput, and memory under documented hardware and runtime
    conditions, comparing model quality with computational cost.
-5. Investigate optimized runtimes, quantization, and a trigger-like event-stream
-   simulator in later phases.
+5. Preserve the completed synthetic trigger study; consider streaming protocols,
+   optimized runtimes and quantization through separately scoped decisions.
 
 ## Current status
+
+The [integrated Task0049 report](docs/cpu-trigger-study-synthesis.md) closes the
+present native CPU and synthetic queue study with status
+`completed_curated_cpu_trigger_synthesis`. The [Italian decision brief](docs/cpu-trigger-study-decision-brief.md)
+recommends preserving the frozen baseline and choosing a design-only development
+streaming/cache/transport question next. This metadata-only synthesis binds 57
+curated sources (26,010,109 bytes), separates six accepted CPU timing boundaries,
+retains all four scientific quality rows and sixteen calibrated points, and
+reconciles the current eight replay variants and contrast families.
+
+AE ranking is moderate and weaker on three-prong signal; strictest acceptance is
+56/100000 and 34/100000 signals against 116/150471 shared background. Current
+partial service still leaves 137 occupancies unmeasured, with material synthetic
+mapping dependence. These results do not establish a useful rare-anomaly trigger,
+independent scientific confirmation, physical streaming performance or deployment
+readiness. No new experiment or Task0050 follows. Historical failures, consumed
+allowances, permanent YES/YES/YES and particle 192/192 remain unchanged. See the
+[Task0049 handoff](docs/handoffs/0049-cpu-trigger-study-synthesis.md) for checks,
+the disclosed inspection deviation and manual Git delivery.
 
 The [Task0048 refined-support replay](docs/refined-support-service-replay.md) is
 parent accepted and consumed: 6,048 scenarios, 30.24 million synthetic event
@@ -62,8 +81,8 @@ Software failures and positive legacy fixture work are preserved. All 333
 unfavorable source pairs remain; 137 occupancies remain unmeasured. New operational
 raw/model/scientific work and physical timing are zero. See the
 [Italian handoff](docs/handoffs/0048-refined-support-service-replay.md). Historical
-gates, permanent YES/YES/YES and particle 192/192 remain unchanged; no automatic
-Task0049 follows.
+gates, permanent YES/YES/YES and particle 192/192 remain unchanged. The separately
+authorized Task0049 subsequently closes this phase through offline curation.
 
 Task0047 remains the latest accepted physical development boundary: 32 current
 paired cases, 17 new and 15 remeasured, 384 cells/3,840 pairs and its own wrapper
@@ -779,3 +798,5 @@ The software is released under the [MIT License](LICENSE).
 At its task-time completion, Task0047 completed one separately authorized [targeted partial CPU campaign](docs/targeted-partial-raw-decision-measurement.md): 32 current cases (17 new/15 remeasured), 384 cells/3840 pairs, exact same-shaped parity, parent accepted/consumed320.220989s. All333 unfavorable pairs remain;137 occupancies remain unmeasured. New owned actual-row wrapper preserves public frozen scores and historical guards; no automatic queue replay/policy/Task0048. [Italian handoff](docs/handoffs/0047-targeted-partial-raw-decision-measurement.md).
 
 - [x] Task0048: accepted/consumed current-source refined/coarse paired replay,6048scenarios/6048contrasts/30.24Mpresentations, complete compact audits and bounded78.911485s lifecycle;250focused3591full+portable/current324bindings, software failures preserved, no new raw/model/scientific timing or Task0049.
+
+- [x] Task0049: integrated CPU/synthetic phase closure; 57 hash-bound curated sources, six physical boundary maps, four scientific quality rows/sixteen original cuts, complete current replay reconciliation, English report/Italian brief and metadata-only reproduction. Streaming and independent confirmation remain unresolved; no experiment or Task0050.
