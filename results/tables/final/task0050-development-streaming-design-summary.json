@@ -1,0 +1,515 @@
+{
+  "schema": "latenttrigger.task0050.development_streaming_design_summary.v1",
+  "task": "0050",
+  "date": "2026-10-15",
+  "timezone": "Europe/Rome",
+  "status": "completed_design_only_development_streaming_protocol",
+  "readiness": "requires_prerequisites",
+  "design_only": true,
+  "execution_authorized": false,
+  "operational_allowance_granted": false,
+  "repository_baseline": {
+    "branch": "main",
+    "upstream": "origin/main",
+    "HEAD": "42ab4458002997e1ed45ff8ecdd6aae95dd2729f",
+    "local_ahead_behind": [
+      0,
+      0
+    ],
+    "fresh_remote_push_or_CI_verified": false,
+    "Task0049": "completed_curated_cpu_trigger_synthesis; committed in actual HEAD",
+    "Task0049_historical_base": "d26d64425da9b738c6d92fd3d852122ca36d92b0",
+    "initial_tracked_files": 681,
+    "initial_index_entries_changed": 0,
+    "initial_tracked_or_untracked_changes": [],
+    "preexisting_Task0049_changes": [],
+    "memory_revision_initial": "1.44",
+    "memory_revision_final": "1.45",
+    "shared_document_baselines": [
+      {
+        "path": "README.md",
+        "size_bytes": 57810,
+        "sha256": "fc0750c90114531907b98425eeaa526a6dd4abc6a5f1d10bfc9bfaa47cde7f47",
+        "contents_recoverable_at": "42ab4458002997e1ed45ff8ecdd6aae95dd2729f:README.md"
+      },
+      {
+        "path": "docs/project-memory.md",
+        "size_bytes": 283847,
+        "sha256": "9df0840c3e16d359079a0c5e3637a55c9ec89797c0c2a9deb97291a2922cd467",
+        "contents_recoverable_at": "42ab4458002997e1ed45ff8ecdd6aae95dd2729f:docs/project-memory.md"
+      },
+      {
+        "path": "docs/handoffs/README.md",
+        "size_bytes": 34808,
+        "sha256": "59613f757ebe5bfb27515c1a0b09e8ad432ddae628633b1a077348b28ac33df8",
+        "contents_recoverable_at": "42ab4458002997e1ed45ff8ecdd6aae95dd2729f:docs/handoffs/README.md"
+      }
+    ],
+    "shared_baseline_contents": "Full baseline contents preserved in Git at actual HEAD; temporary byte copies compared before edits. No pre-existing dirty hunks or Task0049 files staged.",
+    "historical_handoffs_edited": false
+  },
+  "evidence": {
+    "required_files": 18,
+    "required_unique_bytes": 968762,
+    "source_text_files_read": 3,
+    "source_text_unique_bytes": 7789,
+    "total_unique_bytes": 976551,
+    "unique_byte_cap": 4194304,
+    "bootstrap_living_context_excluded_from_cap": true,
+    "manifest": [
+      {
+        "path": "docs/cpu-trigger-study-synthesis.md",
+        "size_bytes": 31054,
+        "sha256": "3736144e1291f7750199b51238b5f426f2f680d03df92d1e8b9dcb9bb5fb6415"
+      },
+      {
+        "path": "docs/cpu-trigger-study-decision-brief.md",
+        "size_bytes": 5124,
+        "sha256": "7e5edb2094109b8b157fcf472ea5c09d73c556aa5cbacb6be6b359bf61c5f18d"
+      },
+      {
+        "path": "docs/handoffs/0049-cpu-trigger-study-synthesis.md",
+        "size_bytes": 18208,
+        "sha256": "50d3f2855793ee3b7ec45678610c95cbdf5542722c543aa3f92656daa7c5f0bf"
+      },
+      {
+        "path": "configs/reporting/cpu_trigger_synthesis_v1.json",
+        "size_bytes": 96907,
+        "sha256": "c4337334297e89f9d4478a5383f9dc5a22f66e5d70df41ec9181cd0d83c1bcb8"
+      },
+      {
+        "path": "results/tables/final/task0049-cpu-trigger-evidence-registry.csv",
+        "size_bytes": 9162,
+        "sha256": "7d53890ffe8395f2631ff65289d01a0d8d1586ba1ecb3280abd363bdba02be85"
+      },
+      {
+        "path": "results/tables/final/task0049-cpu-service-boundaries.csv",
+        "size_bytes": 36947,
+        "sha256": "bb90d2df57fac85df8ab93e27bfe24c4bd223030e0264d33e4c51e89f2dba770"
+      },
+      {
+        "path": "results/tables/final/task0049-replay-comparability.csv",
+        "size_bytes": 11482,
+        "sha256": "393f4502e16492c9ecd026187e2b97b22cc1c6a0c1a60a2da84c1f7e89433747"
+      },
+      {
+        "path": "results/tables/final/task0049-refined-replay-conclusions.csv",
+        "size_bytes": 11488,
+        "sha256": "3af62108e20857869e628ab32bc2e871fe71d735b3e2a6c4a6e9db4e7e8f7ee4"
+      },
+      {
+        "path": "results/tables/final/task0049-cpu-trigger-claims.csv",
+        "size_bytes": 12157,
+        "sha256": "99d4c534118106bee5b20499c16632097f12522ba90cb987556f28b740ced25e"
+      },
+      {
+        "path": "results/tables/final/task0049-cpu-trigger-synthesis-summary.json",
+        "size_bytes": 585716,
+        "sha256": "97b17c15ebdc25157a2751154d0408a2c2eaee8c6980555257f95650888617e3"
+      },
+      {
+        "path": "docs/development-raw-feature-measurement.md",
+        "size_bytes": 15197,
+        "sha256": "4af9139e6de86de272da638d9941413588d733330efeaa7ca1503667025b8724"
+      },
+      {
+        "path": "docs/development-raw-decision-campaign-v2.md",
+        "size_bytes": 11969,
+        "sha256": "5a4aa06a840c7133cebfe20db534778bf83017b97b1f30fd10332db817136548"
+      },
+      {
+        "path": "docs/targeted-partial-raw-decision-measurement.md",
+        "size_bytes": 16565,
+        "sha256": "029d41bb0c020ab0b3502b8409f70443fd65b61bf15c4b0f716b166aecd6276a"
+      },
+      {
+        "path": "configs/benchmarks/development_raw_decision_v2.json",
+        "size_bytes": 20296,
+        "sha256": "7acb4b3184b4c8ee997a463e80bff72c4adabae34958ac855198aad50da55b9a"
+      },
+      {
+        "path": "configs/benchmarks/development_targeted_raw_decision_v1.json",
+        "size_bytes": 24991,
+        "sha256": "16f14d89297efc84dc51179bd93fbcc5d34dfa8e91b98d55e88d62d1b5ef4d92"
+      },
+      {
+        "path": "docs/preprocessing-contract.md",
+        "size_bytes": 9022,
+        "sha256": "fe1fe361a7a0e5542300faca79e153b24437660fb1b45c993ca9b9e1b90a49b3"
+      },
+      {
+        "path": "docs/controlled-follow-up-protocol.md",
+        "size_bytes": 32031,
+        "sha256": "aeab83547a358346d474bedfc4dc69d1fef92ad8de265a955ba8e7dcd4a17d61"
+      },
+      {
+        "path": "docs/confirmation-source-feasibility.md",
+        "size_bytes": 20446,
+        "sha256": "8f8ceacc4a4e95214a51494aa0b324b6ae03a0d5a9629281d2b1f1b5c9336b41"
+      },
+      {
+        "path": "src/latenttrigger/benchmarks/development_raw_adapter.py",
+        "size_bytes": 4378,
+        "sha256": "19b75477bd9ebfc2201f334ae538b562721ee67e764d9ecbc8fa4af597503b18",
+        "read_mode": "source_text_only"
+      },
+      {
+        "path": "src/latenttrigger/benchmarks/development_raw_membership.py",
+        "size_bytes": 1732,
+        "sha256": "a3824bae7a857a4f11402eaa2d99a751b60c42670c53069b399fd64b07833a3b",
+        "read_mode": "source_text_only"
+      },
+      {
+        "path": "src/latenttrigger/benchmarks/targeted_raw_service.py",
+        "size_bytes": 1679,
+        "sha256": "828e33f2dca99eb5c0d39a40693a15c75287b093151ce1b7033fd2844d96fbe5",
+        "read_mode": "source_text_only"
+      }
+    ],
+    "optional_source_files_not_read": [
+      "src/latenttrigger/benchmarks/development_decision_provider.py",
+      "src/latenttrigger/benchmarks/development_decision_measure.py"
+    ],
+    "embedded_manifest_expansion": false,
+    "Task0049_helper_run": false,
+    "Task0046_summary_or_timing_vectors_opened": false,
+    "historical_provenance": "Task0049 57-source registry inspected as curated text/metadata only; none of its linked source payloads reconciled. Historical numerical/status facts are copied, not fresh physical verification.",
+    "all_evidence_hashes_unchanged": true
+  },
+  "copied_historical_facts": [
+    {
+      "fact": "Native CPU and synthetic phase closed within declared scope; B8 occupancies1..8 supported, streaming unvalidated;137 other occupancies unmeasured.",
+      "sources": [
+        "docs/cpu-trigger-study-synthesis.md",
+        "docs/cpu-trigger-study-decision-brief.md",
+        "docs/targeted-partial-raw-decision-measurement.md"
+      ]
+    },
+    {
+      "fact": "Method window starts0/floor((1024-B)/2)/1024-B;6999source,1024prefix/golden,384raw union.",
+      "sources": [
+        "docs/development-raw-feature-measurement.md",
+        "docs/development-raw-decision-campaign-v2.md",
+        "docs/targeted-partial-raw-decision-measurement.md"
+      ]
+    },
+    {
+      "fact": "B8 PCA3.251953ms/AE3.294765ms and B1 AE.606340ms means are historical warm serial joint service excluding transport/queue.",
+      "source": "docs/development-raw-decision-campaign-v2.md"
+    },
+    {
+      "fact": "Historical Mac17,2/M5/16GB/macOS26.6.2 arm64; original cache1MiB/521/.75, requested decoder1 not verified effective.",
+      "sources": [
+        "docs/project-memory.md",
+        "docs/development-raw-feature-measurement.md"
+      ],
+      "current_probe": false
+    }
+  ],
+  "fresh_static_verification": {
+    "actual_git_state_and_commit_distinction": true,
+    "positional_derivation": {
+      "B128_starts": [
+        0,
+        448,
+        896
+      ],
+      "window_rows_each": 128,
+      "union_rows": 384,
+      "real_event_IDs_loaded": false
+    },
+    "historical_B8_support_checked_against_bound_case_config": true,
+    "source_text_findings": "Existing approval requires strictly increasing selections max128; membership sorts original6999 then first1024; Task0047 wrapper owns actual-shape FP32 pack and score/mask copies. No source imported or invoked. Proposed arbitrary FIFO gather/scatter is a new prerequisite, not an old capability."
+  },
+  "proposed_values": {
+    "authoritative_spec": "configs/protocols/development_streaming_v1.json",
+    "spec_sha256": "8ccad6fd2c006251454046dc026033834a758c04f00f3c071a501f3629dfba8f",
+    "chosen_workload": {
+      "candidates": [
+        "pca-v1",
+        "compact-autoencoder-v2"
+      ],
+      "nominal_batch_rows": 8,
+      "rates_events_per_second": [
+        500,
+        2500,
+        5000
+      ],
+      "repetitions": 2,
+      "histories": [
+        "reopened",
+        "primed"
+      ],
+      "runs": 24,
+      "presentations_per_run": 768,
+      "unique_raw_rows": 384,
+      "approved_golden_rows": 1024,
+      "original_membership_records": 6999,
+      "symbolic_prefix_intervals_inclusive": [
+        [
+          0,
+          127
+        ],
+        [
+          448,
+          575
+        ],
+        [
+          896,
+          1023
+        ]
+      ],
+      "sequence": "U = concatenate the three inclusive intervals ascending. Offer k=0..767 uses U[k mod 384]; reset k each run. No rotation, shuffle, substitution or independent-event multiplication. Identity=(case_id,phase,presentation_index).",
+      "expanded_grid": false
+    },
+    "transport": "64B descriptors over one bounded same-host shared ring;consumer owns original HDF decode/features/model;not physical event-byte ingress",
+    "cache_interpretation": "Reopened and primed handle histories;OS pages warmed/unknown from custody, parity,previous runs/host. No cold-cache or causal cache/transport claim.",
+    "deferred_alternatives": [
+      {
+        "alternative": "B1 or B32/B128 extra nominal cases",
+        "reason": "B8 already spans1..8; another nominal boundary not indispensable; avoids multiplying runs."
+      },
+      {
+        "alternative": "Poisson/bursty arrivals or timeout/capacity search",
+        "reason": "First physical boundary study can answer periodic load/accounting; stochastic and optimization questions deferred."
+      },
+      {
+        "alternative": "Decoded array transport",
+        "reason": "Producer owns HDF/features and transports16,808B raw rows or32B features; ingress excludes preceding work and changes process/cache/ownership history."
+      },
+      {
+        "alternative": "Independent encoded payload transport",
+        "reason": "No frozen event message codec/framing exists; requires separate representation and matched preprocessing/custody design."
+      },
+      {
+        "alternative": "Cold-cache or no-transport causal comparison",
+        "reason": "No OS cache reset or matched process/path arm; present history contrasts do not isolate transport cost."
+      }
+    ]
+  },
+  "derived_bounds": {
+    "proposed_not_granted": true,
+    "count_bounds": {
+      "runs": 24,
+      "offers": 18432,
+      "priming_runs": 12,
+      "priming_chain_calls": 576,
+      "priming_rows": 4608,
+      "fixed_gate_chain_calls": 768,
+      "fixed_gate_raw_rows": 3456,
+      "measured_chain_calls_max": 18432,
+      "measured_raw_rows_max": 18432,
+      "all_chain_feature_calls_max": 19776,
+      "HDF_requests_max": 19776,
+      "raw_and_feature_rows_max": 26496,
+      "fixed_golden_calls": 384,
+      "fixed_golden_score_rows": 1728,
+      "realized_reference_calls_max": 18432,
+      "realized_reference_score_rows_max": 18432,
+      "candidate_calls_max": 38592,
+      "score_rows_max": 46656,
+      "decision_booleans_max": 186624,
+      "membership_loads": 24,
+      "membership_record_presentations": 167976,
+      "golden_loads": 24,
+      "golden_row_presentations": 24576,
+      "candidate_and_threshold_loads": 24,
+      "HDF_handle_opens_and_closes_each": 48,
+      "same_handle_schema_checks": 96,
+      "raw_custody_passes": 2,
+      "raw_custody_bytes": 5816520818,
+      "extra_drain_or_control_presentations": 0
+    },
+    "count_derivations": [
+      "24=2candidates*3rates*2histories*2repetitions",
+      "18432=24*768",
+      "3456=24*2phases*2chain_repeats*sum(1..8)",
+      "768=24*2phases*2repeats*8shapes",
+      "4608=12*384;576=12*48",
+      "19776=18432+768+576;worst each measured dispatch m=1 and <=m selected requests",
+      "26496=18432+3456+4608",
+      "38592=19776+384+18432",
+      "46656=26496+1728+18432;186624=4*46656",
+      "Drain rows are already admitted offers, references already bounded above; no added presentations"
+    ],
+    "memory_bytes": {
+      "shared_ring_and_control": 12288,
+      "native_sync_bookkeeping": 65536,
+      "producer_descriptor_scratch": 64,
+      "consumer_descriptor_copies": 512,
+      "selected_raw_owned": 134464,
+      "selected_read_scratch": 134464,
+      "particle_scratch_proposed_24_FP64_arrays": 3225600,
+      "golden_features": 32768,
+      "membership_original_and_sort_and_prefix": 120176,
+      "feature_and_packing": 512,
+      "current_score_and_four_masks": 192,
+      "retained_four_masks": 3072,
+      "event_records": 393216,
+      "batch_records": 393216,
+      "model_reference_workspace_proposed": 2097152,
+      "known_owned_inventory_sum": 7667952,
+      "owned_array_and_record_cap": 8388608,
+      "python_container_serialization_cap": 8388608,
+      "consumer_RSS_cap": 1073741824,
+      "producer_RSS_cap": 67108864,
+      "supervisor_RSS_cap": 134217728,
+      "aggregate_RSS_cap": 1275068416,
+      "aggregate_native_cap": 536870912,
+      "consumer_native_cap": 402653184,
+      "producer_native_cap": 67108864,
+      "supervisor_native_cap": 67108864,
+      "HDF_chunk_cache": 1048576,
+      "HDF_decoder_and_native_workspace": "Unknown actual allocation; within native/RSS caps only if prerequisite P2 is demonstrated. OS page cache/shared pages not attributed as owned memory; native and RSS overlap, do not add as independent physical RAM.",
+      "inventory_sum_terms": [
+        "shared_ring_and_control",
+        "native_sync_bookkeeping",
+        "producer_descriptor_scratch",
+        "consumer_descriptor_copies",
+        "selected_raw_owned",
+        "selected_read_scratch",
+        "particle_scratch_proposed_24_FP64_arrays",
+        "golden_features",
+        "membership_original_and_sort_and_prefix",
+        "feature_and_packing",
+        "current_score_and_four_masks",
+        "retained_four_masks",
+        "event_records",
+        "batch_records",
+        "model_reference_workspace_proposed",
+        "HDF_chunk_cache",
+        "retained_scores"
+      ],
+      "model_reference_workspace_note": "2MiB includes frozen model parameters, golden gather copies, public-score/reconstruction/library temporaries beyond separately named buffers; unproven and blocking P2. Scores and masks include original and owned copies; aliases not counted twice.",
+      "retained_scores": 6144
+    },
+    "storage_bytes": {
+      "per_run_diagnostics_cap": 4194304,
+      "all_24_run_diagnostics_cap": 100663296,
+      "global_summary_and_custody_logs_cap": 8388608,
+      "total_owned_cap": 134217728,
+      "storage_guard_headroom": 65536,
+      "per_run_split": "2MiB event/batch/phase binary records +1MiB monitor journal +1MiB text; no unbounded JSON list or hidden duplicate ledger. Fixed main event+batch records786432B, mask outputs3072B fit2MiB record allowance;6144B score retention is transient memory, not persisted. Fixed gate/phase records share remaining2MiB space with pre-growth checks.",
+      "cleanup": "Close handles, normal exits/reap all children, unlink shared ring/owned temporary allocations; preserve bounded evidence/incomplete logs. No source deletion."
+    },
+    "time_seconds": {
+      "setup_per_run_cap": 10,
+      "max_arrival_horizon": 1.536,
+      "drain_cap": 5,
+      "post_reference_and_gate_cap": 10,
+      "cleanup_per_run_cap": 2,
+      "run_cap_including_cleanup": 30,
+      "run_component_sum_max": 28.536,
+      "all_runs_cap": 720,
+      "global_pre_custody_identity_cap": 45,
+      "global_post_custody_cap": 45,
+      "global_report_final_cleanup_cap": 30,
+      "study_cap": 840,
+      "per_operation_or_no_progress_hard_timeout": 2,
+      "monitor_period_target": 0.1,
+      "maximum_primary_monitor_gap": 0.25
+    },
+    "planning_estimate_only": {
+      "historical_source": "Task0043 report: B8 PCA3.251953ms/AE3.294765ms, B1 .572585/.606340ms; warm sparse serial development inputs, no transport.",
+      "assumption": "Using max B1 mean .606340ms per row as planning heuristic for new order, multiplied by4 safety factor,46656 scored row presentations ->113.15759616s arithmetic. Reference-only rows charged same heuristic conservatively. This is neither bound nor grant; decode/order/cache/native process changes can exceed it.",
+      "safety_factor": 4,
+      "heuristic_seconds": 113.15759616,
+      "historical_host": "Living memory historical MacBookPro Mac17,2/Apple M5/16GB/macOS26.6.2 arm64; proc10:4:6:0 descriptor; sysctl/thermal restrictions. No current hardware/runtime probe.",
+      "future_thread_requirement": "CPU only; Torch intra/inter1, effective supported BLAS/OpenMP/Accelerate1; requested BLOSC_NTHREADS=1 but effective decoder threading historically unknown. Verify future host/build/thread behavior in separately scoped work."
+    }
+  },
+  "outcomes": {
+    "design": "completed_and_static_checked",
+    "physical_validation": "unperformed",
+    "physical_results": null,
+    "valid_experiment": "Future identities/parity/conservation/resources/lifecycle must pass",
+    "workload": "Future overload/loss/100ms illustrative misses/no benefit may be valid outcomes",
+    "science": "Unresolved;Task0036/gates/YES3/particle192/history unchanged"
+  },
+  "prerequisites": [
+    {
+      "id": "P1",
+      "blocking": true,
+      "requirement": "Separate implementation review/authorization for new order, grouping/scatter, descriptor ring, producer timing and accounting; data-free software proofs and failure/lifecycle fixtures before any operational execution. No Task0051 launched."
+    },
+    {
+      "id": "P2",
+      "blocking": true,
+      "requirement": "Demonstrate allocation inventory/copies<=8MiB and native library/HDF decoder/model workspace fits proposed native/RSS caps, bound sync primitives/cache metadata and verify effective threads on the future native CPU host.24particle temporaries/2MiB model allowance are proposals, not proven source bounds."
+    },
+    {
+      "id": "P3",
+      "blocking": true,
+      "requirement": "Future same-host clock comparability/resolution, scheduler/trylock behavior, record overhead<=50us event/200us batch, monitoring<=250ms gap and normal cleanup<=2s must be characterized/validated; no current measurements."
+    },
+    {
+      "id": "P4",
+      "blocking": true,
+      "requirement": "Future explicit operational scope must bind original membership/1024golden/raw384row universe, frozen feature/scaler/model/calibration/code identities, exact grouping reference policy and the proposed resource ceilings. Old consumed grants/acceptances do not transfer."
+    }
+  ],
+  "validation_performed": {
+    "strict_JSON_syntax_duplicate_key_nonfinite_recursive_checks": "passed; spec and final summary",
+    "case_IDs_count_order_full_factorial": "passed24unique exactordered cases;noarrivalstracesgenerated",
+    "finite_values_units": "passed integercounts/bytes/ns, seconds caps, events/s and explicit denominator/null rules",
+    "worst_case_arithmetic": "passed all29count bounds;transport64B/12288B,memory sum and RSS/native sums,storage104<=128MiB,time28.536<30s and840s,planning113.15759616s",
+    "document_spec_agreement": "passed 3 exactcase-matrix rows and numeric resource/count/clock/deadline anchors;semantic boundary/accounting/parity/history review",
+    "English_prose_words_excluding_tables_diagram": 1938,
+    "English_all_words": 2768,
+    "link_existence_checks": 456,
+    "broken_new_links": [],
+    "inherited_missing_links_unchanged": [],
+    "external_links_not_fetched": 14,
+    "evidence_preservation": "passed18initialpath/size/SHA256rechecks plus3source-textHEADbytecomparisons",
+    "shared_baselines": "passed3temporaryinitialcopiesequalactualHEADcontents;onlyintendedinplaceupdates",
+    "Git_final_scope": "passed3trackedsharededits+5newdeliverables;emptyindex;main/origin/main;baseunchanged",
+    "diff_whitespace": "git diff --check passed",
+    "full_historical_suites_native_fixture_matrices_hosted_CI": "not run;document-only scope",
+    "persistent_validation_helper_added": false,
+    "method": "Temporary standard-library-only assertions in /tmp; static literals and prospective arithmetic, no project imports or workflows."
+  },
+  "operational_work_in_Task0050": {
+    "raw_or_HDF_access_including_metadata_or_hash": 0,
+    "membership_golden_feature_score_fingerprint_arrays": 0,
+    "model_artifact_reads_imports_instantiation_inference_reconstruction": 0,
+    "fit_optimizer_calibration_scientific_metric_acquisition": 0,
+    "timing_vector_reads_arrival_trace_generation_queue_replay": 0,
+    "operational_workflow_invocations": 0,
+    "hardware_runtime_resource_probe_or_reservation": 0,
+    "runtime_modules_fixtures_figures_added": 0,
+    "Task0051_launched": false,
+    "scope_note": "Historical positive numerical/model/fixture work remains historical, not a global-zero claim."
+  },
+  "preserved_state": {
+    "CPU_synthetic_phase": "closed_within_declared_scope",
+    "Task0036": "unresolved_no_acquisition",
+    "Task0034": "all_scientific_gates_unchanged",
+    "exposure": [
+      "YES",
+      "YES",
+      "YES"
+    ],
+    "particle": "192/192_consumed_canonical_deferred",
+    "Task0024": "accepted_ONNX_export",
+    "Task0025": "failed_performance_campaign",
+    "MPS": "no_current_claim",
+    "historical_outcomes": "all_accepted_failed_software_only_preserved",
+    "affiliation": "Independent research; no implied official CERN/experiment affiliation"
+  },
+  "delivery": {
+    "files": [
+      "README.md",
+      "docs/project-memory.md",
+      "docs/handoffs/README.md",
+      "docs/prompts/0050-development-streaming-protocol-design.md",
+      "docs/handoffs/0050-development-streaming-protocol-design.md",
+      "docs/development-streaming-protocol.md",
+      "configs/protocols/development_streaming_v1.json",
+      "results/tables/final/task0050-development-streaming-design-summary.json"
+    ],
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "Task0049_dependency": "Already committed at actual HEAD; no uncommitted Task0049 changes/hunk staging needed. Preserve historical task-time bases. Manual selective eight-file staging instructions in handoff."
+  }
+}

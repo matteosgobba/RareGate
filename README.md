@@ -43,11 +43,28 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
+Task0050 completes a [design-only development streaming protocol](docs/development-streaming-protocol.md)
+with status `completed_design_only_development_streaming_protocol` and readiness
+`requires_prerequisites`. Proposed: nominal B8, frozen PCA/AE v2, periodic
+500/2500/5000 events/s, one bounded 64-request shared-memory descriptor ring,
+reopened/primed HDF histories, two repetitions: 24 runs ×768 offers (18,432),
+always within the same 384 historical raw rows. This is software request ingress,
+not detector event-byte transport; neither history is cold OS cache. The proposed
+worst case is 26,496 raw/feature rows, 46,656 score rows, 186,624 Boolean outputs,
+1216 MiB aggregate RSS, 512 MiB native, 128 MiB storage and 840 s whole study.
+These ceilings are ungranted and feasibility is unmeasured. Allocation/thread,
+clock/logging/lifecycle proofs and separate implementation/execution decisions
+remain prerequisites. No runner, operational access, inference, trace/replay,
+reservation or Task0051 occurred. [Declarative specification](configs/protocols/development_streaming_v1.json),
+[static design summary](results/tables/final/task0050-development-streaming-design-summary.json)
+and [Italian handoff](docs/handoffs/0050-development-streaming-protocol-design.md).
+The CPU/synthetic phase remains closed and the frozen scientific baseline unchanged.
+
 The [integrated Task0049 report](docs/cpu-trigger-study-synthesis.md) closes the
 present native CPU and synthetic queue study with status
 `completed_curated_cpu_trigger_synthesis`. The [Italian decision brief](docs/cpu-trigger-study-decision-brief.md)
-recommends preserving the frozen baseline and choosing a design-only development
-streaming/cache/transport question next. This metadata-only synthesis binds 57
+recommended the design-only development
+streaming/cache/transport question now specified by Task0050. This metadata-only synthesis binds 57
 curated sources (26,010,109 bytes), separates six accepted CPU timing boundaries,
 retains all four scientific quality rows and sixteen calibrated points, and
 reconciles the current eight replay variants and contrast families.
@@ -57,7 +74,7 @@ AE ranking is moderate and weaker on three-prong signal; strictest acceptance is
 partial service still leaves 137 occupancies unmeasured, with material synthetic
 mapping dependence. These results do not establish a useful rare-anomaly trigger,
 independent scientific confirmation, physical streaming performance or deployment
-readiness. No new experiment or Task0050 follows. Historical failures, consumed
+readiness. Task0049 launched no new experiment or Task0050. Historical failures, consumed
 allowances, permanent YES/YES/YES and particle 192/192 remain unchanged. See the
 [Task0049 handoff](docs/handoffs/0049-cpu-trigger-study-synthesis.md) for checks,
 the disclosed inspection deviation and manual Git delivery.
@@ -799,4 +816,6 @@ At its task-time completion, Task0047 completed one separately authorized [targe
 
 - [x] Task0048: accepted/consumed current-source refined/coarse paired replay,6048scenarios/6048contrasts/30.24Mpresentations, complete compact audits and bounded78.911485s lifecycle;250focused3591full+portable/current324bindings, software failures preserved, no new raw/model/scientific timing or Task0049.
 
-- [x] Task0049: integrated CPU/synthetic phase closure; 57 hash-bound curated sources, six physical boundary maps, four scientific quality rows/sixteen original cuts, complete current replay reconciliation, English report/Italian brief and metadata-only reproduction. Streaming and independent confirmation remain unresolved; no experiment or Task0050.
+- [x] Task0049: integrated CPU/synthetic phase closure; 57 hash-bound curated sources, six physical boundary maps, four scientific quality rows/sixteen original cuts, complete current replay reconciliation, English report/Italian brief and metadata-only reproduction. Physical streaming and independent confirmation remain unresolved; Task0049 launched no experiment or Task0050.
+
+- [x] Task0050: completed design-only B8 descriptor-stream protocol, 24 proposed runs/18,432 offers, complete prospective accounting/resources and static checks; readiness requires named prerequisites, no implementation/execution or Task0051.
