@@ -5,6 +5,7 @@ import os
 import struct
 import zlib
 
+from . import quota
 from .protocol import require, uint
 
 RECORD_BYTES = 512
@@ -205,13 +206,13 @@ class Store:
     def __init__(self, path, capacity, kind, create=False):
         require(type(capacity) is int and 1 <= capacity <= 768, "Record capacity")
         self.capacity, self.kind = capacity, kind
-        self.fd = os.open(
+        self.fd = quota.open_file(
             path, os.O_RDWR | (os.O_CREAT | os.O_EXCL if create else 0), 0o600
         )
         self.mapping = None
         try:
             if create:
-                os.ftruncate(self.fd, capacity * RECORD_BYTES)
+                quota.truncate(self.fd, capacity * RECORD_BYTES)
             require(
                 os.fstat(self.fd).st_size == capacity * RECORD_BYTES,
                 "Fixed record file",
@@ -219,6 +220,7 @@ class Store:
             self.mapping = mmap.mmap(
                 self.fd, capacity * RECORD_BYTES, access=mmap.ACCESS_WRITE
             )
+            quota.track_mapping(self.mapping, self.fd)
             # Touch every page without changing attached journal contents.
             self.page_checksum = sum(
                 self.mapping[i] for i in range(0, len(self.mapping), 4096)
@@ -227,7 +229,7 @@ class Store:
         except Exception:
             if self.mapping is not None:
                 self.mapping.close()
-            os.close(self.fd)
+            quota.close(self.fd)
             self.fd = None
             raise
 
@@ -251,9 +253,10 @@ class Store:
             try:
                 if self.mapping is not None:
                     self.mapping.close()  # no explicit flush/fsync; process-crash visibility only
+                    quota.retire_mapping(self.mapping)
                     self.mapping = None
             finally:
-                os.close(self.fd)
+                quota.close(self.fd)
                 self.fd = None
 
 
@@ -367,11 +370,11 @@ class Phases:
     def __init__(self, path, role, create=False):
         require(role in (1, 2, 3), "Phase owner role")
         self.role, self.index = role, 0
-        self.fd = os.open(
+        self.fd = quota.open_file(
             path, os.O_RDWR | (os.O_CREAT | os.O_EXCL if create else 0), 0o600
         )
         if create:
-            os.ftruncate(self.fd, 32 * 512)
+            quota.truncate(self.fd, 32 * 512)
         require(os.fstat(self.fd).st_size == 32 * 512, "Fixed phase file")
 
     def append(self, code, clocks, rss):
@@ -390,7 +393,7 @@ class Phases:
         )
         blob = blob[:504] + struct.pack("<Q", zlib.crc32(blob[:504]))
         require(
-            os.pwrite(self.fd, blob, self.index * 512) == 512,
+            quota.pwrite(self.fd, blob, self.index * 512) == 512,
             "Phase journal short write",
         )
         self.index += 1
@@ -425,7 +428,7 @@ class Phases:
 
     def close(self):
         if self.fd is not None:
-            os.close(self.fd)
+            quota.close(self.fd)
             self.fd = None
 
 

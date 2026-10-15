@@ -8,6 +8,7 @@ import struct
 import time
 from pathlib import Path
 
+from . import quota
 from .generated import GeneratedBackend, gather
 from .instrumentation import Samples, grouped_samples
 from .protocol import Descriptor, Scheduler, position, require
@@ -146,6 +147,9 @@ STORAGE_CAP = 16 * 1024**2
 
 
 def _json(path, value):
+    if quota.CURRENT is not None:
+        quota.CURRENT.write_json(path, value)
+        return
     blob = (json.dumps(value, allow_nan=False, indent=2) + "\n").encode()
     require(len(blob) <= 131072, "Bounded diagnostic JSON")
     with open(path, "xb") as f:
@@ -153,6 +157,9 @@ def _json(path, value):
 
 
 def _summary(path, role, clocks, stats, **extra):
+    if quota.CURRENT is not None:
+        # v2 retains phase/sample journals plus exit codes; no duplicate child JSON.
+        return
     _json(
         path,
         {
@@ -166,7 +173,9 @@ def _summary(path, role, clocks, stats, **extra):
     )
 
 
-def _producer(name, lock, start, stop, directory, count, rate):
+def _producer(name, lock, start, stop, directory, count, rate, quota_root=None):
+    if quota_root is not None:
+        quota.activate(quota_root)
     clocks = Clocks()
     init = clocks.service()
     samples = Samples(Path(directory) / "producer-samples.bin", 768)
@@ -198,6 +207,7 @@ def _producer(name, lock, start, stop, directory, count, rate):
         phases.append(3, clocks, own_rss())
 
         def emit(k, intended, action):
+            require(own_rss() <= RSS_CAPS["producer"], "Producer own RSS ceiling")
             cycle = clocks.service()
             writes = stats["append_calls"]
             now = clocks.service()
@@ -263,7 +273,11 @@ def _producer(name, lock, start, stop, directory, count, rate):
             samples.close()
 
 
-def _consumer(name, lock, start, stop, armed, directory, count, scenario):
+def _consumer(
+    name, lock, start, stop, armed, directory, count, scenario, quota_root=None
+):
+    if quota_root is not None:
+        quota.activate(quota_root)
     clocks = Clocks()
     init = clocks.service()
     samples = Samples(Path(directory) / "consumer-samples.bin", 4096)
@@ -271,7 +285,7 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
     store = FixtureStore(
         Path(directory) / "batches.bin", count, "batch", scenario=scenario
     )
-    output = os.open(Path(directory) / "outputs.bin", os.O_RDWR)
+    output = quota.open_file(Path(directory) / "outputs.bin", os.O_RDWR)
     phases = ObservedPhases(
         Phases(Path(directory) / "consumer-phases.bin", 2), samples, clocks
     )
@@ -406,7 +420,7 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
                 for i, k in enumerate(b["members"]):
                     payload = struct.pack("<d4B", float(scores[i]), *map(int, masks[i]))
                     require(
-                        os.pwrite(output, payload, 12 * k) == 12,
+                        quota.pwrite(output, payload, 12 * k) == 12,
                         "Output retention write",
                     )
                 samples.add(8, 0, b["m"], b["m"], output_start, clocks.service())
@@ -435,6 +449,7 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
                 b.update(control_end=clocks.service(), status=STAGE["verified"])
                 write(b)
                 stats["batches"] += 1
+                require(own_rss() <= RSS_CAPS["consumer"], "Consumer own RSS ceiling")
                 ring.update(consumer_rss=own_rss())
                 samples.add(
                     4,
@@ -463,7 +478,7 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
         final_start = clocks.service()
         error = phase_during_cleanup(phases, 9, clocks, own_rss())
         try:
-            os.close(output)
+            quota.close(output)
         finally:
             errors = close_owned([phases, store, ring])
             try:
@@ -474,8 +489,10 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
                 samples.close()
 
 
-def run_fixture(directory, scenario, *, task52=False):
+def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat=None):
     """One invocation; supervisor is this process, with exactly two spawned roles."""
+    if quota_root is not None:
+        quota.activate(quota_root)
     entered = time.perf_counter_ns()
     cases = SCENARIOS52 if task52 else SCENARIOS
     require(scenario in cases, "Unknown fixture, no operational mode")
@@ -508,13 +525,24 @@ def run_fixture(directory, scenario, *, task52=False):
         phase.close()
     phases = Phases(directory / "supervisor-phases.bin", 3)
     phases.append(1, clocks, own_rss())
-    fd = os.open(directory / "outputs.bin", os.O_CREAT | os.O_EXCL | os.O_RDWR, 0o600)
-    os.ftruncate(fd, count * 12)
-    os.close(fd)
+    fd = quota.open_file(
+        directory / "outputs.bin", os.O_CREAT | os.O_EXCL | os.O_RDWR, 0o600
+    )
+    quota.truncate(fd, count * 12)
+    quota.close(fd)
     producer = ctx.Process(
         name="fixture-producer",
         target=_producer,
-        args=(shared_name, lock, producer_start, stop, str(directory), count, rate),
+        args=(
+            shared_name,
+            lock,
+            producer_start,
+            stop,
+            str(directory),
+            count,
+            rate,
+            quota_root,
+        ),
     )
     consumer = ctx.Process(
         name="fixture-consumer",
@@ -528,6 +556,7 @@ def run_fixture(directory, scenario, *, task52=False):
             str(directory),
             count,
             scenario,
+            quota_root,
         ),
     )
     children = [producer, consumer]
@@ -545,6 +574,8 @@ def run_fixture(directory, scenario, *, task52=False):
             service, continuous, _ = clocks.observation()
             monitor.observe(service, continuous)
             samples += 1
+            if heartbeat is not None:
+                heartbeat(max_rss)
             snap = ring.snapshot()
             if snap:
                 last_snapshot = snap
@@ -603,6 +634,8 @@ def run_fixture(directory, scenario, *, task52=False):
             else:
                 safety(continuous, started, continuous, continuous, 0)
             max_rss["supervisor"] = max(max_rss["supervisor"], own_rss())
+            if heartbeat is not None:
+                heartbeat(max_rss)
             require(
                 all(max_rss[r] <= RSS_CAPS[r] for r in max_rss), "Fixture RSS ceiling"
             )
@@ -882,7 +915,8 @@ def run_fixture(directory, scenario, *, task52=False):
         synchronization="1spawn mutex +4Events (21SemLocks); OS/native allocation unknown, P2 remains open",
         timestamp_scope="same-host actual fixture process clocks, synthetic read/feature/score stages;no operational certification",
     )
-    _json(directory / "supervisor.json", report)
+    if quota_root is None:
+        _json(directory / "supervisor.json", report)
     require(
         clocks.continuous() - started <= 5_000_000_000,
         "Fixture including final records5s",

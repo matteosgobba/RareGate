@@ -5,6 +5,7 @@ import os
 import struct
 from pathlib import Path
 
+from . import quota
 from .protocol import (
     CONTROL_BYTES,
     MAGIC,
@@ -63,6 +64,7 @@ class Region:
                 (
                     path.is_relative_to(repo / "data/task0051-validation")
                     or path.is_relative_to(repo / "data/task0052-validation")
+                    or path.is_relative_to(repo / "data/task0053-validation")
                 )
                 or path.is_relative_to(Path("/private/tmp"))
                 or path.is_relative_to(Path("/tmp"))
@@ -78,29 +80,38 @@ class Region:
             "Owned fixture region path",
         )
         require(
-            (path.parent.parent / "owner.json").is_file(),
+            (
+                (
+                    quota.CURRENT.root
+                    if quota.CURRENT is not None
+                    else path.parent.parent
+                )
+                / "owner.json"
+            ).is_file(),
             "Explicit fixture output ownership",
         )
         self.name = str(path)
-        self.fd = os.open(
+        self.fd = quota.open_file(
             path,
             os.O_RDWR | (os.O_CREAT | os.O_EXCL if create else 0) | os.O_NOFOLLOW,
             0o600,
         )
         try:
             if create:
-                os.ftruncate(self.fd, SHARED_BYTES)
+                quota.truncate(self.fd, SHARED_BYTES)
             require(os.fstat(self.fd).st_size == SHARED_BYTES, "Region exact length")
             self.buf = mmap.mmap(self.fd, SHARED_BYTES, access=mmap.ACCESS_WRITE)
+            quota.track_mapping(self.buf, self.fd)
         except Exception:
-            os.close(self.fd)
+            quota.close(self.fd)
             raise
         self.closed = False
 
     def close(self):
         if not self.closed:
             self.buf.close()
-            os.close(self.fd)
+            quota.retire_mapping(self.buf)
+            quota.close(self.fd)
             self.closed = True
 
     def unlink(self):

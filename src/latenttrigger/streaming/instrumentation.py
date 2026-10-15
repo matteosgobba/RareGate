@@ -8,6 +8,7 @@ import types
 from collections import defaultdict
 from pathlib import Path
 
+from . import quota
 from .protocol import require
 
 # op, stage, m, updates, start, end, value, auxiliary, reserved, CRC.
@@ -31,8 +32,8 @@ class Samples:
 
     def __init__(self, path, capacity):
         require(1 <= capacity <= 4096, "Sample capacity")
-        self.fd = os.open(path, os.O_RDWR | os.O_CREAT | os.O_EXCL, 0o600)
-        os.ftruncate(self.fd, capacity * SAMPLE.size)
+        self.fd = quota.open_file(path, os.O_RDWR | os.O_CREAT | os.O_EXCL, 0o600)
+        quota.truncate(self.fd, capacity * SAMPLE.size)
         self.capacity, self.index = capacity, 0
 
     def add(self, op, stage, m, updates, start, end, value=None, auxiliary=0):
@@ -52,12 +53,14 @@ class Samples:
             0,
         )
         blob = blob[:56] + struct.pack("<Q", zlib.crc32(blob[:56]))
-        require(os.pwrite(self.fd, blob, self.index * 64) == 64, "Short sample write")
+        require(
+            quota.pwrite(self.fd, blob, self.index * 64) == 64, "Short sample write"
+        )
         self.index += 1
 
     def close(self):
         if self.fd is not None:
-            os.close(self.fd)
+            quota.close(self.fd)
             self.fd = None
 
 

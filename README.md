@@ -43,6 +43,30 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
+Task0053 completes the **instrumented development-request contract v2**:
+`completed_generated_streaming_contract_v2_validation`, qualification
+`generated_software_qualified_under_v2`, operational readiness **false**.
+[Contract/report](docs/development-streaming-contract-v2.md),
+[resolved v2](configs/protocols/development_streaming_v2.json),
+[prospective generated plan](configs/streaming/development_streaming_validation_v2.json),
+[12-case table](results/tables/final/task0053-streaming-contract-validation-cases.csv),
+[summary](results/tables/final/task0053-streaming-contract-validation-summary.json)
+and [Italian handoff](docs/handoffs/0053-streaming-contract-v2-validation.md).
+The explicitly authorized, result-informed revision retains50/200µs as diagnostic
+references and replaces the unproved65,536B synchronization condition for generated
+qualification with primitive/lifetime/visible-allocation/RSS conditions. This is no
+retroactive pass: Task0052 remains partial/negative below.
+All12cases pass on one final frozen bundle:560configured artificial offers,
+120focused tests/lint/format, no recorder comparison or second native suite.
+Ten event/four batch diagnostic exceedances remain (max963µs/2074.625µs).
+One immutable294entry ledger reserves15,136,928B for both possible suites under16MiB;
+external observation covers3.426913083s from subject launch/import through all its
+reports/finalizers/exit/reap. Actual21core/0observer SemLocks,231own names absent;
+unknown kernel backing stays unknown. Generated work includes at least423arithmetic
+score rows; operational data/HDF/models/public inference remain zero. Real consumer
+integration/cache/workspace/effective-thread checks require a separate P4 decision;
+no Task0054 or physical study follows. CPU/synthetic closure and frozen science persist.
+
 Task0052 delivers a **partial generated instrumentation characterization**:
 [report](docs/development-streaming-instrumentation.md),
 [fixture-only specification](configs/streaming/development_streaming_instrumentation_v1.json),
@@ -63,8 +87,9 @@ remain open, including21SemLock backing; P4 is ungranted. Generated numerical,
 record and timing work is positive (at least536arithmetic-score rows); operational
 HDF/data/model/inference work is zero. The next separate decision must review the
 instrumentation budget/architecture and bound final-source generated revalidation;
-no Task0053 or physical study follows. CPU/synthetic closure and frozen science
-remain unchanged.
+no Task0053 or physical study followed within Task0052; the separately authorized
+Task0053 above now qualifies v2 generated software. CPU/synthetic closure and frozen
+science remain unchanged.
 
 Task0051 delivers the [data-free streaming software foundation](docs/development-streaming-software-foundation.md):
 `completed_software_only_development_streaming_foundation`, readiness

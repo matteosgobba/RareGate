@@ -171,6 +171,7 @@ def synchronization_inventory(lock, events):
         mutexes=int(lock is not None),
         events=roles,
         actual_SemLocks=len(sems),
+        owned_names=[s.name for s in sems if s.name is not None],
         kernel_native_bytes=None,
         allowance_bytes=65536,
         allowance_proved=False,
