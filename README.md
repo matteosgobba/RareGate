@@ -43,6 +43,24 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
+Task0051 delivers the [data-free streaming software foundation](docs/development-streaming-software-foundation.md):
+`completed_software_only_development_streaming_foundation`, readiness
+`requires_native_characterization_and_operational_authorization`. The new isolated
+core implements descriptor bytes, shared mapping/64credits, open-loop producer,
+B8 FIFO/timeout, symbolic gather/scatter, owned artificial outputs, fixed records,
+cutoff conservation and supervised failure cleanup. 82 focused tests/lint/format
+pass. Twelve bounded native attempts include one preserved POSIX setup denial;
+eleven generated fixture checks pass, including intentional child failures.
+Generated native work has318arithmetic-score rows and316reference rows; this is
+positive software/numerical/process activity, with zero operational data/model work.
+The concrete shared mapping uses an owned temporary file; no privilege requested.
+P2 native/kernel/model/decoder/thread bounds and P3 full-workload clocks/logging
+remain open (generated event append reached714µs); P4 is ungranted. No physical
+24-case campaign, reservation, historical regression matrix or Task0052 occurred.
+[Fixture-only config](configs/streaming/development_streaming_foundation_v1.json),
+[software summary](results/tables/final/task0051-development-streaming-foundation-summary.json)
+and [Italian handoff](docs/handoffs/0051-development-streaming-software-foundation.md).
+
 Task0050 completes a [design-only development streaming protocol](docs/development-streaming-protocol.md)
 with status `completed_design_only_development_streaming_protocol` and readiness
 `requires_prerequisites`. Proposed: nominal B8, frozen PCA/AE v2, periodic
@@ -55,7 +73,7 @@ worst case is 26,496 raw/feature rows, 46,656 score rows, 186,624 Boolean output
 These ceilings are ungranted and feasibility is unmeasured. Allocation/thread,
 clock/logging/lifecycle proofs and separate implementation/execution decisions
 remain prerequisites. No runner, operational access, inference, trace/replay,
-reservation or Task0051 occurred. [Declarative specification](configs/protocols/development_streaming_v1.json),
+reservation or Task0051 was launched by Task0050. [Declarative specification](configs/protocols/development_streaming_v1.json),
 [static design summary](results/tables/final/task0050-development-streaming-design-summary.json)
 and [Italian handoff](docs/handoffs/0050-development-streaming-protocol-design.md).
 The CPU/synthetic phase remains closed and the frozen scientific baseline unchanged.
@@ -819,3 +837,5 @@ At its task-time completion, Task0047 completed one separately authorized [targe
 - [x] Task0049: integrated CPU/synthetic phase closure; 57 hash-bound curated sources, six physical boundary maps, four scientific quality rows/sixteen original cuts, complete current replay reconciliation, English report/Italian brief and metadata-only reproduction. Physical streaming and independent confirmation remain unresolved; Task0049 launched no experiment or Task0050.
 
 - [x] Task0050: completed design-only B8 descriptor-stream protocol, 24 proposed runs/18,432 offers, complete prospective accounting/resources and static checks; readiness requires named prerequisites, no implementation/execution or Task0051.
+
+- [x] Task0051: isolated generated-memory streaming core,82focused tests and11software fixture checks across12native attempts (one setup failure preserved); P1 foundation complete, P2/P3 partial, P4 ungranted. Physical campaign unimplemented/unexecuted, no Task0052.
