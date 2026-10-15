@@ -331,6 +331,14 @@ def _consumer(
             "Unexpected generated payload access",
         )
     else:
+        from .pilot_context import FixtureContext56
+
+        if type(pilot.get("context")) is FixtureContext56:
+            from .startup55 import install_payload_denial
+
+            payload_audit = install_payload_denial(
+                Path(__file__).resolve().parents[3], quota.CURRENT.root
+            )
         from .hdf_consumer import RealBackend
 
         backend = RealBackend.__new__(RealBackend)
@@ -342,6 +350,7 @@ def _consumer(
                 pilot["candidate"],
                 clocks,
                 lambda: ring.update(consumer_rss=own_rss(), progress=clocks.service()),
+                context=pilot.get("context"),
             )
         except BaseException as exc:
             from .hdf_consumer import record_initialization_failure
@@ -562,6 +571,17 @@ def _consumer(
                 "Unexpected generated payload access",
             )
         _summary(Path(directory) / "consumer.json", "consumer", clocks, stats)
+    except BaseException as exc:
+        if pilot is not None:
+            from .hdf_consumer import record_initialization_failure
+
+            record_initialization_failure(
+                backend,
+                Path(directory) / "consumer-final.json",
+                exc,
+                initialization=False,
+            )
+        raise
     finally:
         final_start = clocks.service()
         error = phase_during_cleanup(phases, 9, clocks, own_rss())
@@ -624,6 +644,31 @@ def run_pilot_core(directory, candidate, *, quota_root, heartbeat):
     )
 
 
+def run_scoped_core(
+    directory,
+    candidate,
+    *,
+    quota_root,
+    heartbeat,
+    context,
+    resource_publish=lambda _: None,
+):
+    """0056 context only; no generated-to-real fallback or legacy activation."""
+    from .pilot_context import context_from_request
+
+    request = dict(task="0056", candidate=candidate, context=context)
+    context_from_request(quota_root, request, Path(__file__).resolve().parents[3])
+    return _run_pipeline(
+        directory,
+        "pilot54",
+        quota_root=quota_root,
+        heartbeat=heartbeat,
+        pilot=dict(candidate=candidate, context=context),
+        resource_policy=POLICY,
+        resource_publish=resource_publish,
+    )
+
+
 def _run_pipeline(
     directory,
     scenario,
@@ -638,6 +683,12 @@ def _run_pipeline(
     """Shared actual producer/ring/batching/consumer/record/lifecycle core."""
     if quota_root is not None:
         quota.activate(quota_root)
+    from .pilot_context import FixtureContext56
+
+    scoped_fixture = (
+        pilot is not None and type(pilot.get("context")) is FixtureContext56
+    )
+    whole_seconds = 15 if scoped_fixture else (30 if pilot else 5)
     entered = time.perf_counter_ns()
     cases = (
         {"pilot54": (64, 500)}
@@ -794,7 +845,8 @@ def _run_pipeline(
                     )
                 else:
                     require(
-                        continuous - started <= 28_000_000_000, "Pilot cleanup reserve"
+                        continuous - started <= (whole_seconds - 2) * 1_000_000_000,
+                        "Pilot cleanup reserve",
                     )
                     require(
                         not consumer.is_alive()
@@ -809,7 +861,7 @@ def _run_pipeline(
                     max_rss[role] = max(max_rss[role], snap[role + "_rss"])
             else:
                 require(
-                    continuous - started <= (28 if pilot else 3) * 1_000_000_000,
+                    continuous - started <= (whole_seconds - 2) * 1_000_000_000,
                     "Invocation guard",
                 )
             max_rss["supervisor"] = max(max_rss["supervisor"], own_rss())
@@ -841,7 +893,7 @@ def _run_pipeline(
             stop,
             clocks.continuous,
             min(
-                started + (30 if pilot else 5) * 1_000_000_000,
+                started + whole_seconds * 1_000_000_000,
                 cleanup_start + 2_000_000_000,
             ),
         )
@@ -1034,9 +1086,7 @@ def _run_pipeline(
         "Cleanup validity",
     )
     elapsed = clocks.continuous() - started
-    require(
-        elapsed <= (30 if pilot else 5) * 1_000_000_000, "Invocation whole duration"
-    )
+    require(elapsed <= whole_seconds * 1_000_000_000, "Invocation whole duration")
     report = dict(
         scenario=scenario,
         software_checks=checks,
@@ -1106,7 +1156,7 @@ def _run_pipeline(
     if quota_root is None:
         _json(directory / "supervisor.json", report)
     require(
-        clocks.continuous() - started <= (30 if pilot else 5) * 1_000_000_000,
+        clocks.continuous() - started <= whole_seconds * 1_000_000_000,
         "Invocation including final records",
     )
     return report

@@ -15,6 +15,23 @@ from .pilot54 import fixed_path, source_bytes
 from .protocol import require
 
 
+def load_npy_owned(blob, shape, dtype):
+    """One nonpickle decode, exact type before an explicit owned C copy."""
+    import numpy as np
+
+    values = np.load(io.BytesIO(blob), allow_pickle=False)
+    require(
+        isinstance(values, np.ndarray)
+        and values.shape == shape
+        and values.dtype == np.dtype(dtype)
+        and np.isfinite(values).all(),
+        "Exact serialized array schema, no coercion",
+    )
+    result = np.array(values, dtype=dtype, order="C", copy=True)
+    require(result.flags.owndata and result.flags.c_contiguous, "Owned decoded array")
+    return result
+
+
 def positions_checked(positions):
     require(
         1 <= len(positions) <= 8
@@ -148,9 +165,9 @@ class Budget:
 
 
 class RealBackend:
-    """Constructed only inside explicitly activated Task0054 consumer."""
+    """Constructed only inside explicitly scoped operational or serialized consumer."""
 
-    def __init__(self, root, directory, candidate, clocks, progress):
+    def __init__(self, root, directory, candidate, clocks, progress, context=None):
         from .pilot54 import CONFIG, source_manifest
         from .validation_v2 import fingerprint
 
@@ -170,20 +187,32 @@ class RealBackend:
         self.budget, self.generation = Budget(), 0
         self.phase, self.observations, self.gate_digests = "imports", {}, []
         self.retained = []
-        self.spec = json.loads((self.repo / CONFIG).read_text())
-        active = json.loads((self.root / "pilot/activation.json").read_text())
-        prospective = json.loads((self.root / "pilot/prospective.json").read_text())
-        require(
-            active["task"] == "0054"
-            and active["single_session"]
-            and prospective["bundle_sha256"] == fingerprint(source_manifest(self.repo)),
-            "Bound activated pilot/source before numeric imports",
-        )
-        require(
-            candidate in ("pca-v1", "compact-autoencoder-v2"), "One original candidate"
-        )
-        self.entry = next(x for x in self.spec["models"] if x["name"] == candidate)
-        self.files = {x["role"]: x for x in self.spec["allowed_files"]}
+        self.context = context
+        if context is None:
+            self.spec = json.loads((self.repo / CONFIG).read_text())
+            active = json.loads((self.root / "pilot/activation.json").read_text())
+            prospective = json.loads((self.root / "pilot/prospective.json").read_text())
+            require(
+                active["task"] == "0054"
+                and active["single_session"]
+                and prospective["bundle_sha256"]
+                == fingerprint(source_manifest(self.repo)),
+                "Bound historical pilot/source before numeric imports",
+            )
+        else:
+            from .pilot_context import FixtureContext56, PilotContext56
+
+            require(
+                type(context) in (PilotContext56, FixtureContext56),
+                "Typed consumer context",
+            )
+            require(context.root == str(self.root), "Consumer scope root")
+            self.spec = (
+                context.specification(self.repo)
+                if type(context) is PilotContext56
+                else None
+            )
+        require(candidate in ("pca-v1", "compact-autoencoder-v2"), "One candidate")
         self.checkpoint()
         from .cpu_runtime import RuntimeSession
 
@@ -195,8 +224,18 @@ class RealBackend:
         self.np, self.core, self.channels = np, core, list(AGGREGATE_NAMES)
         self.threads_before = self.runtime.evidence["threads"]
         self.checkpoint()
-        # Payload verification below is still guarded by the existing consumed
-        # Task0054 activation/source identity above. Bootstrap provides no grant.
+        if context is not None:
+            from .pilot_context import FixtureContext56
+
+            if type(context) is FixtureContext56:
+                from .serialized_fixture import prepare_sources
+
+                self.fixture_setup = prepare_sources(
+                    context, self.runtime, self.checkpoint
+                )
+                self.spec = context.specification(self.repo)
+        self.entry = next(x for x in self.spec["models"] if x["name"] == candidate)
+        self.files = {x["role"]: x for x in self.spec["allowed_files"]}
         self._initialize_payload(candidate)
 
     def _initialize_payload(self, candidate):
@@ -205,11 +244,14 @@ class RealBackend:
         from .pilot54 import source_manifest
         from .validation_v2 import fingerprint
 
-        active = json.loads((self.root / "pilot/activation.json").read_text())
-        require(
-            active["bundle_sha256"] == fingerprint(source_manifest(self.repo)),
-            "New valid payload authorization/source binding required",
-        )
+        if self.context is None:
+            active = json.loads((self.root / "pilot/activation.json").read_text())
+            require(
+                active["bundle_sha256"] == fingerprint(source_manifest(self.repo)),
+                "New valid payload authorization/source binding required",
+            )
+        else:
+            self.context.validate_payload(self.repo, candidate, self.budget)
         self.payload_armed = True
         from latenttrigger.data.features import Parameters
 
@@ -217,9 +259,12 @@ class RealBackend:
         # Hash only this candidate's small original sources, not the other model.
         roles = ["membership", "golden", "transform"] + list(self.spec["lineage_roles"])
         roles += [candidate + ":" + k for k in ("model", "config", "calibration")]
-        self.loaded = {
-            role: source_bytes(self.repo, self.files[role]) for role in roles
-        }
+        limit = 262144 if self.context is None else 393216
+        require(
+            sum(self.files[r]["bytes"] for r in roles) <= limit,
+            "Pre-growth source byte envelope",
+        )
+        self.loaded = {role: self.read_source(self.files[role]) for role in roles}
         for role in self.spec["lineage_roles"]:
             item = json.loads(self.loaded[role])
             if role == "dev_manifest":
@@ -235,11 +280,11 @@ class RealBackend:
             self.spec,
         )
         require(
-            sum(len(b) for b in self.loaded.values()) <= 262144,
-            "Source byte buffers262144B",
+            sum(len(b) for b in self.loaded.values()) <= limit,
+            "Bounded closed source byte buffers",
         )
         self.budget.add("membership_loads")
-        values = np.load(io.BytesIO(self.loaded["membership"]), allow_pickle=False)
+        values = load_npy_owned(self.loaded["membership"], (6999,), "<i8")
         require(
             values.shape == (6999,)
             and values.dtype == np.dtype("<i8")
@@ -259,7 +304,7 @@ class RealBackend:
         del values
         self.ids.setflags(write=False)
         self.budget.add("golden_loads")
-        self.golden = np.load(io.BytesIO(self.loaded["golden"]), allow_pickle=False)
+        self.golden = load_npy_owned(self.loaded["golden"], (1024, 8), "<f4")
         require(
             self.golden.shape == (1024, 8)
             and self.golden.dtype == np.dtype("<f4")
@@ -326,6 +371,18 @@ class RealBackend:
             core.parameter_hash(self.model) == expected_parameter_hash(artifact),
             "Original artifact parameter bytes",
         )
+        require(
+            isinstance(self.parameters, Parameters), "Decoded frozen Parameters type"
+        )
+        require(
+            isinstance(
+                self.model,
+                core.PCAReconstruction
+                if candidate == "pca-v1"
+                else core.CompactAutoencoder,
+            ),
+            "Public loader return type",
+        )
         self.initial_state = self.state()
         self.loaded.clear()  # no second model/array load; originals checked again as bytes after work
         self.phase = "pre_gates"
@@ -335,6 +392,24 @@ class RealBackend:
         self.phase = "reopened_no_raw_warmup"
         self.open_handle()
         self.checkpoint()
+
+    def read_source(self, entry):
+        context = getattr(self, "context", None)
+        value = (
+            source_bytes(self.repo, entry)
+            if context is None
+            else context.read_source(self.repo, entry)
+        )
+        if "role" in entry:
+            if not hasattr(self, "source_verification_counts"):
+                self.source_verification_counts = {}
+            counts = self.source_verification_counts
+            counts[entry["role"]] = counts.get(entry["role"], 0) + 1
+            require(
+                len(counts) <= 13 and counts[entry["role"]] <= 2,
+                "Only initial/final small source checks",
+            )
+        return value
 
     def checkpoint(self):
         from .supervision import own_rss
@@ -378,11 +453,23 @@ class RealBackend:
 
         self.budget.add("hdf_opens")
         self.checkpoint()
-        path = fixed_path(self.repo, self.files["raw"])
-        self.handle = h5py.File(path, "r", **self.spec["cache"])
-        self.budget.add("schema_checks")
-        self.hdf_metadata = properties(self.handle, self.spec["raw"]["audit_schema"])
-        self.dataset = self.handle["/df/block0_values"]
+        from .pilot_context import FixtureContext56, FixtureDataset, FixtureHandle
+
+        if type(getattr(self, "context", None)) is FixtureContext56:
+            self.handle = FixtureHandle()
+            self.dataset = FixtureDataset(self.handle)
+            self.hdf_metadata = dict(
+                generated_strict_dataset_standin=True, HDF_files_opened=0
+            )
+            self.budget.add("schema_checks")
+        else:
+            path = fixed_path(self.repo, self.files["raw"])
+            self.handle = h5py.File(path, "r", **self.spec["cache"])
+            self.budget.add("schema_checks")
+            self.hdf_metadata = properties(
+                self.handle, self.spec["raw"]["audit_schema"]
+            )
+            self.dataset = self.handle["/df/block0_values"]
         self.checkpoint()
 
     def close_handle(self):
@@ -390,8 +477,12 @@ class RealBackend:
 
         if self.handle is not None:
             self.budget.add("schema_checks")
-            properties(self.handle, self.spec["raw"]["audit_schema"])
-            identifier = self.handle.id
+            from .pilot_context import FixtureContext56
+
+            is_fixture = type(getattr(self, "context", None)) is FixtureContext56
+            if not is_fixture:
+                properties(self.handle, self.spec["raw"]["audit_schema"])
+            identifier = self.handle if is_fixture else self.handle.id
             self.handle.close()
             self.handle = None
             require(not identifier.valid, "HDF handle closed")
@@ -533,13 +624,17 @@ class RealBackend:
             "Frozen parameter/input/scaler/threshold identities",
         )
         self.threads_after = self.core.effective_threads()
+        import ctypes
+
+        self.rounding_after = ctypes.CDLL(None).fegetround()
+        require(self.rounding_after == 0, "Round-to-nearest after actual service")
         self.close_handle()
         for role in (
             ["membership", "golden", "transform"]
             + list(self.spec["lineage_roles"])
             + [self.entry["name"] + ":" + k for k in ("model", "config", "calibration")]
         ):
-            source_bytes(self.repo, self.files[role])
+            self.read_source(self.files[role])
         require(
             self.clocks.continuous() - post_start <= 10_000_000_000,
             "References/post10s",
@@ -550,6 +645,15 @@ class RealBackend:
             self.directory / "consumer-final.json",
             dict(
                 valid=True,
+                runtime=getattr(self, "runtime", None).evidence
+                if hasattr(self, "runtime")
+                else None,
+                fixture_setup=getattr(self, "fixture_setup", None),
+                operational=type(getattr(self, "context", None)).__name__
+                != "FixtureContext56",
+                source_verification_counts=getattr(
+                    self, "source_verification_counts", {}
+                ),
                 budget=self.budget.__dict__,
                 gate_contexts=16,
                 exact_pre_post_gate_parity=True,
@@ -557,6 +661,7 @@ class RealBackend:
                 state_identities=self.initial_state,
                 threads_before=self.threads_before,
                 threads_after=self.threads_after,
+                rounding_after=self.rounding_after,
                 decoder_threads=dict(requested="1", effective="unknown"),
                 hdf=self.hdf_metadata,
                 phase_observations=self.observations,
@@ -689,14 +794,14 @@ def validate_lineage(docs, spec):
     )
 
 
-def record_initialization_failure(backend, path, exc):
+def record_initialization_failure(backend, path, exc, *, initialization=True):
     """Keep the original startup context even when its checkpoint cannot publish."""
     from .cpu_runtime import exception_record
 
     runtime = getattr(backend, "runtime", None)
     record = dict(
         valid=False,
-        initialization_failed=True,
+        initialization_failed=initialization,
         error_type=type(exc).__name__,
         error=str(exc)[:500],
         primary_failure=exception_record(exc),

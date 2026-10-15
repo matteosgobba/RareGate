@@ -233,7 +233,7 @@ def custody(root, ledger, spec, phase, clocks, heartbeat):
         quota.close(fd)
 
 
-def pilot_subject(root):
+def pilot_subject(root, *, context=None):
     """No payload reads occur before immutable activation and source verification."""
     import signal
 
@@ -242,16 +242,28 @@ def pilot_subject(root):
 
     repo = Path(__file__).resolve().parents[3]
     ledger = quota.activate(root)
-    spec = json.loads((repo / CONFIG).read_text())
+    if context is None:
+        bound_manifest, bound_task = source_manifest, "0054"
+        spec = json.loads((repo / CONFIG).read_text())
+    else:
+        from .pilot56 import source_manifest as bound_manifest
+
+        bound_task = "0056"
+        spec = context.specification(repo)
+        from .pilot56 import check_qualification
+
+        check_qualification(root, repo)
     prospective = json.loads((root / "pilot/prospective.json").read_text())
     require(
-        source_manifest(repo) == prospective["source_manifest"], "Final pilot bundle"
+        bound_manifest(repo) == prospective["source_manifest"], "Final pilot bundle"
     )
     clocks = Clocks()
     hb = ledger.open(root / "pilot/heartbeat.bin", os.O_CREAT | os.O_EXCL | os.O_RDWR)
     quota.truncate(hb, 4096)
     phase, generation = 1, 0
     results, hashes, problem = [], [], None
+    primary = None
+    tracker_journal = None
 
     def heartbeat(peaks):
         nonlocal generation
@@ -266,7 +278,9 @@ def pilot_subject(root):
     ledger.write_json(
         root / "pilot/activation.json",
         dict(
-            task="0054",
+            task=bound_task,
+            root=str(root),
+            subject_pid=os.getpid(),
             single_session=True,
             bundle_sha256=prospective["bundle_sha256"],
             continuous_ns=clocks.continuous(),
@@ -280,14 +294,30 @@ def pilot_subject(root):
             heartbeat({})
             prior = set(quota.FDS)
             try:
-                report = v2.compact_report(
-                    run_pilot_core(
+                if context is not None:
+                    from .fixture import run_scoped_core
+                    from .startup55 import Journal
+
+                    if tracker_journal is None:
+                        tracker_journal = Journal(root / "pilot/tracker.bin")
+                    raw_report = run_scoped_core(
                         root / "pilot" / candidate,
                         candidate,
                         quota_root=str(root),
                         heartbeat=heartbeat,
+                        context=context,
+                        resource_publish=tracker_journal.write,
                     )
-                )
+                    report = v2.compact_report(raw_report)
+                else:
+                    report = v2.compact_report(
+                        run_pilot_core(
+                            root / "pilot" / candidate,
+                            candidate,
+                            quota_root=str(root),
+                            heartbeat=heartbeat,
+                        )
+                    )
             finally:
                 errors = quota.emergency_release(prior, root / "pilot" / candidate)
             require(not errors, "Pilot emergency resource release")
@@ -321,6 +351,9 @@ def pilot_subject(root):
             heartbeat({})
     except Exception as exc:
         problem = (type(exc).__name__ + ": " + str(exc))[:900]
+        from .cpu_runtime import exception_record
+
+        primary = exception_record(exc)
         ledger.write_bytes(root / "pilot/emergency.txt", problem.encode())
     finally:
         phase = 4
@@ -331,7 +364,7 @@ def pilot_subject(root):
             problem = problem or (type(exc).__name__ + ": " + str(exc))[:900]
         phase = 5
         heartbeat({})
-        frozen = source_manifest(repo) == prospective["source_manifest"]
+        frozen = bound_manifest(repo) == prospective["source_manifest"]
         qualified = (
             problem is None and len(results) == 2 and len(hashes) == 2 and frozen
         )
@@ -340,6 +373,7 @@ def pilot_subject(root):
             dict(
                 qualified=qualified,
                 problem=problem,
+                primary_failure=primary,
                 cases=results,
                 custody=hashes,
                 source_unchanged=frozen,
@@ -351,11 +385,15 @@ def pilot_subject(root):
                 operational_access_activated=True,
             ),
         )
-        quota.close(hb)
+        try:
+            if tracker_journal is not None:
+                tracker_journal.close()
+        finally:
+            quota.close(hb)
     return int(not qualified)
 
 
-def observe_pilot(root):
+def observe_pilot(root, *, context=None):
     """Narrow external180s watchdog, before subject imports through reap/retirement."""
     import subprocess
     import sys
@@ -365,20 +403,40 @@ def observe_pilot(root):
 
     repo = Path(__file__).resolve().parents[3]
     ledger = quota.activate(root)
+    if context is None:
+        bound_task, bound_plan, bound_manifest, bound_validate = (
+            "0054",
+            file_plan,
+            source_manifest,
+            validate_spec,
+        )
+        config_path, script_path = CONFIG, "scripts/development_hdf_consumer_pilot.py"
+    else:
+        from . import pilot56
+
+        bound_task, bound_plan, bound_manifest, bound_validate = (
+            "0056",
+            pilot56.file_plan,
+            pilot56.source_manifest,
+            pilot56.validate_spec,
+        )
+        config_path, script_path = pilot56.CONFIG, pilot56.SCRIPT
+        pilot56.check_qualification(root, repo)
     require(
-        ledger.task == "0054" and ledger.entries == file_plan(), "Global32MiB ledger"
+        ledger.task == bound_task and ledger.entries == bound_plan(),
+        "Global32MiB ledger",
     )
     require(
         not (root / "pilot/activation.json").exists(), "One operational session only"
     )
-    manifest = source_manifest(repo)
+    manifest = bound_manifest(repo)
     receipts = [json.loads(p.read_text()) for p in root.glob("suite-*/observer.json")]
     require(
         any(r["qualified"] and r["source_manifest"] == manifest for r in receipts),
         "Full final-source generated qualification",
     )
-    spec = json.loads((repo / CONFIG).read_text())
-    validate_spec(spec, repo)
+    spec = json.loads((repo / config_path).read_text())
+    bound_validate(spec, repo)
     require(
         spec["software_prerequisites_passed"]
         and spec["pilot_scope_authorized"]
@@ -411,7 +469,7 @@ def observe_pilot(root):
         process = subprocess.Popen(
             [
                 sys.executable,
-                str(repo / "scripts/development_hdf_consumer_pilot.py"),
+                str(repo / script_path),
                 "--pilot-subject",
                 "--root",
                 str(root),

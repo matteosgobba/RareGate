@@ -374,7 +374,9 @@ def initialize(root, repo):
     return quota.activate(root)
 
 
-def prepare(root, group, repo):
+def prepare(root, group, repo, *, context=None):
+    if context is not None:
+        return context.prepare_group(root, group, repo)
     require(
         root == repo / ROOT and group in (1, 2), "Fixed root/two qualification groups"
     )
@@ -423,15 +425,18 @@ def prepare(root, group, repo):
     return ledger, directory, identity
 
 
-def subject(root, group):
+def subject(root, group, *, context=None):
     from .fixture import run_fixture
 
     repo = Path(__file__).resolve().parents[3]
+    bound_manifest = manifest if context is None else context.source_manifest
+    subject_cap = 96_000_000_000 if context is None else context.SUBJECT_CAP
+    expected_checks = 14 if context is None else context.EXPECTED_CHECKS
     ledger = quota.activate(root)
     directory = root / f"suite-{group}"
     prospective = json.loads((directory / "prospective.json").read_text())
     identity = prospective["source_manifest"]
-    require(manifest(repo) == identity, "Subject source before work")
+    require(bound_manifest(repo) == identity, "Subject source before work")
     clocks = Clocks()
     start = clocks.continuous()
     rows = []
@@ -478,7 +483,7 @@ def subject(root, group):
         heartbeat({})
         for index, (name, n, _rate) in enumerate(v2.CASES, 1):
             require(
-                clocks.continuous() - start + 8_000_000_000 <= 96_000_000_000,
+                clocks.continuous() - start + 8_000_000_000 <= subject_cap,
                 "Remaining generated envelope plus finalization",
             )
             ledger.write_json(
@@ -544,7 +549,7 @@ def subject(root, group):
             )
         for index, selector in enumerate(BOOTSTRAPS, 13):
             require(
-                clocks.continuous() - start + 13_000_000_000 <= 96_000_000_000,
+                clocks.continuous() - start + 13_000_000_000 <= subject_cap,
                 "Remaining runtime10s plus finalization",
             )
             ledger.write_json(
@@ -591,8 +596,14 @@ def subject(root, group):
             )
             heartbeat({})
             require(result["passed"], "Source-free runtime bootstrap failed")
-        require(manifest(repo) == identity, "Final source unchanged")
-        qualified = len(rows) == 14 and all(r["software_checks_passed"] for r in rows)
+        if context is not None:
+            context.run_integrations(
+                root, directory, group, prospective, heartbeat, rows, attempts, clocks
+            )
+        require(bound_manifest(repo) == identity, "Final source unchanged")
+        qualified = len(rows) == expected_checks and all(
+            r["software_checks_passed"] for r in rows
+        )
     except BaseException as exc:
         primary = exception_record(exc)
         if hasattr(exc, "evidence"):
@@ -612,7 +623,7 @@ def subject(root, group):
             payload_armed=False,
             operational=False,
             bundle_sha256=prospective["bundle_sha256"],
-            source_unchanged=manifest(repo) == identity,
+            source_unchanged=bound_manifest(repo) == identity,
         )
         try:
             stream = io.StringIO()
@@ -653,11 +664,20 @@ def subject(root, group):
     return int(not value["qualified"] or bool(report_error) or bool(cleanup_errors))
 
 
-def observe(root, group):
+def observe(root, group, *, context=None):
     repo = Path(__file__).resolve().parents[3]
+    subject_cap = 96_000_000_000 if context is None else context.SUBJECT_CAP
+    cleanup_by = 98_000_000_000 if context is None else context.CLEANUP_BY
+    group_cap = 100_000_000_000 if context is None else context.GROUP_CAP
+    total_cap = 200_000_000_000 if context is None else context.TOTAL_CAP
+    entrypoint = SCRIPT if context is None else context.SCRIPT
     clocks = Clocks()
     outer_start = clocks.continuous()
-    ledger, directory, identity = prepare(root, group, repo)
+    ledger, directory, identity = (
+        prepare(root, group, repo)
+        if context is None
+        else prepare(root, group, repo, context=context)
+    )
     before = clocks.observation()
     monitor = Monitor(*before[:2])
     process = None
@@ -668,14 +688,14 @@ def observe(root, group):
     if group == 2:
         prior = json.loads((root / "suite-1/observer.json").read_text())
         require(
-            prior["group_total_ns"] + 100_000_000_000 <= 200_000_000_000,
-            "Remaining whole200s admission",
+            prior["group_total_ns"] + group_cap <= total_cap,
+            "Remaining whole qualification admission",
         )
     try:
         process = subprocess.Popen(
             [
                 sys.executable,
-                str(repo / SCRIPT),
+                str(repo / entrypoint),
                 "--subject",
                 "--root",
                 str(root),
@@ -693,7 +713,7 @@ def observe(root, group):
             service, now, _ = clocks.observation()
             monitor.observe(service, now)
             require(
-                now - outer_start <= 96_000_000_000,
+                now - outer_start <= subject_cap,
                 "Subject deadline reserves cleanup/receipt",
             )
             peak = max(peak, own_rss())
@@ -724,7 +744,7 @@ def observe(root, group):
             cleanup = v2.tree_cleanup(
                 process,
                 clocks,
-                min(outer_start + 98_000_000_000, clocks.continuous() + 2_000_000_000),
+                min(outer_start + cleanup_by, clocks.continuous() + 2_000_000_000),
             )
         after = clocks.observation()
     subject_path = directory / "subject.json"
@@ -770,7 +790,7 @@ def observe(root, group):
         observer_overhead_reserve_ns=4_000_000_000,
         group_before_receipt_ns=clocks.continuous() - outer_start,
         group_total_ns=after[1] - before[1] + 4_000_000_000,
-        group_cap_ns=100_000_000_000,
+        group_cap_ns=group_cap,
         storage=ledger.inventory(),
         payload_armed=False,
         operational=False,
@@ -788,7 +808,7 @@ def observe(root, group):
         except (OSError, ValueError):
             pass
     require(
-        clocks.continuous() - outer_start <= 100_000_000_000,
-        "Group100s including observer receipt",
+        clocks.continuous() - outer_start <= group_cap,
+        "Group envelope including observer receipt",
     )
     return receipt

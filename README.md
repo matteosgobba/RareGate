@@ -43,7 +43,36 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
-Task0055 completes the **software-only streaming startup/resource repair**:
+Task0056 delivers a **partial/failed fresh bounded HDF pilot**:
+`partial_failed_development_hdf_pilot_v2`, complete declared generated qualification,
+pilot acceptance and operational readiness **false**.
+[Report](docs/development-hdf-consumer-pilot-v2.md),
+[new Task0056 scope](configs/streaming/development_hdf_consumer_pilot_v2.json),
+[18-attempt table](results/tables/final/task0056-development-hdf-pilot-cases.csv),
+[summary](results/tables/final/task0056-development-hdf-pilot-summary.json) and
+[Italian handoff](docs/handoffs/0056-fresh-bounded-hdf-pilot.md).
+Task0055 was committed at the clean actual base `6ca5c347…`; memory advances to1.51.
+All16 current-bundle checks pass (12 core,2actual CPU bootstraps,2serialized
+model-class integration cases);123focused tests pass. One group/688generated
+offers, no second or recorder comparison. The new single P4 session performs
+both custody hashes,5,816,520,818B. PCA completes63/64offers, all16pre/post shape
+contexts and63deferred same-shaped references:207real raw/feature rows,
+174frozen public calls/342score rows/1368Booleans, one membership/golden/PCA load,
+2HDF handles/4schema checks. This is positive real integration and instrumented
+timing, with actual stream m1 under nominal B8; no scientific usefulness follows.
+AE's supervisor attempt fails before either worker starts: its valid13,156,352B
+tracker sample cannot publish to an unregistered diagnostic descriptor. Source
+inspection identifies the session-journal/per-case cleanup lifetime mismatch;
+no AE payload/scoring or real repair/retry occurs. The declared serialized checks
+missed this sequential controller path. P4 is consumed; all observations retained.
+Ledger504entries28,631,424B/32MiB; observed generated14.205127916s and pilot
+6.633486583s include subject imports/reporting/finalization/exit/reap. Generated
+3event diagnostic exceeds, real PCA0;50/200µs remain diagnostics. Real decoder
+threads/heap/native workspace and AE parity remain unresolved. Next separately
+scope software-only journal ownership/sequential qualification before any new
+narrow operational authorization; no larger24case study or Task0057.
+
+Historical Task0055 completes the **software-only streaming startup/resource repair**:
 `completed_software_only_streaming_startup_repair`; readiness
 `requires_fresh_bounded_operational_authorization`.
 [Report](docs/development-streaming-startup-repair.md),
@@ -69,7 +98,7 @@ runtime work, without HDF files, scientific arrays, candidate construction or
 public inference. **Zero new operational custody/data/model work**; Task0054's
 positive historical custody below remains. Its failed pilot and Task0052's
 partial/negative outcome are preserved. P4 is ungranted here; only a fresh narrow
-pilot decision could authorize real integration. No Task0056 follows.
+pilot decision could authorize real integration. No Task0056 followed within Task0055; Task0056 above has a separate fresh conditional scope.
 
 Historical Task0054 adds a **partial/failed bounded HDF consumer pilot**:
 `partial_failed_development_hdf_consumer_pilot`, final qualification
