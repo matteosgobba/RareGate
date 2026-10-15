@@ -20,7 +20,10 @@ def check(condition, message):
 
 
 class Ledger:
-    def __init__(self, root, entries):
+    def __init__(self, root, entries, *, task="0053"):
+        check(task in ("0053", "0054"), "Explicit task quota")
+        self.task = task
+        self.cap = CAP if task == "0053" else 32 * 1024**2
         self.root = Path(root)
         check(
             self.root.is_absolute() and self.root == self.root.resolve(),
@@ -31,7 +34,10 @@ class Ledger:
         check(
             all(type(n) is int and n >= 0 for n in entries.values()), "Finite file caps"
         )
-        check(sum(entries.values()) <= CAP, "Whole-task reservation exceeds16MiB")
+        check(
+            sum(entries.values()) <= self.cap,
+            "Whole-task reservation exceeds scoped cap",
+        )
         for name in entries:
             check(
                 not Path(name).is_absolute() and ".." not in Path(name).parts,
@@ -126,7 +132,7 @@ class Ledger:
                 blocks += info.st_blocks * 512
                 files += 1
         check(
-            logical <= sum(self.entries.values()) <= CAP,
+            logical <= sum(self.entries.values()) <= self.cap,
             "Whole-task actual/reserved bound",
         )
         return dict(
@@ -134,7 +140,7 @@ class Ledger:
             allocated_file_blocks_bytes=blocks,
             file_count=files,
             reserved_bytes=sum(self.entries.values()),
-            cap_bytes=CAP,
+            cap_bytes=self.cap,
             filesystem_kernel_metadata_bytes=None,
         )
 
@@ -171,8 +177,9 @@ def activate(root):
     path = root / "ledger.json"
     check(not path.is_symlink() and path.stat().st_size <= 65536, "Ledger metadata")
     data = json.loads(path.read_text())
-    check(data["task"] == "0053" and data["cap_bytes"] == CAP, "Task ledger identity")
-    CURRENT = Ledger(root, data["files"])
+    check(data["task"] in ("0053", "0054"), "Task ledger identity")
+    CURRENT = Ledger(root, data["files"], task=data["task"])
+    check(data["cap_bytes"] == CURRENT.cap, "Scoped task cap")
     return CURRENT
 
 

@@ -173,7 +173,9 @@ def _summary(path, role, clocks, stats, **extra):
     )
 
 
-def _producer(name, lock, start, stop, directory, count, rate, quota_root=None):
+def _producer(
+    name, lock, start, stop, directory, count, rate, quota_root=None, setup_seconds=2
+):
     if quota_root is not None:
         quota.activate(quota_root)
     clocks = Clocks()
@@ -200,7 +202,7 @@ def _producer(name, lock, start, stop, directory, count, rate, quota_root=None):
     try:
         ring.update(producer_ready=1, producer_rss=own_rss())
         phases.append(2, clocks, own_rss())
-        require(start.wait(2), "Fixture producer start timeout")
+        require(start.wait(setup_seconds), "Bounded producer setup timeout")
         snap = startup_snapshot(ring, stop, clocks)
         scheduler = Scheduler(snap["t0"], count, rate)
         ring.update(producer_armed=1)
@@ -274,7 +276,16 @@ def _producer(name, lock, start, stop, directory, count, rate, quota_root=None):
 
 
 def _consumer(
-    name, lock, start, stop, armed, directory, count, scenario, quota_root=None
+    name,
+    lock,
+    start,
+    stop,
+    armed,
+    directory,
+    count,
+    scenario,
+    quota_root=None,
+    pilot=None,
 ):
     if quota_root is not None:
         quota.activate(quota_root)
@@ -290,7 +301,35 @@ def _consumer(
         Phases(Path(directory) / "consumer-phases.bin", 2), samples, clocks
     )
     phases.append(1, clocks, own_rss())
-    backend = GeneratedBackend()
+    backend = None
+    if pilot is None:
+        backend = GeneratedBackend()
+    else:
+        from .hdf_consumer import RealBackend
+
+        backend = RealBackend.__new__(RealBackend)
+        try:
+            RealBackend.__init__(
+                backend,
+                quota_root,
+                directory,
+                pilot["candidate"],
+                clocks,
+                lambda: ring.update(consumer_rss=own_rss(), progress=clocks.service()),
+            )
+        except BaseException as exc:
+            from .hdf_consumer import record_initialization_failure
+
+            try:
+                record_initialization_failure(
+                    backend, Path(directory) / "consumer-final.json", exc
+                )
+            finally:
+                try:
+                    quota.close(output)
+                finally:
+                    close_owned([backend, phases, store, ring, samples])
+            raise
     samples.add(6, 0, 0, 0, init, clocks.service())
     stats = {
         "batches": 0,
@@ -375,7 +414,11 @@ def _consumer(
                     os._exit(71)
 
             def read_return(j, n, b=b):
-                b["subread_ends"].append(clocks.service())
+                if pilot is not None:
+                    b["subread_starts"][-1] = backend.last_hdf_start
+                b["subread_ends"].append(
+                    clocks.service() if pilot is None else backend.last_hdf_return
+                )
                 b["read_rows"] = b.get("read_rows", 0) + n
                 stats["read_rows"] += n
                 b.update(read_return=clocks.service(), status=STAGE["read_return"])
@@ -385,7 +428,14 @@ def _consumer(
 
             try:
                 b["read_start"] = clocks.service()
-                rows = gather(b["positions"], backend.read, read_start, read_return)
+                if pilot is None:
+                    rows = gather(b["positions"], backend.read, read_start, read_return)
+                else:
+                    from .hdf_consumer import gather_real
+
+                    rows = gather_real(
+                        b["positions"], backend.read, read_start, read_return
+                    )
                 b.update(
                     status=STAGE["feature_intent"],
                     feature_intents=1,
@@ -395,7 +445,9 @@ def _consumer(
                 write(b)
                 features = backend.features(rows)
                 b.update(
-                    features=clocks.service(),
+                    features=clocks.service()
+                    if pilot is None
+                    else backend.last_feature_end,
                     feature_rows=b["m"],
                     status=STAGE["features"],
                 )
@@ -410,7 +462,9 @@ def _consumer(
                 write(b)
                 scores, masks = backend.decisions(features)
                 b.update(
-                    decision=clocks.service(),
+                    decision=clocks.service()
+                    if pilot is None
+                    else backend.last_decision_end,
                     score_rows=b["m"],
                     status=STAGE["decision"],
                 )
@@ -433,19 +487,20 @@ def _consumer(
                     require(lock.acquire(timeout=0.05), "Post-output fault mutex")
                     armed.set()
                     os._exit(74)
-                b["reference_intents"] = 1
-                b["reference_intent"] = clocks.service()
-                stats["reference_intents"] += 1
-                write(b)
-                backend.reference(b["positions"], scores, masks)
-                b.update(
-                    reference_rows=b["m"],
-                    reference_return=clocks.service(),
-                    digest=hashlib.sha256(scores.tobytes() + masks.tobytes()).digest()[
-                        :16
-                    ],
-                )
-                stats["reference_rows"] += b["m"]
+                if pilot is None:
+                    b["reference_intents"] = 1
+                    b["reference_intent"] = clocks.service()
+                    stats["reference_intents"] += 1
+                    write(b)
+                    backend.reference(b["positions"], scores, masks)
+                    b.update(reference_rows=b["m"], reference_return=clocks.service())
+                    stats["reference_rows"] += b["m"]
+                else:
+                    backend.retain(b["positions"], features, scores, masks, b)
+                b["digest"] = hashlib.sha256(
+                    scores.tobytes() + masks.tobytes()
+                ).digest()[:16]
+                del rows, features, scores, masks
                 b.update(control_end=clocks.service(), status=STAGE["verified"])
                 write(b)
                 stats["batches"] += 1
@@ -473,6 +528,8 @@ def _consumer(
                     ring.finish(b["m"], clocks.service, "failed")
                 ring.update(error=1)
                 raise
+        if pilot is not None:
+            backend.finish(write)
         _summary(Path(directory) / "consumer.json", "consumer", clocks, stats)
     finally:
         final_start = clocks.service()
@@ -480,21 +537,59 @@ def _consumer(
         try:
             quota.close(output)
         finally:
-            errors = close_owned([phases, store, ring])
+            errors = close_owned(
+                ([backend] if pilot is not None and backend is not None else [])
+                + [phases, store, ring]
+            )
             try:
                 samples.add(
                     7, int(bool(error or errors)), 0, 0, final_start, clocks.service()
                 )
             finally:
                 samples.close()
+            if pilot is not None:
+                require(not errors, "Consumer resource close failure")
 
 
 def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat=None):
-    """One invocation; supervisor is this process, with exactly two spawned roles."""
+    """Generated-only API; operational options are deliberately absent."""
+    return _run_pipeline(
+        directory, scenario, task52=task52, quota_root=quota_root, heartbeat=heartbeat
+    )
+
+
+def run_pilot_core(directory, candidate, *, quota_root, heartbeat):
+    """Task0054-only entry, validated activation is mandatory before spawning."""
+    require(
+        candidate in ("pca-v1", "compact-autoencoder-v2") and quota_root is not None,
+        "Closed pilot candidate",
+    )
+    active = json.loads((Path(quota_root) / "pilot/activation.json").read_text())
+    require(
+        active["task"] == "0054" and active["single_session"],
+        "Explicit pilot activation",
+    )
+    return _run_pipeline(
+        directory,
+        "pilot54",
+        quota_root=quota_root,
+        heartbeat=heartbeat,
+        pilot=dict(candidate=candidate),
+    )
+
+
+def _run_pipeline(
+    directory, scenario, *, task52=False, quota_root=None, heartbeat=None, pilot=None
+):
+    """Shared actual producer/ring/batching/consumer/record/lifecycle core."""
     if quota_root is not None:
         quota.activate(quota_root)
     entered = time.perf_counter_ns()
-    cases = SCENARIOS52 if task52 else SCENARIOS
+    cases = (
+        {"pilot54": (64, 500)}
+        if pilot is not None
+        else (SCENARIOS52 if task52 else SCENARIOS)
+    )
     require(scenario in cases, "Unknown fixture, no operational mode")
     directory = Path(directory)
     directory.mkdir(mode=0o700)  # no reuse/overwrite of earlier evidence
@@ -542,6 +637,7 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
             count,
             rate,
             quota_root,
+            10 if pilot is not None else 2,
         ),
     )
     consumer = ctx.Process(
@@ -557,6 +653,7 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
             count,
             scenario,
             quota_root,
+            pilot,
         ),
     )
     children = [producer, consumer]
@@ -586,7 +683,10 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
             require(
                 all(p.exitcode is None for p in children), "Child exited before ready"
             )
-            safety(continuous, started, continuous, continuous, 0)
+            if pilot is None:
+                safety(continuous, started, continuous, continuous, 0)
+            else:
+                require(continuous - started <= 10_000_000_000, "Pilot setup10s")
             stop.wait(0.005)
         t0 = clocks.service() + 100_000_000
         ring.update(t0=t0)
@@ -594,7 +694,10 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
         while True:
             service, continuous, _ = clocks.observation()
             monitor.observe(service, continuous)
-            safety(continuous, started, continuous, continuous, 0)
+            if pilot is None:
+                safety(continuous, started, continuous, continuous, 0)
+            else:
+                require(continuous - started <= 10_000_000_000, "Pilot setup10s")
             snap = ring.snapshot()
             if snap and snap["producer_armed"]:
                 break
@@ -622,17 +725,34 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
                 require(not snap["error"], "Child error state")
                 pending = snap["pending"]
                 last_progress = snap["progress"] or t0
-                safety(
-                    continuous,
-                    started,
-                    continuous + (scheduler.horizon - service),
-                    continuous - (service - last_progress),
-                    pending,
-                )
+                if pilot is None:
+                    safety(
+                        continuous,
+                        started,
+                        continuous + (scheduler.horizon - service),
+                        continuous - (service - last_progress),
+                        pending,
+                    )
+                else:
+                    require(
+                        continuous - started <= 28_000_000_000, "Pilot cleanup reserve"
+                    )
+                    require(
+                        not consumer.is_alive()
+                        or service - last_progress <= 2_000_000_000,
+                        "Pilot active operation/control2s",
+                    )
+                    require(
+                        not pending or service <= scheduler.horizon + 5_000_000_000,
+                        "Pilot drain5s",
+                    )
                 for role in ("producer", "consumer"):
                     max_rss[role] = max(max_rss[role], snap[role + "_rss"])
             else:
-                safety(continuous, started, continuous, continuous, 0)
+                require(
+                    continuous - started <= (28 if pilot else 3) * 1_000_000_000,
+                    "Invocation guard",
+                )
             max_rss["supervisor"] = max(max_rss["supervisor"], own_rss())
             if heartbeat is not None:
                 heartbeat(max_rss)
@@ -661,7 +781,10 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
             children,
             stop,
             clocks.continuous,
-            min(started + 5_000_000_000, cleanup_start + 2_000_000_000),
+            min(
+                started + (30 if pilot else 5) * 1_000_000_000,
+                cleanup_start + 2_000_000_000,
+            ),
         )
         if scenario == "failed_publication_cleanup":
             # Children are reaped: corrupt one counter under the actual mutex to
@@ -774,6 +897,7 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
         "no_leaked_child": not any(e.get("leaked") for e in exits),
     }
     if scenario in (
+        "pilot54",
         "normal_wrap",
         "normal500",
         "normal2500",
@@ -851,13 +975,15 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
         "Cleanup validity",
     )
     elapsed = clocks.continuous() - started
-    require(elapsed <= 5_000_000_000, "Fixture whole duration")
+    require(
+        elapsed <= (30 if pilot else 5) * 1_000_000_000, "Invocation whole duration"
+    )
     report = dict(
         scenario=scenario,
         software_checks=checks,
         software_checks_passed=all(checks.values()),
         phase_observations=phase_counts,
-        fixture_only=True,
+        fixture_only=pilot is None,
         arrival_clock_issued=t0 is not None,
         timing_observations=timing_summary(events, batches, cutoff)
         if not invalid_records
@@ -918,8 +1044,8 @@ def run_fixture(directory, scenario, *, task52=False, quota_root=None, heartbeat
     if quota_root is None:
         _json(directory / "supervisor.json", report)
     require(
-        clocks.continuous() - started <= 5_000_000_000,
-        "Fixture including final records5s",
+        clocks.continuous() - started <= (30 if pilot else 5) * 1_000_000_000,
+        "Invocation including final records",
     )
     return report
 

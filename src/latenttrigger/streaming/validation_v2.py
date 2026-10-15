@@ -187,6 +187,11 @@ def prepare(root, suite, repo):
 
 def write_heartbeat(fd, clocks, peaks, generation):
     inner = own_rss()
+    if quota.CURRENT is not None and quota.CURRENT.task == "0054":
+        from .pilot54 import own_tracker_rss
+
+        require(inner <= 64 * 1024**2, "Task0054 inner64MiB plus tracker16MiB")
+        inner += own_tracker_rss()
     require(inner <= INNER_RSS, "Inner RSS guard")
     prod, consumer = peaks.get("producer", 0), peaks.get("consumer", 0)
     # Conservative resident-native charge, not attribution of native workspace.
@@ -378,8 +383,11 @@ def subject(root, suite):
     ledger = quota.activate(root)
     directory = root / f"suite-{suite}"
     prospective = json.loads((directory / "prospective.json").read_text())
+    manifest_fn = source_manifest
+    if ledger.task == "0054":
+        from .pilot54 import source_manifest as manifest_fn
     require(
-        source_manifest(repo) == prospective["source_manifest"],
+        manifest_fn(repo) == prospective["source_manifest"],
         "Subject frozen identity before work",
     )
     clocks = Clocks()
@@ -448,7 +456,7 @@ def subject(root, suite):
                 # Includes serialization/file close, GC and semaphore retirement.
                 heartbeat(r.get("own_process_peak_RSS_bytes", {}))
                 require(
-                    ledger.inventory()["logical_bytes"] <= quota.CAP,
+                    ledger.inventory()["logical_bytes"] <= ledger.cap,
                     "Whole-task actual audit",
                 )
                 elapsed = clocks.continuous() - before
@@ -460,7 +468,7 @@ def subject(root, suite):
                 )
                 heartbeat(r.get("own_process_peak_RSS_bytes", {}))
                 require(
-                    ledger.inventory()["logical_bytes"] <= quota.CAP,
+                    ledger.inventory()["logical_bytes"] <= ledger.cap,
                     "Whole-task actual audit",
                 )
                 if not r["software_checks_passed"]:
@@ -488,7 +496,7 @@ def subject(root, suite):
         writer.writerows(rows)
         ledger.write_bytes(directory / "cases.csv", stream.getvalue().encode())
         require(
-            source_manifest(repo) == prospective["source_manifest"],
+            manifest_fn(repo) == prospective["source_manifest"],
             "Final frozen identity",
         )
         heartbeat({})
@@ -557,11 +565,17 @@ def tree_cleanup(process, clocks, deadline):
     )
 
 
-def observe(root, suite):
+def observe(root, suite, *, task="0053"):
     repo = Path(__file__).resolve().parents[3]
     clocks = Clocks()
     outer_start = clocks.continuous()
-    ledger, directory, manifest = prepare(root, suite, repo)
+    if task == "0054":
+        from .pilot54 import prepare_generated
+
+        ledger, directory, manifest = prepare_generated(root, suite, repo)
+    else:
+        require(task == "0053", "Explicit generated task")
+        ledger, directory, manifest = prepare(root, suite, repo)
     require(own_rss() <= OUTER_RSS, "Outer RSS48MiB")
     before = clocks.observation()
     monitor = Monitor(*before[:2])
@@ -577,8 +591,15 @@ def observe(root, suite):
         process = subprocess.Popen(
             [
                 sys.executable,
-                str(repo / "scripts/validate_development_streaming_v2.py"),
-                "--subject",
+                str(
+                    repo
+                    / (
+                        "scripts/development_hdf_consumer_pilot.py"
+                        if task == "0054"
+                        else "scripts/validate_development_streaming_v2.py"
+                    )
+                ),
+                "--generated-subject" if task == "0054" else "--subject",
                 "--root",
                 str(root),
                 "--suite",
@@ -686,5 +707,5 @@ def observe(root, suite):
         clocks.continuous() - outer_start <= 75_000_000_000,
         "Observer total including receipt75s",
     )
-    require(ledger.inventory()["logical_bytes"] <= quota.CAP, "Final global files")
+    require(ledger.inventory()["logical_bytes"] <= ledger.cap, "Final global files")
     return receipt

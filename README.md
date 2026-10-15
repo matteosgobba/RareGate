@@ -43,7 +43,30 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
-Task0053 completes the **instrumented development-request contract v2**:
+Task0054 adds a **partial/failed bounded HDF consumer pilot**:
+`partial_failed_development_hdf_consumer_pilot`, final qualification
+`generated_validation_incomplete`, operational readiness **false**.
+[Report](docs/development-hdf-consumer-pilot.md),
+[closed pilot specification](configs/streaming/development_hdf_consumer_pilot_v1.json),
+[cases](results/tables/final/task0054-development-hdf-consumer-pilot-cases.csv),
+[summary](results/tables/final/task0054-development-hdf-consumer-pilot-summary.json)
+and [Italian handoff](docs/handoffs/0054-development-hdf-consumer-pilot.md).
+One fresh conditional P4 session is consumed: both raw custody hashes pass
+(5,816,520,818B), but PCA consumer startup fails before ready/offers/HDF;
+AE is unattempted. Membership/golden/model-artifact loads and real
+selected-read/features/public-inference/decisions are0; custody is positive
+operational work. No real replacement occurs. The first source passes12/12generated
+checks; after a canonical build-hash/initialization-diagnostic correctness repair,
+the final source stops in its first generated case on the own-tracker RSS guard,
+with missing subject summary. Earlier passes do not fill final-source coverage.
+40focused checks pass;13generated invocations/688configured offers, two suites
+consumed.334entry ledger reserves21,324,448B within32MiB; whole external intervals
+are retained. Two50µs event diagnostic exceedances remain. Resource/thread/parity
+integration and final qualification remain unresolved; a separately scoped repair
+and qualification must precede any new narrow real authorization. No larger study,
+recorder comparison, Task0055 or scientific-baseline change follows.
+
+Historical Task0053 completes the **instrumented development-request contract v2**:
 `completed_generated_streaming_contract_v2_validation`, qualification
 `generated_software_qualified_under_v2`, operational readiness **false**.
 [Contract/report](docs/development-streaming-contract-v2.md),
@@ -65,7 +88,7 @@ reports/finalizers/exit/reap. Actual21core/0observer SemLocks,231own names absen
 unknown kernel backing stays unknown. Generated work includes at least423arithmetic
 score rows; operational data/HDF/models/public inference remain zero. Real consumer
 integration/cache/workspace/effective-thread checks require a separate P4 decision;
-no Task0054 or physical study follows. CPU/synthetic closure and frozen science persist.
+no Task0054 or physical study followed within Task0053; Task0054 above is a separately authorized failed pilot. CPU/synthetic closure and frozen science persist.
 
 Task0052 delivers a **partial generated instrumentation characterization**:
 [report](docs/development-streaming-instrumentation.md),
