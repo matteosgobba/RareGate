@@ -201,9 +201,10 @@ class RealBackend:
             )
         else:
             from .pilot_context import FixtureContext56, PilotContext56
+            from .session_context import SessionFixture57
 
             require(
-                type(context) in (PilotContext56, FixtureContext56),
+                type(context) in (PilotContext56, FixtureContext56, SessionFixture57),
                 "Typed consumer context",
             )
             require(context.root == str(self.root), "Consumer scope root")
@@ -226,8 +227,9 @@ class RealBackend:
         self.checkpoint()
         if context is not None:
             from .pilot_context import FixtureContext56
+            from .session_context import SessionFixture57
 
-            if type(context) is FixtureContext56:
+            if type(context) in (FixtureContext56, SessionFixture57):
                 from .serialized_fixture import prepare_sources
 
                 self.fixture_setup = prepare_sources(
@@ -454,8 +456,9 @@ class RealBackend:
         self.budget.add("hdf_opens")
         self.checkpoint()
         from .pilot_context import FixtureContext56, FixtureDataset, FixtureHandle
+        from .session_context import SessionFixture57
 
-        if type(getattr(self, "context", None)) is FixtureContext56:
+        if type(getattr(self, "context", None)) in (FixtureContext56, SessionFixture57):
             self.handle = FixtureHandle()
             self.dataset = FixtureDataset(self.handle)
             self.hdf_metadata = dict(
@@ -478,8 +481,12 @@ class RealBackend:
         if self.handle is not None:
             self.budget.add("schema_checks")
             from .pilot_context import FixtureContext56
+            from .session_context import SessionFixture57
 
-            is_fixture = type(getattr(self, "context", None)) is FixtureContext56
+            is_fixture = type(getattr(self, "context", None)) in (
+                FixtureContext56,
+                SessionFixture57,
+            )
             if not is_fixture:
                 properties(self.handle, self.spec["raw"]["audit_schema"])
             identifier = self.handle if is_fixture else self.handle.id
@@ -497,6 +504,14 @@ class RealBackend:
         )
         self.budget.begin("raw", len(positions))
         self.checkpoint()
+        from .session_context import SessionFixture57
+
+        if (
+            type(self.context) is SessionFixture57
+            and self.context.fault == "first-failure"
+            and len(self.gate_digests) == 8
+        ):
+            raise ValueError("Injected PCA first stream read before return")
         request = self.ids[positions]
         self.last_hdf_start = self.clocks.service()
         rows = self.dataset[request.tolist(), :]
@@ -650,7 +665,7 @@ class RealBackend:
                 else None,
                 fixture_setup=getattr(self, "fixture_setup", None),
                 operational=type(getattr(self, "context", None)).__name__
-                != "FixtureContext56",
+                not in ("FixtureContext56", "SessionFixture57"),
                 source_verification_counts=getattr(
                     self, "source_verification_counts", {}
                 ),

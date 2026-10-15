@@ -332,8 +332,9 @@ def _consumer(
         )
     else:
         from .pilot_context import FixtureContext56
+        from .session_context import SessionFixture57
 
-        if type(pilot.get("context")) is FixtureContext56:
+        if type(pilot.get("context")) in (FixtureContext56, SessionFixture57):
             from .startup55 import install_payload_denial
 
             payload_audit = install_payload_denial(
@@ -655,9 +656,21 @@ def run_scoped_core(
 ):
     """0056 context only; no generated-to-real fallback or legacy activation."""
     from .pilot_context import context_from_request
+    from .session_context import SessionFixture57
 
-    request = dict(task="0056", candidate=candidate, context=context)
-    context_from_request(quota_root, request, Path(__file__).resolve().parents[3])
+    if type(context) is SessionFixture57:
+        require(
+            context.root == quota_root and candidate == context.candidate,
+            "Generated session request scope",
+        )
+        require(
+            Path(directory) == Path(context.session) / candidate,
+            "Session case location",
+        )
+        context.validate_location(Path(__file__).resolve().parents[3])
+    else:
+        request = dict(task="0056", candidate=candidate, context=context)
+        context_from_request(quota_root, request, Path(__file__).resolve().parents[3])
     return _run_pipeline(
         directory,
         "pilot54",
@@ -684,9 +697,11 @@ def _run_pipeline(
     if quota_root is not None:
         quota.activate(quota_root)
     from .pilot_context import FixtureContext56
+    from .session_context import SessionFixture57
 
-    scoped_fixture = (
-        pilot is not None and type(pilot.get("context")) is FixtureContext56
+    scoped_fixture = pilot is not None and type(pilot.get("context")) in (
+        FixtureContext56,
+        SessionFixture57,
     )
     whole_seconds = 15 if scoped_fixture else (30 if pilot else 5)
     entered = time.perf_counter_ns()

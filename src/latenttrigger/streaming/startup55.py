@@ -104,29 +104,83 @@ def manifest(repo):
 
 
 class Journal:
+    """One bounded file lifetime; registration token and inode reject stale fd reuse."""
+
     def __init__(self, path):
         self.path, self.fd, self.generation = Path(path), None, 0
+        self.registration = self.inode = None
+        self.closed = False
+        self.opens = self.close_count = self.write_attempts = 0
+
+    def open(self):
+        require(not self.closed, "Journal already finalized")
+        if self.fd is None:
+            self.fd = quota.open_file(self.path, os.O_CREAT | os.O_EXCL | os.O_RDWR)
+            self.registration = quota.FDS.get(self.fd)
+            info = os.fstat(self.fd)
+            self.inode = (info.st_dev, info.st_ino)
+            self.opens += 1
+            quota.truncate(self.fd, 65536)
+        self.assert_owned()
+        return self
+
+    def assert_owned(self):
+        require(self.fd is not None and not self.closed, "Journal is not open")
+        require(
+            quota.FDS.get(self.fd) is self.registration
+            and (self.registration is not None or quota.CURRENT is None),
+            "Stale journal registration",
+        )
+        info = os.fstat(self.fd)
+        require((info.st_dev, info.st_ino) == self.inode, "Stale journal inode")
+
+    def evidence(self):
+        registered = False
+        if self.fd is not None and not self.closed:
+            try:
+                self.assert_owned()
+                registered = True
+            except (ValueError, OSError):
+                pass
+        return dict(
+            fd=self.fd,
+            inode=list(self.inode) if self.inode else None,
+            registered=registered,
+            opens=self.opens,
+            closes=self.close_count,
+            generation=self.generation,
+            write_attempts=self.write_attempts,
+            closed=self.closed,
+        )
 
     def write(self, value):
         quota.validate_tree(value)
         b = json.dumps(value, separators=(",", ":"), allow_nan=False).encode()
         require(len(b) <= 65504, "Bounded startup/resource snapshot")
-        if self.fd is None:
-            self.fd = quota.open_file(self.path, os.O_CREAT | os.O_EXCL | os.O_RDWR)
-            quota.truncate(self.fd, 65536)
-        self.generation += 1
+        self.open()  # Legacy case-local callers may still open lazily.
+        require(self.generation < 65536, "Bounded journal generations")
+        self.write_attempts += 1
+        generation = self.generation + 1
         header = struct.pack(
-            "<QQII", self.generation, time.monotonic_ns(), len(b), zlib.crc32(b)
+            "<QQII", generation, time.monotonic_ns(), len(b), zlib.crc32(b)
         )
         require(
             quota.pwrite(self.fd, header + b, 0) == len(header) + len(b),
             "Short startup journal",
         )
+        self.generation = generation
 
     def close(self):
+        if self.closed:
+            return
         if self.fd is not None:
-            fd, self.fd = self.fd, None
-            quota.close(fd)
+            self.assert_owned()  # Never close a numeric fd now owned by another file.
+            fd = self.fd
+            os.close(fd)
+            quota.FDS.pop(fd, None)
+            self.fd = None
+            self.close_count += 1
+        self.closed = True
 
 
 def read_journal(path):
@@ -137,10 +191,15 @@ def read_journal(path):
         if len(head) != 24:
             return None
         g, stamp, n, crc = struct.unpack("<QQII", head)
-        if not g or n > 65504:
+        if not g or not n or n > 65504:
             return None
         b = f.read(n)
-    return json.loads(b) if len(b) == n and zlib.crc32(b) == crc else None
+    if len(b) != n or zlib.crc32(b) != crc:
+        return None
+    try:
+        return json.loads(b)
+    except (ValueError, UnicodeDecodeError):
+        return None
 
 
 def install_payload_denial(repo, owned):
@@ -486,7 +545,12 @@ def subject(root, group, *, context=None):
                 clocks.continuous() - start + 8_000_000_000 <= subject_cap,
                 "Remaining generated envelope plus finalization",
             )
-            ledger.write_json(
+            write_attempt = (
+                ledger.write_json
+                if context is None
+                else getattr(context, "write_attempt", ledger.write_json)
+            )
+            write_attempt(
                 directory / f"attempt-{index}.json",
                 dict(
                     index=index,
@@ -547,7 +611,12 @@ def subject(root, group, *, context=None):
                 result["software_checks_passed"] and not cleanup_errors,
                 "Unexpected generated expectation/cleanup failure",
             )
-        for index, selector in enumerate(BOOTSTRAPS, 13):
+        for index, selector in enumerate(
+            BOOTSTRAPS
+            if context is None
+            else getattr(context, "BOOTSTRAPS", BOOTSTRAPS),
+            13,
+        ):
             require(
                 clocks.continuous() - start + 13_000_000_000 <= subject_cap,
                 "Remaining runtime10s plus finalization",

@@ -233,11 +233,146 @@ def custody(root, ledger, spec, phase, clocks, heartbeat):
         quota.close(fd)
 
 
+def candidate_session(root, directory, context, heartbeat, *, save_case_reports=True):
+    """Actual sequential controller lifecycle shared by real and generated contexts.
+
+    This function neither grants activation nor performs custody. The caller owns
+    that distinct boundary. Session fd registration precedes every case snapshot.
+    """
+    import gc
+
+    from .cpu_runtime import exception_record
+    from .fixture import run_pilot_core, run_scoped_core
+    from .startup55 import Journal
+    from .supervision import Clocks
+
+    ledger = quota.CURRENT
+    journal = Journal(directory / "tracker.bin")
+    reports, checkpoints, cleanup_errors = [], [], []
+    primary = None
+    clocks = Clocks()
+    start = clocks.continuous()
+    generated = getattr(context, "task", None) == "0057"
+
+    def beat(peaks):
+        if generated:
+            require(
+                clocks.continuous() - start <= 18_000_000_000,
+                "Sequential session18s reserves cleanup2s",
+            )
+        heartbeat(peaks)
+
+    try:
+        journal.open()  # Eager allocation/registration, NOT merely object creation.
+        checkpoints.append(dict(boundary="session_open", **journal.evidence()))
+        for candidate in ("pca-v1", "compact-autoencoder-v2"):
+            beat({})
+            journal.assert_owned()
+            checkpoints.append(
+                dict(boundary="before_" + candidate, **journal.evidence())
+            )
+            prior = set(quota.FDS)
+            path = directory / candidate
+
+            def publish(value, candidate=candidate):
+                if (
+                    generated
+                    and context.fault == "second-failure"
+                    and candidate == "compact-autoencoder-v2"
+                ):
+                    raise ValueError(
+                        "Injected AE pre-worker tracker publication failure"
+                    )
+                journal.write(value)
+
+            try:
+                if context is None:
+                    raw = run_pilot_core(
+                        path, candidate, quota_root=str(root), heartbeat=beat
+                    )
+                else:
+                    case_context = (
+                        context.for_candidate(candidate) if generated else context
+                    )
+                    raw = run_scoped_core(
+                        path,
+                        candidate,
+                        quota_root=str(root),
+                        heartbeat=beat,
+                        context=case_context,
+                        resource_publish=publish,
+                    )
+                report = v2.compact_report(raw)
+            finally:
+                cleanup_errors.extend(quota.emergency_release(prior, path))
+            require(not cleanup_errors, "Case emergency resource release")
+            gc.collect()
+            report["semaphore_cleanup"] = v2.semaphore_absence(
+                report["synchronization_inventory"]["owned_names"]
+            )
+            final_path = path / "consumer-final.json"
+            final = json.loads(final_path.read_text()) if final_path.exists() else None
+            report["real_consumer"] = final
+            report["candidate"] = candidate
+            report["expected_validity"] = "valid_drained_with_all_parity"
+            report["observed_validity"] = (
+                "valid"
+                if report["normal"] and final and final["valid"]
+                else "invalid_or_incomplete"
+            )
+            report["software_checks_passed"] &= bool(
+                final and final["valid"] and report["semaphore_cleanup"]["all_absent"]
+            )
+            reports.append(report)
+            if save_case_reports:
+                ledger.write_json(path / "result.json", report)
+            journal.assert_owned()
+            checkpoints.append(
+                dict(boundary="after_cleanup_" + candidate, **journal.evidence())
+            )
+            journal.write(dict(boundary="case_retired", candidate=candidate))
+            require(
+                report["software_checks_passed"],
+                "Unexpected pilot validity failure; no replacement",
+            )
+            beat({})
+    except BaseException as exc:
+        primary = exception_record(exc)
+        if hasattr(exc, "evidence"):
+            primary["observation_evidence"] = exc.evidence
+    finally:
+        before_close = journal.evidence()
+        try:
+            journal.close()
+        except BaseException as exc:
+            cleanup_errors.append(exception_record(exc))
+        after_close = journal.evidence()
+    elapsed = clocks.continuous() - start
+    if generated and elapsed > 20_000_000_000:
+        cleanup_errors.append(
+            dict(type="TimeoutError", message="Sequential session20s")
+        )
+    return dict(
+        accepted=primary is None and not cleanup_errors and len(reports) == 2,
+        candidates=reports,
+        primary_failure=primary,
+        cleanup_failures=cleanup_errors,
+        journal_checkpoints=checkpoints,
+        journal_before_close=before_close,
+        journal_after_close=after_close,
+        session_inclusive_ns=elapsed,
+        unattempted_candidates=[
+            c
+            for c in ("pca-v1", "compact-autoencoder-v2")
+            if c not in [r["candidate"] for r in reports]
+        ],
+    )
+
+
 def pilot_subject(root, *, context=None):
     """No payload reads occur before immutable activation and source verification."""
     import signal
 
-    from .fixture import run_pilot_core
     from .supervision import Clocks
 
     repo = Path(__file__).resolve().parents[3]
@@ -263,7 +398,6 @@ def pilot_subject(root, *, context=None):
     phase, generation = 1, 0
     results, hashes, problem = [], [], None
     primary = None
-    tracker_journal = None
 
     def heartbeat(peaks):
         nonlocal generation
@@ -289,66 +423,15 @@ def pilot_subject(root, *, context=None):
     try:
         heartbeat({})
         hashes.append(custody(root, ledger, spec, 1, clocks, heartbeat))
-        for candidate in ("pca-v1", "compact-autoencoder-v2"):
-            phase = 2 if candidate == "pca-v1" else 3
-            heartbeat({})
-            prior = set(quota.FDS)
-            try:
-                if context is not None:
-                    from .fixture import run_scoped_core
-                    from .startup55 import Journal
-
-                    if tracker_journal is None:
-                        tracker_journal = Journal(root / "pilot/tracker.bin")
-                    raw_report = run_scoped_core(
-                        root / "pilot" / candidate,
-                        candidate,
-                        quota_root=str(root),
-                        heartbeat=heartbeat,
-                        context=context,
-                        resource_publish=tracker_journal.write,
-                    )
-                    report = v2.compact_report(raw_report)
-                else:
-                    report = v2.compact_report(
-                        run_pilot_core(
-                            root / "pilot" / candidate,
-                            candidate,
-                            quota_root=str(root),
-                            heartbeat=heartbeat,
-                        )
-                    )
-            finally:
-                errors = quota.emergency_release(prior, root / "pilot" / candidate)
-            require(not errors, "Pilot emergency resource release")
-            import gc
-
-            gc.collect()
-            report["semaphore_cleanup"] = v2.semaphore_absence(
-                report["synchronization_inventory"]["owned_names"]
-            )
-            final_path = root / "pilot" / candidate / "consumer-final.json"
-            final = json.loads(final_path.read_text()) if final_path.exists() else None
-            report["real_consumer"] = final
-            report["candidate"] = candidate
-            report["expected_validity"] = "valid_drained_with_all_parity"
-            report["observed_validity"] = (
-                "valid"
-                if report["normal"] and final and final["valid"]
-                else "invalid_or_incomplete"
-            )
-            report["software_checks_passed"] &= bool(
-                final and final["valid"] and report["semaphore_cleanup"]["all_absent"]
-            )
-            ledger.write_json(root / "pilot" / candidate / "result.json", report)
-            results.append(
-                dict(candidate=candidate, valid=report["software_checks_passed"])
-            )
-            require(
-                report["software_checks_passed"],
-                "Unexpected pilot validity failure; no replacement",
-            )
-            heartbeat({})
+        phase = 2
+        session = candidate_session(root, root / "pilot", context, heartbeat)
+        results = [
+            dict(candidate=r["candidate"], valid=r["software_checks_passed"])
+            for r in session["candidates"]
+        ]
+        require(
+            session["accepted"], "Unexpected pilot validity failure; no replacement"
+        )
     except Exception as exc:
         problem = (type(exc).__name__ + ": " + str(exc))[:900]
         from .cpu_runtime import exception_record
@@ -385,11 +468,7 @@ def pilot_subject(root, *, context=None):
                 operational_access_activated=True,
             ),
         )
-        try:
-            if tracker_journal is not None:
-                tracker_journal.close()
-        finally:
-            quota.close(hb)
+        quota.close(hb)
     return int(not qualified)
 
 

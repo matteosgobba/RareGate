@@ -542,7 +542,8 @@ def test_journal_short_write_and_partial_constructor_cleanup(monkeypatch):
     monkeypatch.setattr(quota, "truncate", lambda *_: None)
     monkeypatch.setattr(quota, "pwrite", lambda *_: 1)
     close = Mock()
-    monkeypatch.setattr(quota, "close", close)
+    monkeypatch.setattr(os, "fstat", lambda _: SimpleNamespace(st_dev=1, st_ino=2))
+    monkeypatch.setattr(os, "close", close)
     with pytest.raises(ValueError):
         journal.write(dict(state="query_error", rss_bytes=None))
     journal.close()

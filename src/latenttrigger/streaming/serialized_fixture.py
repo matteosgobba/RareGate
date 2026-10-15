@@ -11,7 +11,36 @@ from .protocol import require
 
 
 def prepare_sources(context, runtime, progress):
-    require(type(context) is FixtureContext56, "Only serialized generated scope")
+    from .session_context import SessionFixture57
+
+    require(
+        type(context) in (FixtureContext56, SessionFixture57),
+        "Only serialized generated scope",
+    )
+    if type(context) is SessionFixture57:
+        context.validate_location(Path(__file__).resolve().parents[3])
+        if (Path(context.directory) / "fixture-spec.json").exists():
+            spec = context.specification(Path(__file__).resolve().parents[3])
+            return dict(
+                generated=True,
+                reused_serialized_sources=True,
+                setup_raw_rows=0,
+                setup_feature_calls=0,
+                setup_feature_rows=0,
+                creator_models=0,
+                serialized_models=0,
+                loader_models=1,
+                setup_public_score_calls=0,
+                optimizer_steps=0,
+                HDF_files_opened=0,
+                serialized_files=0,
+                serialized_bytes=0,
+                artifact_sha256=next(
+                    e["sha256"]
+                    for e in spec["allowed_files"]
+                    if e["role"] == context.candidate + ":model"
+                ),
+            )
     np, core = runtime.np, runtime.core
     from latenttrigger.benchmarks.development_raw_adapter import construct
     from latenttrigger.data.features import (
@@ -24,10 +53,13 @@ def prepare_sources(context, runtime, progress):
     repo = Path(__file__).resolve().parents[3]
     directory = Path(context.directory)
     target = directory / "serialized"
+    directory.mkdir(mode=0o700, parents=True, exist_ok=True)
     target.mkdir(mode=0o700)
     ledger = quota.CURRENT
     require(
-        ledger.task == "0056" and str(ledger.root) == context.root, "Own fixture ledger"
+        ledger.task == ("0057" if type(context) is SessionFixture57 else "0056")
+        and str(ledger.root) == context.root,
+        "Own fixture ledger",
     )
     entries = []
 

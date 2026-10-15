@@ -68,6 +68,7 @@ class Region:
                     or path.is_relative_to(repo / "data/task0054-validation")
                     or path.is_relative_to(repo / "data/task0055-validation")
                     or path.is_relative_to(repo / "data/task0056-validation")
+                    or path.is_relative_to(repo / "data/task0057-validation")
                 )
                 or path.is_relative_to(Path("/private/tmp"))
                 or path.is_relative_to(Path("/tmp"))

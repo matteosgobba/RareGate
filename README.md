@@ -43,7 +43,30 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
-Task0056 delivers a **partial/failed fresh bounded HDF pilot**:
+Task0057 completes the **software-only shared session lifecycle repair**:
+`completed_software_only_streaming_session_lifecycle_repair`; readiness
+`requires_fresh_bounded_operational_authorization`.
+[Report](docs/development-streaming-session-lifecycle.md),
+[generated-only specification](configs/streaming/development_streaming_session_lifecycle_v1.json),
+[21-row boundary/candidate table](results/tables/final/task0057-streaming-session-lifecycle-cases.csv),
+[summary](results/tables/final/task0057-streaming-session-lifecycle-summary.json) and
+[Italian handoff](docs/handoffs/0057-streaming-session-lifecycle-repair.md).
+The actual candidate loop eagerly registers its shared journal before case cleanup
+snapshots; registry/inode checks reject stale fd reuse. One final40-pin bundle
+`142d9e01…` passes12core+3shared sequential session expectations. Normal generated
+PCA→AE completes61/64each, with one persistent journal and one final close;
+declared PCA-work/AE-pre-worker failures preserve uncertainty and cleanup.
+148distinct focused/compatibility checks have passing observations; pure failures
+and selected repairs remain recorded. One group17dispatches/944planned offers,
+14.973123708s observed subject,511-entry30,182,464B reservation under32MiB.
+Generated serialized work includes530public calls/1120score rows/4480Booleans,
+plus128feature setup rows;1/1446event append exceeds50µs,0/4311batch exceeds200µs.
+**Zero new operational** custody/HDF/original arrays/models/inference; historical
+Task0056's positive real PCA/custody and failed/consumed overall pilot below remain.
+Next consider a fresh separately authorized AE-only tiny integration/resource pilot;
+repeat PCA only for a distinct new controller/paired claim. No P4/Task0058/full study.
+
+Historical Task0056 delivers a **partial/failed fresh bounded HDF pilot**:
 `partial_failed_development_hdf_pilot_v2`, complete declared generated qualification,
 pilot acceptance and operational readiness **false**.
 [Report](docs/development-hdf-consumer-pilot-v2.md),
@@ -68,9 +91,8 @@ missed this sequential controller path. P4 is consumed; all observations retaine
 Ledger504entries28,631,424B/32MiB; observed generated14.205127916s and pilot
 6.633486583s include subject imports/reporting/finalization/exit/reap. Generated
 3event diagnostic exceeds, real PCA0;50/200µs remain diagnostics. Real decoder
-threads/heap/native workspace and AE parity remain unresolved. Next separately
-scope software-only journal ownership/sequential qualification before any new
-narrow operational authorization; no larger24case study or Task0057.
+threads/heap/native workspace and AE parity remain unresolved. Task0057 now repairs/qualifies that software lifecycle separately; no retroactive
+pilot acceptance, new operational authorization or larger24case study follows.
 
 Historical Task0055 completes the **software-only streaming startup/resource repair**:
 `completed_software_only_streaming_startup_repair`; readiness
