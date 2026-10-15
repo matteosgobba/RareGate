@@ -123,7 +123,7 @@ def phase_during_cleanup(phases, code, clocks, rss):
     try:
         phases.append(code, clocks, rss)
         return None
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, TypeError) as exc:
         return type(exc).__name__ + ": " + str(exc)
 
 
@@ -149,3 +149,30 @@ def cleanup_snapshot(ring):
         return ring.snapshot(), None
     except (ValueError, OSError) as exc:
         return None, type(exc).__name__ + ": " + str(exc)
+
+
+def synchronization_inventory(lock, events):
+    """Count actual runtime SemLock objects; this does not measure backing bytes."""
+    sems = [lock._semlock] if lock is not None else []
+    roles = []
+    for purpose, event in events.items():
+        condition = event._cond
+        owned = [
+            condition._lock._semlock,
+            condition._sleeping_count._semlock,
+            condition._woken_count._semlock,
+            condition._wait_semaphore._semlock,
+            event._flag._semlock,
+        ]
+        sems.extend(owned)
+        roles.append(dict(purpose=purpose, actual_SemLocks=len(owned)))
+    require(len({s.handle for s in sems}) == len(sems), "Distinct owned SemLocks")
+    return dict(
+        mutexes=int(lock is not None),
+        events=roles,
+        actual_SemLocks=len(sems),
+        kernel_native_bytes=None,
+        allowance_bytes=65536,
+        allowance_proved=False,
+        ownership="supervisor-created spawn primitives, child shared references; runtime finalizers/tracker unlink names",
+    )

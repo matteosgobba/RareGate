@@ -43,6 +43,29 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
+Task0052 delivers a **partial generated instrumentation characterization**:
+[report](docs/development-streaming-instrumentation.md),
+[fixture-only specification](configs/streaming/development_streaming_instrumentation_v1.json),
+[aggregate cases](results/tables/final/task0052-streaming-instrumentation-cases.csv),
+[summary](results/tables/final/task0052-streaming-instrumentation-summary.json) and
+[Italian handoff](docs/handoffs/0052-generated-streaming-instrumentation.md).
+The versioned recorder reuses encoding scratch and maps fixed512B records;
+96focused tests/lint/format pass. All20native invocations are consumed:
+three complete AB/BA/AB comparisons plus one partial pair,696configured artificial
+offers,1792comparison appends per record kind. Seventeen expected checks pass;
+three correctness failures remain preserved. Five final-source failure checks pass,
+but normal500/2500/5000/capacity/contention/pre-return evidence binds earlier source.
+Instrumentation status is `sampled_limits_exceeded`: five eligible event appends
+exceed50µs (max103.041µs);2935eligible batch appends stay below200µs.
+The observed8.2MB diagnostics fit16MiB, but static review finds an undercounted
+prospective storage ledger and incomplete inclusive finalization timing. P2/P3
+remain open, including21SemLock backing; P4 is ungranted. Generated numerical,
+record and timing work is positive (at least536arithmetic-score rows); operational
+HDF/data/model/inference work is zero. The next separate decision must review the
+instrumentation budget/architecture and bound final-source generated revalidation;
+no Task0053 or physical study follows. CPU/synthetic closure and frozen science
+remain unchanged.
+
 Task0051 delivers the [data-free streaming software foundation](docs/development-streaming-software-foundation.md):
 `completed_software_only_development_streaming_foundation`, readiness
 `requires_native_characterization_and_operational_authorization`. The new isolated
@@ -56,7 +79,8 @@ positive software/numerical/process activity, with zero operational data/model w
 The concrete shared mapping uses an owned temporary file; no privilege requested.
 P2 native/kernel/model/decoder/thread bounds and P3 full-workload clocks/logging
 remain open (generated event append reached714µs); P4 is ungranted. No physical
-24-case campaign, reservation, historical regression matrix or Task0052 occurred.
+24-case campaign, reservation, historical regression matrix or Task0052 occurred
+within Task0051; Task0052 above has its own generated scope.
 [Fixture-only config](configs/streaming/development_streaming_foundation_v1.json),
 [software summary](results/tables/final/task0051-development-streaming-foundation-summary.json)
 and [Italian handoff](docs/handoffs/0051-development-streaming-software-foundation.md).

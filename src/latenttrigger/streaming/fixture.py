@@ -9,6 +9,7 @@ import time
 from pathlib import Path
 
 from .generated import GeneratedBackend, gather
+from .instrumentation import Samples, grouped_samples
 from .protocol import Descriptor, Scheduler, position, require
 from .records import (
     EVENT_STATUS,
@@ -28,6 +29,7 @@ from .supervision import (
     phase_during_cleanup,
     release_region,
     safety,
+    synchronization_inventory,
 )
 from .transport import Ring
 
@@ -41,6 +43,103 @@ SCENARIOS = {
     "die_with_mutex": (8, 500),
     "failed_start": (8, 500),
 }
+SCENARIOS52 = {
+    "normal500": (128, 500),
+    "normal2500": (128, 2500),
+    "normal5000": (128, 5000),
+    "capacity": (96, 500),
+    "contention": (32, 1000),
+    "die_before_return": (8, 500),
+    "die_after_return": (8, 500),
+    "die_after_output": (8, 500),
+    "die_with_mutex": (8, 500),
+    "failed_start": (8, 500),
+    "torn_publication": (8, 500),
+    "failed_publication_cleanup": (8, 500),
+}
+
+
+class FixtureStore(Store):
+    """Explicit artificial publisher faults, never an operational replacement."""
+
+    def __init__(self, *args, scenario=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.scenario = scenario
+        self.injected = False
+
+    def write(self, index, record):
+        inject = not self.injected and record.get("status") == STAGE["read_return"]
+        if inject and self.scenario == "failed_publication_cleanup":
+            self.injected = True
+            raise OSError("Injected record publication failure before copy")
+        if inject and self.scenario == "torn_publication":
+            from .records import encode_into
+
+            encode_into(record, self.kind, self.scratch)
+            offset = index * 512
+            self.mapping[offset : offset + 256] = self.scratch[:256]
+            self.mapping[offset + 504 : offset + 512] = bytes(8)
+            os._exit(75)
+        return super().write(index, record)
+
+
+def startup_snapshot(ring, stop, clocks):
+    """Startup may contend with supervisor polling; no arrival has begun."""
+    deadline = clocks.continuous() + 50_000_000
+    while not stop.is_set() and clocks.continuous() < deadline:
+        snap = ring.snapshot()
+        if snap is not None:
+            return snap
+        stop.wait(0.0001)
+    raise ValueError("Producer startup snapshot timeout/stop")
+
+
+def exercise_terminal_preflight(ring, m, clock):
+    before = ring.snapshot()
+    require(
+        before is not None and before["active"] == m, "Actual active preflight shape"
+    )
+    ring.update(failed=(1 << 64) - 1)
+    try:
+        ring.finish(m, clock, "failed")
+    except ValueError as exc:
+        error = str(exc)
+    else:
+        raise ValueError("Expected terminal overflow")
+    after = ring.snapshot()
+    preserved = all(
+        after[k] == before[k] for k in ("pending", "active", "staged", "head", "tail")
+    )
+    require(
+        preserved and "overflow" in error, "Terminal preflight must preserve credits"
+    )
+    ring.update(failed=before["failed"])
+    return dict(credits_preserved=preserved, error=error, m=m)
+
+
+class ObservedPhases:
+    def __init__(self, phases, samples, clocks):
+        self.phases, self.samples, self.clocks = phases, samples, clocks
+
+    def append(self, code, clocks, rss):
+        start = self.clocks.service()
+        self.phases.append(code, clocks, rss)
+        self.samples.add(5, code, 0, 1, start, self.clocks.service())
+
+    def close(self):
+        self.phases.close()
+
+
+def close_owned(objects):
+    errors = []
+    for obj in objects:
+        try:
+            obj.close()
+        except (ValueError, OSError, BufferError) as exc:
+            errors.append(str(exc))
+    return errors
+
+
 RUN_CAP_SECONDS = 5
 RSS_CAPS = {"producer": 64 * 1024**2, "consumer": 1024**3, "supervisor": 128 * 1024**2}
 STORAGE_CAP = 16 * 1024**2
@@ -48,7 +147,7 @@ STORAGE_CAP = 16 * 1024**2
 
 def _json(path, value):
     blob = (json.dumps(value, allow_nan=False, indent=2) + "\n").encode()
-    require(len(blob) <= 65536, "Bounded diagnostic JSON")
+    require(len(blob) <= 131072, "Bounded diagnostic JSON")
     with open(path, "xb") as f:
         f.write(blob)
 
@@ -68,30 +167,39 @@ def _summary(path, role, clocks, stats, **extra):
 
 
 def _producer(name, lock, start, stop, directory, count, rate):
+    clocks = Clocks()
+    init = clocks.service()
+    samples = Samples(Path(directory) / "producer-samples.bin", 768)
     ring = Ring.attach(name, lock)
     store = Store(Path(directory) / "events.bin", count, "event")
-    clocks = Clocks()
-    phases = Phases(Path(directory) / "producer-phases.bin", 1)
+    phases = ObservedPhases(
+        Phases(Path(directory) / "producer-phases.bin", 1), samples, clocks
+    )
+    samples.add(6, 0, 0, 0, init, clocks.service())
     phases.append(1, clocks, own_rss())
     stats = {"append_calls": 0, "max_append_ns": 0, "offers_resolved": 0}
 
     def write(k, e):
         before = clocks.service()
         store.write(k, e)
-        stats["max_append_ns"] = max(stats["max_append_ns"], clocks.service() - before)
+        end = clocks.service()
+        stats["max_append_ns"] = max(stats["max_append_ns"], end - before)
         stats["append_calls"] += 1
+        samples.add(1, e["status"], 1, 1, before, end)
+        samples.add(9, e["status"], 1, 1, before, clocks.service())
 
     try:
         ring.update(producer_ready=1, producer_rss=own_rss())
         phases.append(2, clocks, own_rss())
         require(start.wait(2), "Fixture producer start timeout")
-        snap = ring.snapshot()
-        require(snap is not None, "Producer startup snapshot")
+        snap = startup_snapshot(ring, stop, clocks)
         scheduler = Scheduler(snap["t0"], count, rate)
         ring.update(producer_armed=1)
         phases.append(3, clocks, own_rss())
 
         def emit(k, intended, action):
+            cycle = clocks.service()
+            writes = stats["append_calls"]
             now = clocks.service()
             if action == "attempt":
                 if now >= scheduler.horizon:
@@ -114,7 +222,7 @@ def _producer(name, lock, start, stop, directory, count, rate):
                 write(k, e)
             else:
                 e.update(submission=now, status=1)
-                write(k, e)  # durable intent precedes possible publication
+                write(k, e)  # process-crash-visible intent before possible publication
                 outcome, stamp, sequence = ring.admit(
                     Descriptor(1, k, position(k), intended, now), clocks.service
                 )
@@ -125,6 +233,14 @@ def _producer(name, lock, start, stop, directory, count, rate):
                     e.update(rejection=stamp, reason=e["status"])
                 write(k, e)
             stats["offers_resolved"] += 1
+            samples.add(
+                3,
+                e["status"],
+                1,
+                stats["append_calls"] - writes,
+                cycle,
+                clocks.service(),
+            )
 
         while scheduler.k < count and not stop.is_set():
             next_time = scheduler.wake(clocks.service(), emit)
@@ -136,20 +252,32 @@ def _producer(name, lock, start, stop, directory, count, rate):
             phases.append(4, clocks, own_rss())
         _summary(Path(directory) / "producer.json", "producer", clocks, stats)
     finally:
-        phases.append(9, clocks, own_rss())
-        phases.close()
-        store.close()
-        ring.close()
+        final_start = clocks.service()
+        error = phase_during_cleanup(phases, 9, clocks, own_rss())
+        errors = close_owned([phases, store, ring])
+        try:
+            samples.add(
+                7, int(bool(error or errors)), 0, 0, final_start, clocks.service()
+            )
+        finally:
+            samples.close()
 
 
 def _consumer(name, lock, start, stop, armed, directory, count, scenario):
-    ring = Ring.attach(name, lock)
-    store = Store(Path(directory) / "batches.bin", count, "batch")
-    output = os.open(Path(directory) / "outputs.bin", os.O_RDWR)
     clocks = Clocks()
-    phases = Phases(Path(directory) / "consumer-phases.bin", 2)
+    init = clocks.service()
+    samples = Samples(Path(directory) / "consumer-samples.bin", 4096)
+    ring = Ring.attach(name, lock)
+    store = FixtureStore(
+        Path(directory) / "batches.bin", count, "batch", scenario=scenario
+    )
+    output = os.open(Path(directory) / "outputs.bin", os.O_RDWR)
+    phases = ObservedPhases(
+        Phases(Path(directory) / "consumer-phases.bin", 2), samples, clocks
+    )
     phases.append(1, clocks, own_rss())
     backend = GeneratedBackend()
+    samples.add(6, 0, 0, 0, init, clocks.service())
     stats = {
         "batches": 0,
         "append_calls": 0,
@@ -168,8 +296,11 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
     def write(b):
         before = clocks.service()
         store.write(b["batch"], b)
-        stats["max_append_ns"] = max(stats["max_append_ns"], clocks.service() - before)
+        end = clocks.service()
+        stats["max_append_ns"] = max(stats["max_append_ns"], end - before)
         stats["append_calls"] += 1
+        samples.add(2, b["status"], b["m"], 1, before, end)
+        samples.add(10, b["status"], b["m"], 1, before, clocks.service())
 
     try:
         ring.update(consumer_ready=1, consumer_rss=own_rss())
@@ -199,6 +330,8 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
                     break
                 stop.wait(0.0001)
                 continue
+            cycle = clocks.service()
+            writes = stats["append_calls"]
             b = dict(
                 run=1,
                 phase=1,
@@ -269,17 +402,22 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
                 )
                 stats["score_rows"] += b["m"]
                 write(b)
+                output_start = clocks.service()
                 for i, k in enumerate(b["members"]):
                     payload = struct.pack("<d4B", float(scores[i]), *map(int, masks[i]))
                     require(
                         os.pwrite(output, payload, 12 * k) == 12,
                         "Output retention write",
                     )
+                samples.add(8, 0, b["m"], b["m"], output_start, clocks.service())
                 output_stamp = ring.finish(b["m"], clocks.service)
                 b.update(output=output_stamp, status=STAGE["output"])
                 write(b)
                 stats["boolean_outputs"] += 4 * b["m"]
                 if scenario == "die_after_output":
+                    # Explicit combined post-output/dead-mutex-owner barrier.
+                    require(lock.acquire(timeout=0.05), "Post-output fault mutex")
+                    armed.set()
                     os._exit(74)
                 b["reference_intents"] = 1
                 b["reference_intent"] = clocks.service()
@@ -298,31 +436,52 @@ def _consumer(name, lock, start, stop, armed, directory, count, scenario):
                 write(b)
                 stats["batches"] += 1
                 ring.update(consumer_rss=own_rss())
+                samples.add(
+                    4,
+                    b["status"],
+                    b["m"],
+                    stats["append_calls"] - writes,
+                    cycle,
+                    clocks.service(),
+                )
             except Exception:
                 b.update(
                     terminal=clocks.service(), status=STAGE["failed"], missing_reason=1
                 )
                 write(b)
                 if b.get("output") is None:
+                    if scenario == "failed_publication_cleanup":
+                        observed = exercise_terminal_preflight(
+                            ring, b["m"], clocks.service
+                        )
+                        _json(Path(directory) / "counter-preflight.json", observed)
                     ring.finish(b["m"], clocks.service, "failed")
                 ring.update(error=1)
                 raise
         _summary(Path(directory) / "consumer.json", "consumer", clocks, stats)
     finally:
-        phases.append(9, clocks, own_rss())
-        phases.close()
-        os.close(output)
-        store.close()
-        ring.close()
+        final_start = clocks.service()
+        error = phase_during_cleanup(phases, 9, clocks, own_rss())
+        try:
+            os.close(output)
+        finally:
+            errors = close_owned([phases, store, ring])
+            try:
+                samples.add(
+                    7, int(bool(error or errors)), 0, 0, final_start, clocks.service()
+                )
+            finally:
+                samples.close()
 
 
-def run_fixture(directory, scenario):
+def run_fixture(directory, scenario, *, task52=False):
     """One invocation; supervisor is this process, with exactly two spawned roles."""
     entered = time.perf_counter_ns()
-    require(scenario in SCENARIOS, "Unknown fixture, no operational mode")
+    cases = SCENARIOS52 if task52 else SCENARIOS
+    require(scenario in cases, "Unknown fixture, no operational mode")
     directory = Path(directory)
     directory.mkdir(mode=0o700)  # no reuse/overwrite of earlier evidence
-    count, rate = SCENARIOS[scenario]
+    count, rate = cases[scenario]
     clocks = Clocks()
     started = clocks.continuous() - (time.perf_counter_ns() - entered)
     observation = clocks.observation()
@@ -330,6 +489,15 @@ def run_fixture(directory, scenario):
     ctx = mp.get_context("spawn")
     lock = ctx.Lock()
     producer_start, consumer_start, stop, armed = (ctx.Event() for _ in range(4))
+    sync_inventory = synchronization_inventory(
+        lock,
+        dict(
+            producer_start=producer_start,
+            consumer_start=consumer_start,
+            stop=stop,
+            adversarial_armed=armed,
+        ),
+    )
     ring = Ring.create(lock, directory)
     shared_name = ring.shm.name
     for filename, kind in (("events.bin", "event"), ("batches.bin", "batch")):
@@ -451,6 +619,8 @@ def run_fixture(directory, scenario):
         problem = type(exc).__name__ + ": " + str(exc)
     finally:
         cleanup_start = clocks.continuous()
+        if scenario == "failed_publication_cleanup":
+            phases.close()
         phase_error = phase_during_cleanup(phases, 7, clocks, own_rss())
         if phase_error:
             problem = problem or "Cleanup phase journal: " + phase_error
@@ -460,12 +630,34 @@ def run_fixture(directory, scenario):
             clocks.continuous,
             min(started + 5_000_000_000, cleanup_start + 2_000_000_000),
         )
-        final_snapshot, snapshot_error = cleanup_snapshot(ring)
+        if scenario == "failed_publication_cleanup":
+            # Children are reaped: corrupt one counter under the actual mutex to
+            # exercise Ring._invariant in the guarded cleanup snapshot.
+            require(lock.acquire(timeout=0.05), "Cleanup injection mutex")
+            try:
+                ring._set("pending", 65)
+            finally:
+                lock.release()
+            final_snapshot, snapshot_error = cleanup_snapshot(ring)
+        else:
+            final_snapshot, snapshot_error = cleanup_snapshot(ring)
         if snapshot_error:
             problem = problem or "Cleanup snapshot: " + snapshot_error
         if final_snapshot is not None:
             last_snapshot = final_snapshot
-        first_unlink, repeated_unlink, region_errors = release_region(ring)
+        if scenario == "failed_publication_cleanup":
+
+            class FailedClose:
+                def close(self):
+                    ring.close()
+                    raise OSError("Injected post-close diagnostic failure")
+
+                def unlink(self):
+                    return ring.unlink()
+
+            first_unlink, repeated_unlink, region_errors = release_region(FailedClose())
+        else:
+            first_unlink, repeated_unlink, region_errors = release_region(ring)
         if region_errors:
             problem = problem or "Region cleanup: " + str(region_errors)
         try:
@@ -480,10 +672,17 @@ def run_fixture(directory, scenario):
             problem = problem or "Cleanup phase journal: " + phase_error
         phases.close()
         cleanup_ns = clocks.continuous() - cleanup_start
+    invalid_records = []
     event_store = Store(directory / "events.bin", count, "event")
     batch_store = Store(directory / "batches.bin", count, "batch")
     try:
-        events, batches = event_store.read_all(), batch_store.read_all()
+        events = event_store.read_all()
+        try:
+            batches = batch_store.read_all()
+        except ValueError as exc:
+            # Invalid publication prevents exact conservation; never substitute old bytes.
+            invalid_records.append(str(exc))
+            batches = []
     finally:
         event_store.close()
         batch_store.close()
@@ -541,7 +740,14 @@ def run_fixture(directory, scenario):
         "cleanup_absent": absent,
         "no_leaked_child": not any(e.get("leaked") for e in exits),
     }
-    if scenario in ("normal_wrap", "capacity", "contention"):
+    if scenario in (
+        "normal_wrap",
+        "normal500",
+        "normal2500",
+        "normal5000",
+        "capacity",
+        "contention",
+    ):
         checks["normal_exit"] = normal
         checks["pending_zero_records"] = (
             sum(
@@ -553,7 +759,7 @@ def run_fixture(directory, scenario):
         checks["pending_zero_shared"] = (
             last_snapshot is not None and last_snapshot["pending"] == 0
         )
-        if scenario == "normal_wrap":
+        if scenario in ("normal_wrap", "normal500"):
             checks["wrap_observed"] = final["admitted"] > 64
         if scenario == "capacity":
             checks["capacity_rejected"] = (
@@ -568,6 +774,20 @@ def run_fixture(directory, scenario):
             problem is not None
             and "start failure" in problem
             and any(not e["started"] for e in exits)
+        )
+    elif scenario == "torn_publication":
+        checks["torn_detected"] = bool(invalid_records) and any(
+            e["exitcode"] == 75 for e in exits
+        )
+    elif scenario == "failed_publication_cleanup":
+        checks["publication_failure_observed"] = any(e["exitcode"] == 1 for e in exits)
+        preflight_path = directory / "counter-preflight.json"
+        checks["terminal_preflight_preserved_credits"] = (
+            preflight_path.exists()
+            and json.loads(preflight_path.read_text())["credits_preserved"]
+        )
+        checks["diagnostic_failures_retained"] = bool(
+            phase_error and snapshot_error and region_errors
         )
     else:
         checks["injected_exit_observed"] = any(
@@ -585,6 +805,7 @@ def run_fixture(directory, scenario):
                 and final["active"] > 0
             )
         if scenario == "die_after_output":
+            checks["dead_owner_combined"] = final_snapshot is None
             checks["completion_retained"] = (
                 final["completed"] > 0 and stage_counts["reference_rows"] == 0
             )
@@ -605,7 +826,9 @@ def run_fixture(directory, scenario):
         phase_observations=phase_counts,
         fixture_only=True,
         arrival_clock_issued=t0 is not None,
-        timing_observations=timing_summary(events, batches, cutoff),
+        timing_observations=timing_summary(events, batches, cutoff)
+        if not invalid_records
+        else None,
         configured_offers=count,
         actual_resolved_offers=sum(e is not None for e in events),
         normal=normal,
@@ -622,11 +845,39 @@ def run_fixture(directory, scenario):
         clock_bracket_ns=observation[2],
         service_clock=time.get_clock_info("perf_counter").__dict__,
         own_process_peak_RSS_bytes=max_rss,
-        accounting=accounting,
-        synthetic_stage_counts=stage_counts,
-        stage_projection_after_stop=stage_projection(batches, cutoff),
+        accounting=accounting if not invalid_records else None,
+        accounting_status="invalid_uncertain" if invalid_records else "reconciled",
+        invalid_records=invalid_records,
+        cleanup_diagnostic_errors=dict(
+            phase=phase_error, snapshot=snapshot_error, region=region_errors
+        ),
+        sample_aggregates={
+            role: grouped_samples(directory / (role + "-samples.bin"))
+            if (directory / (role + "-samples.bin")).exists()
+            else None
+            for role in ("producer", "consumer")
+        },
+        child_summary_available={
+            role: (directory / (role + ".json")).exists()
+            for role in ("producer", "consumer")
+        },
+        synthetic_stage_counts=stage_counts if not invalid_records else None,
+        observed_final_shared_counters=last_snapshot,
+        synchronization_inventory=sync_inventory,
+        cross_process_service_observation=dict(
+            parent_interval_ns=[observation[0], cutoff],
+            phase_timestamps_within_parent_interval=all(
+                observation[0] <= phase["service_ns"] <= cutoff
+                for role in ("producer", "consumer")
+                for phase in phase_counts[role]
+            ),
+            uncertainty="spawn/monitor brackets only, not clock equality or calibrated offset",
+        ),
+        stage_projection_after_stop=stage_projection(batches, cutoff)
+        if not invalid_records
+        else None,
         stage_projection_at_H=stage_projection(batches, scheduler.horizon)
-        if t0 is not None
+        if t0 is not None and not invalid_records
         else None,
         synchronization="1spawn mutex +4Events (21SemLocks); OS/native allocation unknown, P2 remains open",
         timestamp_scope="same-host actual fixture process clocks, synthetic read/feature/score stages;no operational certification",

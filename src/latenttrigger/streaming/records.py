@@ -1,5 +1,6 @@
 """Single-writer fixed512-byte journals, CRC and explicit timestamp validity."""
 
+import mmap
 import os
 import struct
 import zlib
@@ -90,14 +91,25 @@ def _put(buf, offset, fmt, value):
     struct.pack_into("<" + fmt, buf, offset, uint(value, struct.calcsize(fmt) * 8))
 
 
+ZERO_RECORD = bytes(RECORD_BYTES)
+
+
 def encode(record, kind):
+    buf = bytearray(RECORD_BYTES)
+    encode_into(record, kind, buf)
+    return bytes(buf)
+
+
+def encode_into(record, kind, buf):
+    """Validate/encode completely before publishing; caller owns reusable scratch."""
+    require(len(buf) == RECORD_BYTES, "Encoding scratch size")
     require(kind in ("event", "batch"), "Record kind")
     event = kind == "event"
     require(
         record.get("status") in (EVENT_STATUS.values() if event else STAGE.values()),
         "Known record state",
     )
-    buf = bytearray(RECORD_BYTES)
+    buf[:] = ZERO_RECORD
     buf[:8] = EVENT_MAGIC if event else BATCH_MAGIC
     fields = EVENT_FIELDS if event else BATCH_FIELDS
     for key, (off, fmt) in fields.items():
@@ -137,8 +149,7 @@ def encode(record, kind):
         require(len(digest) == 16, "Fixed digest")
         buf[480:496] = digest
         _put(buf, 496, "Q", record.get("flags", 0))
-    _put(buf, 504, "Q", zlib.crc32(buf[:504]))
-    return bytes(buf)
+    _put(buf, 504, "Q", zlib.crc32(memoryview(buf)[:504]))
 
 
 def decode(blob, kind):
@@ -197,19 +208,37 @@ class Store:
         self.fd = os.open(
             path, os.O_RDWR | (os.O_CREAT | os.O_EXCL if create else 0), 0o600
         )
-        if create:
-            os.ftruncate(self.fd, capacity * RECORD_BYTES)
-        require(
-            os.fstat(self.fd).st_size == capacity * RECORD_BYTES, "Fixed record file"
-        )
+        self.mapping = None
+        try:
+            if create:
+                os.ftruncate(self.fd, capacity * RECORD_BYTES)
+            require(
+                os.fstat(self.fd).st_size == capacity * RECORD_BYTES,
+                "Fixed record file",
+            )
+            self.mapping = mmap.mmap(
+                self.fd, capacity * RECORD_BYTES, access=mmap.ACCESS_WRITE
+            )
+            # Touch every page without changing attached journal contents.
+            self.page_checksum = sum(
+                self.mapping[i] for i in range(0, len(self.mapping), 4096)
+            )
+            self.scratch = bytearray(RECORD_BYTES)
+        except Exception:
+            if self.mapping is not None:
+                self.mapping.close()
+            os.close(self.fd)
+            self.fd = None
+            raise
 
     def write(self, index, record):
         require(0 <= index < self.capacity, "Record storage overflow")
-        blob = encode(record, self.kind)
-        require(
-            os.pwrite(self.fd, blob, index * RECORD_BYTES) == RECORD_BYTES,
-            "Short journal write",
-        )
+        encode_into(record, self.kind, self.scratch)
+        self._publish(index * RECORD_BYTES)
+
+    def _publish(self, offset):
+        # Single writer; readers only after writer exit. No atomic/power-loss claim.
+        self.mapping[offset : offset + RECORD_BYTES] = self.scratch
 
     def read_all(self):
         return [
@@ -219,8 +248,13 @@ class Store:
 
     def close(self):
         if self.fd is not None:
-            os.close(self.fd)
-            self.fd = None
+            try:
+                if self.mapping is not None:
+                    self.mapping.close()  # no explicit flush/fsync; process-crash visibility only
+                    self.mapping = None
+            finally:
+                os.close(self.fd)
+                self.fd = None
 
 
 def reconcile(events, batches, scheduler, cutoff):

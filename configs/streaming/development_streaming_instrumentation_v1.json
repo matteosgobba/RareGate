@@ -1,0 +1,470 @@
+{
+  "schema": "latenttrigger.generated_streaming_instrumentation.v1",
+  "task": "0052",
+  "implementation_version": "0052.1",
+  "fixture_only": true,
+  "operational_execution_authorized": false,
+  "operational_allowance_granted": false,
+  "native_acceptance_of_physical_study": false,
+  "baseline_commit": "2f59ae1fafd77455b001393482a5bea84ddb1fc8",
+  "candidate_manifest": [
+    {
+      "path": "src/latenttrigger/streaming/__init__.py",
+      "size_bytes": 105,
+      "sha256": "32f6d223fa34aa0b4197ed608a0cba7bd10ddc02cd7596f2ba53791ed199e359"
+    },
+    {
+      "path": "src/latenttrigger/streaming/characterization.py",
+      "size_bytes": 10429,
+      "sha256": "29f8f2f5ed93d415c5d531fc459500af2351190d322c362ff9c276faf691c641"
+    },
+    {
+      "path": "src/latenttrigger/streaming/fixture.py",
+      "size_bytes": 37157,
+      "sha256": "c6f90378f36fa4a9a1f8964f25109b959b6967da4140983ec0cea8f4cd634486"
+    },
+    {
+      "path": "src/latenttrigger/streaming/generated.py",
+      "size_bytes": 4457,
+      "sha256": "bfd70c6ce664427eed26f1197c99e29474d383b2ba663cf109b452a3d9d07262"
+    },
+    {
+      "path": "src/latenttrigger/streaming/instrumentation.py",
+      "size_bytes": 6294,
+      "sha256": "ef5533cd447699cd9edae2e536988a7963bbad7ecff2e68d5ab8d08b6a3cac02"
+    },
+    {
+      "path": "src/latenttrigger/streaming/protocol.py",
+      "size_bytes": 3970,
+      "sha256": "15a1c2978704cf0ba32f20b8952014b01daaadb704198c9444e36e1e348faa97"
+    },
+    {
+      "path": "src/latenttrigger/streaming/records.py",
+      "size_bytes": 18536,
+      "sha256": "40740a641eaf2d1766456eb9b5f19949a2985083e882315f71b619641642ddc3"
+    },
+    {
+      "path": "src/latenttrigger/streaming/supervision.py",
+      "size_bytes": 5914,
+      "sha256": "5139efe52ba10c6e38e82e18e53b8917ea2d8f85d7e6421d47703a1bf97554bf"
+    },
+    {
+      "path": "src/latenttrigger/streaming/transport.py",
+      "size_bytes": 9026,
+      "sha256": "8deec3d315b145113c3c4d753cdb7bf713282a1f161e582017b786c64de1ca8e"
+    },
+    {
+      "path": "scripts/characterize_development_streaming.py",
+      "size_bytes": 1009,
+      "sha256": "1ea52b369c429560fb547f5fb5b32385bf33eec8300bace36c3c5bd96e3fa1af"
+    },
+    {
+      "path": "tests/test_development_streaming_instrumentation.py",
+      "size_bytes": 9295,
+      "sha256": "f80e98d6bbe319067ec72af1edc2622f2e95789308b9a0918a350614002e56a2"
+    },
+    {
+      "path": "tests/test_development_streaming_foundation.py",
+      "size_bytes": 23669,
+      "sha256": "3956416957a4c7d76bcf8424e7e9a980a886665a6d2fbb85bfd12860b4ade330"
+    }
+  ],
+  "invocations": [
+    {
+      "id": "die_after_return",
+      "kind": "streaming",
+      "scenario": "die_after_return",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "die_after_output",
+      "kind": "streaming",
+      "scenario": "die_after_output",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "failed_start",
+      "kind": "streaming",
+      "scenario": "failed_start",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "torn_publication",
+      "kind": "streaming",
+      "scenario": "torn_publication",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "failed_publication_cleanup",
+      "kind": "streaming",
+      "scenario": "failed_publication_cleanup",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    }
+  ],
+  "record_sequence": "instrumentation.update_sequence: kinds event then batch;128indices each intent/read_intent then admission/verified;256appends/kind/side, m1; symbolic k0..127; deterministic ns k*2000000+offsets1..10",
+  "timing": {
+    "unit": "ns",
+    "clock": "perf_counter_ns",
+    "append": "Immediately before Store.write to immediately after return, including index/field validation, encoding, zeroing, allocations, CRC, publication; excludes observer sample/statistics after return, unchanged Task0051 wrapper meaning",
+    "baseline": "fresh bytearray512, CRC slice, bytes512, pwrite512; pinned module with own protocol",
+    "candidate": "reusable bytearray512 zero reset, memoryview CRC, mmap slice publication512; full validation/encoding in timed call",
+    "observer": "append start through max/count updates and first64B sample pwrite; second observer sample publication outside its own measurement, cost retained in cycle/lifecycle",
+    "offer_cycle": "before record construction through all intent/resolution writes and observers, stats, descriptor encoding/one admission try; diagnostic upper envelope containing all instrumentation, not isolated overhead; final cycle sample publication outside but in lifecycle",
+    "batch_cycle": "before batch construction through all updates, actual-m generated work/output/reference/stats and observers; carries m/update count; diagnostic inclusive upper envelope, not pure logging overhead; incomplete cycles have no invented return",
+    "initialization": "role clock/init sample file creation, ring/store/phase attachment, mapping/page touches/scratch; consumer includes generated backend table; phase setup, supervisor file preallocation separately inside invocation",
+    "phase_append": "Phases.append inclusive clocks/RSS args already evaluated, pack/CRC/pwrite; records all32slots/role bound",
+    "output_write": "full m-row pack/conversion/pwrite loop; outside append criterion, retained12B/row",
+    "finalization": "phase9 append + all close attempts, no explicit flush/fsync; final sample publication and close outside self-timing but inside supervisor whole invocation",
+    "cleanup": "supervisor continuous interval, phase journal, joins/terminate/kill, snapshot, region close/unlink and absence check; whole5s includes reconciliation/reporting",
+    "no_clock_overhead_subtraction": true
+  },
+  "criteria": {
+    "event_append_ns": 50000,
+    "batch_append_ns": 200000,
+    "strict_exceed": "value > ceiling; equality passes",
+    "eligible": "All completed recorder A/B append samples, and B normal500/normal2500/normal5000/capacity/contention appends when software checks pass; stage/shape groups separate. Intentional-fault and incomplete run samples retained separately, ineligible. Missing tail/final summary is unknown not zero. Initial incomplete A and failed normal500 samples are ineligible but retained; completed operation costs remain observable.",
+    "quantiles": "linear interpolation at (n-1)*p on actual samples per case/side/repetition/operation/stage/m/update count, no pooled or averaged quantiles",
+    "candidate_failure": "any eligible B exceedance remains sampled_limits_exceeded, never erased by later runs",
+    "overload": "offered workload result not a retry reason;100ms illustrative deadline,hard body3s/whole5s and operation2s"
+  },
+  "history": {
+    "comparison": "new processes each side; baseline pinned text package; fresh zero files, both full-file pread65536B/kind before timed writes, candidate mmap read-touch each4096B and512B scratch allocated in initialization. No explicit flush, purge or cold OS claim; mappings close at finalization, no deferred user record buffer. Baseline import in initialization counted.",
+    "streaming": "fresh generated1024x3 float64 table per consumer, no HDF/cache/model; FIFO source positions position(k),k0..N-1 (N<=128), no wraps within raw symbolic U; descriptor slot wrap distinct and required normal500 admitted>64; no arrival trace; lazyopenloopfloor,2mslate,4catchup,1nonblockingtry;1msoldest,B8; capacity waits producerclosed;contention holds lock150ms; pre/post faults at explicitjournal barriers",
+    "warmup_appends": 0,
+    "retries": "No automatic retries/search. Two correctness failures retained. All four paired attempts consumed (one partial+three complete);12 final streaming cases use remaining invocations, total20."
+  },
+  "envelope": {
+    "native_invocations_max": 20,
+    "planned_invocations": 5,
+    "reserve_invocations": 0,
+    "offers_per_stream_invocation_max": 128,
+    "configured_offers_max": 2560,
+    "planned_offers": 40,
+    "paired_attempts_max": 4,
+    "planned_pairs": 3,
+    "comparison_event_appends_max": 2048,
+    "comparison_batch_appends_max": 2048,
+    "planned_comparison_event_appends": 1536,
+    "planned_comparison_batch_appends": 1536,
+    "stream_event_appends_max": "2*N per invocation;<=5120 across20*128 offers",
+    "stream_batch_appends_max": "9*batches+2*subread_layers+1failure <=11*N+1;<=28180 across20*128",
+    "seconds_per_invocation_max": 5,
+    "cleanup_seconds_max": 2,
+    "body_seconds_max": 3,
+    "total_native_seconds_max": 120,
+    "diagnostics_bytes_max": 16777216,
+    "RSS_bytes": {
+      "producer": 67108864,
+      "consumer": 1073741824,
+      "supervisor": 134217728,
+      "aggregate": 1275068416
+    },
+    "native_aggregate_bytes": 536870912,
+    "opaque_native_bound_proved": false,
+    "planned_plus_prior_invocations": 20,
+    "planned_plus_prior_offers": 696,
+    "planned_plus_prior_comparison_event_appends": 1792,
+    "planned_plus_prior_comparison_batch_appends": 1792
+  },
+  "layouts": {
+    "descriptor_bytes": 64,
+    "shared_ring_bytes": 12288,
+    "credits_including_staged_active": 64,
+    "batch_max": 8,
+    "timeout_ns": 1000000,
+    "event_batch_record_bytes": 512,
+    "record_cap_actual": 128,
+    "phase_records_per_role": 32,
+    "phase_record_bytes": 512,
+    "output_bytes_per_row": 12,
+    "sample_bytes": 64,
+    "producer_sample_slots": 768,
+    "consumer_sample_slots": 4096,
+    "recorder_sample_slots": 1032
+  },
+  "inventory": {
+    "stream_binary_at128": {
+      "ring": 12288,
+      "event_batch_files": 131072,
+      "phase_files": 49152,
+      "outputs": 1536,
+      "producer_samples": 49152,
+      "consumer_samples": 262144,
+      "total": 505344
+    },
+    "memory_aliases": "ring file aliases shared12288 once; event/batch mmap adds at most65536/role aliasing own files,512scratch/Store; no full-file user buffer; serializer/reconciliation lists bounded128 rows/batches, timing samples per family<=128; sample parsing\u2264262144B +decoded\u22644096 tuples/group lists; exact Python/native heaps opaque, RSS guarded",
+    "comparison_side": {
+      "event_batch_files": 131072,
+      "samples": 66048,
+      "baseline_pread": 65536,
+      "baseline_encoder_temporaries_max_bytes": 1536,
+      "candidate_scratch_per_store": 512,
+      "mappings_candidate": 131072
+    },
+    "baseline_text": "records17258B+protocol3970B=21228B plus bounded generated pycache; pinned Git base retained, no repository copy",
+    "numeric_generated_owned_bytes": 34080,
+    "stream_reports_per_invocation_bytes_max": 131072,
+    "recorder_reports_per_invocation_bytes_max": 32768,
+    "aggregate_report_bytes_max": 2097152,
+    "total_derivation": "Conservative20 streaming equivalents:20*(505344+131072)=12728320; baseline/text/pycache<=131072 + prospective<=65536 + aggregate2097152 + console65536 + bootstrap/source bookkeeping<=131072 =15218688 <16777216. Recorder-only binary197120+report32768 <stream equivalent. Enclosing fresh-run windows counted including setup/finalization; code repair time outside native execution windows. All actual owned bytes checked; opaque Python/native allocator remains P2."
+  },
+  "synchronization": {
+    "streaming": "1mutex4Events21actualSemLocks; purposes producer start,consumer start,stop,adversarial armed; supervisor ownership,children shared refs, lifetime one fixture; runtime names tracked/finalized",
+    "recorder": "1stopEvent5actualSemLocks (no ring mutex); lifecycleonly",
+    "allowance_bytes": 65536,
+    "backing_bytes": null,
+    "proved": false,
+    "decision": "P2 remains unresolved; future OS/runtime-backed allocation evidence or explicit definition/budget amendment, not wrapper sizeof/RSS/count"
+  },
+  "failures": {
+    "torn": "first256new bytes + CRC invalidation then exit75 at read-return publication; invalid full accounting/stages null, retain counters and uncertainty; no previous record recovery",
+    "failed_publication_cleanup": "OSError before copy at first read-return, final failure record retained; closed supervisor phase journal, injected snapshot counter-check error and post-close diagnostic error; every unlink/reap still attempted",
+    "terminal_overflow": "Within failed_publication_cleanup, actual active m: set failed counterMAX, call finish(failed), assert pending/active/head/tail/staged unchanged on overflow, restore injected counter then commit failed; write counter-preflight diagnostic. After reaping corrupt pending65 underactualmutex; actual Ring._invariant must fail cleanup snapshot. Injected invalid shared values are not event counts.",
+    "dead_mutex_owner": "die_after_output records actual output, acquires actual ring mutex, sets adversarial armed, exits74 while holding it; cleanup remains independent; no early credit release, completed record retained."
+  },
+  "prerequisites": {
+    "P1": "focused deterministic compatibility/cutoff suite plus final-hash generated checks required; no operational codec",
+    "P2": "SemLock backing65KiB unresolved; exact Python/native/model/decoder/cache/thread/workspace proof absent",
+    "P3": "generated timing/clock/supervision characterization only, operational append ceilings not certified",
+    "P4": "ungranted; no operational runner;24x768/840s physical design remains future"
+  },
+  "no_task0053": true,
+  "paired_comparison_invocations_already_attempted": [
+    {
+      "id": "recorder-r1-A",
+      "kind": "recorder",
+      "repetition": 1,
+      "side": "A",
+      "event_appends": 256,
+      "batch_appends": 256,
+      "configured_offers": 0
+    },
+    {
+      "id": "recorder-r1-B",
+      "kind": "recorder",
+      "repetition": 1,
+      "side": "B",
+      "event_appends": 256,
+      "batch_appends": 256,
+      "configured_offers": 0
+    },
+    {
+      "id": "recorder-r2-B",
+      "kind": "recorder",
+      "repetition": 2,
+      "side": "B",
+      "event_appends": 256,
+      "batch_appends": 256,
+      "configured_offers": 0
+    },
+    {
+      "id": "recorder-r2-A",
+      "kind": "recorder",
+      "repetition": 2,
+      "side": "A",
+      "event_appends": 256,
+      "batch_appends": 256,
+      "configured_offers": 0
+    },
+    {
+      "id": "recorder-r3-A",
+      "kind": "recorder",
+      "repetition": 3,
+      "side": "A",
+      "event_appends": 256,
+      "batch_appends": 256,
+      "configured_offers": 0
+    },
+    {
+      "id": "recorder-r3-B",
+      "kind": "recorder",
+      "repetition": 3,
+      "side": "B",
+      "event_appends": 256,
+      "batch_appends": 256,
+      "configured_offers": 0
+    }
+  ],
+  "prior_native_invocations": 15,
+  "prior_partial_paired_attempts": 1,
+  "prior_complete_paired_attempts": 3,
+  "prior_comparison_event_appends": 1792,
+  "prior_comparison_batch_appends": 1792,
+  "remaining_native_invocations": 5,
+  "remaining_paired_attempts": 0,
+  "prior_configured_offers": 656,
+  "prior_source_evidence": [
+    "data/task0052-validation/characterization-v1/prospective.json",
+    "data/task0052-validation/characterization-v2/prospective.json",
+    "data/task0052-validation/characterization-v3/prospective.json"
+  ],
+  "repair": "Bound startup snapshot retry50ms under supervisor mutex contention; new deterministic test. Combine post-output interruption with deadmutexowner to finish5remainingchecks. Earlier normal/capacity/contention/pre-return native source retained; no full final-source normal-load revalidation possible within20.",
+  "earlier_streaming_plan": [
+    {
+      "id": "normal500",
+      "kind": "streaming",
+      "scenario": "normal500",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        128,
+        500
+      ]
+    },
+    {
+      "id": "normal2500",
+      "kind": "streaming",
+      "scenario": "normal2500",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        128,
+        2500
+      ]
+    },
+    {
+      "id": "normal5000",
+      "kind": "streaming",
+      "scenario": "normal5000",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        128,
+        5000
+      ]
+    },
+    {
+      "id": "capacity",
+      "kind": "streaming",
+      "scenario": "capacity",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        96,
+        500
+      ]
+    },
+    {
+      "id": "contention",
+      "kind": "streaming",
+      "scenario": "contention",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        32,
+        1000
+      ]
+    },
+    {
+      "id": "die_before_return",
+      "kind": "streaming",
+      "scenario": "die_before_return",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "die_after_return",
+      "kind": "streaming",
+      "scenario": "die_after_return",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "die_after_output",
+      "kind": "streaming",
+      "scenario": "die_after_output",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "die_with_mutex",
+      "kind": "streaming",
+      "scenario": "die_with_mutex",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "failed_start",
+      "kind": "streaming",
+      "scenario": "failed_start",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "torn_publication",
+      "kind": "streaming",
+      "scenario": "torn_publication",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    },
+    {
+      "id": "failed_publication_cleanup",
+      "kind": "streaming",
+      "scenario": "failed_publication_cleanup",
+      "side": "B",
+      "repetition": 1,
+      "offers_rate": [
+        8,
+        500
+      ]
+    }
+  ],
+  "delivery_scope_note": "Exact final execution suffix only; all previous prospective plans retained in ignored snapshots and curated summary. This config cannot authorize native reruns after Task0052 exhaustion.",
+  "static_delivery_review": {
+    "date": "2026-10-15",
+    "behavior_changed_after_final_native": false,
+    "storage_correction": "Original20-equivalent15218688B ledger omitted duplicate supervisor/result report files and multiple window aggregates. With just one extra131072B/case,20-equivalent upper bound17840128B already exceeds16777216B, before extra windows. Actual complete owned tree was8218819B at curation, no observed16MiB exceedance. Per-window guard did not aggregate earlier windows. P2 requires a single whole-task pre-growth bound or smaller reviewed file/report caps before future execution.",
+    "elapsed_correction": "characterization.elapsed_ns is captured before final aggregate JSON serialization/write, not after. Sum3727670291ns therefore excludes those tails and CLI import time; invocation elapsed is likewise recorded before supervisor final report. Post-write guards execute but a complete cumulative120s timestamp was not persisted across four repair windows. No exact inclusive whole-study duration or universally enforced global guard is claimed; P3 requires recording finalization and cumulative prior windows explicitly.",
+    "case_arithmetic": "Final five offers40 + prior656 =696; v3 prospective704 upper tally was a bookkeeping error, retained there; exact final config696. No new offers authorized.",
+    "readiness": "requires_prerequisites;partial characterization;20invocations/fourpairedattempts exhausted;configuration is documentary,not a renewed grant"
+  }
+}

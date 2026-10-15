@@ -60,7 +60,10 @@ class Region:
         require(
             path.is_absolute()
             and (
-                path.is_relative_to(repo / "data/task0051-validation")
+                (
+                    path.is_relative_to(repo / "data/task0051-validation")
+                    or path.is_relative_to(repo / "data/task0052-validation")
+                )
                 or path.is_relative_to(Path("/private/tmp"))
                 or path.is_relative_to(Path("/tmp"))
             ),
