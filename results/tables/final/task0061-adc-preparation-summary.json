@@ -1,0 +1,2104 @@
+{
+  "schema_version": 2,
+  "task": "0061",
+  "status": "completed_adc_preparation_training_and_freeze",
+  "date": "2026-10-16 Europe/Rome",
+  "base_HEAD": "d02e6a5f114e1979a5a5b5e8f11c84aba02eed41",
+  "branch": "main",
+  "upstream": "origin/main",
+  "initial_worktree_clean": true,
+  "initial_index_empty": true,
+  "remote_freshness_or_push_or_hosted_CI_verified": false,
+  "ready_for_Task0062": true,
+  "final_evaluation_performed": false,
+  "Task0062_started": false,
+  "scientific_usefulness": "not evaluated",
+  "operational_readiness": false,
+  "P4_exercised": false,
+  "historical_allowances_and_exposures": "unchanged; no LHCO/particle/P4 payload/model replay or acceptance reset",
+  "anchors": {
+    "docs/project-scientific-audit.md": {
+      "bytes": 23048,
+      "sha256": "fe6e1876feb84550da4f014e46c8c228ac2a6bd48041d028792af7c70abf2663"
+    },
+    "docs/decisive-scientific-experiment.md": {
+      "bytes": 25564,
+      "sha256": "b7cc15255702ee41aede21119be4eec1832e314703306d032d98574c1073b5c6"
+    },
+    "configs/research/decisive_scientific_experiment_v2.json": {
+      "bytes": 20058,
+      "sha256": "3b49269a948fd98f335df54ae84502de8bc102a9d7f73358f378ebf86ca2191d"
+    },
+    "results/tables/final/task0060-scientific-audit-summary.json": {
+      "bytes": 53666,
+      "sha256": "453b2476f01f15d7242031d88baa03d174257c6ec51f6e90e40e4e4fef2ef88f"
+    }
+  },
+  "owned_layout": {
+    "study": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061",
+    "models": "/Users/matteosgobba/Documents/GitHub/latent-trigger/artifacts/models/decisive-v2-adc",
+    "ledger": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/ledger/events.jsonl",
+    "raw": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/raw",
+    "roles": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/prepared",
+    "private": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/private",
+    "cache": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/cache",
+    "temp": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tmp",
+    "all_ignored": true
+  },
+  "sources": {
+    "sources": [
+      {
+        "role": "background",
+        "record_id": 5046428,
+        "filename": "background_for_training.h5",
+        "bytes": 646391984,
+        "md5": "08cb4801229f9d480567f8d3f5cac134",
+        "sha256": "5f460bd3af441d98a7962a83f3964d9b5fea7f2163e35532066adc9a9696cfe5",
+        "event_requests_cumulative": 1,
+        "wire_bytes_cumulative": 646391984,
+        "attempt": 1,
+        "inclusive_file_seconds": 192.61518066597637,
+        "metadata_sha256": "371cc64c377138ca0589bb524d52df271f9fdc947d067513e46e113bf72351bd",
+        "on_disk_reverified": true,
+        "local_verification_bytes": 646391984
+      },
+      {
+        "role": "A_to_4l",
+        "record_id": 7152590,
+        "filename": "Ato4l_lepFilter_13TeV_filtered.h5",
+        "bytes": 5421265,
+        "md5": "8735ed96a96c39dd13fde7d5f7c85967",
+        "sha256": "a73701afedaf11a74b3755ddb8ce2a5e963f5784a1c2b49f738dd310ad18f75c",
+        "event_requests_cumulative": 2,
+        "wire_bytes_cumulative": 651813249,
+        "attempt": 1,
+        "inclusive_file_seconds": 5.912776332988869,
+        "metadata_sha256": "a0bab9422218ccf10a0a401f15a0084001166973c1aed0fcd43f2800a7da7ab9",
+        "on_disk_reverified": true,
+        "local_verification_bytes": 5421265
+      },
+      {
+        "role": "LQ_to_btau",
+        "record_id": 7152599,
+        "filename": "leptoquark_LOWMASS_lepFilter_13TeV_filtered.h5",
+        "bytes": 28613508,
+        "md5": "ecd9750e5c51aef54918689eec1e7415",
+        "sha256": "7a636fc1e6801406aee17223c28ebdbf42ebd7c491f3f27f4861fcc30cd66884",
+        "event_requests_cumulative": 3,
+        "wire_bytes_cumulative": 680426757,
+        "attempt": 1,
+        "inclusive_file_seconds": 18.39607745799003,
+        "metadata_sha256": "ae53574178de97b4ba3ab5a68f35be03298d124cd2337bd00f7a7d2978a9fe91",
+        "on_disk_reverified": true,
+        "local_verification_bytes": 28613508
+      }
+    ],
+    "event_wire_bytes": 680426757,
+    "event_transfer_requests": 3,
+    "accepted_bytes": 680426757,
+    "elapsed_seconds": 216.9257841249928
+  },
+  "structural_acceptance": {
+    "background": {
+      "rows": 13451915,
+      "shape": [
+        13451915,
+        19,
+        4
+      ],
+      "dtype": "float64",
+      "chunks": [
+        26274,
+        1,
+        1
+      ],
+      "compression": "gzip",
+      "mapping": {
+        "classes": {
+          "met": 1,
+          "electron": 2,
+          "muon": 3,
+          "jet": 4
+        },
+        "names": [
+          "pt",
+          "eta",
+          "phi",
+          "class"
+        ],
+        "units": "GeV/radians per descriptor"
+      },
+      "class_keys": [
+        "Particles_Classes"
+      ],
+      "eligible_rows": 13451915,
+      "quarantined_rows": 0,
+      "quarantine_fraction": 0.0,
+      "rule_failures": {
+        "nonfinite": 0,
+        "padding": 0,
+        "MET": 0,
+        "class_2": 0,
+        "cuts_2": 0,
+        "prefix_order_2": 0,
+        "class_3": 0,
+        "cuts_3": 0,
+        "prefix_order_3": 0,
+        "class_4": 0,
+        "cuts_4": 0,
+        "prefix_order_4": 0,
+        "lepton_filter": 0
+      },
+      "unique_groups": 13449154,
+      "duplicate_rows": 2761
+    },
+    "A_to_4l": {
+      "rows": 55969,
+      "shape": [
+        55969,
+        19,
+        4
+      ],
+      "dtype": "float64",
+      "chunks": [
+        3499,
+        2,
+        1
+      ],
+      "compression": "gzip",
+      "mapping": {
+        "classes": {
+          "met": 1,
+          "electron": 2,
+          "muon": 3,
+          "jet": 4
+        },
+        "names": [
+          "pt",
+          "eta",
+          "phi",
+          "class"
+        ],
+        "units": "GeV/radians per descriptor"
+      },
+      "class_keys": [
+        "Particles_Classes"
+      ],
+      "eligible_rows": 55969,
+      "quarantined_rows": 0,
+      "quarantine_fraction": 0.0,
+      "rule_failures": {
+        "nonfinite": 0,
+        "padding": 0,
+        "MET": 0,
+        "class_2": 0,
+        "cuts_2": 0,
+        "prefix_order_2": 0,
+        "class_3": 0,
+        "cuts_3": 0,
+        "prefix_order_3": 0,
+        "class_4": 0,
+        "cuts_4": 0,
+        "prefix_order_4": 0,
+        "lepton_filter": 0
+      },
+      "unique_groups": 55969,
+      "duplicate_rows": 0
+    },
+    "LQ_to_btau": {
+      "rows": 340544,
+      "shape": [
+        340544,
+        19,
+        4
+      ],
+      "dtype": "float64",
+      "chunks": [
+        10642,
+        1,
+        1
+      ],
+      "compression": "gzip",
+      "mapping": {
+        "classes": {
+          "met": 1,
+          "electron": 2,
+          "muon": 3,
+          "jet": 4
+        },
+        "names": [
+          "pt",
+          "eta",
+          "phi",
+          "class"
+        ],
+        "units": "GeV/radians per descriptor"
+      },
+      "class_keys": [
+        "Particles_Classes"
+      ],
+      "eligible_rows": 340544,
+      "quarantined_rows": 0,
+      "quarantine_fraction": 0.0,
+      "rule_failures": {
+        "nonfinite": 0,
+        "padding": 0,
+        "MET": 0,
+        "class_2": 0,
+        "cuts_2": 0,
+        "prefix_order_2": 0,
+        "class_3": 0,
+        "cuts_3": 0,
+        "prefix_order_3": 0,
+        "class_4": 0,
+        "cuts_4": 0,
+        "prefix_order_4": 0,
+        "lepton_filter": 0
+      },
+      "unique_groups": 340544,
+      "duplicate_rows": 0
+    }
+  },
+  "content_groups": {
+    "total_source_rows": 13848428,
+    "unique_groups": 13845667,
+    "duplicates": 2761,
+    "quarantine": 0,
+    "cross_label_conflicts": 0,
+    "selected_unique_groups": 2330000,
+    "cross_role_overlap": 0,
+    "unused_groups": {
+      "background": 11199154,
+      "A_to_4l": 15969,
+      "LQ_to_btau": 300544
+    },
+    "limits": "Exact canonical equality only; no near-duplicate or generation-independence proof"
+  },
+  "roles": {
+    "train": {
+      "schema_version": 2,
+      "scope": "Task0061-real-ADC-preparation-only",
+      "role": "train",
+      "source": "background",
+      "rows": 200000,
+      "scaler_sha256": "e3afd27d947005a92037fb807ede94045ab1c67115887c5e28c8f3531b6d8840",
+      "files": {
+        "objects.npy": "806bee51532bdad8ba3fc7d74946785a0793a59d0c4c4b7c06fd4631786c30d5",
+        "features.npy": "ca1e08cba3a5a73edeb7812367fac2e3d0e3fb43a5b3a9afb276879320ec8633",
+        "membership.npy": "97f5224bf7605006432c3ce60316e447d51202e9a45a8ab0211a21e213738cfd",
+        "features64.npy": "d56f82aac57b627f0c3d7708aee9c871cedbcd1808270c09a9242062fabd27c1"
+      }
+    },
+    "selection": {
+      "schema_version": 2,
+      "scope": "Task0061-real-ADC-preparation-only",
+      "role": "selection",
+      "source": "background",
+      "rows": 50000,
+      "scaler_sha256": "e3afd27d947005a92037fb807ede94045ab1c67115887c5e28c8f3531b6d8840",
+      "files": {
+        "objects.npy": "80a827a77df2ac94e3cd9e01714c9a3236c9cfe6456526e669162055683519ba",
+        "features.npy": "cd698e25ea068327f58ece89e2ff91d2307ca718e8de3c8986660bf8260ef94d",
+        "membership.npy": "d3bced1fa5d3407244771f99d32f3ac2a6cf2585e07376723d832961bc39b19c",
+        "features64.npy": "936dfd563e53171a34997c0d7b6ef337703925ea5178fb482b5e47ec13fcd862"
+      }
+    },
+    "calibration": {
+      "schema_version": 2,
+      "scope": "Task0061-real-ADC-preparation-only",
+      "role": "calibration",
+      "source": "background",
+      "rows": 1000000,
+      "scaler_sha256": "e3afd27d947005a92037fb807ede94045ab1c67115887c5e28c8f3531b6d8840",
+      "files": {
+        "objects.npy": "537a601503a84b40ef0e0799e3bbde0e2490f62dd27952a4080841c3f09d1283",
+        "features.npy": "90da7ba2cbf4e279cb1c9ff5b0699b43cdc741e2864bef29f38b902edf4b11c9",
+        "membership.npy": "7dc6607594785443c0c8941c268a763d621f12924b8059b07e6ae3c25776fdc8",
+        "features64.npy": "1540d2759b63f5dd953d7a5038ed743c2d334bbf4557f3ae41fdedae0ac83376"
+      }
+    },
+    "final_background": {
+      "schema_version": 2,
+      "scope": "Task0061-real-ADC-preparation-only",
+      "role": "final_background",
+      "source": "background",
+      "rows": 1000000,
+      "scaler_sha256": "e3afd27d947005a92037fb807ede94045ab1c67115887c5e28c8f3531b6d8840",
+      "files": {
+        "objects.npy": "fec4bfa230f5ef82c07973dc41ee533bb263e363f861c4d7ee847dc8a7594f04",
+        "features.npy": "8ac5281df3cf0417161ca16b77dff576d53fa35f8ede0d240c666ff8398717ae",
+        "membership.npy": "9d02095e58cead164f135f17f147a0875aac867167da8b6ea2c19ad5f90d5d0e",
+        "features64.npy": "be6adca58695dce79f10e4c45887938846544da5dabf9fd9df253a5260459df2"
+      }
+    },
+    "A_to_4l": {
+      "schema_version": 2,
+      "scope": "Task0061-real-ADC-preparation-only",
+      "role": "A_to_4l",
+      "source": "A_to_4l",
+      "rows": 40000,
+      "scaler_sha256": "e3afd27d947005a92037fb807ede94045ab1c67115887c5e28c8f3531b6d8840",
+      "files": {
+        "objects.npy": "5ce94d3c90cefeb54986f82fe3b88ac6bde599402f8f8eab9d099bc54c659564",
+        "features.npy": "48c302b97b44d978891fc6ceba769c9fd009c272cd77420ae03de79e25354e47",
+        "membership.npy": "bae0dcc927af988f7a6ea86ddc9742f10568c4c1030782bfacb6f574c5ca6e9a",
+        "features64.npy": "457dbcc177ae5f2e3602feaf2474bde9d779f3e3b7f53977868c7fd1b02df849"
+      }
+    },
+    "LQ_to_btau": {
+      "schema_version": 2,
+      "scope": "Task0061-real-ADC-preparation-only",
+      "role": "LQ_to_btau",
+      "source": "LQ_to_btau",
+      "rows": 40000,
+      "scaler_sha256": "e3afd27d947005a92037fb807ede94045ab1c67115887c5e28c8f3531b6d8840",
+      "files": {
+        "objects.npy": "864552a1edfffa22cab06ec751901f2b6b51396953c654b35a9303cb11474cc2",
+        "features.npy": "3084ab3f3212021beb2ee78b912225242341d36fc9e00b6c93d55c8f7a04b1dc",
+        "membership.npy": "5db3b38223359d5e1f0f43716d299f75140125345266205661e6fea288db0233",
+        "features64.npy": "9e0b8b2eb249ace2d3f43de619ba1a2047267767de1c74564b80c5f5a8d05ee0"
+      }
+    },
+    "development": {
+      "schema_version": 2,
+      "scope": "Task0061-real-ADC-preparation-only",
+      "role": "development",
+      "source": "train-first-hash-ordered",
+      "rows": 4096,
+      "scaler_sha256": "e3afd27d947005a92037fb807ede94045ab1c67115887c5e28c8f3531b6d8840",
+      "files": {
+        "objects.npy": "6f6e7fab455e253bad98087f105d8ea80f44bd67fe4a9822f068319febf92593",
+        "features.npy": "e1e47324bbac8ca73d25e0bd0e574c348f79478d4fa15be19180d591e16b1a11",
+        "membership.npy": "859b9b0a2902373e9fbd5e062960f92cb0013d3b41bbacad3bebd86e6a3fd994"
+      }
+    }
+  },
+  "post_preparation_structural_identity": {
+    "schema_version": 2,
+    "scope": "structural-only post-preparation identity",
+    "role_records": {
+      "train": {
+        "rows": 200000,
+        "manifest_sha256": "b1d509c16f118f44b5db11f4a04b277975b25f8082d3cf95a9baecb96d1326a0"
+      },
+      "selection": {
+        "rows": 50000,
+        "manifest_sha256": "d9d110948b109b01beba0e1d3b802c075cb567895c8eb6c5fae22649367822b6"
+      },
+      "calibration": {
+        "rows": 1000000,
+        "manifest_sha256": "222954f6cc0be9bc8a614f5f26181af865a1821eab0f58dca9fac7136426a5d7"
+      },
+      "final_background": {
+        "rows": 1000000,
+        "manifest_sha256": "7a1effded66ebee1904ad50d864559c280668f2d6310a3b6a6e2e05df30549d2"
+      },
+      "A_to_4l": {
+        "rows": 40000,
+        "manifest_sha256": "13a49f65fd38f0a61dcfd0ae4e8236eb2da0518e1dcb7502d27043cf7330f063"
+      },
+      "LQ_to_btau": {
+        "rows": 40000,
+        "manifest_sha256": "28d020d85a3639708ad03f12405456c4cea21445fb4816d483eff9cfb8548bff"
+      },
+      "development": {
+        "rows": 4096,
+        "manifest_sha256": "a44800c0c61e1f6e1122f4a927f3ecc068a8d430280954e223143eed125fdc6b"
+      }
+    },
+    "selected_unique_groups": 2330000,
+    "cross_role_or_topology_overlaps": 0,
+    "hash_order_verified": true,
+    "development_prefix_identity": true,
+    "membership_rows_reaccessed": 2330000,
+    "role_bytes_rehashed": 1848214720,
+    "group_database_path": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/private/groups-v2.sqlite",
+    "group_database_sha256": "d9424c0576d6b5764c9b073d839dae0c22af020bd4e298648c4ee5665d733c46",
+    "group_database_bytes": 2196979712,
+    "final_feature_distributions_or_scores_read": false,
+    "lifetime_peak_RSS_bytes": 338853888
+  },
+  "preparation_campaign_elapsed_seconds": 1326.378265,
+  "model_records": [
+    {
+      "arm": "compactAE",
+      "seed": "1729",
+      "attempt": "1",
+      "attempt_consumed": "True",
+      "status": "completed_immutable_fit",
+      "input_dim": "12",
+      "parameters": "271",
+      "bottleneck": "3",
+      "training_groups": "200000",
+      "selection_groups": "50000",
+      "epochs": "80",
+      "selected_epoch": "80",
+      "stop_reason": "epoch_cap",
+      "convergence_proven": "False",
+      "updates": "7840",
+      "training_rows_presented": "16000000",
+      "selection_rows_presented": "4050000",
+      "best_selection_loss": "0.02866620871901512",
+      "restored_selection_loss": "0.02866620871901512",
+      "state_sha256": "68a5284fcf9ae7616885b6d3ab28ed2860d3fcd9cbff1f4b67baa7486ebc0166",
+      "weights_sha256": "3d3d20f132b07e39d7c7dcb3e384df752a5051112ce2d7b068f24e31ba4ab1f3",
+      "history_sha256": "e77a828685e8294424c88f6e712dd2ac7a8d10db21f61338a9bf8044e02a9ce5",
+      "model_sha256": "a0ede8bb376b37afe2df28a83a697fbc7f626aeb02bdfad0e03ea3eefbabf78b",
+      "sampler_history_sha256": "f917fbe931f4c14973d25f1364520687f2131d790d4df1799891d2bb28873598",
+      "reload_bitwise": "True",
+      "repeat_bitwise": "True",
+      "development_score_rows": "12288",
+      "development_public_calls": "384",
+      "scientific_execution_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+      "final_seal_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2"
+    },
+    {
+      "arm": "referenceAE",
+      "seed": "1729",
+      "attempt": "1",
+      "attempt_consumed": "True",
+      "status": "completed_immutable_fit",
+      "input_dim": "12",
+      "parameters": "1999",
+      "bottleneck": "3",
+      "training_groups": "200000",
+      "selection_groups": "50000",
+      "epochs": "80",
+      "selected_epoch": "80",
+      "stop_reason": "epoch_cap",
+      "convergence_proven": "False",
+      "updates": "7840",
+      "training_rows_presented": "16000000",
+      "selection_rows_presented": "4050000",
+      "best_selection_loss": "0.010770473144054413",
+      "restored_selection_loss": "0.010770473144054413",
+      "state_sha256": "d29a2b0e86beef86b9e10958d63c79b843d44653947ccfed71150a75c4f9f1ca",
+      "weights_sha256": "ba8c72ae6ed362e720745b5ea8327ffc68a4ba6924e6f05256066cf7b0c63dc1",
+      "history_sha256": "9504f732f54f3149f8d1d01ec0f3a640718d0842919576dc4b5dde2eece9dcff",
+      "model_sha256": "f5be5ff55f2987ad910d51d6316de111d23148df291374aebd4f18ec4effa283",
+      "sampler_history_sha256": "f917fbe931f4c14973d25f1364520687f2131d790d4df1799891d2bb28873598",
+      "reload_bitwise": "True",
+      "repeat_bitwise": "True",
+      "development_score_rows": "12288",
+      "development_public_calls": "384",
+      "scientific_execution_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+      "final_seal_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2"
+    },
+    {
+      "arm": "compactAE",
+      "seed": "1730",
+      "attempt": "1",
+      "attempt_consumed": "True",
+      "status": "completed_immutable_fit",
+      "input_dim": "12",
+      "parameters": "271",
+      "bottleneck": "3",
+      "training_groups": "200000",
+      "selection_groups": "50000",
+      "epochs": "80",
+      "selected_epoch": "80",
+      "stop_reason": "epoch_cap",
+      "convergence_proven": "False",
+      "updates": "7840",
+      "training_rows_presented": "16000000",
+      "selection_rows_presented": "4050000",
+      "best_selection_loss": "0.026381843700408934",
+      "restored_selection_loss": "0.026381843700408934",
+      "state_sha256": "2540c7f31ff92231308e95581ebad240b3e0b10f174cf4d0bc4fef253816d391",
+      "weights_sha256": "32c2fc1e78ce07711368dd7e1345ab6e95301bbddaf8766b16a644cf03ab8a2a",
+      "history_sha256": "92d7db01e4ec30b1ba0d33a4f75a3c886809eb84c46564424c235aa197402623",
+      "model_sha256": "2490ab54eb73db23117af69dff8f5aba07649ef965b33b45a90bead1c2db4e9c",
+      "sampler_history_sha256": "a881b4a2bdcbd6bf040311f7b9592d63154db65f53083fe9966751214fa5e1d9",
+      "reload_bitwise": "True",
+      "repeat_bitwise": "True",
+      "development_score_rows": "12288",
+      "development_public_calls": "384",
+      "scientific_execution_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+      "final_seal_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2"
+    },
+    {
+      "arm": "referenceAE",
+      "seed": "1730",
+      "attempt": "1",
+      "attempt_consumed": "True",
+      "status": "completed_immutable_fit",
+      "input_dim": "12",
+      "parameters": "1999",
+      "bottleneck": "3",
+      "training_groups": "200000",
+      "selection_groups": "50000",
+      "epochs": "80",
+      "selected_epoch": "78",
+      "stop_reason": "epoch_cap",
+      "convergence_proven": "False",
+      "updates": "7840",
+      "training_rows_presented": "16000000",
+      "selection_rows_presented": "4050000",
+      "best_selection_loss": "0.010702882493436337",
+      "restored_selection_loss": "0.010702882493436337",
+      "state_sha256": "6b9e0326ffccd6f864011e264d385e4732c36323fe4be61203ce6543e1475e49",
+      "weights_sha256": "2641422d8cc8be5f4ced88ab996e7ee3ca4e5eea4e424697607240326dbe9a04",
+      "history_sha256": "7f8c8cbf6a87e5c8e3aac81362b8e26be04f15faeea862fa1bdab7eb0299c128",
+      "model_sha256": "9a3aa1a4b35039376c1d3aebac002c6fe4261b572ad5ae667530f547303cf072",
+      "sampler_history_sha256": "a881b4a2bdcbd6bf040311f7b9592d63154db65f53083fe9966751214fa5e1d9",
+      "reload_bitwise": "True",
+      "repeat_bitwise": "True",
+      "development_score_rows": "12288",
+      "development_public_calls": "384",
+      "scientific_execution_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+      "final_seal_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2"
+    },
+    {
+      "arm": "compactAE",
+      "seed": "1731",
+      "attempt": "1",
+      "attempt_consumed": "True",
+      "status": "completed_immutable_fit",
+      "input_dim": "12",
+      "parameters": "271",
+      "bottleneck": "3",
+      "training_groups": "200000",
+      "selection_groups": "50000",
+      "epochs": "80",
+      "selected_epoch": "80",
+      "stop_reason": "epoch_cap",
+      "convergence_proven": "False",
+      "updates": "7840",
+      "training_rows_presented": "16000000",
+      "selection_rows_presented": "4050000",
+      "best_selection_loss": "0.027587168063521385",
+      "restored_selection_loss": "0.027587168063521385",
+      "state_sha256": "fa18f5cdd2d458f8aa275c83c0e44dc576dc2b3f69bb6db357b765d89ae172ee",
+      "weights_sha256": "b6358bffb3c6533626f9e6419b8d1dae7cfa94899fb3ba7440b5b9fad482a9bf",
+      "history_sha256": "7f5208432bf5556b52d775ab678ffc03cdec2640f09dcd3cd8e73a1b83237190",
+      "model_sha256": "f3cf85e969c8f41c7943cf1c618b38e079bf7b15632594f2d0e49d224e0fdcf2",
+      "sampler_history_sha256": "7db7c6f9aa96c94adb2f36684d935c0bebf4b9cde9afdf7e2048d7a9e85ed7cd",
+      "reload_bitwise": "True",
+      "repeat_bitwise": "True",
+      "development_score_rows": "12288",
+      "development_public_calls": "384",
+      "scientific_execution_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+      "final_seal_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2"
+    },
+    {
+      "arm": "referenceAE",
+      "seed": "1731",
+      "attempt": "1",
+      "attempt_consumed": "True",
+      "status": "completed_immutable_fit",
+      "input_dim": "12",
+      "parameters": "1999",
+      "bottleneck": "3",
+      "training_groups": "200000",
+      "selection_groups": "50000",
+      "epochs": "80",
+      "selected_epoch": "79",
+      "stop_reason": "epoch_cap",
+      "convergence_proven": "False",
+      "updates": "7840",
+      "training_rows_presented": "16000000",
+      "selection_rows_presented": "4050000",
+      "best_selection_loss": "0.010218607379198075",
+      "restored_selection_loss": "0.010218607379198075",
+      "state_sha256": "64c2d52b51e51eeff98d8b168e2c7a86214874d4ec289608b8c834d0aa3038a4",
+      "weights_sha256": "569450ace29b7895461f1e17ca43da39677b7f0390167a226e770ed12050eeb9",
+      "history_sha256": "7234ad62ef7828dd0caaf6cf3c805320b4d11ad26192881434f8fd348db7e234",
+      "model_sha256": "354b50323576abc76353a8e03b2fc40b6331a7356e0028f3b76f15d46235fd31",
+      "sampler_history_sha256": "7db7c6f9aa96c94adb2f36684d935c0bebf4b9cde9afdf7e2048d7a9e85ed7cd",
+      "reload_bitwise": "True",
+      "repeat_bitwise": "True",
+      "development_score_rows": "12288",
+      "development_public_calls": "384",
+      "scientific_execution_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+      "final_seal_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2"
+    },
+    {
+      "arm": "PCA3",
+      "seed": "fit",
+      "attempt": "1",
+      "attempt_consumed": "True",
+      "status": "completed_immutable_fit",
+      "input_dim": "12",
+      "parameters": "analytical",
+      "bottleneck": "3",
+      "training_groups": "200000",
+      "selection_groups": "0",
+      "epochs": "0",
+      "selected_epoch": "",
+      "stop_reason": "analytical_complete",
+      "convergence_proven": "not_applicable",
+      "updates": "0",
+      "training_rows_presented": "200000",
+      "selection_rows_presented": "0",
+      "best_selection_loss": "",
+      "restored_selection_loss": "",
+      "state_sha256": "",
+      "weights_sha256": "474be259427cbaff91f9ce6b736dc7a5bcbf29c05a4b4ed7687ca168c2bce494",
+      "history_sha256": "45bc9a9e902803585bd5e9c6769da28ede2026f50d94ebd3b46c1f8aa95292b8",
+      "model_sha256": "235d1086e056e725ed198730fd7c5508222485c9a0d9301f1a97dbd99fef28b6",
+      "sampler_history_sha256": "",
+      "reload_bitwise": "True",
+      "repeat_bitwise": "True",
+      "development_score_rows": "12288",
+      "development_public_calls": "384",
+      "scientific_execution_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+      "final_seal_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2"
+    },
+    {
+      "arm": "regularizedMahalanobis",
+      "seed": "fit",
+      "attempt": "1",
+      "attempt_consumed": "True",
+      "status": "completed_immutable_fit",
+      "input_dim": "12",
+      "parameters": "analytical",
+      "bottleneck": "",
+      "training_groups": "200000",
+      "selection_groups": "0",
+      "epochs": "0",
+      "selected_epoch": "",
+      "stop_reason": "analytical_complete",
+      "convergence_proven": "not_applicable",
+      "updates": "0",
+      "training_rows_presented": "200000",
+      "selection_rows_presented": "0",
+      "best_selection_loss": "",
+      "restored_selection_loss": "",
+      "state_sha256": "",
+      "weights_sha256": "64d47e95474624e272bd9816569e841b4483165f668582bce17cb9025c153836",
+      "history_sha256": "0fe84b378181f03cb32d0771cf7f1fc7237713bb8c285f6f48620169fd52d262",
+      "model_sha256": "07fca7c77e9b53a1892fdde750ba9c9dac0a6b371d43b77ac815266fa9d45ee2",
+      "sampler_history_sha256": "",
+      "reload_bitwise": "True",
+      "repeat_bitwise": "True",
+      "development_score_rows": "12288",
+      "development_public_calls": "384",
+      "scientific_execution_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+      "final_seal_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2"
+    }
+  ],
+  "real_work": {
+    "neural_attempts": 6,
+    "neural_attempts_remaining": 0,
+    "analytical_attempts": 2,
+    "analytical_attempts_remaining": 0,
+    "incomplete_fit_attempts": 0,
+    "neural_epochs": 480,
+    "optimizer_updates": 47040,
+    "training_forward_calls": 47040,
+    "training_row_presentations": 96000000,
+    "unique_training_groups": 200000,
+    "selection_loss_forward_calls": 12150,
+    "selection_row_presentations_including_restore": 24300000,
+    "unique_selection_groups": 50000,
+    "analytical_training_row_presentations": 400000,
+    "calibration_streams": 8,
+    "calibration_unique_groups": 1000000,
+    "calibration_score_rows": 8000000,
+    "calibration_public_calls": 250000,
+    "calibration_padded_rows": 0,
+    "development_reload_repeat_score_rows": 98304,
+    "development_reload_repeat_public_calls": 3072,
+    "symmetry_score_rows": 16384,
+    "symmetry_public_calls": 512,
+    "unique_development_groups": 4096,
+    "symmetry_subset_groups": 512,
+    "total_public_score_rows": 8114688,
+    "total_public_score_calls": 253584,
+    "original_final_signal_scores": 0,
+    "original_final_background_scores": 0,
+    "real_CPU_matrix": false,
+    "feature_preparation_selected_rows": 2330000,
+    "feature_recomputations_for_development_symmetry": 2560,
+    "standardization_rows_including_development_symmetry": 2331536,
+    "canonical_fingerprint_source_row_presentations": 13848428,
+    "structural_membership_rows_reaccessed": 2330000,
+    "HDF_gather_read_row_presentations": "Positive source-chunk rereads; not individually instrumented. Bound computed separately from actual headers and4background+1per-signal passes; not an observed count. Native decompression may touch larger HDF chunks.",
+    "no_fits_or_calibration_or_symmetry_inference_repeated_for_manifest_repair": true,
+    "HDF_gather_upper_bound_rows": 54204173
+  },
+  "calibration": {
+    "cuts": [
+      {
+        "arm": "compactAE",
+        "seed": "1729",
+        "score_sha256": "b1984be044aad392b0b89a61a723b245cb34cc155654a815225aee59a86ec388",
+        "alpha": 0.01,
+        "N": 1000000,
+        "threshold": 4.021784250092738,
+        "threshold_rank_one_based": 990001,
+        "accepted": 9999,
+        "ties": 1,
+        "lower_rank_one_based": 989658,
+        "upper_rank_one_based": 990340,
+        "lower_endpoint": 3.958369936337383,
+        "upper_endpoint": 4.090899839205438,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "compactAE",
+        "seed": "1729",
+        "score_sha256": "b1984be044aad392b0b89a61a723b245cb34cc155654a815225aee59a86ec388",
+        "alpha": 0.001,
+        "N": 1000000,
+        "threshold": 10.226316505864823,
+        "threshold_rank_one_based": 999001,
+        "accepted": 999,
+        "ties": 1,
+        "lower_rank_one_based": 998890,
+        "upper_rank_one_based": 999107,
+        "lower_endpoint": 9.846881939591624,
+        "upper_endpoint": 10.610950074528724,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "referenceAE",
+        "seed": "1729",
+        "score_sha256": "e1f5d5da9def86543ee6d6acef047ed5ea746adee86afd150594f5875b4fdfc6",
+        "alpha": 0.01,
+        "N": 1000000,
+        "threshold": 2.055495504095129,
+        "threshold_rank_one_based": 990001,
+        "accepted": 9999,
+        "ties": 1,
+        "lower_rank_one_based": 989658,
+        "upper_rank_one_based": 990340,
+        "lower_endpoint": 2.009183277383564,
+        "upper_endpoint": 2.1112459660530076,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "referenceAE",
+        "seed": "1729",
+        "score_sha256": "e1f5d5da9def86543ee6d6acef047ed5ea746adee86afd150594f5875b4fdfc6",
+        "alpha": 0.001,
+        "N": 1000000,
+        "threshold": 5.486055080449773,
+        "threshold_rank_one_based": 999001,
+        "accepted": 999,
+        "ties": 1,
+        "lower_rank_one_based": 998890,
+        "upper_rank_one_based": 999107,
+        "lower_endpoint": 5.29327403249145,
+        "upper_endpoint": 5.708214905901142,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "compactAE",
+        "seed": "1730",
+        "score_sha256": "1c32f00a05fa6b6f920ee2aa232d7d77016fc1beba7addb4958d96a0df78a370",
+        "alpha": 0.01,
+        "N": 1000000,
+        "threshold": 4.452291589831587,
+        "threshold_rank_one_based": 990001,
+        "accepted": 9999,
+        "ties": 1,
+        "lower_rank_one_based": 989658,
+        "upper_rank_one_based": 990340,
+        "lower_endpoint": 4.3742609272017035,
+        "upper_endpoint": 4.525827951093163,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "compactAE",
+        "seed": "1730",
+        "score_sha256": "1c32f00a05fa6b6f920ee2aa232d7d77016fc1beba7addb4958d96a0df78a370",
+        "alpha": 0.001,
+        "N": 1000000,
+        "threshold": 10.498833557136342,
+        "threshold_rank_one_based": 999001,
+        "accepted": 999,
+        "ties": 1,
+        "lower_rank_one_based": 998890,
+        "upper_rank_one_based": 999107,
+        "lower_endpoint": 10.197955042499323,
+        "upper_endpoint": 10.875955654668104,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "referenceAE",
+        "seed": "1730",
+        "score_sha256": "a413bec0d0cbb9155fa0862bbbf0ad7bfe7559d23a798f4be36a29046ef6f1a5",
+        "alpha": 0.01,
+        "N": 1000000,
+        "threshold": 1.6326459512496878,
+        "threshold_rank_one_based": 990001,
+        "accepted": 9999,
+        "ties": 1,
+        "lower_rank_one_based": 989658,
+        "upper_rank_one_based": 990340,
+        "lower_endpoint": 1.597437986138065,
+        "upper_endpoint": 1.6695969495629592,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "referenceAE",
+        "seed": "1730",
+        "score_sha256": "a413bec0d0cbb9155fa0862bbbf0ad7bfe7559d23a798f4be36a29046ef6f1a5",
+        "alpha": 0.001,
+        "N": 1000000,
+        "threshold": 4.4177257870693865,
+        "threshold_rank_one_based": 999001,
+        "accepted": 999,
+        "ties": 1,
+        "lower_rank_one_based": 998890,
+        "upper_rank_one_based": 999107,
+        "lower_endpoint": 4.266937838704384,
+        "upper_endpoint": 4.56938912399921,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "compactAE",
+        "seed": "1731",
+        "score_sha256": "77ac13fa8db482b9c8dc1eda44ba411f533a21c564b6f714f707cf9f0962fd61",
+        "alpha": 0.01,
+        "N": 1000000,
+        "threshold": 3.476362294462704,
+        "threshold_rank_one_based": 990001,
+        "accepted": 9999,
+        "ties": 1,
+        "lower_rank_one_based": 989658,
+        "upper_rank_one_based": 990340,
+        "lower_endpoint": 3.4220052729876835,
+        "upper_endpoint": 3.530140728180663,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "compactAE",
+        "seed": "1731",
+        "score_sha256": "77ac13fa8db482b9c8dc1eda44ba411f533a21c564b6f714f707cf9f0962fd61",
+        "alpha": 0.001,
+        "N": 1000000,
+        "threshold": 8.704422274646108,
+        "threshold_rank_one_based": 999001,
+        "accepted": 999,
+        "ties": 1,
+        "lower_rank_one_based": 998890,
+        "upper_rank_one_based": 999107,
+        "lower_endpoint": 8.370934957424229,
+        "upper_endpoint": 9.0643592348827,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "referenceAE",
+        "seed": "1731",
+        "score_sha256": "2f579b18625718ea5b6bad603c28411e0fbccfeaa6d5fd0c03312642b4b48d5f",
+        "alpha": 0.01,
+        "N": 1000000,
+        "threshold": 1.5306348012362492,
+        "threshold_rank_one_based": 990001,
+        "accepted": 9999,
+        "ties": 1,
+        "lower_rank_one_based": 989658,
+        "upper_rank_one_based": 990340,
+        "lower_endpoint": 1.4971974959136398,
+        "upper_endpoint": 1.5654232722148684,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "referenceAE",
+        "seed": "1731",
+        "score_sha256": "2f579b18625718ea5b6bad603c28411e0fbccfeaa6d5fd0c03312642b4b48d5f",
+        "alpha": 0.001,
+        "N": 1000000,
+        "threshold": 4.250913747821528,
+        "threshold_rank_one_based": 999001,
+        "accepted": 999,
+        "ties": 1,
+        "lower_rank_one_based": 998890,
+        "upper_rank_one_based": 999107,
+        "lower_endpoint": 4.115673270125587,
+        "upper_endpoint": 4.428222010112192,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "PCA3",
+        "seed": "fit",
+        "score_sha256": "876f19c775061b32b8023797c58df275aac65ce71bc71b78ecc95e4bea0825e0",
+        "alpha": 0.01,
+        "N": 1000000,
+        "threshold": 10.067471871367971,
+        "threshold_rank_one_based": 990001,
+        "accepted": 9999,
+        "ties": 1,
+        "lower_rank_one_based": 989658,
+        "upper_rank_one_based": 990340,
+        "lower_endpoint": 9.94398335157355,
+        "upper_endpoint": 10.195349210033882,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "PCA3",
+        "seed": "fit",
+        "score_sha256": "876f19c775061b32b8023797c58df275aac65ce71bc71b78ecc95e4bea0825e0",
+        "alpha": 0.001,
+        "N": 1000000,
+        "threshold": 18.877913512929755,
+        "threshold_rank_one_based": 999001,
+        "accepted": 999,
+        "ties": 1,
+        "lower_rank_one_based": 998890,
+        "upper_rank_one_based": 999107,
+        "lower_endpoint": 18.434984522167845,
+        "upper_endpoint": 19.37457851275292,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "regularizedMahalanobis",
+        "seed": "fit",
+        "score_sha256": "a61f96c385a605e86e827cab883e21a51e41718ff6611c0ad2b3b453327a8113",
+        "alpha": 0.01,
+        "N": 1000000,
+        "threshold": 30.49952455871694,
+        "threshold_rank_one_based": 990001,
+        "accepted": 9999,
+        "ties": 1,
+        "lower_rank_one_based": 989658,
+        "upper_rank_one_based": 990340,
+        "lower_endpoint": 30.17316920378834,
+        "upper_endpoint": 30.869548367441848,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      },
+      {
+        "arm": "regularizedMahalanobis",
+        "seed": "fit",
+        "score_sha256": "a61f96c385a605e86e827cab883e21a51e41718ff6611c0ad2b3b453327a8113",
+        "alpha": 0.001,
+        "N": 1000000,
+        "threshold": 59.657600628581754,
+        "threshold_rank_one_based": 999001,
+        "accepted": 999,
+        "ties": 1,
+        "lower_rank_one_based": 998890,
+        "upper_rank_one_based": 999107,
+        "lower_endpoint": 58.40256425982396,
+        "upper_endpoint": 60.98381968654892,
+        "quantile": "higher",
+        "comparison": ">",
+        "family_delta": 0.01,
+        "stream_rate_pairs": 16
+      }
+    ],
+    "cut_count": 16,
+    "score_direction": "higher",
+    "quantile": "higher",
+    "deployment_comparison": ">",
+    "public_batch": 32,
+    "tail": "zero-pad32 retain actual; no padding needed for actual declared sizes",
+    "calibration_counts_are_not_final_FPR": true
+  },
+  "development_symmetry": {
+    "reports": 16,
+    "transformations": [
+      "rotation0.7",
+      "eta reflection"
+    ],
+    "max_raw_feature_error": 4.440892098500626e-16,
+    "max_scaled_feature_error": 0.0,
+    "max_score_error": 0.0,
+    "decision_changes": 0,
+    "private_evidence_sha256": "3588335b240ddf646dfcdc032a841566cb88ffc24aa08fb4b3b295e130e8417a"
+  },
+  "freeze": {
+    "path": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/private/complete-freeze-v2.json",
+    "revision": 2,
+    "identity": {
+      "bytes": 130765,
+      "sha256": "e425d1bc50c644caf7c3fad1f2317472e33eca68686022d4eac52bf04d804ce6"
+    },
+    "post_cleanup_validation": {
+      "manifest_sha256": "e425d1bc50c644caf7c3fad1f2317472e33eca68686022d4eac52bf04d804ce6",
+      "manifest_bytes": 130765,
+      "bound_files": 184,
+      "bound_file_bytes_rehashed": 4791963942,
+      "all_bound_files_match_after_cleanup": true,
+      "current_code_config_test_prompt_binding_matches": true,
+      "final_evaluation_performed": false,
+      "Task0062_started": false,
+      "lifetime_peak_RSS_bytes": 20627456
+    },
+    "behavioral_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2",
+    "scientific_fit_calibration_bundle": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+    "all_numerical_implementation_files_unchanged_after_fits": true,
+    "first_manifest": {
+      "event": "freeze_manifest_v1_withdrawal",
+      "utc": "2026-10-16T13:31:03.236725+00:00",
+      "manifest_sha256": "7a4c909c5cdd5af17786ea4fd81935f5bccb6ac553b6db42f935058043e83396",
+      "reason": "Persisted file list included ledger/active.json which is correctly removed at supervisor retirement. Manifest cannot pass post-exit identity preflight; its ready flag is withdrawn. Actual symmetry/calibration/model/data results remain unchanged.",
+      "missing_path": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/ledger/active.json",
+      "classification": "tooling finalization/manifest ownership defect, not score/parity or scientific-outcome defect",
+      "correction": "exclude transient owner and write a new immutable complete-freeze-v2 with current qualified binding; preserve first manifest/identity/result; reuse existing symmetry evidence by hash with no inference/calibration/fit repeat",
+      "real_neural_attempts": 6,
+      "real_analytical_attempts": 2,
+      "calibration_score_rows": 8000000,
+      "final_evaluation_performed": false
+    },
+    "source_snapshots": "initial plus amendment2/3/4/5, originals preserved",
+    "calibration_json_sha256": "f886ebcc49a64ecf7c3adec13df479df6be22e2f8f6a6998279f55299da4a973",
+    "scaler_json_sha256": "e3afd27d947005a92037fb807ede94045ab1c67115887c5e28c8f3531b6d8840"
+  },
+  "validation": {
+    "final_attempt": 9,
+    "final_test_count": 164,
+    "final_pytest_seconds": 9.73,
+    "final_external_seconds": 10.316724208008964,
+    "final_bundle": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2",
+    "per_module": {
+      "tests/test_decisive_adc.py": 46,
+      "tests/test_evaluation.py": 25,
+      "tests/test_splitting.py": 5,
+      "tests/test_inspection.py": 10,
+      "tests/test_features.py": 17,
+      "tests/test_pca.py": 13,
+      "tests/test_autoencoder.py": 28,
+      "tests/test_scientific_audit.py": 20
+    },
+    "attempts": [
+      {
+        "outcome": "interrupted_before_acceptance",
+        "cause": "sandbox denied ps own-pid RSS query",
+        "worker_reaped_by_finally": true,
+        "pytest_log_bytes": 0,
+        "recorded_pytest_reports": 0,
+        "exact_early_child_work": "unknown between Popen and bounded TERM/wait; no pass inferred",
+        "real_source_access": false,
+        "real_fit_attempts": 0,
+        "completed_stage_counts": {
+          "setup": {},
+          "call": {},
+          "teardown": {}
+        },
+        "unique_nodes_observed": 0,
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-1"
+      },
+      {
+        "attempt": 2,
+        "scope": "generated-ADC-test-only",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-p",
+          "tests.decisive_adc_plugin",
+          "--basetemp",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-2/fixtures",
+          "--junitxml",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-2/junit.xml",
+          "-q",
+          "tests/test_decisive_adc.py",
+          "tests/test_evaluation.py",
+          "tests/test_splitting.py",
+          "tests/test_inspection.py",
+          "tests/test_features.py",
+          "tests/test_pca.py",
+          "tests/test_autoencoder.py",
+          "tests/test_scientific_audit.py"
+        ],
+        "returncode": -15,
+        "stop_reason": "observer exception: ValueError('owned-path alias')",
+        "elapsed_including_exit_reap": 2.631804708042182,
+        "peak_observed_study_bytes": 67961,
+        "peak_sampled_worker_RSS_bytes": 295550976,
+        "bundle_sha256": "7fd347fbd8e2f8cc4b5cdaa7612bcc798c54c2de21e6d0f87b3d9b39408ad3c7",
+        "worker_reaped": true,
+        "completed_stage_counts": {
+          "setup": {
+            "passed": 19
+          },
+          "call": {
+            "passed": 18
+          },
+          "teardown": {
+            "passed": 18
+          }
+        },
+        "unique_nodes_observed": 19,
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-2"
+      },
+      {
+        "attempt": 3,
+        "scope": "generated-ADC-test-only",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-p",
+          "tests.decisive_adc_plugin",
+          "--basetemp",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-3/fixtures",
+          "--junitxml",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-3/junit.xml",
+          "-q",
+          "tests/test_decisive_adc.py",
+          "tests/test_evaluation.py",
+          "tests/test_splitting.py",
+          "tests/test_inspection.py",
+          "tests/test_features.py",
+          "tests/test_pca.py",
+          "tests/test_autoencoder.py",
+          "tests/test_scientific_audit.py"
+        ],
+        "returncode": -15,
+        "stop_reason": "observer exception: ValueError('owned-path alias')",
+        "elapsed_including_exit_reap": 7.25966287497431,
+        "peak_observed_study_bytes": 1787636,
+        "peak_sampled_worker_RSS_bytes": 363380736,
+        "bundle_sha256": "227024f04713eab447667edb3d82516110554cdb3240d2dbccd59b4fad087c6c",
+        "worker_reaped": true,
+        "completed_stage_counts": {
+          "setup": {
+            "passed": 113
+          },
+          "call": {
+            "passed": 112
+          },
+          "teardown": {
+            "passed": 112
+          }
+        },
+        "unique_nodes_observed": 113,
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-3"
+      },
+      {
+        "attempt": 4,
+        "scope": "generated-ADC-test-only",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-p",
+          "tests.decisive_adc_plugin",
+          "--basetemp",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-4/fixtures",
+          "--junitxml",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-4/junit.xml",
+          "-q",
+          "tests/test_decisive_adc.py",
+          "tests/test_evaluation.py",
+          "tests/test_splitting.py",
+          "tests/test_inspection.py",
+          "tests/test_features.py",
+          "tests/test_pca.py",
+          "tests/test_autoencoder.py",
+          "tests/test_scientific_audit.py"
+        ],
+        "returncode": 0,
+        "stop_reason": null,
+        "elapsed_including_exit_reap": 7.153935666952748,
+        "peak_observed_study_bytes": 4125707,
+        "peak_sampled_worker_RSS_bytes": 400441344,
+        "bundle_sha256": "db07eb72ef67333e838e3d8975617c4a27c99af23b07c97c76480d98990da1c9",
+        "worker_reaped": true,
+        "completed_stage_counts": {
+          "setup": {
+            "passed": 162
+          },
+          "call": {
+            "passed": 162
+          },
+          "teardown": {
+            "passed": 162
+          }
+        },
+        "unique_nodes_observed": 162,
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-4"
+      },
+      {
+        "attempt": 5,
+        "scope": "generated-ADC-test-only",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-p",
+          "tests.decisive_adc_plugin",
+          "--basetemp",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-5/fixtures",
+          "--junitxml",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-5/junit.xml",
+          "-q",
+          "tests/test_decisive_adc.py",
+          "tests/test_evaluation.py",
+          "tests/test_splitting.py",
+          "tests/test_inspection.py",
+          "tests/test_features.py",
+          "tests/test_pca.py",
+          "tests/test_autoencoder.py",
+          "tests/test_scientific_audit.py"
+        ],
+        "returncode": 0,
+        "stop_reason": null,
+        "elapsed_including_exit_reap": 7.661591332987882,
+        "peak_observed_study_bytes": 6256579,
+        "peak_sampled_worker_RSS_bytes": 396869632,
+        "bundle_sha256": "d5bbe3ac6587fa93308ceaf4e7d42fef9defb1d28710093469501de6d9891fd8",
+        "worker_reaped": true,
+        "completed_stage_counts": {
+          "setup": {
+            "passed": 163
+          },
+          "call": {
+            "passed": 163
+          },
+          "teardown": {
+            "passed": 163
+          }
+        },
+        "unique_nodes_observed": 163,
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-5"
+      },
+      {
+        "attempt": 6,
+        "scope": "generated-ADC-test-only",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-p",
+          "tests.decisive_adc_plugin",
+          "--basetemp",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-6/fixtures",
+          "--junitxml",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-6/junit.xml",
+          "-q",
+          "tests/test_decisive_adc.py",
+          "tests/test_evaluation.py",
+          "tests/test_splitting.py",
+          "tests/test_inspection.py",
+          "tests/test_features.py",
+          "tests/test_pca.py",
+          "tests/test_autoencoder.py",
+          "tests/test_scientific_audit.py"
+        ],
+        "returncode": 0,
+        "stop_reason": null,
+        "elapsed_including_exit_reap": 7.753495540993754,
+        "peak_observed_study_bytes": 692297867,
+        "peak_sampled_worker_RSS_bytes": 400850944,
+        "bundle_sha256": "b77a47fed529d1c173bdf9bdda23e32433e748fe8037ea10670449253a6d289d",
+        "worker_reaped": true,
+        "completed_stage_counts": {
+          "setup": {
+            "passed": 163
+          },
+          "call": {
+            "passed": 163
+          },
+          "teardown": {
+            "passed": 163
+          }
+        },
+        "unique_nodes_observed": 163,
+        "ADC_toy_counters": {
+          "bounded_negative_IO_children": 2,
+          "ADC_model_constructions": 52,
+          "ADC_forward_calls": 138,
+          "ADC_forward_rows": 2372,
+          "toy_Adam_updates": 66,
+          "ADC_public_score_calls": 68,
+          "ADC_public_padded_rows": 2176,
+          "complete_generated_matrices": 1,
+          "generated_analytical_fits": 2,
+          "generated_calibration_retained_rows": 128,
+          "bounded_observation_children": 2,
+          "fresh_generated_runtime_children": 1
+        },
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-6"
+      },
+      {
+        "attempt": 7,
+        "scope": "generated-ADC-test-only",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-p",
+          "tests.decisive_adc_plugin",
+          "--basetemp",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-7/fixtures",
+          "--junitxml",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-7/junit.xml",
+          "-q",
+          "tests/test_decisive_adc.py",
+          "tests/test_evaluation.py",
+          "tests/test_splitting.py",
+          "tests/test_inspection.py",
+          "tests/test_features.py",
+          "tests/test_pca.py",
+          "tests/test_autoencoder.py",
+          "tests/test_scientific_audit.py"
+        ],
+        "returncode": 0,
+        "stop_reason": null,
+        "elapsed_including_exit_reap": 7.697779708018061,
+        "peak_observed_study_bytes": 694606513,
+        "peak_sampled_worker_RSS_bytes": 418414592,
+        "bundle_sha256": "807266df548528cc9594ee5eb1e4f6956694502cf171ef6f34fde0a0691bae70",
+        "worker_reaped": true,
+        "completed_stage_counts": {
+          "setup": {
+            "passed": 164
+          },
+          "call": {
+            "passed": 164
+          },
+          "teardown": {
+            "passed": 164
+          }
+        },
+        "unique_nodes_observed": 164,
+        "ADC_toy_counters": {
+          "bounded_negative_IO_children": 2,
+          "ADC_model_constructions": 52,
+          "ADC_forward_calls": 138,
+          "ADC_forward_rows": 2372,
+          "toy_Adam_updates": 66,
+          "ADC_public_score_calls": 68,
+          "ADC_public_padded_rows": 2176,
+          "complete_generated_matrices": 1,
+          "generated_analytical_fits": 2,
+          "generated_calibration_retained_rows": 128,
+          "bounded_observation_children": 2,
+          "fresh_generated_runtime_children": 1
+        },
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-7"
+      },
+      {
+        "attempt": 8,
+        "scope": "generated-ADC-test-only",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-p",
+          "tests.decisive_adc_plugin",
+          "--basetemp",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-8/fixtures",
+          "--junitxml",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-8/junit.xml",
+          "-q",
+          "tests/test_decisive_adc.py",
+          "tests/test_evaluation.py",
+          "tests/test_splitting.py",
+          "tests/test_inspection.py",
+          "tests/test_features.py",
+          "tests/test_pca.py",
+          "tests/test_autoencoder.py",
+          "tests/test_scientific_audit.py"
+        ],
+        "returncode": 0,
+        "stop_reason": null,
+        "elapsed_including_exit_reap": 10.683526332955807,
+        "peak_observed_study_bytes": 4742407529,
+        "peak_sampled_worker_RSS_bytes": 401440768,
+        "bundle_sha256": "e12c417f9d9373c509b56065681d537b592be21d214decebb2966c3743071a95",
+        "worker_reaped": true,
+        "completed_stage_counts": {
+          "setup": {
+            "passed": 164
+          },
+          "call": {
+            "passed": 164
+          },
+          "teardown": {
+            "passed": 164
+          }
+        },
+        "unique_nodes_observed": 164,
+        "ADC_toy_counters": {
+          "bounded_negative_IO_children": 5,
+          "ADC_model_constructions": 52,
+          "ADC_forward_calls": 138,
+          "ADC_forward_rows": 2372,
+          "toy_Adam_updates": 66,
+          "ADC_public_score_calls": 68,
+          "ADC_public_padded_rows": 2176,
+          "complete_generated_matrices": 1,
+          "generated_analytical_fits": 2,
+          "generated_calibration_retained_rows": 128,
+          "bounded_observation_children": 2,
+          "fresh_generated_runtime_children": 1
+        },
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-8"
+      },
+      {
+        "attempt": 9,
+        "scope": "generated-ADC-test-only",
+        "command": [
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+          "-B",
+          "-m",
+          "pytest",
+          "-p",
+          "no:cacheprovider",
+          "-p",
+          "tests.decisive_adc_plugin",
+          "--basetemp",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-9/fixtures",
+          "--junitxml",
+          "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-9/junit.xml",
+          "-q",
+          "tests/test_decisive_adc.py",
+          "tests/test_evaluation.py",
+          "tests/test_splitting.py",
+          "tests/test_inspection.py",
+          "tests/test_features.py",
+          "tests/test_pca.py",
+          "tests/test_autoencoder.py",
+          "tests/test_scientific_audit.py"
+        ],
+        "returncode": 0,
+        "stop_reason": null,
+        "elapsed_including_exit_reap": 10.316724208008964,
+        "peak_observed_study_bytes": 4824429632,
+        "peak_sampled_worker_RSS_bytes": 416628736,
+        "bundle_sha256": "162e61abaad164b3c15a2609016ca97c679af0669a7c7847ec0fd72f3e5e9ec2",
+        "worker_reaped": true,
+        "completed_stage_counts": {
+          "setup": {
+            "passed": 164
+          },
+          "call": {
+            "passed": 164
+          },
+          "teardown": {
+            "passed": 164
+          }
+        },
+        "unique_nodes_observed": 164,
+        "ADC_toy_counters": {
+          "bounded_negative_IO_children": 5,
+          "ADC_model_constructions": 52,
+          "ADC_forward_calls": 138,
+          "ADC_forward_rows": 2372,
+          "toy_Adam_updates": 66,
+          "ADC_public_score_calls": 68,
+          "ADC_public_padded_rows": 2176,
+          "complete_generated_matrices": 1,
+          "generated_analytical_fits": 2,
+          "generated_calibration_retained_rows": 128,
+          "bounded_observation_children": 2,
+          "fresh_generated_runtime_children": 1
+        },
+        "local_root": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/tests/validation-9"
+      }
+    ],
+    "recorded_unique_nodes": 164,
+    "recorded_completed_stage_counts": {
+      "setup:passed": 1112,
+      "call:passed": 1110,
+      "teardown:passed": 1110
+    },
+    "count_scope": "node/stage counts, not all individual assertions; validation1 unreported early work remains unknown",
+    "portable_full_suite_not_repeated": "No shared historical source changed; eight relevant modules together cover scientific core98 + audit20 + ADC46. Costly historic matrices, physical ONNX/MPS/native P4 and final outcomes excluded.",
+    "toy_count_scope": "ADC module counters in final runs; existing scientific-core toys and missing early telemetry are additional, not declared zero or retroactively fabricated",
+    "additional_artificial_statistical_oracle_work": "Each full ADC group constructs/sorts two1M artificial score vectors for independent quantile rank checks; this is additional model-free numerical work, not included in128 public generated calibration scores or real8M calibration rows.",
+    "final_attempt_toy_counters": {
+      "bounded_negative_IO_children": 5,
+      "ADC_model_constructions": 52,
+      "ADC_forward_calls": 138,
+      "ADC_forward_rows": 2372,
+      "toy_Adam_updates": 66,
+      "ADC_public_score_calls": 68,
+      "ADC_public_padded_rows": 2176,
+      "complete_generated_matrices": 1,
+      "generated_analytical_fits": 2,
+      "generated_calibration_retained_rows": 128,
+      "bounded_observation_children": 2,
+      "fresh_generated_runtime_children": 1
+    }
+  },
+  "runtime": {
+    "python": "3.12.12 (main, Oct  9 2025, 11:07:00) [Clang 17.0.0 (clang-1700.3.19.1)]",
+    "executable": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "versions": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "torch": "2.14.1",
+      "scikit-learn": "1.9.1",
+      "h5py": "3.16.0",
+      "pytest": "9.1.1"
+    },
+    "torch_build": "PyTorch built with:\n  - GCC 4.2\n  - C++ Version: 202002\n  - clang 21.0.0\n  - OpenMP 202011\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: DEFAULT\n  - Build settings: BLAS_INFO=accelerate, BUILD_TYPE=Release, COMMIT_SHA=5c4886908584029761b579af026dcfb627c84070, CUDA_FLAGS= -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -Xfatbin -compress-all  -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DDISABLE_CUSPARSE_DEPRECATED -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -DC10_NODEPRECATED, CXX_COMPILER=/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DUSE_PYTORCH_QNNPACK -DAT_BUILD_ARM_VEC256_WITH_SLEEF -DUSE_PYTORCH_METAL_EXPORT -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DUSE_COREML_DELEGATE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -fclang-abi-compat=17 -DUSE_MPS -Wno-missing-braces, LAPACK_INFO=accelerate, TORCH_VERSION=2.14.1, USE_CUDA=OFF, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_EIGEN_FOR_BLAS=ON, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_HIPSPARSELT=OFF, USE_MKL=OFF, USE_MKLDNN=OFF, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+    "numpy_build": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"clang\",\n      \"linker\": \"ld64\",\n      \"version\": \"15.0.0\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    },\n    \"build\": {\n      \"cpu\": \"aarch64\",\n      \"family\": \"aarch64\",\n      \"endian\": \"little\",\n      \"system\": \"darwin\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    },\n    \"lapack\": {\n      \"name\": \"accelerate\",\n      \"found\": true,\n      \"version\": \"unknown\",\n      \"detection method\": \"system\",\n      \"include directory\": \"unknown\",\n      \"lib directory\": \"unknown\",\n      \"openblas configuration\": \"unknown\",\n      \"pc file directory\": \"unknown\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/private/var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/build-env-sd3oh5ko/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"NEON\",\n      \"NEON_FP16\",\n      \"NEON_VFPV4\",\n      \"ASIMD\"\n    ],\n    \"found\": [\n      \"ASIMDHP\",\n      \"ASIMDDP\"\n    ],\n    \"not found\": [\n      \"ASIMDFHM\"\n    ]\n  }\n}\n",
+    "hdf_build": "Summary of the h5py configuration\n---------------------------------\n\nh5py    3.16.0\nHDF5    2.0.0\nPython  3.12.12 (main, Oct  9 2025, 11:07:00) [Clang 17.0.0 (clang-1700.3.19.1)]\nsys.platform    darwin\nsys.maxsize     9223372036854775807\nnumpy   2.5.3\ncython (built with) 3.2.4\nnumpy (built against) 2.4.2\nHDF5 (built against) 2.0.0\n",
+    "threadpools": [
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "libomp",
+        "filepath": "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+        "version": null
+      }
+    ],
+    "torch_threads": 1,
+    "torch_interop": 1,
+    "loader_workers": 0
+  },
+  "stage_results": {
+    "PCA3--fit": {
+      "stage": "PCA3/fit",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 1.4399768330040388,
+      "task_elapsed_seconds": 4158.973452,
+      "peak_observed_study_bytes": 4756692705,
+      "peak_sampled_worker_RSS_bytes": 263372800,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:25:03.973460+00:00"
+    },
+    "acquire": {
+      "stage": "acquire",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 218.59483658301178,
+      "task_elapsed_seconds": 2548.859344,
+      "peak_observed_study_bytes": 690128693,
+      "peak_sampled_worker_RSS_bytes": 277528576,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T12:58:13.859349+00:00"
+    },
+    "calibrate": {
+      "stage": "calibrate",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 7.8872101249871776,
+      "task_elapsed_seconds": 4200.896387,
+      "peak_observed_study_bytes": 4821109179,
+      "peak_sampled_worker_RSS_bytes": 341049344,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:25:45.896391+00:00"
+    },
+    "compactAE--1729": {
+      "stage": "compactAE/1729",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 7.190623999980744,
+      "task_elapsed_seconds": 4117.50678,
+      "peak_observed_study_bytes": 4744925820,
+      "peak_sampled_worker_RSS_bytes": 387563520,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:24:22.506786+00:00"
+    },
+    "compactAE--1730": {
+      "stage": "compactAE/1730",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 6.8814148750388995,
+      "task_elapsed_seconds": 4133.083838,
+      "peak_observed_study_bytes": 4749614173,
+      "peak_sampled_worker_RSS_bytes": 385957888,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:24:38.083843+00:00"
+    },
+    "compactAE--1731": {
+      "stage": "compactAE/1731",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 6.906601916998625,
+      "task_elapsed_seconds": 4148.76841,
+      "peak_observed_study_bytes": 4754302468,
+      "peak_sampled_worker_RSS_bytes": 385515520,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:24:53.768416+00:00"
+    },
+    "finite-matrix-driver": {
+      "completed": true,
+      "stages": [
+        "compactAE/1729",
+        "referenceAE/1729",
+        "compactAE/1730",
+        "referenceAE/1730",
+        "compactAE/1731",
+        "referenceAE/1731",
+        "PCA3/fit",
+        "regularizedMahalanobis/fit"
+      ],
+      "utc": "2026-10-16T13:25:05.697006+00:00"
+    },
+    "freeze": {
+      "stage": "freeze",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 1.8004274999839254,
+      "task_elapsed_seconds": 4312.096036,
+      "peak_observed_study_bytes": 4822248054,
+      "peak_sampled_worker_RSS_bytes": 276217856,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:27:37.096041+00:00"
+    },
+    "header-diagnostic": {
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_including_reap": 0.3570699170231819,
+      "peak_observed_study_bytes": 692424049,
+      "peak_sampled_RSS_bytes": 33980416,
+      "worker_reaped": true,
+      "scope": "Task0061-source-failure-header-diagnostic-only"
+    },
+    "post-prepare-identity": {
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_including_reap": 4.134042749996297,
+      "preparation_campaign_elapsed_seconds": 1326.378265,
+      "peak_observed_study_bytes": 4742582884,
+      "peak_sampled_RSS_bytes": 334299136,
+      "worker_reaped": true,
+      "accepted": true
+    },
+    "post-seal-identity": {
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_including_reap": 2.348140250018332,
+      "peak_observed_study_bytes": 4824727539,
+      "peak_sampled_worker_RSS_bytes": 20627456,
+      "worker_reaped": true
+    },
+    "prepare-v2": {
+      "stage": "prepare-v2",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 674.6119362079771,
+      "task_elapsed_seconds": 3783.431493,
+      "peak_observed_study_bytes": 4740297440,
+      "peak_sampled_worker_RSS_bytes": 896663552,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:18:48.431499+00:00"
+    },
+    "prepare": {
+      "stage": "prepare",
+      "accepted": false,
+      "returncode": 1,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 1.9360499999602325,
+      "task_elapsed_seconds": 2691.299097,
+      "peak_observed_study_bytes": 692421708,
+      "peak_sampled_worker_RSS_bytes": 272596992,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:00:36.299103+00:00"
+    },
+    "referenceAE--1729": {
+      "stage": "referenceAE/1729",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 7.842709749995265,
+      "task_elapsed_seconds": 4125.755313,
+      "peak_observed_study_bytes": 4747274028,
+      "peak_sampled_worker_RSS_bytes": 386891776,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:24:30.755319+00:00"
+    },
+    "referenceAE--1730": {
+      "stage": "referenceAE/1730",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 7.8298424579552375,
+      "task_elapsed_seconds": 4141.387221,
+      "peak_observed_study_bytes": 4751962353,
+      "peak_sampled_worker_RSS_bytes": 387776512,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:24:46.387226+00:00"
+    },
+    "referenceAE--1731": {
+      "stage": "referenceAE/1731",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 7.842688917007763,
+      "task_elapsed_seconds": 4157.094283,
+      "peak_observed_study_bytes": 4756650672,
+      "peak_sampled_worker_RSS_bytes": 386793472,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:25:02.094291+00:00"
+    },
+    "regularizedMahalanobis--fit": {
+      "stage": "regularizedMahalanobis/fit",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 1.43944383302005,
+      "task_elapsed_seconds": 4160.621055,
+      "peak_observed_study_bytes": 4756735425,
+      "peak_sampled_worker_RSS_bytes": 264847360,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:25:05.621062+00:00"
+    },
+    "seal-v2": {
+      "stage": "seal-v2",
+      "accepted": true,
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_inclusive_seconds": 1.8512955000041984,
+      "task_elapsed_seconds": 4609.156555,
+      "peak_observed_study_bytes": 4824724585,
+      "peak_sampled_worker_RSS_bytes": 278478848,
+      "worker_reaped": true,
+      "ended_utc": "2026-10-16T13:32:34.156560+00:00"
+    }
+  },
+  "outer_lifecycle_results": {
+    "PCA3--fit-outer.json": {
+      "stage": "PCA3/fit",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 1.5669574590283446,
+      "task_elapsed_seconds": 4158.994928,
+      "study_bytes_at_exit": 4756693348,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "acquire-outer.json": {
+      "stage": "acquire",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 219.05571508401772,
+      "task_elapsed_seconds": 2549.119343,
+      "study_bytes_at_exit": 690129333,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "calibrate-outer.json": {
+      "stage": "calibrate",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 8.245096958009526,
+      "task_elapsed_seconds": 4201.151304,
+      "study_bytes_at_exit": 4821109823,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "compactAE--1729-outer.json": {
+      "stage": "compactAE/1729",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 7.5503398749860935,
+      "task_elapsed_seconds": 4117.695426,
+      "study_bytes_at_exit": 4744926465,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "compactAE--1730-outer.json": {
+      "stage": "compactAE/1730",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 7.2416899999952875,
+      "task_elapsed_seconds": 4133.339289,
+      "study_bytes_at_exit": 4749614822,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "compactAE--1731-outer.json": {
+      "stage": "compactAE/1731",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 7.25967983296141,
+      "task_elapsed_seconds": 4149.020815,
+      "study_bytes_at_exit": 4754303113,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "freeze-outer.json": {
+      "stage": "freeze",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 2.230026707984507,
+      "task_elapsed_seconds": 4312.350776,
+      "study_bytes_at_exit": 4822248695,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "prepare-outer.json": {
+      "stage": "prepare",
+      "supervisor_returncode": 1,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 2.383785957994405,
+      "task_elapsed_seconds": 2691.563802,
+      "study_bytes_at_exit": 692422350,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "prepare-v2-outer.json": {
+      "stage": "prepare-v2",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 674.8017069170019,
+      "task_elapsed_seconds": 3783.517184,
+      "study_bytes_at_exit": 4740298083,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "referenceAE--1729-outer.json": {
+      "stage": "referenceAE/1729",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 8.202641834039241,
+      "task_elapsed_seconds": 4126.010058,
+      "study_bytes_at_exit": 4747274677,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "referenceAE--1730-outer.json": {
+      "stage": "referenceAE/1730",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 8.183875999995507,
+      "task_elapsed_seconds": 4141.640301,
+      "study_bytes_at_exit": 4751963004,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "referenceAE--1731-outer.json": {
+      "stage": "referenceAE/1731",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 8.201787791971583,
+      "task_elapsed_seconds": 4157.345014,
+      "study_bytes_at_exit": 4756651321,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "regularizedMahalanobis--fit-outer.json": {
+      "stage": "regularizedMahalanobis/fit",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 1.5596210829680786,
+      "task_elapsed_seconds": 4160.63707,
+      "study_bytes_at_exit": 4756736082,
+      "observer_finalization_reserve_seconds": 10
+    },
+    "seal-v2-outer.json": {
+      "stage": "seal-v2",
+      "supervisor_returncode": 0,
+      "stop_reason": null,
+      "supervisor_reaped": true,
+      "elapsed_including_supervisor_reporting_exit_reap": 2.249062499962747,
+      "task_elapsed_seconds": 4609.443256,
+      "study_bytes_at_exit": 4824725227,
+      "observer_finalization_reserve_seconds": 10
+    }
+  },
+  "resource_budgets": {
+    "storage_bytes": 8589934592,
+    "worker_RSS_bytes": 4294967296,
+    "task_wall_seconds": 14400,
+    "acquisition_seconds": 2700,
+    "acquisition_file_seconds": 1200,
+    "preparation_seconds": 1800,
+    "fit_seconds": 1200,
+    "cleanup_seconds": 10,
+    "event_wire_bytes": 1073741824,
+    "event_transfer_requests": 6,
+    "active_workers": 1,
+    "background_services": 0,
+    "storage_reservation_bytes": {
+      "raw_and_partials": 1073741824,
+      "role_objects_features_memberships": 2200000000,
+      "group_database_and_index": 3600000000,
+      "tests_and_failures": 268435456,
+      "models_histories_snapshots_receipts": 134217728,
+      "Task0062_scores_timing_reserve": 268435456,
+      "headroom": 500000000
+    },
+    "monitor_seconds": 0.25,
+    "enforcement": "one owned worker, external own-pid RSS and cumulative owned-path storage samples plus lifetime peak, phase/task wall; bounded arrays and write plans; not OS all-write/pre-growth proof",
+    "scratch_phase_overlap": "Index sort scratch uses headroom before role matrices exist; at most1.8GiB additional transient scratch within still-unallocated role budget; no full raw expansion; periodic study cap remains8GiB."
+  },
+  "resource_evidence": {
+    "task_started_utc": "2026-10-16T12:15:45+00:00",
+    "task_elapsed_seconds_at_curation": 4896.393932,
+    "peak_observed_study_bytes": 4824727539,
+    "max_sampled_worker_RSS_bytes": 896663552,
+    "max_recorded_worker_lifetime_RSS_bytes": 901611520,
+    "own_numerical_workers_max": 1,
+    "controllers": "stdlib outer/supervisor plus one numerical worker, driver serial only",
+    "background_services": 0,
+    "limitations": [
+      "periodic RSS/storage observations and lifetime peak; not OS-wide all-write/pre-growth proof",
+      "logical retained file bytes; directory metadata, OS file cache and native unlinked scratch not directly counted; bounded scratch reservations and headroom supplement observation",
+      "same source group reused across epochs/seeds/scoring is not an independent event",
+      "first interrupted generated child work unknown; subsequent numeric work positively scoped"
+    ],
+    "retained_owned_file_bytes_at_delivery": 4824727764,
+    "curated_file_bytes_at_delivery": 98905,
+    "conservative_full_live_working_file_bytes": 625556,
+    "conservative_all_delivery_bytes": 4825452225,
+    "live_working_file_charge": "Additional conservative full-size charge, including existing README/memory content. During workers these were within the declared134MiB metadata/source reservation; not individually sampled. No cap/reset/waiver.",
+    "task_elapsed_seconds_at_delivery": 5382.382204,
+    "task_elapsed_seconds_through_final_documentation_validation": 5557.627337,
+    "final_documentation_validation_utc": "2026-10-16T13:48:22.627494+00:00"
+  },
+  "outcomes": {
+    "safety": "passed within declared sampled/lifetime/wall/storage scope; limitations disclosed",
+    "source_validity": "passed byte/metadata/header/structural/canonical group/role gates;4M expectation replaced by actual13.45M observation without forcing equality",
+    "experimental_correctness": "preparation/training/calibration/freeze passed; final scientific utility unknown",
+    "tooling_accounting": "final bound identities and consumed original attempts reconciled; first manifest withdrawn and corrected, early toy telemetry limitations preserved"
+  },
+  "exposure": {
+    "ADC_source_download_hash_header_scan": true,
+    "all_ADC_source_rows_structurally_decoded": true,
+    "signals_and_final_roles_structurally_prepared": true,
+    "final_outcome_feedback": false,
+    "statistical_holdout": true,
+    "true_blind_challenge": false,
+    "generation_independence_established": false,
+    "new_signal_processes_excluded_from_training": true,
+    "old_LHCO_exposures_permanent": true
+  },
+  "corrections": [
+    {
+      "kind": "tooling",
+      "description": "own-pid RSS requires explicit sandbox escalation; first generated child reaped, no pass inferred"
+    },
+    {
+      "kind": "harness",
+      "description": "contained pytest/counterexample links never followed; actual scientific path aliases rejected"
+    },
+    {
+      "kind": "telemetry",
+      "description": "pytest basename TALLY lookup repaired; source-independent acquisition reused with binding revision2"
+    },
+    {
+      "kind": "adapter_and_resources",
+      "description": "unexpected13.45M publisher header; implementation5M gate and generic-only metadata parser corrected before decoded rows;15M finite admission, canonical-byte-identical vectorization, versioned prepare-v2 with original cumulative30min clock and preserved first failure"
+    },
+    {
+      "kind": "scope_and_manifest",
+      "description": "private SQLite/score access denied before first fit, calibration/group file identities explicit; numerical preparation AST unchanged; binding revision4"
+    },
+    {
+      "kind": "manifest_finalization",
+      "description": "ephemeral active.json inclusion found after first seal; first readiness claim withdrawn, immutable v2 passes184file post-cleanup verification, all science reused by hash without fits/calibration/inference repeat"
+    }
+  ],
+  "Task0062_preflight": {
+    "manifest": "/Users/matteosgobba/Documents/GitHub/latent-trigger/data/decisive-v2-adc-task0061/private/complete-freeze-v2.json",
+    "sha256": "e425d1bc50c644caf7c3fad1f2317472e33eca68686022d4eac52bf04d804ce6",
+    "recipe": [
+      "Use revision2 exclusively; prior manifest readiness is withdrawn",
+      "Check184bound file hashes and bound code/config/test/prompt identities with no final scoring; pin CPU/runtime/thread parity",
+      "Record fresh actual human Task0062 scope and exclusive unblinding intent before any final score read/write",
+      "Then run only preregistered once-only evaluation, fixed final robustness/bias and coherent CPU schedule; no fit/calibration/search or unused-pool retry"
+    ],
+    "decision_gates": "Task0062 alone assesses both-topology primary.01 NI compact-.9reference, utility>=.15, rate comparability and measured joint CPU reduction25%;.001 secondary; all candidates/seeds/outcomes reported"
+  },
+  "git_actions": "No staging/commit/push; manual selective review only",
+  "delivery_files": [
+    "README.md",
+    "configs/research/decisive_adc_preparation_v2.json",
+    "docs/decisive-adc-preparation-training.md",
+    "docs/handoffs/0061-adc-preparation-training-freeze.md",
+    "docs/handoffs/README.md",
+    "docs/project-memory.md",
+    "docs/prompts/0061-adc-preparation-training-freeze.md",
+    "results/tables/final/task0061-adc-calibration.csv",
+    "results/tables/final/task0061-adc-model-freeze.csv",
+    "results/tables/final/task0061-adc-preparation-summary.json",
+    "results/tables/final/task0061-adc-source-and-role-custody.csv",
+    "scripts/prepare_decisive_adc_experiment.py",
+    "scripts/validate_decisive_adc.py",
+    "src/latenttrigger/research/decisive_adc/__init__.py",
+    "src/latenttrigger/research/decisive_adc/data.py",
+    "src/latenttrigger/research/decisive_adc/execution.py",
+    "src/latenttrigger/research/decisive_adc/models.py",
+    "src/latenttrigger/research/decisive_adc/statistics.py",
+    "src/latenttrigger/research/decisive_adc/study.py",
+    "tests/decisive_adc_plugin.py",
+    "tests/test_decisive_adc.py"
+  ],
+  "delivery_validation": {
+    "json_csv_counts_and_consistency": "passed",
+    "local_links_checked": 610,
+    "anchors_immutable": true,
+    "index_empty": true,
+    "working_paths": 21,
+    "unrelated_changes": [],
+    "git_diff_whitespace": "passed",
+    "lint": "whole repository Ruff --no-cache passed",
+    "format": "whole repository Ruff format --no-cache --check:573 files formatted",
+    "final_code_binding_unchanged": true,
+    "post_cleanup_manifest_validation": "184file full hashes passed in bounded own worker; all paths still present",
+    "remote_or_CI_claims": false,
+    "data_copies_charge_note": "Observed conservative delivery byte count is a snapshot before the summary/handoff final refresh; subsequent small metadata bytes remain within the fixed source/metadata reservation and large unchanged cap headroom.",
+    "final_small_metadata_refresh": "passed; behavioral bundle/manifest unchanged, no process active, index empty; final documentation time included in4h clock"
+  }
+}

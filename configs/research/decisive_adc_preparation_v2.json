@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "scope": "Task0061-real-ADC-preparation-only",
+  "protocol_path": "configs/research/decisive_scientific_experiment_v2.json",
+  "protocol_sha256": "3b49269a948fd98f335df54ae84502de8bc102a9d7f73358f378ebf86ca2191d",
+  "prompt_path": "docs/prompts/0061-adc-preparation-training-freeze.md",
+  "task_started_utc": "2026-10-16T12:15:45+00:00",
+  "study_path": "data/decisive-v2-adc-task0061",
+  "models_path": "artifacts/models/decisive-v2-adc",
+  "ledger_path": "data/decisive-v2-adc-task0061/ledger/events.jsonl",
+  "role_paths": {
+    "train": "prepared/train",
+    "selection": "prepared/selection",
+    "calibration": "prepared/calibration",
+    "final_background": "prepared/final_background",
+    "A_to_4l": "prepared/A_to_4l",
+    "LQ_to_btau": "prepared/LQ_to_btau"
+  },
+  "stage_order": [
+    "acquire",
+    "prepare-v2",
+    "compactAE/1729",
+    "referenceAE/1729",
+    "compactAE/1730",
+    "referenceAE/1730",
+    "compactAE/1731",
+    "referenceAE/1731",
+    "PCA3/fit",
+    "regularizedMahalanobis/fit",
+    "calibrate",
+    "freeze",
+    "seal-v2"
+  ],
+  "Task0062_authorized": false,
+  "final_evaluation_authorized": false,
+  "final_role_scoring_authorized": false,
+  "acceptance": {
+    "chunk_rows_max": 8192,
+    "rows_max_per_file": 15000000,
+    "metadata_elements_max": 128,
+    "metadata_bytes_max": 16384,
+    "quarantine_denominator": "all Particles source rows; union of row-rule failures divided by each source N and pooled N; each source and pooled <=0.01; duplicate rows are counted separately, not quarantined",
+    "boundary_pt_allowance_GeV": 1e-05,
+    "eta_limits": {
+      "electron": 3.0,
+      "muon": 2.1,
+      "jet": 4.0
+    },
+    "pt_cuts_GeV": {
+      "electron": 3.0,
+      "muon": 3.0,
+      "jet": 15.0
+    },
+    "lepton_preselection_pt_GeV": 23.0,
+    "metadata_aliases": {
+      "classes": {
+        "MET": 1,
+        "electron": 2,
+        "muon": 3,
+        "jet": 4,
+        "padding": 0
+      },
+      "names": [
+        "pT",
+        "eta",
+        "phi"
+      ],
+      "optional_fourth_name": [
+        "type",
+        "type_id",
+        "particle_type",
+        "class",
+        "class_id",
+        "id"
+      ]
+    },
+    "authority": "Task0060 protocol and descriptor DOI10.1038/s41597-022-01187-8 pp3-4; HDF does not need redundant unit strings if decoded coordinate names agree with publisher mapping"
+  },
+  "budgets": {
+    "storage_bytes": 8589934592,
+    "worker_RSS_bytes": 4294967296,
+    "task_wall_seconds": 14400,
+    "acquisition_seconds": 2700,
+    "acquisition_file_seconds": 1200,
+    "preparation_seconds": 1800,
+    "fit_seconds": 1200,
+    "cleanup_seconds": 10,
+    "event_wire_bytes": 1073741824,
+    "event_transfer_requests": 6,
+    "active_workers": 1,
+    "background_services": 0,
+    "storage_reservation_bytes": {
+      "raw_and_partials": 1073741824,
+      "role_objects_features_memberships": 2200000000,
+      "group_database_and_index": 3600000000,
+      "tests_and_failures": 268435456,
+      "models_histories_snapshots_receipts": 134217728,
+      "Task0062_scores_timing_reserve": 268435456,
+      "headroom": 500000000
+    },
+    "monitor_seconds": 0.25,
+    "enforcement": "one owned worker, external own-pid RSS and cumulative owned-path storage samples plus lifetime peak, phase/task wall; bounded arrays and write plans; not OS all-write/pre-growth proof",
+    "scratch_phase_overlap": "Index sort scratch uses headroom before role matrices exist; at most1.8GiB additional transient scratch within still-unallocated role budget; no full raw expansion; periodic study cap remains8GiB."
+  },
+  "development_schedule": {
+    "source": "first4096 hash-ordered training groups; first512 symmetry",
+    "final_robustness": "first512 hash-ordered final-background groups, outcome access denied until Task0062",
+    "cpu_indices": "((repetition*160+call_index)*batch + arange(batch)) % 4096; call_index0..31 warm,32..159 timed; same indices for every stream and boundary",
+    "boundary_order": "algorithm,joint for even repetition; joint,algorithm for odd",
+    "stream_order": "frozen8stream order rotated left by repetition0..7",
+    "rotation_radians": 0.7
+  },
+  "preparation_started_utc": "2026-10-16T13:00:34.363160+00:00",
+  "preparation_revision": 2,
+  "group_database": "private/groups-v2.sqlite",
+  "complete_freeze_path": "private/complete-freeze-v2.json",
+  "complete_freeze_revision": 2
+}

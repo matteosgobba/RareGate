@@ -44,6 +44,34 @@ and optimized runtimes remain separate questions.
 
 ## Current status
 
+Task0061 completes **controlled ADC acquisition, role-separated preparation,
+finite training/calibration and complete freeze**:
+`completed_adc_preparation_training_and_freeze`.
+[Report](docs/decisive-adc-preparation-training.md),
+[custody](results/tables/final/task0061-adc-source-and-role-custody.csv),
+[eight model records](results/tables/final/task0061-adc-model-freeze.csv),
+[16calibration cuts](results/tables/final/task0061-adc-calibration.csv),
+[summary](results/tables/final/task0061-adc-preparation-summary.json) and
+[Italian handoff](docs/handoffs/0061-adc-preparation-training-freeze.md).
+Exactly680426757B accepted in3transfers/0retry. Actual background13451915rows
+(not the published4M expectation),55969A/340544LQ; zero quarantines/conflicts,
+2761exact background duplicates. Fixed roles200k/50k/1M/1M and40k per signal
+are physically separate; training-only4096development groups are identified.
+Six neural/two analytical fits complete without replacements, all AEs at80epoch
+cap (not convergence proof). One8M-score calibration pass freezes16strict cuts.
+The final coherent relevant group passes164tests; earlier failures and source-bound
+corrections remain recorded. The initial manifest's transient-owner defect is
+explicitly withdrawn; immutable **complete-freeze-v2**, SHA256 `e425d1bc…d804ce6`,
+passes184file post-cleanup identity checks. No fit/calibration/inference repeat
+rescues that bookkeeping correction.
+
+**Ready for Task0062; final evaluation not performed and Task0062 not started.**
+Scientific usefulness, both-topology retention/utility/common-rate gates and the
+real joint CPU advantage remain untested. The ADC study is lepton-prefiltered
+simulation, not old LHCO confirmation; historical readiness remains false.
+
+### Historical audit and design — Task0060
+
 Task0060 completes the **whole-project scientific audit, focused repairs and
 one decisive experiment protocol**:
 `completed_project_scientific_audit_and_experiment_protocol`.
@@ -61,10 +89,9 @@ explicitly excluded; no original payload or real experiment is rerun.
 The selected ADC2021 route has680426757B of verified publisher file metadata,
 12 declared object aggregates, a finite6-neural/2-analytical fit matrix, primary
 FPR0.01 and secondary0.001, calibration/paired uncertainty and direct CPU costs.
-**Task0061** acquires/prepares/trains/calibrates and freezes while protecting final
-outcomes; **Task0062** performs final evaluation/robustness/CPU and concludes.
-Neither is launched here. Protocol readiness is for controlled preparation;
-local payload acceptance and historical operational readiness remain false.
+Task0061 has now executed the preparation half above. **Task0062** alone performs
+final evaluation/robustness/CPU and concludes under the frozen criteria. Task0060's
+task-time metadata-only state and all four immutable anchors remain preserved.
 
 ### Historical v1 snapshot — Task0059
 
