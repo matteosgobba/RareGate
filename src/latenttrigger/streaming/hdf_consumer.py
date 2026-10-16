@@ -178,6 +178,10 @@ class RealBackend:
             clocks,
             progress,
         )
+        from .ae_context import PilotContext58
+
+        if type(context) is PilotContext58:
+            context.validate_request(self.repo, candidate)
         self.handle = self.limiter = None
         self.payload_armed = False
         self.fd = quota.open_file(
@@ -200,17 +204,25 @@ class RealBackend:
                 "Bound historical pilot/source before numeric imports",
             )
         else:
+            from .ae_context import GeneratedFixture58, PilotContext58
             from .pilot_context import FixtureContext56, PilotContext56
             from .session_context import SessionFixture57
 
             require(
-                type(context) in (PilotContext56, FixtureContext56, SessionFixture57),
+                type(context)
+                in (
+                    PilotContext56,
+                    FixtureContext56,
+                    SessionFixture57,
+                    PilotContext58,
+                    GeneratedFixture58,
+                ),
                 "Typed consumer context",
             )
             require(context.root == str(self.root), "Consumer scope root")
             self.spec = (
                 context.specification(self.repo)
-                if type(context) is PilotContext56
+                if type(context) in (PilotContext56, PilotContext58)
                 else None
             )
         require(candidate in ("pca-v1", "compact-autoencoder-v2"), "One candidate")
@@ -226,10 +238,15 @@ class RealBackend:
         self.threads_before = self.runtime.evidence["threads"]
         self.checkpoint()
         if context is not None:
+            from .ae_context import GeneratedFixture58
             from .pilot_context import FixtureContext56
             from .session_context import SessionFixture57
 
-            if type(context) in (FixtureContext56, SessionFixture57):
+            if type(context) in (
+                FixtureContext56,
+                SessionFixture57,
+                GeneratedFixture58,
+            ):
                 from .serialized_fixture import prepare_sources
 
                 self.fixture_setup = prepare_sources(
@@ -455,10 +472,15 @@ class RealBackend:
 
         self.budget.add("hdf_opens")
         self.checkpoint()
+        from .ae_context import GeneratedFixture58
         from .pilot_context import FixtureContext56, FixtureDataset, FixtureHandle
         from .session_context import SessionFixture57
 
-        if type(getattr(self, "context", None)) in (FixtureContext56, SessionFixture57):
+        if type(getattr(self, "context", None)) in (
+            FixtureContext56,
+            SessionFixture57,
+            GeneratedFixture58,
+        ):
             self.handle = FixtureHandle()
             self.dataset = FixtureDataset(self.handle)
             self.hdf_metadata = dict(
@@ -480,12 +502,14 @@ class RealBackend:
 
         if self.handle is not None:
             self.budget.add("schema_checks")
+            from .ae_context import GeneratedFixture58
             from .pilot_context import FixtureContext56
             from .session_context import SessionFixture57
 
             is_fixture = type(getattr(self, "context", None)) in (
                 FixtureContext56,
                 SessionFixture57,
+                GeneratedFixture58,
             )
             if not is_fixture:
                 properties(self.handle, self.spec["raw"]["audit_schema"])
@@ -504,10 +528,11 @@ class RealBackend:
         )
         self.budget.begin("raw", len(positions))
         self.checkpoint()
+        from .ae_context import GeneratedFixture58
         from .session_context import SessionFixture57
 
         if (
-            type(self.context) is SessionFixture57
+            type(self.context) in (SessionFixture57, GeneratedFixture58)
             and self.context.fault == "first-failure"
             and len(self.gate_digests) == 8
         ):
@@ -665,7 +690,7 @@ class RealBackend:
                 else None,
                 fixture_setup=getattr(self, "fixture_setup", None),
                 operational=type(getattr(self, "context", None)).__name__
-                not in ("FixtureContext56", "SessionFixture57"),
+                not in ("FixtureContext56", "SessionFixture57", "GeneratedFixture58"),
                 source_verification_counts=getattr(
                     self, "source_verification_counts", {}
                 ),

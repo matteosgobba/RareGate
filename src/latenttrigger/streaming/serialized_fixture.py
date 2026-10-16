@@ -11,13 +11,14 @@ from .protocol import require
 
 
 def prepare_sources(context, runtime, progress):
+    from .ae_context import GeneratedFixture58
     from .session_context import SessionFixture57
 
     require(
-        type(context) in (FixtureContext56, SessionFixture57),
+        type(context) in (FixtureContext56, SessionFixture57, GeneratedFixture58),
         "Only serialized generated scope",
     )
-    if type(context) is SessionFixture57:
+    if type(context) in (SessionFixture57, GeneratedFixture58):
         context.validate_location(Path(__file__).resolve().parents[3])
         if (Path(context.directory) / "fixture-spec.json").exists():
             spec = context.specification(Path(__file__).resolve().parents[3])
@@ -57,7 +58,12 @@ def prepare_sources(context, runtime, progress):
     target.mkdir(mode=0o700)
     ledger = quota.CURRENT
     require(
-        ledger.task == ("0057" if type(context) is SessionFixture57 else "0056")
+        ledger.task
+        == (
+            "0058"
+            if type(context) is GeneratedFixture58
+            else ("0057" if type(context) is SessionFixture57 else "0056")
+        )
         and str(ledger.root) == context.root,
         "Own fixture ledger",
     )

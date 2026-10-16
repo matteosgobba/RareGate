@@ -331,10 +331,15 @@ def _consumer(
             "Unexpected generated payload access",
         )
     else:
+        from .ae_context import GeneratedFixture58
         from .pilot_context import FixtureContext56
         from .session_context import SessionFixture57
 
-        if type(pilot.get("context")) in (FixtureContext56, SessionFixture57):
+        if type(pilot.get("context")) in (
+            FixtureContext56,
+            SessionFixture57,
+            GeneratedFixture58,
+        ):
             from .startup55 import install_payload_denial
 
             payload_audit = install_payload_denial(
@@ -655,10 +660,23 @@ def run_scoped_core(
     resource_publish=lambda _: None,
 ):
     """0056 context only; no generated-to-real fallback or legacy activation."""
+    from .ae_context import GeneratedFixture58, PilotContext58
     from .pilot_context import context_from_request
     from .session_context import SessionFixture57
 
-    if type(context) is SessionFixture57:
+    if type(context) is PilotContext58:
+        require(
+            quota.CURRENT is not None
+            and str(quota.CURRENT.root) == quota_root
+            and context.root == quota_root,
+            "New0058 request root",
+        )
+        context.validate_request(Path(__file__).resolve().parents[3], candidate)
+        require(
+            Path(directory) == Path(quota_root) / "pilot" / candidate,
+            "AE-only case path",
+        )
+    elif type(context) in (SessionFixture57, GeneratedFixture58):
         require(
             context.root == quota_root and candidate == context.candidate,
             "Generated session request scope",
@@ -696,12 +714,14 @@ def _run_pipeline(
     """Shared actual producer/ring/batching/consumer/record/lifecycle core."""
     if quota_root is not None:
         quota.activate(quota_root)
+    from .ae_context import GeneratedFixture58
     from .pilot_context import FixtureContext56
     from .session_context import SessionFixture57
 
     scoped_fixture = pilot is not None and type(pilot.get("context")) in (
         FixtureContext56,
         SessionFixture57,
+        GeneratedFixture58,
     )
     whole_seconds = 15 if scoped_fixture else (30 if pilot else 5)
     entered = time.perf_counter_ns()

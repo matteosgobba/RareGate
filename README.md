@@ -25,8 +25,9 @@ clearly stated experimental assumptions.
 The planned work spans scientific event-data preparation, anomaly-detection
 models, scientific evaluation and bias analysis, and hardware-aware inference.
 The declared native CPU and synthetic systems phase is complete within scope.
-Streaming/cache/transport, independent scientific confirmation, other hardware
-and optimized runtimes remain separate future questions.
+Tiny development PCA/AE request-pipeline observations are recorded separately;
+causal cache/transport effects, independent scientific confirmation, other hardware
+and optimized runtimes remain separate questions.
 
 ## Methodology and study status
 
@@ -43,7 +44,36 @@ and optimized runtimes remain separate future questions.
 
 ## Current status
 
-Task0057 completes the **software-only shared session lifecycle repair**:
+Task0058 records **positive real AE integration with a whole-task storage guard gap**:
+`partial_bounded_development_ae_hdf_pilot_storage_guard_gap`; native pilot checks
+pass, while overall pilot acceptance and operational readiness remain **false**.
+[Report](docs/development-ae-hdf-pilot.md),
+[AE-only specification](configs/streaming/development_ae_hdf_pilot_v1.json),
+[26-row boundary/candidate/custody table](results/tables/final/task0058-development-ae-hdf-pilot-cases.csv),
+[summary](results/tables/final/task0058-development-ae-hdf-pilot-summary.json) and
+[Italian handoff](docs/handoffs/0058-bounded-ae-hdf-pilot.md).
+One final44-pin bundle `6cd0fc14…` passes all16 required generated expectations
+(12core+3shared sequential+1new AE-only),18dispatches/1008planned offers, one group.
+169 distinct focused/compatibility expectations have passing observations;
+411pure calls retain408pass/3fail plus two logging-adapter errors.
+The fresh real AE session submits64periodic B8/500s−1 requests, completes62,
+rejects2for contention and drains with no unresolved work. Actual groups are58m1+2m2.
+All16 pre/post contexts and60same-shaped deferred references pass:206raw/feature
+rows,168public calls/340score rows/1360Booleans,1original AE load and2HDF handles.
+Two current raw custody hashes read5,816,520,818B. One eager journal opens/closes
+once normally. External subject5.729602250s plus2s observer reserve fits180s;
+conservative resident charge491,044,864B fits512MiB. New append diagnostic exceeds0.
+The immutable ledger reserves366entries/21,563,584B under32MiB. Final audit found
+three shared formatter-cache files updated outside its pre-growth guard (24,124B
+current logical size; prior deltas unknown). Small observed storage does not close
+that requirement: no retrospective waiver, evidence deletion or native retry.
+P4 is consumed only for this AE session; no real PCA repetition or full24case study.
+Decoder effective threads and exact heap/native workspace attribution remain unknown.
+Default next decision: consolidate v1 scientific/CPU/streaming conclusions and
+separately observed PCA/AE integration facts with this storage gap; a source-free
+cache-guard correction does not require repeating inference. No next task is launched.
+
+Historical Task0057 completes the **software-only shared session lifecycle repair**:
 `completed_software_only_streaming_session_lifecycle_repair`; readiness
 `requires_fresh_bounded_operational_authorization`.
 [Report](docs/development-streaming-session-lifecycle.md),
@@ -63,8 +93,8 @@ Generated serialized work includes530public calls/1120score rows/4480Booleans,
 plus128feature setup rows;1/1446event append exceeds50µs,0/4311batch exceeds200µs.
 **Zero new operational** custody/HDF/original arrays/models/inference; historical
 Task0056's positive real PCA/custody and failed/consumed overall pilot below remain.
-Next consider a fresh separately authorized AE-only tiny integration/resource pilot;
-repeat PCA only for a distinct new controller/paired claim. No P4/Task0058/full study.
+At Task0057 closure, a fresh AE-only authorization was still required; Task0058
+now records its separate real AE outcome above without reaccepting earlier sessions.
 
 Historical Task0056 delivers a **partial/failed fresh bounded HDF pilot**:
 `partial_failed_development_hdf_pilot_v2`, complete declared generated qualification,
@@ -990,3 +1020,5 @@ At its task-time completion, Task0047 completed one separately authorized [targe
 - [x] Task0050: completed design-only B8 descriptor-stream protocol, 24 proposed runs/18,432 offers, complete prospective accounting/resources and static checks; readiness requires named prerequisites, no implementation/execution or Task0051.
 
 - [x] Task0051: isolated generated-memory streaming core,82focused tests and11software fixture checks across12native attempts (one setup failure preserved); P1 foundation complete, P2/P3 partial, P4 ungranted. Physical campaign unimplemented/unexecuted, no Task0052.
+
+- [ ] Task0058: real AE parity/gates/custody and all16final-source generated checks pass; overall partial because formatter cache writes lacked pre-growth guards. Consolidate separate integration evidence with this gap; no native retry/full study.
