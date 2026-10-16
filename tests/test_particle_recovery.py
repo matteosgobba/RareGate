@@ -8,10 +8,10 @@ from types import SimpleNamespace
 
 import pytest
 
-from latenttrigger.data.processed import content_hash
-from latenttrigger.models import particle_background as bg
-from latenttrigger.models import particle_recovery as recovery
-from latenttrigger.training import particle_set as training
+from raregate.data.processed import content_hash
+from raregate.models import particle_background as bg
+from raregate.models import particle_recovery as recovery
+from raregate.training import particle_set as training
 
 
 @pytest.fixture

@@ -158,7 +158,7 @@
       "https://docs.pytorch.org/docs/2.14/notes/numerical_accuracy.html"
     ],
     "runtime_torch_build_sha256": "6d6fa299a6d76bc6add8bfff4916da33cbc1636da24e90df594e6434f918b26c",
-    "derivation_file_sha256": "0957f1fb955e39a3764ff4b95cacae1bb1bc6d8cfc26cf798f8864da3cc5ecec"
+    "derivation_file_sha256": "14ab3062dabffdc04c302df43449d12ea2719d873a393d4b21c7c61045c3c2aa"
   },
   "strategies": [
     "natural",
@@ -281,12 +281,12 @@
     "frozen_models": 6
   },
   "byte_pins": {
-    "configs/benchmarks/frozen_cpu_v2.json": "b2658f7666e108e13c131b338b4554894f384ce559881120cf2a013a02847c8a",
+    "configs/benchmarks/frozen_cpu_v2.json": "844163fc7ae9d01c42b25bbe37d62d38aabd40d6774b986ccfee08170b031f6a",
     "results/tables/final/task0022-frozen-cpu-benchmark-v2-summary.json": "33c09221548ef56ef1b96f10c951161b65bea8d9565f2f3c100fd5f7a7c5744e",
-    "docs/arithmetic-cpu-v2-policy.md": "0957f1fb955e39a3764ff4b95cacae1bb1bc6d8cfc26cf798f8864da3cc5ecec",
-    "src/latenttrigger/benchmarks/arithmetic_cpu_v2.py": "dac69bddfd76bc914f8fc9a22240cc4a666518e6963a47182dc208ff4eebb631",
-    "src/latenttrigger/benchmarks/core.py": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987",
-    "src/latenttrigger/benchmarks/accelerate_threads.py": "dd11e84796a9bb6611f444b6dce08a03ab9b0e6bc910e8af73ae346bcd96f80f",
+    "docs/arithmetic-cpu-v2-policy.md": "14ab3062dabffdc04c302df43449d12ea2719d873a393d4b21c7c61045c3c2aa",
+    "src/raregate/benchmarks/arithmetic_cpu_v2.py": "dac69bddfd76bc914f8fc9a22240cc4a666518e6963a47182dc208ff4eebb631",
+    "src/raregate/benchmarks/core.py": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987",
+    "src/raregate/benchmarks/accelerate_threads.py": "dd11e84796a9bb6611f444b6dce08a03ab9b0e6bc910e8af73ae346bcd96f80f",
     "results/benchmarks/task0020-frozen-cpu/prepare/input.npy": "7164bfd7a86a9561ae3abc7b44b396c1a60db0114fc8542443ad3f71d2990a5e",
     "results/benchmarks/task0020-frozen-cpu/prepare/prepared.json": "4a04588b5215b2a272d59be79e50af0b354ba61dee7cfdabf950e284f545afa3",
     "results/benchmarks/task0020-frozen-cpu/prepare/receipt.json": "1d8c9183e5c49398647275381e6c1fb8da75eab71b947ffca2ed09c8bac28bac",

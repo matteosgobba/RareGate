@@ -8,7 +8,7 @@ import tempfile
 import time
 from pathlib import Path
 
-from latenttrigger.diagnostics import protocol as p
+from raregate.diagnostics import protocol as p
 
 
 def validate():

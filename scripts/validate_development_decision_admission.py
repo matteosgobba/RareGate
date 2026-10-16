@@ -9,7 +9,7 @@ import time
 import uuid
 from pathlib import Path
 
-from latenttrigger.benchmarks import development_decision_protocol as p
+from raregate.benchmarks import development_decision_protocol as p
 
 
 def validate():
@@ -122,7 +122,7 @@ def validate():
         [
             sys.executable,
             "-m",
-            "latenttrigger.benchmarks.development_decision_native",
+            "raregate.benchmarks.development_decision_native",
             "--synthetic-directory",
             str(native),
             "--validation-bootstrap",
@@ -137,8 +137,8 @@ def validate():
     p.require(source == p.source_map(), "Source unchanged across final acceptance")
     from scripts.validate_development_raw_decisions import emit_record
 
-    from latenttrigger.benchmarks import development_decision_admission as admission
-    from latenttrigger.benchmarks.development_decision_contract import Context
+    from raregate.benchmarks import development_decision_admission as admission
+    from raregate.benchmarks.development_decision_contract import Context
 
     context = Context(root, "0042")
     path = emit_record(context, directory, source, checks, native)

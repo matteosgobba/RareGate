@@ -184,10 +184,10 @@ This is measured local reproducibility, not a cross-device training claim.
 
 ```bash
 python -m pip install -e ".[dev,data,analysis]"
-python -m latenttrigger.models.autoencoder --config configs/models/compact_autoencoder.json \
+python -m raregate.models.autoencoder --config configs/models/compact_autoencoder.json \
   --dev --output data/baselines/compact-autoencoder-v1-dev --no-plots
-python -m latenttrigger.models.autoencoder --config configs/models/compact_autoencoder.json
-python -m latenttrigger.models.autoencoder --config configs/models/compact_autoencoder.json \
+python -m raregate.models.autoencoder --config configs/models/compact_autoencoder.json
+python -m raregate.models.autoencoder --config configs/models/compact_autoencoder.json \
   --output data/baselines/compact-autoencoder-v1-repeat
 ```
 
@@ -210,7 +210,7 @@ its access audit reflects that count. It exports no model and never replaces
 canonical CPU weights. No selection/calibration/test use or speedup/latency claim.
 
 ```bash
-python -m latenttrigger.models.autoencoder --config configs/models/compact_autoencoder.json \
+python -m raregate.models.autoencoder --config configs/models/compact_autoencoder.json \
   --device mps --smoke
 ```
 

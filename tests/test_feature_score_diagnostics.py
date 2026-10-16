@@ -8,17 +8,17 @@ import pytest
 from tests.feature_score_fixtures import fixture_plan
 from tests.test_three_prong_acquisition_v3 import Child, Clock
 
-from latenttrigger.diagnostics import analysis as a
-from latenttrigger.diagnostics import controller as c
-from latenttrigger.diagnostics import protocol as p
-from latenttrigger.diagnostics import reporting as r
-from latenttrigger.diagnostics import runtime as rt
-from latenttrigger.diagnostics.reader import (
+from raregate.diagnostics import analysis as a
+from raregate.diagnostics import controller as c
+from raregate.diagnostics import protocol as p
+from raregate.diagnostics import reporting as r
+from raregate.diagnostics import runtime as rt
+from raregate.diagnostics.reader import (
     AccessLedger,
     NarrowReader,
     validate_membership,
 )
-from latenttrigger.evaluation.guard import NATIVE_METHOD, PRESSURE_METHOD, GuardError
+from raregate.evaluation.guard import NATIVE_METHOD, PRESSURE_METHOD, GuardError
 
 
 class NoopGuard:
@@ -278,7 +278,7 @@ def test_no_significance_api_or_forwards():
     tree = ast.parse(Path(a.__file__).read_text())
     imports = [n.module for n in ast.walk(tree) if isinstance(n, ast.ImportFrom)]
     assert all(
-        not (v or "").startswith(("scipy", "sklearn", "torch", "latenttrigger.models"))
+        not (v or "").startswith(("scipy", "sklearn", "torch", "raregate.models"))
         for v in imports
     )
     text = Path(a.__file__).read_text()
@@ -371,7 +371,7 @@ def test_continuous_deadline_advances_during_suspension(jump):
 def test_normal_exit_reaped_still_requires_timely_parent(
     tmp_path, monkeypatch, jump, code, accepted
 ):
-    from latenttrigger.data import three_prong_v3_runtime as old
+    from raregate.data import three_prong_v3_runtime as old
 
     clock = Clock()
     child = Child(clock, exit_at=0, code=code)

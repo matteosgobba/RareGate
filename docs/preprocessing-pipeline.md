@@ -147,7 +147,7 @@ Use one explicit primary split; the two validation roles stay separate.
 
 ```python
 from pathlib import Path
-from latenttrigger.data.processed import ProcessedStore
+from raregate.data.processed import ProcessedStore
 
 with ProcessedStore(Path("data/processed/lhco-rd-v1/schema-v1/full")) as store:
     batch = store.read("train_background", slice(0, 32), dev_only=True)
@@ -173,16 +173,16 @@ From an editable checkout, with dependencies and Task 0004 membership available:
 
 ```bash
 python -m pip install -e ".[dev,data]"
-python -m latenttrigger.data.acquisition --verify-only
+python -m raregate.data.acquisition --verify-only
 # If membership is missing, reproduce Task 0004's integrity/group/split stage:
 python scripts/analyze_training_data.py --scan-only
-python -m latenttrigger.data.preprocessing --scope dev
-python -m latenttrigger.data.preprocessing --scope dev --chunk-rows 496 \
+python -m raregate.data.preprocessing --scope dev
+python -m raregate.data.preprocessing --scope dev --chunk-rows 496 \
   --output data/processed/lhco-rd-v1/schema-v1/dev-repeat
 python scripts/validate_preprocessing.py \
   --repeat data/processed/lhco-rd-v1/schema-v1/dev-repeat
-python -m latenttrigger.data.preprocessing --scope full
-python -m latenttrigger.data.preprocessing --verify data/processed/lhco-rd-v1/schema-v1/full
+python -m raregate.data.preprocessing --scope full
+python -m raregate.data.preprocessing --verify data/processed/lhco-rd-v1/schema-v1/full
 ```
 
 Do not rerun fitting/EDA to replace the tracked frozen configuration.

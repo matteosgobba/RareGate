@@ -21,7 +21,7 @@ def main():
     repo = Path(__file__).resolve().parents[1]
     if Path(args.root) != repo / "data/task0056-validation/session-v2":
         parser.error("Only the new Task0056 canonical root")
-    from latenttrigger.streaming import pilot54, pilot56, startup55
+    from raregate.streaming import pilot54, pilot56, startup55
 
     root = Path(args.root)
     if args.subject:

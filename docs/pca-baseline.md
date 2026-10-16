@@ -156,8 +156,8 @@ This proves local reproducibility, not cross-platform BLAS bitwise equivalence.
 
 ```bash
 python -m pip install -e ".[dev,data,analysis]"
-python -m latenttrigger.models.pca --config configs/models/pca_baseline.json
-python -m latenttrigger.models.pca --config configs/models/pca_baseline.json \
+python -m raregate.models.pca --config configs/models/pca_baseline.json
+python -m raregate.models.pca --config configs/models/pca_baseline.json \
   --output data/baselines/pca-v1-repeat
 ```
 

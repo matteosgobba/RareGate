@@ -9,13 +9,13 @@ from types import SimpleNamespace
 
 import pytest
 
-from latenttrigger.models import particle_background as bg
-from latenttrigger.models import particle_memory_study as old
-from latenttrigger.supervision import particle_host as host
-from latenttrigger.supervision import particle_launcher as ctl
-from latenttrigger.supervision import particle_worker as worker
-from latenttrigger.training import particle_resources as resources
-from latenttrigger.training.particle_set import parse_vm_stat
+from raregate.models import particle_background as bg
+from raregate.models import particle_memory_study as old
+from raregate.supervision import particle_host as host
+from raregate.supervision import particle_launcher as ctl
+from raregate.supervision import particle_worker as worker
+from raregate.training import particle_resources as resources
+from raregate.training.particle_set import parse_vm_stat
 
 
 @pytest.fixture
@@ -31,8 +31,8 @@ def profile():
 def test_fresh_stdlib_import_and_source_acceptance():
     code = """
 import json,sys
-from latenttrigger.supervision import particle_launcher as c
-from latenttrigger.supervision import particle_worker
+from raregate.supervision import particle_launcher as c
+from raregate.supervision import particle_worker
 c.assert_lightweight()
 print(json.dumps(c.source_hashes()))
 """
@@ -47,7 +47,7 @@ print(json.dumps(c.source_hashes()))
     mapping = json.loads(result.stdout)
     assert mapping == bg.source_hashes()
     for name in ("particle_host", "particle_launcher", "particle_worker"):
-        assert f"src/latenttrigger/supervision/{name}.py" in mapping
+        assert f"src/raregate/supervision/{name}.py" in mapping
     assert "tests/test_particle_host_readiness.py" in mapping
 
 
@@ -401,7 +401,7 @@ def test_diagnostic_excludes_training_store_calls():
     import ast
 
     tree = ast.parse(
-        (ctl.ROOT / "src/latenttrigger/supervision/particle_worker.py").read_text()
+        (ctl.ROOT / "src/raregate/supervision/particle_worker.py").read_text()
     )
     for node in tree.body:
         if isinstance(node, ast.FunctionDef) and node.name in (
@@ -434,7 +434,7 @@ def test_controller_limits_no_hidden_override():
         [
             sys.executable,
             "-m",
-            "latenttrigger.supervision.particle_launcher",
+            "raregate.supervision.particle_launcher",
             "--run-once",
             "--force",
         ],

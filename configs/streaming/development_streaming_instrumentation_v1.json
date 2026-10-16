@@ -1,5 +1,5 @@
 {
-  "schema": "latenttrigger.generated_streaming_instrumentation.v1",
+  "schema": "raregate.generated_streaming_instrumentation.v1",
   "task": "0052",
   "implementation_version": "0052.1",
   "fixture_only": true,
@@ -9,47 +9,47 @@
   "baseline_commit": "2f59ae1fafd77455b001393482a5bea84ddb1fc8",
   "candidate_manifest": [
     {
-      "path": "src/latenttrigger/streaming/__init__.py",
+      "path": "src/raregate/streaming/__init__.py",
       "size_bytes": 105,
       "sha256": "32f6d223fa34aa0b4197ed608a0cba7bd10ddc02cd7596f2ba53791ed199e359"
     },
     {
-      "path": "src/latenttrigger/streaming/characterization.py",
+      "path": "src/raregate/streaming/characterization.py",
       "size_bytes": 10429,
       "sha256": "29f8f2f5ed93d415c5d531fc459500af2351190d322c362ff9c276faf691c641"
     },
     {
-      "path": "src/latenttrigger/streaming/fixture.py",
+      "path": "src/raregate/streaming/fixture.py",
       "size_bytes": 37157,
       "sha256": "c6f90378f36fa4a9a1f8964f25109b959b6967da4140983ec0cea8f4cd634486"
     },
     {
-      "path": "src/latenttrigger/streaming/generated.py",
+      "path": "src/raregate/streaming/generated.py",
       "size_bytes": 4457,
       "sha256": "bfd70c6ce664427eed26f1197c99e29474d383b2ba663cf109b452a3d9d07262"
     },
     {
-      "path": "src/latenttrigger/streaming/instrumentation.py",
+      "path": "src/raregate/streaming/instrumentation.py",
       "size_bytes": 6294,
       "sha256": "ef5533cd447699cd9edae2e536988a7963bbad7ecff2e68d5ab8d08b6a3cac02"
     },
     {
-      "path": "src/latenttrigger/streaming/protocol.py",
+      "path": "src/raregate/streaming/protocol.py",
       "size_bytes": 3970,
       "sha256": "15a1c2978704cf0ba32f20b8952014b01daaadb704198c9444e36e1e348faa97"
     },
     {
-      "path": "src/latenttrigger/streaming/records.py",
+      "path": "src/raregate/streaming/records.py",
       "size_bytes": 18536,
       "sha256": "40740a641eaf2d1766456eb9b5f19949a2985083e882315f71b619641642ddc3"
     },
     {
-      "path": "src/latenttrigger/streaming/supervision.py",
+      "path": "src/raregate/streaming/supervision.py",
       "size_bytes": 5914,
       "sha256": "5139efe52ba10c6e38e82e18e53b8917ea2d8f85d7e6421d47703a1bf97554bf"
     },
     {
-      "path": "src/latenttrigger/streaming/transport.py",
+      "path": "src/raregate/streaming/transport.py",
       "size_bytes": 9026,
       "sha256": "8deec3d315b145113c3c4d753cdb7bf713282a1f161e582017b786c64de1ca8e"
     },

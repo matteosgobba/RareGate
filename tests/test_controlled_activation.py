@@ -14,11 +14,11 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.models.autoencoder import CompactAutoencoder
-from latenttrigger.research.controlled_activation import inference as i
-from latenttrigger.research.controlled_activation import models as m
-from latenttrigger.research.controlled_activation import protocol as p
-from latenttrigger.training.autoencoder import deterministic_cpu, feature_loader
+from raregate.models.autoencoder import CompactAutoencoder
+from raregate.research.controlled_activation import inference as i
+from raregate.research.controlled_activation import models as m
+from raregate.research.controlled_activation import protocol as p
+from raregate.training.autoencoder import deterministic_cpu, feature_loader
 
 
 @pytest.fixture(scope="module")
@@ -630,9 +630,7 @@ def test_wilson_zero_rate_conditional_only():
 def test_no_significance_or_operational_reader_in_new_code():
     text = "\n".join(
         f.read_text()
-        for f in (p.ROOT / "src/latenttrigger/research/controlled_activation").glob(
-            "*.py"
-        )
+        for f in (p.ROOT / "src/raregate/research/controlled_activation").glob("*.py")
     )
     for forbidden in (
         "spearmanr(",

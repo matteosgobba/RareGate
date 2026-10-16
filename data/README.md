@@ -17,14 +17,14 @@ the software's MIT license. Full rationale and the contract are in
 From the checkout with the project environment active:
 
 ```bash
-python -m latenttrigger.data.acquisition
-python -m latenttrigger.data.acquisition --verify-only
+python -m raregate.data.acquisition
+python -m raregate.data.acquisition --verify-only
 ```
 
 The first command downloads only when needed. Both commands stream-verify the
 expected **2,908,260,409 bytes** and publisher MD5
 `629789d55813be3860781b084ae7f1de`, and compute SHA-256. File existence alone is
-never accepted. Source metadata is pinned in `latenttrigger.data.metadata` and
+never accepted. Source metadata is pinned in `raregate.data.metadata` and
 was cross-checked against the official Zenodo API in Task 0003.
 
 The default data root is found from the checkout or editable package location,
@@ -58,7 +58,7 @@ range resume and automatic retry are deliberately not implemented.
 An invalid existing artifact fails clearly and remains intact. Explicitly use:
 
 ```bash
-python -m latenttrigger.data.acquisition --replace-invalid
+python -m raregate.data.acquisition --replace-invalid
 ```
 
 After a replacement passes verification, old bytes are retained in a sibling
@@ -170,14 +170,14 @@ splits. If membership is missing, reproduce only the scan/group/split stage with
 configuration by rerunning EDA. Install the existing `data` extra as above.
 
 ```bash
-python -m latenttrigger.data.acquisition --verify-only
-python -m latenttrigger.data.preprocessing --scope dev
-python -m latenttrigger.data.preprocessing --scope dev --chunk-rows 496 \
+python -m raregate.data.acquisition --verify-only
+python -m raregate.data.preprocessing --scope dev
+python -m raregate.data.preprocessing --scope dev --chunk-rows 496 \
   --output data/processed/lhco-rd-v1/schema-v1/dev-repeat
 python scripts/validate_preprocessing.py \
   --repeat data/processed/lhco-rd-v1/schema-v1/dev-repeat
-python -m latenttrigger.data.preprocessing --scope full
-python -m latenttrigger.data.preprocessing --verify data/processed/lhco-rd-v1/schema-v1/full
+python -m raregate.data.preprocessing --scope full
+python -m raregate.data.preprocessing --verify data/processed/lhco-rd-v1/schema-v1/full
 ```
 
 Scope is mandatory. Default output is ignored
@@ -210,9 +210,9 @@ Canonical training uses full train background; selection background chooses the
 epoch; calibration background is loaded only after freezing. No test model reads.
 
 ```bash
-python -m latenttrigger.models.autoencoder --config configs/models/compact_autoencoder.json
+python -m raregate.models.autoencoder --config configs/models/compact_autoencoder.json
 # Convenience subset diagnostic, never the canonical model:
-python -m latenttrigger.models.autoencoder --dev \
+python -m raregate.models.autoencoder --dev \
   --output data/baselines/compact-autoencoder-v1-dev --no-plots
 ```
 

@@ -19,7 +19,7 @@ def main():
     repo = Path(__file__).resolve().parents[1]
     if Path(args.root) != repo / "data/task0057-validation/session-lifecycle":
         parser.error("Only the owned Task0057 generated root; no operational mode")
-    from latenttrigger.streaming import session57, startup55
+    from raregate.streaming import session57, startup55
 
     root = Path(args.root)
     startup55.install_payload_denial(repo, root)

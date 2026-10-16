@@ -121,7 +121,7 @@ self-contained tests were added. Existing loaders, model arithmetic, old
 comparators, timing kernels, guards, thread enforcement and consumed routes retain
 historical bytes. The new controller remains stdlib-only; fresh workers verify
 prompt/protocol/source/artifacts/parent/phase/predecessor receipts independently.
-The CLI is `python -m latenttrigger.benchmarks.frozen_cpu_v2 --run-campaign`.
+The CLI is `python -m raregate.benchmarks.frozen_cpu_v2 --run-campaign`.
 `--validate-prerequisites` verifies metadata/header/source without reservation or
 numerical opening; `--synthetic-validation` is a separate fixed synthetic route.
 Both execution routes are now consumed; do not replay/reset/choose another output.

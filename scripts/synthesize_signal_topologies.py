@@ -20,10 +20,10 @@ TABLES = "results/tables/final/"
 FIGURES = "results/figures/final/"
 SOURCES = MappingProxyType(
     {
-        "docs/guarded-pca-ae-evaluation.md": "5f95107ccd7d5911c618007c7c857644571f726a2c0d94af71921b50aebcab02",
+        "docs/guarded-pca-ae-evaluation.md": "e966f2a88d97fa29649e3d2077ec4d1d1de2e6188f5cb2ec95d4581472be6247",
         "docs/local-three-prong-evaluation.md": "48f533c80d0a5746df8b5597e9f11b7d7714c011c3a7450c0b26284d7beea21c",
-        "docs/frozen-cpu-benchmark-v2.md": "04892664f5fe9945e698039a8879c09f51c48816c84715b6a43bce84fd6890c4",
-        "docs/scientific-synthesis.md": "48d3510c51535a65b38e7c18ea84421deeeb2cdc4f441ad0455d7c04212059f3",
+        "docs/frozen-cpu-benchmark-v2.md": "9225848fc0cc0cf8c2535d94a71238d80952094a6114fc5daf05a74b021fad20",
+        "docs/scientific-synthesis.md": "4d6edd06dd23b60f28dca9700f3273ff509012e146e3b2c5c43804eca0acd900",
         "results/tables/final/task0026-guarded-pca-ae-evaluation-summary.json": "d72270e9807b1a2176d46be248ddb697d7a22e10cf5aac4904583ab4fae1e966",
         "results/tables/final/task0026-pca-ae-scientific-comparison.csv": "d3c3119f4bc20fb9a05c1a361d37caa5b7f0b1c8581177eed68eb4c7ba8a8824",
         "results/tables/final/task0026-pca-ae-calibrated-operating-points.csv": "5170f177094e5c8b7273d582650aa572da532986abd09713440a287580b3e886",
@@ -44,7 +44,7 @@ SOURCES = MappingProxyType(
 )
 CODE_DEPENDENCY = (
     "scripts/synthesize_frozen_results.py",
-    "563db15bd1021d5bdc8b3405046fdc82a031416e668743df065e2e24dee531b9",
+    "f34b4053afda31ae8af2de3b3653e4ccfed4caf1d102e37c7f9f09adde84ff7b",
 )
 
 

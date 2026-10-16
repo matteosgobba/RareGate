@@ -8,7 +8,7 @@ costs. It does not run models, benchmark inference, measure LHC rates or confirm
 signal discrimination. Task0036's `unresolved_no_acquisition`, source acceptance
 false and Task0034's scientific protocol remain unchanged. No Task0038 is launched.
 
-The additive [implementation](../src/latenttrigger/simulation/) has separate
+The additive [implementation](../src/raregate/simulation/) has separate
 integer-time scheduling/statistics, trace generation, three-file curated timing
 validation, fixed sweep, aggregate-only figures and minimal guarded lifecycle.
 The [strict config](../configs/simulation/synthetic_trigger_v1.json) fixes every
@@ -214,7 +214,7 @@ display sleep allowed and no persistent power settings changed.
 
 ```bash
 .venv/bin/python scripts/validate_synthetic_trigger.py
-.venv/bin/python -m latenttrigger.simulation.native \
+.venv/bin/python -m raregate.simulation.native \
   --acceptance data/task0037-validation/f73ef9fc01194dfe9eeddb8a42c7e98b/software-acceptance.json
 ```
 

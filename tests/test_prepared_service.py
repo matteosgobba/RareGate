@@ -6,11 +6,11 @@ import json
 import numpy as np
 import pytest
 
-from latenttrigger.benchmarks import core
-from latenttrigger.benchmarks import prepared_service as s
-from latenttrigger.benchmarks import prepared_service_numerics as n
-from latenttrigger.benchmarks import prepared_service_protocol as p
-from latenttrigger.benchmarks.prepared_service_worker import synthetic_models
+from raregate.benchmarks import core
+from raregate.benchmarks import prepared_service as s
+from raregate.benchmarks import prepared_service_numerics as n
+from raregate.benchmarks import prepared_service_protocol as p
+from raregate.benchmarks.prepared_service_worker import synthetic_models
 
 
 @pytest.mark.parametrize("b,m", p.CASES)
@@ -113,7 +113,7 @@ def test_new_shape_proof_only_synthetic(candidate):
 
 
 def test_unsupported_arithmetic_and_mutation(monkeypatch):
-    from latenttrigger.benchmarks import arithmetic_cpu_v2 as a
+    from raregate.benchmarks import arithmetic_cpu_v2 as a
 
     for v in ([np.inf], [2.0**-45], [2.0**45]):
         with pytest.raises(a.ArithmeticFailure):

@@ -1,5 +1,5 @@
 {
-  "schema": "latenttrigger.generated_streaming_foundation.v1",
+  "schema": "raregate.generated_streaming_foundation.v1",
   "task": "0051",
   "implementation_version": "0051.1",
   "fixture_only": true,
@@ -9,12 +9,12 @@
     {
       "path": "docs/development-streaming-protocol.md",
       "size_bytes": 20769,
-      "sha256": "923b2222f9e23a6610586848b0e2feb804c653c73c0405bd5030a0039c30d8f1"
+      "sha256": "5997a4c053e0ac4d59fa4a75c83b7f7fe03525970ee904bf1c6724b1c1b82425"
     },
     {
       "path": "configs/protocols/development_streaming_v1.json",
       "size_bytes": 43882,
-      "sha256": "8ccad6fd2c006251454046dc026033834a758c04f00f3c071a501f3629dfba8f"
+      "sha256": "03baa92e53e7fd4e33971d3577943174919e240e26f07d4e50bfd5032b06d867"
     },
     {
       "path": "results/tables/final/task0050-development-streaming-design-summary.json",

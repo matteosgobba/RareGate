@@ -6,10 +6,10 @@ from dataclasses import replace
 
 import pytest
 
-from latenttrigger.benchmarks import decision_v2_admission as a
-from latenttrigger.benchmarks import decision_v2_admission as c
-from latenttrigger.benchmarks import decision_v2_native as n
-from latenttrigger.benchmarks import decision_v2_protocol as p
+from raregate.benchmarks import decision_v2_admission as a
+from raregate.benchmarks import decision_v2_admission as c
+from raregate.benchmarks import decision_v2_native as n
+from raregate.benchmarks import decision_v2_protocol as p
 
 
 @pytest.fixture
@@ -424,15 +424,15 @@ def test_copied_old_identity_and_context_refused(emitted, old):
             a.Mode.SYNTHETIC,
             lambda f: pytest.fail("old identity launch"),
         )
-    from latenttrigger.benchmarks.development_decision_contract import Context
+    from raregate.benchmarks.development_decision_contract import Context
 
     with pytest.raises(ValueError):
         Context(context.root, "0043")
 
 
 def test_old_sealed_object_is_not_operational_authority(emitted):
-    from latenttrigger.benchmarks.development_decision_admission import Frozen
-    from latenttrigger.benchmarks.development_decision_contract import Context
+    from raregate.benchmarks.development_decision_admission import Frozen
+    from raregate.benchmarks.development_decision_contract import Context
 
     context, path, directory, _, _ = emitted
     old = Frozen(

@@ -5,8 +5,8 @@ import time
 
 import pytest
 
-from latenttrigger.benchmarks import development_decision_protocol as p
-from latenttrigger.benchmarks.development_decision_native import (
+from raregate.benchmarks import development_decision_protocol as p
+from raregate.benchmarks.development_decision_native import (
     reserve,
     synthetic_prefix,
 )
@@ -26,7 +26,7 @@ def owned_grant(tmp_path, monkeypatch, phase="repetition1"):
     # Generated config/prompt bindings, not operational model contents.
     from shutil import copyfile
 
-    from latenttrigger.benchmarks.development_decision_contract import Context, identity
+    from raregate.benchmarks.development_decision_contract import Context, identity
 
     config = root / p.CONFIG
     config.parent.mkdir(parents=True)
@@ -137,7 +137,7 @@ def test_fixed_joint_config_rejects_changes(tmp_path, key):
 
 def test_historical_permission_false():
     assert p.old.load()["future_measurement_execution_authorized"] is False
-    from latenttrigger.benchmarks.development_decision_planning import counts
+    from raregate.benchmarks.development_decision_planning import counts
 
     assert p.load()["expected"] == counts()
 

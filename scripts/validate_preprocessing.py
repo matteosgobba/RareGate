@@ -12,8 +12,8 @@ from pathlib import Path
 
 import numpy as np
 
-from latenttrigger.data.analysis import open_raw, peak_rss_bytes, write_json
-from latenttrigger.data.processed import ProcessedStore
+from raregate.data.analysis import open_raw, peak_rss_bytes, write_json
+from raregate.data.processed import ProcessedStore
 
 DEV_ROLES = (
     "train_background",

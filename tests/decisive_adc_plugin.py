@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def pytest_sessionstart(session):
-    owned = Path(os.environ["LATENTTRIGGER_ADC_TEST_ROOT"]).resolve()
+    owned = Path(os.environ["RAREGATE_ADC_TEST_ROOT"]).resolve()
 
     def guard(event, args):
         if event != "open" or not isinstance(args[0], (str, bytes, os.PathLike)):
@@ -35,7 +35,7 @@ def pytest_sessionstart(session):
 
 
 def pytest_runtest_logreport(report):
-    target = Path(os.environ["LATENTTRIGGER_ADC_TEST_ROOT"]) / "reports.jsonl"
+    target = Path(os.environ["RAREGATE_ADC_TEST_ROOT"]) / "reports.jsonl"
     with target.open("a") as stream:
         stream.write(
             json.dumps(
@@ -63,5 +63,5 @@ def pytest_sessionfinish(session, exitstatus):
         "tests.test_decisive_adc"
     )
     if module is not None:
-        path = Path(os.environ["LATENTTRIGGER_ADC_TEST_ROOT"]) / "toy-work.json"
+        path = Path(os.environ["RAREGATE_ADC_TEST_ROOT"]) / "toy-work.json"
         path.write_text(json.dumps(module.TALLY, indent=2) + "\n")

@@ -11,7 +11,7 @@ actual validation, and [living memory](project-memory.md) for project direction.
 
 ## Evidence and decision boundary
 
-The operational Git checkout is `/Users/matteosgobba/Documents/GitHub/latent-trigger`,
+The operational Git checkout is `/Users/matteosgobba/Documents/GitHub/RareGate`,
 not a synced ChatGPT project mirror. Base/HEAD is
 `06450773e75a4d670c771d154714e0cb4d4d9557`, `main` tracks `origin/main`; the local
 tracking ref equals HEAD. This does not verify remote push or hosted CI success.

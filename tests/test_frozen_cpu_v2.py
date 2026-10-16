@@ -13,14 +13,14 @@ import pytest
 import torch
 from test_frozen_cpu_benchmark import FakeGuard, sample
 
-from latenttrigger.benchmarks import arithmetic_cpu_v2 as a
-from latenttrigger.benchmarks import core
-from latenttrigger.benchmarks import frozen_cpu_v2 as controller
-from latenttrigger.benchmarks import frozen_cpu_v2_numerics as n
-from latenttrigger.benchmarks import frozen_cpu_v2_protocol as q
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.data.inspection import AGGREGATE_NAMES
-from latenttrigger.models.autoencoder import CompactAutoencoder
+from raregate.benchmarks import arithmetic_cpu_v2 as a
+from raregate.benchmarks import core
+from raregate.benchmarks import frozen_cpu_v2 as controller
+from raregate.benchmarks import frozen_cpu_v2_numerics as n
+from raregate.benchmarks import frozen_cpu_v2_protocol as q
+from raregate.benchmarks import protocol as p
+from raregate.data.inspection import AGGREGATE_NAMES
+from raregate.models.autoencoder import CompactAutoencoder
 
 PAIRS = [
     (0.0, 0.0),
@@ -343,7 +343,7 @@ def test_scope_identity_refusal_before_numpy_open(tmp_path, monkeypatch, change)
 
 
 def test_stdlib_controller_fresh_import_has_no_numeric_frameworks():
-    script = 'import sys;import latenttrigger.benchmarks.frozen_cpu_v2;assert not any(n in sys.modules for n in ("numpy","torch","sklearn","h5py"))'
+    script = 'import sys;import raregate.benchmarks.frozen_cpu_v2;assert not any(n in sys.modules for n in ("numpy","torch","sklearn","h5py"))'
     child = subprocess.run(
         [sys.executable, "-c", script], capture_output=True, text=True, timeout=10
     )
@@ -441,7 +441,7 @@ def test_unchanged_timing_kernel_schedule_and_policy_outside_timer():
     ],
 )
 def test_reused_guards_latch_failed_peaks_and_veto(changes):
-    from latenttrigger.benchmarks.guard import Guard
+    from raregate.benchmarks.guard import Guard
 
     guard = Guard(time.monotonic() + 10, probe=lambda: sample(**changes), notify=False)
     with pytest.raises(RuntimeError):
@@ -453,7 +453,7 @@ def test_reused_guards_latch_failed_peaks_and_veto(changes):
 
 @pytest.mark.parametrize("pressure,errno", [(1, None), (2, None), (None, 1)])
 def test_equal_caps_pressure_WARN_unknown_advisory(pressure, errno):
-    from latenttrigger.benchmarks.guard import Guard
+    from raregate.benchmarks.guard import Guard
 
     with Guard(
         time.monotonic() + 10,
@@ -660,7 +660,7 @@ def test_controller_stops_after_failed_phase_and_never_replays(tmp_path, monkeyp
 def test_wrong_phase_binding_refused_before_framework_or_array_import(
     tmp_path, monkeypatch
 ):
-    from latenttrigger.benchmarks import frozen_cpu_v2_worker as worker
+    from raregate.benchmarks import frozen_cpu_v2_worker as worker
 
     directory = tmp_path / q.OUTPUT
     directory.mkdir(parents=True)

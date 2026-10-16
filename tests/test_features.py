@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from latenttrigger.data.features import (
+from raregate.data.features import (
     Parameters,
     canonicalize,
     model_view,

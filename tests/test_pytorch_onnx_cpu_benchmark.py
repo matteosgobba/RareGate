@@ -16,15 +16,15 @@ from test_frozen_cpu_benchmark import FakeGuard, sample
 from test_onnx_cpu_export import exported as exported
 from test_onnx_cpu_export import needs_onnx
 
-from latenttrigger.benchmarks import core
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.benchmarks import pytorch_onnx_cpu as c
-from latenttrigger.benchmarks import pytorch_onnx_cpu_numerics as n
-from latenttrigger.benchmarks import pytorch_onnx_cpu_protocol as q
-from latenttrigger.benchmarks import pytorch_onnx_cpu_statistics as s
-from latenttrigger.benchmarks.frozen_cpu import supervise
-from latenttrigger.benchmarks.guard import Guard, GuardError
-from latenttrigger.data.inspection import AGGREGATE_NAMES
+from raregate.benchmarks import core
+from raregate.benchmarks import protocol as p
+from raregate.benchmarks import pytorch_onnx_cpu as c
+from raregate.benchmarks import pytorch_onnx_cpu_numerics as n
+from raregate.benchmarks import pytorch_onnx_cpu_protocol as q
+from raregate.benchmarks import pytorch_onnx_cpu_statistics as s
+from raregate.benchmarks.frozen_cpu import supervise
+from raregate.benchmarks.guard import Guard, GuardError
+from raregate.data.inspection import AGGREGATE_NAMES
 
 
 def accepted_record():
@@ -433,7 +433,7 @@ def test_pressure_disclosure_and_veto(flag, errno, passes):
 
 def test_blocked_import_native_parent_deadline_reaps(tmp_path, monkeypatch):
     monkeypatch.setattr(
-        "latenttrigger.benchmarks.frozen_cpu.parent_check", lambda **kwargs: 1
+        "raregate.benchmarks.frozen_cpu.parent_check", lambda **kwargs: 1
     )
     result = supervise(
         [sys.executable, "-c", "import time; time.sleep(4)"],
@@ -526,5 +526,5 @@ def test_effective_runtime_refuses_drift(exported, monkeypatch, change):
 def test_controller_import_is_stdlib_without_optional_stack():
     source = Path(c.__file__).parents[2]
     env = dict(os.environ, PYTHONPATH=str(source))
-    code = "import sys; from latenttrigger.benchmarks import pytorch_onnx_cpu; assert not any(n in sys.modules for n in ('numpy','torch','onnx','onnxruntime','onnxscript'))"
+    code = "import sys; from raregate.benchmarks import pytorch_onnx_cpu; assert not any(n in sys.modules for n in ('numpy','torch','onnx','onnxruntime','onnxscript'))"
     subprocess.run([sys.executable, "-c", code], env=env, check=True, timeout=5)

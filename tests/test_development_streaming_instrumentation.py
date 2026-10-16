@@ -9,9 +9,9 @@ from pathlib import Path
 
 import pytest
 
-from latenttrigger.streaming.characterization import BASE
-from latenttrigger.streaming.fixture import FixtureStore, close_owned
-from latenttrigger.streaming.instrumentation import (
+from raregate.streaming.characterization import BASE
+from raregate.streaming.fixture import FixtureStore, close_owned
+from raregate.streaming.instrumentation import (
     Samples,
     aggregate,
     grouped_samples,
@@ -19,8 +19,8 @@ from latenttrigger.streaming.instrumentation import (
     sample_rows,
     update_sequence,
 )
-from latenttrigger.streaming.protocol import Scheduler
-from latenttrigger.streaming.records import (
+from raregate.streaming.protocol import Scheduler
+from raregate.streaming.records import (
     Store,
     decode,
     encode,
@@ -185,7 +185,7 @@ with patch('multiprocessing.get_context',side_effect=AssertionError('IPC on help
 
 
 def test_recorder_cleanup_receives_callable_clock(tmp_path, monkeypatch):
-    from latenttrigger.streaming import characterization as c
+    from raregate.streaming import characterization as c
 
     class Event:
         def set(self):
@@ -232,7 +232,7 @@ def test_observer_sample_cardinality_bound(tmp_path):
 def test_native_overflow_injection_has_same_preflight_as_core():
     from test_development_streaming_foundation import descriptor, ring
 
-    from latenttrigger.streaming.fixture import exercise_terminal_preflight
+    from raregate.streaming.fixture import exercise_terminal_preflight
 
     r = ring()
     r.admit(descriptor(), lambda: 1)
@@ -246,8 +246,8 @@ def test_native_overflow_injection_has_same_preflight_as_core():
 
 
 def test_closed_native_phase_guard_cannot_veto_cleanup(tmp_path):
-    from latenttrigger.streaming.records import Phases
-    from latenttrigger.streaming.supervision import Clocks, phase_during_cleanup
+    from raregate.streaming.records import Phases
+    from raregate.streaming.supervision import Clocks, phase_during_cleanup
 
     phase = Phases(tmp_path / "phase", 3, True)
     phase.close()
@@ -255,7 +255,7 @@ def test_closed_native_phase_guard_cannot_veto_cleanup(tmp_path):
 
 
 def test_startup_snapshot_contention_is_bounded_without_arrivals():
-    from latenttrigger.streaming.fixture import startup_snapshot
+    from raregate.streaming.fixture import startup_snapshot
 
     class Clock:
         t = 0

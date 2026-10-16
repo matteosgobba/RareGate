@@ -16,7 +16,7 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.research.decisive_adc import data, models, statistics, study
+from raregate.research.decisive_adc import data, models, statistics, study
 
 TALLY = Counter()
 
@@ -339,7 +339,7 @@ def test_roles_duplicate_representative_scaler_and_denial(tmp_path):
             context.role(role, "train")
     with pytest.raises(PermissionError):
         context.role("train", "calibrate")
-    code = "from pathlib import Path; from latenttrigger.research.decisive_adc.study import Study,install_phase_guard; import sys; s=Study(sys.argv[1],sys.argv[2],'generated-ADC-test-only',dict(train=1)); install_phase_guard(s,'train'); Path(sys.argv[3]).read_bytes()"
+    code = "from pathlib import Path; from raregate.research.decisive_adc.study import Study,install_phase_guard; import sys; s=Study(sys.argv[1],sys.argv[2],'generated-ADC-test-only',dict(train=1)); install_phase_guard(s,'train'); Path(sys.argv[3]).read_bytes()"
     private_scores = context.root / "private/forbidden-calibration.npy"
     np.save(private_scores, np.zeros(3))
     for forbidden in (
@@ -364,7 +364,7 @@ def test_roles_duplicate_representative_scaler_and_denial(tmp_path):
         )
         assert result.returncode != 0 and "PermissionError" in result.stderr
         TALLY["bounded_negative_IO_children"] += 1
-    sqlite_code = "from latenttrigger.research.decisive_adc.study import Study,install_phase_guard; import sqlite3,sys; s=Study(sys.argv[1],sys.argv[2],'generated-ADC-test-only',dict(train=1)); install_phase_guard(s,'train'); sqlite3.connect(sys.argv[3])"
+    sqlite_code = "from raregate.research.decisive_adc.study import Study,install_phase_guard; import sqlite3,sys; s=Study(sys.argv[1],sys.argv[2],'generated-ADC-test-only',dict(train=1)); install_phase_guard(s,'train'); sqlite3.connect(sys.argv[3])"
     result = subprocess.run(
         [
             sys.executable,
@@ -633,7 +633,7 @@ def test_generated_external_observation_and_cleanup(tmp_path, interrupted):
 def test_generated_transport_acceptance_and_contradiction(
     tmp_path, monkeypatch, bad_checksum
 ):
-    from latenttrigger.research.decisive_adc import execution
+    from raregate.research.decisive_adc import execution
 
     context, _ = generated(tmp_path)
     (context.root / "metadata").mkdir()
@@ -743,7 +743,7 @@ def test_scientific_alias_denial_and_contained_pytest_links(tmp_path):
 
 
 def test_fresh_generated_runtime_build_and_threads(tmp_path):
-    code = "import json; from latenttrigger.research.decisive_adc.execution import runtime; r,c=runtime(); print(json.dumps(r)); c.restore_original_limits()"
+    code = "import json; from raregate.research.decisive_adc.execution import runtime; r,c=runtime(); print(json.dumps(r)); c.restore_original_limits()"
     result = subprocess.run(
         [sys.executable, "-B", "-c", code], capture_output=True, text=True, timeout=20
     )

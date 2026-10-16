@@ -40,7 +40,7 @@
     {
       "path": "configs/streaming/development_hdf_consumer_pilot_v1.json",
       "bytes": 47001,
-      "sha256": "b542452f52a8b833936af024531a83f9ffb6632dbf921da5b9bbdd3fbdfb6a4c"
+      "sha256": "61215a37c52e9207f9795b6b512a096b9073e07079885c5cd4db85a6a2401040"
     },
     {
       "path": "results/tables/final/task0054-development-hdf-consumer-pilot-summary.json",
@@ -60,87 +60,87 @@
     {
       "path": "configs/protocols/development_streaming_v2.json",
       "bytes": 23313,
-      "sha256": "73a65632e6238abead5297f143a4bb25b45c27f5360dc5d11d3128c59841b28a"
+      "sha256": "629038c251ba729d7e84501ef9a5902187dfd4dfc14606dff89647c789779288"
     }
   ],
   "code_manifest": [
     {
-      "path": "src/latenttrigger/streaming/__init__.py",
+      "path": "src/raregate/streaming/__init__.py",
       "bytes": 104,
       "sha256": "5e2572bec5cc831fa8dec35d8dea3ae1b46e2601ae0a28b8c69b83d84f8896f2"
     },
     {
-      "path": "src/latenttrigger/streaming/characterization.py",
+      "path": "src/raregate/streaming/characterization.py",
       "bytes": 10429,
       "sha256": "29f8f2f5ed93d415c5d531fc459500af2351190d322c362ff9c276faf691c641"
     },
     {
-      "path": "src/latenttrigger/streaming/cpu_runtime.py",
+      "path": "src/raregate/streaming/cpu_runtime.py",
       "bytes": 7310,
       "sha256": "7e0a980d2e824258521a93e1b3a4f46dda4e534612419194a5d58f3ad1fbc856"
     },
     {
-      "path": "src/latenttrigger/streaming/fixture.py",
+      "path": "src/raregate/streaming/fixture.py",
       "bytes": 44464,
       "sha256": "759b68cdd602ec4bc3b29a1c27c606a625e3217e3c46def68fa6e73e71464a45"
     },
     {
-      "path": "src/latenttrigger/streaming/generated.py",
+      "path": "src/raregate/streaming/generated.py",
       "bytes": 4457,
       "sha256": "bfd70c6ce664427eed26f1197c99e29474d383b2ba663cf109b452a3d9d07262"
     },
     {
-      "path": "src/latenttrigger/streaming/hdf_consumer.py",
+      "path": "src/raregate/streaming/hdf_consumer.py",
       "bytes": 27620,
       "sha256": "a556ca127151c6080de16599716a18a6b20265bfd37d0f52932685e197c19549"
     },
     {
-      "path": "src/latenttrigger/streaming/instrumentation.py",
+      "path": "src/raregate/streaming/instrumentation.py",
       "bytes": 6352,
       "sha256": "b03b29c38e3ea01144ba0c4b2fb526ad5644b049fa338664fc771e2c6c5d4c2b"
     },
     {
-      "path": "src/latenttrigger/streaming/pilot54.py",
+      "path": "src/raregate/streaming/pilot54.py",
       "bytes": 21044,
       "sha256": "61fd3ee779075c2e0356bb023d5d63c387ce40ce927c6c06696dd252a268af70"
     },
     {
-      "path": "src/latenttrigger/streaming/protocol.py",
+      "path": "src/raregate/streaming/protocol.py",
       "bytes": 3970,
       "sha256": "15a1c2978704cf0ba32f20b8952014b01daaadb704198c9444e36e1e348faa97"
     },
     {
-      "path": "src/latenttrigger/streaming/quota.py",
+      "path": "src/raregate/streaming/quota.py",
       "bytes": 9408,
       "sha256": "d747443c6a35fd9fe24152d3c10b76d7590a0dc7c46b0acfee1a33796c94ba8f"
     },
     {
-      "path": "src/latenttrigger/streaming/records.py",
+      "path": "src/raregate/streaming/records.py",
       "bytes": 18698,
       "sha256": "ea374e1d51273a7d0fa75dc370bb33e9b7af22f81bad068936e407f392120c82"
     },
     {
-      "path": "src/latenttrigger/streaming/resources.py",
+      "path": "src/raregate/streaming/resources.py",
       "bytes": 12448,
       "sha256": "36ac123a085730c0881aa7b467bdcb66bc571cbf359106df41a5122c4d1d288e"
     },
     {
-      "path": "src/latenttrigger/streaming/startup55.py",
+      "path": "src/raregate/streaming/startup55.py",
       "bytes": 29356,
       "sha256": "ddb373ff28a7b8064bcad997eca2c911a7cfa4c43fcf1b0a14a77a2f1f45a4dd"
     },
     {
-      "path": "src/latenttrigger/streaming/supervision.py",
+      "path": "src/raregate/streaming/supervision.py",
       "bytes": 5980,
       "sha256": "d803cf9871d6ebfe47867c8b6db86e5ed7159b6f93ff578ac6f5112941e6b8a4"
     },
     {
-      "path": "src/latenttrigger/streaming/transport.py",
+      "path": "src/raregate/streaming/transport.py",
       "bytes": 9569,
       "sha256": "2cc26b7694a94099554d38f4efdb282947e98b52ddc8ffe106531e1bafbd4e57"
     },
     {
-      "path": "src/latenttrigger/streaming/validation_v2.py",
+      "path": "src/raregate/streaming/validation_v2.py",
       "bytes": 26517,
       "sha256": "bd6d3a903e859a5856778c6f83bb14a230cb72fd09ae704f4293d2b309085024"
     },
@@ -160,52 +160,52 @@
       "sha256": "6bd60963f97ed655a25ee77a3db6d9d111b7999c8a48bd37e70de9471e91831b"
     },
     {
-      "path": "src/latenttrigger/benchmarks/core.py",
+      "path": "src/raregate/benchmarks/core.py",
       "bytes": 21732,
       "sha256": "07fcb007cfadbff14161530c4466087a0e8350208d52d989dc44c48364548987"
     },
     {
-      "path": "src/latenttrigger/benchmarks/protocol.py",
+      "path": "src/raregate/benchmarks/protocol.py",
       "bytes": 10983,
       "sha256": "562fde67928ee16cd08975240b21cfccbfc3e4c9ac5fa90992e72e135ba47bbc"
     },
     {
-      "path": "src/latenttrigger/benchmarks/accelerate_threads.py",
+      "path": "src/raregate/benchmarks/accelerate_threads.py",
       "bytes": 2933,
       "sha256": "dd11e84796a9bb6611f444b6dce08a03ab9b0e6bc910e8af73ae346bcd96f80f"
     },
     {
-      "path": "src/latenttrigger/data/processed.py",
+      "path": "src/raregate/data/processed.py",
       "bytes": 18195,
       "sha256": "911c1bdb85831396b5e35dd6c3b5206a1ef22b5c62b55efb40108a4cd8cea5ea"
     },
     {
-      "path": "src/latenttrigger/data/features.py",
+      "path": "src/raregate/data/features.py",
       "bytes": 9916,
       "sha256": "fac40f3fb9e16f8d9048094cd9b031871eb399e11d37e04963e301b2f9a2ce42"
     },
     {
-      "path": "src/latenttrigger/data/inspection.py",
+      "path": "src/raregate/data/inspection.py",
       "bytes": 5972,
       "sha256": "9c78ed557ae2d3f7e2f70e184483efe3fb01838aaf03f38e4513ca096e6f9a61"
     },
     {
-      "path": "src/latenttrigger/data/analysis.py",
+      "path": "src/raregate/data/analysis.py",
       "bytes": 9482,
       "sha256": "71ab4b72d06d4dd68f0c19461669a36a3078e29220a3fdd02a39cdb48e9cbf79"
     },
     {
-      "path": "src/latenttrigger/data/splitting.py",
+      "path": "src/raregate/data/splitting.py",
       "bytes": 5371,
       "sha256": "997bc80cf0fcf00ce3e28a0e1e2ac322831223601e3b78ad7513e2956adb8206"
     },
     {
-      "path": "src/latenttrigger/models/pca.py",
+      "path": "src/raregate/models/pca.py",
       "bytes": 9679,
       "sha256": "100359c333c0319c78078189491f06c1472e5d88a6206ccb26e25cac30cf2c2b"
     },
     {
-      "path": "src/latenttrigger/models/autoencoder.py",
+      "path": "src/raregate/models/autoencoder.py",
       "bytes": 9967,
       "sha256": "cf5c9507fa08404c8a287627a30201608736634e8246e298fad081201bff4738"
     }

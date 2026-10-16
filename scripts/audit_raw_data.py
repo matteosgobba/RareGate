@@ -10,8 +10,8 @@ import h5py
 import hdf5plugin  # Import registers the source's Blosc decoder with h5py.
 import numpy as np
 
-from latenttrigger.data.acquisition import AcquisitionError, acquire
-from latenttrigger.data.metadata import LHCO_RD
+from raregate.data.acquisition import AcquisitionError, acquire
+from raregate.data.metadata import LHCO_RD
 
 
 def audit_file(path: Path) -> dict[str, object]:

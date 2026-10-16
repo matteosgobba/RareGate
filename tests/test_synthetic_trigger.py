@@ -9,10 +9,10 @@ import sys
 
 import pytest
 
-from latenttrigger.simulation import protocol as p
-from latenttrigger.simulation import sweep, timing
-from latenttrigger.simulation.engine import Policy, Trace, describe, simulate
-from latenttrigger.simulation.traces import generate
+from raregate.simulation import protocol as p
+from raregate.simulation import sweep, timing
+from raregate.simulation.engine import Policy, Trace, describe, simulate
+from raregate.simulation.traces import generate
 
 
 def trace(times, scores=None):
@@ -445,6 +445,6 @@ def test_bad_timing_fixture(tmp_path, failure):
 
 
 def test_import_boundary_has_no_model_path():
-    assert "latenttrigger.simulation.engine" in sys.modules
-    source = (p.ROOT / "src/latenttrigger/simulation/engine.py").read_text()
-    assert "import torch" not in source and "latenttrigger.models" not in source
+    assert "raregate.simulation.engine" in sys.modules
+    source = (p.ROOT / "src/raregate/simulation/engine.py").read_text()
+    assert "import torch" not in source and "raregate.models" not in source

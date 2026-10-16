@@ -8,21 +8,21 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.data.inspection import AGGREGATE_NAMES
-from latenttrigger.data.processed import FeatureBatch, content_hash
-from latenttrigger.evaluation.run import run_final
-from latenttrigger.models.autoencoder import (
+from raregate.data.inspection import AGGREGATE_NAMES
+from raregate.data.processed import FeatureBatch, content_hash
+from raregate.evaluation.run import run_final
+from raregate.models.autoencoder import (
     CompactAutoencoder,
     validate_config,
     validate_input_store,
 )
-from latenttrigger.models.background import load_background_features
-from latenttrigger.training.autoencoder import (
+from raregate.models.background import load_background_features
+from raregate.training.autoencoder import (
     EarlyStopping,
     feature_loader,
     train_autoencoder,
 )
-from latenttrigger.training.background import run_background
+from raregate.training.background import run_background
 
 
 @pytest.fixture
@@ -297,7 +297,7 @@ def toy_store(features, config):
 def test_synthetic_background_pipeline_and_calibration_after_freeze(
     toy_store, config, tmp_path, monkeypatch, dev
 ):
-    monkeypatch.setattr("latenttrigger.training.background.ProcessedStore", toy_store)
+    monkeypatch.setattr("raregate.training.background.ProcessedStore", toy_store)
     config["training"].update(max_epochs=3, batch_size=64)
     path = tmp_path / "config.json"
     path.write_text(json.dumps(config))
@@ -326,7 +326,7 @@ def test_synthetic_background_pipeline_and_calibration_after_freeze(
 def test_future_ae_gate_only_on_synthetic_data(
     toy_store, config, tmp_path, monkeypatch
 ):
-    monkeypatch.setattr("latenttrigger.training.background.ProcessedStore", toy_store)
+    monkeypatch.setattr("raregate.training.background.ProcessedStore", toy_store)
     config["training"].update(max_epochs=2, batch_size=64)
     path = tmp_path / "config.json"
     path.write_text(json.dumps(config))
@@ -338,7 +338,7 @@ def test_future_ae_gate_only_on_synthetic_data(
             assert audit["population_access"][-1]["split"] == split
             yield from super().iter_features(split, **kwargs)
 
-    monkeypatch.setattr("latenttrigger.evaluation.run.ProcessedStore", AuditedStore)
+    monkeypatch.setattr("raregate.evaluation.run.ProcessedStore", AuditedStore)
     with pytest.raises(ValueError, match="embargo"):
         run_final(
             tmp_path / "background/model.json",
@@ -358,8 +358,8 @@ def test_future_ae_gate_only_on_synthetic_data(
 
 
 def test_dev_model_cannot_enter_final_gate(toy_store, config, tmp_path, monkeypatch):
-    monkeypatch.setattr("latenttrigger.training.background.ProcessedStore", toy_store)
-    monkeypatch.setattr("latenttrigger.evaluation.run.ProcessedStore", toy_store)
+    monkeypatch.setattr("raregate.training.background.ProcessedStore", toy_store)
+    monkeypatch.setattr("raregate.evaluation.run.ProcessedStore", toy_store)
     config["training"]["max_epochs"] = 1
     path = tmp_path / "config.json"
     path.write_text(json.dumps(config))

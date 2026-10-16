@@ -11,11 +11,11 @@ from unittest.mock import Mock, patch
 import numpy as np
 import pytest
 
-from latenttrigger.streaming import hdf_consumer as h
-from latenttrigger.streaming import pilot54, quota
-from latenttrigger.streaming.generated import GeneratedBackend, gather
-from latenttrigger.streaming.protocol import Descriptor
-from latenttrigger.streaming.records import decode, encode
+from raregate.streaming import hdf_consumer as h
+from raregate.streaming import pilot54, quota
+from raregate.streaming.generated import GeneratedBackend, gather
+from raregate.streaming.protocol import Descriptor
+from raregate.streaming.records import decode, encode
 
 
 def test_closed_primary_matrix_and_arithmetic():
@@ -248,10 +248,10 @@ def test_entrypoint_parse_help_and_errors_do_not_import_backend(monkeypatch):
 def test_generated_api_has_no_operational_selector():
     import inspect
 
-    from latenttrigger.streaming.fixture import run_fixture
+    from raregate.streaming.fixture import run_fixture
 
     assert "pilot" not in inspect.signature(run_fixture).parameters
-    tree = ast.parse(Path("src/latenttrigger/streaming/fixture.py").read_text())
+    tree = ast.parse(Path("src/raregate/streaming/fixture.py").read_text())
     consumer = next(
         n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "_consumer"
     )
@@ -385,7 +385,7 @@ def test_checkpoint_failure_preserves_inflight_intent():
 def test_pilot_external_report_boundary_with_fake_program(monkeypatch, mode):
     import subprocess
 
-    from latenttrigger.streaming import supervision
+    from raregate.streaming import supervision
 
     class Clock:
         t = 0

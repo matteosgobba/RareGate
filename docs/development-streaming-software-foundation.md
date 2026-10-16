@@ -6,7 +6,7 @@ The [fixture configuration](../configs/streaming/development_streaming_foundatio
 
 ## Implemented boundary
 
-New modules live only in `src/latenttrigger/streaming/`. Protocol/transport/records/supervision use the standard library. The generated backend lazily imports installed NumPy only after checking `mode="generated_memory"`. Its synthetic table, eight artificial features, arithmetic score and thresholds `[0,1,64,127]` have no scientific meaning. No data-root/model-path argument, artifact discovery, real provider, HDF codec or operational fallback is shipped. Unsupported CLI/backend modes fail before payload or numerical access. Imports and help create no mapping or child.
+New modules live only in `src/raregate/streaming/`. Protocol/transport/records/supervision use the standard library. The generated backend lazily imports installed NumPy only after checking `mode="generated_memory"`. Its synthetic table, eight artificial features, arithmetic score and thresholds `[0,1,64,127]` have no scientific meaning. No data-root/model-path argument, artifact discovery, real provider, HDF codec or operational fallback is shipped. Unsupported CLI/backend modes fail before payload or numerical access. Imports and help create no mapping or child.
 
 | Component | Concrete implementation |
 | --- | --- |
@@ -82,7 +82,7 @@ Available child summaries show event append maximum714,000ns and batch append173
 | P3 | Injectable clocks/monitoring/safety/cleanup and cutoff accounting; limited own-process observations | Operational scheduler/clock comparability, valid supervision and full-service logging overhead unvalidated; generated event ceiling exceedances retained |
 | P4 | No operational capability or allowance | Separate explicit authorization required;24×768/840s study remains prospective |
 
-The next decision is separately scoped native characterization and operational implementation/authorization after these gaps are reviewed. No Task0052, reservation or physical study follows. CPU/synthetic closure, Task0036 `unresolved_no_acquisition`, Task0034 gates, YES/YES/YES, particle192/192 consumed/canonical deferral, every historical outcome, accepted Task0024 export versus failed Task0025 performance and no current MPS claim remain. Generated correctness cannot establish strict-tail usefulness, physical signal efficiency, causal nonlinearity or detector readiness. LatentTrigger remains independent research without official CERN/experiment affiliation.
+The next decision is separately scoped native characterization and operational implementation/authorization after these gaps are reviewed. No Task0052, reservation or physical study follows. CPU/synthetic closure, Task0036 `unresolved_no_acquisition`, Task0034 gates, YES/YES/YES, particle192/192 consumed/canonical deferral, every historical outcome, accepted Task0024 export versus failed Task0025 performance and no current MPS claim remain. Generated correctness cannot establish strict-tail usefulness, physical signal efficiency, causal nonlinearity or detector readiness. RareGate remains independent research without official CERN/experiment affiliation.
 
 ## Reproduction
 
@@ -90,11 +90,11 @@ These commands are examples, not another authorized run in this task. Its12nativ
 
 ```sh
 .venv/bin/python -m pytest -q tests/test_development_streaming_foundation.py
-.venv/bin/ruff check src/latenttrigger/streaming tests/test_development_streaming_foundation.py scripts/validate_development_streaming_foundation.py
-.venv/bin/ruff format --check src/latenttrigger/streaming tests/test_development_streaming_foundation.py scripts/validate_development_streaming_foundation.py
+.venv/bin/ruff check src/raregate/streaming tests/test_development_streaming_foundation.py scripts/validate_development_streaming_foundation.py
+.venv/bin/ruff format --check src/raregate/streaming tests/test_development_streaming_foundation.py scripts/validate_development_streaming_foundation.py
 .venv/bin/python scripts/validate_development_streaming_foundation.py --help
 # Future separately scoped generated smoke only; choose a NEW absolute owned directory:
-.venv/bin/python scripts/validate_development_streaming_foundation.py --run-generated-fixtures --output /Users/matteosgobba/Documents/GitHub/latent-trigger/data/task0051-validation/future-generated-smoke
+.venv/bin/python scripts/validate_development_streaming_foundation.py --run-generated-fixtures --output /Users/matteosgobba/Documents/GitHub/RareGate/data/task0051-validation/future-generated-smoke
 ```
 
 See the [Italian handoff](handoffs/0051-development-streaming-software-foundation.md) for scope, limitations and manual Git delivery.

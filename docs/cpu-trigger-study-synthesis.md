@@ -28,7 +28,7 @@ The declared native CPU and synthetic research phase is therefore complete withi
 scope. Preserve the frozen baseline and choose the next question explicitly. A
 design-only development streaming/cache/transport protocol is the default next
 decision; independent scientific confirmation remains a separate requirement.
-LatentTrigger is independent research inspired by LHC computing, with no implied
+RareGate is independent research inspired by LHC computing, with no implied
 official experiment or CERN affiliation.
 <!-- task0049-lead-end -->
 

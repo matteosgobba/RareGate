@@ -8,12 +8,12 @@ import pytest
 from tests.test_targeted_raw_admission import emitted as emitted
 from tests.test_targeted_raw_runtime import granted
 
-from latenttrigger.benchmarks import targeted_raw_measure as measure
-from latenttrigger.benchmarks import targeted_raw_planning as plan
-from latenttrigger.benchmarks import targeted_raw_protocol as p
-from latenttrigger.benchmarks import targeted_raw_provider as provider
-from latenttrigger.benchmarks.development_raw_synthetic import parameters
-from latenttrigger.benchmarks.targeted_raw_service import pack, service
+from raregate.benchmarks import targeted_raw_measure as measure
+from raregate.benchmarks import targeted_raw_planning as plan
+from raregate.benchmarks import targeted_raw_protocol as p
+from raregate.benchmarks import targeted_raw_provider as provider
+from raregate.benchmarks.development_raw_synthetic import parameters
+from raregate.benchmarks.targeted_raw_service import pack, service
 
 
 def setup(emitted):
@@ -388,7 +388,7 @@ def test_complete_same_shaped_gates_and_schedule_without_extra_service(emitted):
     assert agg["raw_window_buffers_retained"] == 0 and agg["unique_raw_rows"] == 384
     from copy import deepcopy
 
-    from latenttrigger.benchmarks.targeted_raw_reporting import validate_worker
+    from raregate.benchmarks.targeted_raw_reporting import validate_worker
 
     agg["task"] = "0047"
     validate_worker(agg, 1)

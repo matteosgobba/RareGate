@@ -38,7 +38,7 @@ helpers. Scientific validators and unchanged Task0012 reader/audit/dev/monitor
 functions stay in fresh workers. Darwin parse/malloc/Mach bindings are isolated
 copies with synthetic arithmetic parity; no shared scientific helper is changed.
 Fresh-process import/source-map coverage checks prevent hidden framework imports.
-All executable changes are under `src/latenttrigger`, covered by source acceptance.
+All executable changes are under `src/raregate`, covered by source acceptance.
 
 Fixed ignored execution manifest `data/baselines/task0013-particle-host-plan.json`
 is preparation, not reservation. It binds actual prompt, both old acceptances,
@@ -131,8 +131,8 @@ sample can exceed the earlier high-water query by a small amount.
 | lightweight_prepared | 5.010064917 | 5.023326542 | 6.691521000 |
 
 The baseline and light parents load no heavy modules. The legacy parent and both
-prepared children load `numpy`, `torch`, `latenttrigger.data.processed`,
-`latenttrigger.models.particle_memory_study`, `latenttrigger.training.particle_set`.
+prepared children load `numpy`, `torch`, `raregate.data.processed`,
+`raregate.models.particle_memory_study`, `raregate.training.particle_set`.
 Pandas/h5py are not loaded by this actual runtime stack. ChildCPU setup is1intra/
 1inter/deterministic, matching real reader workers. The legacy parent is also
 prepared; this explicitly recorded setup is additional to its import shape.
@@ -172,8 +172,8 @@ chosen unnecessary workloads, including Codex if desired, then execute once from
 an external Terminal using the existing environment (no install/sudo needed):
 
 ```bash
-cd /Users/matteosgobba/Documents/GitHub/latent-trigger
-/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python -m latenttrigger.supervision.particle_launcher --run-once
+cd /Users/matteosgobba/Documents/GitHub/RareGate
+/Users/matteosgobba/Documents/GitHub/RareGate/.venv/bin/python -m raregate.supervision.particle_launcher --run-once
 ```
 
 This command verifies current source acceptance/configs/profile/prompt/lineage,

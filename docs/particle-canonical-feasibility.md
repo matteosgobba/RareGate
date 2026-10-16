@@ -289,8 +289,8 @@ PCA: six retained components, centered non-whitened reconstruction in CPU FP64,
 linear latent/output, best381/stopped396; CPU FP32 forward. Each model's canonical
 score is SSE across eight standardized channels, FP64 subtraction/squares/sum,
 higher anomalous. AE input/reconstruction must be cast **before** subtracting.
-Use [PCAReconstruction](../src/latenttrigger/models/pca.py) and
-[CompactAutoencoder](../src/latenttrigger/models/autoencoder.py) loaders and
+Use [PCAReconstruction](../src/raregate/models/pca.py) and
+[CompactAutoencoder](../src/raregate/models/autoencoder.py) loaders and
 canonical `reconstruct`/forward/`score` implementations for references.
 
 Frozen `higher` calibration thresholds, strict `score > threshold`, from74823
@@ -410,7 +410,7 @@ Ordinary tests must be self-contained with synthetic stores/models and never
 require ignored real receipts or data. Run appropriate tests/lint in Task0020;
 this brief does not create execution acceptance.
 
-Implementation targets may be a small `src/latenttrigger/benchmarks/` module,
+Implementation targets may be a small `src/raregate/benchmarks/` module,
 controller/worker and focused tests. Keep existing fit/evaluation entry points,
 frozen loaders/math/configs/artifacts and particle slot unchanged. Bind the exact
 new protocol/source acceptance before one explicit campaign; exclusive reservation

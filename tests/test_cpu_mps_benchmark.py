@@ -15,17 +15,17 @@ import pytest
 import torch
 from test_frozen_cpu_benchmark import FakeGuard, sample
 
-from latenttrigger.benchmarks import arithmetic_cpu_v2 as arithmetic
-from latenttrigger.benchmarks import core
-from latenttrigger.benchmarks import cpu_mps as controller
-from latenttrigger.benchmarks import cpu_mps_device as device
-from latenttrigger.benchmarks import cpu_mps_numerics as n
-from latenttrigger.benchmarks import cpu_mps_protocol as q
-from latenttrigger.benchmarks import cpu_mps_worker as worker
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.benchmarks.guard import GuardError
-from latenttrigger.data.inspection import AGGREGATE_NAMES
-from latenttrigger.models.autoencoder import CompactAutoencoder
+from raregate.benchmarks import arithmetic_cpu_v2 as arithmetic
+from raregate.benchmarks import core
+from raregate.benchmarks import cpu_mps as controller
+from raregate.benchmarks import cpu_mps_device as device
+from raregate.benchmarks import cpu_mps_numerics as n
+from raregate.benchmarks import cpu_mps_protocol as q
+from raregate.benchmarks import cpu_mps_worker as worker
+from raregate.benchmarks import protocol as p
+from raregate.benchmarks.guard import GuardError
+from raregate.data.inspection import AGGREGATE_NAMES
+from raregate.models.autoencoder import CompactAutoencoder
 
 
 @pytest.fixture

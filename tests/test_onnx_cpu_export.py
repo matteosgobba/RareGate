@@ -18,17 +18,17 @@ import pytest
 import torch
 from test_frozen_cpu_benchmark import FakeGuard, sample
 
-from latenttrigger.benchmarks import arithmetic_cpu_v2 as a
-from latenttrigger.benchmarks import core
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.benchmarks.guard import Guard, GuardError
-from latenttrigger.data.inspection import AGGREGATE_NAMES
-from latenttrigger.exports import onnx_controller as c
-from latenttrigger.exports import onnx_graph as g
-from latenttrigger.exports import onnx_numerics as n
-from latenttrigger.exports import onnx_protocol as q
-from latenttrigger.exports import onnx_worker as w
-from latenttrigger.models.autoencoder import CompactAutoencoder
+from raregate.benchmarks import arithmetic_cpu_v2 as a
+from raregate.benchmarks import core
+from raregate.benchmarks import protocol as p
+from raregate.benchmarks.guard import Guard, GuardError
+from raregate.data.inspection import AGGREGATE_NAMES
+from raregate.exports import onnx_controller as c
+from raregate.exports import onnx_graph as g
+from raregate.exports import onnx_numerics as n
+from raregate.exports import onnx_protocol as q
+from raregate.exports import onnx_worker as w
+from raregate.models.autoencoder import CompactAutoencoder
 
 OPTIONAL = all(
     importlib.util.find_spec(name) is not None
@@ -286,7 +286,7 @@ def test_equivalent_MatMul_Add_Transpose_representation_is_audited(exported):
 def test_actual_synthetic_complete_grid_local_and_decision_equivalence(
     exported, family
 ):
-    from latenttrigger.benchmarks.ae_parity_numerics import families
+    from raregate.benchmarks.ae_parity_numerics import families
 
     result = n.verify(
         exported.model,
@@ -329,7 +329,7 @@ def test_optional_absence_factual_lazy_failure(monkeypatch, missing):
 
 
 def test_controller_and_graph_imports_stay_lazy_in_fresh_process(tmp_path):
-    code = 'import sys;import latenttrigger.exports.onnx_controller;import latenttrigger.exports.onnx_graph;assert not any(x in sys.modules for x in ("numpy","torch","onnx","onnxruntime","onnxscript"))'
+    code = 'import sys;import raregate.exports.onnx_controller;import raregate.exports.onnx_graph;assert not any(x in sys.modules for x in ("numpy","torch","onnx","onnxruntime","onnxscript"))'
     result = subprocess.run(
         [sys.executable, "-c", code],
         cwd=tmp_path,

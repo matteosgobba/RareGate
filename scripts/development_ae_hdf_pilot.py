@@ -21,7 +21,7 @@ def main():
     repo = Path(__file__).resolve().parents[1]
     if Path(args.root) != repo / "data/task0058-validation/ae-pilot-v1":
         parser.error("Only the new Task0058 AE-only root")
-    from latenttrigger.streaming import pilot54, pilot58, startup55
+    from raregate.streaming import pilot54, pilot58, startup55
 
     root = Path(args.root)
     if args.subject or args.qualify_generated:

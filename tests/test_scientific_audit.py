@@ -10,15 +10,15 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.data.features import canonicalize, physical_aggregates
-from latenttrigger.data.inspection import AGGREGATE_NAMES, event_fingerprints
-from latenttrigger.evaluation.metrics import evaluate_scores
-from latenttrigger.evaluation.thresholds import background_operating_point
-from latenttrigger.models.autoencoder import CompactAutoencoder
-from latenttrigger.models.pca import PCAReconstruction
-from latenttrigger.streaming import quota
-from latenttrigger.streaming.records import Store
-from latenttrigger.training.autoencoder import (
+from raregate.data.features import canonicalize, physical_aggregates
+from raregate.data.inspection import AGGREGATE_NAMES, event_fingerprints
+from raregate.evaluation.metrics import evaluate_scores
+from raregate.evaluation.thresholds import background_operating_point
+from raregate.models.autoencoder import CompactAutoencoder
+from raregate.models.pca import PCAReconstruction
+from raregate.streaming import quota
+from raregate.streaming.records import Store
+from raregate.training.autoencoder import (
     deterministic_cpu,
     epoch_loss,
     feature_loader,
@@ -162,8 +162,8 @@ def test_exported_mapping_keeps_ownership_until_successful_close(
 def test_mapping_cleanup_in_bounded_fresh_process(tmp_path):
     code = """
 import errno, os, pathlib, sys
-from latenttrigger.streaming import quota
-from latenttrigger.streaming.records import Store
+from raregate.streaming import quota
+from raregate.streaming.records import Store
 root = pathlib.Path(sys.argv[1])
 quota.CURRENT = quota.Ledger(root, {'record.bin':512})
 record = Store(root/'record.bin', 1, 'event', True)

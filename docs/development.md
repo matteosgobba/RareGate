@@ -1,4 +1,4 @@
-# LatentTrigger development protocol
+# RareGate development protocol
 
 Every operational Codex task receives the next sequential four-digit number.
 Use `docs/prompts/NNNN-short-name.md` for its user specification and

@@ -7,19 +7,19 @@ from pathlib import Path
 import pytest
 from tests.runtime_fixtures import SyntheticClock
 
-from latenttrigger.simulation import joint_admission as admission
-from latenttrigger.simulation import joint_protocol as p
-from latenttrigger.simulation import joint_source as source
-from latenttrigger.simulation.engine import Policy, Trace
-from latenttrigger.simulation.engine import simulate as old_simulate
-from latenttrigger.simulation.joint_engine import (
+from raregate.simulation import joint_admission as admission
+from raregate.simulation import joint_protocol as p
+from raregate.simulation import joint_source as source
+from raregate.simulation.engine import Policy, Trace
+from raregate.simulation.engine import simulate as old_simulate
+from raregate.simulation.joint_engine import (
     Assignment,
     ReplayPolicy,
     simulate,
     validate_result,
 )
-from latenttrigger.simulation.joint_fixture import create
-from latenttrigger.simulation.joint_runtime import accept_body, check_access
+from raregate.simulation.joint_fixture import create
+from raregate.simulation.joint_runtime import accept_body, check_access
 
 
 def trace(times):
@@ -694,7 +694,7 @@ def test_final_source_requires_completed_admission_roundtrip(software):
 
 
 def test_actual_controller_stops_before_guard_assertion_worker(software, monkeypatch):
-    from latenttrigger.simulation import joint_native as native
+    from raregate.simulation import joint_native as native
 
     directory, record = software
     monkeypatch.setattr(native, "NAMESPACE", p.ROOT / p.NAMESPACE)

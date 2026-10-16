@@ -20,7 +20,7 @@ record final validation and all real native attempts.
 
 ## Separate implementation boundary
 
-[Research helpers](../src/latenttrigger/research/controlled_activation/)
+[Research helpers](../src/raregate/research/controlled_activation/)
 and [strict implementation configuration](../configs/research/controlled_activation_synthetic_v1.json)
 are separate from historical AE/PCA validators and controllers. Six unchanged
 Task0034 artifacts are raw-byte prerequisites: prompt, handoff, protocol, sidecar,

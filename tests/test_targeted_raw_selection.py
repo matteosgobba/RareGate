@@ -5,8 +5,8 @@ import json
 
 import pytest
 
-from latenttrigger.benchmarks import targeted_raw_selection as s
-from latenttrigger.benchmarks.targeted_raw_selection_fixture import write
+from raregate.benchmarks import targeted_raw_selection as s
+from raregate.benchmarks.targeted_raw_selection_fixture import write
 
 
 @pytest.fixture
@@ -222,5 +222,5 @@ def test_selection_import_is_stdlib_only():
     import subprocess
     import sys
 
-    code = 'from latenttrigger.benchmarks import targeted_raw_selection;import sys;assert not any(n in sys.modules for n in ("numpy","torch","h5py","latenttrigger.simulation.occupancy_engine","latenttrigger.benchmarks.core"))'
+    code = 'from raregate.benchmarks import targeted_raw_selection;import sys;assert not any(n in sys.modules for n in ("numpy","torch","h5py","raregate.simulation.occupancy_engine","raregate.benchmarks.core"))'
     subprocess.run([sys.executable, "-c", code], check=True)

@@ -33,7 +33,7 @@ def main(argv=None):
         parser.error(
             "Explicit --run-generated-fixtures and --output required; no operational mode"
         )
-    from latenttrigger.streaming.fixture import SCENARIOS, validate_generated
+    from raregate.streaming.fixture import SCENARIOS, validate_generated
 
     result = validate_generated(
         args.output, tuple(args.scenario) if args.scenario else tuple(SCENARIOS)

@@ -19,7 +19,7 @@ def main():
         parser.error(
             "Explicit generated activation, root, and exclusive observer/subject mode required"
         )
-    from latenttrigger.streaming.validation_v2 import observe, subject
+    from raregate.streaming.validation_v2 import observe, subject
 
     if args.subject:
         return subject(Path(args.root), args.suite)

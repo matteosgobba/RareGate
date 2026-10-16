@@ -7,7 +7,7 @@ import json
 import numpy as np
 import pytest
 
-from latenttrigger.benchmarks import development_raw_protocol as p
+from raregate.benchmarks import development_raw_protocol as p
 
 
 def fixtures(root, monkeypatch):

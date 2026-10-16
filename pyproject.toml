@@ -3,7 +3,7 @@ requires = ["hatchling>=1.27,<2"]
 build-backend = "hatchling.build"
 
 [project]
-name = "latent-trigger"
+name = "raregate"
 dynamic = ["version"]
 description = "Hardware-aware machine learning for real-time LHC event selection"
 readme = "README.md"
@@ -44,10 +44,10 @@ dev = [
 ]
 
 [tool.hatch.version]
-path = "src/latenttrigger/__init__.py"
+path = "src/raregate/__init__.py"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/latenttrigger"]
+packages = ["src/raregate"]
 
 [tool.hatch.build.targets.sdist]
 include = [

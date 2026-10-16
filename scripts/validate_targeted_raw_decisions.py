@@ -9,7 +9,7 @@ import time
 import uuid
 from pathlib import Path
 
-from latenttrigger.benchmarks import targeted_raw_protocol as p
+from raregate.benchmarks import targeted_raw_protocol as p
 
 
 def validate():
@@ -133,7 +133,7 @@ def validate():
         [
             sys.executable,
             "-m",
-            "latenttrigger.benchmarks.targeted_raw_native",
+            "raregate.benchmarks.targeted_raw_native",
             "--bootstrap-directory",
             str(native),
         ],
@@ -145,7 +145,7 @@ def validate():
         "Native synthetic lifecycle",
     )
     p.require(source == p.source_map(), "Source unchanged across final acceptance")
-    from latenttrigger.benchmarks import targeted_raw_admission as admission
+    from raregate.benchmarks import targeted_raw_admission as admission
 
     context = admission.Context(root)
     path = admission.emit(context, directory, source, checks, native / "workflow.json")

@@ -27,9 +27,9 @@ def main():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     module.configure(owned)
-    os.environ["LATENTTRIGGER_ADC_TEST_ROOT"] = str(owned)
-    os.environ["LATENTTRIGGER_AUDIT_OWNED_ROOT"] = str(owned)
-    from latenttrigger.research.decisive_adc.execution import (
+    os.environ["RAREGATE_ADC_TEST_ROOT"] = str(owned)
+    os.environ["RAREGATE_AUDIT_OWNED_ROOT"] = str(owned)
+    from raregate.research.decisive_adc.execution import (
         behavioral_bundle,
         binding_digest,
     )

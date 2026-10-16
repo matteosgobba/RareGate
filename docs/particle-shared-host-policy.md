@@ -87,8 +87,8 @@ min_delta0,10hfit/run,1hpostfit/run and22htotal are unchanged full-run contracts
 ## Default CLI and one unchanged real slot
 
 ```bash
-cd /Users/matteosgobba/Documents/GitHub/latent-trigger
-.venv/bin/python -m latenttrigger.supervision.particle_readiness --check-readiness
+cd /Users/matteosgobba/Documents/GitHub/RareGate
+.venv/bin/python -m raregate.supervision.particle_readiness --check-readiness
 ```
 
 Check-only is repeatable by separate explicit user invocations, saves an immutable
@@ -105,8 +105,8 @@ The deliberate action used once in Task0018 is shown for interface review.
 repeatable and cannot replenish that allowance:
 
 ```bash
-cd /Users/matteosgobba/Documents/GitHub/latent-trigger
-.venv/bin/python -m latenttrigger.supervision.particle_readiness --run-characterization
+cd /Users/matteosgobba/Documents/GitHub/RareGate
+.venv/bin/python -m raregate.supervision.particle_readiness --run-characterization
 ```
 
 It always owns a new≤30s process preflight; no caller-provided/history bearer

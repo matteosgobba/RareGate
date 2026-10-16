@@ -179,8 +179,8 @@ reader/dev phases. It requires no app closure, reinstall, sudo or dedicated Mac.
 It has **not** been executed externally or used to alter app state:
 
 ```bash
-cd /Users/matteosgobba/Documents/GitHub/latent-trigger
-/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python -m latenttrigger.supervision.particle_characterization --run-once
+cd /Users/matteosgobba/Documents/GitHub/RareGate
+/Users/matteosgobba/Documents/GitHub/RareGate/.venv/bin/python -m raregate.supervision.particle_characterization --run-once
 ```
 
 Automatic/manual routes share the exclusive fixed Task0016 real slot; a reserved/

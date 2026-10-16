@@ -8,10 +8,10 @@ from types import SimpleNamespace
 
 import pytest
 
-from latenttrigger.supervision import particle_characterization as c
-from latenttrigger.supervision import particle_characterization_worker as worker
-from latenttrigger.supervision import particle_launcher as io
-from latenttrigger.training.particle_set import ResourceLimitError
+from raregate.supervision import particle_characterization as c
+from raregate.supervision import particle_characterization_worker as worker
+from raregate.supervision import particle_launcher as io
+from raregate.training.particle_set import ResourceLimitError
 
 
 @pytest.mark.parametrize(
@@ -383,13 +383,13 @@ def test_current_full_source_acceptance_not_historical_subset(tmp_path, monkeypa
 
 
 def test_parent_stays_stdlib_and_old_task15_route_stays_blocked():
-    code = "from latenttrigger.supervision import particle_characterization,particle_characterization_worker;from latenttrigger.supervision import particle_launcher as i;i.assert_lightweight()"
+    code = "from raregate.supervision import particle_characterization,particle_characterization_worker;from raregate.supervision import particle_launcher as i;i.assert_lightweight()"
     subprocess.run(
         [sys.executable, "-c", code], check=True, capture_output=True, timeout=10
     )
     for p in (
-        "src/latenttrigger/supervision/particle_characterization.py",
-        "src/latenttrigger/supervision/particle_characterization_worker.py",
+        "src/raregate/supervision/particle_characterization.py",
+        "src/raregate/supervision/particle_characterization_worker.py",
         "tests/test_particle_characterization.py",
     ):
         assert p in io.source_hashes()

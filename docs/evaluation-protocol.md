@@ -1,4 +1,4 @@
-# LatentTrigger evaluation protocol — version 1
+# RareGate evaluation protocol — version 1
 
 Protocol identifier: `latenttrigger-evaluation-v1`, established in Task 0006.
 This is the common score-evaluation contract for PCA and future models.

@@ -8,7 +8,7 @@ import tempfile
 import time
 import uuid
 
-from latenttrigger.simulation import refined_service_protocol as p
+from raregate.simulation import refined_service_protocol as p
 
 LEGACY_METADATA = (
     "results/tables/final/task0007-autoencoder-training-history.csv",
@@ -241,7 +241,7 @@ def validate():
         [
             sys.executable,
             "-m",
-            "latenttrigger.simulation.refined_service_native",
+            "raregate.simulation.refined_service_native",
             "--fixture-directory",
             str(native),
             "--bootstrap",
@@ -255,7 +255,7 @@ def validate():
     command = [
         sys.executable,
         "-m",
-        "latenttrigger.simulation.refined_service_native",
+        "raregate.simulation.refined_service_native",
         "--fixture-directory",
         str(roundtrip),
         "--acceptance",

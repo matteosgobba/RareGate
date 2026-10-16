@@ -4,8 +4,8 @@ import copy
 
 import numpy as np
 
-from latenttrigger.diagnostics import protocol as p
-from latenttrigger.diagnostics.analysis import describe
+from raregate.diagnostics import protocol as p
+from raregate.diagnostics.analysis import describe
 
 
 def fixture_plan(root):

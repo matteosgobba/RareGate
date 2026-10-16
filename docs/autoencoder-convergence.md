@@ -197,9 +197,9 @@ storing large arrays. Local independent CPU identity is not a cross-platform gua
 
 ```bash
 python -m pip install -e ".[dev,data,analysis]"
-python -m latenttrigger.data.preprocessing --verify data/processed/lhco-rd-v1/schema-v1/full
-python -m latenttrigger.training.convergence
-python -m latenttrigger.training.convergence \
+python -m raregate.data.preprocessing --verify data/processed/lhco-rd-v1/schema-v1/full
+python -m raregate.training.convergence
+python -m raregate.training.convergence \
   --output data/baselines/compact-autoencoder-v2-repeat
 ```
 

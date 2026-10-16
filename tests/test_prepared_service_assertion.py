@@ -4,9 +4,9 @@ from contextlib import nullcontext
 
 import pytest
 
-from latenttrigger.benchmarks import prepared_service_native as native
-from latenttrigger.benchmarks import prepared_service_protocol as p
-from latenttrigger.benchmarks import prepared_service_runtime as rt
+from raregate.benchmarks import prepared_service_native as native
+from raregate.benchmarks import prepared_service_protocol as p
+from raregate.benchmarks import prepared_service_runtime as rt
 
 
 @pytest.mark.parametrize("failure", ("setup", "loss", "release"))

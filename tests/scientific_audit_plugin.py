@@ -24,7 +24,7 @@ EXCLUDED_MODULES = {
 
 def pytest_sessionstart(session):
     """Fail closed on original payload opens and writes into the checkout."""
-    if os.environ.get("LATENTTRIGGER_AUDIT_OWNED_ROOT") is None:
+    if os.environ.get("RAREGATE_AUDIT_OWNED_ROOT") is None:
         raise RuntimeError("Use scripts/run_scientific_audit.py")
 
     def guard(event, args):
@@ -58,7 +58,7 @@ def pytest_collection_modifyitems(config, items):
 
 def pytest_runtest_logreport(report):
     # Persist every stage promptly, including failures if the outer bound stops us.
-    path = Path(os.environ["LATENTTRIGGER_AUDIT_OWNED_ROOT"]) / "reports.jsonl"
+    path = Path(os.environ["RAREGATE_AUDIT_OWNED_ROOT"]) / "reports.jsonl"
     with path.open("a") as stream:
         stream.write(
             json.dumps(

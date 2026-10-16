@@ -9,12 +9,12 @@ import time
 import uuid
 from pathlib import Path
 
-from latenttrigger.benchmarks import development_decision_protocol as p
+from raregate.benchmarks import development_decision_protocol as p
 
 
 def emit_record(context, directory, source, checks, native):
     """Serialized production contract, exercised by Task0042 roundtrips."""
-    from latenttrigger.benchmarks.development_decision_contract import emit
+    from raregate.benchmarks.development_decision_contract import emit
 
     return emit(
         directory / "software-acceptance.json",
@@ -136,7 +136,7 @@ def validate():
         [
             sys.executable,
             "-m",
-            "latenttrigger.benchmarks.development_decision_native",
+            "raregate.benchmarks.development_decision_native",
             "--synthetic-directory",
             str(native),
         ],
@@ -148,7 +148,7 @@ def validate():
         "Native synthetic lifecycle",
     )
     p.require(source == p.source_map(), "Source unchanged across final acceptance")
-    from latenttrigger.benchmarks.development_decision_contract import Context
+    from raregate.benchmarks.development_decision_contract import Context
 
     path = emit_record(Context(root), directory, source, checks, native)
     p.acceptance(path)

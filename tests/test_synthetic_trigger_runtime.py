@@ -7,11 +7,11 @@ from pathlib import Path
 
 import pytest
 
-from latenttrigger.evaluation.guard import NATIVE_METHOD, PRESSURE_METHOD, GuardError
-from latenttrigger.simulation import native
-from latenttrigger.simulation import protocol as p
-from latenttrigger.simulation import runtime as rt
-from latenttrigger.simulation.sweep import validate_aggregates
+from raregate.evaluation.guard import NATIVE_METHOD, PRESSURE_METHOD, GuardError
+from raregate.simulation import native
+from raregate.simulation import protocol as p
+from raregate.simulation import runtime as rt
+from raregate.simulation.sweep import validate_aggregates
 
 
 def sample(**changes):
@@ -91,8 +91,8 @@ def test_worker_no_network_or_children(tmp_path, phase, event):
         "torch",
         "sklearn",
         "h5py",
-        "latenttrigger.models.pca",
-        "latenttrigger.training.autoencoder",
+        "raregate.models.pca",
+        "raregate.training.autoencoder",
     ],
 )
 def test_no_model_import(tmp_path, name):

@@ -164,14 +164,14 @@ The CLI action actually used once is shown for interface/history review.
 **The fixed slot is consumed; do not repeat this command.**
 
 ```bash
-.venv/bin/python -m latenttrigger.benchmarks.frozen_cpu --run-campaign
+.venv/bin/python -m raregate.benchmarks.frozen_cpu --run-campaign
 ```
 
 Metadata-only prerequisite checking does not reserve or read numerical inputs;
 a pass is not new campaign permission:
 
 ```bash
-.venv/bin/python -m latenttrigger.benchmarks.frozen_cpu --validate-prerequisites
+.venv/bin/python -m raregate.benchmarks.frozen_cpu --validate-prerequisites
 ```
 
 ## Validation, source freeze and actual execution

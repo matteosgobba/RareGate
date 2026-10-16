@@ -62,15 +62,15 @@ def owned_bytes(root, models):
 
 
 def worker(stage, root, models):
-    from latenttrigger.research.decisive_adc import data
-    from latenttrigger.research.decisive_adc.execution import (
+    from raregate.research.decisive_adc import data
+    from raregate.research.decisive_adc.execution import (
         acquire,
         lifetime_rss_bytes,
         read_config,
         runtime,
         verify_binding,
     )
-    from latenttrigger.research.decisive_adc.study import (
+    from raregate.research.decisive_adc.study import (
         Study,
         calibrate,
         fit_stream,
@@ -135,8 +135,8 @@ def worker(stage, root, models):
 
 
 def freeze(study, binding, runtime_record, config, revision=2):
-    from latenttrigger.research.decisive_adc import data
-    from latenttrigger.research.decisive_adc.study import fit_matrix_manifest
+    from raregate.research.decisive_adc import data
+    from raregate.research.decisive_adc.study import fit_matrix_manifest
 
     if binding["scope"] != study.scope:
         raise PermissionError("freeze binding scope mismatch")
@@ -239,8 +239,8 @@ def reap(process):
 
 
 def run(stage, root, models, config):
-    from latenttrigger.research.decisive_adc.data import write_json
-    from latenttrigger.research.decisive_adc.execution import (
+    from raregate.research.decisive_adc.data import write_json
+    from raregate.research.decisive_adc.execution import (
         behavioral_bundle,
         binding_digest,
         log,

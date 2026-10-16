@@ -3,8 +3,8 @@
 import numpy as np
 import pytest
 
-from latenttrigger.data.inspection import event_fingerprints
-from latenttrigger.data.splitting import (
+from raregate.data.inspection import event_fingerprints
+from raregate.data.splitting import (
     INVALID_GROUP,
     assign_groups,
     development_indices,

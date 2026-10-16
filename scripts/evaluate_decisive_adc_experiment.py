@@ -60,7 +60,7 @@ def storage():
             if p.is_file()
         )
     for p in [
-        ROOT / "src/latenttrigger/research/decisive_adc_evaluation.py",
+        ROOT / "src/raregate/research/decisive_adc_evaluation.py",
         Path(__file__),
         ROOT / "tests/test_decisive_adc_evaluation.py",
         CONFIG,
@@ -182,10 +182,10 @@ def validation(attempt, config):
     folder.mkdir(exist_ok=False)
     (folder / "tmp").mkdir()
     configure(folder)
-    os.environ["LATENTTRIGGER_ADC_TEST_ROOT"] = str(folder)
-    os.environ["LATENTTRIGGER_AUDIT_OWNED_ROOT"] = str(folder)
-    from latenttrigger.research.decisive_adc.execution import binding_digest
-    from latenttrigger.research.decisive_adc_evaluation import extension_bundle
+    os.environ["RAREGATE_ADC_TEST_ROOT"] = str(folder)
+    os.environ["RAREGATE_AUDIT_OWNED_ROOT"] = str(folder)
+    from raregate.research.decisive_adc.execution import binding_digest
+    from raregate.research.decisive_adc_evaluation import extension_bundle
 
     bundle = extension_bundle(config)
     import shutil
@@ -243,9 +243,9 @@ def validation(attempt, config):
 
 
 def worker(phase, config):
-    from latenttrigger.research import decisive_adc_evaluation as e
-    from latenttrigger.research.decisive_adc import data, models
-    from latenttrigger.research.decisive_adc.execution import runtime
+    from raregate.research import decisive_adc_evaluation as e
+    from raregate.research.decisive_adc import data, models
+    from raregate.research.decisive_adc.execution import runtime
 
     binding = e.qualify_binding(OWNED, config)
     intent = e.read(OWNED / "ledger" / f"{phase}-intent.json")
@@ -388,7 +388,7 @@ def main():
             )
             raise
         return
-    from latenttrigger.research.decisive_adc_evaluation import qualify_binding
+    from raregate.research.decisive_adc_evaluation import qualify_binding
 
     binding = qualify_binding(OWNED, config)
     # No repeat: phase intent remains on every exit, even before numerical work.

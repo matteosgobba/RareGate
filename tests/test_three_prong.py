@@ -11,25 +11,25 @@ import numpy as np
 import pytest
 from test_frozen_cpu_benchmark import FakeGuard, sample
 
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.data.acquisition import IntegrityError, verify_file
-from latenttrigger.data.features import (
+from raregate.benchmarks import protocol as p
+from raregate.data.acquisition import IntegrityError, verify_file
+from raregate.data.features import (
     Parameters,
     canonicalize,
     physical_aggregates,
     standardized_aggregates,
 )
-from latenttrigger.data.inspection import AGGREGATE_NAMES, event_fingerprints
-from latenttrigger.data.metadata import DatasetSource
-from latenttrigger.evaluation import three_prong as c
-from latenttrigger.evaluation import three_prong_core as n
-from latenttrigger.evaluation import three_prong_protocol as q
-from latenttrigger.evaluation.guard import Guard, GuardError
-from latenttrigger.evaluation.metrics import evaluate_scores
-from latenttrigger.evaluation.three_prong_audit import Audit, exposure
-from latenttrigger.evaluation.three_prong_smoke import exercise, toy_spec
-from latenttrigger.models.autoencoder import CompactAutoencoder
-from latenttrigger.models.pca import PCAReconstruction
+from raregate.data.inspection import AGGREGATE_NAMES, event_fingerprints
+from raregate.data.metadata import DatasetSource
+from raregate.evaluation import three_prong as c
+from raregate.evaluation import three_prong_core as n
+from raregate.evaluation import three_prong_protocol as q
+from raregate.evaluation.guard import Guard, GuardError
+from raregate.evaluation.metrics import evaluate_scores
+from raregate.evaluation.three_prong_audit import Audit, exposure
+from raregate.evaluation.three_prong_smoke import exercise, toy_spec
+from raregate.models.autoencoder import CompactAutoencoder
+from raregate.models.pca import PCAReconstruction
 
 
 @pytest.fixture
@@ -468,7 +468,7 @@ def test_guard_resource_deadline_failures_latched(change):
 
 
 def test_new_controller_imports_stdlib_only_in_fresh_parent(tmp_path):
-    code = "import sys;from latenttrigger.evaluation import three_prong;assert not any(x in sys.modules for x in ('numpy','torch','h5py','sklearn','onnx','onnxruntime'))"
+    code = "import sys;from raregate.evaluation import three_prong;assert not any(x in sys.modules for x in ('numpy','torch','h5py','sklearn','onnx','onnxruntime'))"
     subprocess.run([sys.executable, "-c", code], check=True, timeout=10)
 
 
@@ -484,7 +484,7 @@ import os
 import sys
 import time
 from pathlib import Path
-from latenttrigger.evaluation import guarded
+from raregate.evaluation import guarded
 
 guarded.parent_check = lambda **kwargs: 1
 dispatch = guarded.supervise(

@@ -4,7 +4,7 @@ La fase dichiarata di misure CPU native e studio sintetico delle code può esser
 chiusa. Abbiamo una baseline scientifica congelata, misure computazionali accettate
 su confini espliciti e risultati di sistema riproducibili. Non abbiamo ancora
 dimostrato un trigger utile per anomalie rare, prestazioni fisiche in streaming o
-prontezza per un rivelatore. LatentTrigger resta ricerca indipendente ispirata al
+prontezza per un rivelatore. RareGate resta ricerca indipendente ispirata al
 computing LHC, senza implicare affiliazioni ufficiali con esperimenti o CERN.
 
 La baseline confronta PCA e un piccolo autoencoder su due segnali. L’AE ha AUC

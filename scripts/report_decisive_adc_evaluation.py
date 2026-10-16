@@ -30,7 +30,7 @@ def export(root, tables, figures):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    from latenttrigger.research.decisive_adc.data import digest
+    from raregate.research.decisive_adc.data import digest
 
     analysis = read(root / "private/analysis.json")
     cpu = read(root / "private/cpu.json")

@@ -5,11 +5,11 @@ from contextlib import nullcontext
 
 import pytest
 
-from latenttrigger.data import three_prong_v3_runtime as clock_rt
-from latenttrigger.evaluation.guard import NATIVE_METHOD, PRESSURE_METHOD, GuardError
-from latenttrigger.research.controlled_activation import native
-from latenttrigger.research.controlled_activation import protocol as p
-from latenttrigger.research.controlled_activation import runtime as rt
+from raregate.data import three_prong_v3_runtime as clock_rt
+from raregate.evaluation.guard import NATIVE_METHOD, PRESSURE_METHOD, GuardError
+from raregate.research.controlled_activation import native
+from raregate.research.controlled_activation import protocol as p
+from raregate.research.controlled_activation import runtime as rt
 
 
 class Clock:
@@ -477,7 +477,7 @@ def test_native_adapter_failures_preserve_attempt_release(
     monkeypatch.setattr(rt, "IdleAssertion", Assertion)
 
     def dispatch(command, log, **kwargs):
-        assert command[2] == "latenttrigger.research.controlled_activation.native"
+        assert command[2] == "raregate.research.controlled_activation.native"
         directory = log.parent
         if failure == "dispatch":
             raise GuardError("synthetic dispatch failure")

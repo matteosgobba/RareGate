@@ -19,7 +19,7 @@ def main():
     repo = Path(__file__).resolve().parents[1]
     if Path(args.root) != repo / "data/task0055-validation/task0055":
         parser.error("Only the new fixed Task0055 source-free root")
-    from latenttrigger.streaming.startup55 import observe, subject
+    from raregate.streaming.startup55 import observe, subject
 
     if args.subject:
         return subject(Path(args.root), args.group)

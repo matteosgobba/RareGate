@@ -16,14 +16,14 @@
       "path": "docs/cpu-trigger-study-synthesis.md",
       "role": "authoritative integrated scientific/CPU/synthetic report",
       "bytes": 31054,
-      "sha256": "3736144e1291f7750199b51238b5f426f2f680d03df92d1e8b9dcb9bb5fb6415"
+      "sha256": "da611cd3859ce814039089aa0991b240848bb89b0c0b68f91e9921afa34f8123"
     },
     {
       "evidence_id": "E02",
       "path": "docs/cpu-trigger-study-decision-brief.md",
       "role": "historical Italian integrated decision brief",
       "bytes": 5124,
-      "sha256": "7e5edb2094109b8b157fcf472ea5c09d73c556aa5cbacb6be6b359bf61c5f18d"
+      "sha256": "32e5c4a2e3032dfdde8851dab943dd850cfd51c2f9752c9f880708a3add2e456"
     },
     {
       "evidence_id": "E03",
@@ -72,21 +72,21 @@
       "path": "configs/reporting/cpu_trigger_synthesis_v1.json",
       "role": "historical reporting scope; embedded references inert",
       "bytes": 96907,
-      "sha256": "c4337334297e89f9d4478a5383f9dc5a22f66e5d70df41ec9181cd0d83c1bcb8"
+      "sha256": "6a78b4552b4f5b0a31b2916c7d10aebcfdc5dbb33cc4493bd25c89dc513245c9"
     },
     {
       "evidence_id": "E10",
       "path": "docs/development-streaming-protocol.md",
       "role": "original descriptor/cache/transport proposal and claim boundary",
       "bytes": 20769,
-      "sha256": "923b2222f9e23a6610586848b0e2feb804c653c73c0405bd5030a0039c30d8f1"
+      "sha256": "5997a4c053e0ac4d59fa4a75c83b7f7fe03525970ee904bf1c6724b1c1b82425"
     },
     {
       "evidence_id": "E11",
       "path": "configs/protocols/development_streaming_v1.json",
       "role": "unexecuted 24-case design and nominal batching contract",
       "bytes": 43882,
-      "sha256": "8ccad6fd2c006251454046dc026033834a758c04f00f3c071a501f3629dfba8f"
+      "sha256": "03baa92e53e7fd4e33971d3577943174919e240e26f07d4e50bfd5032b06d867"
     },
     {
       "evidence_id": "E12",
@@ -100,7 +100,7 @@
       "path": "docs/development-streaming-software-foundation.md",
       "role": "generated software foundation boundary and limitations",
       "bytes": 15687,
-      "sha256": "44901d0f5b1c83e62c2ddb2ec66313877d56bfd2887de4310604ae3a9bd34e96"
+      "sha256": "d01032868c40bbb857077c6ddab51f76bbeda188ffe9999d42ab2d4ad52b5661"
     },
     {
       "evidence_id": "E14",
@@ -142,7 +142,7 @@
       "path": "configs/protocols/development_streaming_v2.json",
       "role": "v2 diagnostic/primitive-lifetime/resource policy",
       "bytes": 23313,
-      "sha256": "73a65632e6238abead5297f143a4bb25b45c27f5360dc5d11d3128c59841b28a"
+      "sha256": "629038c251ba729d7e84501ef9a5902187dfd4dfc14606dff89647c789779288"
     },
     {
       "evidence_id": "E20",
@@ -191,7 +191,7 @@
       "path": "configs/streaming/development_streaming_startup_v1.json",
       "role": "historical runtime/tracker policy and bundle metadata",
       "bytes": 34181,
-      "sha256": "50d1cb4c664112bd70b5f6daf9b8ee90588ef29d4149948667c82b7cc82882d9"
+      "sha256": "d94c184e2b92037431b9f2da6f4b5ede4b2482feeb4889745549dfb7dc77a07b"
     },
     {
       "evidence_id": "E27",
@@ -212,7 +212,7 @@
       "path": "configs/streaming/development_hdf_consumer_pilot_v2.json",
       "role": "Task0056 frozen operational scope metadata; paths inert",
       "bytes": 48795,
-      "sha256": "94957be7cd28be616a83f90e3462b4a5d80becef9adfd2655a8c20af0df0b8c5"
+      "sha256": "1959759bcc6d29f05b08fe2c1937843b15aedd3764e487e41256555a18f917f7"
     },
     {
       "evidence_id": "E30",
@@ -240,7 +240,7 @@
       "path": "configs/streaming/development_streaming_session_lifecycle_v1.json",
       "role": "Task0057 shared generated lifecycle scope and pins",
       "bytes": 46071,
-      "sha256": "6f2433f1301c7747d7a5f0a35366564e4ead5e5763645db6a8ba0eccd00eb92b"
+      "sha256": "c739666173e22c7bd0ca6aaed9527e32a4bb8919d7e82b88c0b3ae47ea635d25"
     },
     {
       "evidence_id": "E34",
@@ -268,7 +268,7 @@
       "path": "configs/streaming/development_ae_hdf_pilot_v1.json",
       "role": "Task0058 frozen prospective scope; not acceptance",
       "bytes": 48558,
-      "sha256": "44c2a4fda8231acdee9f00fb3360da9f610e87ccc357863da0737fa56d106b4c"
+      "sha256": "4f273bf1cdead0a62699bf0f2612d28fc8db066ab15ea47081953b2bfb0d19c4"
     },
     {
       "evidence_id": "E38",

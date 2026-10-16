@@ -289,7 +289,7 @@ refuses new launch; no reset/cross-session resume selector. Actual authorized
 command invoked once, in a platform-approved network context:
 
 ```bash
-.venv/bin/python -m latenttrigger.data.three_prong_acquisition --run-acquisition --network-authorized
+.venv/bin/python -m raregate.data.three_prong_acquisition --run-acquisition --network-authorized
 ```
 
 ## Scientific boundary

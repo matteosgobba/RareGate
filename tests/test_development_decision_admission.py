@@ -7,10 +7,10 @@ from dataclasses import replace
 import pytest
 from scripts.validate_development_raw_decisions import emit_record
 
-from latenttrigger.benchmarks import development_decision_admission as a
-from latenttrigger.benchmarks import development_decision_contract as c
-from latenttrigger.benchmarks import development_decision_native as n
-from latenttrigger.benchmarks import development_decision_protocol as p
+from raregate.benchmarks import development_decision_admission as a
+from raregate.benchmarks import development_decision_contract as c
+from raregate.benchmarks import development_decision_native as n
+from raregate.benchmarks import development_decision_protocol as p
 
 
 @pytest.fixture
@@ -425,7 +425,7 @@ def test_default_production_wrapper_exact_generated_namespace(emitted, monkeypat
 
 
 def test_receipt_identity_mismatch_rejected_before_exit_claim(tmp_path):
-    from latenttrigger.benchmarks import development_decision_runtime as rt
+    from raregate.benchmarks import development_decision_runtime as rt
 
     grant = dict(identity=dict(task="0041"))
     body = dict(status="body_complete_awaiting_exit", identity=dict(task="0040"))

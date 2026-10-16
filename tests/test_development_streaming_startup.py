@@ -15,10 +15,10 @@ from unittest.mock import Mock
 
 import pytest
 
-from latenttrigger.streaming import cpu_runtime as cpu
-from latenttrigger.streaming import quota
-from latenttrigger.streaming import resources as r
-from latenttrigger.streaming import startup55 as q
+from raregate.streaming import cpu_runtime as cpu
+from raregate.streaming import quota
+from raregate.streaming import resources as r
+from raregate.streaming import startup55 as q
 
 
 class Oracle:
@@ -244,7 +244,7 @@ def fake_runtime(
             __version__="fake-torch",
             __config__=SimpleNamespace(show=lambda: "fake build"),
         ),
-        "latenttrigger.benchmarks.core": core,
+        "raregate.benchmarks.core": core,
         "h5py": SimpleNamespace(
             __version__="fake-hdf", version=SimpleNamespace(hdf5_version="fake")
         ),
@@ -293,7 +293,7 @@ def test_runtime_build_mismatch_preserves_actual_expected_and_raw(monkeypatch):
 
 
 @pytest.mark.parametrize(
-    "module", ["numpy", "torch", "latenttrigger.benchmarks.core", "h5py", "hdf5plugin"]
+    "module", ["numpy", "torch", "raregate.benchmarks.core", "h5py", "hdf5plugin"]
 )
 def test_real_initialization_import_boundary_failure_is_retained(monkeypatch, module):
     session, trace = fake_runtime(monkeypatch, fail_import=module)
@@ -371,7 +371,7 @@ def test_help_malformed_and_generic_guard_not_task_routed(monkeypatch):
         with pytest.raises(SystemExit) as e:
             script["main"]()
         assert e.value.code == code
-    fixture = ast.parse(Path("src/latenttrigger/streaming/fixture.py").read_text())
+    fixture = ast.parse(Path("src/raregate/streaming/fixture.py").read_text())
     core = next(
         n
         for n in fixture.body
@@ -379,10 +379,10 @@ def test_help_malformed_and_generic_guard_not_task_routed(monkeypatch):
     )
     calls = [ast.unparse(n.func) for n in ast.walk(core) if isinstance(n, ast.Call)]
     assert calls.index("resources.await_ready") < calls.index("producer.start")
-    text = Path("src/latenttrigger/streaming/validation_v2.py").read_text()
+    text = Path("src/raregate/streaming/validation_v2.py").read_text()
     assert 'quota.CURRENT.task == "0054"' not in text
     assert "heartbeat_joint(peaks, POLICY)" in text
-    runtime_source = Path("src/latenttrigger/streaming/cpu_runtime.py").read_text()
+    runtime_source = Path("src/raregate/streaming/cpu_runtime.py").read_text()
     assert (
         "source_bytes(" not in runtime_source
         and "np.load(" not in runtime_source
@@ -516,8 +516,9 @@ def test_runtime_primary_report_and_cleanup_failures_are_separate(monkeypatch):
     def restore():
         raise OSError("restore failed")
 
-    session.import_module("latenttrigger.benchmarks.core").configure_threads = (
-        lambda _: (SimpleNamespace(restore_original_limits=restore), {})
+    session.import_module("raregate.benchmarks.core").configure_threads = lambda _: (
+        SimpleNamespace(restore_original_limits=restore),
+        {},
     )
 
     def publish(value):
@@ -553,7 +554,7 @@ def test_journal_short_write_and_partial_constructor_cleanup(monkeypatch):
 
 
 def test_consumer_wrapper_preserves_runtime_primary_when_checkpoint_fails(monkeypatch):
-    from latenttrigger.streaming.hdf_consumer import record_initialization_failure
+    from raregate.streaming.hdf_consumer import record_initialization_failure
 
     evidence = dict(
         last_step="import_torch",
@@ -587,7 +588,7 @@ def test_consumer_wrapper_preserves_runtime_primary_when_checkpoint_fails(monkey
 def test_consumer_wrapper_partial_constructor_and_report_failure_independent(
     monkeypatch,
 ):
-    from latenttrigger.streaming.hdf_consumer import record_initialization_failure
+    from raregate.streaming.hdf_consumer import record_initialization_failure
 
     writer = Mock(side_effect=quota.QuotaError("full"))
     monkeypatch.setattr(quota, "CURRENT", SimpleNamespace(write_json=writer))

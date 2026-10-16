@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 def pytest_sessionfinish(session, exitstatus):
-    module = sys.modules.get("latenttrigger.research.controlled_activation.models")
+    module = sys.modules.get("raregate.research.controlled_activation.models")
     if module is not None and os.environ.get("TASK0035_COUNTER_OUTPUT"):
         Path(os.environ["TASK0035_COUNTER_OUTPUT"]).write_text(
             json.dumps(

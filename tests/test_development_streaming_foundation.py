@@ -10,8 +10,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from latenttrigger.streaming.generated import GeneratedBackend, gather, gather_plan
-from latenttrigger.streaming.protocol import (
+from raregate.streaming.generated import GeneratedBackend, gather, gather_plan
+from raregate.streaming.protocol import (
     TOKEN,
     Descriptor,
     Scheduler,
@@ -19,15 +19,15 @@ from latenttrigger.streaming.protocol import (
     position,
     read_metadata,
 )
-from latenttrigger.streaming.records import (
+from raregate.streaming.records import (
     STAGE,
     Store,
     decode,
     encode,
     reconcile,
 )
-from latenttrigger.streaming.supervision import Monitor, cleanup_children, safety
-from latenttrigger.streaming.transport import Ring
+from raregate.streaming.supervision import Monitor, cleanup_children, safety
+from raregate.streaming.transport import Ring
 
 
 class FakeMemory:
@@ -494,9 +494,9 @@ root=Path.cwd()
 def audit(event,args):
  if event=='open' and isinstance(args[0],(str,bytes)):
   p=str(args[0]);assert not any(x in p for x in ('/data/','/artifacts/','.npy','.h5','.pt'))
- if event=='import':assert not any(str(args[0]).startswith(x) for x in ('torch','h5py','latenttrigger.models','latenttrigger.data'))
+ if event=='import':assert not any(str(args[0]).startswith(x) for x in ('torch','h5py','raregate.models','raregate.data'))
 sys.addaudithook(audit)
-import latenttrigger.streaming.fixture
+import raregate.streaming.fixture
 from unittest.mock import patch
 with patch('multiprocessing.shared_memory.SharedMemory',side_effect=AssertionError('shared memory on help')):
  sys.argv=['validator','--help']
@@ -536,14 +536,13 @@ def test_no_forbidden_import_or_message_channel():
         "supervision",
         "fixture",
     ):
-        file = root / "src/latenttrigger/streaming" / (name + ".py")
+        file = root / "src/raregate/streaming" / (name + ".py")
         tree = ast.parse(file.read_text())
         imports = [
             n.module or "" for n in ast.walk(tree) if isinstance(n, ast.ImportFrom)
         ]
         assert not any(
-            "models" in s or "benchmarks" in s or "latenttrigger.data" in s
-            for s in imports
+            "models" in s or "benchmarks" in s or "raregate.data" in s for s in imports
         )
         calls = [
             n.func.attr
@@ -586,7 +585,7 @@ def test_batch_layout_external_offsets():
 
 
 def test_phase_storage_and_observed_faults(tmp_path):
-    from latenttrigger.streaming.records import Phases
+    from raregate.streaming.records import Phases
 
     class C:
         def observation(self):
@@ -606,7 +605,7 @@ def test_phase_storage_and_observed_faults(tmp_path):
 
 
 def test_timing_keeps_100ms_observation_without_imputing_drop():
-    from latenttrigger.streaming.records import timing_summary
+    from raregate.streaming.records import timing_summary
 
     e = [
         dict(status=2, intended=0, submission=1, admission=2),
@@ -662,7 +661,7 @@ def test_explicit_cancellation_is_not_uncertain_completion():
 
 
 def test_stage_projection_independent_cutoffs():
-    from latenttrigger.streaming.records import stage_projection
+    from raregate.streaming.records import stage_projection
 
     b = batch(
         m=2,
@@ -704,7 +703,7 @@ def test_extra_stage_timestamps_and_record_bound():
 
 
 def test_failed_cleanup_journal_cannot_prevent_release():
-    from latenttrigger.streaming.supervision import phase_during_cleanup, release_region
+    from raregate.streaming.supervision import phase_during_cleanup, release_region
 
     class BrokenPhases:
         def append(self, *args):
@@ -729,8 +728,8 @@ def test_failed_cleanup_journal_cannot_prevent_release():
 def test_fixture_config_matches_core_and_not_grant():
     import json
 
-    from latenttrigger.streaming.fixture import SCENARIOS
-    from latenttrigger.streaming.protocol import SHARED_BYTES
+    from raregate.streaming.fixture import SCENARIOS
+    from raregate.streaming.protocol import SHARED_BYTES
 
     cfg = json.loads(
         (
@@ -752,7 +751,7 @@ def test_fixture_config_matches_core_and_not_grant():
 def test_region_rejects_operational_path_before_open(monkeypatch):
     import os
 
-    from latenttrigger.streaming.transport import Region
+    from raregate.streaming.transport import Region
 
     def no_open(*args, **kwargs):
         pytest.fail("Opened unsupported path")
@@ -776,7 +775,7 @@ def test_terminal_overflow_preserves_credits():
 
 
 def test_cleanup_snapshot_failure_is_optional():
-    from latenttrigger.streaming.supervision import cleanup_snapshot
+    from raregate.streaming.supervision import cleanup_snapshot
 
     class Broken:
         def snapshot(self):

@@ -11,9 +11,9 @@ from types import SimpleNamespace
 
 import pytest
 
-from latenttrigger.supervision import particle_launcher as io
-from latenttrigger.supervision import particle_readiness as ctl
-from latenttrigger.supervision import particle_readiness_worker as worker
+from raregate.supervision import particle_launcher as io
+from raregate.supervision import particle_readiness as ctl
+from raregate.supervision import particle_readiness_worker as worker
 
 REAL_IDENTITY = ctl.identity
 
@@ -461,13 +461,13 @@ def test_workflow_definition_preserves_budget_and_old_manifest():
 
 
 def test_stdlib_parent_worker_import_and_source_acceptance_coverage():
-    code = "from latenttrigger.supervision import particle_readiness,particle_readiness_worker;from latenttrigger.supervision import particle_launcher as i;i.assert_lightweight()"
+    code = "from raregate.supervision import particle_readiness,particle_readiness_worker;from raregate.supervision import particle_launcher as i;i.assert_lightweight()"
     subprocess.run(
         [sys.executable, "-c", code], check=True, capture_output=True, timeout=10
     )
     for p in (
-        "src/latenttrigger/supervision/particle_readiness.py",
-        "src/latenttrigger/supervision/particle_readiness_worker.py",
+        "src/raregate/supervision/particle_readiness.py",
+        "src/raregate/supervision/particle_readiness_worker.py",
         "tests/test_particle_readiness_workflow.py",
     ):
         assert p in io.source_hashes()
@@ -476,8 +476,8 @@ def test_stdlib_parent_worker_import_and_source_acceptance_coverage():
 def test_check_worker_ready_never_constructs_store_model_optimizer(
     sandbox, monkeypatch
 ):
-    from latenttrigger.supervision import particle_worker as runtime_module
-    from latenttrigger.training import particle_monitor_v4 as monitor_module
+    from raregate.supervision import particle_worker as runtime_module
+    from raregate.training import particle_monitor_v4 as monitor_module
 
     _, bind = sandbox
     uid = "d" * 32

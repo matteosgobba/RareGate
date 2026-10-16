@@ -1,4 +1,4 @@
-# LatentTrigger v1 — Cosa abbiamo dimostrato e perché ci fermiamo qui
+# RareGate v1 — Cosa abbiamo dimostrato e perché ci fermiamo qui
 
 Abbiamo una baseline scientifica congelata, una fase CPU/sintetica conclusa nel suo
 ambito e due piccole osservazioni reali d'integrazione, separate per PCA e AE.
@@ -79,5 +79,5 @@ Esposizione YES/YES/YES e tutti gli esiti storici rimangono. Nessun nuovo task p
 [summary](../results/tables/final/task0059-v1-consolidation-summary.json) permettono
 controlli descrittivi da aggregati, non riproduzione di payload/distribuzioni o nuove
 misure. Task0059 svolge **zero nuovo lavoro operativo**,senza cancellare attività
-storica reale/generata. LatentTrigger resta ricerca indipendente ispirata al computing
+storica reale/generata. RareGate resta ricerca indipendente ispirata al computing
 LHC, senza affiliazione ufficiale CERN/esperimenti o dichiarazioni d'utilità scientifica.

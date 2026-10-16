@@ -3,7 +3,7 @@
 Task 0002, 2026-10-04. **Status: design decided; pipeline not implemented.**
 No event-data file has been downloaded or inspected. Source facts below were
 verified from primary documentation and small metadata responses. Split rules,
-schemas, transforms, and benchmark boundaries are LatentTrigger design decisions,
+schemas, transforms, and benchmark boundaries are RareGate design decisions,
 not claims about implemented features or measured results.
 
 > How much anomaly-detection performance can be retained when machine-learning
@@ -40,7 +40,7 @@ journal DOI [10.1088/1361-6633/ac36b9](https://doi.org/10.1088/1361-6633/ac36b9)
 
 The following are publisher metadata, not locally computed hashes or sizes:
 
-| Component in pinned record | Bytes | Published MD5 | LatentTrigger role |
+| Component in pinned record | Bytes | Published MD5 | RareGate role |
 | --- | ---: | --- | --- |
 | `events_anomalydetection_v2.h5` | 2,908,260,409 | `629789d55813be3860781b084ae7f1de` | Initial particle source; split background and reserve signal for testing. |
 | `events_anomalydetection_v2.features.h5` | 74,315,238 | `271cf5e71fc756b2a8d2b32730689bdb` | Optional later cross-check; not the primary model input. |
@@ -180,7 +180,7 @@ the released sample's class ratio is not a physical collision rate.
 
 Protocol name: `lhco-rd-v1`; seed: **1729**. The organizers provide R&D data for
 development and black boxes for the challenge, not a prescribed 70/15/15 R&D
-partition. Retain those roles; the following partition is LatentTrigger's own.
+partition. Retain those roles; the following partition is RareGate's own.
 
 1. Audit source schema/labels and create duplicate groups before selecting any
    subset or fitting statistics. Preserve source row ordinals. A duplicate

@@ -4,23 +4,23 @@ import h5py
 import numpy as np
 import pytest
 
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.data.features import (
+from raregate.benchmarks import protocol as p
+from raregate.data.features import (
     Parameters,
     canonicalize,
     physical_aggregates,
     standardized_aggregates,
 )
-from latenttrigger.data.inspection import event_fingerprints
-from latenttrigger.data.three_prong_v3_runtime import check_deadline
-from latenttrigger.evaluation import local_three_prong as controller
-from latenttrigger.evaluation import local_three_prong_core as n
-from latenttrigger.evaluation import local_three_prong_protocol as q
-from latenttrigger.evaluation import local_three_prong_worker as worker
-from latenttrigger.evaluation.guard import GuardError
-from latenttrigger.evaluation.local_three_prong_audit import Audit, exposure
-from latenttrigger.evaluation.metrics import at_threshold, evaluate_scores
-from latenttrigger.evaluation.thresholds import efficiency
+from raregate.data.inspection import event_fingerprints
+from raregate.data.three_prong_v3_runtime import check_deadline
+from raregate.evaluation import local_three_prong as controller
+from raregate.evaluation import local_three_prong_core as n
+from raregate.evaluation import local_three_prong_protocol as q
+from raregate.evaluation import local_three_prong_worker as worker
+from raregate.evaluation.guard import GuardError
+from raregate.evaluation.local_three_prong_audit import Audit, exposure
+from raregate.evaluation.metrics import at_threshold, evaluate_scores
+from raregate.evaluation.thresholds import efficiency
 
 
 class Clock:
@@ -373,9 +373,7 @@ def test_unknown_access_refused(tmp_path):
 def test_no_operational_network_fit_paths():
     import ast
 
-    code = (
-        p.ROOT / "src/latenttrigger/evaluation/local_three_prong_core.py"
-    ).read_text()
+    code = (p.ROOT / "src/raregate/evaluation/local_three_prong_core.py").read_text()
     tree = ast.parse(code)
     forbidden = {
         "acquire",
@@ -468,7 +466,7 @@ def test_assertion_monitor_lost_before_accounting(monkeypatch):
     monkeypatch.setattr(
         worker.AssertionMonitor.__module__
         and __import__(
-            "latenttrigger.data.three_prong_v3_worker", fromlist=["subprocess"]
+            "raregate.data.three_prong_v3_worker", fromlist=["subprocess"]
         ).subprocess,
         "check_output",
         lambda *args, **kwargs: "",
@@ -618,7 +616,7 @@ def test_cached_header_refuses_before_numeric_load(tmp_path, bad, monkeypatch):
 
 @pytest.mark.parametrize("bad", ["row_order", "wrong_label", "duplicate", "overlap"])
 def test_custody_failure_stops_before_scoring(tmp_path, monkeypatch, bad):
-    from latenttrigger.evaluation import local_three_prong_smoke as smoke
+    from raregate.evaluation import local_three_prong_smoke as smoke
 
     monkeypatch.setattr(smoke, "ContinuousClock", Clock)
     spec, _ = smoke.fixture(tmp_path)
@@ -651,7 +649,7 @@ def test_custody_failure_stops_before_scoring(tmp_path, monkeypatch, bad):
 
 
 def test_background_count_discrepancy_veto(tmp_path, monkeypatch):
-    from latenttrigger.evaluation import local_three_prong_smoke as smoke
+    from raregate.evaluation import local_three_prong_smoke as smoke
 
     monkeypatch.setattr(smoke, "ContinuousClock", Clock)
     spec, _ = smoke.fixture(tmp_path)
@@ -737,7 +735,7 @@ def test_owned_reporting_joins_all_thresholds_without_original_cache(tmp_path):
 
     from sklearn.metrics import precision_recall_curve, roc_curve
 
-    from latenttrigger.evaluation.local_three_prong_reporting import reporting
+    from raregate.evaluation.local_three_prong_reporting import reporting
 
     spec = q.load()
     base = tmp_path / q.OUTPUT

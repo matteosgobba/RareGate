@@ -8,7 +8,7 @@ import tempfile
 import time
 import uuid
 
-from latenttrigger.simulation import joint_protocol as p
+from raregate.simulation import joint_protocol as p
 
 
 def validate():
@@ -127,7 +127,7 @@ def validate():
         [
             sys.executable,
             "-m",
-            "latenttrigger.simulation.joint_native",
+            "raregate.simulation.joint_native",
             "--fixture-directory",
             str(native),
             "--bootstrap",
@@ -141,7 +141,7 @@ def validate():
     command = [
         sys.executable,
         "-m",
-        "latenttrigger.simulation.joint_native",
+        "raregate.simulation.joint_native",
         "--fixture-directory",
         str(roundtrip),
         "--acceptance",

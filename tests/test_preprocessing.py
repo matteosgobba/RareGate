@@ -10,10 +10,10 @@ import hdf5plugin
 import numpy as np
 import pytest
 
-from latenttrigger.data.acquisition import AcquisitionResult, Integrity
-from latenttrigger.data.inspection import event_fingerprints
-from latenttrigger.data.preprocessing import Inputs, build_store, main, prepare_inputs
-from latenttrigger.data.processed import (
+from raregate.data.acquisition import AcquisitionResult, Integrity
+from raregate.data.inspection import event_fingerprints
+from raregate.data.preprocessing import Inputs, build_store, main, prepare_inputs
+from raregate.data.processed import (
     ARRAY_DTYPES,
     ProcessedStore,
     StoreIntegrityError,
@@ -152,7 +152,7 @@ def test_verified_existing_store_reused_without_hdf_read(inputs, tmp_path, monke
     def fail(*args):
         raise AssertionError("Unexpected rebuild")
 
-    monkeypatch.setattr("latenttrigger.data.preprocessing.open_raw", fail)
+    monkeypatch.setattr("raregate.data.preprocessing.open_raw", fail)
     b = build_store(inputs, destination)
     assert a["scientific_sha256"] == b["scientific_sha256"]
 
@@ -184,7 +184,7 @@ def test_failed_stage_does_not_promote_or_damage_existing(
     def fail(*args):
         raise RuntimeError("Controlled write failure")
 
-    monkeypatch.setattr("latenttrigger.data.preprocessing.physical_aggregates", fail)
+    monkeypatch.setattr("raregate.data.preprocessing.physical_aggregates", fail)
     with pytest.raises(RuntimeError, match="Controlled"):
         build_store(inputs, destination, rebuild=True)
     assert (
@@ -261,11 +261,11 @@ def test_split_count_mismatch_fails_without_regeneration(tmp_path, monkeypatch):
     path.write_text(json.dumps(config))
     integrity = Integrity(**config["source_integrity"])
     monkeypatch.setattr(
-        "latenttrigger.data.preprocessing.acquire",
+        "raregate.data.preprocessing.acquire",
         lambda **kwargs: AcquisitionResult(tmp_path / "fake", integrity, False),
     )
     monkeypatch.setattr(
-        "latenttrigger.data.preprocessing.verify_split_artifacts", lambda *args: None
+        "raregate.data.preprocessing.verify_split_artifacts", lambda *args: None
     )
     report = {
         "source_integrity": config["source_integrity"],
@@ -315,7 +315,7 @@ def test_disk_budget_checked_before_staging(inputs, tmp_path, monkeypatch):
 
     usage = namedtuple("Usage", "total used free")
     monkeypatch.setattr(
-        "latenttrigger.data.preprocessing.shutil.disk_usage",
+        "raregate.data.preprocessing.shutil.disk_usage",
         lambda _: usage(100, 99, 1),
     )
     with pytest.raises(OSError, match="Insufficient disk"):

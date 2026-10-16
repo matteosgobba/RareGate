@@ -42,8 +42,8 @@ a fresh child imports/prepares the actual CPU framework stack.
 Readiness only, repeatable on separate explicit user invocations:
 
 ```bash
-cd /Users/matteosgobba/Documents/GitHub/latent-trigger
-.venv/bin/python -m latenttrigger.supervision.particle_readiness --check-readiness
+cd /Users/matteosgobba/Documents/GitHub/RareGate
+.venv/bin/python -m raregate.supervision.particle_readiness --check-readiness
 ```
 
 It performs at most one bounded readiness protocol and exits, **including when
@@ -57,8 +57,8 @@ independent task-owned workers/tokens/receipts and do not mix history.
 Deliberate characterization action, only when the user chooses to invoke it:
 
 ```bash
-cd /Users/matteosgobba/Documents/GitHub/latent-trigger
-.venv/bin/python -m latenttrigger.supervision.particle_readiness --run-characterization
+cd /Users/matteosgobba/Documents/GitHub/RareGate
+.venv/bin/python -m raregate.supervision.particle_readiness --run-characterization
 ```
 
 It always starts its own new readiness check. It never consumes a previously

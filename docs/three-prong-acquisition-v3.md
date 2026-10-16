@@ -145,7 +145,7 @@ Next request waits `max(fixed minimum after failure, remaining Retry-After)`;
 minimum backoffs 5/15/30/60/60 s, no deadline reset. HTTP dates convert once; malformed
 values preserve files and stop. Only preregistered transient errors may recover,
 within six requests and original transfer budget. 30 s socket timeout bounds blocking
-IO, not whole session. The User-Agent identifies LatentTrigger/Task0030.
+IO, not whole session. The User-Agent identifies RareGate/Task0030.
 
 Exactly one payload request, starting2026-10-11T16:08:16.948266+00:00:
 Range `bytes=29990748-`, response206, Content-Range

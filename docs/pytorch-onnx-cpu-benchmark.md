@@ -71,8 +71,8 @@ guards, model loaders, arithmetic and timing kernels unchanged. The stdlib-only
 controller supports:
 
 ```bash
-.venv/bin/python -m latenttrigger.benchmarks.pytorch_onnx_cpu --validate-prerequisites
-.venv/bin/python -m latenttrigger.benchmarks.pytorch_onnx_cpu --run-campaign
+.venv/bin/python -m raregate.benchmarks.pytorch_onnx_cpu --validate-prerequisites
+.venv/bin/python -m raregate.benchmarks.pytorch_onnx_cpu --run-campaign
 ```
 
 The second action is now **consumed and must not be replayed**. Even metadata

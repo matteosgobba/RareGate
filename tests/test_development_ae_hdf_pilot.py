@@ -14,7 +14,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from latenttrigger.streaming import (
+from raregate.streaming import (
     fixture,
     hdf_consumer,
     pilot54,
@@ -22,13 +22,13 @@ from latenttrigger.streaming import (
     quota,
     startup55,
 )
-from latenttrigger.streaming.ae_context import (
+from raregate.streaming.ae_context import (
     AE_PLAN,
     GeneratedFixture58,
     GeneratedSession58,
     PilotContext58,
 )
-from latenttrigger.streaming.pilot_context import CANDIDATES, PilotContext56, digest
+from raregate.streaming.pilot_context import CANDIDATES, PilotContext56, digest
 
 REPO = Path(__file__).resolve().parents[1]
 ROOT = REPO / pilot58.ROOT
@@ -303,7 +303,7 @@ def test_correct_activation_metadata_still_does_not_load_sources(ledger, monkeyp
     qualify = Mock()
     monkeypatch.setattr(pilot58, "check_qualification", qualify)
     source = Mock(side_effect=AssertionError("no source read"))
-    monkeypatch.setattr("latenttrigger.streaming.ae_context.source_bytes", source)
+    monkeypatch.setattr("raregate.streaming.ae_context.source_bytes", source)
     assert (
         ctx.validate_payload(REPO, AE_PLAN[0], hdf_consumer.Budget())["task"] == "0058"
     )
@@ -569,7 +569,7 @@ def test_generated_artifact_capability_rejects_original_entry_before_open(
         GeneratedFixture58, "specification", lambda *a: dict(allowed_files=[owned])
     )
     read = Mock(side_effect=AssertionError("must reject before reading"))
-    monkeypatch.setattr("latenttrigger.streaming.ae_context.source_bytes", read)
+    monkeypatch.setattr("raregate.streaming.ae_context.source_bytes", read)
     original = next(
         e
         for e in spec()["allowed_files"]

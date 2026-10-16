@@ -2,7 +2,7 @@
 
 import csv
 
-from latenttrigger.diagnostics import protocol as p
+from raregate.diagnostics import protocol as p
 
 
 def lineage_fixture(root, monkeypatch):
@@ -91,9 +91,9 @@ def lineage_fixture(root, monkeypatch):
         receipt["source_file_sha256"] = {
             name: p.file_hash(p.ROOT / name)
             for name in (
-                "src/latenttrigger/data/processed.py",
-                "src/latenttrigger/evaluation/guarded_core.py",
-                "src/latenttrigger/evaluation/local_three_prong_core.py",
+                "src/raregate/data/processed.py",
+                "src/raregate/evaluation/guarded_core.py",
+                "src/raregate/evaluation/local_three_prong_core.py",
             )
         }
         receipt.update(status="body_complete_awaiting_exit", phase=phase)

@@ -1,8 +1,12 @@
-# LatentTrigger
+# RareGate
 
 **Hardware-Aware Machine Learning for Real-Time LHC Event Selection**
 
-LatentTrigger is an independent research and engineering project inspired by the
+The project was renamed to RareGate on 2026-10-16. The Python package is now
+`raregate`; see the [naming and migration notes](docs/renaming.md) for installation
+and the historical identifiers preserved in scientific evidence.
+
+RareGate is an independent research and engineering project inspired by the
 computational challenges of real-time event selection at the Large Hadron
 Collider (LHC). It investigates how anomaly-detection quality changes when
 models must meet strict latency, throughput, and memory constraints.
@@ -10,7 +14,7 @@ models must meet strict latency, throughput, and memory constraints.
 ## Motivation
 
 Event selection motivates studying models that are both scientifically useful
-and computationally practical. LatentTrigger will treat model quality and
+and computationally practical. RareGate will treat model quality and
 deployment cost as joint design considerations, using LHC-like event data and
 clearly stated experimental assumptions.
 
@@ -46,8 +50,8 @@ and optimized runtimes remain separate questions.
 
 **Final scientific review and project report — Task0063, 2026-10-16:**
 `completed_final_scientific_review_and_report`. The current research cycle is closed.
-[Final English report](docs/latenttrigger-final-report.md),
-[final Italian decision brief](docs/latenttrigger-final-decision-brief.md),
+[Final English report](docs/raregate-final-report.md),
+[final Italian decision brief](docs/raregate-final-decision-brief.md),
 [claim/evidence map](results/tables/final/task0063-final-claims.csv),
 [review summary and sixteen audit dispositions](results/tables/final/task0063-final-review-summary.json)
 and [Italian handoff](docs/handoffs/0063-final-scientific-review-and-report.md).
@@ -881,7 +885,7 @@ and [handoff index](docs/handoffs/README.md).
 ## Repository structure
 
 ```text
-latent-trigger/
+RareGate/
 ├── .github/workflows/ci.yml     # CPU-only lint and test jobs
 ├── configs/data/               # Frozen data decisions and fitted statistics
 ├── data/README.md              # Local dataset policy
@@ -894,7 +898,7 @@ latent-trigger/
 ├── scripts/smoke_test.py        # Lightweight PyTorch diagnostic
 ├── scripts/analyze_training_data.py # Chunked scan, splits and training-only EDA
 ├── scripts/validate_preprocessing.py # Dev reconstruction and reproducibility checks
-├── src/latenttrigger/
+├── src/raregate/
 │   ├── __init__.py
 │   ├── data/acquisition.py      # Pinned, verified LHCO download CLI
 │   ├── benchmarks/             # Guarded frozen CPU inference benchmark
@@ -928,14 +932,14 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev,data]"
-python -c "import latenttrigger; print(latenttrigger.__version__)"
+python -c "import raregate; print(raregate.__version__)"
 ```
 
 Project metadata and dependencies live in `pyproject.toml`. Runtime dependencies
 are PyTorch, NumPy and scikit-learn (PCA and mature evaluation metrics). NumPy also
 prevents a missing-NumPy warning during PyTorch initialization. The `dev` extra
 adds pytest and Ruff. Hatchling builds the `src/`
-package and reads the version from `src/latenttrigger/__init__.py`.
+package and reads the version from `src/raregate/__init__.py`.
 The optional `data` extra adds h5py and the source's required Blosc decoder,
 hdf5plugin, for raw auditing/preprocessing and synthetic HDF integration tests.
 Acquisition itself uses the Python standard library.
@@ -972,7 +976,7 @@ execution. It downloads no data and trains no model.
 The reusable device utility is available as:
 
 ```python
-from latenttrigger.utils.device import get_device
+from raregate.utils.device import get_device
 
 device = get_device()
 ```
@@ -980,7 +984,7 @@ device = get_device()
 ## Dataset acquisition
 
 ```bash
-python -m latenttrigger.data.acquisition
+python -m raregate.data.acquisition
 ```
 
 The command verifies the pinned source before accepting or reusing it. Data and
@@ -990,7 +994,7 @@ for installation, verification, safe replacement, and bounded-audit commands.
 With the Task 0004 split artifacts present, build the convenience subset first:
 
 ```bash
-python -m latenttrigger.data.preprocessing --scope dev
+python -m raregate.data.preprocessing --scope dev
 ```
 
 The [preprocessing workflow](docs/preprocessing-pipeline.md) documents full builds,
@@ -1003,7 +1007,7 @@ With the verified full processed store present:
 
 ```bash
 python -m pip install -e ".[dev,data,analysis]"
-python -m latenttrigger.models.pca --config configs/models/pca_baseline.json
+python -m raregate.models.pca --config configs/models/pca_baseline.json
 ```
 
 This fits training background, selects six PCA components by the 95% training
@@ -1016,7 +1020,7 @@ reproduction and [the evaluation contract](docs/evaluation-protocol.md).
 With the verified full store and existing analysis extra installed:
 
 ```bash
-python -m latenttrigger.training.convergence
+python -m raregate.training.convergence
 ```
 
 The canonical 155-parameter model trains on CPU, selects its epoch using
@@ -1032,11 +1036,11 @@ The [frozen CPU benchmark](docs/frozen-cpu-benchmark.md) documents timing scopes
 thread enforcement, numerical checks, caps and the consumed Task0020 campaign.
 Its explicit `--run-campaign` action is consumed. The isolated
 [AE numerical review](docs/ae-batch-parity-review.md) adds
-`python -m latenttrigger.benchmarks.ae_parity_review --run-review` and
+`python -m raregate.benchmarks.ae_parity_review --run-review` and
 `--synthetic-study`; both fixed Task0021 actions have now completed and cannot be
 replayed. These historical actions provide no new performance allowance.
 The isolated [v2 benchmark](docs/frozen-cpu-benchmark-v2.md) uses
-`python -m latenttrigger.benchmarks.frozen_cpu_v2 --run-campaign`; its fixed
+`python -m raregate.benchmarks.frozen_cpu_v2 --run-campaign`; its fixed
 Task0022slot is also now complete/consumed. `--validate-prerequisites` remains
 metadata-only, never an execution grant.942full/portable checks cover the frozen
 new source/policy; raw arrays/timings/receipts/acceptance remain ignored. The
@@ -1044,14 +1048,14 @@ new source/policy; raw arrays/timings/receipts/acceptance remain ignored. The
 the result report. No replay/reset/alternate output is authorized.
 
 The isolated [CPU/MPS foundation](docs/frozen-cpu-mps-benchmark.md) exposes
-`python -m latenttrigger.benchmarks.cpu_mps --run-campaign`. Its one device-proof
+`python -m raregate.benchmarks.cpu_mps --run-campaign`. Its one device-proof
 attempt is consumed/blocked; the real campaign remains unreserved. Do not rerun:
 no old proof or final software-only repair acceptance grants device execution.
 [Device derivation](docs/arithmetic-mps-v1-policy.md) requires physical numerical /
 accounting proof. New91cases/1033full+portable checks pass; no timing CSV is created.
 
 The isolated [ONNX CPU foundation](docs/frozen-ae-onnx-cpu-export.md) provides
-`python -m latenttrigger.exports.onnx_controller --run-export`; its single frozen
+`python -m raregate.exports.onnx_controller --run-export`; its single frozen
 attempt is complete/consumed, not replayable. The optional `export` extra and
 [pinned wheel/baseline record](configs/dependencies/onnx_cpu_v1.json) document the
 additive dependencies; binary exports/diagnostics/acceptances/receipts stay ignored.
@@ -1139,7 +1143,7 @@ To format code during development, run `python -m ruff format .`.
 
 ## Disclaimer
 
-LatentTrigger is an independent project. It is not an official CERN, ATLAS, CMS,
+RareGate is an independent project. It is not an official CERN, ATLAS, CMS,
 or CERN openlab project and does not imply affiliation with or endorsement by
 those organizations. Future trigger-like experiments will be research
 approximations whose assumptions and limitations must be documented.

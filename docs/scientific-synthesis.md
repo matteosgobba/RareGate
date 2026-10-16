@@ -1,4 +1,4 @@
-# LatentTrigger — Frozen native scientific synthesis and quality/cost tradeoff
+# RareGate — Frozen native scientific synthesis and quality/cost tradeoff
 
 Task0027, 2026-10-11 (Europe/Rome). Completed initial study; offline synthesis of
 accepted Task0026 science and accepted Task0022 CPU costs. No new scientific
@@ -26,7 +26,7 @@ cannot be reblinded.
 
 ## Research question and initial-study scope
 
-LatentTrigger asks how anomaly-detection quality trades against computational
+RareGate asks how anomaly-detection quality trades against computational
 cost under constrained event selection. This initial study compares two frozen
 reconstruction baselines on the same eight aggregate features and one declared
 signal. It establishes scientific discrimination, utility at four frozen
@@ -423,7 +423,7 @@ MPLCONFIGDIR=/tmp/task0027-matplotlib .venv/bin/python scripts/synthesize_frozen
 ```
 
 The helper reads only the nine pinned curated sources; report/PNG sources are
-hashed, aggregates supply arithmetic. It imports no LatentTrigger module, model,
+hashed, aggregates supply arithmetic. It imports no RareGate module, model,
 reader, scoring or evaluation function. It writes only the two derived CSVs,
 summary and two PNGs. Formulas, input hashes, identities, status/scopes/exclusions,
 zero new counts and output hashes are in the summary. Same-environment regeneration

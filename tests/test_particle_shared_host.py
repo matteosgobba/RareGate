@@ -12,16 +12,16 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.models.particle_memory_study import StudyAudit
-from latenttrigger.models.particle_set import ParticleSetAutoencoder, event_loss
-from latenttrigger.supervision import particle_dev_policy as policy
-from latenttrigger.supervision import particle_launcher as io
-from latenttrigger.supervision import particle_shared_host as ctl
-from latenttrigger.supervision import particle_shared_host_worker as worker
-from latenttrigger.training.autoencoder import deterministic_cpu
-from latenttrigger.training.particle_monitor_v4 import optimizer_observer
-from latenttrigger.training.particle_process_budget import ProcessBudgetGuard
-from latenttrigger.training.particle_set import ResourceLimitError, adam
+from raregate.models.particle_memory_study import StudyAudit
+from raregate.models.particle_set import ParticleSetAutoencoder, event_loss
+from raregate.supervision import particle_dev_policy as policy
+from raregate.supervision import particle_launcher as io
+from raregate.supervision import particle_shared_host as ctl
+from raregate.supervision import particle_shared_host_worker as worker
+from raregate.training.autoencoder import deterministic_cpu
+from raregate.training.particle_monitor_v4 import optimizer_observer
+from raregate.training.particle_process_budget import ProcessBudgetGuard
+from raregate.training.particle_set import ResourceLimitError, adam
 
 
 def process(**changes):
@@ -247,7 +247,7 @@ def test_manifest_exact_identity_and_no_arbitrary_override(config):
 
 
 def test_default_cli_and_controller_are_lightweight():
-    code = "from latenttrigger.supervision import particle_readiness,particle_shared_host; from latenttrigger.supervision.particle_launcher import assert_lightweight; assert_lightweight()"
+    code = "from raregate.supervision import particle_readiness,particle_shared_host; from raregate.supervision.particle_launcher import assert_lightweight; assert_lightweight()"
     result = subprocess.run(
         [sys.executable, "-c", code], capture_output=True, text=True, timeout=10
     )
@@ -256,7 +256,7 @@ def test_default_cli_and_controller_are_lightweight():
         [
             sys.executable,
             "-m",
-            "latenttrigger.supervision.particle_readiness",
+            "raregate.supervision.particle_readiness",
             "--help",
         ],
         capture_output=True,
@@ -522,7 +522,7 @@ def test_dispatch_timeout_keeps_partial_check_unreserved(sandbox, monkeypatch):
 
 
 def test_all_old_routes_and_new_share_same_anchor_and_output():
-    from latenttrigger.supervision import (
+    from raregate.supervision import (
         particle_characterization,
         particle_readiness,
     )

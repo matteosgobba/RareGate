@@ -8,7 +8,7 @@ import tempfile
 import time
 import uuid
 
-from latenttrigger.simulation import protocol as p
+from raregate.simulation import protocol as p
 
 
 def validate():

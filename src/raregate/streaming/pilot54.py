@@ -1,0 +1,880 @@
+"""Task0054 closed manifest and one-session orchestration. No numeric imports."""
+
+import hashlib
+import json
+import os
+from pathlib import Path
+
+from . import quota
+from . import validation_v2 as v2
+from .protocol import require
+
+CONFIG = "configs/streaming/development_hdf_consumer_pilot_v1.json"
+ROOT_NAME = "session-v1"
+CAP = 32 * 1024**2
+
+
+def file_plan():
+    files = v2.file_plan()
+    files.update(
+        {
+            "bootstrap.json": 32768,
+            "software-checks.txt": 1048576,
+            "software-checks-2.txt": 1048576,
+            "pilot/prospective.json": 131072,
+            "pilot/activation.json": 4096,
+            "pilot/heartbeat.bin": 4096,
+            "pilot/custody.bin": 4096,
+            "pilot/observer.json": 16384,
+            "pilot/observer-emergency.txt": 1024,
+            "pilot/subject.json": 131072,
+            "pilot/emergency.txt": 4096,
+            "delivery-summary.json": 1048576,
+            "delivery-cases.csv": 65536,
+            "delivery-text.md": 131072,
+            "curated-pilot-summary-copy.reserved": 1048576,
+            "curated-pilot-cases-copy.reserved": 65536,
+        }
+    )
+    for candidate in ("pca-v1", "compact-autoencoder-v2"):
+        d = f"pilot/{candidate}"
+        files.update(
+            {
+                f"{d}/fixture-ring.shm": 12288,
+                f"{d}/events.bin": 64 * 512,
+                f"{d}/batches.bin": 64 * 512,
+                f"{d}/outputs.bin": 64 * 12,
+                f"{d}/producer-samples.bin": 768 * 64,
+                f"{d}/consumer-samples.bin": 4096 * 64,
+                f"{d}/result.json": 131072,
+                f"{d}/consumer-audit.bin": 65536,
+                f"{d}/consumer-final.json": 65536,
+            }
+        )
+        for role in ("producer", "consumer", "supervisor"):
+            files[f"{d}/{role}-phases.bin"] = 32 * 512
+    require(len(files) <= 512 and sum(files.values()) <= CAP, "Task0054 full ledger")
+    return files
+
+
+def initialize(root, repo):
+    require(
+        root == repo / "data/task0054-validation" / ROOT_NAME,
+        "Single new Task0054 root",
+    )
+    require(
+        not root.exists() and root.parent.resolve() == root.parent,
+        "No prior session overwrite or redirects",
+    )
+    files = file_plan()
+    root.mkdir(mode=0o700, parents=True)
+    ledger = quota.Ledger(root, files, task="0054")
+    ledger.write_json(
+        root / "ledger.json", dict(task="0054", cap_bytes=CAP, files=files)
+    )
+    ledger.write_json(
+        root / "owner.json", dict(task="0054", generated_and_conditional_pilot=True)
+    )
+    return quota.activate(root)
+
+
+def source_paths(repo):
+    return (
+        sorted((repo / "src/raregate/streaming").glob("*.py"))
+        + [
+            repo / "scripts/development_hdf_consumer_pilot.py",
+            repo / "tests/test_development_hdf_consumer_pilot.py",
+            repo / CONFIG,
+            repo / "docs/prompts/0054-development-hdf-consumer-pilot.md",
+        ]
+        + [
+            repo / x["path"]
+            for x in json.loads((repo / CONFIG).read_text())["reused_source_manifest"]
+        ]
+    )
+
+
+def source_manifest(repo):
+    return [
+        dict(
+            path=str(p.relative_to(repo)),
+            size_bytes=len(b),
+            sha256=hashlib.sha256(b).hexdigest(),
+        )
+        for p in source_paths(repo)
+        for b in [p.read_bytes()]
+    ]
+
+
+def prepare_generated(root, suite, repo):
+    ledger = quota.activate(root)
+    require(ledger.task == "0054" and ledger.entries == file_plan(), "Task0054 ledger")
+    require(suite in (1, 2), "Two suites maximum")
+    if suite == 2:
+        prior = json.loads((root / "suite-1/observer.json").read_text())
+        pilot_failure = root / "pilot/observer.json"
+        repaired_after_failed_pilot = (
+            pilot_failure.exists()
+            and not json.loads(pilot_failure.read_text())["qualified"]
+        )
+        require(
+            not prior["qualified"] or repaired_after_failed_pilot,
+            "Only correctness repair, no favorable rerun",
+        )
+    directory = root / f"suite-{suite}"
+    directory.mkdir(mode=0o700)
+    manifest = source_manifest(repo)
+    config = json.loads((repo / CONFIG).read_text())
+    validate_spec(config, repo)
+    for pin in config["code_manifest"]:
+        require(pin in manifest, "Configured source pin")
+    if suite == 2:
+        prior = json.loads((root / "suite-1/prospective.json").read_text())
+        require(
+            v2.fingerprint(manifest) != prior["bundle_sha256"],
+            "Repair requires new source",
+        )
+    ledger.write_json(
+        root / f"sources-{suite}.json",
+        {str(p.relative_to(repo)): p.read_text() for p in source_paths(repo)},
+    )
+    ledger.write_json(
+        directory / "prospective.json",
+        dict(
+            source_manifest=manifest,
+            bundle_sha256=v2.fingerprint(manifest),
+            task="0054",
+            generated_only=True,
+            case_order=[dict(id=n, offers=c, rate_hz=r) for n, c, r in v2.CASES],
+            reserved_bytes=sum(ledger.entries.values()),
+        ),
+    )
+    return ledger, directory, manifest
+
+
+def fixed_path(repo, entry):
+    """Check every ancestor before opening; no alternative paths, links or hardlinks."""
+    import stat
+
+    p = repo / entry["path"]
+    require(
+        not Path(entry["path"]).is_absolute() and ".." not in Path(entry["path"]).parts,
+        "Closed repository relative source",
+    )
+    current = repo
+    for part in Path(entry["path"]).parts:
+        current /= part
+        require(not current.is_symlink(), "No source symlink redirects")
+    info = p.stat()
+    require(
+        stat.S_ISREG(info.st_mode)
+        and info.st_nlink == 1
+        and info.st_size == entry["bytes"],
+        "Exact regular source size and ownership",
+    )
+    return p
+
+
+def source_bytes(repo, entry):
+    p = fixed_path(repo, entry)
+    require(entry["bytes"] <= 1048576, "Small closed source")
+    with p.open("rb") as f:
+        b = f.read(entry["bytes"] + 1)
+    require(
+        len(b) == entry["bytes"] and hashlib.sha256(b).hexdigest() == entry["sha256"],
+        "Closed source bytes",
+    )
+    return b
+
+
+def custody(root, ledger, spec, phase, clocks, heartbeat):
+    """One of exactly two monitored raw-byte passes; never an HDF open."""
+    import struct
+
+    entry = next(x for x in spec["allowed_files"] if x["role"] == "raw")
+    path = fixed_path(Path(__file__).resolve().parents[3], entry)
+    fd = (
+        ledger.open(root / "pilot/custody.bin", os.O_CREAT | os.O_EXCL | os.O_RDWR)
+        if phase == 1
+        else ledger.open(root / "pilot/custody.bin", os.O_RDWR)
+    )
+    if phase == 1:
+        quota.truncate(fd, 4096)
+    begin = clocks.continuous()
+    sha, count = hashlib.sha256(), 0
+    try:
+        # One fixed1MiB buffer; no allocating two adjacent read chunks.
+        buffer = bytearray(1048576)
+        with path.open("rb", buffering=0) as stream:
+            while n := stream.readinto(buffer):
+                require(clocks.continuous() - begin <= 45_000_000_000, "Custody45s")
+                sha.update(memoryview(buffer)[:n])
+                count += n
+                require(count <= entry["bytes"], "Custody growth")
+                heartbeat({})
+                b = struct.pack(
+                    "<QQQQ32s", phase, count, begin, clocks.continuous(), sha.digest()
+                )
+                require(
+                    quota.pwrite(fd, b, (phase - 1) * 128) == len(b), "Custody progress"
+                )
+        require(
+            count == entry["bytes"] and sha.hexdigest() == entry["sha256"],
+            "Raw custody identity",
+        )
+        return dict(
+            phase=phase,
+            bytes=count,
+            sha256=sha.hexdigest(),
+            elapsed_ns=clocks.continuous() - begin,
+            passed=True,
+        )
+    finally:
+        quota.close(fd)
+
+
+def controller_binding(context):
+    """Closed task binding; no caller-supplied controller/module/grant."""
+    from .ae_context import PilotContext58
+    from .pilot_context import PilotContext56
+
+    if type(context) is PilotContext58:
+        from . import pilot58
+
+        return pilot58
+    require(type(context) is PilotContext56, "Known operational controller context")
+    from . import pilot56
+
+    return pilot56
+
+
+def candidate_plan(context, repo):
+    from .ae_context import GeneratedSession58, PilotContext58
+    from .pilot_context import PilotContext56
+    from .session_context import GeneratedSession57
+
+    if type(context) in (GeneratedSession58, PilotContext58):
+        return context.candidate_plan(repo)
+    require(
+        context is None or type(context) in (PilotContext56, GeneratedSession57),
+        "Closed candidate session context",
+    )
+    return ("pca-v1", "compact-autoencoder-v2")
+
+
+def candidate_session(
+    root,
+    directory,
+    context,
+    heartbeat,
+    *,
+    save_case_reports=True,
+    candidate_phase=lambda _: None,
+):
+    """Actual sequential controller lifecycle shared by real and generated contexts.
+
+    This function neither grants activation nor performs custody. The caller owns
+    that distinct boundary. Session fd registration precedes every case snapshot.
+    """
+    import gc
+
+    from .cpu_runtime import exception_record
+    from .fixture import run_pilot_core, run_scoped_core
+    from .startup55 import Journal
+    from .supervision import Clocks
+
+    ledger = quota.CURRENT
+    journal = Journal(directory / "tracker.bin")
+    reports, checkpoints, cleanup_errors = [], [], []
+    primary = report_failure = None
+    plan = candidate_plan(context, Path(__file__).resolve().parents[3])
+    attempted = []
+    clocks = Clocks()
+    start = clocks.continuous()
+    generated = getattr(context, "task", None) in ("0057", "0058-generated")
+    limit = 15 if len(plan) == 1 and generated else 20
+
+    def beat(peaks):
+        if generated:
+            require(
+                clocks.continuous() - start <= (limit - 2) * 1_000_000_000,
+                "Sequential session18s reserves cleanup2s",
+            )
+        heartbeat(peaks)
+
+    try:
+        journal.open()  # Eager allocation/registration, NOT merely object creation.
+        checkpoints.append(dict(boundary="session_open", **journal.evidence()))
+        for candidate in plan:
+            candidate_phase(candidate)
+            beat({})
+            attempted.append(candidate)
+            journal.assert_owned()
+            checkpoints.append(
+                dict(boundary="before_" + candidate, **journal.evidence())
+            )
+            prior = set(quota.FDS)
+            path = directory / candidate
+
+            def publish(value, candidate=candidate):
+                if (
+                    generated
+                    and context.fault == "second-failure"
+                    and candidate == "compact-autoencoder-v2"
+                ):
+                    raise ValueError(
+                        "Injected AE pre-worker tracker publication failure"
+                    )
+                journal.write(value)
+
+            try:
+                if context is None:
+                    raw = run_pilot_core(
+                        path, candidate, quota_root=str(root), heartbeat=beat
+                    )
+                else:
+                    case_context = (
+                        context.for_candidate(candidate) if generated else context
+                    )
+                    raw = run_scoped_core(
+                        path,
+                        candidate,
+                        quota_root=str(root),
+                        heartbeat=beat,
+                        context=case_context,
+                        resource_publish=publish,
+                    )
+                report = v2.compact_report(raw)
+            finally:
+                cleanup_errors.extend(quota.emergency_release(prior, path))
+            require(not cleanup_errors, "Case emergency resource release")
+            gc.collect()
+            report["semaphore_cleanup"] = v2.semaphore_absence(
+                report["synchronization_inventory"]["owned_names"]
+            )
+            final_path = path / "consumer-final.json"
+            final = json.loads(final_path.read_text()) if final_path.exists() else None
+            report["real_consumer"] = final
+            report["candidate"] = candidate
+            report["expected_validity"] = "valid_drained_with_all_parity"
+            report["observed_validity"] = (
+                "valid"
+                if report["normal"] and final and final["valid"]
+                else "invalid_or_incomplete"
+            )
+            report["software_checks_passed"] &= bool(
+                final and final["valid"] and report["semaphore_cleanup"]["all_absent"]
+            )
+            if len(plan) == 1:
+                report["software_checks"]["nonzero_completed"] = bool(
+                    report.get("accounting")
+                    and report["accounting"]["after_stop"]["completed"] > 0
+                )
+                report["software_checks_passed"] &= report["software_checks"][
+                    "nonzero_completed"
+                ]
+            reports.append(report)
+            if save_case_reports:
+                try:
+                    ledger.write_json(path / "result.json", report)
+                except BaseException as exc:
+                    report_failure = exception_record(exc)
+                    raise
+            journal.assert_owned()
+            checkpoints.append(
+                dict(boundary="after_cleanup_" + candidate, **journal.evidence())
+            )
+            journal.write(dict(boundary="case_retired", candidate=candidate))
+            require(
+                report["software_checks_passed"],
+                "Unexpected pilot validity failure; no replacement",
+            )
+            beat({})
+    except BaseException as exc:
+        primary = exception_record(exc)
+        if hasattr(exc, "evidence"):
+            primary["observation_evidence"] = exc.evidence
+    finally:
+        before_close = journal.evidence()
+        try:
+            journal.close()
+        except BaseException as exc:
+            cleanup_errors.append(exception_record(exc))
+        after_close = journal.evidence()
+    elapsed = clocks.continuous() - start
+    if generated and elapsed > limit * 1_000_000_000:
+        cleanup_errors.append(
+            dict(type="TimeoutError", message="Sequential session20s")
+        )
+    return dict(
+        accepted=primary is None
+        and report_failure is None
+        and not cleanup_errors
+        and len(reports) == len(plan),
+        intended_candidates=list(plan),
+        attempted_candidates=attempted,
+        report_failure=report_failure,
+        candidates=reports,
+        primary_failure=primary,
+        cleanup_failures=cleanup_errors,
+        journal_checkpoints=checkpoints,
+        journal_before_close=before_close,
+        journal_after_close=after_close,
+        session_inclusive_ns=elapsed,
+        unattempted_candidates=[c for c in plan if c not in attempted],
+    )
+
+
+def pilot_subject(root, *, context=None):
+    """No payload reads occur before immutable activation and source verification."""
+    import signal
+
+    from .supervision import Clocks
+
+    repo = Path(__file__).resolve().parents[3]
+    ledger = quota.activate(root)
+    if context is None:
+        bound_manifest, bound_task = source_manifest, "0054"
+        spec = json.loads((repo / CONFIG).read_text())
+    else:
+        binding = controller_binding(context)
+        bound_manifest, bound_task = (
+            binding.source_manifest,
+            binding.TASK if hasattr(binding, "TASK") else "0056",
+        )
+        spec = context.specification(repo)
+        binding.check_qualification(root, repo)
+    prospective = json.loads((root / "pilot/prospective.json").read_text())
+    require(
+        bound_manifest(repo) == prospective["source_manifest"], "Final pilot bundle"
+    )
+    clocks = Clocks()
+    hb = ledger.open(root / "pilot/heartbeat.bin", os.O_CREAT | os.O_EXCL | os.O_RDWR)
+    quota.truncate(hb, 4096)
+    phase, generation = 1, 0
+    results, hashes, problem = [], [], None
+    primary = report_failure = None
+    cleanup_failures = []
+    session = None
+    plan = candidate_plan(context, repo)
+
+    def candidate_phase(candidate):
+        nonlocal phase
+        phase = 2 + plan.index(candidate)
+
+    def heartbeat(peaks):
+        nonlocal generation
+        generation += 1
+        v2.write_heartbeat(hb, clocks, peaks, (phase << 32) + generation)
+
+    def terminate(signum, frame):
+        raise TimeoutError("Pilot external termination")
+
+    signal.signal(signal.SIGTERM, terminate)
+    # Exclusive activation consumes the grant, including a partial activation file.
+    activation_created = False
+    try:
+        ledger.write_json(
+            root / "pilot/activation.json",
+            dict(
+                task=bound_task,
+                root=str(root),
+                subject_pid=os.getpid(),
+                single_session=True,
+                candidate_plan=list(plan),
+                bundle_sha256=prospective["bundle_sha256"],
+                continuous_ns=clocks.continuous(),
+            ),
+        )
+        activation_created = True
+        heartbeat({})
+        hashes.append(custody(root, ledger, spec, 1, clocks, heartbeat))
+        phase = 2
+        session = candidate_session(
+            root, root / "pilot", context, heartbeat, candidate_phase=candidate_phase
+        )
+        primary = session["primary_failure"]
+        report_failure = session["report_failure"]
+        cleanup_failures.extend(session["cleanup_failures"])
+        results = [
+            dict(candidate=r["candidate"], valid=r["software_checks_passed"])
+            for r in session["candidates"]
+        ]
+        require(
+            session["accepted"], "Unexpected pilot validity failure; no replacement"
+        )
+    except Exception as exc:
+        problem = (type(exc).__name__ + ": " + str(exc))[:900]
+        from .cpu_runtime import exception_record
+
+        primary = primary or exception_record(exc)
+        try:
+            ledger.write_bytes(root / "pilot/emergency.txt", problem.encode())
+        except (ValueError, OSError) as report_exc:
+            report_failure = exception_record(report_exc)
+    finally:
+        from .cpu_runtime import exception_record
+
+        activation_created = (
+            activation_created or (root / "pilot/activation.json").exists()
+        )
+        phase = 4
+        if activation_created:
+            try:
+                heartbeat({})
+                hashes.append(custody(root, ledger, spec, 2, clocks, heartbeat))
+            except BaseException as exc:
+                problem = problem or (type(exc).__name__ + ": " + str(exc))[:900]
+                primary = primary or exception_record(exc)
+        phase = 5
+        try:
+            heartbeat({})
+            frozen = bound_manifest(repo) == prospective["source_manifest"]
+        except BaseException as exc:
+            frozen = False
+            report_failure = report_failure or exception_record(exc)
+        # Independent teardown before final serialization. The external watcher
+        # still observes report stalls using the last heartbeat and whole deadline.
+        try:
+            quota.close(hb)
+        except BaseException as exc:
+            cleanup_failures.append(exception_record(exc))
+        qualified = bool(
+            problem is None
+            and report_failure is None
+            and not cleanup_failures
+            and session
+            and session["accepted"]
+            and len(results) == len(plan)
+            and len(hashes) == 2
+            and frozen
+        )
+        value = dict(
+            qualified=qualified,
+            problem=problem,
+            primary_failure=primary,
+            report_failure=report_failure,
+            cleanup_failures=cleanup_failures,
+            intended_candidates=list(plan),
+            attempted_candidates=session["attempted_candidates"] if session else [],
+            session_lifecycle={k: v for k, v in session.items() if k != "candidates"}
+            if session
+            else None,
+            cases=results,
+            custody=hashes,
+            source_unchanged=frozen,
+            unattempted_candidates=[
+                c
+                for c in plan
+                if c not in (session["attempted_candidates"] if session else [])
+            ],
+            operational_access_activated=activation_created,
+        )
+        # Partial custody progress is owned diagnostic metadata, never a third raw pass.
+        value["custody_progress"] = custody_progress(root)
+        try:
+            ledger.write_json(root / "pilot/subject.json", value)
+        except BaseException as exc:
+            value["qualified"] = False
+            value["report_failure"] = exception_record(exc)
+            try:
+                ledger.write_json(root / "pilot/subject-emergency.json", value)
+            except BaseException:
+                pass
+    return int(not value["qualified"])
+
+
+def custody_progress(root):
+    """Last persisted byte counters; a failed unlogged tail stays unknown."""
+    import struct
+
+    path = root / "pilot/custody.bin"
+    if not path.exists():
+        return []
+    require(path.stat().st_size <= 4096, "Bounded custody journal before read")
+    blob = path.read_bytes()
+    require(len(blob) <= 4096, "Bounded custody journal")
+    values = []
+    for phase in (1, 2):
+        offset = (phase - 1) * 128
+        if len(blob) < offset + 64:
+            continue
+        p, count, start, last, sha = struct.unpack_from("<QQQQ32s", blob, offset)
+        if p == phase:
+            values.append(
+                dict(
+                    phase=p,
+                    persisted_bytes_lower_bound=count,
+                    start_continuous_ns=start,
+                    last_continuous_ns=last,
+                    partial_sha256=sha.hex(),
+                    unlogged_failed_tail="unknown if pass failed",
+                )
+            )
+    return values
+
+
+def observe_pilot(root, *, context=None):
+    """Narrow external180s watchdog, before subject imports through reap/retirement."""
+    import subprocess
+    import sys
+    import time
+
+    from .supervision import Clocks, Monitor, own_rss
+
+    repo = Path(__file__).resolve().parents[3]
+    ledger = quota.activate(root)
+    if context is None:
+        bound_task, bound_plan, bound_manifest, bound_validate = (
+            "0054",
+            file_plan,
+            source_manifest,
+            validate_spec,
+        )
+        config_path, script_path = CONFIG, "scripts/development_hdf_consumer_pilot.py"
+    else:
+        binding = controller_binding(context)
+        bound_task, bound_plan, bound_manifest, bound_validate = (
+            binding.TASK if hasattr(binding, "TASK") else "0056",
+            binding.file_plan,
+            binding.source_manifest,
+            binding.validate_spec,
+        )
+        config_path, script_path = binding.CONFIG, binding.SCRIPT
+        binding.check_qualification(root, repo)
+    require(
+        ledger.task == bound_task and ledger.entries == bound_plan(),
+        "Global32MiB ledger",
+    )
+    require(
+        not (root / "pilot/activation.json").exists(), "One operational session only"
+    )
+    manifest = bound_manifest(repo)
+    receipts = [json.loads(p.read_text()) for p in root.glob("suite-*/observer.json")]
+    require(
+        any(r["qualified"] and r["source_manifest"] == manifest for r in receipts),
+        "Full final-source generated qualification",
+    )
+    spec = json.loads((repo / config_path).read_text())
+    bound_validate(spec, repo)
+    require(
+        (
+            spec["software_prerequisites_passed"]
+            or (bound_task == "0058" and spec["requires_final_qualification"])
+        )
+        and spec["pilot_scope_authorized"]
+        and not spec["full_study_execution_authorized"],
+        "Bound conditional grant",
+    )
+    directory = root / "pilot"
+    directory.mkdir(mode=0o700)
+    ledger.write_json(
+        directory / "prospective.json",
+        dict(
+            source_manifest=manifest,
+            bundle_sha256=v2.fingerprint(manifest),
+            case_order=list(candidate_plan(context, repo)),
+            payload_access_not_yet_started=True,
+        ),
+    )
+    clocks = Clocks()
+    before = clocks.observation()
+    monitor = Monitor(*before[:2])
+    start = before[1]
+    phase_start = start
+    last_phase = 0
+    process = None
+    problem = None
+    cleanup = None
+    peak = own_rss()
+    latest = None
+    try:
+        process = subprocess.Popen(
+            [
+                sys.executable,
+                str(repo / script_path),
+                "--pilot-subject",
+                "--root",
+                str(root),
+            ],
+            cwd=repo,
+            start_new_session=True,
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env={
+                **os.environ,
+                **spec["thread_environment"],
+                "PYTHONDONTWRITEBYTECODE": "1",
+            },
+        )
+        while process.poll() is None:
+            service, now, _ = clocks.observation()
+            monitor.observe(service, now)
+            require(now - start <= 178_000_000_000, "Pilot180s cleanup reserve")
+            peak = max(peak, own_rss())
+            require(peak <= v2.OUTER_RSS, "Pilot outer48MiB")
+            h = v2.read_heartbeat(directory / "heartbeat.bin")
+            if h:
+                latest = h
+                phase = h[1] >> 32
+                if phase != last_phase:
+                    phase_start, last_phase = now, phase
+                cap = {1: 45, 2: 30, 3: 30, 4: 45, 5: 30}[phase]
+                require(now - phase_start <= cap * 1_000_000_000, "Pilot phase ceiling")
+                require(
+                    now - h[2] <= 2_000_000_000, "Pilot reporting/custody heartbeat2s"
+                )
+                require(
+                    h[3] <= v2.INNER_RSS and h[4] <= 64 * 1024**2 and h[5] <= 1024**3,
+                    "Pilot role RSS",
+                )
+                require(
+                    peak + h[6] <= 512 * 1024**2 and peak + h[6] <= 1216 * 1024**2,
+                    "Pilot summed resident charge",
+                )
+            else:
+                require(now - start <= 10_000_000_000, "Pilot subject startup10s")
+            time.sleep(0.005)
+        process.wait()
+    except Exception as exc:
+        problem = (type(exc).__name__ + ": " + str(exc))[:900]
+    finally:
+        if process is not None:
+            cleanup = v2.tree_cleanup(
+                process,
+                clocks,
+                min(start + 180_000_000_000, clocks.continuous() + 2_000_000_000),
+            )
+        after = clocks.observation()
+    path = directory / "subject.json"
+    try:
+        subject = json.loads(path.read_text()) if path.exists() else None
+    except (OSError, ValueError):
+        subject = None
+    receipt = dict(
+        qualified=bool(
+            not problem
+            and subject
+            and subject["qualified"]
+            and cleanup
+            and cleanup["subject_reaped"]
+            and cleanup["owned_group_absent"]
+            and not cleanup["forced"]
+            and cleanup["exitcode"] == 0
+        ),
+        problem=problem,
+        subject=subject,
+        cleanup=cleanup,
+        source_manifest=manifest,
+        bundle_sha256=v2.fingerprint(manifest),
+        subject_service_bracket_ns=[before[0], after[0]],
+        subject_continuous_bracket_ns=[before[1], after[1]],
+        subject_lifetime_ns=after[1] - before[1],
+        observer_receipt_outside_subject=True,
+        observer_overhead_reserve_ns=2_000_000_000,
+        outer_peak_RSS_bytes=peak,
+        maximum_monitor_gap_ns=monitor.maximum_gap,
+        last_heartbeat=list(latest[1:]) if latest else None,
+        storage=ledger.inventory(),
+    )
+    try:
+        ledger.write_json(directory / "observer.json", receipt)
+    except (OSError, quota.QuotaError) as exc:
+        receipt["qualified"] = False
+        receipt["receipt_error"] = str(exc)[:800]
+        try:
+            ledger.write_bytes(
+                directory / "observer-emergency.txt", b"RECEIPT_FAILURE_AFTER_CLEANUP\n"
+            )
+        except (OSError, quota.QuotaError):
+            pass
+    require(
+        clocks.continuous() - start <= 180_000_000_000,
+        "Whole pilot including observer receipt",
+    )
+    return receipt
+
+
+def own_tracker_rss():
+    """Legacy name delegates typed observation; no private16MiB partition remains.
+
+    This does not reopen the consumed Task0054 activation or change its evidence.
+    """
+    from .resources import TrackerBudget
+
+    return TrackerBudget().observe()["rss_bytes"]
+
+
+def validate_spec(spec, repo):
+    """Closed curated expectations, never recursive byte_pins/payload traversal."""
+    method = json.loads(
+        (
+            repo / "configs/benchmarks/development_targeted_raw_decision_v1.json"
+        ).read_text()
+    )
+    require(
+        spec["task"] == "0054"
+        and spec["pilot_scope_authorized"]
+        and not spec["full_study_execution_authorized"],
+        "Task0054 scope",
+    )
+    for key in (
+        "models",
+        "membership",
+        "golden",
+        "raw",
+        "cache",
+        "runtime",
+        "thread_environment",
+    ):
+        require(spec[key] == method[key], "Original method identity:" + key)
+    expected = {
+        role: (method[role]["path"], method[role]["file_sha256"])
+        for role in ("raw", "membership", "golden")
+    }
+    for role, path in method["lineage"].items():
+        if role != "dev_scientific_sha256":
+            expected[role] = (path, method["byte_pins"][path])
+    path = method["transform_config"]
+    expected["transform"] = (path, method["byte_pins"][path])
+    for entry in method["models"]:
+        for role, key in (
+            ("model", "model"),
+            ("config", "config"),
+            ("calibration", "results"),
+        ):
+            expected[entry["name"] + ":" + role] = (
+                entry[key + "_path"],
+                entry[key + "_file_sha256"],
+            )
+    actual = {e["role"]: (e["path"], e["sha256"]) for e in spec["allowed_files"]}
+    require(
+        len(actual) == len(spec["allowed_files"]) == 17 and actual == expected,
+        "Exact expanded17-source allowlist",
+    )
+    require(
+        all(type(e["bytes"]) is int and e["bytes"] > 0 for e in spec["allowed_files"]),
+        "Finite source sizes",
+    )
+    for x in spec["reused_source_manifest"]:
+        blob = (repo / x["path"]).read_bytes()
+        require(
+            len(blob) == x["size_bytes"]
+            and hashlib.sha256(blob).hexdigest() == x["sha256"],
+            "Frozen reused code",
+        )
+    require(
+        spec["file_ledger"] == file_plan()
+        and spec["limits"]["storage_bytes"] == CAP
+        and spec["limits"]["reserved_bytes"] == sum(file_plan().values()),
+        "Closed diagnostic ledger",
+    )
+    require(
+        [c["id"] for c in spec["case_order"]] == ["pca-v1", "compact-autoencoder-v2"]
+        and all(
+            c["offers"] == 64 and c["rate_hz"] == 500 and c["horizon_ns"] == 128000000
+            for c in spec["case_order"]
+        ),
+        "Only two64/500 cases",
+    )

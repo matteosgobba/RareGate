@@ -9,11 +9,11 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.data.features import Parameters
-from latenttrigger.data.processed import ProcessedStore, content_hash
-from latenttrigger.models import particle_background as bg
-from latenttrigger.models.autoencoder import validate_config as validate_ae
-from latenttrigger.models.particle_set import (
+from raregate.data.features import Parameters
+from raregate.data.processed import ProcessedStore, content_hash
+from raregate.models import particle_background as bg
+from raregate.models.autoencoder import validate_config as validate_ae
+from raregate.models.particle_set import (
     ParticleSetAutoencoder,
     _event_loss,
     design,
@@ -23,8 +23,8 @@ from latenttrigger.models.particle_set import (
     validate_completion,
     validate_config,
 )
-from latenttrigger.training import particle_set as training
-from latenttrigger.training.autoencoder import EarlyStopping, deterministic_cpu
+from raregate.training import particle_set as training
+from raregate.training.autoencoder import EarlyStopping, deterministic_cpu
 
 
 @pytest.fixture

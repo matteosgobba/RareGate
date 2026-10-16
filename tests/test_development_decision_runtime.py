@@ -5,16 +5,16 @@ from types import SimpleNamespace
 
 import pytest
 
-from latenttrigger.benchmarks import development_decision_native as native
-from latenttrigger.benchmarks import development_decision_protocol as p
-from latenttrigger.benchmarks import development_decision_runtime as rt
-from latenttrigger.evaluation.guard import GuardError
+from raregate.benchmarks import development_decision_native as native
+from raregate.benchmarks import development_decision_protocol as p
+from raregate.benchmarks import development_decision_runtime as rt
+from raregate.evaluation.guard import GuardError
 
 
 @pytest.mark.parametrize(
     "event,args",
     [
-        ("import", ("latenttrigger.data.preprocessing",)),
+        ("import", ("raregate.data.preprocessing",)),
         ("socket.connect", ()),
         ("subprocess.Popen", ()),
     ],
@@ -127,7 +127,7 @@ def test_assertion_failure_release_preserved_no_operational_load(
         ),
     )
     monkeypatch.setattr(rt, "supervise", supervisor)
-    from latenttrigger.benchmarks import development_decision_contract as contract
+    from raregate.benchmarks import development_decision_contract as contract
 
     monkeypatch.setattr(
         contract,
@@ -232,7 +232,7 @@ def test_storage_log_and_total_bounds(tmp_path):
 
 
 def test_continuous_suspension_and_narrow_guard_ceiling():
-    from latenttrigger.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
+    from raregate.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
 
     now = [1.0]
     row = dict(
@@ -258,7 +258,7 @@ def test_continuous_suspension_and_narrow_guard_ceiling():
 
 @pytest.mark.parametrize("fault", ["critical", "invalid_primary", "unavailable"])
 def test_scoped_pressure_primary_policy(fault):
-    from latenttrigger.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
+    from raregate.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
 
     row = dict(
         peak_rss_bytes=1,
@@ -288,7 +288,7 @@ def test_scoped_pressure_primary_policy(fault):
 def test_module_presence_does_not_allow_store_fitting_optimizer(tmp_path):
     import numpy as np
 
-    from latenttrigger.benchmarks import core
+    from raregate.benchmarks import core
 
     blocked = rt.ProhibitedOperations(core)
     try:
@@ -309,7 +309,7 @@ def test_module_presence_does_not_allow_store_fitting_optimizer(tmp_path):
 
 
 def test_canonical_build_hash_is_not_raw_build_hash():
-    from latenttrigger.benchmarks.pytorch_onnx_cpu_protocol import build_hashes
+    from raregate.benchmarks.pytorch_onnx_cpu_protocol import build_hashes
 
     text = "owned synthetic CPU build\n"
     values = build_hashes(text)

@@ -5,9 +5,9 @@ import time
 
 import pytest
 
-from latenttrigger.benchmarks import development_payload_protocol as p
-from latenttrigger.benchmarks import development_payload_provider as provider
-from latenttrigger.benchmarks.development_payload_native import (
+from raregate.benchmarks import development_payload_protocol as p
+from raregate.benchmarks import development_payload_provider as provider
+from raregate.benchmarks.development_payload_native import (
     reserve,
     synthetic_prefix,
 )

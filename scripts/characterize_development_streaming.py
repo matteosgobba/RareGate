@@ -10,7 +10,7 @@ def main():
     args = parser.parse_args()
     if not args.run_generated_characterization or not args.output:
         parser.error("Explicit generated activation and fresh absolute output required")
-    from latenttrigger.streaming.characterization import characterize
+    from raregate.streaming.characterization import characterize
 
     result = characterize(args.output)
     print(

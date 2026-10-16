@@ -9,9 +9,9 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from latenttrigger.research import decisive_adc_evaluation as e
-from latenttrigger.research.decisive_adc import data, models
-from latenttrigger.research.decisive_adc import statistics as stats
+from raregate.research import decisive_adc_evaluation as e
+from raregate.research.decisive_adc import data, models
+from raregate.research.decisive_adc import statistics as stats
 
 
 @pytest.fixture
@@ -478,7 +478,7 @@ def capture_extension_toy_work(tmp_path_factory):
     yield
     import os
 
-    owned = os.environ.get("LATENTTRIGGER_ADC_TEST_ROOT")
+    owned = os.environ.get("RAREGATE_ADC_TEST_ROOT")
     directory = Path(owned) if owned else tmp_path_factory.getbasetemp()
     target = directory / "extension-toy-work.json"
     target.write_text(
@@ -542,7 +542,7 @@ def test_actual_supplementary_phase_IO_guard(generated):
     context, _ = generated
     script = f"""from types import SimpleNamespace
 from pathlib import Path
-from latenttrigger.research import decisive_adc_evaluation as evaluation
+from raregate.research import decisive_adc_evaluation as evaluation
 c=SimpleNamespace(input_root=Path({str(context.input_root)!r}),output=Path({str(context.output)!r}),authorized_final=False)
 evaluation.ROOT=c.input_root.parent
 evaluation.install_guard(c,'development')

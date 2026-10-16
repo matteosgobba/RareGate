@@ -5,16 +5,16 @@ import random
 
 import pytest
 
-from latenttrigger.simulation import occupancy_admission as admission
-from latenttrigger.simulation import occupancy_protocol as p
-from latenttrigger.simulation import occupancy_source as source
-from latenttrigger.simulation.engine import Policy, Trace
-from latenttrigger.simulation.engine import simulate as original_simulate
-from latenttrigger.simulation.joint_engine import ReplayPolicy
-from latenttrigger.simulation.occupancy_engine import Assignment, anchor, simulate
-from latenttrigger.simulation.occupancy_fixture import create
-from latenttrigger.simulation.occupancy_runtime import check_access
-from latenttrigger.simulation.occupancy_sweep import contrasts
+from raregate.simulation import occupancy_admission as admission
+from raregate.simulation import occupancy_protocol as p
+from raregate.simulation import occupancy_source as source
+from raregate.simulation.engine import Policy, Trace
+from raregate.simulation.engine import simulate as original_simulate
+from raregate.simulation.joint_engine import ReplayPolicy
+from raregate.simulation.occupancy_engine import Assignment, anchor, simulate
+from raregate.simulation.occupancy_fixture import create
+from raregate.simulation.occupancy_runtime import check_access
+from raregate.simulation.occupancy_sweep import contrasts
 
 
 def vectors(b, natural=5, control=7):
@@ -456,7 +456,7 @@ def test_mapping_interaction_signs_and_four_denominators():
                 **{
                     k: n
                     for k in __import__(
-                        "latenttrigger.simulation.occupancy_sweep", fromlist=["DIFFS"]
+                        "raregate.simulation.occupancy_sweep", fromlist=["DIFFS"]
                     ).DIFFS
                 },
             )
@@ -483,7 +483,7 @@ def test_planner_full_grid_and_bounds():
     "event,args",
     [
         ("import", ("h5py",)),
-        ("import", ("latenttrigger.models.pca",)),
+        ("import", ("raregate.models.pca",)),
         ("subprocess.Popen", ()),
         ("socket.connect", ()),
         ("open", ("/tmp/model.npy", "r", 0)),
@@ -679,7 +679,7 @@ def test_immutable_claim_rejection(software, failure):
 def test_independent_worker_rejects_before_guard_or_source(software, failure):
     import os
 
-    from latenttrigger.simulation import occupancy_native as native
+    from raregate.simulation import occupancy_native as native
 
     directory, record = software
     base = directory / ("c" * 32)
@@ -718,7 +718,7 @@ def test_independent_worker_rejects_before_guard_or_source(software, failure):
 def test_controller_bad_serialized_record_has_no_dispatch_effect(software, monkeypatch):
     from tests.runtime_fixtures import SyntheticClock
 
-    from latenttrigger.simulation import occupancy_native as native
+    from raregate.simulation import occupancy_native as native
 
     directory, record = software
     v = p.read(record)
@@ -749,7 +749,7 @@ def test_full_occupancy_only_mapping_negative_control(n):
 def test_storage_scan_owned_atomic_temp_race(tmp_path, monkeypatch):
     from pathlib import Path
 
-    from latenttrigger.simulation.occupancy_runtime import storage_check
+    from raregate.simulation.occupancy_runtime import storage_check
 
     published = tmp_path / "counters.json"
     published.write_text("{}")
@@ -779,7 +779,7 @@ def test_existing_generator_contract_independent_streams(mode, rate, seed):
 
     import numpy as np
 
-    from latenttrigger.simulation.traces import generate
+    from raregate.simulation.traces import generate
 
     tr, meta = generate(mode, rate, seed, count=31)
     mode_id = ("periodic", "poisson").index(mode)

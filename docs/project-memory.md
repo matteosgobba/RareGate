@@ -1,6 +1,6 @@
-# LatentTrigger - Living Project Memory
+# RareGate - Living Project Memory
 
-> **Purpose:** This is the maintained, project-wide memory of LatentTrigger. It preserves the project's intent, scientific contracts, architectural decisions, rationale, current canonical state, and future direction. Read it at the start of a new implementation or planning session, and update it as part of every task that changes project state or understanding.
+> **Purpose:** This is the maintained, project-wide memory of RareGate. It preserves the project's intent, scientific contracts, architectural decisions, rationale, current canonical state, and future direction. Read it at the start of a new implementation or planning session, and update it as part of every task that changes project state or understanding.
 >
 > **This is not a task handoff.** Handoffs record what happened during individual tasks. This file explains what the project is, why it is being built this way, what remains to be established, and how the accumulated evidence should guide the next task. It complements the existing handoff system without replacing or duplicating it.
 
@@ -9,15 +9,15 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.58 |
+| Memory revision | 1.59 |
 | Last factual verification | 2026-10-16, Europe/Rome |
 | Last completed phase | Task0063 final scientific review/report; current research cycle closed on 2026-10-16 |
-| Latest task outcome | completed_final_scientific_review_and_report; curated review only, no new experiment. Compact criterion remains negative. Mahalanobis positive paired quality comparisons and practical baseline recommendation are separate from unresolved LQ15% target and unmet CPU margin.16audit dispositions;16anchors preserved; operational readiness false. |
+| Latest task outcome | completed_project_rename_to_raregate; user-authorized software/editorial Task0064, no new scientific study. Package/distribution raregate, folder RareGate; preserved scientific evidence and persisted protocol IDs. 3,088 distinct generated tests have passing observations across broad/focused runs; broad run reached its scratch-storage cap and is not a clean whole-suite acceptance. |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0063 base | 4b03b404a47cb75360748a95f15a480523b7c89b; clean main tracking origin/main and empty index at0063 entry; Task0062 committed. No fetch, fresh remote/hosted-CI proof or automatic Git. Earlier bases remain historical. |
+| Verified HEAD / rename base | a3eb9273053c1774b42eea26acf12630e543c11b; clean main tracking origin/main and empty index at Task0064 entry. Task0063 base 4b03b404 remains historical. No commit/push/hosted rename or hosted-CI proof is claimed for Task0064. |
 | Current compact neural baseline | ADCv2 compactAE12→8→3→8→12 (271params), three separate seeds/frozen; historical8-input compact-autoencoder-v2 remains unchanged |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Manual review/commit/push of the Task0063 final report package only. Current research cycle closed; no automatic next task or further study. Future science/deployment requires a distinct question and separate mandate; consumed intents/allowances remain consumed. |
+| Next action | Review and manually commit/push the RareGate rename on main; optionally execute the supplied GitHub repository rename and origin update. The scientific cycle remains closed and consumed allowances remain consumed. |
 | Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035/0036/0037 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps; Task0036 has1metadata-card download16084B. Task0037 reads accepted curated timing/produces synthetic streams; permitted artifact-free historical model regressions have forwards/updates, separate from model-free simulator. Task0038 adds authorized prepared-development engineering reads/inference:15708public adapter calls plus separately accounted FP32/FP64 full/local proof work, no new held-out/population/optimizer/calibration/scientific/download activity. Task0039 adds one6999-ID numeric metadata load/1024prefix, one raw2908260409B hash and HDFmetadata open; zero event/golden/model/scientific/fingerprint numeric work. Synthetic full-particle/legacy model regressions remain separate. No global-zero numerical/forward/update/download claim; samples cannot be reblinded Task0040 adds authorized development-only3membership/3golden loads,732rawrequests30927row presentations/768feature constructions32448rows, zero operational model/held-out/optimizer/calibration/scientific/fingerprint/download work. Task0041 adds zero operational ID/golden/raw/model/service/decision/scientific work because actual admission failed before reservation; new native/full synthetic models/forwards remain separate, not globally zero. Task0042 adds zero operational work; its generated native fixtures and historical toy regressions have separately counted numerical/model/optimizer activity. Task0043adds authorized development-only3ID+3golden loads/840selected raw reads35490rows/840features/6frozen models984publicservices41574rows, no new held-out/fitting/calibration/scientific work. Full/regression/native fixture model work is separate, not global-zero. Task0044adds historical timing reads7JSONLs1288records/980timed values selected-or-derived representing24vectors480original sample positions, synthetic90,000distinct events/8,820,000final presentations and sample962,026assignments, zero new operational raw/model/scientific work. Seven additional accepted fixture matrices have61,740,000presentations; six full/portable instrumented historical subsets have510models186forwards52260rows/12toy optimizer steps, with other legacy activity outside those counts; no global-zero fixture claim. Task0045adds authorized development-only3IDloads20997records/3golden3072rows/1024approved384rawunique/6300reads+features255360rows/6frozen models7380services299136rows/1196544Boolean decisions,2rawSHA5816520818B/3HDFclosed. This positive raw/feature/inference/reconstruction/decision work is not zero. No new operational held-out/scaler/optimizer/calibration/scientific/fingerprint/download/device/replay work. Fixture native known31393services1279124rows/28loaded+28creator models and14setup14336rows, one127row inflight not completed; six instrumented historical subsets510models186forwards52260rows/12toy optimizer updates, other legacy fixtures outside counts. No global-zero fixture claim. Task0046 adds69preparatory +69session closed-metadata opens/19469187B each,3600unique historicaltimings/90pairedvectors and18unchangedsynthetictraces/90kunique positions/15.12Mfinalpresentations/3981226lookupassignments. New operationalraw/features/ID/golden/scientificscore/eventfingerprint/model/reconstruction/optimizer/HDF/rawhash/physicalservice/download0. Four acceptedfixture matrices60.48Mpresentations plus failed722completed/723started cases; repeatedgeneration does not increase90kunique tracepositions. Four instrumented legacy subsets340models124forwards34840rows8toy updates8synthetic calibrations, otherlegacyactivity outsidecounts; no globalzero fixture claim. Task0047 adds positive authorizeddevelopment3membership20997records/3golden3072rows,1024approved384rawunique/13440raw+features530670rows,6frozenmodels15744publicservices621642rows/2486568Boolean/2304exactgates,3HDFclosed6checks2rawSHA5816520818B. Closedselection2preparatory+2sessionloads20opens10765472B each pair ofloads; no newheld-out/scaler/optimizer/calibration/scientificmetrics/fingerprint/download/device/transport/replay.2generatednativefixturematrices31488services1243284rows plus48setup6144rows and12creator12loadedmodels;6dedicatedpublicmodelfixtures1536scores60648rows/12creator12loadedmodels,6completeToyplans31488toyservices1243284rows subset,2instrumentedlegacy subsets170models62forwards17420rows4optimizersteps4syntheticcalibrations,otherfixturesoutsidecounts. PermanentYES3 remains, no global-zerofixtureclaim. Task0048 adds72session timingmetadataopens51714288B/3JSONL8832records7680originaltimed1152excludedwarm/192vectors,18tracegenerations90kuniquepositions30.24Mpresentations7896652lookupassignments. Preparatory72closedbundleopens51714288B plus1contextualprompt25014B; earlier4copiedroot byte-copies and final13code/legacyaggregateidentitycopies separately journaled/disclosed, not timing assignment. Fourgeneratednativeinvocations1failed3accepted90.72Mpresentations/54regenerations of same90kpositions; final emitted-record roundtrip current. Known persisted legacy subsets340models124forwards/reconstructions34840rows8toyoptimizersteps8syntheticcalibrations plus unquantified interrupted/otherfixtureactivity; no globalzero. New operationalraw/features/ID/golden/scientificscore/eventfingerprint/HDF/rawhash/models/reconstruction/optimizer/scaler/calibration/scientificmetrics/download/device/transport/physicaltiming0; permanentYES3/history preserved.  Task0049 adds positive offline reads of57curated sources (26010109B per complete pass),descriptive aggregate checks and documentation;no new raw/scientific-array/model/optimizer/HDF/scientific-metric/download/physical-timing/replay/trace work. Two early generic parses incidentally decoded embedded0046timing arrays (90vectors/3600original durations per parse),unused;final reader lexically omits them. No timing-pair CSV/JSONL or ignored operational evidence reopened;historical positive fixture work and all exposures remain. Task0050 adds only textual evidence reads/curated metadata hashes/prospective arithmetic/static document checks; no new operational data/model/streaming work, no global-zero claim. Task0051 adds positive generated arrays/arithmetic stubs/actual spawn-mapping/process-clock observations:12attempts,319returned synthetic rows318feature/score316reference rows;82focused tests separate. Operational raw/HDF/member/golden/features/scores/fingerprints/model/public inference/science/replay/reservation0. No global-zero numerical/timing claim; historical positives preserved. Task0052 adds positive generated records/arithmetic/process clocks:20native invocations696configured offers, valid-record lower bounds538read536feature/score535reference rows; torn-run stage work unknown.96focused tests additional; no operational raw/HDF/membership/golden/scientific arrays/model/public inference/training/science/acquisition/reservation. No global-zero claim. Task0053 adds positive generatedrecord/arithmetic/timing work:one12case560offer finalsource suite, valid-record lowerbounds425read423feature-score422reference rows/1692primaryBooleans; tornworkunknown.120focusedtests additional; no operational raw/HDF/hash/membership/golden/scientific arrays/models/public inference/reconstruction/training/calibration/science/acquisition/replay/reservation. No globalzero claim. Task0054 adds positive operational custody2passes5816520818B; attempted consumer numerical/model-class imports are not fully observed, but no membership/golden/model-artifact loads/HDF opens/selected rows/features/public scores/decisions. PCA fails before ready, AE unattempted, no real retry. Generated13invocations688configured with lower433read431feature-score430reference rows/1724primaryBooleans; torn/initialization work unknown,40final-focused tests separate. Final source lacks complete qualification; no global-zero operational/numerical claim. Task0055 adds positive generated/runtime work: 24 generated invocations/1,120 offers, reconciled lower bounds879read/873feature-arithmetic-score/871reference rows, 3,492 primary Booleans; torn work unknown. Four fresh workers import actual NumPy/Torch/HDF libraries and query CPU threads/build/RSS, without payload/model/scoring. Final96focused checks;419pure executions include1early failure. Zero new operational custody/HDF/arrays/models/public inference/scientific work; historical0054 custody stays positive. Task0056 adds positive fresh P4 custody2SHA5816520818B, original6999membership/1024golden/onePCA+threshold load,2HDFhandles4schema checks,95raw+feature calls207rows,174public scores342rows1368Booleans. PCA63stream completions/63same-shaped deferred references/all16gate contexts; AE fails before workers, zeroAEpayload. Native generated16cases688offers; core lower439read436feature/arithmetic435reference rows, tornunknown;2serialized class fixtures add412raw-chain/feature rows+128setupfeature rows and344public680score rows2720Booleans,2creator+2loaded artificial models/0optimizer. Two source-free real-library workers;123final-focused tests additional. No new held-out/science/fitting/calibration/acquisition/device/replay; no global-zero operational claim. Task0057 adds generated-only17dispatches/944planned offers: core lower446read444feature/arithmetic443reference rows; serialized293returned chain686rows+128setupfeatures,530public1120score rows4480Booleans,2creator4loaded artificial models/0optimizer. Positive own-process timing/resources and336semaphore absence checks. Zero new operational custody/HDF/original arrays/models/frozen inference/science; historical0056PCA/custody unchanged.  Task0058 adds positive real AE custody2SHA5816520818B,1original6999membership/1024golden/AE+threshold load,2HDF4schema,92raw-feature calls206rows,168public340score rows1360Booleans,62stream completions/all16gate contexts/60deferred references. No new scientific/held-out/fitting/calibration/optimizer/acquisition/device work. Generated one18dispatch1008planned-offer group includes387returned chains895rows+128setupfeatures,702public1466score rows5864Booleans/2creator5loaded artificial models; core lower445read443feature-arithmetic441reference rows,tornworkunknown. Global formatter-cache guard gap preserves partial overall status despite positive native integration; no global-zero claim.  Task0062 adds authorized structural184file/4.792GB byte verification per pre/post pass; once-only1MfinalBG+40kA+40kLQ across8streams/8.64Mscore rows270kB32calls, final sym8192rows256calls, dev parity163840public rows35904calls plus86016reconstruction rows29624calls, CPU11161600rows61440calls on4096train-development events. Total original public19973632presentations367600calls on1084096unique groups, not independent repeated N. All final outcomes now exposed;0new fit/optimizer/acquisition/calibration/P4. Positive generated model/toy-fit/Adam/score/subprocess work remains separate. |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
@@ -50,10 +50,20 @@ The earlier planning conversation stopped at Task 0007 and described Task 0008 a
 
 ## 1. Start here: current project state
 
+**Naming update — Task0064 (2026-10-16):** the current project name is RareGate,
+the Python distribution/import namespace is `raregate`, and the local checkout
+folder is `RareGate`. This user-authorized software/editorial task follows the
+closed scientific cycle; it launches no scientific study. Frozen data/model
+configurations, tracked results/artifacts, original prompts/handoffs and
+persisted protocol IDs remain historical. Source-byte acceptance is not
+transferred to renamed code. See [migration notes](renaming.md) and the
+[rename handoff](handoffs/0064-raregate-rename.md). Base `a3eb927`, clean `main`
+tracking `origin/main` at entry. Manual review/commit/push follows validation.
+
 **Current outcome — Task0063 (2026-10-16):**
 `completed_final_scientific_review_and_report`.
-[Final English report](latenttrigger-final-report.md),
-[Italian decision brief](latenttrigger-final-decision-brief.md),
+[Final English report](raregate-final-report.md),
+[Italian decision brief](raregate-final-decision-brief.md),
 [claims](../results/tables/final/task0063-final-claims.csv),
 [review summary /16 audit dispositions](../results/tables/final/task0063-final-review-summary.json)
 and [handoff](handoffs/0063-final-scientific-review-and-report.md).
@@ -487,7 +497,7 @@ and oldTask0041/0042/0036/scientific exposure/gates/failures/particle state pers
 
 **Historical completed software repair:** [Task0042](development-decision-admission-repair.md) closes the producer/status and task-identity defects with actual serialization/admission and programmatic stop-on-failed-freeze tests. New synthetic admission/parent lifecycle pass, operational counts0. Final review also binds grant native-build and top-level plan config/prompt/kind explicitly; preserved version1 acceptance remains historical, final version reruns all checks. The original Task0041 issued record is preserved, not rewritten as current acceptance; its current-source bindings are invalidated by the six versioned live repairs. Original source is recoverable from the251-entry snapshot, not confused with repaired working files. Task0040 was the last accepted raw boundary at Task0042 software-only completion; Task0043 and Task0045 subsequently add separately authorized accepted engineering measurements.
 
-**Project:** LatentTrigger - *Hardware-Aware Machine Learning for Real-Time LHC Event Selection*.
+**Project:** RareGate - *Hardware-Aware Machine Learning for Real-Time LHC Event Selection*.
 
 **Core objective:** Investigate how much anomaly-detection performance can be retained when models are constrained by inference latency, throughput, memory, and deployment practicality.
 
@@ -1177,7 +1187,7 @@ completed baseline/exploratory evidence/failures/particle192 remain unchanged.
 
 Event selection is a setting where scientific usefulness and computational practicality must be considered together. A model that is accurate but cannot meet the intended processing budget is not sufficient. A model that is fast but discards useful anomaly information is also insufficient.
 
-LatentTrigger studies this tradeoff using a controlled progression:
+RareGate studies this tradeoff using a controlled progression:
 
 1. Build trustworthy scientific data and evaluation foundations.
 2. Establish transparent aggregate-level baselines.
@@ -1194,7 +1204,7 @@ The project connects high-energy-physics data, machine learning, software engine
 
 The personal motivation includes building a credible research and engineering portfolio relevant to CERN/openlab opportunities. The portfolio should demonstrate methodological discipline, readable software, reproducible experiments, measured tradeoffs, and the ability to explain limitations. This is a project judgment about relevance, not an official assessment of competitiveness or admission prospects.
 
-**LatentTrigger is an independent project. It is not an official CERN, ATLAS, CMS, or CERN openlab project, and does not imply affiliation or endorsement.**
+**RareGate is an independent project. It is not an official CERN, ATLAS, CMS, or CERN openlab project, and does not imply affiliation or endorsement.**
 
 ### 2.3 Main research question
 
@@ -1295,7 +1305,7 @@ Keep the following boundaries visible:
 ### 5.2 Repository organization
 
 ```text
-latent-trigger/
+RareGate/
   .github/workflows/ci.yml
   configs/
     data/lhco_rnd_v5.json
@@ -1304,7 +1314,7 @@ latent-trigger/
     models/compact_autoencoder_v2.json
     models/particle_set_baseline_design_v1.json  # historical design-only specification
     models/compact_particle_set_autoencoder_v1.json  # exact executable mapping
-  src/latenttrigger/
+  src/raregate/
     data/          acquisition, inspection, splitting, features,
                    preprocessing, processed-store reading, analysis
     models/        PCA, compact AE, background loading, reporting
@@ -1336,7 +1346,7 @@ latent-trigger/
   .gitignore
 ```
 
-Relative links in this memory are intended to resolve from `docs/` in the operational repository. The local repository used for verification was `/Users/matteosgobba/Documents/GitHub/latent-trigger`; that path is a local locator, not part of portable scientific provenance.
+Relative links in this memory are intended to resolve from `docs/` in the operational repository. The local repository used for verification was `/Users/matteosgobba/Documents/GitHub/RareGate`; that path is a local locator, not part of portable scientific provenance.
 
 ## 6. Development platform, stack, and resource constraints
 
@@ -1357,7 +1367,7 @@ Task0020 filtered post-campaign system_profiler metadata verifies MacBook Pro/Ma
 | --- | --- |
 | Python | Primary 3.12; supported range `>=3.11,<3.13` |
 | Environment/build | `venv`, `pip`, editable installation, Hatchling, `src` package layout |
-| Package | `latenttrigger`, version 0.1.0 at this snapshot |
+| Package | `raregate`, version 0.1.0 at this snapshot |
 | Numeric/data | NumPy; h5py and hdf5plugin in the optional data extra |
 | Modeling | scikit-learn PCA/metrics; PyTorch aggregate AE and implemented particle/set AE |
 | Analysis | Matplotlib in the optional analysis extra |
@@ -2153,7 +2163,7 @@ cycle with no missing engineering branch required for scientific closure. Delive
 the final package through manual Git review. No Task0064, extra fit, unused-pool retry,
 new threshold or promised favorable gate follows. Future science/deployment needs a
 distinct question and separate mandate. The frozen [protocol](decisive-scientific-experiment.md)
-and historical route remain preserved; [final report](latenttrigger-final-report.md)
+and historical route remain preserved; [final report](raregate-final-report.md)
 records the negative compression result and scoped Mahalanobis recommendation.
 Earlier roadmap text below is task-time history, not current launch authorization.
 
@@ -2358,7 +2368,7 @@ An editorial memory update does not consume the next implementation task number 
 For automatic discovery in repository-based Codex sessions, add the following clause to the repository's existing root `AGENTS.md` (or create that entry point if the user chooses to install it). Preserve any existing repository instructions:
 
 ```markdown
-## LatentTrigger project memory
+## RareGate project memory
 
 Read docs/project-memory.md at the start of every task. Verify its current-state
 claims against the relevant repository files before implementation. Treat it as
@@ -2438,7 +2448,7 @@ The planning chat should derive the next task from objectives, dependency order,
 ### 20.3 Reusable request for a new Work planning chat
 
 ```text
-We are continuing LatentTrigger. Use the attached/current docs/project-memory.md
+We are continuing RareGate. Use the attached/current docs/project-memory.md
 as the project-wide living memory. It is separate from task handoffs.
 
 First identify the verified current state, completed work, frozen scientific
@@ -2626,6 +2636,7 @@ Keep future entries short and focused on project-level changes. Update current-s
 | 1.56 / 2026-10-16 | Task0061 controlled ADC execution:3accepted sources/13.85M structural rows/2330000separated selected groups;6neural+2analytical fits/16cuts; actual scientific quality still protected. Header-adapter, phase guard and manifest lifecycle repairs with source-bound dependency records; final164checks and184file immutable v2 verification. | Base d02e6a5, current bundle162e61ab, final manifest e425d1bc; source/role/fit/cal resources and failures in0061summary/handoff. Ready0062 only; no final evaluation, CPU comparison, historical reacceptance or automatic launch. |
 | 1.57 / 2026-10-16 | Task0062 completed valid ADC final evaluation:1M/40k/40k groups,8frozen streams/8.64Mscore rows270kB32calls; all44paired bounds and achieved-rate checks, fixed16symmetry/264bias rows,384CPUcells. Compact retention excluded both, LQ utility excluded, joint CPU.962990 fails; Mahalanobis quality stronger but full utility/cost dominance unproven. | Basefa39e3a;184old file hashes unchanged; source-label admission/teardown failures preserved, extension7cf503e5 and final204checks;≈5.05GB/8GiB, realRSS912277504B/4GiB, no new fits/calibration/P4/automatic successor. Research cycle complete; operationalfalse. |
 | 1.58 / 2026-10-16 | Task0063 curated scientific review and final report close the current cycle: negative compact criterion, supported Mahalanobis comparisons/recommendation, unresolved absolute LQ target and unmet CPU margin kept separate.16anchors/804rows/44bounds/all8CPUblocks/figures and16audit dispositions checked; no new experiment. | Base4b03b404/main/origin-main, memory1.58; final report/Italian brief/claims/review summary/handoff; source preservation and resource limitations explicit; operationalfalse, no0064. |
+| 1.59 / 2026-10-16 | Task0064 renames current branding/package/source paths to RareGate/raregate and the checkout to RareGate. 381 Python files structurally compared; 189 tracked result/model files and frozen scientific configs preserved. | Basea3eb927/main; 3088distinct generated tests have positive observations,13subtests; broad run storage-limited,78focused checks complete; lint/format/install/import pass. No scientific execution or automatic Git; migration guide and rename handoff. |
 
 
 ### Task0047 accepted physical engineering state (2026-10-14)

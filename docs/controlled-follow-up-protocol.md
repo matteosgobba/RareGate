@@ -57,8 +57,8 @@ additional score or architecture in this comparison.
 
 The exact starting recipe comes from
 [AE v2 JSON](../configs/models/compact_autoencoder_v2.json),
-[training source](../src/latenttrigger/training/autoencoder.py),
-[background loader](../src/latenttrigger/training/background.py) and
+[training source](../src/raregate/training/autoencoder.py),
+[background loader](../src/raregate/training/background.py) and
 [convergence contract](autoencoder-convergence.md): CPU, one native thread,
 zero loader workers, deterministic algorithms, Adam learning rate0.001,
 batch4096 including complete tails, maximum1000 epochs, patience15,
@@ -103,7 +103,7 @@ a causal physics mechanism, nor whether the aggregates discard particle informat
 
 Historical AE v2 and PCA-six are frozen descriptive references with their original
 thresholds. An optional **PCA-three** control is disabled by default. Existing
-[PCA source](../src/latenttrigger/models/pca.py) stores all eight ordered full-SVD,
+[PCA source](../src/raregate/models/pca.py) stores all eight ordered full-SVD,
 centered, nonwhitened axes and reconstructs `components[:k]`, supporting a derivative
 from the first three accepted training axes and the same center. No numerical
 component values were inspected here. Future byte/scientific identity, ordered

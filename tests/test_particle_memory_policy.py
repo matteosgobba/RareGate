@@ -8,11 +8,11 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.data.processed import content_hash
-from latenttrigger.models import particle_memory_study as study
-from latenttrigger.models import particle_recovery as previous
-from latenttrigger.training import particle_resources as resources
-from latenttrigger.training.particle_set import ResourceLimitError, parse_vm_stat
+from raregate.data.processed import content_hash
+from raregate.models import particle_memory_study as study
+from raregate.models import particle_recovery as previous
+from raregate.training import particle_resources as resources
+from raregate.training.particle_set import ResourceLimitError, parse_vm_stat
 
 
 @pytest.fixture

@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from latenttrigger.data.inspection import (
+from raregate.data.inspection import (
     Moments,
     aggregate_observations,
     event_fingerprints,

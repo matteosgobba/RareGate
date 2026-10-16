@@ -3,13 +3,13 @@
 import numpy as np
 import pytest
 
-from latenttrigger.evaluation.metrics import (
+from raregate.evaluation.metrics import (
     at_threshold,
     evaluate_labeled_scores,
     evaluate_scores,
     ks_distance,
 )
-from latenttrigger.evaluation.thresholds import (
+from raregate.evaluation.thresholds import (
     background_operating_point,
     calibrate_thresholds,
 )

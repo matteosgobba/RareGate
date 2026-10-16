@@ -1,7 +1,7 @@
 # Task0015 — Versioned bounded-age particle resource monitoring
 
 Preregistration saved2026-10-07 before timing. Operational repository:
-`/Users/matteosgobba/Documents/GitHub/latent-trigger`, main→origin/main,
+`/Users/matteosgobba/Documents/GitHub/RareGate`, main→origin/main,
 base8d0e3f95d9a65a072ae9fcbae2ea72e2c28c462e. The user continues normal Mac use
 with other applications open; this engineering task requires no dedicated window.
 Completed: bounded-age monitoring and synthetic validation; fixed paired material

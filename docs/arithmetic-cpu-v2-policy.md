@@ -3,7 +3,7 @@
 This Task0022 engineering policy changes numerical acceptance only. Frozen PCA/AE
 weights, input/scaler/features, eager operators, precision, strict calibrated
 thresholds and timing scopes remain unchanged. It does not pass historical v1.
-The policy source is [arithmetic_cpu_v2.py](../src/latenttrigger/benchmarks/arithmetic_cpu_v2.py).
+The policy source is [arithmetic_cpu_v2.py](../src/raregate/benchmarks/arithmetic_cpu_v2.py).
 This document and executable policy are frozen before any real campaign.
 
 ## Standard model and scope

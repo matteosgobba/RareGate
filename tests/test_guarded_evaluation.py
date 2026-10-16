@@ -12,15 +12,15 @@ import numpy as np
 import pytest
 from test_frozen_cpu_benchmark import FakeGuard, sample
 
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.evaluation import guarded as c
-from latenttrigger.evaluation import guarded_core as n
-from latenttrigger.evaluation import guarded_protocol as q
-from latenttrigger.evaluation.guard import Guard, GuardError
-from latenttrigger.evaluation.guarded_audit import Journal, exposure
-from latenttrigger.evaluation.guarded_reporting import reporting
-from latenttrigger.evaluation.guarded_smoke import fixture
-from latenttrigger.evaluation.run import run_final
+from raregate.benchmarks import protocol as p
+from raregate.evaluation import guarded as c
+from raregate.evaluation import guarded_core as n
+from raregate.evaluation import guarded_protocol as q
+from raregate.evaluation.guard import Guard, GuardError
+from raregate.evaluation.guarded_audit import Journal, exposure
+from raregate.evaluation.guarded_reporting import reporting
+from raregate.evaluation.guarded_smoke import fixture
+from raregate.evaluation.run import run_final
 
 
 @pytest.fixture
@@ -34,7 +34,7 @@ def test_actual_native_equivalence_with_unchanged_final_scientific_gate(
     toy, tmp_path, monkeypatch, index
 ):
     entries, candidates, Store = toy
-    monkeypatch.setattr("latenttrigger.evaluation.run.ProcessedStore", Store)
+    monkeypatch.setattr("raregate.evaluation.run.ProcessedStore", Store)
     entry = entries[index]
     target = tmp_path / "old"
     old = run_final(
@@ -497,13 +497,13 @@ def test_guard_failure_propagates_and_owned_watcher_closes():
 
 def test_stdlib_controller_and_no_alternate_output_cli():
     env = dict(os.environ, PYTHONPATH=str(Path(c.__file__).parents[2]))
-    code = "import sys;from latenttrigger.evaluation import guarded;assert not any(k in sys.modules for k in ('numpy','torch','onnx','onnxruntime','sklearn'))"
+    code = "import sys;from raregate.evaluation import guarded;assert not any(k in sys.modules for k in ('numpy','torch','onnx','onnxruntime','sklearn'))"
     subprocess.run([sys.executable, "-c", code], env=env, check=True, timeout=5)
     result = subprocess.run(
         [
             sys.executable,
             "-m",
-            "latenttrigger.evaluation.guarded",
+            "raregate.evaluation.guarded",
             "--check-readiness",
             "--output",
             "elsewhere",

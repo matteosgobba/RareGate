@@ -131,7 +131,7 @@
     "Task0063"
   ],
   "extension_paths": [
-    "src/latenttrigger/research/decisive_adc_evaluation.py",
+    "src/raregate/research/decisive_adc_evaluation.py",
     "scripts/evaluate_decisive_adc_experiment.py",
     "tests/test_decisive_adc_evaluation.py",
     "configs/research/decisive_adc_evaluation_v2.json",

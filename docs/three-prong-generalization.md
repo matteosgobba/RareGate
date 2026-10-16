@@ -399,7 +399,7 @@ message and its source/acceptance/plan binding before invocation. Its plan comma
 is shown for provenance only; **do not execute it or rerun the consumed campaign**:
 
 ```bash
-.venv/bin/python -m latenttrigger.evaluation.three_prong --prepare-plan
+.venv/bin/python -m raregate.evaluation.three_prong --prepare-plan
 ```
 
 The exact approved-plan digest and subsequent guarded command are in the summary /

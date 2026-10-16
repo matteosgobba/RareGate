@@ -20,26 +20,26 @@ def main():
     parser.add_argument("--root", required=True)
     parser.add_argument("--suite", type=int, choices=(1, 2), default=1)
     args = parser.parse_args()
-    from latenttrigger.streaming.pilot54 import ROOT_NAME
+    from raregate.streaming.pilot54 import ROOT_NAME
 
     root = Path(args.root)
     repo = Path(__file__).resolve().parents[1]
     if root != repo / "data/task0054-validation" / ROOT_NAME:
         parser.error("Only the fixed new Task0054 owned root")
     if args.qualify_generated:
-        from latenttrigger.streaming.validation_v2 import observe
+        from raregate.streaming.validation_v2 import observe
 
         result = observe(root, args.suite, task="0054")
     elif args.generated_subject:
-        from latenttrigger.streaming.validation_v2 import subject
+        from raregate.streaming.validation_v2 import subject
 
         return subject(root, args.suite)
     elif args.pilot_subject:
-        from latenttrigger.streaming.pilot54 import pilot_subject
+        from raregate.streaming.pilot54 import pilot_subject
 
         return pilot_subject(root)
     else:
-        from latenttrigger.streaming.pilot54 import observe_pilot
+        from raregate.streaming.pilot54 import observe_pilot
 
         result = observe_pilot(root)
     print(

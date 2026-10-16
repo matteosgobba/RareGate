@@ -17,7 +17,7 @@
       "bytes": 244801
     },
     "configs/benchmarks/development_partial_raw_decision_v1.json": {
-      "sha256": "64901f554a254c5041a1844e89bf0d9b2a782270a39dc7574ead0d3032e2caab",
+      "sha256": "24d74acc9139fc5251dbeb50c4737b32086f3554a21c1eba1aba96daf8de53a2",
       "bytes": 25472
     },
     "docs/prompts/0045-natural-partial-raw-decision-measurement.md": {

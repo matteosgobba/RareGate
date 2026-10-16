@@ -9,9 +9,9 @@
   "profile_sha256": "a3e237d8a191d9b906744a497ef7e687c739bc8418dd2e53e78db3e54b24d287",
   "adopted_observation_manifest_sha256": "d11640071b854b08dfc9cd59724dd2732abe8ebff1195000e8321e66a1229c63",
   "adopted_monitor_sources_sha256": {
-    "src/latenttrigger/training/particle_monitor_v4.py": "9874d08638e21329bbf4392fc3dc097228ce21742060e8f5a8065c5c1652552f",
-    "src/latenttrigger/supervision/particle_sampling.py": "a40d551236bcd5da564cd8aff5b3d7bf046e0bb34de1a1f582592491f51a78f6",
-    "src/latenttrigger/supervision/particle_collector.py": "39d66cce6fc6e9e8a98cfec7018c0aacc148be98b5fb7fcacd04c1f10b251fd5"
+    "src/raregate/training/particle_monitor_v4.py": "385f6c257ff7735cacc5ba3b7179b17cd9e667f758da829c0174f5aa47492017",
+    "src/raregate/supervision/particle_sampling.py": "698fcad721eec42bd876394decac73354cf0e1cf2d5c7d65213eb1ffac4060c2",
+    "src/raregate/supervision/particle_collector.py": "1a3d2b04c00a9aadb490698aa83a5d129a3d9b32992a2ed1280e37ea95b47452"
   },
   "limits_bytes": {
     "launch_available": 4831838208,

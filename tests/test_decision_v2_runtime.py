@@ -11,11 +11,11 @@ from tests.runtime_fixtures import SyntheticClock
 from tests.test_decision_v2_admission import add_roundtrip
 from tests.test_decision_v2_admission import emitted as emitted
 
-from latenttrigger.benchmarks import decision_v2_admission as a
-from latenttrigger.benchmarks import decision_v2_native as n
-from latenttrigger.benchmarks import decision_v2_protocol as p
-from latenttrigger.benchmarks import decision_v2_runtime as rt
-from latenttrigger.benchmarks.development_decision_native import synthetic_prefix
+from raregate.benchmarks import decision_v2_admission as a
+from raregate.benchmarks import decision_v2_native as n
+from raregate.benchmarks import decision_v2_protocol as p
+from raregate.benchmarks import decision_v2_runtime as rt
+from raregate.benchmarks.development_decision_native import synthetic_prefix
 
 
 def granted(emitted):
@@ -333,7 +333,7 @@ def test_synthetic_controller_failure_cleanup_and_deadlines(
 
 
 def test_new_provider_refuses_old_permit_before_backend(emitted):
-    from latenttrigger.benchmarks.decision_v2_provider import Chain
+    from raregate.benchmarks.decision_v2_provider import Chain
 
     class Dataset:
         @property
@@ -345,7 +345,7 @@ def test_new_provider_refuses_old_permit_before_backend(emitted):
 
 
 def test_granted_provider_selected_rows_no_neighbors(emitted):
-    from latenttrigger.benchmarks.decision_v2_provider import Approval, Chain
+    from raregate.benchmarks.decision_v2_provider import Approval, Chain
 
     context, folder, g, _ = granted(emitted)
     _, permit = p.validate_grant(folder, g["token"], lambda: 1, root=context.root)
@@ -385,7 +385,7 @@ def test_granted_provider_selected_rows_no_neighbors(emitted):
 
 
 def test_new_fixed_protocol_schedule_and_scope():
-    from latenttrigger.benchmarks.development_decision_planning import counts
+    from raregate.benchmarks.development_decision_planning import counts
 
     spec = p.load()
     assert spec["expected"] == counts()

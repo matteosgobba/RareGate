@@ -65,7 +65,7 @@ generated. No unrelated app content was inspected.
 
 ## Narrow recovery routing and preserved evidence
 
-[`models/particle_recovery.py`](../src/latenttrigger/models/particle_recovery.py)
+[`models/particle_recovery.py`](../src/raregate/models/particle_recovery.py)
 exposes mutually exclusive `--acceptance-only`, `--preflight-only` and `--recover`.
 The readiness mode performs only bounded read-only accounting, records three
 samples 2.5 s apart, applies every original ceiling, rejects unavailable/malformed
@@ -193,11 +193,11 @@ the same definition. These commands preserve the failed sample file and only
 dispatch if **all three** new readings pass:
 
 ```bash
-cd /Users/matteosgobba/Documents/GitHub/latent-trigger
-if .venv/bin/python -m latenttrigger.models.particle_recovery \
+cd /Users/matteosgobba/Documents/GitHub/RareGate
+if .venv/bin/python -m raregate.models.particle_recovery \
   --preflight-only --acceptance data/task0011-reviewed-synthetic-acceptance.json \
   --preflight data/baselines/task0011-preflight-after-preparation.json; then
-  .venv/bin/python -m latenttrigger.models.particle_recovery \
+  .venv/bin/python -m raregate.models.particle_recovery \
     --recover --acceptance data/task0011-reviewed-synthetic-acceptance.json \
     --preflight data/baselines/task0011-preflight-after-preparation.json
 fi

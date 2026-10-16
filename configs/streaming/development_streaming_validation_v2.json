@@ -1,5 +1,5 @@
 {
-  "schema": "latenttrigger.generated_streaming_validation.v2",
+  "schema": "raregate.generated_streaming_validation.v2",
   "task": "0053",
   "fixture_only": true,
   "operational_execution_authorized": false,
@@ -7,57 +7,57 @@
   "operational_readiness": false,
   "source_manifest": [
     {
-      "path": "src/latenttrigger/streaming/__init__.py",
+      "path": "src/raregate/streaming/__init__.py",
       "size_bytes": 105,
       "sha256": "744c7723c5220d64b4cc606a6a176c0daa8f07204c442b0c5a247c988254de2a"
     },
     {
-      "path": "src/latenttrigger/streaming/characterization.py",
+      "path": "src/raregate/streaming/characterization.py",
       "size_bytes": 10429,
       "sha256": "29f8f2f5ed93d415c5d531fc459500af2351190d322c362ff9c276faf691c641"
     },
     {
-      "path": "src/latenttrigger/streaming/fixture.py",
+      "path": "src/raregate/streaming/fixture.py",
       "size_bytes": 38208,
       "sha256": "c45b4e8d2c9f1642e0d0ad6167d88a02595194d2382f420d582184d0868a4fc5"
     },
     {
-      "path": "src/latenttrigger/streaming/generated.py",
+      "path": "src/raregate/streaming/generated.py",
       "size_bytes": 4457,
       "sha256": "bfd70c6ce664427eed26f1197c99e29474d383b2ba663cf109b452a3d9d07262"
     },
     {
-      "path": "src/latenttrigger/streaming/instrumentation.py",
+      "path": "src/raregate/streaming/instrumentation.py",
       "size_bytes": 6352,
       "sha256": "b03b29c38e3ea01144ba0c4b2fb526ad5644b049fa338664fc771e2c6c5d4c2b"
     },
     {
-      "path": "src/latenttrigger/streaming/protocol.py",
+      "path": "src/raregate/streaming/protocol.py",
       "size_bytes": 3970,
       "sha256": "15a1c2978704cf0ba32f20b8952014b01daaadb704198c9444e36e1e348faa97"
     },
     {
-      "path": "src/latenttrigger/streaming/quota.py",
+      "path": "src/raregate/streaming/quota.py",
       "size_bytes": 9110,
       "sha256": "74971ded71639a0fcd32dd7b0d30ba4e7557d342b02ea2828599ba7b651b9683"
     },
     {
-      "path": "src/latenttrigger/streaming/records.py",
+      "path": "src/raregate/streaming/records.py",
       "size_bytes": 18698,
       "sha256": "ea374e1d51273a7d0fa75dc370bb33e9b7af22f81bad068936e407f392120c82"
     },
     {
-      "path": "src/latenttrigger/streaming/supervision.py",
+      "path": "src/raregate/streaming/supervision.py",
       "size_bytes": 5980,
       "sha256": "d803cf9871d6ebfe47867c8b6db86e5ed7159b6f93ff578ac6f5112941e6b8a4"
     },
     {
-      "path": "src/latenttrigger/streaming/transport.py",
+      "path": "src/raregate/streaming/transport.py",
       "size_bytes": 9413,
       "sha256": "cb443b9dc1e598c2c6d6e5322d84c4262648eb1a5dbc907256b2c166322c3738"
     },
     {
-      "path": "src/latenttrigger/streaming/validation_v2.py",
+      "path": "src/raregate/streaming/validation_v2.py",
       "size_bytes": 25824,
       "sha256": "ae239210e2973587c24edc0700a93a8821dd41343e8ee30b5829ad3c270924ad"
     },
@@ -84,7 +84,7 @@
     {
       "path": "configs/protocols/development_streaming_v2.json",
       "size_bytes": 23313,
-      "sha256": "73a65632e6238abead5297f143a4bb25b45c27f5360dc5d11d3128c59841b28a"
+      "sha256": "629038c251ba729d7e84501ef9a5902187dfd4dfc14606dff89647c789779288"
     },
     {
       "path": "docs/prompts/0053-streaming-contract-v2-validation.md",
@@ -95,7 +95,7 @@
   "protocol": {
     "path": "configs/protocols/development_streaming_v2.json",
     "size_bytes": 23313,
-    "sha256": "73a65632e6238abead5297f143a4bb25b45c27f5360dc5d11d3128c59841b28a"
+    "sha256": "629038c251ba729d7e84501ef9a5902187dfd4dfc14606dff89647c789779288"
   },
   "matrix": [
     {

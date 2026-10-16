@@ -9,16 +9,16 @@ import numpy as np
 import pytest
 from tests.test_development_decision_grants import owned_grant
 
-from latenttrigger.benchmarks import core
-from latenttrigger.benchmarks import development_decision_measure as measure
-from latenttrigger.benchmarks import development_decision_planning as plan
-from latenttrigger.benchmarks import development_decision_protocol as p
-from latenttrigger.benchmarks import development_decision_provider as provider
-from latenttrigger.benchmarks import development_decision_runtime as rt
-from latenttrigger.benchmarks.development_decision_synthetic import (
+from raregate.benchmarks import core
+from raregate.benchmarks import development_decision_measure as measure
+from raregate.benchmarks import development_decision_planning as plan
+from raregate.benchmarks import development_decision_protocol as p
+from raregate.benchmarks import development_decision_provider as provider
+from raregate.benchmarks import development_decision_runtime as rt
+from raregate.benchmarks.development_decision_synthetic import (
     models as fixture_models,
 )
-from latenttrigger.benchmarks.development_raw_synthetic import fixture, parameters
+from raregate.benchmarks.development_raw_synthetic import fixture, parameters
 
 
 def setup_chain(tmp_path, monkeypatch, rep=1):
@@ -339,7 +339,7 @@ def test_tail_beyond384_remains_in_aggregates():
 
 
 def test_owned_natural_service_and_strict_ties():
-    from latenttrigger.benchmarks.prepared_service import pack, service
+    from raregate.benchmarks.prepared_service import pack, service
 
     class Toy:
         def score(self, x, feature_names):
@@ -387,7 +387,7 @@ def test_fixture_model_identity_same_length_refusal(tmp_path, fault):
     "fault", ["duplicate", "wrong_prefix", "wrong_dtype", "partial"]
 )
 def test_original_membership_resolver_refusal(fault):
-    from latenttrigger.benchmarks.development_raw_membership import resolve
+    from raregate.benchmarks.development_raw_membership import resolve
 
     ids = np.arange(6999, dtype="<i8") * 3
     expected = measure.block_hash(ids[:1024])
@@ -413,7 +413,7 @@ def test_original_membership_resolver_refusal(fault):
     ],
 )
 def test_metadata_refusal_before_values(tmp_path, monkeypatch, field, value):
-    from latenttrigger.benchmarks import development_raw_metadata as md
+    from raregate.benchmarks import development_raw_metadata as md
 
     directory, _ = owned_grant(tmp_path, monkeypatch)
     path, _ = fixture(directory)
@@ -436,7 +436,7 @@ def test_metadata_refusal_before_values(tmp_path, monkeypatch, field, value):
     ],
 )
 def test_aggregate_only_reporting_boundary(tmp_path, fault):
-    from latenttrigger.benchmarks import development_decision_reporting as reporting
+    from raregate.benchmarks import development_decision_reporting as reporting
 
     for rep in (1, 2, 3):
         d = tmp_path / f"repetition{rep}"

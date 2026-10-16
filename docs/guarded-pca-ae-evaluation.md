@@ -416,11 +416,11 @@ Implemented actions:
 
 ```bash
 # Already consumed: do not repeat the custody check.
-.venv/bin/python -m latenttrigger.evaluation.guarded --check-readiness
+.venv/bin/python -m raregate.evaluation.guarded --check-readiness
 # Metadata-only package preparation; no final reservation/access.
-.venv/bin/python -m latenttrigger.evaluation.guarded --prepare-plan
+.venv/bin/python -m raregate.evaluation.guarded --prepare-plan
 # Only after actual explicit human consent and its bound audit record:
-.venv/bin/python -m latenttrigger.evaluation.guarded --run-final --allow-test --plan-sha256 2c97dc2ac903de4a911968bc2f97725cd3d80e18498b1003604c9e4562e3d86f
+.venv/bin/python -m raregate.evaluation.guarded --run-final --allow-test --plan-sha256 2c97dc2ac903de4a911968bc2f97725cd3d80e18498b1003604c9e4562e3d86f
 ```
 
 The last command was not executed during Phase A; it was executed once after the actual human approval recorded above. It refuses before final reservation

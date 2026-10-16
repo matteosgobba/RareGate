@@ -6,12 +6,12 @@
   "design_files": {
     "docs/prompts/0034-controlled-follow-up-protocol.md": "71492766714f0e64ae8ad9e23c235dae26d601d5a2fb841394b4f4d8d0cafde7",
     "docs/handoffs/0034-controlled-follow-up-protocol.md": "ceaeca30473e0a3f4d6252d83984f8b440ba463a187579f0a521a880217b96cd",
-    "docs/controlled-follow-up-protocol.md": "aeab83547a358346d474bedfc4dc69d1fef92ad8de265a955ba8e7dcd4a17d61",
-    "configs/research/controlled_follow_up_v1.json": "caf2e949f48a3ecf8e8a90306bab49986deb07f4701c4b9689a0d755b5e1b39e",
+    "docs/controlled-follow-up-protocol.md": "5dc10f407441e9fc4da707211f51d7d0790f3015753b0df472c9ac22b880ac4f",
+    "configs/research/controlled_follow_up_v1.json": "c3b997e90d0e19a007e2658a74d0e818af25783113858de5abc0b387521e6def",
     "results/tables/final/task0034-confirmation-source-registry.csv": "29f79c3dd01ecb928460c0bb55a12cf09053499f7d71b40c62938597b145d002",
     "results/tables/final/task0034-controlled-follow-up-summary.json": "5fc2be7de8f7b00d6c56153ccce808d01ea1f42fc8157ed96a6ebfbe034d7f5d"
   },
-  "design_digest": "cf39816a9eefacfe075e9e02a84ee943bd8f7e19bc2e1d3317120d04d1659d8e",
+  "design_digest": "62662eb43bbe4b4ad54900ef7e033b35ceb307a7d9b9b73baf8acb34980280b1",
   "arms": [
     "nonlinear",
     "linear"

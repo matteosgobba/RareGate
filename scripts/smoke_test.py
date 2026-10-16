@@ -2,7 +2,7 @@
 
 import torch
 
-from latenttrigger.utils.device import get_device
+from raregate.utils.device import get_device
 
 
 def main() -> None:

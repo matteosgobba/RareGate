@@ -4,10 +4,10 @@ import argparse
 import json
 from pathlib import Path
 
-from latenttrigger.data.acquisition import acquire
-from latenttrigger.data.analysis import CHUNK_ROWS, scan_and_split
-from latenttrigger.data.eda import plot_eda, training_eda
-from latenttrigger.data.splitting import PROTOCOL
+from raregate.data.acquisition import acquire
+from raregate.data.analysis import CHUNK_ROWS, scan_and_split
+from raregate.data.eda import plot_eda, training_eda
+from raregate.data.splitting import PROTOCOL
 
 
 def main() -> None:

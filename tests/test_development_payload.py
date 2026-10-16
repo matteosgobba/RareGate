@@ -9,13 +9,13 @@ import numpy as np
 import pytest
 from tests.test_development_payload_grants import owned_grant
 
-from latenttrigger.benchmarks import development_payload_measure as measure
-from latenttrigger.benchmarks import development_payload_protocol as p
-from latenttrigger.benchmarks import development_payload_provider as provider
-from latenttrigger.benchmarks import development_payload_runtime as rt
-from latenttrigger.benchmarks import development_raw_metadata as md
-from latenttrigger.benchmarks import development_raw_planning as design
-from latenttrigger.benchmarks.development_raw_synthetic import fixture, parameters
+from raregate.benchmarks import development_payload_measure as measure
+from raregate.benchmarks import development_payload_protocol as p
+from raregate.benchmarks import development_payload_provider as provider
+from raregate.benchmarks import development_payload_runtime as rt
+from raregate.benchmarks import development_raw_metadata as md
+from raregate.benchmarks import development_raw_planning as design
+from raregate.benchmarks.development_raw_synthetic import fixture, parameters
 
 
 def setup_payload(tmp_path, monkeypatch, rep=1):
@@ -349,7 +349,7 @@ def test_failed_backend_does_not_claim_rows_returned(tmp_path, monkeypatch):
     ],
 )
 def test_aggregate_report_rejects_incomplete_owned_inputs(tmp_path, failure):
-    from latenttrigger.benchmarks import development_payload_reporting as reporting
+    from raregate.benchmarks import development_payload_reporting as reporting
 
     for rep in (1, 2, 3):
         d = tmp_path / f"repetition{rep}"

@@ -11,8 +11,8 @@ from pathlib import Path
 
 import pytest
 
-from latenttrigger.streaming import quota
-from latenttrigger.streaming.validation_v2 import CASES, file_plan
+from raregate.streaming import quota
+from raregate.streaming.validation_v2 import CASES, file_plan
 
 
 @pytest.fixture(autouse=True)
@@ -144,7 +144,7 @@ def test_json_size_cardinalities_and_nonfinite_rejected(tmp_path):
 
 
 def test_quota_exhaustion_still_closes_cleanup_resource(tmp_path):
-    from latenttrigger.streaming.validation_v2 import report_quota_case
+    from raregate.streaming.validation_v2 import report_quota_case
 
     d = tmp_path / "case"
     entries = {
@@ -162,8 +162,8 @@ def test_quota_exhaustion_still_closes_cleanup_resource(tmp_path):
 
 
 def test_pinned_task0052_record_compatibility(tmp_path):
-    from latenttrigger.streaming.instrumentation import update_sequence
-    from latenttrigger.streaming.records import decode, encode
+    from raregate.streaming.instrumentation import update_sequence
+    from raregate.streaming.records import decode, encode
 
     pkg = types.ModuleType("_lt0052contract")
     pkg.__path__ = [str(tmp_path)]
@@ -221,7 +221,7 @@ class FakeClocks:
 def test_outer_boundary_reporting_failure_timeout_and_reaping(
     tmp_path, monkeypatch, mode
 ):
-    from latenttrigger.streaming import validation_v2 as v
+    from raregate.streaming import validation_v2 as v
 
     c = FakeClocks()
     directory = tmp_path / "suite-1"
@@ -398,7 +398,7 @@ def test_resolved_v2_contract_and_plan_agree():
 
 
 def test_remaining_owned_group_is_not_silently_accepted(monkeypatch):
-    from latenttrigger.streaming import validation_v2 as v
+    from raregate.streaming import validation_v2 as v
 
     clock = FakeClocks()
 

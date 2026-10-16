@@ -11,13 +11,13 @@ import pytest
 import torch
 from test_frozen_cpu_benchmark import FakeGuard, sample
 
-from latenttrigger.benchmarks import ae_parity_numerics as n
-from latenttrigger.benchmarks import ae_parity_protocol as q
-from latenttrigger.benchmarks import ae_parity_review as review
-from latenttrigger.benchmarks import core
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.data.inspection import AGGREGATE_NAMES
-from latenttrigger.models.autoencoder import CompactAutoencoder
+from raregate.benchmarks import ae_parity_numerics as n
+from raregate.benchmarks import ae_parity_protocol as q
+from raregate.benchmarks import ae_parity_review as review
+from raregate.benchmarks import core
+from raregate.benchmarks import protocol as p
+from raregate.data.inspection import AGGREGATE_NAMES
+from raregate.models.autoencoder import CompactAutoencoder
 
 
 @pytest.mark.parametrize(
@@ -277,7 +277,7 @@ def test_unrelated_operation_exception_is_not_numerical_finding():
 
 
 def test_review_controller_has_no_numeric_imports_in_fresh_process(tmp_path):
-    code = 'import sys; import latenttrigger.benchmarks.ae_parity_review; assert not any(k in sys.modules for k in ("numpy","torch","sklearn","h5py"))'
+    code = 'import sys; import raregate.benchmarks.ae_parity_review; assert not any(k in sys.modules for k in ("numpy","torch","sklearn","h5py"))'
     child = subprocess.run(
         [sys.executable, "-c", code], capture_output=True, text=True, timeout=10
     )

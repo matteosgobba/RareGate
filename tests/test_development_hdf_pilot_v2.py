@@ -12,9 +12,9 @@ from unittest.mock import Mock
 import numpy as np
 import pytest
 
-from latenttrigger.streaming import hdf_consumer as h
-from latenttrigger.streaming import pilot56, quota
-from latenttrigger.streaming import pilot_context as c
+from raregate.streaming import hdf_consumer as h
+from raregate.streaming import pilot56, quota
+from raregate.streaming import pilot_context as c
 
 
 def spec():
@@ -160,8 +160,8 @@ def test_entry_errors_help_do_not_open_or_import_numeric(monkeypatch, args, code
 def test_runtime_and_source_free_entry_cannot_load_fixture_or_real_payload():
     import inspect
 
-    from latenttrigger.streaming.cpu_runtime import RuntimeSession
-    from latenttrigger.streaming.fixture import run_fixture
+    from raregate.streaming.cpu_runtime import RuntimeSession
+    from raregate.streaming.fixture import run_fixture
 
     assert "context" not in inspect.signature(run_fixture).parameters
     assert "pilot" not in inspect.signature(run_fixture).parameters

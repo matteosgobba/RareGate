@@ -5,16 +5,16 @@ from dataclasses import asdict
 import numpy as np
 import pytest
 
-from latenttrigger.data.analysis import file_sha256
-from latenttrigger.data.eda import (
+from raregate.data.analysis import file_sha256
+from raregate.data.eda import (
     choose_nmax,
     disk_statistics,
     summarize_multiplicity,
     verify_split_artifacts,
 )
-from latenttrigger.data.inspection import event_fingerprints
-from latenttrigger.data.metadata import LHCO_RD
-from latenttrigger.data.splitting import (
+from raregate.data.inspection import event_fingerprints
+from raregate.data.metadata import LHCO_RD
+from raregate.data.splitting import (
     PROTOCOL,
     SEED,
     assign_groups,

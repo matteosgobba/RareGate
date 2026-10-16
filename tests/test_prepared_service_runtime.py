@@ -2,11 +2,11 @@
 
 import pytest
 
-from latenttrigger.benchmarks import prepared_service_protocol as p
-from latenttrigger.benchmarks import prepared_service_runtime as rt
-from latenttrigger.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
-from latenttrigger.benchmarks.prepared_service_native import reserve
-from latenttrigger.benchmarks.prepared_service_reporting import validate
+from raregate.benchmarks import prepared_service_protocol as p
+from raregate.benchmarks import prepared_service_runtime as rt
+from raregate.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
+from raregate.benchmarks.prepared_service_native import reserve
+from raregate.benchmarks.prepared_service_reporting import validate
 
 
 def sample():

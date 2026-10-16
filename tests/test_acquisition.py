@@ -12,8 +12,8 @@ from urllib.request import Request
 
 import pytest
 
-from latenttrigger.data import acquisition
-from latenttrigger.data.metadata import LHCO_RD, DatasetSource
+from raregate.data import acquisition
+from raregate.data.metadata import LHCO_RD, DatasetSource
 
 PAYLOAD = b"verified LHCO fixture\n"
 
@@ -289,7 +289,7 @@ def test_insufficient_disk_space(
 def test_destination_from_nested_checkout(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    (tmp_path / "pyproject.toml").write_text('[project]\nname = "latent-trigger"\n')
+    (tmp_path / "pyproject.toml").write_text('[project]\nname = "raregate"\n')
     nested = tmp_path / "notebooks" / "exploration"
     nested.mkdir(parents=True)
     monkeypatch.chdir(nested)

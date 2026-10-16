@@ -35,7 +35,7 @@ def main():
         XDG_CACHE_HOME=str(owned / "cache"),
         MPLCONFIGDIR=str(owned / "matplotlib"),
         TMPDIR=str(owned / "tmp"),
-        LATENTTRIGGER_AUDIT_OWNED_ROOT=str(owned),
+        RAREGATE_AUDIT_OWNED_ROOT=str(owned),
         RUFF_NO_CACHE="true",
         OMP_NUM_THREADS="1",
         MKL_NUM_THREADS="1",

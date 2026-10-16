@@ -7,13 +7,13 @@ import h5py
 import numpy as np
 import pytest
 
-from latenttrigger.benchmarks import development_raw_adapter as a
-from latenttrigger.benchmarks import development_raw_membership as m
-from latenttrigger.benchmarks import development_raw_metadata as md
-from latenttrigger.benchmarks import development_raw_planning as plan
-from latenttrigger.benchmarks import development_raw_protocol as p
-from latenttrigger.benchmarks.development_raw_synthetic import parameters
-from latenttrigger.data.features import (
+from raregate.benchmarks import development_raw_adapter as a
+from raregate.benchmarks import development_raw_membership as m
+from raregate.benchmarks import development_raw_metadata as md
+from raregate.benchmarks import development_raw_planning as plan
+from raregate.benchmarks import development_raw_protocol as p
+from raregate.benchmarks.development_raw_synthetic import parameters
+from raregate.data.features import (
     canonicalize,
     physical_aggregates,
     standardized_aggregates,

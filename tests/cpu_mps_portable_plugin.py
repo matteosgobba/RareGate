@@ -11,8 +11,8 @@ from pathlib import Path
 import pytest
 import torch
 
-from latenttrigger.data.processed import content_hash
-from latenttrigger.models.autoencoder import CompactAutoencoder
+from raregate.data.processed import content_hash
+from raregate.models.autoencoder import CompactAutoencoder
 
 NAMES = {
     "test_controlled_config_only_epoch_ceiling_and_historical_identity",
@@ -68,6 +68,6 @@ def portable_legacy_schema(request, monkeypatch):
         )
 
     monkeypatch.setattr(Path, "read_text", read_text)
-    from latenttrigger.training import convergence
+    from raregate.training import convergence
 
     monkeypatch.setattr(convergence, "read_history", lambda path: history)

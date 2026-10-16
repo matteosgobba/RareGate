@@ -294,7 +294,7 @@ permanent YES/YES/YES, particle192/192 consumed/canonical deferral, all historic
 outcomes, accepted Task0024 export versus failed Task0025 campaign and no current
 MPS claim remain. This engineering question cannot establish strict-tail anomaly
 usefulness, signal efficiency, causal nonlinearity or detector readiness.
-LatentTrigger remains independent research without official CERN/experiment affiliation.
+RareGate remains independent research without official CERN/experiment affiliation.
 
 References: [Task0049 synthesis](cpu-trigger-study-synthesis.md),
 [decision brief](cpu-trigger-study-decision-brief.md),

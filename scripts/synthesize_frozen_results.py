@@ -1,4 +1,4 @@
-"""Task0027: deterministic aggregate-only synthesis; no LatentTrigger imports.
+"""Task0027: deterministic aggregate-only synthesis; no RareGate imports.
 
 Run from any directory with the existing environment. Reads only the nine pinned
 curated sources below, writes the five Task0027 tables/figures. Scientific models,
@@ -20,7 +20,7 @@ TARGETS = (0.1, 0.05, 0.01, 0.001)
 TABLES = "results/tables/final/"
 FIGURES = "results/figures/final/"
 SOURCES = {
-    "docs/guarded-pca-ae-evaluation.md": "5f95107ccd7d5911c618007c7c857644571f726a2c0d94af71921b50aebcab02",
+    "docs/guarded-pca-ae-evaluation.md": "e966f2a88d97fa29649e3d2077ec4d1d1de2e6188f5cb2ec95d4581472be6247",
     TABLES
     + "task0026-guarded-pca-ae-evaluation-summary.json": "d72270e9807b1a2176d46be248ddb697d7a22e10cf5aac4904583ab4fae1e966",
     TABLES
@@ -31,7 +31,7 @@ SOURCES = {
     + "task0026-pca-ae-empirical-operating-points.csv": "2a54dded7e88f2434f213e4f0927158d816849d5a4d84c7059ceb30ad412c0cd",
     FIGURES
     + "task0026-pca-ae-roc-pr.png": "2eaf396e9ab83cb8c6d3a0f94b198ff1825d2f3fab9af0634f46f9a30cf42c06",
-    "docs/frozen-cpu-benchmark-v2.md": "04892664f5fe9945e698039a8879c09f51c48816c84715b6a43bce84fd6890c4",
+    "docs/frozen-cpu-benchmark-v2.md": "9225848fc0cc0cf8c2535d94a71238d80952094a6114fc5daf05a74b021fad20",
     TABLES
     + "task0022-frozen-cpu-benchmark-v2-summary.json": "33c09221548ef56ef1b96f10c951161b65bea8d9565f2f3c100fd5f7a7c5744e",
     TABLES

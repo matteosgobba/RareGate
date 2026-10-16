@@ -1,5 +1,5 @@
 {
-  "schema": "latenttrigger.development_streaming_design.v1",
+  "schema": "raregate.development_streaming_design.v1",
   "task": "0050",
   "kind": "declarative_design_not_campaign_grant",
   "design_only": true,

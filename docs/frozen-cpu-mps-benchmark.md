@@ -238,7 +238,7 @@ stop before real access. No exports/dependencies/task0024code are created here.
 The implemented manual entry point is:
 
 ```bash
-.venv/bin/python -m latenttrigger.benchmarks.cpu_mps --run-campaign
+.venv/bin/python -m raregate.benchmarks.cpu_mps --run-campaign
 ```
 
 It has no output/retry/fallback/override selector. **Do not run it again for this

@@ -9,8 +9,8 @@ from unittest.mock import Mock
 
 import pytest
 
-from latenttrigger.streaming import pilot54, quota, session57, startup55
-from latenttrigger.streaming.session_context import GeneratedSession57, SessionFixture57
+from raregate.streaming import pilot54, quota, session57, startup55
+from raregate.streaming.session_context import GeneratedSession57, SessionFixture57
 
 REPO = Path(__file__).resolve().parents[1]
 ROOT = REPO / session57.ROOT
@@ -164,7 +164,7 @@ def fake_case_report():
 
 
 def shared_stub(monkeypatch, index):
-    from latenttrigger.streaming import fixture
+    from raregate.streaming import fixture
 
     j = journal_at(index)
     monkeypatch.setattr(startup55, "Journal", lambda path: j)
@@ -234,7 +234,7 @@ def test_whole_task_ledger_and_exact_bounds():
 
 
 def test_context_is_immutable_disjoint_and_rejects_real_paths(monkeypatch):
-    from latenttrigger.streaming.pilot_context import PilotContext56
+    from raregate.streaming.pilot_context import PilotContext56
 
     c = SessionFixture57("/tmp/no", "/tmp/no/session-normal", "bad", "pca-v1", "normal")
     assert type(c) is not PilotContext56

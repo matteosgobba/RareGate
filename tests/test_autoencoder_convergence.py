@@ -9,11 +9,11 @@ import pytest
 import torch
 from tests.cpu_mps_portable_plugin import synthetic_document
 
-from latenttrigger.data.processed import FeatureBatch, content_hash
-from latenttrigger.models.autoencoder import CompactAutoencoder, validate_config
-from latenttrigger.training.autoencoder import EarlyStopping, train_autoencoder
-from latenttrigger.training.background import run_background
-from latenttrigger.training.convergence import (
+from raregate.data.processed import FeatureBatch, content_hash
+from raregate.models.autoencoder import CompactAutoencoder, validate_config
+from raregate.training.autoencoder import EarlyStopping, train_autoencoder
+from raregate.training.background import run_background
+from raregate.training.convergence import (
     HistoricalPrefix,
     canonical_decision,
     validate_extension_config,
@@ -221,7 +221,7 @@ def test_convergence_provenance_and_no_score_persistence(tmp_path, monkeypatch):
             values = mapping[split]
             yield FeatureBatch(values, np.arange(len(values)), None)
 
-    monkeypatch.setattr("latenttrigger.training.background.ProcessedStore", Store)
+    monkeypatch.setattr("raregate.training.background.ProcessedStore", Store)
     path = tmp_path / "config.json"
     path.write_text(json.dumps(config))
     result = run_background(

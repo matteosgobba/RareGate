@@ -8,7 +8,7 @@ import tempfile
 import time
 import uuid
 
-from latenttrigger.simulation import occupancy_protocol as p
+from raregate.simulation import occupancy_protocol as p
 
 
 def validate():
@@ -127,7 +127,7 @@ def validate():
         [
             sys.executable,
             "-m",
-            "latenttrigger.simulation.occupancy_native",
+            "raregate.simulation.occupancy_native",
             "--fixture-directory",
             str(native),
             "--bootstrap",
@@ -141,7 +141,7 @@ def validate():
     command = [
         sys.executable,
         "-m",
-        "latenttrigger.simulation.occupancy_native",
+        "raregate.simulation.occupancy_native",
         "--fixture-directory",
         str(roundtrip),
         "--acceptance",

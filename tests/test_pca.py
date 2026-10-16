@@ -6,11 +6,11 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from latenttrigger.data.inspection import AGGREGATE_NAMES
-from latenttrigger.data.processed import FeatureBatch
-from latenttrigger.evaluation.run import run_final
-from latenttrigger.models.background import load_background_features, run_background
-from latenttrigger.models.pca import (
+from raregate.data.inspection import AGGREGATE_NAMES
+from raregate.data.processed import FeatureBatch
+from raregate.evaluation.run import run_final
+from raregate.models.background import load_background_features, run_background
+from raregate.models.pca import (
     PCAReconstruction,
     validate_config,
     validate_input_store,
@@ -121,7 +121,7 @@ def test_final_gate_refuses_before_any_store_open(tmp_path, monkeypatch):
     def forbidden(*args):
         raise AssertionError("No store should open")
 
-    monkeypatch.setattr("latenttrigger.evaluation.run.ProcessedStore", forbidden)
+    monkeypatch.setattr("raregate.evaluation.run.ProcessedStore", forbidden)
     with pytest.raises(ValueError, match="no store opened"):
         run_final(
             tmp_path / "missing",
@@ -188,7 +188,7 @@ def toy_store(features, config):
 def test_background_pipeline_and_independent_repeat_no_test_access(
     toy_store, config, tmp_path, monkeypatch
 ):
-    monkeypatch.setattr("latenttrigger.models.background.ProcessedStore", toy_store)
+    monkeypatch.setattr("raregate.models.background.ProcessedStore", toy_store)
     path = tmp_path / "config.json"
     path.write_text(json.dumps(config))
     first = run_background(tmp_path, path, tmp_path / "one", plots=False)
@@ -207,7 +207,7 @@ def test_background_pipeline_and_independent_repeat_no_test_access(
 def test_final_opt_in_records_before_synthetic_test_read(
     toy_store, config, tmp_path, monkeypatch
 ):
-    monkeypatch.setattr("latenttrigger.models.background.ProcessedStore", toy_store)
+    monkeypatch.setattr("raregate.models.background.ProcessedStore", toy_store)
     path = tmp_path / "config.json"
     path.write_text(json.dumps(config))
     run_background(tmp_path, path, tmp_path / "background", plots=False)
@@ -218,7 +218,7 @@ def test_final_opt_in_records_before_synthetic_test_read(
             assert record["population_access"][-1]["split"] == split
             yield from super().iter_features(split, **kwargs)
 
-    monkeypatch.setattr("latenttrigger.evaluation.run.ProcessedStore", AuditedStore)
+    monkeypatch.setattr("raregate.evaluation.run.ProcessedStore", AuditedStore)
     result = run_final(
         tmp_path / "background/model.json",
         tmp_path / "background/results.json",

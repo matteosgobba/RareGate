@@ -5,19 +5,19 @@ from types import SimpleNamespace
 
 import pytest
 
-from latenttrigger.benchmarks import development_payload_native as native
-from latenttrigger.benchmarks import development_payload_protocol as p
-from latenttrigger.benchmarks import development_payload_runtime as rt
-from latenttrigger.evaluation.guard import GuardError
+from raregate.benchmarks import development_payload_native as native
+from raregate.benchmarks import development_payload_protocol as p
+from raregate.benchmarks import development_payload_runtime as rt
+from raregate.evaluation.guard import GuardError
 
 
 @pytest.mark.parametrize(
     "event,args",
     [
         ("import", ("torch",)),
-        ("import", ("latenttrigger.models.pca",)),
-        ("import", ("latenttrigger.data.processed",)),
-        ("import", ("latenttrigger.data.preprocessing",)),
+        ("import", ("raregate.models.pca",)),
+        ("import", ("raregate.data.processed",)),
+        ("import", ("raregate.data.preprocessing",)),
         ("socket.connect", ()),
         ("subprocess.Popen", ()),
     ],
@@ -222,7 +222,7 @@ def test_storage_log_and_total_bounds(tmp_path):
 
 
 def test_continuous_suspension_and_narrow_guard_ceiling():
-    from latenttrigger.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
+    from raregate.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
 
     now = [1.0]
     row = dict(
@@ -248,7 +248,7 @@ def test_continuous_suspension_and_narrow_guard_ceiling():
 
 @pytest.mark.parametrize("fault", ["critical", "invalid_primary", "unavailable"])
 def test_scoped_pressure_primary_policy(fault):
-    from latenttrigger.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
+    from raregate.benchmarks.guard import NATIVE_METHOD, PRESSURE_METHOD
 
     row = dict(
         peak_rss_bytes=1,

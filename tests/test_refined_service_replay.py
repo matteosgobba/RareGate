@@ -5,20 +5,20 @@ import random
 
 import pytest
 
-from latenttrigger.simulation import refined_service_admission as admission
-from latenttrigger.simulation import refined_service_protocol as p
-from latenttrigger.simulation import refined_service_source as source
-from latenttrigger.simulation.engine import Policy, Trace
-from latenttrigger.simulation.engine import simulate as original_simulate
-from latenttrigger.simulation.joint_engine import ReplayPolicy
-from latenttrigger.simulation.refined_service_engine import (
+from raregate.simulation import refined_service_admission as admission
+from raregate.simulation import refined_service_protocol as p
+from raregate.simulation import refined_service_source as source
+from raregate.simulation.engine import Policy, Trace
+from raregate.simulation.engine import simulate as original_simulate
+from raregate.simulation.joint_engine import ReplayPolicy
+from raregate.simulation.refined_service_engine import (
     Assignment as ActualAssignment,
 )
-from latenttrigger.simulation.refined_service_engine import anchor as actual_anchor
-from latenttrigger.simulation.refined_service_engine import simulate
-from latenttrigger.simulation.refined_service_fixture import create
-from latenttrigger.simulation.refined_service_runtime import check_access
-from latenttrigger.simulation.refined_service_sweep import contrasts
+from raregate.simulation.refined_service_engine import anchor as actual_anchor
+from raregate.simulation.refined_service_engine import simulate
+from raregate.simulation.refined_service_fixture import create
+from raregate.simulation.refined_service_runtime import check_access
+from raregate.simulation.refined_service_sweep import contrasts
 
 
 def Assignment(v, b, mapping, billing):
@@ -495,7 +495,7 @@ def test_planner_full_grid_and_bounds():
     "event,args",
     [
         ("import", ("h5py",)),
-        ("import", ("latenttrigger.models.pca",)),
+        ("import", ("raregate.models.pca",)),
         ("subprocess.Popen", ()),
         ("socket.connect", ()),
         ("open", ("/tmp/model.npy", "r", 0)),
@@ -751,7 +751,7 @@ def test_immutable_claim_rejection(software, failure):
 def test_independent_worker_rejects_before_guard_or_source(software, failure):
     import os
 
-    from latenttrigger.simulation import refined_service_native as native
+    from raregate.simulation import refined_service_native as native
 
     directory, record = software
     base = directory / ("c" * 32)
@@ -790,7 +790,7 @@ def test_independent_worker_rejects_before_guard_or_source(software, failure):
 def test_controller_bad_serialized_record_has_no_dispatch_effect(software, monkeypatch):
     from tests.runtime_fixtures import SyntheticClock
 
-    from latenttrigger.simulation import refined_service_native as native
+    from raregate.simulation import refined_service_native as native
 
     directory, record = software
     v = p.read(record)
@@ -821,7 +821,7 @@ def test_full_refined_service_only_mapping_negative_control(n):
 def test_storage_scan_owned_atomic_temp_race(tmp_path, monkeypatch):
     from pathlib import Path
 
-    from latenttrigger.simulation.refined_service_runtime import storage_check
+    from raregate.simulation.refined_service_runtime import storage_check
 
     published = tmp_path / "counters.json"
     published.write_text("{}")
@@ -851,7 +851,7 @@ def test_existing_generator_contract_independent_streams(mode, rate, seed):
 
     import numpy as np
 
-    from latenttrigger.simulation.traces import generate
+    from raregate.simulation.traces import generate
 
     tr, meta = generate(mode, rate, seed, count=31)
     mode_id = ("periodic", "poisson").index(mode)
@@ -1027,7 +1027,7 @@ def test_selection_complete_emitted_fields_rejected(bundle, field):
 
 
 def test_compact_stream_prewrite_growth_and_stream_decode(tmp_path):
-    from latenttrigger.simulation.refined_service_sweep import StreamCSV, decode_rows
+    from raregate.simulation.refined_service_sweep import StreamCSV, decode_rows
 
     path = tmp_path / "occupancies.csv"
     budget = [0]
@@ -1076,7 +1076,7 @@ def test_reader_imports_only_stdlib_and_pure_helpers():
 
 
 def test_explicit_byte_and_python_envelopes():
-    from latenttrigger.simulation.refined_service_sweep import CSV_TOTAL_CAP, FILE_BYTES
+    from raregate.simulation.refined_service_sweep import CSV_TOTAL_CAP, FILE_BYTES
 
     assert p.LIMITS["source_bundle_bytes"] == 24 * 2**20
     assert sum(v["bytes"] for v in p.SOURCE_MANIFEST.values()) == 17238096 > 16 * 2**20
@@ -1128,8 +1128,8 @@ def test_duplicate_csv_header_rejected_before_value_reconciliation():
 
 @pytest.fixture
 def compact_join(tmp_path, monkeypatch):
-    from latenttrigger.simulation import refined_service_sweep as sweep
-    from latenttrigger.simulation.traces import generate
+    from raregate.simulation import refined_service_sweep as sweep
+    from raregate.simulation.traces import generate
 
     trace, meta = generate("periodic", 500, 41)
     v = refined_vectors(1)[1]
@@ -1205,7 +1205,7 @@ def compact_join(tmp_path, monkeypatch):
 
 
 def test_independent_ordered_compact_join(compact_join):
-    from latenttrigger.simulation.refined_service_sweep import verify_csv
+    from raregate.simulation.refined_service_sweep import verify_csv
 
     result = verify_csv(*compact_join)
     assert (
@@ -1234,7 +1234,7 @@ def test_independent_ordered_compact_join(compact_join):
 def test_compact_join_tamper_rejected(compact_join, failure):
     import csv
 
-    from latenttrigger.simulation.refined_service_sweep import verify_csv
+    from raregate.simulation.refined_service_sweep import verify_csv
 
     directory, summary = compact_join
     name = (
@@ -1271,12 +1271,12 @@ def test_compact_join_tamper_rejected(compact_join, failure):
 
 @pytest.mark.parametrize("controller", [False, True])
 def test_continuous_controller_rss_role(controller):
-    from latenttrigger.evaluation.guard import (
+    from raregate.evaluation.guard import (
         NATIVE_METHOD,
         PRESSURE_METHOD,
         GuardError,
     )
-    from latenttrigger.simulation.refined_service_runtime import SimulationGuard
+    from raregate.simulation.refined_service_runtime import SimulationGuard
 
     value = dict(
         peak_rss_bytes=128 * 2**20 + 1,
@@ -1299,7 +1299,7 @@ def test_continuous_controller_rss_role(controller):
 
 
 def test_live_trace_memory_counts_dataclass_payloads():
-    from latenttrigger.simulation.traces import generate
+    from raregate.simulation.traces import generate
 
     trace, meta = generate("poisson", 500, 41)
     live = source.deep_size({("poisson", 500, 41): trace})
@@ -1323,7 +1323,7 @@ def test_boolean_dispatch_claim_rejected(software):
 def test_foreign_bootstrap_namespace_rejected_before_writes(tmp_path, monkeypatch):
     from tests.runtime_fixtures import SyntheticClock
 
-    from latenttrigger.simulation import refined_service_native as native
+    from raregate.simulation import refined_service_native as native
 
     monkeypatch.setattr(native.rt, "ContinuousClock", SyntheticClock)
     foreign = tmp_path / ("a" * 32)

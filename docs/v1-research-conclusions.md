@@ -1,4 +1,4 @@
-# LatentTrigger v1: research conclusions and development evidence
+# RareGate v1: research conclusions and development evidence
 
 The frozen compact autoencoder provides moderate ranking discrimination on the
 accepted two-prong signal and weaker discrimination on three-prong signal. Its

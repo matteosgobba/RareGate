@@ -8,19 +8,19 @@ from email.utils import format_datetime
 
 import pytest
 
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.data import three_prong_v3 as controller
-from latenttrigger.data import three_prong_v3_protocol as q
-from latenttrigger.data import three_prong_v3_runtime as rt
-from latenttrigger.data import three_prong_v3_worker as worker
-from latenttrigger.data.three_prong_acquisition_smoke import Response
-from latenttrigger.data.three_prong_transport import ResponseFault
-from latenttrigger.data.three_prong_v3_transport import (
+from raregate.benchmarks import protocol as p
+from raregate.data import three_prong_v3 as controller
+from raregate.data import three_prong_v3_protocol as q
+from raregate.data import three_prong_v3_runtime as rt
+from raregate.data import three_prong_v3_worker as worker
+from raregate.data.three_prong_acquisition_smoke import Response
+from raregate.data.three_prong_transport import ResponseFault
+from raregate.data.three_prong_v3_transport import (
     Transfer,
     hash_bytes,
     retry_after,
 )
-from latenttrigger.evaluation.guard import Guard, GuardError
+from raregate.evaluation.guard import Guard, GuardError
 
 
 class Clock:

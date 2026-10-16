@@ -9,7 +9,7 @@ import time
 import uuid
 from pathlib import Path
 
-from latenttrigger.research.controlled_activation import protocol as p
+from raregate.research.controlled_activation import protocol as p
 
 
 def validate():
@@ -122,7 +122,7 @@ def validate():
     run("dependencies", [sys.executable, "-m", "pip", "check"])
     run(
         "native_synthetic",
-        [sys.executable, "-m", "latenttrigger.research.controlled_activation.native"],
+        [sys.executable, "-m", "raregate.research.controlled_activation.native"],
     )
     p.require(current == p.source_map(), "Source changed during validation")
     evidence = dict(

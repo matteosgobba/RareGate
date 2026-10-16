@@ -8,7 +8,7 @@ from pathlib import Path
 
 from tests.feature_score_fixtures import fixture_plan
 
-from latenttrigger.diagnostics import protocol as p
+from raregate.diagnostics import protocol as p
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
             [
                 sys.executable,
                 "-m",
-                "latenttrigger.diagnostics.controller",
+                "raregate.diagnostics.controller",
                 "--synthetic-root",
                 str(root),
             ],

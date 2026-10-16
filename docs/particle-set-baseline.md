@@ -254,7 +254,7 @@ Safe synthetic reproduction in the editable checkout:
 The gated command actually executed was:
 
 ```bash
-.venv/bin/python -m latenttrigger.models.particle_background \
+.venv/bin/python -m raregate.models.particle_background \
   --acceptance data/task0010-synthetic-acceptance.json
 ```
 

@@ -13,24 +13,24 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.models.particle_memory_study import StudyAudit
-from latenttrigger.models.particle_set import ParticleSetAutoencoder, event_loss
-from latenttrigger.supervision import particle_launcher as io
-from latenttrigger.supervision import particle_sampling as sampling
-from latenttrigger.supervision import particle_sampling_benchmark as bench
-from latenttrigger.supervision.particle_monitor_benchmark import (
+from raregate.models.particle_memory_study import StudyAudit
+from raregate.models.particle_set import ParticleSetAutoencoder, event_loss
+from raregate.supervision import particle_launcher as io
+from raregate.supervision import particle_sampling as sampling
+from raregate.supervision import particle_sampling_benchmark as bench
+from raregate.supervision.particle_monitor_benchmark import (
     fixture,
     physical_batches,
 )
-from latenttrigger.training.autoencoder import deterministic_cpu
-from latenttrigger.training.particle_monitor_v3 import MonitorV3
-from latenttrigger.training.particle_monitor_v4 import (
+from raregate.training.autoencoder import deterministic_cpu
+from raregate.training.particle_monitor_v3 import MonitorV3
+from raregate.training.particle_monitor_v4 import (
     MonitorV4,
     definition,
     optimizer_observer,
     validate_manifest,
 )
-from latenttrigger.training.particle_set import ResourceLimitError, adam
+from raregate.training.particle_set import ResourceLimitError, adam
 
 
 @pytest.fixture
@@ -414,7 +414,7 @@ def test_error_latched_even_after_good_looking_publication():
 def test_synthetic_v3_v4_exact_Adam_parameter_reconstruction_score_parity(
     config, profile, tmp_path
 ):
-    from latenttrigger.data.features import Parameters, model_view
+    from raregate.data.features import Parameters, model_view
 
     params = Parameters.from_config(io.read(io.ROOT / "configs/data/lhco_rnd_v5.json"))
     batches = physical_batches()
@@ -507,30 +507,30 @@ def test_material_gate_complete_fixed_repetitions_and_no_best_selection():
 
 
 def test_stdlib_sampler_and_supervisor_source_coverage():
-    code = "from latenttrigger.supervision import particle_sampling,particle_sampling_benchmark;from latenttrigger.supervision import particle_launcher as c;c.assert_lightweight()"
+    code = "from raregate.supervision import particle_sampling,particle_sampling_benchmark;from raregate.supervision import particle_launcher as c;c.assert_lightweight()"
     subprocess.run(
         [sys.executable, "-c", code], check=True, capture_output=True, timeout=10
     )
     for p in (
-        "src/latenttrigger/supervision/particle_sampling.py",
-        "src/latenttrigger/supervision/particle_sampling_benchmark.py",
-        "src/latenttrigger/training/particle_monitor_v4.py",
+        "src/raregate/supervision/particle_sampling.py",
+        "src/raregate/supervision/particle_sampling_benchmark.py",
+        "src/raregate/training/particle_monitor_v4.py",
         "tests/test_particle_bounded_sampling.py",
     ):
         assert p in io.source_hashes()
 
 
 def test_lightweight_controller_worker_imports_and_source_binding():
-    code = "from latenttrigger.supervision import particle_bounded_study,particle_bounded_worker;from latenttrigger.supervision import particle_launcher as c;c.assert_lightweight()"
+    code = "from raregate.supervision import particle_bounded_study,particle_bounded_worker;from raregate.supervision import particle_launcher as c;c.assert_lightweight()"
     subprocess.run(
         [sys.executable, "-c", code], check=True, capture_output=True, timeout=10
     )
-    from latenttrigger.supervision import particle_bounded_study as route
+    from raregate.supervision import particle_bounded_study as route
 
     assert io.digest(io.read(io.ROOT / route.MONITOR)) == route.MONITOR_HASH
     for p in (
-        "src/latenttrigger/supervision/particle_bounded_study.py",
-        "src/latenttrigger/supervision/particle_bounded_worker.py",
+        "src/raregate/supervision/particle_bounded_study.py",
+        "src/raregate/supervision/particle_bounded_worker.py",
     ):
         assert p in io.source_hashes()
 
@@ -539,14 +539,14 @@ def test_lightweight_controller_worker_imports_and_source_binding():
     "phase", ["fit", "calibration", "test_background", "test_signal", "full_custody"]
 )
 def test_no_canonical_test_or_custody_phase(phase):
-    from latenttrigger.supervision import particle_bounded_study as route
+    from raregate.supervision import particle_bounded_study as route
 
     with pytest.raises(ValueError):
         route.authorize(phase, {"stages": []})
 
 
 def test_fixed_phase_order_failure_blocks_downstream():
-    from latenttrigger.supervision import particle_bounded_study as route
+    from raregate.supervision import particle_bounded_study as route
 
     assert route.PHASES == ("dev_reader", "dev_readiness", "dev")
     assert route.SECONDS == {"dev_reader": 60, "dev_readiness": 30, "dev": 300}
@@ -562,7 +562,7 @@ def test_fixed_phase_order_failure_blocks_downstream():
 
 
 def test_additional_cumulative_step_reservation_before_mutation(tmp_path):
-    from latenttrigger.supervision.particle_bounded_worker import additional_audit
+    from raregate.supervision.particle_bounded_worker import additional_audit
 
     audit = additional_audit(StudyAudit, tmp_path / "audit.json")
     p = torch.nn.Parameter(torch.tensor([1.0]))
@@ -649,7 +649,7 @@ def test_process_pressure_unknown_allowed_and_cap_equality(config, profile):
 
 
 def test_real_slot_not_created_when_material_gate_fails(monkeypatch, tmp_path):
-    from latenttrigger.supervision import particle_bounded_study as route
+    from raregate.supervision import particle_bounded_study as route
 
     monkeypatch.setattr(io, "ROOT", tmp_path)
     monkeypatch.setattr(io, "assert_lightweight", lambda: None)
@@ -665,7 +665,7 @@ def test_real_slot_not_created_when_material_gate_fails(monkeypatch, tmp_path):
 
 
 def test_readiness_timeout_preserved_without_attempt_or_retry(monkeypatch, tmp_path):
-    from latenttrigger.supervision import particle_bounded_study as route
+    from raregate.supervision import particle_bounded_study as route
 
     monkeypatch.setattr(io, "ROOT", tmp_path)
     monkeypatch.setattr(route, "verify_plan", lambda: {})
@@ -688,7 +688,7 @@ def test_readiness_timeout_preserved_without_attempt_or_retry(monkeypatch, tmp_p
 def test_failed_readiness_does_not_reserve_and_consumed_slot_refuses(
     monkeypatch, tmp_path
 ):
-    from latenttrigger.supervision import particle_bounded_study as route
+    from raregate.supervision import particle_bounded_study as route
 
     monkeypatch.setattr(io, "ROOT", tmp_path)
     monkeypatch.setattr(io, "assert_lightweight", lambda: None)

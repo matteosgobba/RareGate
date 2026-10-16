@@ -1,5 +1,5 @@
 {
-  "schema": "latenttrigger.instrumented_development_request_contract.v2",
+  "schema": "raregate.instrumented_development_request_contract.v2",
   "task": "0053",
   "contract_version": 2,
   "result_informed_exploratory_engineering_revision": true,
@@ -12,12 +12,12 @@
     {
       "path": "docs/development-streaming-protocol.md",
       "size_bytes": 20769,
-      "sha256": "923b2222f9e23a6610586848b0e2feb804c653c73c0405bd5030a0039c30d8f1"
+      "sha256": "5997a4c053e0ac4d59fa4a75c83b7f7fe03525970ee904bf1c6724b1c1b82425"
     },
     {
       "path": "configs/protocols/development_streaming_v1.json",
       "size_bytes": 43882,
-      "sha256": "8ccad6fd2c006251454046dc026033834a758c04f00f3c071a501f3629dfba8f"
+      "sha256": "03baa92e53e7fd4e33971d3577943174919e240e26f07d4e50bfd5032b06d867"
     },
     {
       "path": "docs/development-streaming-instrumentation.md",
@@ -27,7 +27,7 @@
     {
       "path": "configs/streaming/development_streaming_instrumentation_v1.json",
       "size_bytes": 19836,
-      "sha256": "e54eaddc019a37af011caf184bd10f8b77d90ac6d22ef10e2239b0d2af4f8bbe"
+      "sha256": "bc2fe3c8948373d329084ef3292b1efe6cf4a9cb9f9a352b3c2941a10f3b694a"
     },
     {
       "path": "results/tables/final/task0052-streaming-instrumentation-summary.json",
@@ -424,7 +424,7 @@
     "unexecuted_cases": 24,
     "presentations_percase": 768,
     "whole_study_s": 840,
-    "original_spec_sha256": "8ccad6fd2c006251454046dc026033834a758c04f00f3c071a501f3629dfba8f"
+    "original_spec_sha256": "03baa92e53e7fd4e33971d3577943174919e240e26f07d4e50bfd5032b06d867"
   },
   "historical_Task0052": {
     "status": "partial_generated_streaming_instrumentation_characterization",

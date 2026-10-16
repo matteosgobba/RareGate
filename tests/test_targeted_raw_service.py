@@ -7,12 +7,12 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from latenttrigger.benchmarks import core
-from latenttrigger.benchmarks import prepared_service as historical
-from latenttrigger.benchmarks import targeted_raw_planning as p
-from latenttrigger.benchmarks import targeted_raw_service as s
-from latenttrigger.benchmarks.development_decision_synthetic import models
-from latenttrigger.data.inspection import AGGREGATE_NAMES
+from raregate.benchmarks import core
+from raregate.benchmarks import prepared_service as historical
+from raregate.benchmarks import targeted_raw_planning as p
+from raregate.benchmarks import targeted_raw_service as s
+from raregate.benchmarks.development_decision_synthetic import models
+from raregate.data.inspection import AGGREGATE_NAMES
 
 
 @pytest.fixture(scope="module")

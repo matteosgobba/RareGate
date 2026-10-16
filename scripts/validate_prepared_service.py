@@ -9,7 +9,7 @@ import time
 import uuid
 from pathlib import Path
 
-from latenttrigger.benchmarks import prepared_service_protocol as p
+from raregate.benchmarks import prepared_service_protocol as p
 
 
 def validate():
@@ -121,7 +121,7 @@ def validate():
         [
             sys.executable,
             "-m",
-            "latenttrigger.benchmarks.prepared_service_native",
+            "raregate.benchmarks.prepared_service_native",
             "--synthetic-directory",
             str(native),
         ],

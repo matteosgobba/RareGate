@@ -9,7 +9,7 @@
   },
   "brief": {
     "path": "docs/particle-canonical-feasibility.md",
-    "file_sha256": "77f885ed2000f73e4af8b4dcfb2650e0e5491804159e42dbd4a261f607c2ebd8",
+    "file_sha256": "5736cd890aa224ce544a792bc9ce66841712725c66463591166e52b5bab977d4",
     "summary_path": "results/tables/final/task0019-particle-canonical-feasibility-summary.json",
     "summary_file_sha256": "78a3e0a9dbf6da9bc93fc5ffd78a9715d14397f19fffbf6f5c0a0c19603c8e97"
   },
@@ -140,7 +140,7 @@
     "precondition_path": "data/task0020-synthetic-acceptance.json",
     "campaign_copy": "acceptance.json",
     "source_scope": [
-      "src/latenttrigger/**/*.py",
+      "src/raregate/**/*.py",
       "tests/*.py",
       "scripts/*.py"
     ],

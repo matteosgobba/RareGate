@@ -19,13 +19,13 @@ import h5py
 import pytest
 from test_frozen_cpu_benchmark import sample
 
-from latenttrigger.benchmarks import protocol as p
-from latenttrigger.data import three_prong_acquisition as c
-from latenttrigger.data import three_prong_acquisition_protocol as q
-from latenttrigger.data import three_prong_acquisition_worker as worker
-from latenttrigger.data.three_prong_acquisition_smoke import Response, toy_payload
-from latenttrigger.data.three_prong_structure import inspect
-from latenttrigger.data.three_prong_transport import (
+from raregate.benchmarks import protocol as p
+from raregate.data import three_prong_acquisition as c
+from raregate.data import three_prong_acquisition_protocol as q
+from raregate.data import three_prong_acquisition_worker as worker
+from raregate.data.three_prong_acquisition_smoke import Response, toy_payload
+from raregate.data.three_prong_structure import inspect
+from raregate.data.three_prong_transport import (
     NoRedirect,
     ResponseFault,
     Transfer,
@@ -33,8 +33,8 @@ from latenttrigger.data.three_prong_transport import (
     retry_delay,
     retryable,
 )
-from latenttrigger.evaluation import guarded
-from latenttrigger.evaluation.guard import Guard
+from raregate.evaluation import guarded
+from raregate.evaluation.guard import Guard
 
 
 class Clock:
@@ -612,7 +612,7 @@ def test_parent_finalization_deadline_interrupts():
 
 
 def test_stdlib_controller_import_without_numerical_modules(tmp_path):
-    code = "import sys;import latenttrigger.data.three_prong_acquisition;assert not any(n in sys.modules for n in ('numpy','torch','h5py','sklearn','onnx','onnxruntime'))"
+    code = "import sys;import raregate.data.three_prong_acquisition;assert not any(n in sys.modules for n in ('numpy','torch','h5py','sklearn','onnx','onnxruntime'))"
     assert (
         subprocess.run([sys.executable, "-c", code], capture_output=True).returncode
         == 0

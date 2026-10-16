@@ -1,0 +1,728 @@
+"""One conditional Task0041 development payload session; separate synthetic fixtures."""
+
+import argparse
+import hashlib
+import os
+import shutil
+import struct
+import sys
+import time
+import uuid
+from pathlib import Path
+
+from raregate.benchmarks import development_decision_protocol as p
+from raregate.benchmarks import development_decision_runtime as rt
+
+
+def synthetic_prefix():
+    return hashlib.sha256(
+        b"".join(struct.pack("<q", 3 * i) for i in range(1024))
+    ).hexdigest()
+
+
+def worker(directory, token):
+    clock = rt.ContinuousClock()
+    grant, permit = p.validate_grant(directory, token, clock)
+    guard = rt.ServiceGuard(
+        grant["operation_deadline"], directory=directory, clock=clock
+    )
+    body = dict(
+        status="failed",
+        identity=grant["identity"],
+        source_map=grant["source_map"],
+        dependencies=grant["dependencies"],
+        grant_sha256=p.file_hash(directory / "grant.json"),
+    )
+    limiter = handle = blocked = None
+    ledger = None
+    torch_previous = None
+    try:
+        guard.__enter__()
+        spec = p.load()
+        p.require(
+            all(os.environ.get(k) == v for k, v in spec["thread_environment"].items())
+            and all(k not in sys.modules for k in ("numpy", "torch", "h5py")),
+            "Environment before numerical/model imports",
+        )
+        rt.boundary(directory, grant)
+        if grant["phase"] == "reporting":
+            from raregate.benchmarks.development_decision_reporting import run
+
+            names = run(directory, guard)
+        else:
+            import h5py
+            import numpy as np
+
+            from raregate.benchmarks import core
+            from raregate.benchmarks import development_decision_measure as measure
+            from raregate.benchmarks import (
+                development_decision_planning as planning,
+            )
+            from raregate.benchmarks import (
+                development_decision_provider as provider,
+            )
+            from raregate.benchmarks import (
+                development_raw_membership as membership,
+            )
+            from raregate.benchmarks import development_raw_metadata as md
+            from raregate.data.features import Parameters
+
+            blocked = rt.ProhibitedOperations(core)
+            torch_previous = dict(
+                intra=core.torch.get_num_threads(),
+                deterministic=core.torch.are_deterministic_algorithms_enabled(),
+            )
+            limiter, threads = core.configure_threads(spec)
+            body["effective_threads_before"] = dict(
+                **threads,
+                BLOSC_NTHREADS_requested=os.environ.get("BLOSC_NTHREADS"),
+                effective_decoder_threads="unknown",
+            )
+            build = dict(
+                torch_config_canonical_JSON_string_sha256=p.digest(
+                    core.torch.__config__.show()
+                ),
+                torch_version=str(core.torch.__version__),
+                numpy_version=np.__version__,
+            )
+            p.require(
+                build["torch_config_canonical_JSON_string_sha256"]
+                == grant["native_build"]["torch_config_canonical_JSON_string_sha256"]
+                == spec["numerical"]["runtime_torch_build_sha256"]
+                and build["torch_version"] == grant["native_build"]["torch_version"],
+                "Accepted canonical Torch CPU build; no raw-vs-JSON hash confusion",
+            )
+            body["runtime_build"] = build
+            ledger = provider.Ledger(directory)
+            body["access"] = ledger.audit
+            if grant["synthetic_only"]:
+                from raregate.benchmarks.development_decision_synthetic import (
+                    models as fixture_models,
+                )
+                from raregate.benchmarks.development_raw_synthetic import (
+                    fixture,
+                    parameters,
+                )
+
+                path, prefix = fixture(directory)
+                member_path = directory / "fixture-membership.npy"
+                golden_path = directory / "fixture-golden.npy"
+                selected = np.arange(1024, dtype="<i8") * 3
+                gold = np.empty((1024, 8), dtype="<f4")
+                parameters = parameters()
+                with h5py.File(path, "r", **p.CACHE) as f:
+                    for start in range(0, 1024, 128):
+                        gold[start : start + 128] = provider.construct(
+                            f.get("/df/block0_values")[
+                                selected[start : start + 128].tolist(), :
+                            ],
+                            parameters,
+                        )
+                np.save(golden_path, gold, allow_pickle=False)
+                member_spec = dict(
+                    spec["membership"],
+                    file_sha256=p.file_hash(member_path),
+                    selected_sha256=prefix,
+                )
+                golden_spec = dict(
+                    spec["golden"],
+                    file_sha256=p.file_hash(golden_path),
+                    payload_sha256=measure.block_hash(gold),
+                )
+                entries = fixture_models(directory)
+                model_root = directory
+                body["synthetic_setup"] = dict(
+                    feature_calls=8,
+                    feature_rows=1024,
+                    raw_requests=8,
+                    raw_rows=1024,
+                    model_fixture_creations=2,
+                    setup_model_forward_calls=0,
+                    HDF_read_handles=1,
+                    HDF_write_handles=1,
+                    operational_rows=0,
+                )
+                del selected, gold
+            else:
+                p.custody()
+                path = p.fixed(p.ROOT, p.RAW)
+                member_path = p.fixed(p.ROOT, p.MEMBERSHIP)
+                golden_path = p.fixed(p.ROOT, p.GOLDEN)
+                member_spec, golden_spec = spec["membership"], spec["golden"]
+                parameters = Parameters.from_config(
+                    p.read(p.ROOT / spec["transform_config"])
+                )
+                entries = spec["models"]
+                model_root = p.ROOT
+            original_load = np.load
+            remaining = {member_path: 1, golden_path: 1}
+
+            def only_original_arrays(path, *args, **kwargs):
+                target = Path(path).absolute()
+                p.require(
+                    target in remaining and remaining[target] == 1,
+                    "Only original membership/golden, once",
+                )
+                remaining[target] -= 1
+                return original_load(path, *args, **kwargs)
+
+            np.load = only_original_arrays
+            try:
+                selected = membership.load_once(
+                    member_path, member_spec, ledger.audit, ledger.persist
+                )
+                golden = provider.golden_once(golden_path, golden_spec, ledger)
+            finally:
+                np.load = original_load
+            approval = provider.Approval(selected, member_spec["selected_sha256"])
+            loaded = {}
+            model_identities = {}
+            entry_map = {v["name"]: v for v in entries}
+            for name in planning.candidates(int(grant["phase"][-1])):
+                entry = entry_map[name]
+                ledger.audit["model_load_attempts"] += 1
+                ledger.audit["model_inflight"] = dict(
+                    candidate=name, operation="original_JSON_model_and_threshold_load"
+                )
+                ledger.persist()
+                model, thresholds = core.load_model(model_root, entry)
+                ledger.audit["model_loads"] += 1
+                ledger.audit["model_instantiations"] += 1
+                ledger.audit["threshold_loads"] += 1
+                ledger.persist()
+                expected_thresholds = np.array(
+                    [
+                        v["threshold"]
+                        for v in (
+                            p.read(model_root / entry["results_path"])["scientific"][
+                                "thresholds"
+                            ]
+                            if grant["synthetic_only"]
+                            else entry["thresholds"]
+                        )
+                    ],
+                    dtype="<f8",
+                )
+                p.require(
+                    thresholds.shape == (4,)
+                    and thresholds.dtype == np.dtype("<f8")
+                    and np.isfinite(thresholds).all()
+                    and thresholds.tobytes() == expected_thresholds.tobytes(),
+                    "Original threshold bytes, no calibration",
+                )
+                artifact = p.read(model_root / entry["model_path"])
+                p.require(
+                    core.parameter_hash(model) == p.expected_parameter_hash(artifact),
+                    "Exact loaded parameter bytes versus bound source artifact",
+                )
+                loaded[name] = (model, thresholds)
+                model_identities[name] = (
+                    core.parameter_hash(model),
+                    measure.block_hash(thresholds),
+                )
+                ledger.audit["model_inflight"] = None
+                ledger.persist()
+            body["model_parameter_threshold_hashes"] = {
+                k: list(v) for k, v in model_identities.items()
+            }
+            guard.boundary("one_HDF_handle_across_both_candidate_blocks")
+            ledger.audit.update(HDF_open_attempts=1, HDF_inflight=True)
+            ledger.persist()
+            handle = h5py.File(path, "r", **p.CACHE)
+            ledger.audit["HDF_opens"] = 1
+            ledger.persist()
+            metadata = md.properties(handle, spec["raw"]["audit_schema"])
+            body["HDF_runtime"] = dict(
+                metadata=metadata,
+                h5py=h5py.__version__,
+                HDF5=h5py.version.hdf5_version,
+                hdf5plugin=p.dependencies()["packages"]["hdf5plugin"],
+                effective_decoder_threads="unknown",
+            )
+            chain = provider.Chain(
+                handle.get("/df/block0_values"),
+                approval,
+                path,
+                clock,
+                grant["operation_deadline"],
+                permit=permit,
+            )
+            names = measure.run(
+                chain,
+                golden,
+                parameters,
+                ledger,
+                directory,
+                int(grant["phase"][-1]),
+                guard,
+                loaded,
+                model_identities,
+                core.effective_threads,
+            )
+            md.properties(handle, spec["raw"]["audit_schema"])
+            handle.close()
+            handle = None
+            ledger.audit.update(HDF_closed=True, HDF_inflight=False)
+            ledger.persist()
+            for source, expected in (
+                (member_path, member_spec["file_sha256"]),
+                (golden_path, golden_spec["file_sha256"]),
+            ):
+                p.require(p.file_hash(source) == expected, "Post input byte identity")
+            if not grant["synthetic_only"]:
+                p.custody()
+            body["effective_threads_after"] = core.effective_threads()
+            agg = p.read(directory / "aggregate.json")
+            agg.update(accounting=ledger.audit, geometry=planning.geometry(selected))
+            p.durable_json(directory / "aggregate.json", agg)
+            rt.accounting(ledger.audit)
+        guard.boundary("body_complete")
+        body.update(
+            status="body_complete_awaiting_exit",
+            outputs={n: p.file_hash(directory / n) for n in names},
+        )
+    except BaseException as exc:
+        body["error"] = f"{type(exc).__name__}: {exc}"
+    finally:
+        cleanup = clock()
+        try:
+            if handle is not None:
+                handle.close()
+                if ledger is not None:
+                    ledger.audit["HDF_closed"] = not handle.id.valid
+                    ledger.persist()
+            if limiter:
+                limiter.restore_original_limits()
+            if blocked:
+                blocked.restore()
+            if torch_previous is not None:
+                core.torch.set_num_threads(torch_previous["intra"])
+                core.torch.use_deterministic_algorithms(torch_previous["deterministic"])
+                body["Torch_cleanup"] = dict(
+                    intra_restored=True,
+                    deterministic_restored=True,
+                    interop_lifetime="owned_fresh_process;one_time_setting_released_by_normal_exit_reaping",
+                )
+        except BaseException as exc:
+            body.update(status="failed", cleanup_error=str(exc))
+        guard.close()
+        body.update(
+            resources=guard.report(),
+            monitor_closed_continuous=clock(),
+            cleanup_seconds=clock() - cleanup,
+            worker_seconds=clock() - grant["started_continuous"],
+            ordinary_worker_seconds=time.monotonic() - grant["started_ordinary"],
+        )
+        p.durable_json(directory / "receipt.json", body, exclusive=True)
+    return (
+        0
+        if body["status"] == "body_complete_awaiting_exit"
+        and body["cleanup_seconds"] <= 2
+        and clock() < grant["stage_deadline"]
+        else 1
+    )
+
+
+def reserve(base, plan):
+    p.durable_json(
+        p.ROOT / p.OUTPUT / "attempt.json",
+        dict(
+            status="reserved_consumed_one_development_raw_decision_measurement",
+            directory=str(base.relative_to(p.ROOT)),
+            plan_sha256=p.file_hash(base / "plan.json"),
+            prompt_sha256=plan["prompt_sha256"],
+        ),
+        exclusive=True,
+    )
+
+
+def run(
+    acceptance=None,
+    *,
+    synthetic_directory=None,
+    validation_owner="0041",
+    admission_freeze=None,
+    validation_bootstrap=False,
+):
+    from raregate.benchmarks.development_decision_contract import Context, identity
+
+    context = Context(p.ROOT, validation_owner)
+    if validation_owner == "0042":
+        p.require(
+            synthetic_directory is not None and acceptance is None,
+            "Repair is software-only",
+        )
+        p.require(
+            Path(synthetic_directory).absolute().is_relative_to(context.namespace),
+            "Repair fixture namespace",
+        )
+        if not validation_bootstrap:
+            from raregate.benchmarks.development_decision_admission import verify
+
+            current = verify(admission_freeze)
+            p.require(
+                current.context == context
+                and Path(synthetic_directory) == current.directory / "native",
+                "Independent controller freeze gate",
+            )
+            claim = p.read(p.fixed(current.directory, "launch-claim.json"))
+            p.require(
+                claim
+                == dict(
+                    record_sha256=current.record_sha256,
+                    freeze_sha256=current.freeze_sha256,
+                ),
+                "Coordinator one-dispatch claim",
+            )
+    else:
+        p.require(
+            admission_freeze is None and validation_bootstrap is False,
+            "No foreign repair permit",
+        )
+    synthetic = synthetic_directory is not None
+    clock = rt.ContinuousClock()
+    started = clock()
+    whole = started + 780
+    base = (
+        Path(synthetic_directory).absolute()
+        if synthetic
+        else p.ROOT / p.OUTPUT / uuid.uuid4().hex
+    )
+    base.mkdir(parents=True, exist_ok=False)
+    workflow = dict(
+        status="prerequisites",
+        synthetic_only=synthetic,
+        reserved=False,
+        identity=identity(context, synthetic=synthetic),
+        validation_bootstrap=validation_bootstrap,
+        started=clock.snapshot(),
+        source_map=p.source_map(),
+        dependencies=p.dependencies(),
+        workers=[],
+    )
+    assertion = None
+    parent_guard = None
+    try:
+        with rt.alarm(clock, started + 60):
+            spec = p.load()
+            build = p.native_build()
+            if not synthetic:
+                p.require(
+                    not (p.ROOT / p.OUTPUT / "attempt.json").exists()
+                    and not (p.ROOT / p.OUTPUT / "prerequisite-attempt.json").exists(),
+                    "One invocation, failed prerequisites stop without repeating custody",
+                )
+                p.durable_json(
+                    p.ROOT / p.OUTPUT / "prerequisite-attempt.json",
+                    dict(
+                        directory=str(base.relative_to(p.ROOT)),
+                        status="prerequisites_consumed_no_retry",
+                    ),
+                    exclusive=True,
+                )
+                accepted = p.acceptance(acceptance)
+                workflow["custody"] = p.custody()
+                p.require(build == accepted["native_build"], "Accepted native build")
+            parent_guard = rt.ServiceGuard(whole - 2, directory=base, clock=clock)
+            parent_guard.__enter__()
+            rt.parent_check(clock=clock, deadline=whole)
+            p.require(
+                shutil.disk_usage(base).free >= 128 * 2**20,
+                "Owned128MiB storage admission",
+            )
+            assertion = rt.IdleAssertion(clock)
+            assertion.start(started + 60)
+            if not synthetic:
+                workflow["raw_before"] = {}
+
+                def poll_before():
+                    parent_guard.check()
+                    rt.check_deadline(clock, started + 60)
+                    rt.parent_check(clock=clock, deadline=started + 60)
+                    assertion.check(started + 60)
+
+                p.hash_raw(
+                    p.fixed(p.ROOT, p.RAW),
+                    spec["raw"],
+                    workflow["raw_before"],
+                    lambda: p.durable_json(
+                        base / "raw-before.json", workflow["raw_before"]
+                    ),
+                    poll_before,
+                )
+            plan = dict(
+                task=spec["task"],
+                validation_bootstrap=validation_bootstrap,
+                admission_freeze_sha256=admission_freeze.freeze_sha256
+                if admission_freeze is not None
+                else None,
+                identity=identity(context, synthetic=synthetic),
+                kind="synthetic_fixed_matrix"
+                if synthetic
+                else "one_development_raw_decision_measurement",
+                source_map=workflow["source_map"],
+                dependencies=workflow["dependencies"],
+                native_build=build,
+                config_sha256=p.file_hash(p.ROOT / p.CONFIG),
+                prompt_sha256=p.file_hash(p.ROOT / p.PROMPT),
+                acceptance_sha256=None if synthetic else p.file_hash(acceptance),
+                inputs={k: spec[k] for k in ("membership", "raw", "golden")},
+                expected=spec["expected"],
+                models=spec["models"],
+                limits=spec["limits"],
+                post_custody_seconds=45,
+                authorization="generated_fixtures_only;not_operational_allowance"
+                if synthetic
+                else "actual_Task0041_prompt_bound_to_this_final_plan; no_other_task_allowance",
+                raw_before_identity={} if synthetic else workflow["raw_before"],
+                raw_buffer_preloads=0,
+            )
+            p.require(
+                plan["task"] == plan["identity"]["task"]
+                and plan["kind"] == plan["identity"]["kind"],
+                "Controller protocol/task identity",
+            )
+            p.durable_json(base / "plan.json", plan, exclusive=True)
+            p.require(
+                p.source_map() == plan["source_map"]
+                and p.dependencies() == plan["dependencies"],
+                "Final freeze before reservation",
+            )
+            if not synthetic:
+                reserve(base, plan)
+                workflow["reserved"] = True
+            reserved_start = clock()
+            reserved_deadline = min(whole, reserved_start + 720)
+            workflow["prerequisite_seconds"] = clock() - started
+        for phase in ("repetition1", "repetition2", "repetition3", "reporting"):
+            directory = base / phase
+            directory.mkdir()
+            (directory / "tmp").mkdir()
+            tick = clock()
+            cap = 60 if phase == "reporting" else 180
+            # Hold 45s post-custody and 15s parent finalization inside reserved limit.
+            stage = min(reserved_deadline - 60, tick + cap)
+            payload_path = directory / "fixture.h5" if synthetic else p.ROOT / p.RAW
+            grant = dict(
+                phase=phase,
+                identity=plan["identity"],
+                admission_freeze_sha256=plan["admission_freeze_sha256"],
+                parent_pid=os.getpid(),
+                token=uuid.uuid4().hex,
+                synthetic_only=synthetic,
+                source_map=plan["source_map"],
+                dependencies=plan["dependencies"],
+                plan_sha256=p.file_hash(base / "plan.json"),
+                inputs=plan["inputs"],
+                models=plan["models"],
+                expected=plan["expected"],
+                native_build=plan["native_build"],
+                payload_path=str(payload_path),
+                prefix_sha256=synthetic_prefix()
+                if synthetic
+                else spec["membership"]["selected_sha256"],
+                started_continuous=tick,
+                started_ordinary=time.monotonic(),
+                operation_deadline=stage - 2,
+                stage_deadline=stage,
+                assertion_id=assertion.identity,
+            )
+            p.durable_json(directory / "grant.json", grant, exclusive=True)
+            env = dict(
+                os.environ,
+                **spec["thread_environment"],
+                PYTHONDONTWRITEBYTECODE="1",
+                PYTHONPATH=str(p.ROOT / "src") + os.pathsep + str(p.ROOT),
+                TMPDIR=str(directory / "tmp"),
+                MPLCONFIGDIR=str(directory / "tmp"),
+            )
+            observed = False
+
+            def monitor(stage=stage):
+                parent_guard.check()
+                nonlocal observed
+                assertion.check(stage - 2, force=not observed)
+                observed = True
+                rt.storage(base)
+
+            dispatch = rt.supervise(
+                [
+                    sys.executable,
+                    "-m",
+                    "raregate.benchmarks.development_decision_native",
+                    "--worker",
+                    str(directory),
+                    "--token",
+                    grant["token"],
+                ],
+                directory / "worker.log",
+                root=p.ROOT,
+                environment=env,
+                clock=clock,
+                operation_deadline=stage - 2,
+                stage_deadline=stage,
+                whole_deadline=whole,
+                monitor=monitor,
+            )
+            # Persist dispatch even if no body survived; body complete never implies accepted.
+            item = dict(phase=phase, dispatch=dispatch)
+            workflow["workers"].append(item)
+            p.durable_json(base / "progress.json", workflow)
+            body = p.read(directory / "receipt.json")
+            item["body_sha256"] = p.file_hash(directory / "receipt.json")
+            item["acceptance"] = rt.accept(
+                body, dispatch, grant, directory, clock, stage
+            )
+        if not synthetic:
+            custody_start = clock()
+            custody_deadline = min(reserved_deadline - 15, custody_start + 45)
+            workflow["raw_after"] = {}
+            with rt.alarm(clock, custody_deadline):
+
+                def poll_after():
+                    parent_guard.check()
+                    rt.check_deadline(clock, custody_deadline)
+                    rt.parent_check(clock=clock, deadline=custody_deadline)
+                    assertion.check(custody_deadline)
+
+                p.hash_raw(
+                    p.fixed(p.ROOT, p.RAW),
+                    spec["raw"],
+                    workflow["raw_after"],
+                    lambda: p.durable_json(
+                        base / "raw-after.json", workflow["raw_after"]
+                    ),
+                    poll_after,
+                )
+            workflow["post_custody_seconds"] = clock() - custody_start
+        final = clock()
+        deadline = min(reserved_deadline, whole, final + 15)
+        with rt.alarm(clock, deadline):
+            p.require(
+                p.source_map() == plan["source_map"]
+                and p.dependencies() == plan["dependencies"]
+                and p.native_build() == build,
+                "Final frozen identities",
+            )
+            if not synthetic:
+                p.custody()
+            parent_guard.check()
+            parent_guard.close()
+            workflow["parent_resources"] = parent_guard.report()
+            assertion.check(deadline, force=True)
+            workflow["sleep_assertion"] = assertion.release(deadline)
+            workflow.update(
+                status="parent_accepted_synthetic_raw_decision"
+                if synthetic
+                else "parent_accepted_development_raw_decision_measurement",
+                controller_peak_RSS_bytes=rt.parent_check(
+                    clock=clock, deadline=deadline
+                ),
+                storage_bytes=rt.storage(base),
+                whole_seconds=clock() - started,
+                reserved_seconds=clock() - reserved_start,
+                finalization_seconds=clock() - final,
+                overshoot_seconds=max(0, clock() - whole, clock() - reserved_deadline),
+                finished=clock.snapshot(),
+                plan_sha256=p.file_hash(base / "plan.json"),
+            )
+            p.durable_json(base / "workflow.json", workflow, exclusive=True)
+            p.durable_json(
+                base / "parent-acceptance.json",
+                dict(
+                    status=workflow["status"],
+                    identity=workflow["identity"],
+                    workflow_sha256=p.file_hash(base / "workflow.json"),
+                    plan_sha256=workflow["plan_sha256"],
+                ),
+                exclusive=True,
+            )
+            rt.check_deadline(clock, deadline)
+    except BaseException as exc:
+        if parent_guard is not None:
+            parent_guard.close()
+            workflow["parent_resources"] = parent_guard.report()
+        workflow.update(
+            status="failed_consumed_no_retry"
+            if workflow["reserved"]
+            else "failed_prerequisites_no_retry",
+            error=f"{type(exc).__name__}: {exc}",
+        )
+        if assertion is not None and not assertion.evidence["released"]:
+            try:
+                workflow["sleep_assertion"] = assertion.release(min(whole, clock() + 2))
+            except BaseException as release:
+                workflow["sleep_assertion"] = dict(
+                    assertion.evidence, release_error=str(release)
+                )
+        workflow.update(
+            whole_seconds=clock() - started,
+            overshoot_seconds=max(0, clock() - whole),
+            finished=clock.snapshot(),
+        )
+        if (base / "parent-acceptance.json").exists():
+            (base / "parent-acceptance.json").rename(base / "rejected-publication.json")
+        p.durable_json(base / "workflow.json", workflow)
+    if parent_guard is not None:
+        parent_guard.close()
+    print(
+        dict(
+            directory=str(base),
+            status=workflow["status"],
+            whole_seconds=workflow["whole_seconds"],
+        ),
+        flush=True,
+    )
+    return base, workflow
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--worker", type=Path)
+    parser.add_argument("--token")
+    parser.add_argument("--acceptance", type=Path)
+    parser.add_argument("--synthetic-directory", type=Path)
+    parser.add_argument("--validation-bootstrap", action="store_true")
+    args = parser.parse_args()
+    if args.worker:
+        p.require(
+            args.token
+            and args.acceptance is None
+            and args.synthetic_directory is None
+            and not args.validation_bootstrap,
+            "Parent grant only",
+        )
+        raise SystemExit(worker(args.worker, args.token))
+    p.require(
+        args.token is None
+        and (args.acceptance is None) != (args.synthetic_directory is None),
+        "Exactly fresh acceptance or synthetic-only fixtures",
+    )
+    if args.validation_bootstrap:
+        p.require(
+            args.synthetic_directory is not None and args.acceptance is None,
+            "Software-only bootstrap",
+        )
+    if args.synthetic_directory:
+        p.require(
+            args.synthetic_directory.absolute().is_relative_to(
+                p.ROOT
+                / (
+                    "data/task0042-validation"
+                    if args.validation_bootstrap
+                    else p.VALIDATION
+                )
+            ),
+            "Owned synthetic namespace",
+        )
+    _, result = run(
+        args.acceptance,
+        synthetic_directory=args.synthetic_directory,
+        validation_owner="0042" if args.validation_bootstrap else "0041",
+        validation_bootstrap=args.validation_bootstrap,
+    )
+    raise SystemExit(0 if result["status"].startswith("parent_accepted") else 1)
+
+
+if __name__ == "__main__":
+    main()

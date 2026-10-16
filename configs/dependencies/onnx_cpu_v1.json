@@ -76,7 +76,7 @@
     "pip": "25.3",
     "contourpy": "1.4.0",
     "sympy": "1.14.0",
-    "latent-trigger": "0.1.0",
+    "raregate": "0.1.0",
     "pytest": "9.1.1",
     "setuptools": "84.0.0",
     "python-dateutil": "2.9.0.post0",

@@ -12,20 +12,20 @@ import numpy as np
 import pytest
 import torch
 
-from latenttrigger.models import particle_memory_study as old_study
-from latenttrigger.models.particle_set import ParticleSetAutoencoder, event_loss
-from latenttrigger.supervision import particle_collector as collect
-from latenttrigger.supervision import particle_launcher as io
-from latenttrigger.supervision import particle_monitor_benchmark as bench
-from latenttrigger.supervision import particle_reconciliation as recon
-from latenttrigger.training.autoencoder import deterministic_cpu
-from latenttrigger.training.particle_monitor_v3 import (
+from raregate.models import particle_memory_study as old_study
+from raregate.models.particle_set import ParticleSetAutoencoder, event_loss
+from raregate.supervision import particle_collector as collect
+from raregate.supervision import particle_launcher as io
+from raregate.supervision import particle_monitor_benchmark as bench
+from raregate.supervision import particle_reconciliation as recon
+from raregate.training.autoencoder import deterministic_cpu
+from raregate.training.particle_monitor_v3 import (
     MonitorV3,
     definition,
     validate_manifest,
 )
-from latenttrigger.training.particle_resources import PolicyMonitor
-from latenttrigger.training.particle_set import ResourceLimitError, adam
+from raregate.training.particle_resources import PolicyMonitor
+from raregate.training.particle_set import ResourceLimitError, adam
 
 
 @pytest.fixture
@@ -284,7 +284,7 @@ def test_collector_exception_preserved(tmp_path, config, profile):
 def test_unchanged_numeric_and_optimizer_with_instrumentation(
     tmp_path, config, profile
 ):
-    from latenttrigger.data.features import Parameters, model_view
+    from raregate.data.features import Parameters, model_view
 
     p = Parameters.from_config(io.read(io.ROOT / "configs/data/lhco_rnd_v5.json"))
     batches = bench.physical_batches()
@@ -346,16 +346,16 @@ def test_unchanged_numeric_and_optimizer_with_instrumentation(
 
 
 def test_synthetic_source_coverage_and_parent_import():
-    code = "from latenttrigger.supervision import particle_collector,particle_reconciliation,particle_monitor_benchmark;from latenttrigger.supervision import particle_launcher as c;c.assert_lightweight()"
+    code = "from raregate.supervision import particle_collector,particle_reconciliation,particle_monitor_benchmark;from raregate.supervision import particle_launcher as c;c.assert_lightweight()"
     subprocess.run(
         [sys.executable, "-c", code], check=True, capture_output=True, timeout=10
     )
     mapping = io.source_hashes()
     for p in (
-        "src/latenttrigger/supervision/particle_collector.py",
-        "src/latenttrigger/supervision/particle_reconciliation.py",
-        "src/latenttrigger/supervision/particle_monitor_benchmark.py",
-        "src/latenttrigger/training/particle_monitor_v3.py",
+        "src/raregate/supervision/particle_collector.py",
+        "src/raregate/supervision/particle_reconciliation.py",
+        "src/raregate/supervision/particle_monitor_benchmark.py",
+        "src/raregate/training/particle_monitor_v3.py",
     ):
         assert p in mapping
 

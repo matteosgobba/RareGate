@@ -13,7 +13,7 @@ from types import SimpleNamespace
 import numpy as np
 import pytest
 
-from latenttrigger.benchmarks import (
+from raregate.benchmarks import (
     accelerate_threads,
     core,
     frozen_cpu,
@@ -182,7 +182,7 @@ def test_dev_identity_mismatch(tmp_path, field, value):
 
 
 def test_dev_validator_does_not_relax_pca_fit(tmp_path):
-    from latenttrigger.models.pca import validate_input_store
+    from raregate.models.pca import validate_input_store
 
     manifest, expected = synthetic_manifest(tmp_path)
     protocol.validate_dev_manifest(manifest, expected)
@@ -683,7 +683,7 @@ def test_truthful_partial_aggregation_and_all_worker_medians():
 
 
 def test_stdlib_controller_fresh_process():
-    code = "import sys,json; from latenttrigger.benchmarks import frozen_cpu; print(json.dumps([x for x in ('numpy','torch','sklearn','h5py') if x in sys.modules]))"
+    code = "import sys,json; from raregate.benchmarks import frozen_cpu; print(json.dumps([x for x in ('numpy','torch','sklearn','h5py') if x in sys.modules]))"
     output = subprocess.check_output([sys.executable, "-c", code], text=True)
     assert json.loads(output) == []
 

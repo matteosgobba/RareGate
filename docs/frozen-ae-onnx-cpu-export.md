@@ -282,7 +282,7 @@ repeat/hash/strict decisions and all three distributions. Fresh-process1GiB RSS 
 cleanup, no required speedup. Historical CPU times are context, not contemporaneous
 repetitions. No new export/refit/calibration/MPS/test. Not implemented/authorized here.
 
-Implemented CLI `.venv/bin/python -m latenttrigger.exports.onnx_controller --run-export`
+Implemented CLI `.venv/bin/python -m raregate.exports.onnx_controller --run-export`
 is now consumed; do not rerun. No accepted performance benefit is claimed.
 
 ```yaml
