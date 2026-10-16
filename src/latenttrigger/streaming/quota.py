@@ -223,10 +223,10 @@ def pwrite(fd, blob, offset):
 
 
 def close(fd):
-    try:
-        os.close(fd)
-    finally:
-        FDS.pop(fd, None)
+    # An exception is not confirmation of retirement. Keep the registry entry
+    # (and the caller's fd) as uncertain/owned instead of publishing a false zero.
+    os.close(fd)
+    FDS.pop(fd, None)
 
 
 def encoded_size(value):
@@ -265,15 +265,19 @@ def emergency_release(previous_fds, case):
     """Independent of diagnostics and ring mutex, even partial pre-start setup."""
     errors = []
     owned = set(FDS) - set(previous_fds)
+    blocked = set()
     for mapping, fd in list(MAPPINGS):
         if fd in owned:
             try:
                 mapping.close()
             except (OSError, ValueError, BufferError) as exc:
                 errors.append(str(exc))
-            finally:
+                # A failed mmap close still owns its mapping and descriptor.
+                # Keep both registered so cleanup can retry after exports retire.
+                blocked.add(fd)
+            else:
                 retire_mapping(mapping)
-    for fd in owned:
+    for fd in owned - blocked:
         try:
             close(fd)
         except OSError as exc:

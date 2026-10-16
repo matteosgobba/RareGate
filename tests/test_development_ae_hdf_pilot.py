@@ -36,13 +36,55 @@ SLOTS = itertools.count(int(os.environ.get("TASK0058_TEST_SLOT_START", "0")))
 
 
 @pytest.fixture
-def ledger():
+def ledger(tmp_path, monkeypatch):
     previous = quota.CURRENT
+    original_repo = REPO
     assert not quota.FDS
-    value = quota.activate(ROOT)
-    yield value
-    errors = quota.emergency_release(set(), ROOT)
-    quota.CURRENT = previous
+    # Copy only source/config text into an isolated mock repository. No old root,
+    # permit, original payload or historical acceptance is opened or reset.
+    repo = tmp_path / "audit-owned-mock-repo"
+    paths = {e["path"] for e in pilot58.source_manifest(REPO)} | {
+        "configs/streaming/development_hdf_consumer_pilot_v2.json"
+    }
+    for path in paths:
+        source = REPO / path
+        destination = repo / path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(source.read_bytes())
+    root = repo / pilot58.ROOT
+    root.mkdir(parents=True)
+    monkeypatch.setattr(sys.modules[__name__], "REPO", repo)
+    monkeypatch.setattr(sys.modules[__name__], "ROOT", root)
+    monkeypatch.setattr(sys.modules[__name__], "SLOTS", itertools.count())
+    for module in (pilot54, fixture, hdf_consumer):
+        monkeypatch.setattr(
+            module,
+            "__file__",
+            str(repo / Path(module.__file__).relative_to(original_repo)),
+        )
+    # An in-memory/current-source unit binding; the frozen config stays unchanged.
+    (repo / pilot58.CONFIG).write_text(json.dumps(spec()))
+    value = quota.Ledger(root, pilot58.file_plan(), task="0058")
+    quota.CURRENT = value
+    value.write_json(
+        root / "owner.json",
+        dict(
+            task="0058",
+            candidate_plan=list(AE_PLAN),
+            generated_groups=1,
+            conditional_P4_sessions=1,
+            test_only=True,
+            P4=False,
+        ),
+    )
+    try:
+        yield value
+    finally:
+        monkeypatch.undo()
+        try:
+            errors = quota.emergency_release(set(), root)
+        finally:
+            quota.CURRENT = previous
     assert not errors and not quota.FDS and not quota.MAPPINGS
 
 
@@ -55,7 +97,10 @@ def slot():
 
 
 def spec():
-    return json.loads((REPO / pilot58.CONFIG).read_text())
+    value = json.loads((REPO / pilot58.CONFIG).read_text())
+    current = {e["path"]: e for e in pilot58.source_manifest(REPO)}
+    value["source_pins"] = [current[e["path"]] for e in value["source_pins"]]
+    return value
 
 
 def generated(name="ae-only"):
@@ -388,7 +433,7 @@ def test_shared_final_report_and_cleanup_errors(ledger, monkeypatch, fault):
         ["--qualify-generated", "--group", "2", "--root", str(ROOT)],
     ],
 )
-def test_help_import_and_malformed_arguments_inactive(monkeypatch, args):
+def test_help_import_and_malformed_arguments_inactive(ledger, monkeypatch, args):
     monkeypatch.setattr(sys, "argv", ["ae-pilot"] + args)
     with pytest.raises(SystemExit):
         runpy.run_path(str(REPO / pilot58.SCRIPT), run_name="__main__")

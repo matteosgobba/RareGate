@@ -44,6 +44,30 @@ and optimized runtimes remain separate questions.
 
 ## Current status
 
+Task0060 completes the **whole-project scientific audit, focused repairs and
+one decisive experiment protocol**:
+`completed_project_scientific_audit_and_experiment_protocol`.
+[Audit](docs/project-scientific-audit.md), [findings](results/tables/final/task0060-scientific-audit-findings.csv),
+[scope/test summary](results/tables/final/task0060-scientific-audit-summary.json),
+[prospective protocol](docs/decisive-scientific-experiment.md) and
+[Italian handoff](docs/handoffs/0060-project-scientific-audit-and-experiment.md).
+The user's resumed scientific objective supersedes the recommendation to stop in
+Task0059; its historical v1 results, exposures, failed pilots and consumed allowances
+remain intact. Explicit CPU FP32 construction, failed-mapping ownership and
+portable test isolation/cache handling are repaired. One coherent final portable
+process passes **3002 tests plus13 subtests**, with938 costly historical cases
+explicitly excluded; no original payload or real experiment is rerun.
+
+The selected ADC2021 route has680426757B of verified publisher file metadata,
+12 declared object aggregates, a finite6-neural/2-analytical fit matrix, primary
+FPR0.01 and secondary0.001, calibration/paired uncertainty and direct CPU costs.
+**Task0061** acquires/prepares/trains/calibrates and freezes while protecting final
+outcomes; **Task0062** performs final evaluation/robustness/CPU and concludes.
+Neither is launched here. Protocol readiness is for controlled preparation;
+local payload acceptance and historical operational readiness remain false.
+
+### Historical v1 snapshot — Task0059
+
 Task0059 completes the **curated v1 research snapshot**:
 `completed_curated_v1_evidence_consolidation`; metadata-only, operational readiness
 false and no new P4. [Integrated conclusions](docs/v1-research-conclusions.md),

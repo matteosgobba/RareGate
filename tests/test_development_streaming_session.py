@@ -1,6 +1,5 @@
 """Focused pure ownership regressions. Actual files use the immutable Task0057 ledger."""
 
-import json
 import os
 import runpy
 import sys
@@ -18,13 +17,23 @@ ROOT = REPO / session57.ROOT
 
 
 @pytest.fixture
-def ledger(monkeypatch):
+def ledger(monkeypatch, tmp_path):
     assert not quota.FDS
     previous = quota.CURRENT
-    value = quota.activate(ROOT)
-    yield value
-    errors = quota.emergency_release(set(), ROOT)
-    quota.CURRENT = previous
+    root = tmp_path / "audit-owned-journal"
+    root.mkdir()
+    monkeypatch.setattr(sys.modules[__name__], "ROOT", root)
+    # A unit-test instance of the historical quota profile, never its run/permit.
+    value = quota.Ledger(root, session57.file_plan(), task="0057")
+    quota.CURRENT = value
+    try:
+        yield value
+    finally:
+        monkeypatch.undo()  # Retire injected I/O failures before fixture cleanup.
+        try:
+            errors = quota.emergency_release(set(), root)
+        finally:
+            quota.CURRENT = previous
     assert not errors and not quota.FDS and not quota.MAPPINGS
 
 
@@ -34,13 +43,15 @@ def journal_at(index):
     return startup55.Journal(directory / "journal.bin")
 
 
-def test_historical_real_file_reproduction_retained():
-    evidence = json.loads((ROOT / "regression-before.json").read_text())
-    assert evidence["registered_after_first_write"]
-    assert not evidence["registered_after_case_cleanup"]
-    assert evidence["failure"] == dict(
-        type="QuotaError", message="Unregistered diagnostic descriptor"
-    )
+def test_late_session_registration_is_retired_by_case_cleanup(ledger):
+    before = set(quota.FDS)
+    journal = journal_at(0).open()
+    fd = journal.fd
+    assert fd in quota.FDS
+    assert quota.emergency_release(before, journal.path.parent) == []
+    assert fd not in quota.FDS
+    with pytest.raises(ValueError, match="Stale"):
+        journal.write({"must_not_publish": True})
 
 
 def test_eager_session_survives_case_cleanup_and_single_close(ledger):

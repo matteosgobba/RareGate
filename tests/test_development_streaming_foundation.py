@@ -526,7 +526,17 @@ with patch('multiprocessing.shared_memory.SharedMemory',side_effect=AssertionErr
 
 def test_no_forbidden_import_or_message_channel():
     root = Path(__file__).resolve().parents[1]
-    for file in (root / "src/latenttrigger/streaming").glob("*.py"):
+    # The source-free core's import boundary. Later explicitly gated HDF/model
+    # adapters are tested separately; they were not part of this core contract.
+    for name in (
+        "protocol",
+        "records",
+        "transport",
+        "generated",
+        "supervision",
+        "fixture",
+    ):
+        file = root / "src/latenttrigger/streaming" / (name + ".py")
         tree = ast.parse(file.read_text())
         imports = [
             n.module or "" for n in ast.walk(tree) if isinstance(n, ast.ImportFrom)

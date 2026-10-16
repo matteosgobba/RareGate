@@ -125,8 +125,16 @@ class CompactAutoencoder(nn.Module):
         super().__init__()
         if input_dim != 8:
             raise ValueError("Frozen autoencoder input dimension must be 8.")
-        self.encoder = nn.Sequential(nn.Linear(8, 6), nn.ReLU(), nn.Linear(6, 3))
-        self.decoder = nn.Sequential(nn.Linear(3, 6), nn.ReLU(), nn.Linear(6, 8))
+        # The frozen contract is CPU FP32 even when a caller changed Torch's
+        # ambient defaults. Explicit factories preserve the historical FP32 RNG
+        # stream and avoid constructing an unusable FP64 model for FP32 inputs.
+        factory = dict(device="cpu", dtype=torch.float32)
+        self.encoder = nn.Sequential(
+            nn.Linear(8, 6, **factory), nn.ReLU(), nn.Linear(6, 3, **factory)
+        )
+        self.decoder = nn.Sequential(
+            nn.Linear(3, 6, **factory), nn.ReLU(), nn.Linear(6, 8, **factory)
+        )
 
     def encode(self, values: torch.Tensor) -> torch.Tensor:
         if values.ndim != 2 or values.shape[1] != 8 or values.dtype != torch.float32:

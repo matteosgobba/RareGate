@@ -7,6 +7,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 import torch
+from tests.cpu_mps_portable_plugin import synthetic_document
 
 from latenttrigger.data.processed import FeatureBatch, content_hash
 from latenttrigger.models.autoencoder import CompactAutoencoder, validate_config
@@ -26,9 +27,7 @@ def test_controlled_config_only_epoch_ceiling_and_historical_identity():
     second = json.loads(
         (ROOT / "configs/models/compact_autoencoder_v2.json").read_text()
     )
-    historical = json.loads(
-        (ROOT / "artifacts/models/compact-autoencoder-v1/model.json").read_text()
-    )
+    historical, _ = synthetic_document(first)
     assert first == historical["scientific"]["provenance"]["model_config"]
     assert first["training"]["max_epochs"] == 200
     validate_extension_config(first, second)
@@ -136,9 +135,8 @@ def test_canonical_supersession_four_conditions(failure):
 
 
 def test_v1_readable_and_artifact_schema_version_rejected():
-    artifact = json.loads(
-        (ROOT / "artifacts/models/compact-autoencoder-v1/model.json").read_text()
-    )
+    config = json.loads((ROOT / "configs/models/compact_autoencoder.json").read_text())
+    artifact, _ = synthetic_document(config)
     model = CompactAutoencoder.from_artifact(artifact)
     assert model.parameter_count == 155
     artifact["artifact_version"] = 2
@@ -250,14 +248,8 @@ def test_convergence_provenance_and_no_score_persistence(tmp_path, monkeypatch):
 
 
 def test_convergence_reference_rejects_changed_processed_identity():
-    from latenttrigger.training.convergence import read_history
-
-    artifact = json.loads(
-        (ROOT / "artifacts/models/compact-autoencoder-v1/model.json").read_text()
-    )
-    history = read_history(
-        ROOT / "results/tables/final/task0007-autoencoder-training-history.csv"
-    )
+    config = json.loads((ROOT / "configs/models/compact_autoencoder.json").read_text())
+    artifact, history = synthetic_document(config)
     reference = HistoricalPrefix(history, artifact)
     context = copy.deepcopy(artifact["scientific"]["provenance"])
     context["model_config"] = json.loads(

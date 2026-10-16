@@ -250,14 +250,13 @@ class Store:
 
     def close(self):
         if self.fd is not None:
-            try:
-                if self.mapping is not None:
-                    self.mapping.close()  # no explicit flush/fsync; process-crash visibility only
-                    quota.retire_mapping(self.mapping)
-                    self.mapping = None
-            finally:
-                quota.close(self.fd)
-                self.fd = None
+            if self.mapping is not None:
+                self.mapping.close()  # no explicit flush/fsync; process-crash visibility only
+                quota.retire_mapping(self.mapping)
+                self.mapping = None
+            # On either close failure preserve the remaining ownership for retry.
+            quota.close(self.fd)
+            self.fd = None
 
 
 def reconcile(events, batches, scheduler, cutoff):

@@ -1,0 +1,1329 @@
+{
+  "task": "0060",
+  "status": "completed_project_scientific_audit_and_experiment_protocol",
+  "date": "2026-10-16 Europe/Rome",
+  "base_HEAD": "4a61c74b764afdd2f7aa4eb4c6c4598a48c53336",
+  "branch": "main",
+  "upstream": "origin/main",
+  "initial_worktree_clean": true,
+  "initial_index_empty": true,
+  "push_or_hosted_CI_verified": false,
+  "operational_readiness": false,
+  "P4_exercised": false,
+  "Task0061_started": false,
+  "Task0062_started": false,
+  "historical_changes": "none to frozen configs/models/source artifacts/results/receipts; living state supersedes closure recommendation only",
+  "baseline_inventory": {
+    "source_python_files": 253,
+    "source_lines": 75051,
+    "test_python_files": 80,
+    "test_lines": 34937,
+    "statically_named_test_functions": 1340,
+    "scripts": 29,
+    "script_lines": 6601,
+    "configs": 51,
+    "documentation_files": 190,
+    "CI_workflows": 1
+  },
+  "review_boundary": {
+    "line_by_line_audit": false,
+    "inventory": "task0060-source-review.csv",
+    "structural_only_files_individually_unexamined": true,
+    "targeted_source_files": [
+      "src/latenttrigger/benchmarks/ae_parity_numerics.py",
+      "src/latenttrigger/benchmarks/arithmetic_cpu_v2.py",
+      "src/latenttrigger/benchmarks/core.py",
+      "src/latenttrigger/benchmarks/cpu_mps_numerics.py",
+      "src/latenttrigger/benchmarks/pytorch_onnx_cpu_statistics.py",
+      "src/latenttrigger/benchmarks/targeted_raw_selection.py",
+      "src/latenttrigger/data/acquisition.py",
+      "src/latenttrigger/data/analysis.py",
+      "src/latenttrigger/data/eda.py",
+      "src/latenttrigger/data/features.py",
+      "src/latenttrigger/data/inspection.py",
+      "src/latenttrigger/data/metadata.py",
+      "src/latenttrigger/data/preprocessing.py",
+      "src/latenttrigger/data/processed.py",
+      "src/latenttrigger/data/splitting.py",
+      "src/latenttrigger/data/three_prong_structure.py",
+      "src/latenttrigger/diagnostics/analysis.py",
+      "src/latenttrigger/diagnostics/reader.py",
+      "src/latenttrigger/evaluation/local_three_prong_audit.py",
+      "src/latenttrigger/evaluation/metrics.py",
+      "src/latenttrigger/evaluation/run.py",
+      "src/latenttrigger/evaluation/thresholds.py",
+      "src/latenttrigger/exports/onnx_graph.py",
+      "src/latenttrigger/exports/onnx_numerics.py",
+      "src/latenttrigger/models/autoencoder.py",
+      "src/latenttrigger/models/particle_set.py",
+      "src/latenttrigger/models/pca.py",
+      "src/latenttrigger/research/controlled_activation/models.py",
+      "src/latenttrigger/simulation/engine.py",
+      "src/latenttrigger/simulation/refined_service_engine.py",
+      "src/latenttrigger/streaming/ae_context.py",
+      "src/latenttrigger/streaming/cpu_runtime.py",
+      "src/latenttrigger/streaming/fixture.py",
+      "src/latenttrigger/streaming/hdf_consumer.py",
+      "src/latenttrigger/streaming/pilot58.py",
+      "src/latenttrigger/streaming/quota.py",
+      "src/latenttrigger/streaming/records.py",
+      "src/latenttrigger/streaming/session57.py",
+      "src/latenttrigger/streaming/session_context.py",
+      "src/latenttrigger/streaming/supervision.py",
+      "src/latenttrigger/streaming/transport.py",
+      "src/latenttrigger/supervision/particle_sampling_benchmark.py",
+      "src/latenttrigger/training/autoencoder.py",
+      "src/latenttrigger/training/background.py",
+      "src/latenttrigger/training/particle_set.py",
+      "src/latenttrigger/utils/device.py"
+    ],
+    "targeted_tests": [
+      "tests/cpu_mps_portable_plugin.py",
+      "tests/runtime_fixtures.py",
+      "tests/test_autoencoder.py",
+      "tests/test_autoencoder_convergence.py",
+      "tests/test_controlled_activation.py",
+      "tests/test_controlled_activation_lifecycle.py",
+      "tests/test_development_ae_hdf_pilot.py",
+      "tests/test_development_hdf_consumer_pilot.py",
+      "tests/test_development_hdf_pilot_v2.py",
+      "tests/test_development_streaming_contract_v2.py",
+      "tests/test_development_streaming_foundation.py",
+      "tests/test_development_streaming_instrumentation.py",
+      "tests/test_development_streaming_session.py",
+      "tests/test_development_streaming_startup.py",
+      "tests/test_particle_host_readiness.py",
+      "tests/test_particle_monitor_performance.py",
+      "tests/test_particle_set.py",
+      "tests/test_pca.py",
+      "tests/test_scientific_audit.py"
+    ],
+    "claim": "All subsystems receive dispositions; targeted code/testing is not universal implementation certification",
+    "individually_unexamined_source_files": 207,
+    "targeted_source_file_count": 46
+  },
+  "subsystem_dispositions": [
+    {
+      "name": ".github",
+      "files": 1,
+      "lines": 33,
+      "review_levels": {
+        "targeted_contract_review": 1
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": ".gitignore",
+      "files": 1,
+      "lines": 96,
+      "review_levels": {
+        "targeted_contract_review": 1
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "README.md",
+      "files": 1,
+      "lines": 1072,
+      "review_levels": {
+        "targeted_document_review": 1
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "__init__.py",
+      "files": 1,
+      "lines": 3,
+      "review_levels": {
+        "structural_only": 1
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "benchmarks",
+      "files": 86,
+      "lines": 23616,
+      "review_levels": {
+        "structural_only": 80,
+        "targeted_code_review": 6
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "configs",
+      "files": 52,
+      "lines": 24804,
+      "review_levels": {
+        "structural_only": 44,
+        "targeted_contract_review": 8
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "data",
+      "files": 22,
+      "lines": 6216,
+      "review_levels": {
+        "structural_only": 12,
+        "targeted_code_review": 10
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "diagnostics",
+      "files": 8,
+      "lines": 1890,
+      "review_levels": {
+        "structural_only": 6,
+        "targeted_code_review": 2
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "docs",
+      "files": 194,
+      "lines": 53896,
+      "review_levels": {
+        "structural_only": 182,
+        "targeted_document_review": 12
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "evaluation",
+      "files": 25,
+      "lines": 6044,
+      "review_levels": {
+        "structural_only": 21,
+        "targeted_code_review": 4
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "exports",
+      "files": 7,
+      "lines": 1633,
+      "review_levels": {
+        "structural_only": 5,
+        "targeted_code_review": 2
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "models",
+      "files": 9,
+      "lines": 3050,
+      "review_levels": {
+        "structural_only": 6,
+        "targeted_code_review": 3
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "pyproject.toml",
+      "files": 1,
+      "lines": 72,
+      "review_levels": {
+        "targeted_contract_review": 1
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "research",
+      "files": 7,
+      "lines": 1888,
+      "review_levels": {
+        "structural_only": 6,
+        "targeted_code_review": 1
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "scripts",
+      "files": 30,
+      "lines": 6747,
+      "review_levels": {
+        "entrypoint_inventory": 30
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "simulation",
+      "files": 36,
+      "lines": 12646,
+      "review_levels": {
+        "structural_only": 34,
+        "targeted_code_review": 2
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "streaming",
+      "files": 23,
+      "lines": 9097,
+      "review_levels": {
+        "structural_only": 12,
+        "targeted_code_review": 11
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "supervision",
+      "files": 18,
+      "lines": 6312,
+      "review_levels": {
+        "structural_only": 17,
+        "targeted_code_review": 1
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "tests",
+      "files": 82,
+      "lines": 35288,
+      "review_levels": {
+        "collection_side_effect_scan": 63,
+        "targeted_code_review": 19
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "training",
+      "files": 9,
+      "lines": 2655,
+      "review_levels": {
+        "structural_only": 6,
+        "targeted_code_review": 3
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    },
+    {
+      "name": "utils",
+      "files": 2,
+      "lines": 12,
+      "review_levels": {
+        "structural_only": 1,
+        "targeted_code_review": 1
+      },
+      "disposition": "See corresponding explicit subsystem row in docs/project-scientific-audit.md; structural_only files are not individually recertified"
+    }
+  ],
+  "findings": {
+    "count": 16,
+    "register": "task0060-scientific-audit-findings.csv",
+    "confirmed_source_defects_fixed": [
+      "F01",
+      "F02"
+    ],
+    "harness_and_workflow_repairs": [
+      "F03",
+      "F04",
+      "F16"
+    ],
+    "remaining_critical_or_high_confirmed_defect_blockers": [],
+    "design_limitations_excluded_or_addressed_prospectively": [
+      "F05",
+      "F06",
+      "F07",
+      "F08",
+      "F09",
+      "F10",
+      "F11",
+      "F12",
+      "F14",
+      "F15"
+    ],
+    "unconfirmed_hypotheses": [
+      "F13"
+    ]
+  },
+  "final_validation": {
+    "coherent_single_process": true,
+    "primary_tests_passed": 3002,
+    "nested_subtests_passed": 13,
+    "failed": 0,
+    "errors": 0,
+    "deselected": 938,
+    "collected_total": 3940,
+    "modules_tested": 65,
+    "per_module_primary_expectations": {
+      "tests/test_acquisition.py": 28,
+      "tests/test_ae_batch_parity_review.py": 64,
+      "tests/test_autoencoder.py": 28,
+      "tests/test_autoencoder_convergence.py": 19,
+      "tests/test_controlled_activation.py": 132,
+      "tests/test_controlled_activation_lifecycle.py": 62,
+      "tests/test_cpu_mps_benchmark.py": 91,
+      "tests/test_cpu_trigger_synthesis.py": 29,
+      "tests/test_decision_v2_admission.py": 66,
+      "tests/test_decision_v2_runtime.py": 40,
+      "tests/test_development_ae_hdf_pilot.py": 41,
+      "tests/test_development_decision_admission.py": 64,
+      "tests/test_development_decision_grants.py": 24,
+      "tests/test_development_decision_runtime.py": 33,
+      "tests/test_development_hdf_consumer_pilot.py": 36,
+      "tests/test_development_hdf_pilot_v2.py": 26,
+      "tests/test_development_payload_grants.py": 19,
+      "tests/test_development_payload_runtime.py": 31,
+      "tests/test_development_raw_custody.py": 15,
+      "tests/test_development_raw_runtime.py": 28,
+      "tests/test_development_streaming_contract_v2.py": 24,
+      "tests/test_development_streaming_foundation.py": 82,
+      "tests/test_development_streaming_instrumentation.py": 14,
+      "tests/test_development_streaming_session.py": 20,
+      "tests/test_development_streaming_startup.py": 57,
+      "tests/test_device.py": 3,
+      "tests/test_eda.py": 7,
+      "tests/test_evaluation.py": 25,
+      "tests/test_feature_score_diagnostics.py": 90,
+      "tests/test_features.py": 17,
+      "tests/test_frozen_cpu_benchmark.py": 93,
+      "tests/test_frozen_cpu_v2.py": 115,
+      "tests/test_frozen_synthesis.py": 12,
+      "tests/test_guarded_evaluation.py": 80,
+      "tests/test_inspection.py": 10,
+      "tests/test_local_three_prong_evaluation.py": 87,
+      "tests/test_onnx_cpu_export.py": 78,
+      "tests/test_partial_raw_admission.py": 74,
+      "tests/test_partial_raw_runtime.py": 42,
+      "tests/test_particle_bounded_sampling.py": 61,
+      "tests/test_particle_characterization.py": 44,
+      "tests/test_particle_host_readiness.py": 57,
+      "tests/test_particle_memory_policy.py": 69,
+      "tests/test_particle_monitor_performance.py": 49,
+      "tests/test_particle_readiness_workflow.py": 36,
+      "tests/test_particle_recovery.py": 49,
+      "tests/test_particle_set.py": 80,
+      "tests/test_particle_shared_host.py": 58,
+      "tests/test_pca.py": 13,
+      "tests/test_prepared_service_assertion.py": 3,
+      "tests/test_prepared_service_runtime.py": 32,
+      "tests/test_preprocessing.py": 14,
+      "tests/test_pytorch_onnx_cpu_benchmark.py": 68,
+      "tests/test_scientific_audit.py": 20,
+      "tests/test_signal_topology_synthesis.py": 48,
+      "tests/test_smoke_test.py": 1,
+      "tests/test_splitting.py": 5,
+      "tests/test_synthetic_trigger.py": 78,
+      "tests/test_synthetic_trigger_runtime.py": 27,
+      "tests/test_targeted_raw_admission.py": 74,
+      "tests/test_targeted_raw_runtime.py": 42,
+      "tests/test_targeted_raw_selection.py": 34,
+      "tests/test_three_prong.py": 63,
+      "tests/test_three_prong_acquisition.py": 82,
+      "tests/test_three_prong_acquisition_v3.py": 89
+    },
+    "baseline_six_files_reproduced_together": 98,
+    "independent_oracles": "back-to-back and pair mass; rotations/reflection covariance; permutations/padding/content; diagonal PCA; enumerated tied ROC/AP; exact binomial zero bound; event-tail weighting; FP32 full-state; OS mmap/EBADF retirement",
+    "generated_native_integration": "2 real mmap/export cleanup cases, 1 injected descriptor-close error with live-fd OS oracle, 1 fresh bounded child with EBADF oracle; no historical native matrix",
+    "run": {
+      "command": [
+        "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-p",
+        "no:cacheprovider",
+        "-p",
+        "tests.scientific_audit_plugin",
+        "--basetemp",
+        "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/fixtures",
+        "--junitxml",
+        "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/junit.xml",
+        "-q"
+      ],
+      "returncode": 0,
+      "stop_reason": null,
+      "elapsed_seconds": 143.5609834579518,
+      "observed_peak_owned_bytes": 2133133980,
+      "source_bundle_sha256": "9bc0812296844381510ffc3e211d3d18bc355d0af9a90c84f4ae43e0fd234fba",
+      "dependency_versions": {
+        "numpy": "2.5.3",
+        "torch": "2.14.1",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.18.1",
+        "pytest": "9.1.1",
+        "ruff": "0.16.10",
+        "h5py": "3.16.0"
+      },
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "XDG_CACHE_HOME": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/cache",
+        "MPLCONFIGDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/matplotlib",
+        "TMPDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/tmp"
+      },
+      "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4",
+      "note": "Generated fits/forwards/calibration are positive work; no scientific usefulness evidence"
+    },
+    "source_bundle_files": 417,
+    "source_bundle_current_at_validation": true,
+    "lint": "whole repository Ruff --no-cache: all checks passed",
+    "format": "whole repository Ruff format --no-cache --check:560 files formatted",
+    "excluded_test_modules": [
+      "test_development_decision.py",
+      "test_development_payload.py",
+      "test_partial_raw_chain.py",
+      "test_targeted_raw_chain.py",
+      "test_targeted_raw_service.py",
+      "test_joint_service_replay.py",
+      "test_occupancy_service_replay.py",
+      "test_refined_service_replay.py",
+      "test_prepared_service.py",
+      "test_development_raw.py"
+    ],
+    "exclusion_scope": "938 parameterized expectations are not passed/recertified; large repeated source-bundle and complete historical service/model/replay fixtures",
+    "original_payload_access": "none authorized/performed; Python parent hook refuses root/data and root/artifacts opens; source review confirms generated HDF fixtures; not an OS-level native-IO guarantee",
+    "source_bundle_manifest_local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/source-bundle.json"
+  },
+  "attempt_accounting": {
+    "collection_before_new_regressions": {
+      "total": 3920,
+      "selected": 3919,
+      "deselected": 1,
+      "seconds": 3.3,
+      "one_misclassified_stub_test_restored_later": true
+    },
+    "unlogged_first_broad_attempt": {
+      "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-1",
+      "returncode": -15,
+      "elapsed_seconds": 70.15499779197853,
+      "observed_peak_owned_bytes": 1090497227,
+      "emitted_status_markers": {
+        "passed": 2016,
+        "error": 35,
+        "failed": 8
+      },
+      "completed": false,
+      "exact_invocations_and_unique_nodes": null,
+      "reason": "1GiB observed output stop before terminal report; marker counts not exact invocation coverage; included some old complete generated service fixtures later excluded"
+    },
+    "pre_fix_oracles": [
+      {
+        "name": "ambient_dtype",
+        "passed": 14,
+        "failed": 1,
+        "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/repro.log"
+      },
+      {
+        "name": "mapping_ownership",
+        "failed": 2,
+        "deselected": 15,
+        "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/cleanup-repro.log"
+      },
+      {
+        "name": "descriptor_close_registration",
+        "failed": 1,
+        "deselected": 19,
+        "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/fd-close-repro.log"
+      }
+    ],
+    "recorded_attempts": [
+      {
+        "name": "portable-2",
+        "unique_expectations_observed": 1802,
+        "stage_reports": {
+          "setup:passed": 1789,
+          "call:passed": 1763,
+          "teardown:passed": 1800,
+          "call:failed": 39,
+          "teardown:failed": 2,
+          "setup:failed": 13
+        },
+        "completed_primary_test_calls": 1789,
+        "nested_subtest_call_reports": 13,
+        "run": {
+          "command": [
+            "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-p",
+            "tests.scientific_audit_plugin",
+            "--basetemp",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-2/fixtures",
+            "--junitxml",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-2/junit.xml",
+            "-q"
+          ],
+          "returncode": -15,
+          "stop_reason": "180s wall or 1GiB observed storage ceiling",
+          "elapsed_seconds": 78.17308562505059,
+          "observed_peak_owned_bytes": 1086234816,
+          "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+            "XDG_CACHE_HOME": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-2/cache",
+            "MPLCONFIGDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-2/matplotlib",
+            "TMPDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-2/tmp"
+          },
+          "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-2",
+          "note": "Generated fits/forwards/calibration are positive work; no scientific usefulness evidence"
+        }
+      },
+      {
+        "name": "focused-1",
+        "unique_expectations_observed": 255,
+        "stage_reports": {
+          "setup:passed": 255,
+          "call:passed": 239,
+          "teardown:passed": 255,
+          "call:failed": 16
+        },
+        "completed_primary_test_calls": 255,
+        "nested_subtest_call_reports": 0,
+        "run": {
+          "command": [
+            "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-p",
+            "tests.scientific_audit_plugin",
+            "--basetemp",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-1/fixtures",
+            "--junitxml",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-1/junit.xml",
+            "-q",
+            "tests/test_scientific_audit.py",
+            "tests/test_development_streaming_session.py",
+            "tests/test_development_ae_hdf_pilot.py",
+            "tests/test_development_streaming_startup.py",
+            "tests/test_development_streaming_foundation.py",
+            "tests/test_development_streaming_instrumentation.py",
+            "tests/test_development_streaming_contract_v2.py"
+          ],
+          "returncode": 1,
+          "stop_reason": null,
+          "elapsed_seconds": 4.726407708018087,
+          "observed_peak_owned_bytes": 17819441,
+          "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+            "XDG_CACHE_HOME": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-1/cache",
+            "MPLCONFIGDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-1/matplotlib",
+            "TMPDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-1/tmp"
+          },
+          "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-1",
+          "note": "Generated fits/forwards/calibration are positive work; no scientific usefulness evidence"
+        }
+      },
+      {
+        "name": "focused-2",
+        "unique_expectations_observed": 78,
+        "stage_reports": {
+          "setup:passed": 48,
+          "call:passed": 48,
+          "teardown:passed": 78,
+          "setup:failed": 30
+        },
+        "completed_primary_test_calls": 48,
+        "nested_subtest_call_reports": 0,
+        "run": {
+          "command": [
+            "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-p",
+            "tests.scientific_audit_plugin",
+            "--basetemp",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-2/fixtures",
+            "--junitxml",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-2/junit.xml",
+            "-q",
+            "tests/test_development_ae_hdf_pilot.py",
+            "tests/test_development_streaming_session.py",
+            "tests/test_scientific_audit.py"
+          ],
+          "returncode": 1,
+          "stop_reason": null,
+          "elapsed_seconds": 3.419956625031773,
+          "observed_peak_owned_bytes": 21037125,
+          "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+            "XDG_CACHE_HOME": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-2/cache",
+            "MPLCONFIGDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-2/matplotlib",
+            "TMPDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-2/tmp"
+          },
+          "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-2",
+          "note": "Generated fits/forwards/calibration are positive work; no scientific usefulness evidence"
+        }
+      },
+      {
+        "name": "focused-3",
+        "unique_expectations_observed": 79,
+        "stage_reports": {
+          "setup:passed": 79,
+          "call:passed": 79,
+          "teardown:passed": 79
+        },
+        "completed_primary_test_calls": 79,
+        "nested_subtest_call_reports": 0,
+        "run": {
+          "command": [
+            "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-p",
+            "tests.scientific_audit_plugin",
+            "--basetemp",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-3/fixtures",
+            "--junitxml",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-3/junit.xml",
+            "-q",
+            "tests/test_development_ae_hdf_pilot.py",
+            "tests/test_development_streaming_session.py",
+            "tests/test_scientific_audit.py"
+          ],
+          "returncode": 0,
+          "stop_reason": null,
+          "elapsed_seconds": 3.6983307499904186,
+          "observed_peak_owned_bytes": 21011541,
+          "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+            "XDG_CACHE_HOME": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-3/cache",
+            "MPLCONFIGDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-3/matplotlib",
+            "TMPDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-3/tmp"
+          },
+          "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/focused-3",
+          "note": "Generated fits/forwards/calibration are positive work; no scientific usefulness evidence"
+        }
+      },
+      {
+        "name": "portable-3",
+        "unique_expectations_observed": 3001,
+        "stage_reports": {
+          "setup:passed": 3001,
+          "call:passed": 3014,
+          "teardown:passed": 3001
+        },
+        "completed_primary_test_calls": 3001,
+        "nested_subtest_call_reports": 13,
+        "run": {
+          "command": [
+            "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-p",
+            "tests.scientific_audit_plugin",
+            "--basetemp",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-3/fixtures",
+            "--junitxml",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-3/junit.xml",
+            "-q"
+          ],
+          "returncode": 0,
+          "stop_reason": null,
+          "elapsed_seconds": 142.19854491599835,
+          "observed_peak_owned_bytes": 2132782824,
+          "source_bundle_sha256": "8f369943e0eb483e3fc577325ad41955ce91ed9c6db09e5d23e4761d0dc5627d",
+          "dependency_versions": {
+            "numpy": "2.5.3",
+            "torch": "2.14.1",
+            "scikit-learn": "1.9.1",
+            "scipy": "1.18.1",
+            "pytest": "9.1.1",
+            "ruff": "0.16.10",
+            "h5py": "3.16.0"
+          },
+          "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+            "XDG_CACHE_HOME": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-3/cache",
+            "MPLCONFIGDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-3/matplotlib",
+            "TMPDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-3/tmp"
+          },
+          "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-3",
+          "note": "Generated fits/forwards/calibration are positive work; no scientific usefulness evidence"
+        }
+      },
+      {
+        "name": "portable-4",
+        "unique_expectations_observed": 3002,
+        "stage_reports": {
+          "setup:passed": 3002,
+          "call:passed": 3015,
+          "teardown:passed": 3002
+        },
+        "completed_primary_test_calls": 3002,
+        "nested_subtest_call_reports": 13,
+        "run": {
+          "command": [
+            "/Users/matteosgobba/Documents/GitHub/latent-trigger/.venv/bin/python",
+            "-B",
+            "-m",
+            "pytest",
+            "-p",
+            "no:cacheprovider",
+            "-p",
+            "tests.scientific_audit_plugin",
+            "--basetemp",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/fixtures",
+            "--junitxml",
+            "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/junit.xml",
+            "-q"
+          ],
+          "returncode": 0,
+          "stop_reason": null,
+          "elapsed_seconds": 143.5609834579518,
+          "observed_peak_owned_bytes": 2133133980,
+          "source_bundle_sha256": "9bc0812296844381510ffc3e211d3d18bc355d0af9a90c84f4ae43e0fd234fba",
+          "dependency_versions": {
+            "numpy": "2.5.3",
+            "torch": "2.14.1",
+            "scikit-learn": "1.9.1",
+            "scipy": "1.18.1",
+            "pytest": "9.1.1",
+            "ruff": "0.16.10",
+            "h5py": "3.16.0"
+          },
+          "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+            "XDG_CACHE_HOME": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/cache",
+            "MPLCONFIGDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/matplotlib",
+            "TMPDIR": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4/tmp"
+          },
+          "root": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/portable-4",
+          "note": "Generated fits/forwards/calibration are positive work; no scientific usefulness evidence"
+        }
+      }
+    ],
+    "unique_nodes_in_recorded_attempt_union": 3050,
+    "actual_primary_calls_in_recorded_attempts": 8174,
+    "actual_nested_subtest_call_reports_in_recorded_attempts": 39,
+    "first_run_and_repro_calls_separate": true,
+    "full_task_exact_call_count": null,
+    "full_task_count_limitation": "First abrupt attempt lacks node/stage logger; no exact overall invocation count fabricated",
+    "retained_all_roots": true,
+    "portable_3_is_prior_source_not_final_acceptance": true
+  },
+  "activity": {
+    "generated_arrays": true,
+    "toy_models_and_optimizer_updates": true,
+    "generated_calibration_and_public_scores": true,
+    "generated_HDF": true,
+    "own_subprocesses": true,
+    "metadata_and_paper_retrieval": true,
+    "original_event_payload_reads": 0,
+    "original_model_or_scientific_score_payload_reads": 0,
+    "raw_custody_hashes": 0,
+    "real_fits": 0,
+    "real_inference": 0,
+    "event_downloads": 0,
+    "old_operational_replays": 0,
+    "P4": 0,
+    "old_caches_reset_or_retroactively_validated": false,
+    "positive_work_count_limit": "No complete model/optimizer/forward ledger for legacy toy tests; positive work is not claimed zero or an independent sample"
+  },
+  "prospective_cache_policy": {
+    "bytecode": "disabled before Python/test imports",
+    "pytest_cache": "disabled",
+    "Ruff_cache": "--no-cache",
+    "XDG_MPL_TMP": "new audit-owned root",
+    "periodic_storage_cap": "final2GiB observed, not pre-growth; earlier1GiB stops retained",
+    "historical_Task0058_accepted": false
+  },
+  "historical_utility": [
+    {
+      "topology": "two_prong",
+      "target_fpr": 0.1,
+      "background_accepted": 14793,
+      "background_total": 150471,
+      "signal_accepted": 23217,
+      "signal_total": 100000,
+      "achieved_background_acceptance": 0.09831130251011823,
+      "signal_efficiency": 0.23217,
+      "enrichment": 2.3615799411884,
+      "nominal_SIC": 0.7404647290355637,
+      "scope": "Task0060 post-hoc descriptive arithmetic at eight published cuts; no new selection/maximum/significance"
+    },
+    {
+      "topology": "two_prong",
+      "target_fpr": 0.05,
+      "background_accepted": 7357,
+      "background_total": 150471,
+      "signal_accepted": 13608,
+      "signal_total": 100000,
+      "achieved_background_acceptance": 0.04889314220015817,
+      "signal_efficiency": 0.13608,
+      "enrichment": 2.7832124072312086,
+      "nominal_SIC": 0.6154181865821182,
+      "scope": "Task0060 post-hoc descriptive arithmetic at eight published cuts; no new selection/maximum/significance"
+    },
+    {
+      "topology": "two_prong",
+      "target_fpr": 0.01,
+      "background_accepted": 1424,
+      "background_total": 150471,
+      "signal_accepted": 3298,
+      "signal_total": 100000,
+      "achieved_background_acceptance": 0.0094636175741505,
+      "signal_efficiency": 0.03298,
+      "enrichment": 3.4849252668539332,
+      "nominal_SIC": 0.33901745574651865,
+      "scope": "Task0060 post-hoc descriptive arithmetic at eight published cuts; no new selection/maximum/significance"
+    },
+    {
+      "topology": "two_prong",
+      "target_fpr": 0.001,
+      "background_accepted": 116,
+      "background_total": 150471,
+      "signal_accepted": 56,
+      "signal_total": 100000,
+      "achieved_background_acceptance": 0.0007709126675572038,
+      "signal_efficiency": 0.00056,
+      "enrichment": 0.726411724137931,
+      "nominal_SIC": 0.020169049692963754,
+      "scope": "Task0060 post-hoc descriptive arithmetic at eight published cuts; no new selection/maximum/significance"
+    },
+    {
+      "topology": "three_prong",
+      "target_fpr": 0.1,
+      "background_accepted": 14793,
+      "background_total": 150471,
+      "signal_accepted": 16438,
+      "signal_total": 100000,
+      "achieved_background_acceptance": 0.09831130251011823,
+      "signal_efficiency": 0.16438,
+      "enrichment": 1.6720356236057594,
+      "nominal_SIC": 0.5242606372867553,
+      "scope": "Task0060 post-hoc descriptive arithmetic at eight published cuts; no new selection/maximum/significance"
+    },
+    {
+      "topology": "three_prong",
+      "target_fpr": 0.05,
+      "background_accepted": 7357,
+      "background_total": 150471,
+      "signal_accepted": 10326,
+      "signal_total": 100000,
+      "achieved_background_acceptance": 0.04889314220015817,
+      "signal_efficiency": 0.10326,
+      "enrichment": 2.1119526247111597,
+      "nominal_SIC": 0.4669906080722334,
+      "scope": "Task0060 post-hoc descriptive arithmetic at eight published cuts; no new selection/maximum/significance"
+    },
+    {
+      "topology": "three_prong",
+      "target_fpr": 0.01,
+      "background_accepted": 1424,
+      "background_total": 150471,
+      "signal_accepted": 2662,
+      "signal_total": 100000,
+      "achieved_background_acceptance": 0.0094636175741505,
+      "signal_efficiency": 0.02662,
+      "enrichment": 2.812877823033708,
+      "nominal_SIC": 0.2736399233466442,
+      "scope": "Task0060 post-hoc descriptive arithmetic at eight published cuts; no new selection/maximum/significance"
+    },
+    {
+      "topology": "three_prong",
+      "target_fpr": 0.001,
+      "background_accepted": 116,
+      "background_total": 150471,
+      "signal_accepted": 34,
+      "signal_total": 100000,
+      "achieved_background_acceptance": 0.0007709126675572038,
+      "signal_efficiency": 0.00034,
+      "enrichment": 0.4410356896551724,
+      "nominal_SIC": 0.01224549445644228,
+      "scope": "Task0060 post-hoc descriptive arithmetic at eight published cuts; no new selection/maximum/significance"
+    }
+  ],
+  "metadata_evidence": [
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/zenodo-5046428.json",
+      "bytes": 4740,
+      "sha256": "371cc64c377138ca0589bb524d52df271f9fdc947d067513e46e113bf72351bd",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/zenodo-7152590.json",
+      "bytes": 5074,
+      "sha256": "a0bab9422218ccf10a0a401f15a0084001166973c1aed0fcd43f2800a7da7ab9",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/zenodo-7152599.json",
+      "bytes": 5118,
+      "sha256": "ae53574178de97b4ba3ab5a68f35be03298d124cd2337bd00f7a7d2978a9fe91",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/metadata-source-0",
+      "bytes": 10153,
+      "sha256": "7ea7ecbee7cfa336a96a1687529c8bb7c4df969e56ba453e2e7566618cae5c02",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/metadata-source-1",
+      "bytes": 10200,
+      "sha256": "583fac630a2dd648dd567f990f5d03516d671312f5ec634d690e57994064fab0",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/metadata-source-2",
+      "bytes": 10288,
+      "sha256": "05630324f12df9a5dec120e08eeb542f774ecfe653376a1ac1e58776fd7b385e",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/metadata-source-3",
+      "bytes": 5878,
+      "sha256": "05422401fa10bb32d1bf2f0bd28e56e4b858f32446b4f468cf28abc89ed000e4",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/metadata-source-4",
+      "bytes": 1476812,
+      "sha256": "7d490b57e42318303d0336739e1744e4df9f16715d0d857b3c2169aee3345804",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/adc-README.md",
+      "bytes": 1167,
+      "sha256": "7ab0e683eab35bce46ba90dbed713bac8cdf1b1981aff492b5656036583bb5c1",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/adc-create_datasets.py",
+      "bytes": 3410,
+      "sha256": "22c272fe3381db6817ebb4e3edddd67cd94de16adbeb6cfa69245acc71837226",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    },
+    {
+      "local_path": "/private/tmp/latenttrigger-task0060-w2Y1nVQT/adc-func.py",
+      "bytes": 1565,
+      "sha256": "949386cd2df9ea60f0c9065b636e47a9c39ac10eb8b3ff7ed591698e4d8caa59",
+      "scope": "publisher metadata, scientific descriptor PDF or author source code; no event payload"
+    }
+  ],
+  "selected_protocol": {
+    "path": "configs/research/decisive_scientific_experiment_v2.json",
+    "sha256": "3b49269a948fd98f335df54ae84502de8bc102a9d7f73358f378ebf86ca2191d",
+    "route": "ADC2021_v2_public_benchmarks",
+    "download_bytes": 680426757,
+    "sources": [
+      {
+        "record_id": 5046428,
+        "concept_record_id": "5046388",
+        "version": "v2",
+        "url": "https://zenodo.org/records/5046428",
+        "metadata_url": "https://zenodo.org/api/records/5046428",
+        "versions_url": "https://zenodo.org/api/records/5046428/versions",
+        "filename": "background_for_training.h5",
+        "bytes": 646391984,
+        "checksum": "md5:08cb4801229f9d480567f8d3f5cac134",
+        "license": "cc-by-4.0",
+        "role": "background",
+        "published_count": 4000000,
+        "count_status": "descriptor Table 1; not a locally validated v2 count",
+        "versions_seen": [
+          5046428,
+          5046389
+        ],
+        "version_note": "Several bug fixes in dataset definition"
+      },
+      {
+        "record_id": 7152590,
+        "concept_record_id": "5046445",
+        "version": "v2",
+        "url": "https://zenodo.org/records/7152590",
+        "metadata_url": "https://zenodo.org/api/records/7152590",
+        "versions_url": "https://zenodo.org/api/records/7152590/versions",
+        "filename": "Ato4l_lepFilter_13TeV_filtered.h5",
+        "bytes": 5421265,
+        "checksum": "md5:8735ed96a96c39dd13fde7d5f7c85967",
+        "license": "cc-by-4.0",
+        "role": "A_to_4l",
+        "published_count": 55969,
+        "count_status": "descriptor Table 1; not a locally validated v2 count",
+        "versions_seen": [
+          7152590,
+          5046446
+        ],
+        "version_note": "Several bug fixes in dataset definition"
+      },
+      {
+        "record_id": 7152599,
+        "concept_record_id": "5055453",
+        "version": "v2",
+        "url": "https://zenodo.org/records/7152599",
+        "metadata_url": "https://zenodo.org/api/records/7152599",
+        "versions_url": "https://zenodo.org/api/records/7152599/versions",
+        "filename": "leptoquark_LOWMASS_lepFilter_13TeV_filtered.h5",
+        "bytes": 28613508,
+        "checksum": "md5:ecd9750e5c51aef54918689eec1e7415",
+        "license": "cc-by-4.0",
+        "role": "LQ_to_btau",
+        "published_count": 340544,
+        "count_status": "descriptor Table 1; not a locally validated v2 count",
+        "versions_seen": [
+          7152599,
+          5055454
+        ],
+        "version_note": "Several bug fixes in dataset definition"
+      }
+    ],
+    "candidate_matrix": [
+      {
+        "name": "compactAE",
+        "layers": [
+          12,
+          8,
+          3,
+          8,
+          12
+        ],
+        "parameters": 271,
+        "seeds": [
+          1729,
+          1730,
+          1731
+        ],
+        "hidden": "ReLU",
+        "latent": "linear",
+        "output": "linear",
+        "score": "FP32 forward; subtract standardized input/reconstruction in FP64 then SSE"
+      },
+      {
+        "name": "referenceAE",
+        "layers": [
+          12,
+          32,
+          16,
+          3,
+          16,
+          32,
+          12
+        ],
+        "parameters": 1999,
+        "seeds": [
+          1729,
+          1730,
+          1731
+        ],
+        "hidden": "ReLU",
+        "latent": "linear",
+        "output": "linear",
+        "score": "same FP64 SSE"
+      },
+      {
+        "name": "PCA3",
+        "components": 3,
+        "fit": "training centered FP64 full SVD, no whiten or rank selection",
+        "score": "FP64 reconstruction SSE on same FP32 view"
+      },
+      {
+        "name": "regularizedMahalanobis",
+        "shrinkage": 0.1,
+        "fit": "training FP64 mean/covariance ddof0; Creg=.9*C+.1*trace(C)/12*I",
+        "score": "(x-mu).T solve(Creg,x-mu), FP64 Cholesky solve; no explicit inverse"
+      }
+    ],
+    "counts": {
+      "grouping": "SHA256 domain adc-exact-content-v2, canonical little-endian float64 stored coordinates/type, signed zero normalized, out-of-range phi wrapped, per-class lexicographic order, zero padding removed; retain lowest source-row representative",
+      "ordering": "SHA256 UTF8 adc-split-v2|1729|fingerprint_hex; ascending digest then fingerprint; independent of source order",
+      "background_counts": {
+        "train": 200000,
+        "selection": 50000,
+        "calibration": 1000000,
+        "final_test": 1000000
+      },
+      "signals_final_per_topology": 40000,
+      "unused": "remaining groups sealed and unused; no replacement after results",
+      "minimum_background_unique": 2250000,
+      "minimum_signal_unique_per_topology": 40000,
+      "role_storage": "separate role files and role-bound manifests; training process cannot open calibration/final/signal payloads; no ProcessedStore v1",
+      "exposure": "structural ingestion/hashing is exposure and logged; no feature summaries or scores on final/signal before freeze; never true blind challenge participation",
+      "generation_independence": "Not established; independent held-out event groups from same simulation pipeline; new signal processes excluded from all training/checkpoint/preprocessing decisions"
+    },
+    "precision": [
+      {
+        "alpha": 0.01,
+        "calibration_N": 1000000,
+        "final_background_N": 1000000,
+        "expected_tail_count": 10000.0,
+        "conditional_FPR_normal_95_halfwidth": 0.00019501753767289752,
+        "calibration_plus_test_normal_95_halfwidth": 0.00027579644667761766,
+        "quantile_rank_bracket_one_based": [
+          989658,
+          990340
+        ],
+        "quantile_bracket_family_delta": 0.01,
+        "quantile_bracket_streams": 16
+      },
+      {
+        "alpha": 0.001,
+        "calibration_N": 1000000,
+        "final_background_N": 1000000,
+        "expected_tail_count": 1000.0,
+        "conditional_FPR_normal_95_halfwidth": 6.194964406677412e-05,
+        "calibration_plus_test_normal_95_halfwidth": 8.761002682341789e-05,
+        "quantile_rank_bracket_one_based": [
+          998890,
+          999107
+        ],
+        "quantile_bracket_family_delta": 0.01,
+        "quantile_bracket_streams": 16
+      }
+    ],
+    "power_scenarios": [
+      {
+        "reference_efficiency": 0.2,
+        "compact_efficiency": 0.19,
+        "assumed_paired_variance": 0.1,
+        "NI_estimand": 0.009999999999999981,
+        "N": 40000,
+        "conditional_normal_power": 0.9982929739436468,
+        "empirical_Bernstein_halfwidth_at_assumed_variance": 0.007548474501936193,
+        "scope": "planning scenario conditional on fixed thresholds and assumed variance; no calibration/slope/seed-generalization power guarantee",
+        "conservative_rule_normal_power": 0.9394869284038645
+      },
+      {
+        "reference_efficiency": 0.2,
+        "compact_efficiency": 0.18,
+        "assumed_paired_variance": 0.1,
+        "NI_estimand": -2.7755575615628914e-17,
+        "N": 40000,
+        "conditional_normal_power": 0.0003409090909091139,
+        "empirical_Bernstein_halfwidth_at_assumed_variance": 0.007548474501936193,
+        "scope": "planning scenario conditional on fixed thresholds and assumed variance; no calibration/slope/seed-generalization power guarantee",
+        "conservative_rule_normal_power": 9.026779247967021e-07
+      },
+      {
+        "reference_efficiency": 0.05,
+        "compact_efficiency": 0.05,
+        "assumed_paired_variance": 0.02,
+        "NI_estimand": 0.0049999999999999975,
+        "N": 40000,
+        "conditional_normal_power": 0.9998807394787497,
+        "empirical_Bernstein_halfwidth_at_assumed_variance": 0.003907411425814549,
+        "scope": "planning scenario conditional on fixed thresholds and assumed variance; no calibration/slope/seed-generalization power guarantee",
+        "conservative_rule_normal_power": 0.9388454402226868
+      },
+      {
+        "reference_efficiency": 0.05,
+        "compact_efficiency": 0.0475,
+        "assumed_paired_variance": 0.02,
+        "NI_estimand": 0.0024999999999999953,
+        "N": 40000,
+        "conditional_normal_power": 0.555174609827974,
+        "empirical_Bernstein_halfwidth_at_assumed_variance": 0.003907411425814549,
+        "scope": "planning scenario conditional on fixed thresholds and assumed variance; no calibration/slope/seed-generalization power guarantee",
+        "conservative_rule_normal_power": 0.023274527724876704
+      }
+    ],
+    "budgets": {
+      "download_exact_bytes": 680426757,
+      "download_wire_cap_bytes": 1073741824,
+      "raw_logical_float64_bytes_from_published_counts": 2673079904,
+      "raw_logical_float32_bytes_from_published_counts": 1336539952,
+      "storage_total_bytes": 8589934592,
+      "worker_RSS_bytes": 4294967296,
+      "active_workers": 1,
+      "background_services": 0,
+      "download_total_seconds": 2700,
+      "download_max_seconds_per_file": 1200,
+      "max_event_transfer_requests": 6,
+      "preparation_seconds": 1800,
+      "real_fit_seconds_each": 1200,
+      "Task0061_wall_seconds": 14400,
+      "Task0062_wall_seconds": 7200,
+      "CPU_measurement_seconds": 1200,
+      "cleanup_seconds": 10,
+      "probe_policy": "only own process resources; fixed budget stop, no host survey/closure/reboot/retry for scheduling",
+      "guards": "external wall/storage/RSS stop; bounded blocks/arrays before allocation; progress and failure receipts; separate safety/source/science/tooling outcomes"
+    }
+  },
+  "readiness": {
+    "protocol": "ready_for_controlled_Task0061_preparation",
+    "scientific_or_software_design_blockers": [],
+    "payload_accepted": false,
+    "execution_authorized_here": false,
+    "concrete_future_acceptance_conditions": [
+      "pinned file length/MD5/SHA256 and actual HDF dtype/names/classes/cuts",
+      "unique2.25M background and40k per signal, no cross-label conflicts, <=1% quarantine",
+      "physically role-separated files and phase IO gates before any fit",
+      "finite six neural/two analytical fits and full freeze before final outcomes"
+    ],
+    "if_source_conditions_fail": "stop before fits with source/sample-insufficiency result; no alternative route picked after scores",
+    "independent_generation_confirmed": false,
+    "true_blind_challenge": false
+  },
+  "next_tasks": {
+    "Task0061": "Controlled acquisition, metadata+payload/duplicate acceptance, role-separated preparation, generated implementation checks, six neural/two analytical fits, background-only selection/calibration, immutable freeze with final outcomes protected",
+    "Task0062": "Once-only final evaluation, predeclared symmetry/bias robustness, paired uncertainty and rate checks, coherent CPU cost and all-outcome scientific conclusion"
+  },
+  "git_actions": "manual review/selective staging/staged review/Conventional Commit/push only; none performed",
+  "environment": {
+    "python": "3.12.12",
+    "platform_family": "darwin",
+    "dependencies": {
+      "numpy": "2.5.3",
+      "torch": "2.14.1",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "pytest": "9.1.1",
+      "ruff": "0.16.10",
+      "h5py": "3.16.0"
+    }
+  },
+  "local_upstream_ref": {
+    "origin_main": "4a61c74b764afdd2f7aa4eb4c6c4598a48c53336",
+    "local_ahead": 0,
+    "local_behind": 0,
+    "remote_freshness_verified": false
+  },
+  "delivery_validation": {
+    "json_csv_schema_and_counts": "passed",
+    "local_links": "passed",
+    "git_diff_whitespace": "passed",
+    "index_empty": true,
+    "working_files_intended": 23,
+    "executable_bundle_unchanged": true,
+    "protocol_power_fields": "conditional_normal_power is conventional z-test scenario; conservative_rule_normal_power is declared-bound-rule approximation, both exclude calibration uncertainty",
+    "corrected_metadata_check": "Initial delivery checker expected418 executable files; actual417 (inventory includes nonexecutable entries). Corrected descriptive count; all tested hashes unchanged.",
+    "rate_limit_resumption": "Final portable-4 run already terminal before interruption; rechecked current417 tested hashes and delivery consistency. Documentation/metadata only changed afterwards; no additional numerical run needed."
+  },
+  "delivery_files": [
+    "README.md",
+    "docs/development.md",
+    "docs/handoffs/README.md",
+    "docs/project-memory.md",
+    "configs/research/decisive_scientific_experiment_v2.json",
+    "docs/decisive-scientific-experiment.md",
+    "docs/project-scientific-audit.md",
+    "docs/prompts/0060-project-scientific-audit-and-experiment.md",
+    "docs/handoffs/0060-project-scientific-audit-and-experiment.md",
+    "results/tables/final/task0060-scientific-audit-findings.csv",
+    "results/tables/final/task0060-scientific-audit-summary.json",
+    "results/tables/final/task0060-source-review.csv",
+    "scripts/run_scientific_audit.py",
+    "src/latenttrigger/models/autoencoder.py",
+    "src/latenttrigger/streaming/quota.py",
+    "src/latenttrigger/streaming/records.py",
+    "tests/scientific_audit_plugin.py",
+    "tests/test_scientific_audit.py",
+    "tests/test_autoencoder_convergence.py",
+    "tests/test_development_ae_hdf_pilot.py",
+    "tests/test_development_streaming_contract_v2.py",
+    "tests/test_development_streaming_foundation.py",
+    "tests/test_development_streaming_session.py"
+  ]
+}

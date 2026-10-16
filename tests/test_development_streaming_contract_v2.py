@@ -39,7 +39,7 @@ def test_full_two_suite_plan_includes_duplicates_and_copies():
 
 
 def test_cross_window_total_and_task0052_counterexample(tmp_path):
-    with pytest.raises(quota.QuotaError, match="16MiB"):
+    with pytest.raises(quota.QuotaError, match="scoped cap"):
         quota.Ledger(tmp_path, {"window1": 9 * 1024**2, "window2": 9 * 1024**2})
     # Task0052's second per-case copies were missing from its prospective sum.
     with pytest.raises(quota.QuotaError):

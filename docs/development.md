@@ -52,6 +52,20 @@ out of Git. Only intentionally curated small artifacts may be committed through
 the documented results policy. A design document or command example does not
 mean a downloader, preprocessing step, model, or benchmark has been implemented.
 
+## Generated portable audit hygiene
+
+For the Task0060 portable selection, use `PYTHONDONTWRITEBYTECODE=1` and the
+existing interpreter with `-B scripts/run_scientific_audit.py --root <new-absolute-root>`.
+The root must be new and outside the checkout. The runner disables pytest cache
+and plugin autoload, contains XDG/matplotlib/temp output before imports, preserves
+incremental stage reports and binds the tested source/config bundle. Use Ruff
+`--no-cache` for lint/format work. The periodic output monitor is an observed stop,
+not a pre-growth all-writes guarantee. Keep interrupted attempts and distinguish
+their work from a complete final-source result. Generated test contexts must use
+fresh mock roots and restore shared state; never activate/reset historical runs
+or treat unit-profile metadata as an operational permit. See the
+[audit and exclusions](project-scientific-audit.md) before expanding its test group.
+
 ## Standing delivery preference
 
 Final task responses must explain the completed work, key data, validation,
