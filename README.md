@@ -44,7 +44,29 @@ and optimized runtimes remain separate questions.
 
 ## Current status
 
-Task0058 records **positive real AE integration with a whole-task storage guard gap**:
+Task0059 completes the **curated v1 research snapshot**:
+`completed_curated_v1_evidence_consolidation`; metadata-only, operational readiness
+false and no new P4. [Integrated conclusions](docs/v1-research-conclusions.md),
+[Italian decision brief](docs/v1-research-decision-brief.md),
+[39-file evidence registry](results/tables/final/task0059-v1-evidence-registry.csv),
+[24 claims](results/tables/final/task0059-v1-claims.csv),
+[summary](results/tables/final/task0059-v1-consolidation-summary.json) and
+[Italian handoff](docs/handoffs/0059-v1-evidence-consolidation.md).
+Preserve the frozen scientific baseline and conclude the bounded CPU/synthetic/
+development-streaming investigation with explicit partial outcomes. AE ranking is
+moderate (AUC about0.660/0.586); strictest cuts retain56/34 signals out of100000
+against116 of150471 shared background. No rare-anomaly usefulness or independent
+confirmation follows. Six accepted CPU boundaries and the synthetic closure remain
+scoped;32 occupancies are measured,137 missing. Separate real PCA/AE components
+passed parity (63/64 and62/64 completions), but whole Tasks0056/0058 remain unaccepted:
+0056 failed at the later AE journal publication;0058 retained its global storage
+guard gap. Its24124B cache lengths are not measured growth or cap exhaustion.
+No pilot reclassification, retrospective waiver or inference repeat occurs.
+New work requires a distinct question and appropriate independent scientific route
+or fresh bounded operational scope;24×768/840s stays ungranted. A source-free future
+cache correction cannot repair historical acceptance. No new task is launched.
+
+Historical Task0058 records **positive real AE integration with a whole-task storage guard gap**:
 `partial_bounded_development_ae_hdf_pilot_storage_guard_gap`; native pilot checks
 pass, while overall pilot acceptance and operational readiness remain **false**.
 [Report](docs/development-ae-hdf-pilot.md),
@@ -1022,3 +1044,5 @@ At its task-time completion, Task0047 completed one separately authorized [targe
 - [x] Task0051: isolated generated-memory streaming core,82focused tests and11software fixture checks across12native attempts (one setup failure preserved); P1 foundation complete, P2/P3 partial, P4 ungranted. Physical campaign unimplemented/unexecuted, no Task0052.
 
 - [ ] Task0058: real AE parity/gates/custody and all16final-source generated checks pass; overall partial because formatter cache writes lacked pre-growth guards. Consolidate separate integration evidence with this gap; no native retry/full study.
+
+- [x] Task0059: curated v1 evidence consolidation;39 pinned inputs/3376089B,24 claims, complete scientific/CPU/synthetic/separate integration narrative. Conclude with partial outcomes; no new operational work/P4 or automatic successor.

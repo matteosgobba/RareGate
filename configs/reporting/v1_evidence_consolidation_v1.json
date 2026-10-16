@@ -1,0 +1,338 @@
+{
+  "task": "0059",
+  "schema_version": 1,
+  "metadata_only": true,
+  "new_P4_granted": false,
+  "operational_readiness": false,
+  "execution_authorized": false,
+  "closed_before_extraction": true,
+  "maximum_unique_inputs": 64,
+  "maximum_unique_input_bytes": 8388608,
+  "actual_unique_inputs": 39,
+  "actual_unique_input_bytes": 3376089,
+  "inputs": [
+    {
+      "evidence_id": "E01",
+      "path": "docs/cpu-trigger-study-synthesis.md",
+      "role": "authoritative integrated scientific/CPU/synthetic report",
+      "bytes": 31054,
+      "sha256": "3736144e1291f7750199b51238b5f426f2f680d03df92d1e8b9dcb9bb5fb6415"
+    },
+    {
+      "evidence_id": "E02",
+      "path": "docs/cpu-trigger-study-decision-brief.md",
+      "role": "historical Italian integrated decision brief",
+      "bytes": 5124,
+      "sha256": "7e5edb2094109b8b157fcf472ea5c09d73c556aa5cbacb6be6b359bf61c5f18d"
+    },
+    {
+      "evidence_id": "E03",
+      "path": "results/tables/final/task0049-cpu-trigger-synthesis-summary.json",
+      "role": "authoritative curated scientific and systems aggregate summary",
+      "bytes": 585716,
+      "sha256": "97b17c15ebdc25157a2751154d0408a2c2eaee8c6980555257f95650888617e3"
+    },
+    {
+      "evidence_id": "E04",
+      "path": "results/tables/final/task0049-cpu-trigger-evidence-registry.csv",
+      "role": "historical provenance index; embedded paths inert",
+      "bytes": 9162,
+      "sha256": "7d53890ffe8395f2631ff65289d01a0d8d1586ba1ecb3280abd363bdba02be85"
+    },
+    {
+      "evidence_id": "E05",
+      "path": "results/tables/final/task0049-cpu-service-boundaries.csv",
+      "role": "six accepted physical campaign boundary aggregates",
+      "bytes": 36947,
+      "sha256": "bb90d2df57fac85df8ab93e27bfe24c4bd223030e0264d33e4c51e89f2dba770"
+    },
+    {
+      "evidence_id": "E06",
+      "path": "results/tables/final/task0049-replay-comparability.csv",
+      "role": "historical replay boundary and comparability rows",
+      "bytes": 11482,
+      "sha256": "393f4502e16492c9ecd026187e2b97b22cc1c6a0c1a60a2da84c1f7e89433747"
+    },
+    {
+      "evidence_id": "E07",
+      "path": "results/tables/final/task0049-refined-replay-conclusions.csv",
+      "role": "complete current refined replay conclusions",
+      "bytes": 11488,
+      "sha256": "3af62108e20857869e628ab32bc2e871fe71d735b3e2a6c4a6e9db4e7e8f7ee4"
+    },
+    {
+      "evidence_id": "E08",
+      "path": "results/tables/final/task0049-cpu-trigger-claims.csv",
+      "role": "historical integrated supported/unsupported claims",
+      "bytes": 12157,
+      "sha256": "99d4c534118106bee5b20499c16632097f12522ba90cb987556f28b740ced25e"
+    },
+    {
+      "evidence_id": "E09",
+      "path": "configs/reporting/cpu_trigger_synthesis_v1.json",
+      "role": "historical reporting scope; embedded references inert",
+      "bytes": 96907,
+      "sha256": "c4337334297e89f9d4478a5383f9dc5a22f66e5d70df41ec9181cd0d83c1bcb8"
+    },
+    {
+      "evidence_id": "E10",
+      "path": "docs/development-streaming-protocol.md",
+      "role": "original descriptor/cache/transport proposal and claim boundary",
+      "bytes": 20769,
+      "sha256": "923b2222f9e23a6610586848b0e2feb804c653c73c0405bd5030a0039c30d8f1"
+    },
+    {
+      "evidence_id": "E11",
+      "path": "configs/protocols/development_streaming_v1.json",
+      "role": "unexecuted 24-case design and nominal batching contract",
+      "bytes": 43882,
+      "sha256": "8ccad6fd2c006251454046dc026033834a758c04f00f3c071a501f3629dfba8f"
+    },
+    {
+      "evidence_id": "E12",
+      "path": "results/tables/final/task0050-development-streaming-design-summary.json",
+      "role": "design-only outcome and prerequisites",
+      "bytes": 23611,
+      "sha256": "ba5208274083fbb5f1335e01cc1fb1270988c856dc7142347399b73d842ea586"
+    },
+    {
+      "evidence_id": "E13",
+      "path": "docs/development-streaming-software-foundation.md",
+      "role": "generated software foundation boundary and limitations",
+      "bytes": 15687,
+      "sha256": "44901d0f5b1c83e62c2ddb2ec66313877d56bfd2887de4310604ae3a9bd34e96"
+    },
+    {
+      "evidence_id": "E14",
+      "path": "results/tables/final/task0051-development-streaming-foundation-summary.json",
+      "role": "generated foundation counts/outcome",
+      "bytes": 80200,
+      "sha256": "7313a54eb1ef3881ab05cfa0165a8eb16ef46182f892cee3e12b05fcfbb56ef0"
+    },
+    {
+      "evidence_id": "E15",
+      "path": "docs/development-streaming-instrumentation.md",
+      "role": "Task0052 original partial/negative report",
+      "bytes": 20058,
+      "sha256": "c33a8d7b6b0f629cf1b2160baf21fb767eb7da00acfe89f760e388437841468d"
+    },
+    {
+      "evidence_id": "E16",
+      "path": "results/tables/final/task0052-streaming-instrumentation-summary.json",
+      "role": "Task0052 final-source coverage and sampled ceiling verdict",
+      "bytes": 257627,
+      "sha256": "6e28efab9fe1d25816fa17570e065180ca593a201aba0d95d49db577d06ac3a5"
+    },
+    {
+      "evidence_id": "E17",
+      "path": "results/tables/final/task0052-streaming-instrumentation-cases.csv",
+      "role": "Task0052 aggregate cases/diagnostics, no append sample payloads",
+      "bytes": 91969,
+      "sha256": "86cf71d3643eb71ad23e72fdef7cfa9762d7dcf231274078a6658a50079b94d2"
+    },
+    {
+      "evidence_id": "E18",
+      "path": "docs/development-streaming-contract-v2.md",
+      "role": "instrumented v2 question and requirement changes",
+      "bytes": 23488,
+      "sha256": "8922d8ad78d4a74e0057432e719a8fa2c2cee89ac5b46f6bafb2bdaa524c8333"
+    },
+    {
+      "evidence_id": "E19",
+      "path": "configs/protocols/development_streaming_v2.json",
+      "role": "v2 diagnostic/primitive-lifetime/resource policy",
+      "bytes": 23313,
+      "sha256": "73a65632e6238abead5297f143a4bb25b45c27f5360dc5d11d3128c59841b28a"
+    },
+    {
+      "evidence_id": "E20",
+      "path": "results/tables/final/task0053-streaming-contract-validation-summary.json",
+      "role": "v2 final-source generated qualification",
+      "bytes": 258923,
+      "sha256": "c55ec1b54806a587e8ef8dfdf6273c1fe1048234eec7f5568dcf8e82a47cae27"
+    },
+    {
+      "evidence_id": "E21",
+      "path": "results/tables/final/task0053-streaming-contract-validation-cases.csv",
+      "role": "v2 generated case expectations",
+      "bytes": 4348,
+      "sha256": "1bc50aafeee84dd06cebaff60e0678ffdb5f42f9a36b34f8febc4923e70667d8"
+    },
+    {
+      "evidence_id": "E22",
+      "path": "docs/development-hdf-consumer-pilot.md",
+      "role": "Task0054 failed startup and positive custody",
+      "bytes": 17406,
+      "sha256": "b4f9ef4aa0d4c43c2d4b3edb0ce80f76e3d0a7269fe16012fb3e43aae74d98bf"
+    },
+    {
+      "evidence_id": "E23",
+      "path": "results/tables/final/task0054-development-hdf-consumer-pilot-summary.json",
+      "role": "consumed Task0054 session/qualification limits",
+      "bytes": 180164,
+      "sha256": "651fa1394e584ec4d774a42394d4a1b5bd02fe9c1ecfa7ae6a88a7923f675431"
+    },
+    {
+      "evidence_id": "E24",
+      "path": "results/tables/final/task0054-development-hdf-consumer-pilot-cases.csv",
+      "role": "Task0054 generated versus operational stage cases",
+      "bytes": 3968,
+      "sha256": "4b2afd8feea84bd4caf192f2d4bd68a3aca194cf3bb3e3fa96cc9d73191b9b91"
+    },
+    {
+      "evidence_id": "E25",
+      "path": "docs/development-streaming-startup-repair.md",
+      "role": "Task0055 source-free startup and tracker policy repair",
+      "bytes": 17117,
+      "sha256": "93635a7ca99c8defcb6f1d0dd27071c0042f6afcd65c4acf2631f84336029921"
+    },
+    {
+      "evidence_id": "E26",
+      "path": "configs/streaming/development_streaming_startup_v1.json",
+      "role": "historical runtime/tracker policy and bundle metadata",
+      "bytes": 34181,
+      "sha256": "50d1cb4c664112bd70b5f6daf9b8ee90588ef29d4149948667c82b7cc82882d9"
+    },
+    {
+      "evidence_id": "E27",
+      "path": "results/tables/final/task0055-streaming-startup-summary.json",
+      "role": "Task0055 generated/bootstrap qualification",
+      "bytes": 281273,
+      "sha256": "b0b12aeb61a27f9d372a54b88899ba8786737ebc1f266a53ad1b6e1ed8db3cba"
+    },
+    {
+      "evidence_id": "E28",
+      "path": "docs/development-hdf-consumer-pilot-v2.md",
+      "role": "Task0056 valid PCA component versus whole-session failure",
+      "bytes": 15924,
+      "sha256": "e2c7015d5fcbcbe883ddfa6ee602e8989a10f4dc9513b44615d827daaf62655c"
+    },
+    {
+      "evidence_id": "E29",
+      "path": "configs/streaming/development_hdf_consumer_pilot_v2.json",
+      "role": "Task0056 frozen operational scope metadata; paths inert",
+      "bytes": 48795,
+      "sha256": "94957be7cd28be616a83f90e3462b4a5d80becef9adfd2655a8c20af0df0b8c5"
+    },
+    {
+      "evidence_id": "E30",
+      "path": "results/tables/final/task0056-development-hdf-pilot-summary.json",
+      "role": "PCA counters/parity/bundle and AE pre-worker failure",
+      "bytes": 253853,
+      "sha256": "4c1947b25be1784167170c932e6f7183e287a91f3de400cadf45a0913ef146db"
+    },
+    {
+      "evidence_id": "E31",
+      "path": "results/tables/final/task0056-development-hdf-pilot-cases.csv",
+      "role": "Task0056 scoped component/case counts",
+      "bytes": 7529,
+      "sha256": "00987c199a137bd886277672a1d66ca7660aba502c05a06b717218175b37d3fb"
+    },
+    {
+      "evidence_id": "E32",
+      "path": "docs/development-streaming-session-lifecycle.md",
+      "role": "Task0057 journal repair and sequential fixture interpretation",
+      "bytes": 14363,
+      "sha256": "58feb2956cde26805f6b33eb1e6115e2e62c0c15e342d6da0b7dece6217af800"
+    },
+    {
+      "evidence_id": "E33",
+      "path": "configs/streaming/development_streaming_session_lifecycle_v1.json",
+      "role": "Task0057 shared generated lifecycle scope and pins",
+      "bytes": 46071,
+      "sha256": "6f2433f1301c7747d7a5f0a35366564e4ead5e5763645db6a8ba0eccd00eb92b"
+    },
+    {
+      "evidence_id": "E34",
+      "path": "results/tables/final/task0057-streaming-session-lifecycle-summary.json",
+      "role": "Task0057 final generated bundle and lifecycle outcomes",
+      "bytes": 429750,
+      "sha256": "3281340916fab736f096affb00576ba8aa2b02856b998a44c64fafb0c6bcf14c"
+    },
+    {
+      "evidence_id": "E35",
+      "path": "results/tables/final/task0057-streaming-session-lifecycle-cases.csv",
+      "role": "Task0057 sessions versus attempted/unattempted candidates",
+      "bytes": 5739,
+      "sha256": "ce354595f4d5d3115e8ac611cd440c6c33bfa3717e6c2b90e4c71dce1d5e9a01"
+    },
+    {
+      "evidence_id": "E36",
+      "path": "docs/development-ae-hdf-pilot.md",
+      "role": "Task0058 real AE integration and global storage exception",
+      "bytes": 17849,
+      "sha256": "fab940d42e213a4359701825f351fb63e66f864461a04c5b44c0593360cfa0e7"
+    },
+    {
+      "evidence_id": "E37",
+      "path": "configs/streaming/development_ae_hdf_pilot_v1.json",
+      "role": "Task0058 frozen prospective scope; not acceptance",
+      "bytes": 48558,
+      "sha256": "44c2a4fda8231acdee9f00fb3360da9f610e87ccc357863da0737fa56d106b4c"
+    },
+    {
+      "evidence_id": "E38",
+      "path": "results/tables/final/task0058-development-ae-hdf-pilot-summary.json",
+      "role": "Task0058 final partial status and positive AE component",
+      "bytes": 282114,
+      "sha256": "7b3358303cb5483e5127b2599c3f6337840e84f53f825030f916c1086c755fde"
+    },
+    {
+      "evidence_id": "E39",
+      "path": "results/tables/final/task0058-development-ae-hdf-pilot-cases.csv",
+      "role": "Task0058 separate software/candidate/custody boundaries",
+      "bytes": 7523,
+      "sha256": "1742a38c642a76bf153486c6122df35cf4bf7b7d31ebbc2cffbbc0ccdd18f9e0"
+    }
+  ],
+  "living_starting_identities": {
+    "README.md": {
+      "bytes": 75306,
+      "sha256": "77cc872bfd0084d99baf4b79e5c0b6d6b1369dfede92120ffad362fd9fdba82c"
+    },
+    "docs/project-memory.md": {
+      "bytes": 315558,
+      "sha256": "ef9ad2139eb9a3015eaec7c2336ce25ebc267f2549e1e8b0cdfacd6bcbee00ca"
+    },
+    "docs/handoffs/README.md": {
+      "bytes": 42503,
+      "sha256": "7e737839252c1b5e022cd01813a349c0448b12f6456f511a9f1010b089fe00aa"
+    },
+    "docs/development.md": {
+      "bytes": 3717,
+      "sha256": "905b9748043a744142502cd33d3e9b4c7b48f4cb218d8a8623835b441d66419a"
+    }
+  },
+  "anchor_paths": [
+    "results/tables/final/task0049-cpu-trigger-synthesis-summary.json",
+    "results/tables/final/task0056-development-hdf-pilot-summary.json",
+    "results/tables/final/task0057-streaming-session-lifecycle-summary.json",
+    "docs/development-ae-hdf-pilot.md",
+    "configs/streaming/development_ae_hdf_pilot_v1.json",
+    "results/tables/final/task0058-development-ae-hdf-pilot-summary.json"
+  ],
+  "reference_paths_are_inert": true,
+  "JSON_extraction": "Select only explicit JSON pointers; skip other values lexically without decoding vectors. No recursive manifest or payload traversal.",
+  "intended_outputs": [
+    "docs/prompts/0059-v1-evidence-consolidation.md",
+    "docs/handoffs/0059-v1-evidence-consolidation.md",
+    "docs/v1-research-conclusions.md",
+    "docs/v1-research-decision-brief.md",
+    "configs/reporting/v1_evidence_consolidation_v1.json",
+    "results/tables/final/task0059-v1-evidence-registry.csv",
+    "results/tables/final/task0059-v1-claims.csv",
+    "results/tables/final/task0059-v1-consolidation-summary.json",
+    "README.md",
+    "docs/project-memory.md",
+    "docs/handoffs/README.md"
+  ],
+  "temporary_root": "data/task0059-reporting-v1",
+  "temporary_files": [
+    "starting-context.json",
+    "read-log.json",
+    "selected-aggregates.json",
+    "static-checks.json"
+  ],
+  "tool_policy": "python3 -B standard-library only; no Ruff/pytest/project imports/native work, no cache inspection",
+  "decision": "preserve frozen baseline and conclude bounded CPU/synthetic/development-streaming investigation with explicit partial outcomes"
+}
