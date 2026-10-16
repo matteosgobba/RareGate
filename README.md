@@ -1068,6 +1068,10 @@ including Matplotlib for generated reporting fixtures. Synthetic research fixtur
 bind dependency identities to the installed test runtime in memory. Native
 scientific controllers retain their frozen dependency and Darwin requirements.
 
+Compatibility tests read pinned historical implementations with `git show`, so
+the full suite requires Git history (`fetch-depth: 0` in GitHub Actions). ADC test
+diagnostics use pytest's temporary directory unless an explicit test root is set.
+
 Device-selection tests simulate both MPS availability states. CPU tensor and
 diagnostic tests perform real computations while forcing the CPU fallback, so
 the suite works on ordinary CPU-only CI runners. GitHub Actions runs these checks

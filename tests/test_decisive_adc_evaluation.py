@@ -474,11 +474,13 @@ def test_zero_background_never_infinite_SIC(generated, monkeypatch):
 
 
 @pytest.fixture(scope="session", autouse=True)
-def capture_extension_toy_work():
+def capture_extension_toy_work(tmp_path_factory):
     yield
     import os
 
-    target = Path(os.environ["LATENTTRIGGER_ADC_TEST_ROOT"]) / "extension-toy-work.json"
+    owned = os.environ.get("LATENTTRIGGER_ADC_TEST_ROOT")
+    directory = Path(owned) if owned else tmp_path_factory.getbasetemp()
+    target = directory / "extension-toy-work.json"
     target.write_text(
         json.dumps(
             dict(
@@ -540,10 +542,11 @@ def test_actual_supplementary_phase_IO_guard(generated):
     context, _ = generated
     script = f"""from types import SimpleNamespace
 from pathlib import Path
-from latenttrigger.research.decisive_adc_evaluation import install_guard
+from latenttrigger.research import decisive_adc_evaluation as evaluation
 c=SimpleNamespace(input_root=Path({str(context.input_root)!r}),output=Path({str(context.output)!r}),authorized_final=False)
-install_guard(c,'development')
-assert (c.input_root/'prepared/development/features.npy').open('rb').read(6)==b'\\x93NUMPY'
+evaluation.ROOT=c.input_root.parent
+evaluation.install_guard(c,'development')
+assert (c.input_root/'prepared/development/features.npy').open('rb').read(6)==bytes.fromhex('934e554d5059')
 for p in [c.input_root/'prepared/final_background/features.npy',c.input_root/'raw/background.h5']:
  try: p.open('rb')
  except PermissionError: pass
@@ -552,9 +555,10 @@ try: (c.input_root/'prepared/development/features.npy').open('wb')
 except PermissionError: pass
 else: raise AssertionError('frozen input writable')
 """
-    subprocess.run(
-        [sys.executable, "-B", "-c", script], check=True, capture_output=True, text=True
+    result = subprocess.run(
+        [sys.executable, "-B", "-c", script], capture_output=True, text=True
     )
+    assert result.returncode == 0, result.stderr
 
 
 def test_exclusive_generated_unblinding_intent(generated):
@@ -564,7 +568,7 @@ def test_exclusive_generated_unblinding_intent(generated):
         context.unblind({})
 
 
-def test_curated_tables_and_figures_generated_only(generated):
+def test_curated_tables_and_figures_generated_only(generated, monkeypatch):
     import importlib.util
 
     context, root = generated
@@ -597,6 +601,7 @@ def test_curated_tables_and_figures_generated_only(generated):
     )
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
+    monkeypatch.setattr(module, "ROOT", context.output.parent)
     summary = module.export(
         context.output, context.output / "tables", context.output / "figures"
     )
