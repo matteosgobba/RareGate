@@ -2,6 +2,13 @@
 
 Maintain this chronological index in every operational task. A completed task
 may still await the user's commit/push; this distinction belongs in its status.
+
+**Final project navigation — 2026-10-16, Task0063:**
+[Final report](../latenttrigger-final-report.md), [Italian brief](../latenttrigger-final-decision-brief.md)
+and [review/evidence summary](../../results/tables/final/task0063-final-review-summary.json).
+Current research cycle closed; negative compact criterion and scoped Mahalanobis
+recommendation; operational readiness false. Earlier rows retain task-time states.
+
 See the [development protocol](../development.md) and maintained
 [living project memory](../project-memory.md).
 
@@ -69,3 +76,4 @@ See the [development protocol](../development.md) and maintained
 | 0060 | Whole-project Scientific Audit and Decisive Experiment Protocol | Audit, correzioni mirate, test generati e disegno scientifico prospettico | completed_project_scientific_audit_and_experiment_protocol; manual Git only | Base4a61c74/main/origin-main pulito; inventario253source/80test/29script con confini espliciti. Corretti default FP32, ownership mmap/fd, fixture storiche/stato e cache prospettiche. Un gruppo finale3002pass+13subtest/938esclusi; tentativi incompleti/falliti conservati. Un protocollo ADC2021,680426757B metadati,6fit neurali+2analitici, primariaFPR.01, paired/calibrazione/costo CPU; pronto per preparazione0061, nessun payload/P4 o0061/0062 avviato;0059 storico/esposizioni/fallimenti invariati. | [0060](0060-project-scientific-audit-and-experiment.md) |
 | 0061 | Controlled ADC Preparation, Finite Training and Complete Freeze | Original ADC preparation/training/calibration; final outcomes protected | completed_adc_preparation_training_and_freeze; ready0062 only; manual Git | Base d02e6a5/main clean, memory1.55→1.56.680426757B/3requests;actual13.45Mbackground/55969A/340544LQ,0quarantines/conflicts/2761duplicates. Fixed roles200k/50k/1M/1M+40k each;6neural×80epoch caps+2analytical/47040updates/8Mcal score rows/16cuts. Final164tests; adapter/guard/finalization corrections and failures preserved; v2manifest e425d1bc verifies184files after cleanup, no fit/calibration/inference repeat for seal repair. Final quality/CPU/Task0062 not run, readiness operational false. | [0061](0061-adc-preparation-training-freeze.md) |
 | 0062 | Preregistered ADC Final Evaluation and Scientific Conclusion | Final quality, robustness and direct CPU | completed_preregistered_adc_evaluation; valid negative compound result; manual Git only | Basefa39e3a/main clean, memory1.56→1.57. One1M/40k/40k final pass,8.64Mscore/270kB32; retention90% excluded both, rate checks pass, compact jointCPU median.962990/0of8 fails. Mahalanobis improves compact quality both but utility LQ bound.14649<.15 and CPU gate fail; no full baseline dominance.184old hashes unchanged/44inference/384CPUcells/16symmetries/204coherent tests; source-label pre-payload failure and generated teardown preserved; no new fits/recalibration/Task0063. | [0062](0062-adc-final-evaluation-and-conclusion.md) |
+| 0063 | Final Scientific Review and Project Report | Curated-evidence review and scientific closure | completed_final_scientific_review_and_report; manual Git only | 2026-10-16,base4b03b404/main/origin-main clean;16anchors/804CSVrows/44bounds/8CPUblocks/3figures/16audit dispositions. Compact compression negative; Mahalanobis quality gains and practical baseline recommendation; LQ15% unresolved, CPU margin unmet. No new experiment or historical suite, no0064; operationalfalse. | [0063](0063-final-scientific-review-and-report.md) |

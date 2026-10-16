@@ -9,15 +9,15 @@
 | Field | Current value |
 | --- | --- |
 | Intended repository path | `docs/project-memory.md` |
-| Memory revision | 1.57 |
+| Memory revision | 1.58 |
 | Last factual verification | 2026-10-16, Europe/Rome |
-| Last completed phase | Task0062 preregistered ADC final quality/robustness/direct CPU; substantive0060–0062 cycle complete |
-| Latest task outcome | completed_preregistered_adc_evaluation; valid scope/all8streams/all3shapes. Compact90% retention excluded both signals; utility passes A/fails LQ, comparable rates; joint B32 ratio.962990/0of8≤.8 fails CPU. Mahalanobis beats compact quality both, but LQ lower.14649<.15 and joint CPU.945206 fail full dominance. No arm supports both-topology utility;204coherent tests, all184old hashes unchanged, no new fit/recalibration or automatic successor. |
+| Last completed phase | Task0063 final scientific review/report; current research cycle closed on 2026-10-16 |
+| Latest task outcome | completed_final_scientific_review_and_report; curated review only, no new experiment. Compact criterion remains negative. Mahalanobis positive paired quality comparisons and practical baseline recommendation are separate from unresolved LQ15% target and unmet CPU margin.16audit dispositions;16anchors preserved; operational readiness false. |
 | Verified repository branch | `main` |
-| Verified HEAD / Task0062 base | fa39e3a9949aa0cdb1b97a8d760ee84e9c0b70f7, clean main/origin-main and empty index at0062 start; Task0061 committed/memory1.56. No fresh remote/push/hosted-CI proof or automatic Git. Earlier task-time bases remain historical. |
+| Verified HEAD / Task0063 base | 4b03b404a47cb75360748a95f15a480523b7c89b; clean main tracking origin/main and empty index at0063 entry; Task0062 committed. No fetch, fresh remote/hosted-CI proof or automatic Git. Earlier bases remain historical. |
 | Current compact neural baseline | ADCv2 compactAE12→8→3→8→12 (271params), three separate seeds/frozen; historical8-input compact-autoencoder-v2 remains unchanged |
 | Particle model state | Design/code retained; local canonical execution deferred under unchanged contracts. Two disposable real96step characterizations, same1024IDs;749.343s/240.728s fail180s;192/192 consumed. Convergence/usefulness unresolved; no canonical training/freeze/calibration |
-| Next action | Review the completed scientific conclusion and manually review/commit/push Task0062 if desired. No default next experimental task, new fit/search/recalibration or unused-group retry; real final/CPU intents consumed. Operational readiness false. |
+| Next action | Manual review/commit/push of the Task0063 final report package only. Current research cycle closed; no automatic next task or further study. Future science/deployment requires a distinct question and separate mandate; consumed intents/allowances remain consumed. |
 | Real test evaluation exposure | PermanentYES/YES/YES from Task0026/0031. Task0033 added3feature requests/350471rows/6stored score loads/700942values plus3membership arrays/3300000records. Task0034/0035/0036/0037 add zero operational population/features/scores/membership/fingerprint/model/reconstruction/calibration/evaluation/optimizer/event-payload work. Task0035 has separate authorized synthetic work/12native completed steps; Task0036 has1metadata-card download16084B. Task0037 reads accepted curated timing/produces synthetic streams; permitted artifact-free historical model regressions have forwards/updates, separate from model-free simulator. Task0038 adds authorized prepared-development engineering reads/inference:15708public adapter calls plus separately accounted FP32/FP64 full/local proof work, no new held-out/population/optimizer/calibration/scientific/download activity. Task0039 adds one6999-ID numeric metadata load/1024prefix, one raw2908260409B hash and HDFmetadata open; zero event/golden/model/scientific/fingerprint numeric work. Synthetic full-particle/legacy model regressions remain separate. No global-zero numerical/forward/update/download claim; samples cannot be reblinded Task0040 adds authorized development-only3membership/3golden loads,732rawrequests30927row presentations/768feature constructions32448rows, zero operational model/held-out/optimizer/calibration/scientific/fingerprint/download work. Task0041 adds zero operational ID/golden/raw/model/service/decision/scientific work because actual admission failed before reservation; new native/full synthetic models/forwards remain separate, not globally zero. Task0042 adds zero operational work; its generated native fixtures and historical toy regressions have separately counted numerical/model/optimizer activity. Task0043adds authorized development-only3ID+3golden loads/840selected raw reads35490rows/840features/6frozen models984publicservices41574rows, no new held-out/fitting/calibration/scientific work. Full/regression/native fixture model work is separate, not global-zero. Task0044adds historical timing reads7JSONLs1288records/980timed values selected-or-derived representing24vectors480original sample positions, synthetic90,000distinct events/8,820,000final presentations and sample962,026assignments, zero new operational raw/model/scientific work. Seven additional accepted fixture matrices have61,740,000presentations; six full/portable instrumented historical subsets have510models186forwards52260rows/12toy optimizer steps, with other legacy activity outside those counts; no global-zero fixture claim. Task0045adds authorized development-only3IDloads20997records/3golden3072rows/1024approved384rawunique/6300reads+features255360rows/6frozen models7380services299136rows/1196544Boolean decisions,2rawSHA5816520818B/3HDFclosed. This positive raw/feature/inference/reconstruction/decision work is not zero. No new operational held-out/scaler/optimizer/calibration/scientific/fingerprint/download/device/replay work. Fixture native known31393services1279124rows/28loaded+28creator models and14setup14336rows, one127row inflight not completed; six instrumented historical subsets510models186forwards52260rows/12toy optimizer updates, other legacy fixtures outside counts. No global-zero fixture claim. Task0046 adds69preparatory +69session closed-metadata opens/19469187B each,3600unique historicaltimings/90pairedvectors and18unchangedsynthetictraces/90kunique positions/15.12Mfinalpresentations/3981226lookupassignments. New operationalraw/features/ID/golden/scientificscore/eventfingerprint/model/reconstruction/optimizer/HDF/rawhash/physicalservice/download0. Four acceptedfixture matrices60.48Mpresentations plus failed722completed/723started cases; repeatedgeneration does not increase90kunique tracepositions. Four instrumented legacy subsets340models124forwards34840rows8toy updates8synthetic calibrations, otherlegacyactivity outsidecounts; no globalzero fixture claim. Task0047 adds positive authorizeddevelopment3membership20997records/3golden3072rows,1024approved384rawunique/13440raw+features530670rows,6frozenmodels15744publicservices621642rows/2486568Boolean/2304exactgates,3HDFclosed6checks2rawSHA5816520818B. Closedselection2preparatory+2sessionloads20opens10765472B each pair ofloads; no newheld-out/scaler/optimizer/calibration/scientificmetrics/fingerprint/download/device/transport/replay.2generatednativefixturematrices31488services1243284rows plus48setup6144rows and12creator12loadedmodels;6dedicatedpublicmodelfixtures1536scores60648rows/12creator12loadedmodels,6completeToyplans31488toyservices1243284rows subset,2instrumentedlegacy subsets170models62forwards17420rows4optimizersteps4syntheticcalibrations,otherfixturesoutsidecounts. PermanentYES3 remains, no global-zerofixtureclaim. Task0048 adds72session timingmetadataopens51714288B/3JSONL8832records7680originaltimed1152excludedwarm/192vectors,18tracegenerations90kuniquepositions30.24Mpresentations7896652lookupassignments. Preparatory72closedbundleopens51714288B plus1contextualprompt25014B; earlier4copiedroot byte-copies and final13code/legacyaggregateidentitycopies separately journaled/disclosed, not timing assignment. Fourgeneratednativeinvocations1failed3accepted90.72Mpresentations/54regenerations of same90kpositions; final emitted-record roundtrip current. Known persisted legacy subsets340models124forwards/reconstructions34840rows8toyoptimizersteps8syntheticcalibrations plus unquantified interrupted/otherfixtureactivity; no globalzero. New operationalraw/features/ID/golden/scientificscore/eventfingerprint/HDF/rawhash/models/reconstruction/optimizer/scaler/calibration/scientificmetrics/download/device/transport/physicaltiming0; permanentYES3/history preserved.  Task0049 adds positive offline reads of57curated sources (26010109B per complete pass),descriptive aggregate checks and documentation;no new raw/scientific-array/model/optimizer/HDF/scientific-metric/download/physical-timing/replay/trace work. Two early generic parses incidentally decoded embedded0046timing arrays (90vectors/3600original durations per parse),unused;final reader lexically omits them. No timing-pair CSV/JSONL or ignored operational evidence reopened;historical positive fixture work and all exposures remain. Task0050 adds only textual evidence reads/curated metadata hashes/prospective arithmetic/static document checks; no new operational data/model/streaming work, no global-zero claim. Task0051 adds positive generated arrays/arithmetic stubs/actual spawn-mapping/process-clock observations:12attempts,319returned synthetic rows318feature/score316reference rows;82focused tests separate. Operational raw/HDF/member/golden/features/scores/fingerprints/model/public inference/science/replay/reservation0. No global-zero numerical/timing claim; historical positives preserved. Task0052 adds positive generated records/arithmetic/process clocks:20native invocations696configured offers, valid-record lower bounds538read536feature/score535reference rows; torn-run stage work unknown.96focused tests additional; no operational raw/HDF/membership/golden/scientific arrays/model/public inference/training/science/acquisition/reservation. No global-zero claim. Task0053 adds positive generatedrecord/arithmetic/timing work:one12case560offer finalsource suite, valid-record lowerbounds425read423feature-score422reference rows/1692primaryBooleans; tornworkunknown.120focusedtests additional; no operational raw/HDF/hash/membership/golden/scientific arrays/models/public inference/reconstruction/training/calibration/science/acquisition/replay/reservation. No globalzero claim. Task0054 adds positive operational custody2passes5816520818B; attempted consumer numerical/model-class imports are not fully observed, but no membership/golden/model-artifact loads/HDF opens/selected rows/features/public scores/decisions. PCA fails before ready, AE unattempted, no real retry. Generated13invocations688configured with lower433read431feature-score430reference rows/1724primaryBooleans; torn/initialization work unknown,40final-focused tests separate. Final source lacks complete qualification; no global-zero operational/numerical claim. Task0055 adds positive generated/runtime work: 24 generated invocations/1,120 offers, reconciled lower bounds879read/873feature-arithmetic-score/871reference rows, 3,492 primary Booleans; torn work unknown. Four fresh workers import actual NumPy/Torch/HDF libraries and query CPU threads/build/RSS, without payload/model/scoring. Final96focused checks;419pure executions include1early failure. Zero new operational custody/HDF/arrays/models/public inference/scientific work; historical0054 custody stays positive. Task0056 adds positive fresh P4 custody2SHA5816520818B, original6999membership/1024golden/onePCA+threshold load,2HDFhandles4schema checks,95raw+feature calls207rows,174public scores342rows1368Booleans. PCA63stream completions/63same-shaped deferred references/all16gate contexts; AE fails before workers, zeroAEpayload. Native generated16cases688offers; core lower439read436feature/arithmetic435reference rows, tornunknown;2serialized class fixtures add412raw-chain/feature rows+128setupfeature rows and344public680score rows2720Booleans,2creator+2loaded artificial models/0optimizer. Two source-free real-library workers;123final-focused tests additional. No new held-out/science/fitting/calibration/acquisition/device/replay; no global-zero operational claim. Task0057 adds generated-only17dispatches/944planned offers: core lower446read444feature/arithmetic443reference rows; serialized293returned chain686rows+128setupfeatures,530public1120score rows4480Booleans,2creator4loaded artificial models/0optimizer. Positive own-process timing/resources and336semaphore absence checks. Zero new operational custody/HDF/original arrays/models/frozen inference/science; historical0056PCA/custody unchanged.  Task0058 adds positive real AE custody2SHA5816520818B,1original6999membership/1024golden/AE+threshold load,2HDF4schema,92raw-feature calls206rows,168public340score rows1360Booleans,62stream completions/all16gate contexts/60deferred references. No new scientific/held-out/fitting/calibration/optimizer/acquisition/device work. Generated one18dispatch1008planned-offer group includes387returned chains895rows+128setupfeatures,702public1466score rows5864Booleans/2creator5loaded artificial models; core lower445read443feature-arithmetic441reference rows,tornworkunknown. Global formatter-cache guard gap preserves partial overall status despite positive native integration; no global-zero claim.  Task0062 adds authorized structural184file/4.792GB byte verification per pre/post pass; once-only1MfinalBG+40kA+40kLQ across8streams/8.64Mscore rows270kB32calls, final sym8192rows256calls, dev parity163840public rows35904calls plus86016reconstruction rows29624calls, CPU11161600rows61440calls on4096train-development events. Total original public19973632presentations367600calls on1084096unique groups, not independent repeated N. All final outcomes now exposed;0new fit/optimizer/acquisition/calibration/P4. Positive generated model/toy-fit/Adam/score/subprocess work remains separate. |
 
 The HEAD above identifies the implementation snapshot used to establish this memory. It is not a claimed commit for this document. Recheck Git and the latest project files before starting new work. Do not infer a push or hosted CI result from a local commit or a configured workflow.
@@ -50,7 +50,42 @@ The earlier planning conversation stopped at Task 0007 and described Task 0008 a
 
 ## 1. Start here: current project state
 
-**Current outcome — Task0062 (2026-10-16):**
+**Current outcome — Task0063 (2026-10-16):**
+`completed_final_scientific_review_and_report`.
+[Final English report](latenttrigger-final-report.md),
+[Italian decision brief](latenttrigger-final-decision-brief.md),
+[claims](../results/tables/final/task0063-final-claims.csv),
+[review summary /16 audit dispositions](../results/tables/final/task0063-final-review-summary.json)
+and [handoff](handoffs/0063-final-scientific-review-and-report.md).
+
+The ADC comparison is valid conditional simulation evidence; the compact compression
+criterion remains negative. Mahalanobis is the recommended practical baseline/reference
+for this representation and measured workload: supported primary improvements over
+compact on both signals and over reference on LQ. Reference-minus-Mahalanobis on A
+remains unresolved, not equivalence. Mahalanobis LQ empirical-cut efficiency15.8375%
+and population-quantile bound[14.649002%,16.972217%] leave the15% target unresolved.
+The .351percentage-point lower-bound gap is not a measured deficit.15% was a prospective
+project utility target with limited application-specific justification, not scientific
+validity or a demonstrated detector requirement. No target or confirmatory claim changed.
+
+Primary paired joint CPU medians compact/reference.962989814 (0/8≤.8),
+Mahalanobis/compact.945206261 (1/8≤.8) miss the.75/7-of-8 margin. Mahalanobis's
+about5.48% lower observed joint cost is useful but does not pass full simple dominance.
+Algorithm/joint boundaries support an interpretation of substantial common processing,
+without a causal timing decomposition, subtraction or physical throughput claim.
+
+Task0063 rechecked16immutable curated anchors before/after;804CSV rows, seed means,
+44-family/88Bernstein endpoints,32CP endpoint identities,calibration ranks,rate/gates,
+all8CPUblocks,16symmetries/24parity cells/profiles and3visually inspected figures.
+Historical3002+13/204test receipts remain historical. No raw/prepared/event-vector/model
+access, fits/calibration/inference/timing/replay or184-input rehash. No material
+contradiction found; historical last-digit rounding differences are disclosed.
+Operational readiness remains false; particle192,ONNX/MPS,streaming failures/exposures
+and consumed allowances remain. The current research cycle is closed. Task0062's
+no-successor statement was accurate at its completion; this separate user mandate
+permits0063 only, not0064 or an automatic new study.
+
+**Historical experimental outcome — Task0062 (task-time state, 2026-10-16):**
 `completed_preregistered_adc_evaluation`; valid completed final study, **negative
 compound compression criterion**, operational readiness false. [Results](decisive-adc-results.md),
 [Italian decision brief](decisive-adc-decision-brief.md),
@@ -2074,6 +2109,7 @@ This register captures enduring project reasoning. Add or supersede decisions he
 
 | Decision | Rationale | Status / reconsideration rule |
 | --- | --- | --- |
+| Final quality/cost recommendation | Negative compact compression coexists with supported covariance quality gains;15% is a project utility target and CPU margins remain distinct | Task0063 recommends Mahalanobis for the measured representation/workload; no full dominance, universal optimality or readiness; future work requires separate question/mandate |
 | Conclude research with explicit partial outcomes | A complete assessable narrative does not require every campaign to pass; component parity cannot promote whole-task acceptance | Task0059 preserves baseline/CPU closure and separate failed/partial pilots; reopen only for a distinct justified question and scope |
 | All task tooling writes need prospective storage scope | Small outputs below a cap do not prove pre-growth guarding; formatter caches are task writes too | Task0058 native AE checks pass but overall acceptance remains false; future source-free tooling must disable/guard cache, without retrospective waiver |
 | Session resources precede case cleanup snapshots | A lazy-open session journal can be mistaken for a case allocation; explicit eager ownership plus registry/inode checks preserves one lifetime and rejects stale fd reuse | Task0057 actual shared generated sessions qualified; no new P4 or retroactive0056 acceptance |
@@ -2110,17 +2146,16 @@ This register captures enduring project reasoning. Add or supersede decisions he
 
 ## 16. Roadmap, milestones, and next-task definitions
 
-**Current three-task route (user mandate2026-10-16):** Task0060 audit/repairs/protocol
-and Task0061 controlled ADC acquisition/preparation, finite6-neural/2-analytical
-training/selection/calibration and corrected immutable freeze are complete.
-Task0062, only after fresh actual human authorization, will
-perform the predeclared final evaluation, robustness, coherent CPU cost and supported
-conclusion. No additional numbered routine-fix tasks or documentation-only closure
-substitute. Earlier roadmap/closure recommendations below are task-time history and
-are superseded where they conflict with this resumed objective. New data and score
-semantics are versioned v2, not changes to frozen v1 artifacts. See
-[decisive protocol](decisive-scientific-experiment.md) for finite inputs, counts,
-conditional power, budgets and stop/negative/inconclusive rules.
+**Current closure — Task0063, 2026-10-16:** Task0060 audit/repairs/protocol,
+Task0061 controlled preparation/fits/freeze and Task0062 final evaluation are complete.
+The separately authorized Task0063 curated review/report closes the current research
+cycle with no missing engineering branch required for scientific closure. Deliver only
+the final package through manual Git review. No Task0064, extra fit, unused-pool retry,
+new threshold or promised favorable gate follows. Future science/deployment needs a
+distinct question and separate mandate. The frozen [protocol](decisive-scientific-experiment.md)
+and historical route remain preserved; [final report](latenttrigger-final-report.md)
+records the negative compression result and scoped Mahalanobis recommendation.
+Earlier roadmap text below is task-time history, not current launch authorization.
 
 Task0049 closes the declared native CPU/synthetic phase through existing curated
 evidence. Task0047/0048 remain accepted/consumed; no reacceptance or experiment
@@ -2200,6 +2235,14 @@ Completed branches above are historical facts; optional future branches are prop
 Task0059 completes the v1 narrative with the partial outcomes intact. Earlier task-time next-question statements above remain historical; no automatic follow-up, enlarged study or new allowance follows.
 
 ## 17. Observations, risks, and open questions
+
+**Final scope assessment — Task0063, 2026-10-16:** independent generation/actual SM
+mixture, detector transfer, finite-seed fixed-budget AE convergence and deployment
+remain unestablished. Mahalanobis's15% crossing expresses uncertainty, not invalidity;
+the target lacks a derived detector budget/cost function. Numerical identities and
+multiplicity profiles do not prove detector symmetry or causal decorrelation.
+These limitations are explicit in the final report and do not require an automatic
+successor. Historical operational failures and exclusions below remain unchanged.
 
 Task0050 exposes a new physical boundary without measuring it: descriptor admission
 is software request ingress, and reopened/primed HDF histories inherit custody,
@@ -2582,6 +2625,7 @@ Keep future entries short and focused on project-level changes. Update current-s
 | 1.55 / 2026-10-16 | Task0060 resumes science under explicit user mandate; whole-project inventory/dispositions, targeted source audit and necessary FP32/mapping/harness/cache repairs. Final coherent3002pass+13subtests/938excluded; actual failed/incomplete attempts retained. ADC2021 finite metadata route/protocol for0061freeze and0062final quality/robustness/CPU conclusion; neither launched. | Base4a61c74; source bundle9bc08122; original exposures/payloads/models/frozen configs/pilots/particle192 unchanged; operational readiness false. See0060 audit/summary/handoff and decisive v2 protocol. |
 | 1.56 / 2026-10-16 | Task0061 controlled ADC execution:3accepted sources/13.85M structural rows/2330000separated selected groups;6neural+2analytical fits/16cuts; actual scientific quality still protected. Header-adapter, phase guard and manifest lifecycle repairs with source-bound dependency records; final164checks and184file immutable v2 verification. | Base d02e6a5, current bundle162e61ab, final manifest e425d1bc; source/role/fit/cal resources and failures in0061summary/handoff. Ready0062 only; no final evaluation, CPU comparison, historical reacceptance or automatic launch. |
 | 1.57 / 2026-10-16 | Task0062 completed valid ADC final evaluation:1M/40k/40k groups,8frozen streams/8.64Mscore rows270kB32calls; all44paired bounds and achieved-rate checks, fixed16symmetry/264bias rows,384CPUcells. Compact retention excluded both, LQ utility excluded, joint CPU.962990 fails; Mahalanobis quality stronger but full utility/cost dominance unproven. | Basefa39e3a;184old file hashes unchanged; source-label admission/teardown failures preserved, extension7cf503e5 and final204checks;≈5.05GB/8GiB, realRSS912277504B/4GiB, no new fits/calibration/P4/automatic successor. Research cycle complete; operationalfalse. |
+| 1.58 / 2026-10-16 | Task0063 curated scientific review and final report close the current cycle: negative compact criterion, supported Mahalanobis comparisons/recommendation, unresolved absolute LQ target and unmet CPU margin kept separate.16anchors/804rows/44bounds/all8CPUblocks/figures and16audit dispositions checked; no new experiment. | Base4b03b404/main/origin-main, memory1.58; final report/Italian brief/claims/review summary/handoff; source preservation and resource limitations explicit; operationalfalse, no0064. |
 
 
 ### Task0047 accepted physical engineering state (2026-10-14)

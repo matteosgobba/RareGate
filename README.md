@@ -44,6 +44,33 @@ and optimized runtimes remain separate questions.
 
 ## Current status
 
+**Final scientific review and project report — Task0063, 2026-10-16:**
+`completed_final_scientific_review_and_report`. The current research cycle is closed.
+[Final English report](docs/latenttrigger-final-report.md),
+[final Italian decision brief](docs/latenttrigger-final-decision-brief.md),
+[claim/evidence map](results/tables/final/task0063-final-claims.csv),
+[review summary and sixteen audit dispositions](results/tables/final/task0063-final-review-summary.json)
+and [Italian handoff](docs/handoffs/0063-final-scientific-review-and-report.md).
+
+The ADC comparison is a valid conditional simulation study; **compact compression
+failed the preregistered criterion**. Mahalanobis improves compact on both primary
+signals and referenceAE on LQ, making it the recommended baseline/reference for
+this representation and measured workload. Its LQ empirical-cut efficiency is
+**15.8375%**, with simultaneous population-quantile bound **[14.649002%, 16.972217%]**:
+the absolute 15% target is unresolved. That prospective project utility target is
+not a universal scientific-validity threshold or a derived detector requirement.
+Mahalanobis's joint CPU paired median ratio is **0.945206261** versus compact,
+about 5.48% lower observed cost, but the required 25%/seven-of-eight margin is unmet.
+No full simple-selector dominance, universal optimality or detector readiness follows.
+
+Task0063 rechecks only curated identities, aggregate arithmetic, figures and documents;
+no data/model/vector access, experiment, timing or historical test suite is repeated.
+Historical results and consumed allowances remain unchanged. Operational readiness
+is **false**. Task0062 did not automatically launch a successor; this later review
+has its own explicit human mandate. No Task0064 or further study is launched.
+
+### Historical final experiment — Task0062 (task-time state)
+
 Task0062 completes the **preregistered ADC final evaluation, robustness and direct
 CPU comparison**: `completed_preregistered_adc_evaluation`, valid within the qualified
 eight-stream scope. **The compound compression criterion is negative.**
