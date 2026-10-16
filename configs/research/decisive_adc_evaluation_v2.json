@@ -1,0 +1,190 @@
+{
+  "schema_version": 2,
+  "task": "Task0062",
+  "scope": "Task0062-explicit-human-authorized",
+  "root": "data/decisive-v2-adc-task0062",
+  "input_root": "data/decisive-v2-adc-task0061",
+  "models_root": "artifacts/models/decisive-v2-adc",
+  "freeze_path": "data/decisive-v2-adc-task0061/private/complete-freeze-v2.json",
+  "freeze_sha256": "e425d1bc50c644caf7c3fad1f2317472e33eca68686022d4eac52bf04d804ce6",
+  "freeze_bytes": 130765,
+  "freeze_revision": 2,
+  "protocol_path": "configs/research/decisive_scientific_experiment_v2.json",
+  "protocol_sha256": "3b49269a948fd98f335df54ae84502de8bc102a9d7f73358f378ebf86ca2191d",
+  "prompt_path": "docs/prompts/0062-adc-final-evaluation-and-conclusion.md",
+  "task_start_utc": "2026-10-16T17:07:00+00:00",
+  "observed_start_utc": "2026-10-16T17:08:07+00:00",
+  "task_seconds": 7200,
+  "cpu_seconds": 1200,
+  "cleanup_reserve_seconds": 10,
+  "study_storage_bytes": 8589934592,
+  "worker_rss_bytes": 4294967296,
+  "active_numerical_workers": 1,
+  "services": 0,
+  "new_storage_reservations_bytes": {
+    "scores": 70000000,
+    "timings_parity_robustness": 40000000,
+    "tests_failures_snapshots": 80000000,
+    "receipts_figures_curated_temp": 70000000
+  },
+  "old_future_reserve_bytes": 268435456,
+  "roles": {
+    "final_background": 1000000,
+    "A_to_4l": 40000,
+    "LQ_to_btau": 40000
+  },
+  "development_rows": 4096,
+  "robustness_rows": 512,
+  "rates": [
+    0.01,
+    0.001
+  ],
+  "arm_order": [
+    "compactAE",
+    "referenceAE",
+    "PCA3",
+    "regularizedMahalanobis"
+  ],
+  "pair_orientation": "earlier arm minus later arm in arm_order; reversed interval [-upper,-lower]",
+  "statistics": {
+    "family_rows": 44,
+    "calibration_delta": 0.01,
+    "background_delta": 0.01,
+    "signal_delta": 0.03,
+    "variance_ddof": 1,
+    "estimand": "finite-seed mean indicator at population background quantile",
+    "descriptive_point": "finite-seed mean indicator at frozen empirical calibration cut",
+    "utility_primary": 0.15,
+    "utility_secondary": 0.05,
+    "retention": 0.9,
+    "dominance_difference": 0.01,
+    "rate_relative_tolerance": {
+      "0.01": 0.1,
+      "0.001": 0.3
+    },
+    "seed_sample_size_multiplier": 1
+  },
+  "cpu": {
+    "loop_nesting": "repetition; rotated stream; batch in [1,32,512]; boundary in parity order; call in [0,159]",
+    "repetitions": 8,
+    "batches": [
+      1,
+      32,
+      512
+    ],
+    "warmups": 32,
+    "timed": 128,
+    "indices": "((repetition*160+call_index)*batch+arange(batch))%4096",
+    "boundary_order": "algorithm,joint even; joint,algorithm odd",
+    "summary": "arithmetic mean 128 calls per stream/cell; mean three seed costs per arm/block; paired ratios",
+    "primary_boundary": "joint",
+    "primary_batch": 32,
+    "median_ratio_max": 0.75,
+    "block_ratio_max": 0.8,
+    "required_blocks": 7,
+    "secondary_shape_failure": "skip both boundaries for failed stream/shape in all repetitions; retain B32 science",
+    "timing_clock": "perf_counter_ns; process_time_ns per cell outside timers; gather outside starts",
+    "owned_outputs": "FP64 public scores and two newly allocated strict boolean masks"
+  },
+  "robustness": {
+    "rotation_radians": 0.7,
+    "feature_atol": 1e-05,
+    "feature_rtol": 1e-05,
+    "score_atol": 1e-05,
+    "score_relative": 2e-05
+  },
+  "bias_bins": {
+    "MET_GeV": [
+      0,
+      30,
+      60,
+      120,
+      "infinity"
+    ],
+    "leptons": [
+      1,
+      2,
+      "at_least_3"
+    ],
+    "jets": [
+      0,
+      1,
+      2,
+      "at_least_3"
+    ],
+    "edges": "left closed, right open; exact provided object quantities; N<20 metrics suppressed"
+  },
+  "phases": [
+    "preflight-v2",
+    "development-v2",
+    "final",
+    "postflight"
+  ],
+  "output_plan": "private/{role}--{arm}--{seed}.npy.partial then atomically .npy plus immutable commit receipt; private/timings.jsonl; private/analysis.json; private/output-identities.json; immutable ledger intents/results and progress",
+  "denied": [
+    "acquisition",
+    "fit",
+    "optimizer",
+    "recalibration",
+    "threshold_search",
+    "unused_groups",
+    "Task0063"
+  ],
+  "extension_paths": [
+    "src/latenttrigger/research/decisive_adc_evaluation.py",
+    "scripts/evaluate_decisive_adc_experiment.py",
+    "tests/test_decisive_adc_evaluation.py",
+    "configs/research/decisive_adc_evaluation_v2.json",
+    "docs/prompts/0062-adc-final-evaluation-and-conclusion.md",
+    "scripts/report_decisive_adc_evaluation.py"
+  ],
+  "immutable_anchors": {
+    "docs/decisive-scientific-experiment.md": {
+      "bytes": 25564,
+      "sha256": "b7cc15255702ee41aede21119be4eec1832e314703306d032d98574c1073b5c6"
+    },
+    "configs/research/decisive_scientific_experiment_v2.json": {
+      "bytes": 20058,
+      "sha256": "3b49269a948fd98f335df54ae84502de8bc102a9d7f73358f378ebf86ca2191d"
+    },
+    "docs/decisive-adc-preparation-training.md": {
+      "bytes": 20216,
+      "sha256": "f905488dc5d9488f15f0b1f66b33171002eadbef79bb5b0dc0f010473d584b72"
+    },
+    "configs/research/decisive_adc_preparation_v2.json": {
+      "bytes": 4415,
+      "sha256": "21db6cca406dea49cfc097c2798d711831e65604e344bdf53cf7055435bd84da"
+    },
+    "results/tables/final/task0061-adc-preparation-summary.json": {
+      "bytes": 85374,
+      "sha256": "a5f813b702a87dfaac30cc43cf51f437ff42a4041db7981df6ede2edcaf1f30e"
+    },
+    "results/tables/final/task0061-adc-calibration.csv": {
+      "bytes": 5892,
+      "sha256": "bbd90725518bf9c192b8da7f0f87adbb60645e96a3379f565db88f3806eb4c79"
+    },
+    "results/tables/final/task0061-adc-model-freeze.csv": {
+      "bytes": 5196,
+      "sha256": "c118f3edd0d75708332882943ec674fe057b30d3e6b8467f0d475727cabeab43"
+    }
+  },
+  "binding_path": "private/extension-binding-v2.json",
+  "required_preflight_phase": "preflight-v2",
+  "required_development_phase": "development-v2",
+  "phase_actions": {
+    "preflight-v2": "preflight",
+    "development-v2": "development",
+    "final": "final",
+    "postflight": "postflight"
+  },
+  "pre_outcome_amendment": {
+    "revision": 2,
+    "reason": "new evaluator incorrectly required background instead of the sealed development source train-first-hash-ordered",
+    "first_development_failed_before": "role feature hashing/numerical open, model loading, public scoring, reconstruction, CPU intent or measurement, final unblinding",
+    "prior_extension_binding": "private/extension-binding.json",
+    "prior_preflight": "ledger/preflight-result.json",
+    "prior_failed_phase": "ledger/development-failure.json",
+    "unchanged": "all Task0061 files and all scientific/statistical/cost rules; no real timing or final outcome seen",
+    "additional_real_final_contexts": 0
+  }
+}

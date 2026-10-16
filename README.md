@@ -44,6 +44,39 @@ and optimized runtimes remain separate questions.
 
 ## Current status
 
+Task0062 completes the **preregistered ADC final evaluation, robustness and direct
+CPU comparison**: `completed_preregistered_adc_evaluation`, valid within the qualified
+eight-stream scope. **The compound compression criterion is negative.**
+[Full results](docs/decisive-adc-results.md), [Italian decision brief](docs/decisive-adc-decision-brief.md),
+[summary](results/tables/final/task0062-adc-evaluation-summary.json),
+[44 paired intervals](results/tables/final/task0062-adc-paired-inference.csv),
+[all direct costs](results/tables/final/task0062-adc-cpu-costs.csv) and
+[Italian handoff](docs/handoffs/0062-adc-final-evaluation-and-conclusion.md).
+
+One final pass covers1M background/40k A→4l/40k LQ→bτ groups and eight frozen streams:
+8.64M score presentations/270k B32 calls. At primary target.01 compact/reference
+signal efficiencies are37.334%/50.528% on A and6.897%/10.625% on LQ. Paired upper
+bounds exclude90% retention on both; achieved-rate comparability passes. Joint B32
+compact/reference median paired ratio.962990 and0/8blocks≤.80 fail the.75/7-of-8 rule.
+Mahalanobis improves compact on both signals, but its LQ utility lower bound14.649%
+is below15% and its CPU gate also fails. No method supports the full both-topology
+utility criterion; the strong A result remains separate. There is no declared simple
+baseline dominance or successful compact compression.
+
+All24stream/shape parity cells and16final symmetry reports pass, zero decision flips;
+384CPU cells/49152timed calls/12288warmups, without experimental repeats. The final
+coherent relevant group passes204tests. Generated teardown and pre-payload development
+source-label failures are preserved and corrected before real timings/final outcomes;
+all frozen0061files remain unchanged. Retained study about5.05GB/8GiB, real worker
+lifetime peak912277504B/4GiB; sampled-resource limitations remain explicit.
+
+The substantive0060–0062 cycle is complete. No acquisition/fit/recalibration, unused
+pool retry or Task0063 is launched. This is a lepton-prefiltered simulation result on
+the new12-feature view, not old LHCO confirmation or detector readiness. Operational
+readiness remains false; historical exposures/failures and consumed allowances stand.
+
+### Historical preparation and freeze — Task0061
+
 Task0061 completes **controlled ADC acquisition, role-separated preparation,
 finite training/calibration and complete freeze**:
 `completed_adc_preparation_training_and_freeze`.
@@ -65,9 +98,9 @@ explicitly withdrawn; immutable **complete-freeze-v2**, SHA256 `e425d1bc…d804c
 passes184file post-cleanup identity checks. No fit/calibration/inference repeat
 rescues that bookkeeping correction.
 
-**Ready for Task0062; final evaluation not performed and Task0062 not started.**
+**Task-time state at0061 completion:** ready for Task0062; final evaluation had not been performed. Task0062 has now completed above.
 Scientific usefulness, both-topology retention/utility/common-rate gates and the
-real joint CPU advantage remain untested. The ADC study is lepton-prefiltered
+real joint CPU advantage were then untested. The ADC study is lepton-prefiltered
 simulation, not old LHCO confirmation; historical readiness remains false.
 
 ### Historical audit and design — Task0060
