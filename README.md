@@ -1,77 +1,94 @@
 <p align="center">
-  <img src="assets/branding/raregate-logo-v2.png" alt="RareGate logo" width="640">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/branding/raregate-logo-v2-dark.png">
+    <img src="assets/branding/raregate-logo-v2.png" alt="RareGate" width="520">
+  </picture>
 </p>
 
-# RareGate
+<p align="center">
+  <strong>Hardware-aware anomaly detection for LHC event selection</strong>
+</p>
 
-**Hardware-aware machine learning for real-time LHC event selection**
+<p align="center">
+  <a href="#results">Results</a> &nbsp;·&nbsp;
+  <a href="#getting-started">Getting started</a> &nbsp;·&nbsp;
+  <a href="docs/raregate-final-report.md">Scientific report</a>
+</p>
 
-RareGate is an independent research and engineering project studying how much
-anomaly-detection performance survives when models must also be computationally
-inexpensive. Motivated by the Large Hadron Collider (LHC), it connects simulated
-collision data, background-only learning, calibrated event selection and direct
-CPU measurements in an auditable experimental workflow.
+RareGate studies the trade-off between anomaly detection and computational cost
+in event selection inspired by the Large Hadron Collider (LHC). It compares
+compact neural networks with classical statistical methods on simulated
+collisions, measuring signal acceptance and CPU time.
 
-The central question is practical: **can a smaller model preserve sensitivity to
-rare signals while reducing the cost of the complete selection pipeline?**
-The current research cycle is complete; the repository contains the implementation,
-protocols, curated results and final scientific report.
+The aim is to test whether a smaller model still offers a useful advantage when
+feature construction, scoring and selection are measured together.
 
-## Approach
+## How it works
 
-- **Data and features:** verified public HDF5 sources, exact-content deduplication,
-  separate training/selection/calibration/evaluation roles, and training-only
-  preprocessing. The final ADC2021 study uses 12 event aggregates derived from
-  missing transverse momentum, electrons, muons and jets.
-- **Anomaly detection:** background-only compact and reference autoencoders
-  (271 and 1,999 parameters), three-component PCA and regularized Mahalanobis
-  distance. Signals are reserved for evaluation.
-- **Scientific evaluation:** frozen background-calibrated cuts, paired signal
-  comparisons, calibration uncertainty, simultaneous bounds, numerical parity
-  and selection-profile checks.
-- **Computational evaluation:** explicit timing boundaries, paired CPU blocks,
-  batch-size studies and resource accounting. Earlier work includes LHCO
-  baselines, synthetic queue simulations and bounded streaming prototypes.
+1. **Prepare the events.** Verify public HDF5 data, remove exact duplicates and
+   separate training, selection, calibration and evaluation. The final ADC2021
+   study uses 12 aggregates of missing transverse momentum, electrons, muons
+   and jets.
+2. **Compare the detectors.** Train compact and reference autoencoders
+   (271 and 1,999 parameters) on background events, alongside three-component
+   PCA and regularized Mahalanobis distance. Fit preprocessing on training data
+   only; reserve signals for evaluation.
+3. **Measure quality and cost.** Freeze background-calibrated cuts, compare
+   signal efficiencies with paired uncertainty bounds, and measure CPU cost
+   across batch sizes. Check numerical parity and selection effects.
 
-## Selected results
+Earlier [LHC Olympics (LHCO) studies](docs/v1-research-conclusions.md) cover
+anomaly-detection baselines, synthetic queues and bounded streaming prototypes.
 
-The final study evaluates **1,000,000 background events and 40,000 events per
-signal** from lepton-prefiltered ADC2021 simulation. At a **1% target background
-acceptance**, the frozen empirical cuts give:
+## Results
 
-| Method | A → 4ℓ efficiency | LQ → bτ efficiency | Joint CPU cost, batch 32 |
+The final ADC2021 comparison uses **1,000,000 background events and 40,000 per
+signal**, with a lepton prefilter. Below are signal efficiencies at a **1% target
+background acceptance**, with CPU times per batch of 32 events:
+
+| Method | A → 4ℓ | LQ → bτ | CPU (µs) |
 |:--|--:|--:|--:|
-| Compact autoencoder | 37.33% | 6.90% | 284.9 µs/call |
-| Reference autoencoder | 50.53% | 10.63% | 295.4 µs/call |
-| PCA, 3 components | 22.72% | 11.91% | 266.3 µs/call |
-| Regularized Mahalanobis | 50.13% | 15.84% | 269.1 µs/call |
+| Compact AE | 37.33% | 6.90% | 284.9 |
+| Reference AE | 50.53% | 10.63% | 295.4 |
+| PCA3 | 22.72% | 11.91% | 266.3 |
+| Mahalanobis | 50.13% | 15.84% | 269.1 |
 
-Neural efficiencies average three separately trained seeds, without ensembling.
-CPU values are medians of eight block means from the recorded single-thread
-macOS arm64 run, averaging neural seeds within blocks. The joint boundary covers
-in-memory objects → features/scaling → scores, masks and owned outputs; it excludes
-data loading and HDF5 I/O. These are batch-call costs, not detector latencies.
+CPU times cover in-memory objects → features/scaling → scores, masks and owned
+outputs. Data loading and HDF5 I/O are excluded; these are not detector latencies.
 
 ![Signal efficiency versus measured joint CPU cost for the final ADC2021 comparison](results/figures/final/task0062-adc-quality-cost.png)
 
-*Points use frozen empirical cuts; vertical intervals are simultaneous bounds at
-the population background quantile, including calibration uncertainty.*
+*Signal efficiency versus joint CPU cost. Vertical intervals include calibration
+uncertainty; points use the frozen empirical cuts.*
 
-**Compact compression did not meet the preregistered criterion:** 90% retention
-of reference efficiency was excluded on both signals, and the required 25% joint
-CPU reduction was not achieved. Mahalanobis is the recommended baseline for this
-representation and measured workload, with supported gains over compact on both
-signals. Its absolute 15% LQ utility target remains unresolved (simultaneous bound:
-14.65–16.97%); no method passed the full compound criterion.
+**The smaller autoencoder lost sensitivity without meeting the required CPU
+saving.** The paired bounds excluded 90% retention of reference efficiency on
+both signals, and the joint cost reduction fell short of 25%.
 
-The [final report](docs/raregate-final-report.md) explains the uncertainty,
-selection effects and timing scope, with links to the underlying tables.
+Mahalanobis is the recommended baseline for these features and this workload:
+it outperformed compact on both signals. Its absolute 15% LQ utility target
+remains unresolved, with a simultaneous bound of **14.65–16.97%**. No method
+met all the preregistered quality and cost requirements.
+
+<details>
+<summary>Measurement details</summary>
+
+Neural efficiencies average three separately trained seeds, without ensembling.
+CPU times are medians of eight block means from the recorded single-thread
+macOS arm64 run, with neural seeds averaged within each block. The figure's
+intervals bound efficiency at the population background quantile, including
+calibration uncertainty.
+
+The [final report](docs/raregate-final-report.md) provides the uncertainty analysis,
+selection profiles, timing boundaries and result tables.
+
+</details>
 
 ## Getting started
 
-Use **Python 3.11 or 3.12** (3.12 recommended), Git and a virtual environment.
-Core dependencies are NumPy, scikit-learn and PyTorch; the extras below add HDF5
-support, plotting and development tools. A CPU is sufficient.
+Use **Python 3.11 or 3.12** (3.12 recommended) and Git. A CPU is sufficient.
+The installation includes NumPy, scikit-learn, PyTorch, HDF5 support, Matplotlib
+and development tools.
 
 ```bash
 git clone https://github.com/matteosgobba/RareGate.git
@@ -80,36 +97,38 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev,data,analysis]"
-
-# Small tensor diagnostic; no dataset download or model training.
 python scripts/smoke_test.py
+```
 
-# Code quality and tests.
+The smoke test checks a small tensor computation. On Windows, activate with
+`.venv\Scripts\activate`. For
+CPU-only Linux, install PyTorch from its
+[CPU wheel index](https://download.pytorch.org/whl/cpu) before the editable install.
+
+To run the development checks:
+
+```bash
 python -m ruff check .
 python -m ruff format --check .
 python -m pytest
 ```
 
-On Windows, activate with `.venv\Scripts\activate`. For CPU-only Linux, install
-PyTorch from its [CPU wheel index](https://download.pytorch.org/whl/cpu) before the
-editable install. The full suite needs Git history for compatibility tests;
-GitHub Actions is configured for Python 3.11 and 3.12.
+Compatibility tests need Git history. CI is configured for Python 3.11 and 3.12.
 
-Datasets, processed arrays and most model artifacts are kept outside Git; curated
-figures and small tables are included. Setup and tests do not reproduce the
-scientific study. For data preparation and experiment contracts, follow the
+Data, processed arrays and most models stay outside Git. For experiment setup,
+see the
 [ADC protocol](docs/decisive-scientific-experiment.md),
 [preparation record](docs/decisive-adc-preparation-training.md) and
-[earlier LHCO data workflow](data/README.md). Historical campaign entrypoints
-record completed, source-bound runs and are not general-purpose rerun commands.
+[LHCO workflow](data/README.md). Historical campaign entrypoints are tied to
+completed runs and frozen inputs; follow their recorded contracts before any rerun.
 
 ## Repository layout
 
 ```text
 src/raregate/  Data, models, training, evaluation, benchmarks and streaming
-configs/      Versioned data, model, experiment and resource contracts
-scripts/      Preparation, validation, diagnostics and reporting entrypoints
-tests/        Numerical, protocol and software integration tests
+configs/      Data, model, experiment and resource specifications
+scripts/      Preparation, validation, diagnostics and reporting
+tests/        Numerical, protocol and integration tests
 results/      Curated figures/final/ and tables/final/; other outputs stay local
 artifacts/    Selected small historical model artifacts
 docs/         Scientific reports, design decisions and development records
@@ -117,30 +136,30 @@ data/         Local datasets and derived stores; only the data policy is tracked
 assets/       Project branding
 ```
 
-For deeper context, see the [evaluation protocol](docs/evaluation-protocol.md),
-[earlier research conclusions](docs/v1-research-conclusions.md),
-[development guide](docs/development.md) and
-[archived operational README](docs/old/README.md).
+Further reading: [evaluation protocol](docs/evaluation-protocol.md) ·
+[development guide](docs/development.md) · [README archive](docs/old/README.md).
 
-## Scope and disclaimer
+## Scope and limitations
 
-RareGate is a completed research study, **not a deployment-ready trigger**.
-Results are conditional on simulation, object preselection, the chosen features
-and finite training budgets; they do not establish detector readiness, physical
-LHC rates or discovery significance. Streaming and alternative-runtime branches
-retain the limitations documented in their reports. The project has no official
-affiliation with or endorsement by CERN, ATLAS, CMS or CERN openlab.
+Results depend on the simulation, object preselection, features and training
+budgets. They do not establish physical LHC rates or discovery significance;
+the software is **not a deployment-ready trigger**. Engineering prototypes
+retain the limitations documented in their reports.
 
-## Author, credits and license
+RareGate is an independent project with no official affiliation with or
+endorsement by CERN, ATLAS, CMS or CERN openlab.
 
-**Matteo Sgobba** · [GitHub](https://github.com/matteosgobba) ·
+## Author and acknowledgements
+
+Created by **Matteo Sgobba** · [GitHub](https://github.com/matteosgobba) ·
 [LinkedIn](https://www.linkedin.com/in/matteosgobba/)
 
-Data credit belongs to the [ADC2021 dataset authors](https://mpp-hep.github.io/ADC2021/)
+This work uses public datasets from the
+[ADC2021 authors](https://mpp-hep.github.io/ADC2021/)
 ([data descriptor](https://doi.org/10.1038/s41597-022-01187-8)) and the
-[LHC Olympics 2020 dataset creators](https://doi.org/10.5281/zenodo.6466204).
-Pinned dataset versions and provenance are recorded in the linked protocols.
-The analysis builds on NumPy, scikit-learn, PyTorch, h5py and Matplotlib.
+[LHC Olympics 2020 creators](https://doi.org/10.5281/zenodo.6466204), with NumPy,
+scikit-learn, PyTorch, h5py and Matplotlib. Dataset versions and provenance are
+recorded in the experiment protocols.
 
-Code is released under the [MIT License](LICENSE). Referenced datasets retain
-their own **CC BY 4.0** terms and attribution requirements.
+**License:** [MIT](LICENSE) for the code; **CC BY 4.0** for the referenced datasets,
+with their respective attribution requirements.
