@@ -12,7 +12,7 @@
 <p align="center">
   <a href="#results">Results</a> &nbsp;·&nbsp;
   <a href="#getting-started">Getting started</a> &nbsp;·&nbsp;
-  <a href="docs/raregate-final-report.md">Scientific report</a>
+  <a href="docs/scientific-report.md">Scientific report</a>
 </p>
 
 RareGate studies the trade-off between anomaly detection and computational cost
@@ -37,7 +37,7 @@ feature construction, scoring and selection are measured together.
    signal efficiencies with paired uncertainty bounds, and measure CPU cost
    across batch sizes. Check numerical parity and selection effects.
 
-Earlier [LHC Olympics (LHCO) studies](docs/v1-research-conclusions.md) cover
+Earlier [LHC Olympics (LHCO) studies](docs/earlier-studies.md) cover
 anomaly-detection baselines, synthetic queues and bounded streaming prototypes.
 
 ## Results
@@ -56,7 +56,7 @@ background acceptance**, with CPU times per batch of 32 events:
 CPU times cover in-memory objects → features/scaling → scores, masks and owned
 outputs. Data loading and HDF5 I/O are excluded; these are not detector latencies.
 
-![Signal efficiency versus measured joint CPU cost for the final ADC2021 comparison](results/figures/final/task0062-adc-quality-cost.png)
+![Signal efficiency versus measured joint CPU cost for the ADC comparison](results/figures/quality-cost.png)
 
 *Signal efficiency versus joint CPU cost. Vertical intervals include calibration
 uncertainty; points use the frozen empirical cuts.*
@@ -79,7 +79,7 @@ macOS arm64 run, with neural seeds averaged within each block. The figure's
 intervals bound efficiency at the population background quantile, including
 calibration uncertainty.
 
-The [final report](docs/raregate-final-report.md) provides the uncertainty analysis,
+The [scientific report](docs/scientific-report.md) provides the uncertainty analysis,
 selection profiles, timing boundaries and result tables.
 
 </details>
@@ -113,31 +113,30 @@ python -m ruff format --check .
 python -m pytest
 ```
 
-Compatibility tests need Git history. CI is configured for Python 3.11 and 3.12.
+CI is configured for Python 3.11 and 3.12. Tests use generated inputs.
 
 Data, processed arrays and most models stay outside Git. For experiment setup,
 see the
-[ADC protocol](docs/decisive-scientific-experiment.md),
-[preparation record](docs/decisive-adc-preparation-training.md) and
-[LHCO workflow](data/README.md). Historical campaign entrypoints are tied to
-completed runs and frozen inputs; follow their recorded contracts before any rerun.
+[ADC protocol](docs/experiment-design.md),
+[data preparation](docs/data-preparation.md) and
+[usage guide](docs/usage-guide.md).
 
 ## Repository layout
 
 ```text
 src/raregate/  Data, models, training, evaluation, benchmarks and streaming
-configs/      Data, model, experiment and resource specifications
-scripts/      Preparation, validation, diagnostics and reporting
-tests/        Numerical, protocol and integration tests
-results/      Curated figures/final/ and tables/final/; other outputs stay local
+configs/      Data, model and optional-runtime specifications
+scripts/      Data preparation, validation and diagnostics
+tests/unit/   Generated numerical, model and data-contract tests
+results/      Selected scientific figures and numerical tables
 artifacts/    Selected small historical model artifacts
-docs/         Scientific reports, design decisions and development records
-data/         Local datasets and derived stores; only the data policy is tracked
+docs/         Scientific findings, methodology, data and usage guides
+data/         Local datasets and derived stores; excluded from version control
 assets/       Project branding
 ```
 
-Further reading: [evaluation protocol](docs/evaluation-protocol.md) ·
-[development guide](docs/development.md) · [README archive](docs/old/README.md).
+Further reading: [evaluation methods](docs/evaluation-methods.md) ·
+[installation and workflow](docs/usage-guide.md).
 
 ## Scope and limitations
 

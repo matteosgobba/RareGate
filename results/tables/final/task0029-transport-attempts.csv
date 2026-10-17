@@ -1,4 +1,0 @@
-request,requested_offset_bytes,response_status,mode,terminal_status,error,retryable,retry_after_response_header,received_cumulative_bytes_at_end
-1,0,200,full,interrupted_or_failed,TimeoutError: The read operation timed out,True,58,
-2,27000832,206,continue,interrupted_or_failed,TimeoutError: The read operation timed out,True,59,
-3,28770304,206,continue,interrupted_or_failed,Truncated: Truncated response; prefix retained,True,59,29990748

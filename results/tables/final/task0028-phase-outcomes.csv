@@ -1,6 +1,0 @@
-phase,status,parent_lifecycle_seconds,worker_reported_wall_seconds,body_seconds,cleanup_seconds,returncode,child_reaped,parent_confirms_normal_exit,nominal_ceiling_seconds
-acquire,failed_parent_rejected,298.0338865420199,297.97253350002575,,0.0012982079933863133,1,True,False,300
-prepare,not_started_after_failed_acquire,,,,,,,,180
-PCA,not_started_after_failed_acquire,,,,,,,,120
-AE,not_started_after_failed_acquire,,,,,,,,120
-consolidate,not_started_after_failed_acquire,,,,,,,,30

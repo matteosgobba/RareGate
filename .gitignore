@@ -44,29 +44,60 @@ htmlcov/
 *~
 .Rhistory
 
-# All local datasets; retain only the data policy
+# Local datasets and derived stores
 /data/*
-!/data/README.md
 *.root
 *.h5
 *.hdf5
 *.parquet
 *.npz
 
-# Generated results are local. Curated final figures and small tables may be
-# committed deliberately under results/figures/final/ and results/tables/final/.
+# Publish only the selected scientific tables and figures.
 /results/*
 !/results/figures/
 !/results/tables/
-!/results/benchmarks/
 /results/figures/*
-!/results/figures/.gitkeep
-!/results/figures/final/
+!/results/figures/quality-cost.png
+!/results/figures/signal-efficiency.png
+!/results/figures/paired-cost-ratios.png
 /results/tables/*
-!/results/tables/.gitkeep
-!/results/tables/final/
-/results/benchmarks/*
-!/results/benchmarks/.gitkeep
+!/results/tables/background-acceptance.csv
+!/results/tables/cpu-costs.csv
+!/results/tables/paired-inference.csv
+!/results/tables/robustness.csv
+!/results/tables/signal-operating-points.csv
+
+# Public documentation is an explicit allowlist; local research records stay local.
+/docs/*
+!/docs/scientific-report.md
+!/docs/experiment-design.md
+!/docs/data-preparation.md
+!/docs/evaluation-methods.md
+!/docs/usage-guide.md
+!/docs/earlier-studies.md
+
+# Local notes, manuscript workspaces and publication backups
+/.private/
+/project_report/
+/notebooks/
+/assets/branding/*.md
+/assets/branding/raregate-logo-v1.png
+
+# Internal campaign drivers and their receipt-bound configurations
+/scripts/*
+!/scripts/smoke_test.py
+!/scripts/analyze_training_data.py
+!/scripts/audit_raw_data.py
+!/scripts/validate_preprocessing.py
+/configs/*
+!/configs/data/
+!/configs/models/
+!/configs/dependencies/
+
+# Publish the numerical suite; retain campaign-specific checks locally.
+/tests/*
+!/tests/__init__.py
+!/tests/unit/
 
 # Checkpoints, model exports, and experiment artifacts
 *.pt
