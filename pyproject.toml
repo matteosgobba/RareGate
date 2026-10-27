@@ -39,6 +39,7 @@ data = [
     "hdf5plugin>=7.1,<8",
 ]
 dev = [
+    "mpmath>=1.3,<2",
     "pytest>=8,<10",
     "ruff>=0.11,<1",
 ]

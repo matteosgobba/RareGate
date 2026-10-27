@@ -7,6 +7,7 @@ import sys
 from collections import Counter
 
 import h5py
+import mpmath as mp
 import numpy as np
 import pytest
 import torch
@@ -229,16 +230,43 @@ def test_feature_exact_vectors_and_independent_four_vector_mass():
     )
     x = objects(20)
     f = data.features(x)
-    for row, actual in zip(x, f[:, 11], strict=True):
-        leptons = row[np.isin(row[:, 3], (2, 3))]
-        energy = sum(p * np.cosh(e) for p, e, _, _ in leptons)
-        px = sum(p * np.cos(a) for p, _, a, _ in leptons)
-        py = sum(p * np.sin(a) for p, _, a, _ in leptons)
-        pz = sum(p * np.sinh(e) for p, e, _, _ in leptons)
-        expected = np.log1p(
-            np.sqrt(max(energy * energy - px * px - py * py - pz * pz, 0))
-        )
-        assert actual == pytest.approx(expected, abs=2e-12)
+    # A Cartesian E**2 - |p|**2 reference cancels near zero mass in FP64.
+    # Use independent high-precision four-vectors, retaining the same tolerance.
+    with mp.workdps(80):
+        for row, actual in zip(x, f[:, 11], strict=True):
+            leptons = [
+                tuple(mp.mpf(float(value)) for value in lepton[:3])
+                for lepton in row[np.isin(row[:, 3], (2, 3))]
+            ]
+            energy = mp.fsum(p * mp.cosh(e) for p, e, _ in leptons)
+            px = mp.fsum(p * mp.cos(a) for p, _, a in leptons)
+            py = mp.fsum(p * mp.sin(a) for p, _, a in leptons)
+            pz = mp.fsum(p * mp.sinh(e) for p, e, _ in leptons)
+            expected = float(
+                mp.log1p(mp.sqrt(max(energy**2 - px**2 - py**2 - pz**2, 0)))
+            )
+            assert actual == pytest.approx(expected, abs=2e-12)
+
+
+@pytest.mark.parametrize("kind,slot", [(2, 1), (3, 5)])
+@pytest.mark.parametrize("eta,phi", [(0.0, 0.0), (0.4, 1.2), (-1.3, -2.4)])
+def test_single_massless_lepton_has_zero_invariant_mass(kind, slot, eta, phi):
+    x = np.zeros((1, 19, 4), dtype=np.float64)
+    x[0, 0] = [10, 0, 0.5, 1]
+    x[0, slot] = [40, eta, phi, kind]
+    x[0, 9] = [45, -0.7, 0.2, 4]
+    assert data.features(x)[0, 11] == 0.0
+
+
+@pytest.mark.parametrize(
+    "kinds,slots", [((2, 2), (1, 2)), ((2, 3), (1, 5)), ((3, 3), (5, 6))]
+)
+@pytest.mark.parametrize("eta,phi", [(0.0, 0.0), (0.4, 1.2)])
+def test_collinear_massless_leptons_have_zero_invariant_mass(kinds, slots, eta, phi):
+    x = np.zeros((1, 19, 4), dtype=np.float64)
+    x[0, slots[0]] = [40, eta, phi, kinds[0]]
+    x[0, slots[1]] = [25, eta, phi, kinds[1]]
+    assert data.features(x)[0, 11] == 0.0
 
 
 @pytest.mark.parametrize(
